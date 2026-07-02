@@ -65,6 +65,7 @@ The spec has open questions not yet resolved (`06-requirements.md#Open Questions
 
 ## Language Conventions
 
+- **Assistant responses: Korean.** Always reply to the user in Korean for every session, regardless of the language of the prompt, code, or documentation. Code identifiers and comments stay English (below); only the conversational replies are Korean.
 - Specification and task documentation: Korean
 - UI-facing content: en/ja/ko/zh/es per `src/messages/*.json`, with `en.json` authored first
 - Code (identifiers, comments): English
