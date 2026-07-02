@@ -1,0 +1,67 @@
+[
+  {
+    "slug": "01-introduction",
+    "title": "01. Introduction",
+    "summary": "This repository defines around 30 Skills with the ywc-* prefix under tools/claude-code/skills/ , plus several dedicated Agents under tools/claude-code/agents/ ."
+  },
+  {
+    "slug": "02-core-concepts",
+    "title": "02. Core concepts",
+    "summary": "Once you understand the terms and concepts on this page, you can apply the examples from every other guide page directly."
+  },
+  {
+    "slug": "03-quickstart",
+    "title": "03. Ship your first feature in 5 minutes",
+    "summary": "This page is your first hands-on exercise: follow one small bug fix from the idea stage to merge."
+  },
+  {
+    "slug": "04-general-cycle-small",
+    "title": "04. Handling a small change (general cycle - small)",
+    "summary": "When ywc-plan judges a request as Small , it automatically enters this path."
+  },
+  {
+    "slug": "05-general-cycle-medium-large",
+    "title": "05. Handling work split into multiple Tasks (general cycle - medium/large)",
+    "summary": "If any of the following applies, ywc-plan routes to this path."
+  },
+  {
+    "slug": "06-agentic-autonomous-loop",
+    "title": "06. Finish automatically from one goal (ywc-agentic)",
+    "summary": "04 and 05 are manual control flows where the user invokes each step one by one ( ywc-plan -> ..."
+  },
+  {
+    "slug": "07-starting-a-new-project",
+    "title": "07. Starting a new Project",
+    "summary": "Use this when there is no Git repository yet, or when the repository exists but is essentially a blank slate with little code."
+  },
+  {
+    "slug": "08-onboarding-existing-repo",
+    "title": "08. Entering an existing Repo for the first time",
+    "summary": "Use this when you first enter an unfamiliar repository that already has code and need to understand \"what this codebase looks like.\" Conversely, if you are designing a new project from a blank slate, go to 07."
+  },
+  {
+    "slug": "09-testing-guide",
+    "title": "09. Writing and running Tests",
+    "summary": "Use this after feature implementation is done and you need to verify that it really works as intended."
+  },
+  {
+    "slug": "10-e2e-test-strategy",
+    "title": "10. E2E Test automation strategy",
+    "summary": "Use ywc-e2e-test-strategy when the project does not yet have Playwright-based E2E tests, or when existing coverage is scattered and it is unclear \"which flow should be automated first.\" The goal is to automate repeatedly regressing critical flows, such as login or checkout, at minimum cost."
+  },
+  {
+    "slug": "11-design-review",
+    "title": "11. Reviewing and improving design",
+    "summary": "The two Skills answer different questions."
+  },
+  {
+    "slug": "12-executor-and-codegen-patterns",
+    "title": "12. Executor / Code-gen Prompt patterns",
+    "summary": "ywc-sequential-executor , ywc-parallel-executor , and ywc-code-gen are the three Skills whose many options make you repeatedly look up exact syntax."
+  },
+  {
+    "slug": "13-skill-reference",
+    "title": "13. Full Skill Reference",
+    "summary": "This page groups the remaining Skills not covered in the previous workflow guides by what you want to do ."
+  }
+]

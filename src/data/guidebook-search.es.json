@@ -1,0 +1,67 @@
+[
+  {
+    "slug": "01-introduction",
+    "title": "01. Introducción",
+    "summary": "Este repositorio define alrededor de 30 habilidades con el prefijo ywc-* bajo tools/claude-code/skills/ , además de varios agentes dedicados bajo tools/claude-code/agents/ ."
+  },
+  {
+    "slug": "02-core-concepts",
+    "title": "02. Conceptos fundamentales",
+    "summary": "Una vez que entiendas los términos y conceptos en esta página, puedes aplicar los ejemplos de cada otra página de la guía directamente."
+  },
+  {
+    "slug": "03-quickstart",
+    "title": "03. Envía tu primera función en 5 minutos",
+    "summary": "Esta página es tu primer ejercicio práctico: sigue la corrección de un pequeño error desde la etapa de idea hasta la fusión."
+  },
+  {
+    "slug": "04-general-cycle-small",
+    "title": "04. Manejo de un cambio pequeño (ciclo general - pequeño)",
+    "summary": "Cuando ywc-plan juzga una solicitud como Pequeña , automáticamente entra en este camino."
+  },
+  {
+    "slug": "05-general-cycle-medium-large",
+    "title": "05. Manejo del trabajo dividido en múltiples Tasks (ciclo general - mediano/grande)",
+    "summary": "Si se aplica alguno de los siguientes casos, ywc-plan se redirige a esta ruta."
+  },
+  {
+    "slug": "06-agentic-autonomous-loop",
+    "title": "06. Terminar automáticamente desde un objetivo (ywc-agentic)",
+    "summary": "04 y 05 son flujos de control manual donde el usuario invoca cada paso uno por uno ( ywc-plan -> ..."
+  },
+  {
+    "slug": "07-starting-a-new-project",
+    "title": "07. Empezando un nuevo proyecto",
+    "summary": "Usa esto cuando aún no hay un repositorio Git, o cuando el repositorio existe pero es básicamente un lienzo en blanco con poco código."
+  },
+  {
+    "slug": "08-onboarding-existing-repo",
+    "title": "08. Entrando en un repositorio existente por primera vez",
+    "summary": "Usa esto cuando entres por primera vez a un repositorio desconocido que ya tiene código y necesites entender \"cómo es esta base de código.\" Por el contrario, si estás diseñando un proyecto nuevo desde cero, ve a 07."
+  },
+  {
+    "slug": "09-testing-guide",
+    "title": "09. Escribir y ejecutar pruebas",
+    "summary": "Usa esto después de que la implementación de la función esté completa y necesites verificar que realmente funciona como se pretende."
+  },
+  {
+    "slug": "10-e2e-test-strategy",
+    "title": "10. Estrategia de automatización de pruebas E2E",
+    "summary": "Use ywc-e2e-test-strategy cuando el proyecto aún no tenga pruebas basadas en Playwright de E2E, o cuando la cobertura existente esté dispersa y no esté claro \"qué flujo debe automatizarse primero.\" El objetivo es automatizar la regresión repetida de flujos críticos, como el inicio de sesión o la compra, al menor costo posible."
+  },
+  {
+    "slug": "11-design-review",
+    "title": "11. Revisando y mejorando el diseño",
+    "summary": "Las dos habilidades responden a preguntas diferentes."
+  },
+  {
+    "slug": "12-executor-and-codegen-patterns",
+    "title": "12. Executor / Patrones de indicación de generación de código",
+    "summary": "ywc-sequential-executor , ywc-parallel-executor y ywc-code-gen son las tres Habilidades cuyas muchas opciones te hacen consultar repetidamente la sintaxis exacta."
+  },
+  {
+    "slug": "13-skill-reference",
+    "title": "13. Referencia completa Skill",
+    "summary": "Esta página agrupa las Habilidades restantes que no se cubrieron en las guías de flujo de trabajo anteriores según lo que deseas hacer ."
+  }
+]

@@ -5,6 +5,7 @@ import type { Locale } from "@/i18n/locale-list";
 import { Badge } from "@/components/ui/badge";
 import { LocaleSwitcher } from "@/components/ui/locale-switcher";
 import { getGuidebookHref, getGuidebookSlugFromPathname } from "./guidebook-nav";
+import { SearchModal } from "./search-modal";
 
 type TopBarProps = {
   locale: Locale;
@@ -34,7 +35,7 @@ export function TopBar({ locale, sidebarOpen, onSidebarToggle }: TopBarProps) {
 
         <a
           className="flex min-w-0 items-center gap-1.5 font-mono text-[var(--text-mono)] font-semibold text-text-bright outline-none focus-visible:shadow-[var(--focus-ring)]"
-          href={`/${locale}/guidebook/`}
+          href={`/${locale}/`}
         >
           <span className="text-accent">$</span>
           <span className="truncate">ywc</span>
@@ -54,25 +55,18 @@ export function TopBar({ locale, sidebarOpen, onSidebarToggle }: TopBarProps) {
           ))}
         </nav>
 
-        <button
-          aria-label="Search guidebook"
-          className="ml-auto hidden h-[var(--control-h-sm)] min-w-[12rem] items-center justify-between gap-4 rounded-sm border border-border-subtle bg-surface-raised px-3 font-mono text-[var(--text-mono-sm)] text-text-muted outline-none transition-[background-color,border-color,color] duration-[var(--dur-fast)] hover:border-accent hover:bg-[var(--accent-tint)] hover:text-accent focus-visible:shadow-[var(--focus-ring)] min-[861px]:inline-flex"
-          type="button"
-        >
-          <span>search docs</span>
-          <kbd className="rounded-xs border border-border-subtle bg-bg-subtle px-1.5 py-0.5 text-label uppercase tracking-[var(--ls-label)] text-text-faint">
-            ⌘K
-          </kbd>
-        </button>
+        <SearchModal locale={locale} />
 
         <div className="ml-auto flex shrink-0 items-center gap-2 min-[861px]:ml-0">
-          <select
-            aria-label="Guidebook version"
-            className="hidden h-[var(--control-h-sm)] rounded-sm border border-border-subtle bg-surface-raised px-2 font-mono text-[var(--text-mono-sm)] font-semibold text-text-bright outline-none focus-visible:shadow-[var(--focus-ring)] sm:block"
-            defaultValue="v1.x"
+          <a
+            aria-label="ywc-agent-toolkit releases on GitHub"
+            className="hidden h-[var(--control-h-sm)] items-center rounded-sm border border-border-subtle bg-surface-raised px-2 font-mono text-[var(--text-mono-sm)] font-semibold text-text-bright outline-none transition-[background-color,border-color,color] duration-[var(--dur-fast)] hover:border-accent hover:bg-[var(--accent-tint)] hover:text-accent focus-visible:shadow-[var(--focus-ring)] sm:inline-flex"
+            href="https://github.com/yongwoon/ywc-agent-toolkit/releases"
+            rel="noreferrer"
+            target="_blank"
           >
-            <option>v1.x</option>
-          </select>
+            v1.x
+          </a>
           <LocaleSwitcher
             className="hidden lg:block"
             getHref={(code) => getGuidebookHref(code, activeSlug)}
