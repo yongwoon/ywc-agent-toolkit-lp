@@ -23,9 +23,10 @@ function getLane(index: number) {
   return index < 2 ? "claude" : "codex";
 }
 
-function getCategory(item: FeatureItem) {
-  return item.value.includes("skill") ? "skill category" : "agent category";
-}
+const laneToolNames = {
+  claude: "Claude Code",
+  codex: "Codex"
+} as const;
 
 export async function FeatureGrid() {
   const t = await getTranslations("featureGrid");
@@ -52,7 +53,7 @@ export async function FeatureGrid() {
                 description={item.description}
                 eyebrow={
                   <Badge dot variant={lane === "claude" ? "amber" : "cyan"}>
-                    {getCategory(item)}
+                    {laneToolNames[lane]}
                   </Badge>
                 }
                 key={item.label}
