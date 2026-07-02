@@ -8,9 +8,12 @@ type TerminalLineType =
   | "error"
   | "info";
 
+type TerminalLane = "claude" | "codex";
+
 export type TerminalProps = HTMLAttributes<HTMLDivElement> & {
   title?: string;
   glow?: boolean;
+  lane?: TerminalLane;
   children: ReactNode;
 };
 
@@ -34,9 +37,15 @@ function cx(...classes: Array<string | false | null | undefined>) {
   return classes.filter(Boolean).join(" ");
 }
 
+const glowClasses: Record<TerminalLane, string> = {
+  claude: "shadow-[var(--edge-top),var(--glow-accent-soft)]",
+  codex: "shadow-[var(--edge-top),var(--glow-cyan)]"
+};
+
 function TerminalRoot({
   title = "terminal",
   glow = false,
+  lane = "claude",
   className,
   children,
   ...props
@@ -46,7 +55,7 @@ function TerminalRoot({
       {...props}
       className={cx(
         "overflow-hidden rounded-lg border border-border-subtle bg-surface font-mono text-[var(--text-mono)] leading-[var(--lh-mono)] shadow-[var(--edge-top)]",
-        glow && "shadow-[var(--edge-top),var(--glow-accent-soft)]",
+        glow && glowClasses[lane],
         className
       )}
     >

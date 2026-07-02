@@ -24,8 +24,8 @@ press: scale 0.98. Font `--font-mono`, radius `--radius-sm`, heights `--control-
 ```
 
 ## Badge
-Compact mono pill for status / counts / lanes. `variant`: `neutral|amber|cyan|pass|fail|agent`.
-`dot` adds a glowing status indicator. `pass|fail|agent` carry pipeline meaning — don't use
+Compact mono pill for status / counts / lanes. `variant`: `neutral|amber|cyan|pass|fail|warn|agent`.
+`dot` adds a glowing status indicator. `pass|fail|warn|agent` carry pipeline meaning — don't use
 decoratively. Radius `--radius-pill`, size `--text-label`.
 
 ```tsx
@@ -44,7 +44,8 @@ back to selecting the text** (non-secure context / denied) — never a dead end.
 ```
 
 ## Terminal
-Window-chrome shell for CLI demos / transcripts. Props: `title`, `glow` (amber halo — hero only).
+Window-chrome shell for CLI demos / transcripts. Props: `title`, `glow` (halo — hero only),
+`lane` (`claude` = amber halo, `codex` = cyan halo).
 Compose rows with `Terminal.Line` — `type`: `prompt|output|comment|success|error|info`;
 `caret` on the last live line for a blinking block cursor. Title bar = traffic-light dots +
 centered mono title; radius `--radius-lg`.
@@ -136,7 +137,7 @@ static-export prerender with `Expected component 'ToolTabs.Panel' to be defined`
 ## Section composition (LP)
 
 The landing page composes these into sections (mirrors `src/components/sections/` in the LP repo):
-`site-header` (wordmark · nav · GitHub star Badge · LocaleSwitcher · Install Button) → `hero`
+`site-header` (wordmark · nav · GitHub star Button · LocaleSwitcher · Install Button) → `hero`
 (headline + CTAs + CodeBlock + animated Terminal) → `problem-solution` (2-col ✗/✓) → `feature-grid`
 (4× StatCard + skill-category chips) → `install-steps` (tabbed Claude Code / Codex, numbered,
 CodeBlock per step) → `faq` (single-open FaqItem list) → `site-footer` (link columns). See the

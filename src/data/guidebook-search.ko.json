@@ -1,0 +1,67 @@
+[
+  {
+    "slug": "01-introduction",
+    "title": "01. 소개",
+    "summary": "이 repository 에는 tools/claude-code/skills/ 아래 ywc-* 접두사를 가진 Skill 30여 개와, tools/claude-code/agents/ 아래 전용 Agent 몇 개가 정의되어 있습니다."
+  },
+  {
+    "slug": "02-core-concepts",
+    "title": "02. 핵심 개념",
+    "summary": "이 페이지의 용어와 개념을 알고 나면 나머지 모든 가이드 페이지의 예시를 그대로 응용할 수 있습니다."
+  },
+  {
+    "slug": "03-quickstart",
+    "title": "03. 5분 안에 첫 기능 배포하기",
+    "summary": "이 페이지는 작은 버그 수정 하나를 아이디어 단계부터 merge 까지 실제로 따라가 보는 첫 실습입니다."
+  },
+  {
+    "slug": "04-general-cycle-small",
+    "title": "04. 작은 변경 처리하기 (general cycle · small)",
+    "summary": "ywc-plan 이 요청을 Small 로 판단했을 때 자동으로 이 경로에 들어섭니다."
+  },
+  {
+    "slug": "05-general-cycle-medium-large",
+    "title": "05. 여러 Task 로 나누어 처리하기 (general cycle · medium/large)",
+    "summary": "다음 중 하나라도 해당되면 ywc-plan 이 이 경로로 routing 합니다."
+  },
+  {
+    "slug": "06-agentic-autonomous-loop",
+    "title": "06. 목표 하나로 자동 완료하기 (ywc-agentic)",
+    "summary": "04 , 05 는 각 단계( ywc-plan → ..."
+  },
+  {
+    "slug": "07-starting-a-new-project",
+    "title": "07. 새 Project 시작하기",
+    "summary": "Git repository 자체가 없거나, 있어도 코드가 거의 없는 백지 상태에서 project 를 설계할 때 사용합니다."
+  },
+  {
+    "slug": "08-onboarding-existing-repo",
+    "title": "08. 기존 Repo 에 처음 진입하기",
+    "summary": "이미 코드가 존재하는 낯선 repository 에 처음 들어가서 \"이 codebase 가 어떻게 생겼는지\" 파악해야 할 때 사용합니다."
+  },
+  {
+    "slug": "09-testing-guide",
+    "title": "09. Test 작성 및 실행하기",
+    "summary": "기능 구현이 끝난 뒤 \"정말 의도대로 동작하는지\" 검증해야 할 때 사용합니다."
+  },
+  {
+    "slug": "10-e2e-test-strategy",
+    "title": "10. E2E Test 자동화 전략",
+    "summary": "프로젝트에 Playwright 기반 E2E test 가 아직 없거나, 있어도 커버리지가 흩어져 있어 \"어떤 flow 부터 자동화해야 하는가\"가 불명확할 때 ywc-e2e-test-strategy 를 사용합니다."
+  },
+  {
+    "slug": "11-design-review",
+    "title": "11. 디자인 검토 및 개선하기",
+    "summary": "두 Skill 은 서로 다른 질문에 답합니다."
+  },
+  {
+    "slug": "12-executor-and-codegen-patterns",
+    "title": "12. Executor / Code-gen Prompt 패턴",
+    "summary": "ywc-sequential-executor , ywc-parallel-executor , ywc-code-gen 은 옵션이 많아 매번 정확한 syntax 를 찾게 되는 세 Skill 입니다."
+  },
+  {
+    "slug": "13-skill-reference",
+    "title": "13. 전체 Skill 레퍼런스",
+    "summary": "앞선 워크플로우 가이드에서 다루지 않은 나머지 Skill 을 하려는 일 기준으로 묶어 정리했습니다."
+  }
+]

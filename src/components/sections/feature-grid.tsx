@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 
 import { Badge } from "@/components/ui/badge";
+import { SectionEyebrow } from "@/components/ui/section-eyebrow";
 import { StatCard } from "@/components/ui/stat-card";
 
 type FeatureItem = {
@@ -23,9 +24,10 @@ function getLane(index: number) {
   return index < 2 ? "claude" : "codex";
 }
 
-function getCategory(item: FeatureItem) {
-  return item.value.includes("skill") ? "skill category" : "agent category";
-}
+const laneToolNames = {
+  claude: "Claude Code",
+  codex: "Codex"
+} as const;
 
 export async function FeatureGrid() {
   const t = await getTranslations("featureGrid");
@@ -35,9 +37,7 @@ export async function FeatureGrid() {
     <section className="border-b border-border-subtle" id="features">
       <div className="mx-auto max-w-[var(--container-wide)] px-[var(--gutter)] py-[var(--section-y)]">
         <div className="max-w-[760px]">
-          <p className="font-mono text-label font-semibold uppercase leading-none tracking-[var(--ls-label)] text-accent">
-            Scale
-          </p>
+          <SectionEyebrow>Scale</SectionEyebrow>
           <h2 className="mt-4 font-display text-h2 font-bold leading-[var(--lh-snug)] text-text-bright">
             {t("title")}
           </h2>
@@ -52,7 +52,7 @@ export async function FeatureGrid() {
                 description={item.description}
                 eyebrow={
                   <Badge dot variant={lane === "claude" ? "amber" : "cyan"}>
-                    {getCategory(item)}
+                    {laneToolNames[lane]}
                   </Badge>
                 }
                 key={item.label}

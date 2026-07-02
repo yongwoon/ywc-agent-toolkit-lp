@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 
 import { FaqItem } from "@/components/ui/faq-item";
+import { SectionEyebrow } from "@/components/ui/section-eyebrow";
 
 type FaqEntry = {
   question: string;
@@ -15,9 +16,7 @@ export async function Faq() {
     <section className="border-b border-border-subtle bg-bg-subtle" id="faq">
       <div className="mx-auto max-w-[var(--container-narrow)] px-[var(--gutter)] py-[var(--section-y)]">
         <div>
-          <p className="font-mono text-label font-semibold uppercase leading-none tracking-[var(--ls-label)] text-accent">
-            FAQ
-          </p>
+          <SectionEyebrow>FAQ</SectionEyebrow>
           <h2 className="mt-4 font-display text-h2 font-bold leading-[var(--lh-snug)] text-text-bright">
             {t("title")}
           </h2>

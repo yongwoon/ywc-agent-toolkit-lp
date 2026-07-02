@@ -3,6 +3,10 @@
     "wordmark": "ywc-agent-toolkit",
     "links": [
       {
+        "label": "文档",
+        "target": "/guidebook/"
+      },
+      {
         "label": "功能",
         "target": "#features"
       },
@@ -27,7 +31,8 @@
       "install": "安装",
       "github": "在 GitHub star"
     },
-    "demoCommand": "/plugin marketplace add yongwoon/ywc-agent-toolkit"
+    "demoCommand": "/plugin marketplace add yongwoon/ywc-agent-toolkit",
+    "demoCommandCodex": "codex plugin marketplace add yongwoon/ywc-agent-toolkit"
   },
   "problemSolution": {
     "title": "当 toolkit 承担重复工作时，workflow 会变得更轻。",
@@ -130,7 +135,7 @@
       },
       {
         "question": "我需要 clone repository 吗？",
-      "answer": "对于本页覆盖的 path，不需要。Claude Code marketplace installation 和 Codex plugin marketplace installation 设计为无需 manual clone 即可安装。"
+        "answer": "对于本页覆盖的 path，不需要。Claude Code marketplace installation 和 Codex plugin marketplace installation 设计为无需 manual clone 即可安装。"
       },
       {
         "question": "我可以继续使用现有 workflow 吗？",
@@ -150,6 +155,10 @@
           {
             "label": "安装",
             "target": "#install"
+          },
+          {
+            "label": "文档",
+            "target": "/guidebook/"
           }
         ]
       },

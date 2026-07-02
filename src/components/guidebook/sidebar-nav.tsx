@@ -3,15 +3,13 @@
 import { usePathname } from "next/navigation";
 import { useMemo, useState } from "react";
 import type { Locale } from "@/i18n/locale-list";
-import {
-  getGuidebookHref,
-  guidebookNavGroups,
-  normalizeGuidebookSlug
-} from "./guidebook-nav";
+import type { LocalizedGuidebookNavGroup } from "@/lib/guidebook-nav-content";
+import { getGuidebookHref, getGuidebookSlugFromPathname } from "./guidebook-nav";
 
 type SidebarNavProps = {
   locale: Locale;
   mobileOpen: boolean;
+  navGroups: LocalizedGuidebookNavGroup[];
   onMobileClose: () => void;
 };
 
@@ -19,32 +17,23 @@ function cx(...classes: Array<string | false | null | undefined>) {
   return classes.filter(Boolean).join(" ");
 }
 
-function slugFromPathname(pathname: string | null) {
-  const segments = pathname?.split("/").filter(Boolean) ?? [];
-  const guidebookIndex = segments.indexOf("guidebook");
-
-  return normalizeGuidebookSlug(
-    guidebookIndex === -1 ? undefined : segments.slice(guidebookIndex + 1)
-  );
-}
-
-export function SidebarNav({ locale, mobileOpen, onMobileClose }: SidebarNavProps) {
+export function SidebarNav({ locale, mobileOpen, navGroups, onMobileClose }: SidebarNavProps) {
   const pathname = usePathname();
-  const activeSlug = slugFromPathname(pathname);
-  const activeGroup = guidebookNavGroups.find((group) =>
+  const activeSlug = getGuidebookSlugFromPathname(pathname);
+  const activeGroup = navGroups.find((group) =>
     group.pages.some((page) => page.slug === activeSlug)
-  )?.label;
+  )?.groupId;
   const [closedGroups, setClosedGroups] = useState<ReadonlySet<string>>(() => new Set());
 
   const openGroups = useMemo(() => {
     const nextOpenGroups = new Set<string>();
-    guidebookNavGroups.forEach((group) => {
-      if (!closedGroups.has(group.label) || group.label === activeGroup) {
-        nextOpenGroups.add(group.label);
+    navGroups.forEach((group) => {
+      if (!closedGroups.has(group.groupId) || group.groupId === activeGroup) {
+        nextOpenGroups.add(group.groupId);
       }
     });
     return nextOpenGroups;
-  }, [activeGroup, closedGroups]);
+  }, [activeGroup, closedGroups, navGroups]);
 
   function toggleGroup(label: string) {
     setClosedGroups((current) => {
@@ -78,15 +67,15 @@ export function SidebarNav({ locale, mobileOpen, onMobileClose }: SidebarNavProp
         id="guidebook-sidebar"
       >
         <nav aria-label="Guidebook navigation" className="space-y-6">
-          {guidebookNavGroups.map((group) => {
-            const open = openGroups.has(group.label);
+          {navGroups.map((group) => {
+            const open = openGroups.has(group.groupId);
 
             return (
-              <section key={group.label}>
+              <section key={group.groupId}>
                 <button
                   aria-expanded={open}
                   className="flex w-full items-center justify-between gap-3 rounded-xs px-2 py-1.5 text-left font-mono text-label font-semibold uppercase tracking-[var(--ls-label)] text-text-faint outline-none transition-colors duration-[var(--dur-fast)] hover:text-accent focus-visible:shadow-[var(--focus-ring)]"
-                  onClick={() => toggleGroup(group.label)}
+                  onClick={() => toggleGroup(group.groupId)}
                   type="button"
                 >
                   <span>{group.label}</span>

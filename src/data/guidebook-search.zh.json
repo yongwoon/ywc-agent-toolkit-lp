@@ -1,0 +1,67 @@
+[
+  {
+    "slug": "01-introduction",
+    "title": "01. 介绍",
+    "summary": "本仓库在 tools/claude-code/skills/ 下定义了大约 30 个带有 ywc-* 前缀的技能，以及在 tools/claude-code/agents/ 下的几个专用代理。它们一起构成了一个工具包，通过结构化流程在 Claude Code 上运行完整的开发生命周期：\"创意 -> Spec -> Task 分解 -> 实现 -> 代码审查 -> PR -> 合并。\""
+  },
+  {
+    "slug": "02-core-concepts",
+    "title": "02. 核心概念",
+    "summary": "一旦你理解了本页上的术语和概念，你就可以直接应用其他指南页的示例。"
+  },
+  {
+    "slug": "03-quickstart",
+    "title": "03. 在5分钟内发布你的第一个功能",
+    "summary": "此页面是您的第一个动手练习：跟踪一个小错误修复从构思阶段到合并的整个过程。示例场景：处理请求 “登录失败的错误信息过于笼统，因此很难理解原因。”"
+  },
+  {
+    "slug": "04-general-cycle-small",
+    "title": "04. 处理小变动（一般周期 - 小）",
+    "summary": "当 ywc-plan 将请求判断为 Small 时，它会自动进入此路径。判定标准是“是否可以作为单个 PR 完成而无需 Task 拆解？” 如果以下任何一项适用，它将被提升为 Medium/Large 而不是 Small（参见 05 ）。"
+  },
+  {
+    "slug": "05-general-cycle-medium-large",
+    "title": "05. 处理分成多个 Tasks 的工作（通用周期 - 中/大型）",
+    "summary": "如果以下情况中的任何一种适用， ywc-plan 将路由到此路径。"
+  },
+  {
+    "slug": "06-agentic-autonomous-loop",
+    "title": "06. 从一个目标自动完成 (ywc-agentic)",
+    "summary": "04 和 05 是 手动控制 流程，用户逐步调用每个步骤（ ywc-plan -> ..."
+  },
+  {
+    "slug": "07-starting-a-new-project",
+    "title": "07. 开始一个新项目",
+    "summary": "当还没有 Git 仓库，或者仓库存在但本质上是一个几乎没有代码的空白状态时，请使用此方法。如果你试图理解一个已经有代码的不熟悉的仓库，请改用 08."
+  },
+  {
+    "slug": "08-onboarding-existing-repo",
+    "title": "08. 第一次进入现有的仓库",
+    "summary": "当你第一次进入一个已经有代码的陌生仓库并且需要了解“这个代码库的样子”时，使用这个方法。相反，如果你正在从零开始设计一个新项目，请前往 07."
+  },
+  {
+    "slug": "09-testing-guide",
+    "title": "09. 编写和运行测试",
+    "summary": "在功能实现完成后使用此方法，并且你需要验证它是否真正按照预期工作。验证分为两个不同的分支：自动化代码测试和需要人工判断的手动验证。"
+  },
+  {
+    "slug": "10-e2e-test-strategy",
+    "title": "10. E2E 测试自动化策略",
+    "summary": "当项目还没有基于Playwright的E2E测试，或现有覆盖分散且不清楚“应该先自动化哪个流程”时，请使用 ywc-e2e-test-strategy 。目标是以最低成本重复自动化关键流程的回归测试，例如登录或结账。"
+  },
+  {
+    "slug": "11-design-review",
+    "title": "11. 审查和改进设计",
+    "summary": "这两项技能回答不同的问题。根据你想回答的问题来选择。"
+  },
+  {
+    "slug": "12-executor-and-codegen-patterns",
+    "title": "12. Executor / 代码生成提示模式",
+    "summary": "ywc-sequential-executor 、 ywc-parallel-executor 和 ywc-code-gen 是三个技能，其众多选项会让你反复查找准确的语法。本页按 “你现在想要做什么” 来组织示例，而不是按 Skill 名称。找到你的任务并按原样复制命令。"
+  },
+  {
+    "slug": "13-skill-reference",
+    "title": "13. 完整 Skill 参考",
+    "summary": "本页面将之前工作流程指南中未涵盖的剩余技能按 你想做的事情 进行分组。在每个流程（小/中/大周期、新项目、入职、测试或设计）中需要时使用它。"
+  }
+]

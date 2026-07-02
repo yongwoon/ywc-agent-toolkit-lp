@@ -1,6 +1,7 @@
 .omc
 .ywc-run-state.json
 .ywc-learnings.jsonl
+.serena/
 node_modules/
 .next/
 out/

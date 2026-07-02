@@ -36,7 +36,7 @@ export default async function LocaleHomePage({ params }: LocaleHomePageProps) {
         <SocialProof />
         <Faq />
       </main>
-      <SiteFooter />
+      <SiteFooter locale={locale as Locale} />
     </div>
   );
 }

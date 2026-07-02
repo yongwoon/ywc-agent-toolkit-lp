@@ -2,12 +2,20 @@ import { getTranslations } from "next-intl/server";
 
 import { Button } from "@/components/ui/button";
 import { CodeBlock } from "@/components/ui/code-block";
+import { SectionEyebrow } from "@/components/ui/section-eyebrow";
 import { Terminal } from "@/components/ui/terminal";
 
 type NavLink = {
   label: string;
   target: string;
 };
+
+// Radio + <label> + CSS :has() drives the tab switch instead of client-side React: the
+// landing page's postbuild step (scripts/strip-landing-next-runtime.mjs) strips the Next.js
+// runtime from the exported locale home pages, so any "use client" interactivity here would
+// render once and then be permanently inert in the actual static-export build.
+const tabLabelBaseClasses =
+  "cursor-pointer border-b-2 border-transparent px-4 py-2.5 font-mono text-label font-semibold uppercase leading-none tracking-[var(--ls-label)] text-text-muted outline-none transition-colors duration-[var(--dur-fast)] ease-out motion-reduce:transition-none has-[:checked]:text-text-bright has-[:focus-visible]:shadow-[var(--focus-ring)]";
 
 export async function Hero() {
   const t = await getTranslations("hero");
@@ -18,9 +26,7 @@ export async function Hero() {
     <section className="relative overflow-hidden border-b border-border-subtle">
       <div className="mx-auto grid max-w-[var(--container-wide)] gap-10 px-[var(--gutter)] py-[clamp(4rem,2.5rem+7vw,8rem)] lg:grid-cols-[minmax(0,1fr)_minmax(22rem,0.78fr)] lg:items-center">
         <div className="max-w-[780px]">
-          <p className="font-mono text-label font-semibold uppercase leading-none tracking-[var(--ls-label)] text-accent">
-            41 skills
-          </p>
+          <SectionEyebrow>41 skills</SectionEyebrow>
           <h1 className="mt-5 font-display text-display font-bold leading-[var(--lh-tight)] tracking-[var(--ls-normal)] text-text-bright">
             {t("headline")}
           </h1>
@@ -43,20 +49,60 @@ export async function Hero() {
           </div>
         </div>
 
-        <div className="grid gap-4">
-          <CodeBlock code={t("demoCommand")} label="claude code" />
-          <Terminal title="ywc-agent-toolkit - zsh" glow>
-            <Terminal.Line type="prompt">{t("demoCommand")}</Terminal.Line>
-            <Terminal.Line type="info">
-              resolving marketplace source yongwoon/ywc-agent-toolkit
-            </Terminal.Line>
-            <Terminal.Line type="success">
-              installed 41 skills for Claude Code and Codex
-            </Terminal.Line>
-            <Terminal.Line caret type="prompt">
-              restart your tool to load the toolkit
-            </Terminal.Line>
-          </Terminal>
+        <div className="group/demo overflow-hidden rounded-lg border border-border-subtle bg-surface shadow-[var(--edge-top)]">
+          <div className="flex border-b border-border-subtle">
+            <label
+              className={`${tabLabelBaseClasses} has-[:checked]:border-b-lane-claude has-[:checked]:text-lane-claude`}
+              htmlFor="hero-tool-claude-code"
+            >
+              <input
+                className="sr-only"
+                defaultChecked
+                id="hero-tool-claude-code"
+                name="hero-tool"
+                type="radio"
+              />
+              Claude Code
+            </label>
+            <label
+              className={`${tabLabelBaseClasses} has-[:checked]:border-b-lane-codex has-[:checked]:text-lane-codex`}
+              htmlFor="hero-tool-codex"
+            >
+              <input className="sr-only" id="hero-tool-codex" name="hero-tool" type="radio" />
+              Codex
+            </label>
+          </div>
+
+          <div className="hidden gap-4 p-4 group-has-[#hero-tool-claude-code:checked]/demo:grid">
+            <CodeBlock code={t("demoCommand")} label="claude code" />
+            <Terminal title="ywc-agent-toolkit - zsh" glow>
+              <Terminal.Line type="prompt">{t("demoCommand")}</Terminal.Line>
+              <Terminal.Line type="info">
+                resolving marketplace source yongwoon/ywc-agent-toolkit
+              </Terminal.Line>
+              <Terminal.Line type="success">
+                installed 41 skills for Claude Code and Codex
+              </Terminal.Line>
+              <Terminal.Line caret type="prompt">
+                restart your tool to load the toolkit
+              </Terminal.Line>
+            </Terminal>
+          </div>
+          <div className="hidden gap-4 p-4 group-has-[#hero-tool-codex:checked]/demo:grid">
+            <CodeBlock code={t("demoCommandCodex")} label="codex" />
+            <Terminal lane="codex" title="ywc-agent-toolkit - zsh" glow>
+              <Terminal.Line type="prompt">{t("demoCommandCodex")}</Terminal.Line>
+              <Terminal.Line type="info">
+                resolving plugin marketplace source yongwoon/ywc-agent-toolkit
+              </Terminal.Line>
+              <Terminal.Line type="success">
+                installed 41 skills for Claude Code and Codex
+              </Terminal.Line>
+              <Terminal.Line caret type="prompt">
+                restart Codex to load the toolkit
+              </Terminal.Line>
+            </Terminal>
+          </div>
         </div>
       </div>
     </section>

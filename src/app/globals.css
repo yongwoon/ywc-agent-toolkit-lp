@@ -1,3 +1,13 @@
 @import "tailwindcss";
 @config "../../tailwind.config.ts";
 @import "../../docs/design-system/design-tokens.css";
+
+/* Self-hosted webfonts (see [locale]/layout.tsx) override the design-tokens.css
+   font stacks, which only name the typefaces without loading them. Falls back to
+   --cjk-fallback for non-Latin scripts, since these Google Fonts cover Latin only. */
+:root {
+  --font-display: var(--font-space-grotesk), var(--cjk-fallback);
+  --font-sans: var(--font-ibm-plex-sans), var(--cjk-fallback);
+  --font-mono: var(--font-ibm-plex-mono), "SF Mono", "JetBrains Mono", ui-monospace,
+    "Noto Sans Mono CJK JP", monospace;
+}

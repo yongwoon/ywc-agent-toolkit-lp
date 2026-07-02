@@ -1,5 +1,8 @@
 import { getTranslations } from "next-intl/server";
 
+import type { Locale } from "@/i18n/routing";
+import { resolveLocalizedHref } from "@/lib/localized-href";
+
 type FooterLink = {
   label: string;
   target: string;
@@ -10,11 +13,15 @@ type FooterGroup = {
   links: FooterLink[];
 };
 
+type SiteFooterProps = {
+  locale: Locale;
+};
+
 function isExternalLink(target: string) {
   return target.startsWith("http://") || target.startsWith("https://");
 }
 
-export async function SiteFooter() {
+export async function SiteFooter({ locale }: SiteFooterProps) {
   const t = await getTranslations("footer");
   const groups = t.raw("groups") as FooterGroup[];
 
@@ -47,7 +54,7 @@ export async function SiteFooter() {
                   <li key={link.target}>
                     <a
                       className="text-[var(--text-body)] leading-[var(--lh-normal)] text-text-secondary underline-offset-4 hover:text-link hover:underline focus-visible:outline-none focus-visible:shadow-[var(--focus-ring)]"
-                      href={link.target}
+                      href={external ? link.target : resolveLocalizedHref(locale, link.target)}
                       rel={external ? "noreferrer" : undefined}
                       target={external ? "_blank" : undefined}
                     >

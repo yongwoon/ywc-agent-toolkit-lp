@@ -2,15 +2,17 @@
 
 import { useState, type ReactNode } from "react";
 import type { Locale } from "@/i18n/locale-list";
+import type { LocalizedGuidebookNavGroup } from "@/lib/guidebook-nav-content";
 import { SidebarNav } from "./sidebar-nav";
 import { TopBar } from "./top-bar";
 
 type GuidebookFrameProps = {
   locale: Locale;
+  navGroups: LocalizedGuidebookNavGroup[];
   children: ReactNode;
 };
 
-export function GuidebookFrame({ locale, children }: GuidebookFrameProps) {
+export function GuidebookFrame({ locale, navGroups, children }: GuidebookFrameProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -24,6 +26,7 @@ export function GuidebookFrame({ locale, children }: GuidebookFrameProps) {
         <SidebarNav
           locale={locale}
           mobileOpen={sidebarOpen}
+          navGroups={navGroups}
           onMobileClose={() => setSidebarOpen(false)}
         />
         {children}

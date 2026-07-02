@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { IBM_Plex_Mono, IBM_Plex_Sans, Space_Grotesk } from "next/font/google";
 import type { ReactNode } from "react";
 import "../globals.css";
 import { hasLocale } from "next-intl";
@@ -6,6 +7,27 @@ import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing, type Locale } from "@/i18n/routing";
 import { buildJsonLd, buildMetadata } from "@/lib/seo";
+
+const spaceGrotesk = Space_Grotesk({
+  display: "swap",
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  weight: ["700"]
+});
+
+const ibmPlexSans = IBM_Plex_Sans({
+  display: "swap",
+  subsets: ["latin"],
+  variable: "--font-ibm-plex-sans",
+  weight: ["400"]
+});
+
+const ibmPlexMono = IBM_Plex_Mono({
+  display: "swap",
+  subsets: ["latin"],
+  variable: "--font-ibm-plex-mono",
+  weight: ["400", "600"]
+});
 
 type LocaleLayoutProps = {
   children: ReactNode;
@@ -47,7 +69,10 @@ export default async function LocaleLayout({
   const jsonLd = buildJsonLd(locale as Locale);
 
   return (
-    <html lang={locale}>
+    <html
+      className={`${spaceGrotesk.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable}`}
+      lang={locale}
+    >
       <head>
         <script
           type="application/ld+json"
@@ -57,6 +82,7 @@ export default async function LocaleLayout({
       <body>
         {children}
         <script src="/copy-command.js" defer />
+        <script src="/locale-hash-sync.js" defer />
       </body>
     </html>
   );

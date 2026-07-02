@@ -1,14 +1,11 @@
 import type { Locale } from "@/i18n/locale-list";
 import { Badge } from "@/components/ui/badge";
-import {
-  getAdjacentGuidebookPages,
-  getGuidebookHref,
-  type GuidebookPageMeta
-} from "./guidebook-nav";
+import { getGuidebookHref, type GuidebookPageMeta } from "./guidebook-nav";
 
 type PrevNextNavProps = {
   locale: Locale;
-  slug: string;
+  previous: GuidebookPageMeta | undefined;
+  next: GuidebookPageMeta | undefined;
 };
 
 function NavCard({
@@ -42,9 +39,7 @@ function NavCard({
   );
 }
 
-export function PrevNextNav({ locale, slug }: PrevNextNavProps) {
-  const { previous, next } = getAdjacentGuidebookPages(slug);
-
+export function PrevNextNav({ locale, previous, next }: PrevNextNavProps) {
   return (
     <footer className="mt-16 border-t border-border-subtle pt-5">
       <div className="flex flex-wrap items-center justify-between gap-3">

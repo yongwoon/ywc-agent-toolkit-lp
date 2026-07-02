@@ -6,16 +6,16 @@ export const localeList = [
     href: "/en/"
   },
   {
-    code: "ja",
-    label: "Japanese",
-    nativeLabel: "日本語",
-    href: "/ja/"
-  },
-  {
     code: "ko",
     label: "Korean",
     nativeLabel: "한국어",
     href: "/ko/"
+  },
+  {
+    code: "ja",
+    label: "Japanese",
+    nativeLabel: "日本語",
+    href: "/ja/"
   },
   {
     code: "zh",

@@ -1,0 +1,67 @@
+[
+  {
+    "slug": "01-introduction",
+    "title": "01. 概要",
+    "summary": "この repository には、 tools/claude-code/skills/ 配下に ywc-* 接頭辞を持つ 30 個以上の Skill と、 tools/claude-code/agents/ 配下にいくつかの専用 Agent が定義されています。これらは「アイデア → Spec → Task 分解 → 実装 → コードレビュー → PR → Merge」へ続く開発 Lifecycle 全体を、Claude Code 上で構造化された手順として実行するためのツール群です。"
+  },
+  {
+    "slug": "02-core-concepts",
+    "title": "02. 核心概念",
+    "summary": "このページの用語と概念を理解すると、残りのすべてのガイドページの例をそのまま応用できます。"
+  },
+  {
+    "slug": "03-quickstart",
+    "title": "03. 5 分で最初の機能をデプロイする",
+    "summary": "このページは、小さなバグ修正 1 つをアイデア段階から merge まで実際にたどってみる最初の演習です。例のシナリオ: 「ログイン失敗時のエラーメッセージが一般的すぎて原因を把握しにくい」 というリクエストを処理します。"
+  },
+  {
+    "slug": "04-general-cycle-small",
+    "title": "04. 小さな変更を処理する (general cycle · small)",
+    "summary": "ywc-plan がリクエストを Small と判断したとき、自動的にこの経路に入ります。判断基準は「Task 分解なしで単一 PR に収められるか」であり、以下のいずれかに該当すると Small ではなく Medium/Large に格上げされます ( 05 参照)。"
+  },
+  {
+    "slug": "05-general-cycle-medium-large",
+    "title": "05. 複数の Task に分けて処理する (general cycle · medium/large)",
+    "summary": "次のいずれかに該当すると、 ywc-plan はこの経路へ routing します。"
+  },
+  {
+    "slug": "06-agentic-autonomous-loop",
+    "title": "06. 目標 1 つで自動完了する (ywc-agentic)",
+    "summary": "04 , 05 は、各段階( ywc-plan → ..."
+  },
+  {
+    "slug": "07-starting-a-new-project",
+    "title": "07. 新しい Project を始める",
+    "summary": "Git repository 自体がない、またはあってもコードがほとんどない白紙の状態で project を設計するときに使います。すでにコードがある未知の repo を把握したい場合は、このページではなく 08."
+  },
+  {
+    "slug": "08-onboarding-existing-repo",
+    "title": "08. 既存 Repo に初めて入る",
+    "summary": "すでにコードが存在する未知の repository に初めて入り、「この codebase がどういう構造か」を把握する必要があるときに使います。逆に白紙状態から新しい project を設計する場合は、 07."
+  },
+  {
+    "slug": "09-testing-guide",
+    "title": "09. Test を作成して実行する",
+    "summary": "機能実装が終わった後、「本当に意図通りに動作するか」を検証する必要があるときに使います。検証は性質の異なる 2 つの系統に分かれます。自動化されたコード test と、人が判断すべき手動検証です。"
+  },
+  {
+    "slug": "10-e2e-test-strategy",
+    "title": "10. E2E Test 自動化戦略",
+    "summary": "プロジェクトに Playwright ベースの E2E test がまだない、またはあってもカバレッジが散らばっていて「どの flow から自動化すべきか」が不明確なときに ywc-e2e-test-strategy を使います。繰り返し回帰が発生する核心 flow(ログイン、決済など)を最小コストで自動化することが目的です。"
+  },
+  {
+    "slug": "11-design-review",
+    "title": "11. デザインをレビューして改善する",
+    "summary": "2 つの Skill は異なる質問に答えます。今したい質問が何かに応じて選んでください。"
+  },
+  {
+    "slug": "12-executor-and-codegen-patterns",
+    "title": "12. Executor / Code-gen Prompt パターン",
+    "summary": "ywc-sequential-executor , ywc-parallel-executor , ywc-code-gen はオプションが多く、毎回正確な syntax を探しがちな 3 つの Skill です。このページでは Skill 名ではなく、**「今やりたいこと」**を基準に例を整理しました。やりたいことを見つけて、そのままコピーして使ってください。"
+  },
+  {
+    "slug": "13-skill-reference",
+    "title": "13. 全 Skill リファレンス",
+    "summary": "前のワークフローガイドで扱わなかった残りの Skill を、 やりたいこと 基準でまとめて整理しました。各フロー(Small/Medium/Large cycle、新規 project、onboarding、testing、design)の途中で必要になったときに参照してください。"
+  }
+]
