@@ -1,9 +1,8 @@
-import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { LocaleSwitcher } from "@/components/ui/locale-switcher";
+import githubStats from "@/data/github-stats.json";
 import type { Locale } from "@/i18n/routing";
 
 type NavLink = {
@@ -19,6 +18,7 @@ export async function SiteHeader({ locale }: SiteHeaderProps) {
   const t = await getTranslations("nav");
   const links = t.raw("links") as NavLink[];
   const github = t.raw("github") as NavLink;
+  const starCount = githubStats.stars.toLocaleString("en-US");
 
   return (
     <header className="sticky top-0 z-[var(--z-header)] border-b border-border-subtle bg-[rgba(11,10,9,.86)] backdrop-blur-[12px]">
@@ -52,24 +52,17 @@ export async function SiteHeader({ locale }: SiteHeaderProps) {
 
         <div className="ml-auto hidden items-center gap-2 sm:flex">
           <LocaleSwitcher value={locale} />
-          <a
-            aria-label={github.label}
-            className="outline-none focus-visible:shadow-[var(--focus-ring)]"
+          <Button
+            aria-label={`${starCount} stars on GitHub`}
             href={github.target}
+            icon={<span aria-hidden="true">★</span>}
             rel="noreferrer"
+            size="sm"
             target="_blank"
+            variant="outline"
           >
-            <Badge className="px-2" variant="neutral">
-              <Image
-                alt="GitHub stars"
-                className="h-5 w-auto"
-                height={20}
-                src="https://img.shields.io/github/stars/yongwoon/ywc-agent-toolkit?style=flat-square&label=stars&color=443a2c&labelColor=221d16"
-                unoptimized
-                width={92}
-              />
-            </Badge>
-          </a>
+            {starCount} stars
+          </Button>
           <Button href="#install" size="sm" variant="primary">
             {links.find((link) => link.target === "#install")?.label ??
               "Install"}
@@ -106,24 +99,17 @@ export async function SiteHeader({ locale }: SiteHeaderProps) {
                 {links.find((link) => link.target === "#install")?.label ??
                   "Install"}
               </Button>
-              <a
-                aria-label={github.label}
-                className="inline-flex justify-center outline-none focus-visible:shadow-[var(--focus-ring)]"
+              <Button
+                aria-label={`${starCount} stars on GitHub`}
                 href={github.target}
+                icon={<span aria-hidden="true">★</span>}
                 rel="noreferrer"
                 target="_blank"
+                variant="outline"
+                block
               >
-                <Badge className="max-w-none px-2" variant="neutral">
-                  <Image
-                    alt="GitHub stars"
-                    className="h-5 w-auto"
-                    height={20}
-                    src="https://img.shields.io/github/stars/yongwoon/ywc-agent-toolkit?style=flat-square&label=stars&color=443a2c&labelColor=221d16"
-                    unoptimized
-                    width={92}
-                  />
-                </Badge>
-              </a>
+                {starCount} stars
+              </Button>
             </div>
           </div>
         </details>
