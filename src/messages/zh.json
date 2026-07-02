@@ -1,0 +1,208 @@
+{
+  "nav": {
+    "wordmark": "ywc-agent-toolkit",
+    "links": [
+      {
+        "label": "功能",
+        "target": "#features"
+      },
+      {
+        "label": "安装",
+        "target": "#install"
+      },
+      {
+        "label": "FAQ",
+        "target": "#faq"
+      }
+    ],
+    "github": {
+      "label": "GitHub",
+      "target": "https://github.com/yongwoon/ywc-agent-toolkit"
+    }
+  },
+  "hero": {
+    "headline": "为 Claude Code 和 Codex 提供 41 skills 与 expert agents。",
+    "subheading": "从规划和规格编写，到代码生成、review 和 release，在不离开 terminal 的情况下自动化完整 development workflow。",
+    "ctaLabels": {
+      "install": "安装",
+      "github": "在 GitHub star"
+    },
+    "demoCommand": "/plugin marketplace add yongwoon/ywc-agent-toolkit"
+  },
+  "problemSolution": {
+    "title": "当 toolkit 承担重复工作时，workflow 会变得更轻。",
+    "before": {
+      "title": "没有 toolkit",
+      "items": [
+        "你需要为每个任务重写 planning prompt 和 acceptance criteria。",
+        "你要手动在分散的 notes、review checklist 和 release step 之间切换。",
+        "你依赖不了解你的 development workflow 的通用 agent。"
+      ]
+    },
+    "after": {
+      "title": "使用 toolkit",
+      "items": [
+        "`ywc-plan` 和 `ywc-task-generator` 将粗略 goal 转换为可实施的 work。",
+        "`ywc-code-gen` 和 `ywc-impl-review` 让 build、review、verification loop 保持明确。",
+        "`/ywc-agentic` 和 specialist agents 将复杂工作路由到适合 Claude Code 或 Codex 的 mode。"
+      ]
+    }
+  },
+  "featureGrid": {
+    "title": "为两种 tool 构建。",
+    "items": [
+      {
+        "label": "Claude Code skills",
+        "value": "41 skills",
+        "description": "为 Claude Code 打包 planning、spec writing、implementation、review、release 和 maintenance workflow。"
+      },
+      {
+        "label": "Claude Code agents",
+        "value": "12 agents",
+        "description": "面向 architecture、security、performance、root cause analysis 和 language-specific review 的 custom specialist agents。"
+      },
+      {
+        "label": "Codex skills",
+        "value": "41 skills",
+        "description": "同样的 workflow coverage，适配 Codex-native instructions 和 plugin packaging。"
+      },
+      {
+        "label": "Codex agents",
+        "value": "7 agents",
+        "description": "在 Codex workspaces 中补充 `ywc-*` skills 的 read-only specialist agents。"
+      }
+    ]
+  },
+  "installSteps": {
+    "title": "从 plugin path 安装。",
+    "description": "Claude Code 使用 marketplace path，Codex 使用 Codex plugin marketplace path。这些 path 没有前提条件。",
+    "paths": [
+      {
+        "label": "Claude Code",
+        "steps": [
+          {
+            "stepNumber": 1,
+            "instruction": "在 Claude Code 中添加 marketplace source，然后从 Plugin UI 的 Marketplaces 标签页安装 `ywc-agent-toolkit`。",
+            "commandText": "/plugin marketplace add yongwoon/ywc-agent-toolkit"
+          }
+        ]
+      },
+      {
+        "label": "Codex",
+        "steps": [
+          {
+            "stepNumber": 1,
+            "instruction": "将此 repository 添加为 Codex plugin marketplace source。",
+            "commandText": "codex plugin marketplace add yongwoon/ywc-agent-toolkit"
+          },
+          {
+            "stepNumber": 2,
+            "instruction": "从已配置的 marketplace 安装 `ywc-agent-toolkit`。",
+            "commandText": "codex plugin add ywc-agent-toolkit@ywc-agent-toolkit"
+          }
+        ]
+      }
+    ]
+  },
+  "socialProof": {
+    "title": "Community proof",
+    "items": [],
+    "emptyState": "Community quotes 将在 launch 后添加。"
+  },
+  "faq": {
+    "title": "FAQ",
+    "items": [
+      {
+        "question": "这是什么？",
+        "answer": "`ywc-agent-toolkit` 是面向 Claude Code 和 Codex 的 public toolkit，提供 skills 与 custom agents。它帮助你运行从 planning 到 release 的可重复 development workflow。"
+      },
+      {
+        "question": "安装要求是什么？",
+        "answer": "Plugin-marketplace 和 Codex-plugin installation 没有前提条件。使用上面的 command，然后从对应的 plugin UI 或 marketplace 安装。"
+      },
+      {
+        "question": "费用或 token 影响如何？",
+        "answer": "toolkit 本身是 open source，不增加 paid service。Token usage 取决于你在 Claude Code 或 Codex 中调用 skills 和 agents 的频率。"
+      },
+      {
+        "question": "它同时支持 Claude Code 和 Codex 吗？",
+        "answer": "是的。两种 tool 都获得 41 skills。Claude Code 包含 12 custom agents，Codex 包含 7 custom agents。"
+      },
+      {
+        "question": "我需要 clone repository 吗？",
+        "answer": "对于本页覆盖的 path，不需要。Claude Code marketplace installation 和 Codex plugin marketplace installation 设计为无需 manual clone 或 bash scripts 即可安装。"
+      },
+      {
+        "question": "我可以继续使用现有 workflow 吗？",
+        "answer": "可以。toolkit 会添加 `ywc-plan`、`ywc-code-gen`、`ywc-impl-review` 等 reusable skills；不需要 backend、account 或 project migration。"
+      }
+    ]
+  },
+  "footer": {
+    "groups": [
+      {
+        "title": "Product",
+        "links": [
+          {
+            "label": "功能",
+            "target": "#features"
+          },
+          {
+            "label": "安装",
+            "target": "#install"
+          }
+        ]
+      },
+      {
+        "title": "Resources",
+        "links": [
+          {
+            "label": "GitHub",
+            "target": "https://github.com/yongwoon/ywc-agent-toolkit"
+          },
+          {
+            "label": "CHANGELOG",
+            "target": "https://github.com/yongwoon/ywc-agent-toolkit/blob/main/CHANGELOG.md"
+          },
+          {
+            "label": "Issues",
+            "target": "https://github.com/yongwoon/ywc-agent-toolkit/issues"
+          },
+          {
+            "label": "License",
+            "target": "https://github.com/yongwoon/ywc-agent-toolkit/blob/main/LICENSE"
+          }
+        ]
+      }
+    ],
+    "copyright": "© 2026 yongwoon. ywc-agent-toolkit 是 open source project。"
+  },
+  "seo": {
+    "title": "ywc-agent-toolkit — 为 Claude Code 和 Codex 提供 41 skills 与 expert agents",
+    "description": "用于安装 ywc-agent-toolkit 的 static landing page，为 Claude Code 和 Codex 提供 41 skills 与 tool-specific custom agents。",
+    "canonicalPath": "/zh/",
+    "ogImage": "/og-image.png",
+    "alternates": [
+      {
+        "locale": "en",
+        "href": "/en/"
+      },
+      {
+        "locale": "ja",
+        "href": "/ja/"
+      },
+      {
+        "locale": "ko",
+        "href": "/ko/"
+      },
+      {
+        "locale": "zh",
+        "href": "/zh/"
+      },
+      {
+        "locale": "es",
+        "href": "/es/"
+      }
+    ]
+  }
+}
