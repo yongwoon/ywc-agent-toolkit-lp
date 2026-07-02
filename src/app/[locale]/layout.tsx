@@ -1,7 +1,11 @@
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "../globals.css";
-import { hasLocale } from "next-intl";
-import { routing } from "@/i18n/routing";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { getMessages, setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { routing, type Locale } from "@/i18n/routing";
+import { buildJsonLd, buildMetadata } from "@/lib/seo";
 
 type LocaleLayoutProps = {
   children: ReactNode;
@@ -10,22 +14,52 @@ type LocaleLayoutProps = {
   }>;
 };
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({
+  params
+}: Omit<LocaleLayoutProps, "children">): Promise<Metadata> {
+  const { locale } = await params;
+
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
+  return buildMetadata(locale);
 }
 
 export default async function LocaleLayout({
   children,
   params
 }: LocaleLayoutProps) {
-  const { locale: requestedLocale } = await params;
-  const locale = hasLocale(routing.locales, requestedLocale)
-    ? requestedLocale
-    : routing.defaultLocale;
+  const { locale } = await params;
+
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
+  setRequestLocale(locale);
+
+  const messages = await getMessages({ locale });
+  const jsonLd = buildJsonLd(locale as Locale);
 
   return (
     <html lang={locale}>
-      <body>{children}</body>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
+      <body>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          {children}
+        </NextIntlClientProvider>
+      </body>
     </html>
   );
 }
