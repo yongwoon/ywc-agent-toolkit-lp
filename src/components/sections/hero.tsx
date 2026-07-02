@@ -47,6 +47,12 @@ export async function Hero() {
               {t("ctaLabels.github")}
             </Button>
           </div>
+          <a
+            className="mt-5 inline-flex font-mono text-[var(--text-mono-sm)] font-semibold text-link underline-offset-4 hover:underline focus-visible:outline-none focus-visible:shadow-[var(--focus-ring)]"
+            href="#how-it-works"
+          >
+            {t("ctaLabels.preview")} ↓
+          </a>
         </div>
 
         <div className="group/demo overflow-hidden rounded-lg border border-border-subtle bg-surface shadow-[var(--edge-top)]">

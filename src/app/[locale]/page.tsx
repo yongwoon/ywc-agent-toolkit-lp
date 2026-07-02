@@ -6,6 +6,7 @@ import { Faq } from "@/components/sections/faq";
 import { FeatureGrid } from "@/components/sections/feature-grid";
 import { Hero } from "@/components/sections/hero";
 import { InstallSteps } from "@/components/sections/install-steps";
+import { Pipeline } from "@/components/sections/pipeline";
 import { ProblemSolution } from "@/components/sections/problem-solution";
 import { SiteHeader } from "@/components/sections/site-header";
 import { SiteFooter } from "@/components/sections/site-footer";
@@ -31,6 +32,7 @@ export default async function LocaleHomePage({ params }: LocaleHomePageProps) {
       <main>
         <Hero />
         <ProblemSolution />
+        <Pipeline />
         <FeatureGrid />
         <InstallSteps />
         <SocialProof />

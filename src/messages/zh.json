@@ -7,6 +7,10 @@
         "target": "/guidebook/"
       },
       {
+        "label": "工作原理",
+        "target": "#how-it-works"
+      },
+      {
         "label": "功能",
         "target": "#features"
       },
@@ -29,7 +33,8 @@
     "subheading": "从规划和规格编写，到代码生成、review 和 release，在不离开 terminal 的情况下自动化完整 development workflow。",
     "ctaLabels": {
       "install": "安装",
-      "github": "在 GitHub star"
+      "github": "在 GitHub star",
+      "preview": "查看工作原理"
     },
     "demoCommand": "/plugin marketplace add yongwoon/ywc-agent-toolkit",
     "demoCommandCodex": "codex plugin marketplace add yongwoon/ywc-agent-toolkit"
@@ -49,34 +54,99 @@
       "items": [
         "`ywc-plan` 和 `ywc-task-generator` 将粗略 goal 转换为可实施的 work。",
         "`ywc-code-gen` 和 `ywc-impl-review` 让 build、review、verification loop 保持明确。",
-        "`/ywc-agentic` 和 specialist agents 将复杂工作路由到适合 Claude Code 或 Codex 的 mode。"
+        "`/ywc-agentic` 将复杂工作路由到一个设有上限、review-gated 的 loop 中 — 最多三次自动化 iteration，并在任何内容合并前内置 `ywc-impl-review`。"
       ]
     }
   },
+  "pipeline": {
+    "eyebrow": "工作原理",
+    "title": "一个有明确主张的 pipeline，而不是一堆 skill 的大杂烩。",
+    "description": "41 个 skills 中的大部分会串联成一个 sequence，而不是作为需要你自己排序的独立 prompt 各自独立存在。",
+    "steps": [
+      {
+        "skill": "ywc-plan",
+        "label": "规划",
+        "description": "`ywc-plan` 将粗略的 goal 转换为 spec，并将其路由到合适规模的 flow。"
+      },
+      {
+        "skill": "ywc-spec-ready",
+        "label": "收敛",
+        "description": "对于超出小改动范围的任务，`ywc-spec-ready` 会循环执行 planning 和 validation，直到 spec 完成为止。"
+      },
+      {
+        "skill": "ywc-task-generator",
+        "label": "分解",
+        "description": "`ywc-task-generator` 将 spec 分解为具有 dependency-safe 特性的 task，并生成 parallel-execution graph。"
+      },
+      {
+        "skill": "ywc-sequential-executor",
+        "label": "执行",
+        "description": "executor 实现每个 task — 通过 `--review` 内置 review、PR 和 merge。"
+      },
+      {
+        "skill": "ywc-gen-testcase",
+        "label": "验证",
+        "description": "`ywc-gen-testcase` 为每个 PR 生成 QA test sheet，可供手动 sign-off。"
+      }
+    ],
+    "agentic": {
+      "title": "或者直接跳到 `/ywc-agentic`。",
+      "description": "输入一个 goal，输出一个设有上限、review-gated 的 loop — 最多三次自动化的 Plan → Execute → Evaluate → Repeat iteration，并在任何内容合并前内置 `ywc-impl-review`。",
+      "cta": {
+        "label": "查看 autonomous loop 指南",
+        "target": "/guidebook/06-agentic-autonomous-loop/"
+      }
+    },
+    "cta": {
+      "label": "查看完整 pipeline",
+      "target": "/guidebook/05-general-cycle-medium-large/"
+    }
+  },
   "featureGrid": {
-    "title": "为两种 tool 构建。",
+    "title": "六个类别，一个 pipeline，两种 tool。",
+    "description": "41 个 skills 按照它们的功能分类，而不仅仅按数量划分。",
     "items": [
       {
-        "label": "Claude Code skills",
-        "value": "41 skills",
-        "description": "为 Claude Code 打包 planning、spec writing、implementation、review、release 和 maintenance workflow。"
+        "label": "Planning & Spec",
+        "value": "10 skills",
+        "description": "在编写任何代码之前，将粗略的 goal 转换为经过验证的 spec 或 task list。",
+        "lane": "claude"
+      },
+      {
+        "label": "Task & Execution",
+        "value": "8 skills",
+        "description": "创建 branch、实现、验证并 merge — 可以是 sequential、parallel，或完全自主。",
+        "lane": "claude"
+      },
+      {
+        "label": "Review & Verification",
+        "value": "12 skills",
+        "description": "Architecture、security、design 与 QA review，外加一个自我改进的 learnings loop。",
+        "lane": "codex"
+      },
+      {
+        "label": "Git & Release",
+        "value": "7 skills",
+        "description": "Commit、PR、bot-review 回复与 release notes，端到端全部处理。",
+        "lane": "codex"
       },
       {
         "label": "Claude Code agents",
         "value": "12 agents",
-        "description": "面向 architecture、security、performance、root cause analysis 和 language-specific review 的 custom specialist agents。"
-      },
-      {
-        "label": "Codex skills",
-        "value": "41 skills",
-        "description": "同样的 workflow coverage，适配 Codex-native instructions 和 plugin packaging。"
+        "description": "面向 architecture、security、performance 和 language-specific review 的 specialist read-only agents。",
+        "lane": "claude"
       },
       {
         "label": "Codex agents",
         "value": "7 agents",
-        "description": "在 Codex workspaces 中补充 `ywc-*` skills 的 read-only specialist agents。"
+        "description": "相同的 specialist coverage，打包为 read-only 的 Codex agents。",
+        "lane": "codex"
       }
-    ]
+    ],
+    "cta": {
+      "label": "浏览完整 skill reference",
+      "target": "/guidebook/13-skill-reference/"
+    }
   },
   "installSteps": {
     "title": "从 plugin path 安装。",
@@ -107,12 +177,38 @@
           }
         ]
       }
-    ]
+    ],
+    "nextStep": {
+      "title": "现在试试这个",
+      "description": "安装完成后，将你的第一个想法转换为 plan。",
+      "commandText": "/ywc-plan <描述你想构建的内容>",
+      "cta": {
+        "label": "查看 quickstart 演练",
+        "target": "/guidebook/03-quickstart/"
+      }
+    }
   },
   "socialProof": {
-    "title": "Community proof",
-    "items": [],
-    "emptyState": "Community quotes 将在 launch 后添加。"
+    "title": "公开构建",
+    "description": "目前还没有 customer quote — 以下是你在安装前可以自行验证的内容。",
+    "starsLabel": "GitHub stars",
+    "starsDescription": "实时计数，每次 build 时获取。",
+    "items": [
+      {
+        "label": "许可证",
+        "value": "MIT",
+        "description": "开源，无 paid tier，无需 account。"
+      },
+      {
+        "label": "发布",
+        "value": "Automated",
+        "description": "每次合并到 main 时，通过 Release Please 生成 version 和 changelog。"
+      }
+    ],
+    "contributeCta": {
+      "label": "添加一个 skill",
+      "target": "https://github.com/yongwoon/ywc-agent-toolkit/blob/main/CONTRIBUTING.md"
+    }
   },
   "faq": {
     "title": "FAQ",
@@ -140,6 +236,26 @@
       {
         "question": "我可以继续使用现有 workflow 吗？",
         "answer": "可以。toolkit 会添加 `ywc-plan`、`ywc-code-gen`、`ywc-impl-review` 等 reusable skills；不需要 backend、account 或 project migration。"
+      },
+      {
+        "question": "toolkit 会在不询问我的情况下更改什么？",
+        "answer": "`ywc-merge-dependabot` 可以自动 merge dependency PR，`ywc-finish-branch` 在其 check 通过后可以 merge 并删除 branch。`ywc-agentic` 最多运行三次自动化 iteration，并在任何内容合并前内置 `ywc-impl-review`。这些都是你主动调用的 skill — 除非你调用它们，否则都不会运行。"
+      },
+      {
+        "question": "除了 Claude Code 或 Codex，我还需要别的东西吗？",
+        "answer": "Plugin-marketplace installation 本身没有前提条件。之后使用某些 skill 则需要：像 `ywc-parallel-executor` 和 `ywc-finish-branch` 这样的 skill 需要 `python3` ≥ 3.9（hooks 需要 ≥ 3.11），基于 PR 和 release 的 skill 需要 `gh` CLI。"
+      },
+      {
+        "question": "这会修改我的 shell 或 tool 行为吗？",
+        "answer": "只有在你安装了可选的 Claude Code hooks 时才会。它们会添加诸如阻止危险 shell command、阻止访问 `.env`/SSH-key 文件之类的 guardrail — 你可以完全跳过它们，只使用 skill。"
+      },
+      {
+        "question": "这和一个通用的 skill collection 有什么不同？",
+        "answer": "41 个 skills 中的大部分被串联进一个有明确主张的 pipeline（plan → spec → tasks → execute → test），而不是作为你需要自己排序的独立 prompt 各自存在，并且确认的 defect 会反馈到 review-learnings loop 中，自动收紧未来的 review。"
+      },
+      {
+        "question": "我可以贡献一个 skill 吗？",
+        "answer": "可以。`ywc-skill-author` 记录了相关约定，CONTRIBUTING.md 涵盖了 bug report、新 skill 和翻译。"
       }
     ]
   },

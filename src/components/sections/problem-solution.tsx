@@ -1,5 +1,6 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
+import { InlineSkillText } from "@/components/ui/inline-skill-text";
 import { SectionEyebrow } from "@/components/ui/section-eyebrow";
 
 type ComparisonColumn = {
@@ -9,10 +10,12 @@ type ComparisonColumn = {
 
 function ComparisonList({
   column,
-  tone
+  tone,
+  locale
 }: {
   column: ComparisonColumn;
   tone: "before" | "after";
+  locale: string;
 }) {
   const mark = tone === "before" ? "✗" : "✓";
   const markClass =
@@ -32,7 +35,9 @@ function ComparisonList({
             >
               {mark}
             </span>
-            <span className="leading-[var(--lh-relaxed)]">{item}</span>
+            <span className="leading-[var(--lh-relaxed)]">
+              <InlineSkillText locale={locale} text={item} />
+            </span>
           </li>
         ))}
       </ul>
@@ -42,6 +47,7 @@ function ComparisonList({
 
 export async function ProblemSolution() {
   const t = await getTranslations("problemSolution");
+  const locale = await getLocale();
   const before = t.raw("before") as ComparisonColumn;
   const after = t.raw("after") as ComparisonColumn;
 
@@ -55,8 +61,8 @@ export async function ProblemSolution() {
           </h2>
         </div>
         <div className="mt-10 grid gap-4 md:grid-cols-2">
-          <ComparisonList column={before} tone="before" />
-          <ComparisonList column={after} tone="after" />
+          <ComparisonList column={before} locale={locale} tone="before" />
+          <ComparisonList column={after} locale={locale} tone="after" />
         </div>
       </div>
     </section>
