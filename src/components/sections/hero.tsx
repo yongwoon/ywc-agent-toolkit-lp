@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 import { Button } from "@/components/ui/button";
 import { CodeBlock } from "@/components/ui/code-block";
@@ -9,9 +9,9 @@ type NavLink = {
   target: string;
 };
 
-export function Hero() {
-  const t = useTranslations("hero");
-  const nav = useTranslations("nav");
+export async function Hero() {
+  const t = await getTranslations("hero");
+  const nav = await getTranslations("nav");
   const github = nav.raw("github") as NavLink;
 
   return (

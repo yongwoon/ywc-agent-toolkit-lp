@@ -1,7 +1,4 @@
-"use client";
-
-import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 import { FaqItem } from "@/components/ui/faq-item";
 
@@ -10,10 +7,9 @@ type FaqEntry = {
   answer: string;
 };
 
-export function Faq() {
-  const t = useTranslations("faq");
+export async function Faq() {
+  const t = await getTranslations("faq");
   const items = t.raw("items") as FaqEntry[];
-  const [openIndex, setOpenIndex] = useState(0);
 
   return (
     <section className="border-b border-border-subtle bg-bg-subtle" id="faq">
@@ -31,8 +27,8 @@ export function Faq() {
           {items.map((item, index) => (
             <FaqItem
               key={item.question}
-              onToggle={(nextOpen) => setOpenIndex(nextOpen ? index : -1)}
-              open={openIndex === index}
+              name="landing-faq"
+              open={index === 0}
               question={item.question}
             >
               {item.answer}

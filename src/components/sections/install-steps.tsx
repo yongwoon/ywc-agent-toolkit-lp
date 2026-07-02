@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 import { CodeBlock } from "@/components/ui/code-block";
 
@@ -13,8 +13,8 @@ type InstallPath = {
   steps: InstallStep[];
 };
 
-export function InstallSteps() {
-  const t = useTranslations("installSteps");
+export async function InstallSteps() {
+  const t = await getTranslations("installSteps");
   const paths = t.raw("paths") as InstallPath[];
 
   return (
