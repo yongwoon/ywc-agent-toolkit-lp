@@ -2,8 +2,9 @@
 
 import { usePathname } from "next/navigation";
 import type { Locale } from "@/i18n/locale-list";
-import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { LocaleSwitcher } from "@/components/ui/locale-switcher";
+import githubStats from "@/data/github-stats.json";
 import { getGuidebookHref, getGuidebookSlugFromPathname } from "./guidebook-nav";
 import { SearchModal } from "./search-modal";
 
@@ -18,6 +19,7 @@ const navItems = ["Docs", "Skills", "Agents", "Hooks"];
 export function TopBar({ locale, sidebarOpen, onSidebarToggle }: TopBarProps) {
   const pathname = usePathname();
   const activeSlug = getGuidebookSlugFromPathname(pathname);
+  const starCount = githubStats.stars.toLocaleString("en-US");
 
   return (
     <header className="sticky top-0 z-40 h-[60px] border-b border-border-subtle bg-[rgba(11,10,9,.85)] backdrop-blur-[12px]">
@@ -72,15 +74,17 @@ export function TopBar({ locale, sidebarOpen, onSidebarToggle }: TopBarProps) {
             getHref={(code) => getGuidebookHref(code, activeSlug)}
             value={locale}
           />
-          <a
-            aria-label="Star ywc-agent-toolkit on GitHub"
-            className="outline-none focus-visible:shadow-[var(--focus-ring)]"
+          <Button
+            aria-label={`${starCount} stars on GitHub`}
             href="https://github.com/yongwoon/ywc-agent-toolkit"
+            icon={<span aria-hidden="true">★</span>}
             rel="noreferrer"
+            size="sm"
             target="_blank"
+            variant="outline"
           >
-            <Badge variant="neutral">★ Star</Badge>
-          </a>
+            {starCount} stars
+          </Button>
         </div>
       </div>
     </header>
