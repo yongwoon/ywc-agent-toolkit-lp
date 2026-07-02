@@ -1,0 +1,208 @@
+{
+  "nav": {
+    "wordmark": "ywc-agent-toolkit",
+    "links": [
+      {
+        "label": "機能",
+        "target": "#features"
+      },
+      {
+        "label": "インストール",
+        "target": "#install"
+      },
+      {
+        "label": "FAQ",
+        "target": "#faq"
+      }
+    ],
+    "github": {
+      "label": "GitHub",
+      "target": "https://github.com/yongwoon/ywc-agent-toolkit"
+    }
+  },
+  "hero": {
+    "headline": "Claude Code と Codex のための 41 skills と expert agents。",
+    "subheading": "計画と仕様作成からコード生成、レビュー、リリースまで、開発 workflow 全体を terminal から離れずに自動化します。",
+    "ctaLabels": {
+      "install": "インストール",
+      "github": "GitHub で star"
+    },
+    "demoCommand": "/plugin marketplace add yongwoon/ywc-agent-toolkit"
+  },
+  "problemSolution": {
+    "title": "反復作業を toolkit に任せると、workflow は軽くなります。",
+    "before": {
+      "title": "toolkit なし",
+      "items": [
+        "タスクごとに planning prompt と acceptance criteria を書き直す必要があります。",
+        "散らばったメモ、review checklist、release step を手作業で行き来します。",
+        "あなたの development workflow を知らない汎用 agent に頼ることになります。"
+      ]
+    },
+    "after": {
+      "title": "toolkit あり",
+      "items": [
+        "`ywc-plan` と `ywc-task-generator` が粗い goal を実装可能な work に変えます。",
+        "`ywc-code-gen` と `ywc-impl-review` が build、review、verification loop を明示的に保ちます。",
+        "`/ywc-agentic` と specialist agents が複雑な作業を Claude Code または Codex の適切な mode に振り分けます。"
+      ]
+    }
+  },
+  "featureGrid": {
+    "title": "両方の tool のために設計。",
+    "items": [
+      {
+        "label": "Claude Code skills",
+        "value": "41 skills",
+        "description": "Planning、spec writing、implementation、review、release、maintenance workflow を Claude Code 向けに package 化しています。"
+      },
+      {
+        "label": "Claude Code agents",
+        "value": "12 agents",
+        "description": "Architecture、security、performance、root cause analysis、language-specific review のための custom specialist agents です。"
+      },
+      {
+        "label": "Codex skills",
+        "value": "41 skills",
+        "description": "同じ workflow coverage を Codex-native な instructions と plugin packaging に合わせて提供します。"
+      },
+      {
+        "label": "Codex agents",
+        "value": "7 agents",
+        "description": "Codex workspaces 内で `ywc-*` skills を補完する read-only specialist agents です。"
+      }
+    ]
+  },
+  "installSteps": {
+    "title": "plugin path からインストール。",
+    "description": "Claude Code では marketplace path、Codex では Codex plugin marketplace path を使います。これらの path に前提条件はありません。",
+    "paths": [
+      {
+        "label": "Claude Code",
+        "steps": [
+          {
+            "stepNumber": 1,
+            "instruction": "Claude Code に marketplace source を追加し、Plugin UI の Marketplaces タブから `ywc-agent-toolkit` をインストールします。",
+            "commandText": "/plugin marketplace add yongwoon/ywc-agent-toolkit"
+          }
+        ]
+      },
+      {
+        "label": "Codex",
+        "steps": [
+          {
+            "stepNumber": 1,
+            "instruction": "この repository を Codex plugin marketplace source として追加します。",
+            "commandText": "codex plugin marketplace add yongwoon/ywc-agent-toolkit"
+          },
+          {
+            "stepNumber": 2,
+            "instruction": "設定済み marketplace から `ywc-agent-toolkit` をインストールします。",
+            "commandText": "codex plugin add ywc-agent-toolkit@ywc-agent-toolkit"
+          }
+        ]
+      }
+    ]
+  },
+  "socialProof": {
+    "title": "Community proof",
+    "items": [],
+    "emptyState": "Community quotes は launch 後に追加されます。"
+  },
+  "faq": {
+    "title": "FAQ",
+    "items": [
+      {
+        "question": "これは何ですか？",
+        "answer": "`ywc-agent-toolkit` は Claude Code と Codex のための public toolkit で、skills と custom agents を提供します。Planning から release までの反復的な development workflow を実行しやすくします。"
+      },
+      {
+        "question": "インストール要件は何ですか？",
+        "answer": "Plugin-marketplace と Codex-plugin installation に前提条件はありません。上の command を使い、対応する plugin UI または marketplace からインストールしてください。"
+      },
+      {
+        "question": "費用や token への影響は？",
+        "answer": "toolkit 自体は open source で、追加の paid service はありません。Token usage は Claude Code または Codex で skills と agents をどれだけ呼び出すかによって変わります。"
+      },
+      {
+        "question": "Claude Code と Codex の両方で使えますか？",
+        "answer": "はい。両方の tool に 41 skills があります。Claude Code には 12 custom agents、Codex には 7 custom agents が含まれます。"
+      },
+      {
+        "question": "repository を clone する必要がありますか？",
+        "answer": "このページで扱う path では不要です。Claude Code marketplace installation と Codex plugin marketplace installation は、manual clone や bash script なしでインストールできるように設計されています。"
+      },
+      {
+        "question": "既存の workflow を使い続けられますか？",
+        "answer": "はい。toolkit は `ywc-plan`、`ywc-code-gen`、`ywc-impl-review` などの reusable skills を追加します。Backend、account、project migration は不要です。"
+      }
+    ]
+  },
+  "footer": {
+    "groups": [
+      {
+        "title": "Product",
+        "links": [
+          {
+            "label": "機能",
+            "target": "#features"
+          },
+          {
+            "label": "インストール",
+            "target": "#install"
+          }
+        ]
+      },
+      {
+        "title": "Resources",
+        "links": [
+          {
+            "label": "GitHub",
+            "target": "https://github.com/yongwoon/ywc-agent-toolkit"
+          },
+          {
+            "label": "CHANGELOG",
+            "target": "https://github.com/yongwoon/ywc-agent-toolkit/blob/main/CHANGELOG.md"
+          },
+          {
+            "label": "Issues",
+            "target": "https://github.com/yongwoon/ywc-agent-toolkit/issues"
+          },
+          {
+            "label": "License",
+            "target": "https://github.com/yongwoon/ywc-agent-toolkit/blob/main/LICENSE"
+          }
+        ]
+      }
+    ],
+    "copyright": "© 2026 yongwoon. ywc-agent-toolkit は open source project です。"
+  },
+  "seo": {
+    "title": "ywc-agent-toolkit — Claude Code と Codex のための 41 skills と expert agents",
+    "description": "Claude Code と Codex 向けに 41 skills と tool-specific custom agents を提供する ywc-agent-toolkit の static landing page。",
+    "canonicalPath": "/ja/",
+    "ogImage": "/og-image.png",
+    "alternates": [
+      {
+        "locale": "en",
+        "href": "/en/"
+      },
+      {
+        "locale": "ja",
+        "href": "/ja/"
+      },
+      {
+        "locale": "ko",
+        "href": "/ko/"
+      },
+      {
+        "locale": "zh",
+        "href": "/zh/"
+      },
+      {
+        "locale": "es",
+        "href": "/es/"
+      }
+    ]
+  }
+}

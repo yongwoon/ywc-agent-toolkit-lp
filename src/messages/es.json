@@ -1,0 +1,208 @@
+{
+  "nav": {
+    "wordmark": "ywc-agent-toolkit",
+    "links": [
+      {
+        "label": "Funciones",
+        "target": "#features"
+      },
+      {
+        "label": "Instalar",
+        "target": "#install"
+      },
+      {
+        "label": "FAQ",
+        "target": "#faq"
+      }
+    ],
+    "github": {
+      "label": "GitHub",
+      "target": "https://github.com/yongwoon/ywc-agent-toolkit"
+    }
+  },
+  "hero": {
+    "headline": "41 skills y expert agents para Claude Code y Codex.",
+    "subheading": "Automatiza todo el development workflow — desde planificación y especificaciones hasta generación de código, review y release sin salir de la terminal.",
+    "ctaLabels": {
+      "install": "Instalar",
+      "github": "Star en GitHub"
+    },
+    "demoCommand": "/plugin marketplace add yongwoon/ywc-agent-toolkit"
+  },
+  "problemSolution": {
+    "title": "El workflow pesa menos cuando el toolkit lleva el trabajo repetible.",
+    "before": {
+      "title": "Sin el toolkit",
+      "items": [
+        "Reescribes planning prompts y acceptance criteria para cada tarea.",
+        "Saltas manualmente entre notas dispersas, review checklists y release steps.",
+        "Dependes de agentes generales que no conocen tu development workflow."
+      ]
+    },
+    "after": {
+      "title": "Con el toolkit",
+      "items": [
+        "`ywc-plan` y `ywc-task-generator` convierten goals preliminares en work listo para implementar.",
+        "`ywc-code-gen` y `ywc-impl-review` mantienen explícitos los ciclos de build, review y verification.",
+        "`/ywc-agentic` y specialist agents enrutan el trabajo complejo al mode adecuado para Claude Code o Codex."
+      ]
+    }
+  },
+  "featureGrid": {
+    "title": "Creado para ambas herramientas.",
+    "items": [
+      {
+        "label": "Claude Code skills",
+        "value": "41 skills",
+        "description": "Planning, spec writing, implementation, review, release y maintenance workflows empaquetados para Claude Code."
+      },
+      {
+        "label": "Claude Code agents",
+        "value": "12 agents",
+        "description": "Custom specialist agents para architecture, security, performance, root cause analysis y language-specific review."
+      },
+      {
+        "label": "Codex skills",
+        "value": "41 skills",
+        "description": "La misma workflow coverage adaptada a Codex, con Codex-native instructions y plugin packaging."
+      },
+      {
+        "label": "Codex agents",
+        "value": "7 agents",
+        "description": "Read-only specialist agents que complementan los skills `ywc-*` dentro de Codex workspaces."
+      }
+    ]
+  },
+  "installSteps": {
+    "title": "Instala desde los plugin paths.",
+    "description": "Usa el marketplace path para Claude Code o el Codex plugin marketplace path. Estos paths no tienen prerrequisitos.",
+    "paths": [
+      {
+        "label": "Claude Code",
+        "steps": [
+          {
+            "stepNumber": 1,
+            "instruction": "Añade la marketplace source en Claude Code y luego instala `ywc-agent-toolkit` desde la pestaña Marketplaces del Plugin UI.",
+            "commandText": "/plugin marketplace add yongwoon/ywc-agent-toolkit"
+          }
+        ]
+      },
+      {
+        "label": "Codex",
+        "steps": [
+          {
+            "stepNumber": 1,
+            "instruction": "Añade este repository como Codex plugin marketplace source.",
+            "commandText": "codex plugin marketplace add yongwoon/ywc-agent-toolkit"
+          },
+          {
+            "stepNumber": 2,
+            "instruction": "Instala `ywc-agent-toolkit` desde el marketplace configurado.",
+            "commandText": "codex plugin add ywc-agent-toolkit@ywc-agent-toolkit"
+          }
+        ]
+      }
+    ]
+  },
+  "socialProof": {
+    "title": "Community proof",
+    "items": [],
+    "emptyState": "Community quotes se añadirán después del lanzamiento."
+  },
+  "faq": {
+    "title": "FAQ",
+    "items": [
+      {
+        "question": "¿Qué es esto?",
+        "answer": "`ywc-agent-toolkit` es un public toolkit de skills y custom agents para Claude Code y Codex. Te ayuda a ejecutar development workflows repetibles desde planning hasta release."
+      },
+      {
+        "question": "¿Cuáles son los requisitos de instalación?",
+        "answer": "Plugin-marketplace y Codex-plugin installation no tienen prerrequisitos. Usa los commands anteriores y luego instala desde el plugin UI o marketplace correspondiente."
+      },
+      {
+        "question": "¿Cuál es el coste o impacto en tokens?",
+        "answer": "El toolkit es open source y no añade un paid service. El token usage depende de la frecuencia con la que invoques skills y agents en Claude Code o Codex."
+      },
+      {
+        "question": "¿Funciona con Claude Code y Codex?",
+        "answer": "Sí. Ambas herramientas reciben 41 skills. Claude Code incluye 12 custom agents, mientras que Codex incluye 7 custom agents."
+      },
+      {
+        "question": "¿Necesito clonar el repository?",
+        "answer": "No para los paths cubiertos en esta página. Claude Code marketplace installation y Codex plugin marketplace installation están diseñados para instalar sin manual clone ni bash scripts."
+      },
+      {
+        "question": "¿Puedo mantener mi workflow actual?",
+        "answer": "Sí. El toolkit añade reusable skills como `ywc-plan`, `ywc-code-gen` y `ywc-impl-review`; no requiere backend, account ni project migration."
+      }
+    ]
+  },
+  "footer": {
+    "groups": [
+      {
+        "title": "Product",
+        "links": [
+          {
+            "label": "Funciones",
+            "target": "#features"
+          },
+          {
+            "label": "Instalar",
+            "target": "#install"
+          }
+        ]
+      },
+      {
+        "title": "Resources",
+        "links": [
+          {
+            "label": "GitHub",
+            "target": "https://github.com/yongwoon/ywc-agent-toolkit"
+          },
+          {
+            "label": "CHANGELOG",
+            "target": "https://github.com/yongwoon/ywc-agent-toolkit/blob/main/CHANGELOG.md"
+          },
+          {
+            "label": "Issues",
+            "target": "https://github.com/yongwoon/ywc-agent-toolkit/issues"
+          },
+          {
+            "label": "License",
+            "target": "https://github.com/yongwoon/ywc-agent-toolkit/blob/main/LICENSE"
+          }
+        ]
+      }
+    ],
+    "copyright": "© 2026 yongwoon. ywc-agent-toolkit es un open source project."
+  },
+  "seo": {
+    "title": "ywc-agent-toolkit — 41 skills y expert agents para Claude Code y Codex",
+    "description": "Static landing page para instalar ywc-agent-toolkit, con 41 skills para Claude Code y Codex más tool-specific custom agents.",
+    "canonicalPath": "/es/",
+    "ogImage": "/og-image.png",
+    "alternates": [
+      {
+        "locale": "en",
+        "href": "/en/"
+      },
+      {
+        "locale": "ja",
+        "href": "/ja/"
+      },
+      {
+        "locale": "ko",
+        "href": "/ko/"
+      },
+      {
+        "locale": "zh",
+        "href": "/zh/"
+      },
+      {
+        "locale": "es",
+        "href": "/es/"
+      }
+    ]
+  }
+}
