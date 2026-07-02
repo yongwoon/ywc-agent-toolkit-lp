@@ -8,6 +8,7 @@ import {
   useMemo,
   useRef,
   useState,
+  type FC,
   type KeyboardEvent,
   type ReactElement,
   type ReactNode
@@ -23,11 +24,10 @@ export type ToolTabsPanelProps = {
   children: ReactNode;
 };
 
-function ToolTabsPanel(_props: ToolTabsPanelProps) {
-  // Never rendered directly — ToolTabs reads this component's props from its
-  // children and renders the tab header + panel body itself.
-  return null;
-}
+// Never rendered directly — ToolTabs reads this component's props from its
+// children and renders the tab header + panel body itself. Typed as FC so JSX
+// callers get prop checking without an unused render parameter.
+const ToolTabsPanel: FC<ToolTabsPanelProps> = () => null;
 ToolTabsPanel.displayName = "ToolTabs.Panel";
 
 export type ToolTabsProps = {
