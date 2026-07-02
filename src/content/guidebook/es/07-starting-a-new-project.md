@@ -11,7 +11,7 @@ Usa esto cuando aún no hay un repositorio Git, o cuando el repositorio existe p
 | Paso | Skill | Rol |
 |---|---|---|
 | uno | `ywc-project-scaffold` | Decide la pila tecnológica / patrón de arquitectura, luego diseña la estructura del directorio (genera un plan Markdown) |
-| Dos | `ywc-mission` | Registra el motivo del proyecto, los criterios de éxito y el registro de enfoques rechazados en `docs/mission.md` |
+| Dos | `ywc-project-mission` | Registra el motivo del proyecto, los criterios de éxito y el registro de enfoques rechazados en `docs/mission.md` |
 | tres | `ywc-spec-writer --full` | Escribe la especificación completa bajo `docs/specification/` (objetivo / característica / modelo de datos / flujo de usuario) |
 | cuatro | `ywc-spec-validate` | Validar la integridad / consistencia / factibilidad / compatibilidad con el código de la especificación |
 | cinco | `ywc-project-docs` | Documentos adicionales como Arquitectura / Producto / Operaciones, cuando sea necesario |
@@ -21,36 +21,66 @@ Usa esto cuando aún no hay un repositorio Git, o cuando el repositorio existe p
 ## Ejemplo de ejecución
 
 **1. Diseñar la estructura del directorio**
-```
-ywc-project-scaffold FastAPI + GraphQL + Clean Architecture, medium scale
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-project-scaffold FastAPI + GraphQL + Clean Architecture, medium scale" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-project-scaffold FastAPI + GraphQL + Clean Architecture, medium scale" />
+  </ToolTabsPanel>
+</ToolTabs>
 Se requiere el idioma. Si faltan otros detalles, el Skill hace preguntas de seguimiento, por lo que especifique Framework / Arquitectura / Escala juntos cuando sea posible. Esta habilidad produce **solo un plan Markdown**. La creación real del archivo la maneja `ywc-code-gen`.
 
 **2. Registra el porqué del proyecto**
-```
-ywc-mission 이 project 의 목표는 소규모 건설업체가 별도 앱 없이 출퇴근을 기록하게 하는 것. 성공 기준은 관리자 1명이 인력 10명 이하의 근태를 5분 안에 마감할 수 있는가
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-project-mission 이 project 의 목표는 소규모 건설업체가 별도 앱 없이 출퇴근을 기록하게 하는 것. 성공 기준은 관리자 1명이 인력 10명 이하의 근태를 5분 안에 마감할 수 있는가" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-project-mission 이 project 의 목표는 소규모 건설업체가 별도 앱 없이 출퇴근을 기록하게 하는 것. 성공 기준은 관리자 1명이 인력 10명 이하의 근태를 5분 안에 마감할 수 있는가" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **3. Escribe la especificación completa**
-```
-ywc-spec-writer --full --lang korean
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-spec-writer --full --lang korean" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-spec-writer --full --lang korean" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **4. Validar la especificación**
-```
-ywc-spec-validate --spec docs/specification/01-overview.md
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-spec-validate --spec docs/specification/01-overview.md" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-spec-validate --spec docs/specification/01-overview.md" />
+  </ToolTabsPanel>
+</ToolTabs>
 Si devuelve `DONE_WITH_CONCERNS`, vuelva a `ywc-spec-writer`, refine la especificación y valide de nuevo. Repita hasta que devuelva `DONE`. (`ywc-spec-ready` es un bucle de convergencia automática solo para especificaciones creadas por `ywc-plan`, así que no lo use aquí.)
 
 **5. Documentos adicionales (cuando sea necesario)**
-```
-ywc-project-docs --lang kr
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-project-docs --lang kr" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-project-docs --lang kr" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **6. Descomponer en Tasks**
-```
-ywc-task-generator --lang korean
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-task-generator --lang korean" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-task-generator --lang korean" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 ## Notas
 

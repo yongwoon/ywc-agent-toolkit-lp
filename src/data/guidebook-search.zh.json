@@ -63,5 +63,10 @@
     "slug": "13-skill-reference",
     "title": "13. 完整 Skill 参考",
     "summary": "本页面将之前工作流程指南中未涵盖的剩余技能按 你想做的事情 进行分组。在每个流程（小/中/大周期、新项目、入职、测试或设计）中需要时使用它。"
+  },
+  {
+    "slug": "14-prerequisites-installation",
+    "title": "14. 前置条件与安装",
+    "summary": "要稳定使用 ywc-* Skill，需要预先准备好一些 Tool。通过 Plugin marketplace 或 Codex plugin 安装时，文件复制和注册会自动处理，但当 Skill 实际运行 时，以下 Tool 需要存在于你的系统中才能正常工作。本页将必需 Tool 和可选 Tool 分开整理。"
   }
 ]

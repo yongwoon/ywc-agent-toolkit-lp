@@ -16,24 +16,44 @@ Usa esto cuando entres por primera vez a un repositorio desconocido que ya tiene
 ## Ejemplo de ejecución
 
 **Ejecución predeterminada** - inspecciona todo el repositorio y genera tanto la Guía de incorporación como el Starter CLAUDE.md
-```
-ywc-onboard-repo
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-onboard-repo" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-onboard-repo" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **Inspeccionar solo un espacio de trabajo específico en un monorepo**
-```
-ywc-onboard-repo --scope apps/web/
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-onboard-repo --scope apps/web/" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-onboard-repo --scope apps/web/" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **Cuando solo necesites el documento explicativo, no Starter CLAUDE.md**
-```
-ywc-onboard-repo --guide-only
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-onboard-repo --guide-only" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-onboard-repo --guide-only" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **Cuando solo necesitas CLAUDE.md, no la Guía de Introducción**
-```
-ywc-onboard-repo --claude-md-only
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-onboard-repo --claude-md-only" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-onboard-repo --claude-md-only" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 ## Qué hacer a continuación
 

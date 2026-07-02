@@ -16,24 +16,44 @@
 ## 実行例
 
 **基本実行** — repo 全体を調査し、Onboarding Guide + Starter CLAUDE.md の両方を生成
-```
-ywc-onboard-repo
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-onboard-repo" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-onboard-repo" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **monorepo で特定 workspace だけを調査**
-```
-ywc-onboard-repo --scope apps/web/
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-onboard-repo --scope apps/web/" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-onboard-repo --scope apps/web/" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **Starter CLAUDE.md は不要で、説明文書だけ必要なとき**
-```
-ywc-onboard-repo --guide-only
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-onboard-repo --guide-only" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-onboard-repo --guide-only" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **Onboarding Guide は不要で、CLAUDE.md だけ必要なとき**
-```
-ywc-onboard-repo --claude-md-only
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-onboard-repo --claude-md-only" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-onboard-repo --claude-md-only" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 ## その後にすること
 

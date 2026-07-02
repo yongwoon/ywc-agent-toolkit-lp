@@ -28,49 +28,91 @@
 
 ## ywc-sequential-executor - 当你想按顺序运行 Tasks 时
 
+> **提示**：`ywc-sequential-executor` 本身没有单独的 `--tdd` flag。每个 Task 的实现步骤内部遵循与 `ywc-code-gen` 相同的默认 TDD gate(实现前先确认一个失败的测试)。如果需要完整的 RED → GREEN → REFACTOR 仪式和分阶段 checkpoint commit，请参考下方 `ywc-code-gen` 部分的 `--tdd` flag，并在该 Task 的实现请求中明确加入。
+
 **使用默认设置运行一个 Task**
-```
-ywc-sequential-executor 000020-010
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-sequential-executor 000020-010" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-sequential-executor 000020-010" />
+  </ToolTabsPanel>
+</ToolTabs>
 默认 `normal-pr` 模式会自动处理 PR 创建 -> CI -> 机器人审核 -> 合并。
 
 **在打开 PR 之前自动运行代码审查**
-```
-ywc-sequential-executor 000020-010 --review --base-branch develop
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-sequential-executor 000020-010 --review --base-branch develop" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-sequential-executor 000020-010 --review --base-branch develop" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **同时运行多个 Tasks 并以日语接收 PR 描述**
-```
-ywc-sequential-executor 000020-010..000025-010 --review --pr-lang ja
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-sequential-executor 000020-010..000025-010 --review --pr-lang ja" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-sequential-executor 000020-010..000025-010 --review --pr-lang ja" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **使用本地合并快速完成，无需 PR**
-```
-ywc-sequential-executor 000020-010..000025-010 --review --local-merge --run-tests-locally
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-sequential-executor 000020-010..000025-010 --review --local-merge --run-tests-locally" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-sequential-executor 000020-010..000025-010 --review --local-merge --run-tests-locally" />
+  </ToolTabsPanel>
+</ToolTabs>
 在 PR 模式下，CI 会为你运行测试。使用 `--local-merge` 时，没有远程 CI，因此在与 `--run-tests-locally` 合并之前，最好要求通过本地测试。
 
 **将多个 Tasks 作为一个 PR（`--aggregate-pr`）交付**
-```
-ywc-sequential-executor 000020-010..000025-010 --aggregate-pr --group-name project-health --review
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-sequential-executor 000020-010..000025-010 --aggregate-pr --group-name project-health --review" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-sequential-executor 000020-010..000025-010 --aggregate-pr --group-name project-health --review" />
+  </ToolTabsPanel>
+</ToolTabs>
 Tasks 顺序堆叠在一个 `work/project-health` 分支上，并作为 **一个** PR 交付。完整的 `--aggregate-pr` 和 `--group-name` 模型请参见上面的“共享概念”部分。
 
 **仅创建一个 PR，让人类稍后合并**
-```
-ywc-sequential-executor 000020-010 --draft
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-sequential-executor 000020-010 --draft" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-sequential-executor 000020-010 --draft" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **您不知道要运行什么；请先预览计划**
-```
-ywc-sequential-executor --dry-run
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-sequential-executor --dry-run" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-sequential-executor --dry-run" />
+  </ToolTabsPanel>
+</ToolTabs>
 如果未指定 Task，它会自动从 `dependency-graph` 检测下一个可执行目标，并仅打印执行计划（实际上不会运行任何内容）。
 
 **在隔离环境中运行，以免干扰主结账（`--worktree`）的其他工作**
-```
-ywc-sequential-executor 000020-010..000025-010 --worktree --review
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-sequential-executor 000020-010..000025-010 --worktree --review" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-sequential-executor 000020-010..000025-010 --worktree --review" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 `--worktree` 在 **一个 git 工作树内** 运行整个范围。原始克隆保持不变，因此你可以继续其他工作。关键点是这是 **运行级隔离**：一个工作树包裹整个范围，而其中的 Tasks 仍然顺序运行。（相比之下，`ywc-parallel-executor` 为 **每个 Task** 创建一个单独的工作树——参见下面的并行执行器部分。）
 
@@ -80,14 +122,24 @@ ywc-sequential-executor 000020-010..000025-010 --worktree --review
   - 与 `--aggregate-pr` 一起使用 -> 上面的手动步骤是不必要的。`work/<name>` 分支是在工作树中创建的，并且 `work -> base` PR 会在最后自动打开。
 - **如果在中途失败（`BLOCKED` / `DONE_WITH_CONCERNS`）**，工作树不会被删除，会保留在原处。您可以稍后进入报告中打印的路径并继续。
 - 使用 `--dry-run`，它不会创建实际的工作树；它只会预览将使用的路径和名称：
-  ```
-  ywc-sequential-executor 000020-010..000025-010 --worktree --dry-run
-  ```
+  <ToolTabs>
+    <ToolTabsPanel tool="claude-code" label="Claude Code">
+      <CodeBlock label="claude code" code="ywc-sequential-executor 000020-010..000025-010 --worktree --dry-run" />
+    </ToolTabsPanel>
+    <ToolTabsPanel tool="codex" label="Codex">
+      <CodeBlock label="codex" code="ywc-sequential-executor 000020-010..000025-010 --worktree --dry-run" />
+    </ToolTabsPanel>
+  </ToolTabs>
 
 **`--worktree` + `--aggregate-pr` - 同时进行隔离执行和单PR交付**
-```
-ywc-sequential-executor 000020-010..000025-010 --worktree --aggregate-pr --group-name project-health --review
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-sequential-executor 000020-010..000025-010 --worktree --aggregate-pr --group-name project-health --review" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-sequential-executor 000020-010..000025-010 --worktree --aggregate-pr --group-name project-health --review" />
+  </ToolTabsPanel>
+</ToolTabs>
 当你想在不修改主结账的情况下，通过部署将多个 Tasks 捆绑成一个 PR 时，这是最完整的组合。
 
 > **注意**：`--local-merge` / `--draft` / `--skip-ci-wait` / `--aggregate-pr` 互斥。如果同时使用两个或更多，执行将停止并要求澄清。`--review` 和 `--worktree` 可以与任何这些模式组合使用。
@@ -95,26 +147,46 @@ ywc-sequential-executor 000020-010..000025-010 --worktree --aggregate-pr --group
 ## ywc-parallel-executor - 当你想同时运行独立的 Tasks 时
 
 **并行运行独立的 Tasks，为每个 Task 创建并合并一个 PR**
-```
-ywc-parallel-executor 000020-010..000025-010 --per-task-pr --review
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-parallel-executor 000020-010..000025-010 --per-task-pr --review" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-parallel-executor 000020-010..000025-010 --per-task-pr --review" />
+  </ToolTabsPanel>
+</ToolTabs>
 它们按波次并行运行，每个 Task 独立完成 PR 创建 -> CI -> 机器人审查 -> **合并**。
 
 **快速本地合并每个 Task，无需 PR**
-```
-ywc-parallel-executor 000020-010..000025-010 --local-merge --review
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-parallel-executor 000020-010..000025-010 --local-merge --review" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-parallel-executor 000020-010..000025-010 --local-merge --review" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **并行运行所有 Tasks，并将它们作为一个 PR (`--aggregate-pr`) 提交**
-```
-ywc-parallel-executor --all --aggregate-pr --group-name payments --review
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-parallel-executor --all --aggregate-pr --group-name payments --review" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-parallel-executor --all --aggregate-pr --group-name payments --review" />
+  </ToolTabsPanel>
+</ToolTabs>
 Tasks 按波浪在一个 `aggregate/payments` 分支上堆叠，并作为 **一个** PR 交付。有关完整的 `--aggregate-pr` 和 `--group-name` 模型，请参见本页顶部的“共享概念”部分。它与 `ywc-sequential-executor` 的概念完全相同，只是共享分支前缀从 `work/` 变为 `aggregate/`。
 
 **在所有工作完成后，让人工一次性审查并合并所有内容**
-```
-ywc-parallel-executor 000020-010..000025-010 --draft
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-parallel-executor 000020-010..000025-010 --draft" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-parallel-executor 000020-010..000025-010 --draft" />
+  </ToolTabsPanel>
+</ToolTabs>
 在所有波次完成后，会创建一个草稿 PR，并且合并是手动的。
 
 > **注意**：如果没有指定 `--local-merge` / `--draft` / `--per-task-pr` / `--aggregate-pr` 中的任何一个，它会询问你想要哪种模式，而不是默默选择一个默认值。`--review` 可以与任何模式结合使用。（供参考，`ywc-parallel-executor` 没有单独的 `--worktree` 标志，因为每个 Task 工作区隔离是这个 Skill 的默认行为。）
@@ -122,20 +194,35 @@ ywc-parallel-executor 000020-010..000025-010 --draft
 ## ywc-code-gen - 当你想在不进行 Task 分解的情况下直接生成代码
 
 **同时生成后端 + 前端 + 测试**
-```
-ywc-code-gen --spec docs/ywc-plans/ywc-improve-architecture-skill.md --feature "improve architecture skill docs"
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-code-gen --spec docs/ywc-plans/ywc-improve-architecture-skill.md --feature &quot;improve architecture skill docs&quot;" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-code-gen --spec docs/ywc-plans/ywc-improve-architecture-skill.md --feature &quot;improve architecture skill docs&quot;" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **对于支付/认证等敏感功能，请使用 TDD 小心构建**
-```
-ywc-code-gen --spec docs/ywc-plans/ywc-toolkit-eval-hardening.md --feature "payment webhook hardening" --tdd
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-code-gen --spec docs/ywc-plans/ywc-toolkit-eval-hardening.md --feature &quot;payment webhook hardening&quot; --tdd" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-code-gen --spec docs/ywc-plans/ywc-toolkit-eval-hardening.md --feature &quot;payment webhook hardening&quot; --tdd" />
+  </ToolTabsPanel>
+</ToolTabs>
 像 `payment` 这样的关键词会被自动分类为 `critical`，这禁止灰箱委派（只检查接口而不阅读内部代码）。`--tdd` 强制执行 RED -> GREEN -> REFACTOR 提交边界。
 
 **您已经检查了可重用代码，并希望跳过重复检测**
-```
-ywc-code-gen --spec docs/ywc-plans/improve-evaluate-codex-skills-agents-skill.md --feature "notification settings UI" --skip-reuse-check
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-code-gen --spec docs/ywc-plans/improve-evaluate-codex-skills-agents-skill.md --feature &quot;notification settings UI&quot; --skip-reuse-check" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-code-gen --spec docs/ywc-plans/improve-evaluate-codex-skills-agents-skill.md --feature &quot;notification settings UI&quot; --skip-reuse-check" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 > **注意**：`--spec` 和 `--feature` 都是必需的。如果任一为空，将使用 `NEEDS_CONTEXT` 停止。如果工作目录中已经存在 `tasks/` 目录，请使用 `ywc-sequential-executor` / `ywc-parallel-executor` 代替此 Skill。
 

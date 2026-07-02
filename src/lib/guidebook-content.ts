@@ -12,6 +12,8 @@ import remarkParse from "remark-parse";
 import { unified } from "unified";
 import { visit } from "unist-util-visit";
 
+import type { Locale } from "@/i18n/locale-list";
+
 export type GuidebookHeadingDepth = 2 | 3;
 
 export type GuidebookTocItem = {
@@ -266,6 +268,47 @@ function inferOrderFromFilePath(filePath: string | undefined): number | undefine
 
   const match = /^(\d+)/.exec(basename(filePath));
   return match === null ? undefined : Number(match[1]);
+}
+
+const cjkReadingLocales = new Set<Locale>(["ja", "ko", "zh"]);
+const wordsPerMinute = 200;
+const charsPerMinuteCjk = 400;
+
+const readingTimeLabelByLocale: Record<Locale, (minutes: number) => string> = {
+  en: (minutes) => `${minutes} min read`,
+  ja: (minutes) => `読了目安 ${minutes}分`,
+  ko: (minutes) => `${minutes}분 소요`,
+  zh: (minutes) => `阅读约 ${minutes} 分钟`,
+  es: (minutes) => `${minutes} min de lectura`
+};
+
+// CJK locales aren't space-delimited, so a words-per-minute estimate undercounts
+// reading time -- fall back to a characters-per-minute heuristic for those locales.
+export function estimateReadingMinutes(markdown: string, locale: Locale): number {
+  const plainText = markdown
+    .replace(/```[\s\S]*?```/g, " ")
+    .replace(/`[^`]*`/g, " ")
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, " ")
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1")
+    .replace(/[#>*_~-]/g, " ")
+    .trim();
+
+  if (plainText.length === 0) {
+    return 1;
+  }
+
+  if (cjkReadingLocales.has(locale)) {
+    const charCount = plainText.replace(/\s+/g, "").length;
+    return Math.max(1, Math.ceil(charCount / charsPerMinuteCjk));
+  }
+
+  const wordCount = plainText.split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.ceil(wordCount / wordsPerMinute));
+}
+
+export function formatReadingTimeLabel(locale: Locale, minutes: number): string {
+  const format = readingTimeLabelByLocale[locale] ?? readingTimeLabelByLocale.en;
+  return format(minutes);
 }
 
 function toPlainText(nodes: RootContent[]): string {

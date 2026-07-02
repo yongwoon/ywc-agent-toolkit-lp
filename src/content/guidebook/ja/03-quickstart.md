@@ -8,47 +8,77 @@
 
 ## Step 1 — 計画を立てる
 
-```
-ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움. 잠김/오타/미가입 등 구체적 사유를 보여주고 싶음
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움. 잠김/오타/미가입 등 구체적 사유를 보여주고 싶음" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움. 잠김/오타/미가입 등 구체적 사유를 보여주고 싶음" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 `ywc-plan` が codebase を先に読み、この変更が単一 PR で終わる **Small** 規模かどうかを判断します。Small と判断されると `plan.md` ファイルが生成されます。What / Why / Out of Scope / Done When の 4 項目が埋まっているか確認してください。
 
 ## Step 2 — 計画を収束させる
 
-```
-ywc-spec-ready --spec plan.md
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-spec-ready --spec plan.md" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-spec-ready --spec plan.md" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 `plan.md` にまだ concern が残っていれば自動で補完して再検証し、すでにきれいならそのまま次の段階へ handoff されます。
 
 ## Step 3 — コード生成
 
-```
-ywc-code-gen --spec plan.md --feature "specific login failure reason"
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-code-gen --spec plan.md --feature &quot;specific login failure reason&quot;" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-code-gen --spec plan.md --feature &quot;specific login failure reason&quot;" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 Backend / Frontend / QA の 3 layer を並列に生成します。生成が終わると、`DONE`, `DONE_WITH_CONCERNS`, `BLOCKED`, `NEEDS_CONTEXT` のいずれかで終わる完了レポートが出ます。各状態の意味は [02. 核心概念](./02-core-concepts.md)を参照してください。
 
 ## Step 4 — PR を開く前にレビューする
 
-```
-ywc-impl-review
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-impl-review" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-impl-review" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 `ywc-code-gen` には自動レビュー flag がないため、この段階を飛ばすとコードレビューなしでそのまま PR が開かれます。**省略しないでください。**
 
 ## Step 5 — PR 作成と Review
 
-```
-ywc-create-pr --title "fix: show specific login failure reason"
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-create-pr --title &quot;fix: show specific login failure reason&quot;" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-create-pr --title &quot;fix: show specific login failure reason&quot;" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 `ywc-create-pr` が commit、secret scan、local validation、draft PR 作成、remote CI/Bot Review 確認を処理します。Bot review comment や merge-readiness の問題が残った場合は、以下のように PR health sweep を別途実行します。
 
-```
-ywc-handle-pr-reviews 123
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-handle-pr-reviews 123" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-handle-pr-reviews 123" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 Small フローは `plan.md` ベースなので、`tasks/<task-name>/` artifact がありません。そのため task 完了処理まで含む `ywc-finish-branch` ではなく、reviewer 承認後に GitHub UI または `gh pr merge` で merge するフローの方が安全です。
 

@@ -8,9 +8,14 @@
 
 ## 初期設定 (`--init`)
 
-```
-ywc-e2e-test-strategy --init
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-e2e-test-strategy --init" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-e2e-test-strategy --init" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 `playwright.config.*` がなければ自動的にこのモードへ入ります。進行順序:
 
@@ -22,21 +27,36 @@ ywc-e2e-test-strategy --init
 ## 実行
 
 **Flow を 1 つずつ追加生成**
-```
-ywc-e2e-test-strategy --flow "checkout happy path"
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-e2e-test-strategy --flow &quot;checkout happy path&quot;" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-e2e-test-strategy --flow &quot;checkout happy path&quot;" />
+  </ToolTabsPanel>
+</ToolTabs>
 entry URL、順番通りの action、期待する最終状態を明確に指定するほど結果品質が上がります。
 
 **既存カバレッジを点検**
-```
-ywc-e2e-test-strategy --audit
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-e2e-test-strategy --audit" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-e2e-test-strategy --audit" />
+  </ToolTabsPanel>
+</ToolTabs>
 `playwright.config.*` があり、他の flag がなければ自動的にこのモードへ入ります。`waitForTimeout` / CSS class selector(`.btn-*`) / `expect()` のない test は fragile と表示され、priority matrix(revenue impact × failure frequency)で gap を採点し、合計 5 点以上のみ自動化対象として提案します。
 
 **ファイル作成前に計画だけ確認**
-```
-ywc-e2e-test-strategy --dry-run
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-e2e-test-strategy --dry-run" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-e2e-test-strategy --dry-run" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 ## Flow 選定基準 (最初の 5 個、ROI が高い順)
 

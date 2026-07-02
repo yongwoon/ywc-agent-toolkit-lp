@@ -32,21 +32,43 @@ ywc-plan → ywc-spec-ready → ywc-task-generator → ywc-sequential-executor -
 
 ## 実行例
 
-```
-ywc-plan 사용자가 알림 종류별로 켜고 끌 수 있는 설정 화면과 API 가 필요함. 이메일/푸시/인앱 3채널 지원
-```
-```
-ywc-spec-ready --spec docs/ywc-plans/notification-settings.md
-```
-```
-ywc-task-generator --lang korean
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-plan 사용자가 알림 종류별로 켜고 끌 수 있는 설정 화면과 API 가 필요함. 이메일/푸시/인앱 3채널 지원" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-plan 사용자가 알림 종류별로 켜고 끌 수 있는 설정 화면과 API 가 필요함. 이메일/푸시/인앱 3채널 지원" />
+  </ToolTabsPanel>
+</ToolTabs>
+
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-spec-ready --spec docs/ywc-plans/notification-settings.md" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-spec-ready --spec docs/ywc-plans/notification-settings.md" />
+  </ToolTabsPanel>
+</ToolTabs>
+
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-task-generator --lang korean" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-task-generator --lang korean" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 以降の実行 command はオプションが多いため、別ページで扱います → [12. Executor / Code-gen Prompt パターン](./12-executor-and-codegen-patterns.md)。最も単純な開始は以下です。
 
-```
-ywc-sequential-executor --review
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-sequential-executor --review" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-sequential-executor --review" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 task 指定を省略すると、`dependency-graph.md` から次に実行可能な Task を自動で探します。
 

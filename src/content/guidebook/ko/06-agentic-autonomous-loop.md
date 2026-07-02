@@ -31,32 +31,57 @@ Goal → [Plan → Execute → Evaluate → Repeat] → Result
 ## 실행 예시
 
 **목표 하나만 자연어로 던지기 (기본, 최대 3회 반복)**
-```
-ywc-agentic "결제 실패 시 자동 재시도 로직을 추가해줘"
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot;" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot;" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **반복 상한을 늘려서 더 끈질기게 시도하게 하기**
-```
-ywc-agentic "결제 실패 시 자동 재시도 로직을 추가해줘" --max-iterations 5
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot; --max-iterations 5" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot; --max-iterations 5" />
+  </ToolTabsPanel>
+</ToolTabs>
 `--max-iterations` 는 사용자가 정하는 안전장치입니다 — 수렴이 안 된다고 agent 가 스스로 상한을 올리는 일은 없습니다.
 
 **executor 를 명시적으로 지정하고 싶을 때**
-```
-ywc-agentic "알림 설정 화면과 API 추가" --executor sequential
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-agentic &quot;알림 설정 화면과 API 추가&quot; --executor sequential" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-agentic &quot;알림 설정 화면과 API 추가&quot; --executor sequential" />
+  </ToolTabsPanel>
+</ToolTabs>
 기본값 `auto` 는 `dependency-graph.md` 를 보고 sequential/parallel 을 자동 선택합니다.
 
 **중단된 run 을 이어서 진행하기**
-```
-ywc-agentic --resume
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-agentic --resume" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-agentic --resume" />
+  </ToolTabsPanel>
+</ToolTabs>
 `tasks/` 에 아직 완료되지 않은 task 가 남아있으면 Plan Phase 를 건너뛰고 그 지점부터 재개합니다.
 
 **실제로 실행하지 않고 어떤 phase 가 순서대로 돌지만 미리 보기**
-```
-ywc-agentic "결제 실패 시 자동 재시도 로직을 추가해줘" --dry-run
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot; --dry-run" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot; --dry-run" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 ## 목표가 애매하면 멈춥니다
 

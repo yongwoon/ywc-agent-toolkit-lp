@@ -1,17 +1,32 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
 import type { Locale } from "@/i18n/locale-list";
 import { routing } from "@/i18n/routing";
-import { getGroupLabel, guidebookPages, normalizeGuidebookSlug } from "@/components/guidebook/guidebook-nav";
+import {
+  getGroupLabel,
+  getGuidebookHref,
+  getGuidebookRootHref,
+  guidebookPages,
+  isScaleChoiceSlug,
+  normalizeGuidebookSlug
+} from "@/components/guidebook/guidebook-nav";
 import { GuidebookMdx } from "@/components/guidebook/guidebook-mdx";
 import { PrevNextNav } from "@/components/guidebook/prev-next-nav";
+import { ScaleSelector } from "@/components/guidebook/scale-selector";
 import { Toc } from "@/components/guidebook/toc";
-import { loadGuidebookPageForLocale, type GuidebookPage } from "@/lib/guidebook-content";
+import {
+  estimateReadingMinutes,
+  formatReadingTimeLabel,
+  loadGuidebookPageForLocale,
+  type GuidebookPage
+} from "@/lib/guidebook-content";
 import {
   findLocalizedGuidebookPage,
   getLocalizedAdjacentGuidebookPages,
   loadLocalizedGuidebookNav
 } from "@/lib/guidebook-nav-content";
+import { buildPageMetadata } from "@/lib/seo";
 
 type GuidebookPageProps = {
   params: Promise<{
@@ -30,6 +45,36 @@ export function generateStaticParams() {
       slug: page.slug.split("/")
     }))
   ]);
+}
+
+export async function generateMetadata({
+  params
+}: GuidebookPageProps): Promise<Metadata> {
+  const { locale: requestedLocale, slug: slugParam } = await params;
+  const locale = hasLocale(routing.locales, requestedLocale)
+    ? (requestedLocale as Locale)
+    : routing.defaultLocale;
+  const slug = normalizeGuidebookSlug(slugParam);
+  const nav = await loadLocalizedGuidebookNav(locale);
+  const navPage = findLocalizedGuidebookPage(nav, slug);
+
+  if (!navPage) {
+    notFound();
+  }
+
+  const isGuidebookRoot = !slugParam?.filter(Boolean).length;
+  const getPath = (alternateLocale: Locale) =>
+    isGuidebookRoot
+      ? getGuidebookRootHref(alternateLocale)
+      : getGuidebookHref(alternateLocale, slug);
+
+  return buildPageMetadata({
+    locale,
+    title: navPage.title,
+    description: navPage.description,
+    path: getPath(locale),
+    getAlternatePath: getPath
+  });
 }
 
 export default async function Page({ params }: GuidebookPageProps) {
@@ -56,6 +101,16 @@ export default async function Page({ params }: GuidebookPageProps) {
       depth: 2
     }
   ];
+  const currentGroup = nav.find((group) => group.groupId === navPage.groupId);
+  const groupHref = currentGroup?.pages[0]
+    ? getGuidebookHref(locale, currentGroup.pages[0].slug)
+    : undefined;
+  const readingTimeLabel = content
+    ? formatReadingTimeLabel(locale, estimateReadingMinutes(content.content, locale))
+    : undefined;
+  const scaleChoicePages = isScaleChoiceSlug(slug)
+    ? nav.flatMap((group) => group.pages).filter((page) => isScaleChoiceSlug(page.slug))
+    : undefined;
 
   return (
     <>
@@ -66,7 +121,23 @@ export default async function Page({ params }: GuidebookPageProps) {
       >
         <article className="mx-auto max-w-[70ch] text-wrap-pretty">
           <div className="mb-6 font-mono text-label font-semibold uppercase tracking-[var(--ls-label)] text-text-faint">
-            Guidebook / {getGroupLabel(locale, navPage.groupId)}
+            <a
+              className="outline-none transition-colors duration-[var(--dur-fast)] hover:text-accent focus-visible:shadow-[var(--focus-ring)]"
+              href={getGuidebookRootHref(locale)}
+            >
+              Guidebook
+            </a>
+            {" / "}
+            {groupHref ? (
+              <a
+                className="outline-none transition-colors duration-[var(--dur-fast)] hover:text-accent focus-visible:shadow-[var(--focus-ring)]"
+                href={groupHref}
+              >
+                {getGroupLabel(locale, navPage.groupId)}
+              </a>
+            ) : (
+              getGroupLabel(locale, navPage.groupId)
+            )}
           </div>
           <h1 className="scroll-mt-[76px] font-display text-h1 font-bold leading-[var(--lh-tight)] text-text-bright">
             {pageTitle}
@@ -76,16 +147,20 @@ export default async function Page({ params }: GuidebookPageProps) {
               Guide
             </span>
             <span className="rounded-full border border-border-subtle bg-surface px-2.5 py-1 font-mono text-label font-semibold uppercase tracking-[var(--ls-label)] text-text-muted">
-              {content ? "Synced" : "Pending content sync"}
+              {readingTimeLabel ?? "Pending content sync"}
             </span>
           </div>
           <p className="mt-6 text-lead leading-[var(--lh-relaxed)] text-text-secondary">
             {pageDescription}
           </p>
 
+          {scaleChoicePages ? (
+            <ScaleSelector currentSlug={slug} locale={locale} pages={scaleChoicePages} />
+          ) : null}
+
           <div className="mt-10 text-[var(--text-body)] leading-[var(--lh-relaxed)] text-text">
             {content ? (
-              <GuidebookMdx source={content.content} />
+              <GuidebookMdx locale={locale} source={content.content} />
             ) : (
               <section
                 aria-labelledby="content-status"

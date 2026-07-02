@@ -8,11 +8,19 @@ This repository defines around 30 Skills with the `ywc-*` prefix under `tools/cl
 
 This Guidebook is a practical manual for **first-time users** of those tools, so you can quickly find "which Skill should I run, in what order, with what prompt, for my current situation?" It does not go deep into Skill internals such as Rationalization Defense or Advisor Pattern. Instead, it focuses on **the commands users enter and the results they should expect**. If you want to understand the internal operating principles, refer directly to each Skill's `SKILL.md`.
 
+For deeper details on each Skill's options, prerequisites, and internal flow, refer to the source repository's Skill folders. Claude Code Skills are documented under [`claude-code/skills`](https://github.com/yongwoon/ywc-agent-toolkit/tree/main/claude-code/skills), and Codex Skills are documented under [`codex/skills`](https://github.com/yongwoon/ywc-agent-toolkit/tree/main/codex/skills). Use this Guidebook to find the common execution path quickly, then open the relevant `SKILL.md` when you need the full reference.
+
 ## Who this document is for
 
 - Developers using `ywc-*` Skills in this project for the first time
 - Developers who have used Skills a few times but still get confused about the order in which to combine them
 - Developers who need exact syntax for option-heavy Skills such as `ywc-sequential-executor`, `ywc-parallel-executor`, and `ywc-code-gen`
+
+## Prerequisites and recommended setup
+
+Plugin marketplace installation and Codex plugin installation have no separate prerequisites. The installer handles the required file copying and registration automatically.
+
+That said, actually running a Skill needs a few tools in place on your system — `git`, `gh`, `python3`, and more — and design-related Skills work better with some extra setup. See [14. Prerequisites and installation](./14-prerequisites-installation.md) for the full list of required and optional tools plus install steps — worth a quick read before you get started.
 
 ## What to check before starting
 
@@ -27,9 +35,14 @@ This Guidebook is a practical manual for **first-time users** of those tools, so
 
 All examples in this Guidebook assume you type the following form directly into the Claude Code conversation.
 
-```
-ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 The `/ywc-plan` form with a leading `/` works the same way. This document omits `/` for readability. Options in the form `--flag value` differ by Skill, and concrete examples are collected on each Skill page or in [12. Executor / Code-gen Prompt patterns](./12-executor-and-codegen-patterns.md).
 

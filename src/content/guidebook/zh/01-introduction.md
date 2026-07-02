@@ -8,11 +8,19 @@
 
 本指南是针对这些工具的**首次使用者**的实用手册，因此你可以快速找到“在当前情况下，我应该以什么顺序、用什么提示运行哪一个 Skill？” 它不会深入探讨 Skill 的内部机制，例如理性化防御或顾问模式。相反，它关注于**用户输入的命令以及他们应预期的结果**。如果你想了解内部操作原理，请直接参考每个 Skill 的 `SKILL.md`。
 
+每个 Skill 的详细选项、前置条件和内部处理流程，都整理在原始仓库的 Skill 文件夹中。Claude Code 的 Skill 请参考 [`claude-code/skills`](https://github.com/yongwoon/ywc-agent-toolkit/tree/main/claude-code/skills)，Codex 的 Skill 请参考 [`codex/skills`](https://github.com/yongwoon/ywc-agent-toolkit/tree/main/codex/skills)。本指南用于快速找到常见执行流程；需要完整参考时，再打开对应的 `SKILL.md`。
+
 ## 此文件适用于谁
 
 - 开发者首次在此项目中使用 `ywc-*` 技能
 - 已经使用过 Skills 几次但仍然对如何组合它们的顺序感到困惑的开发者
 - 需要精确语法的开发者，用于选项繁多的技能，例如 `ywc-sequential-executor`、`ywc-parallel-executor` 和 `ywc-code-gen`
+
+## 前置条件和建议设置
+
+通过 Plugin marketplace 或 Codex plugin 安装时，没有额外前置条件。安装工具会自动处理所需的文件复制和注册。
+
+不过，实际运行 Skill 时需要系统中准备好 `git`、`gh`、`python3` 等几个 Tool，如果要使用设计相关 Skill，额外的设置也会有帮助。必需 Tool 与可选 Tool 的完整列表和安装方法整理在 [14. 前置条件与安装](./14-prerequisites-installation.md) —— 建议在开始之前先浏览一遍。
 
 ## 开始前需要检查的事项
 
@@ -27,9 +35,14 @@
 
 本指南中的所有示例都假设你直接将以下表单输入到 Claude Code 对话中。
 
-```
-ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 带有前导 `/` 的 `/ywc-plan` 表单工作方式相同。为了可读性，本文件省略了 `/`。表单 `--flag value` 中的选项因 Skill 而异，具体示例收集在每个 Skill 页面或 [12. Executor / Code-gen Prompt patterns](./12-executor-and-codegen-patterns.md) 中。
 

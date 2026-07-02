@@ -22,19 +22,34 @@ Use this after feature implementation is done and you need to verify that it rea
 ## `ywc-gen-testcase` examples
 
 **Create a dev+QA testsheet from a PR number**
-```
-ywc-gen-testcase 250
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-gen-testcase 250" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-gen-testcase 250" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **Use the current diff, QA-only audience, Japanese output**
-```
-ywc-gen-testcase --from-diff --audience qa --lang ja
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-gen-testcase --from-diff --audience qa --lang ja" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-gen-testcase --from-diff --audience qa --lang ja" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **Task-based, including regression items**
-```
-ywc-gen-testcase 000020-010 --include-regression
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-gen-testcase 000020-010 --include-regression" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-gen-testcase 000020-010 --include-regression" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 ## Manual verification vs automation: when to use what
 

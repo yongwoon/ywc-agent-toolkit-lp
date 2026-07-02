@@ -16,9 +16,14 @@
 
 将静态代码分析与实际的用户界面执行（Chrome DevTools MCP）相结合，以审核信息架构、视觉设计、可用性和可访问性（WCAG 2.2 AA）。结果生成四级报告：关键 / 高 / 中 / 低。
 
-```
-ywc-ui-ux-review 결제 화면 usability 점검해줘
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-ui-ux-review 결제 화면 usability 점검해줘" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-ui-ux-review 결제 화면 usability 점검해줘" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 由于包含了实时 UI 探索，当有暂存或预览 URL 可用时，结果会更准确。
 
@@ -27,14 +32,24 @@ ywc-ui-ux-review 결제 화면 usability 점검해줘
 当现有屏幕普通或感觉“AI生成”时使用。它可以增加视觉特色，或检查AI产生的痕迹，例如渐变文本 / 深色上的青色 / Inter 字体 / 统一的卡片网格。
 
 **代码更新（默认模式）**
-```
-ywc-design-renew --target setup-collection/default-project/docs/design/README.md --url http://localhost:3000
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-design-renew --target setup-collection/default-project/docs/design/README.md --url http://localhost:3000" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-design-renew --target setup-collection/default-project/docs/design/README.md --url http://localhost:3000" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **仅检查，不要触碰代码**
-```
-ywc-design-renew --mode check --target setup-collection/default-project/docs/design/README.md --fail-on high
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-design-renew --mode check --target setup-collection/default-project/docs/design/README.md --fail-on high" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-design-renew --mode check --target setup-collection/default-project/docs/design/README.md --fail-on high" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 如果你通过 `--url`，也会提供前/后截图。如果省略，则仅进行代码分析，这样准确性较低。`--fail-on` 是检查模式的门限，默认为 `critical`。
 

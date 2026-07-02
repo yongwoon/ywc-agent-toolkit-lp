@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Skill Docs Page" description="Laravel-docs-style 3-column skill/API reference — sticky top bar, collapsible skill-nav sidebar, prose content, on-this-page TOC with scroll-spy" -->
+<helmet>
+<script src="./ds-base.js"></script>
+<link rel="stylesheet" href="./page.css" />
+</helmet>
+
+<header class="topbar">
+  <button class="menubtn" id="menubtn" aria-label="Menu">≡</button>
+  <a href="#top" class="wordmark"><span class="p">$</span><span class="y">ywc</span><span class="r">-agent-toolkit</span></a>
+  <nav class="topnav">
+    <a href="#" class="on">Docs</a>
+    <a href="#">Skills</a>
+    <a href="#">Agents</a>
+    <a href="#">Hooks</a>
+  </nav>
+  <div class="searchbox"><span>⌕</span><span>Search docs</span><span class="k">⌘K</span></div>
+  <span class="verselect">v1.x ▾</span>
+  <span class="verselect">◍ EN ▾</span>
+  <a href="https://github.com/yongwoon/ywc-agent-toolkit" class="ghlink">★ 1.2k</a>
+</header>
+
+<div class="layout" id="top">
+  <aside class="sidebar" id="sidebar">
+    <nav>
+      <div class="navgroup open">
+        <div class="gt">Getting Started</div>
+        <div class="navlist">
+          <a href="#">Introduction</a>
+          <a href="#">Installation</a>
+          <a href="#">Quick Start</a>
+          <a href="#">What do I want to do?</a>
+        </div>
+      </div>
+      <div class="navgroup open">
+        <div class="gt">Planning &amp; Spec</div>
+        <div class="navlist">
+          <a href="#" class="on">ywc-plan</a>
+          <a href="#">ywc-spec-writer</a>
+          <a href="#">ywc-spec-validate</a>
+          <a href="#">ywc-spec-ready</a>
+          <a href="#">ywc-tech-research</a>
+          <a href="#">ywc-brainstorm</a>
+          <a href="#">ywc-onboard-repo</a>
+        </div>
+      </div>
+      <div class="navgroup">
+        <div class="gt">Task &amp; Execution</div>
+        <div class="navlist">
+          <a href="#">ywc-task-generator</a>
+          <a href="#">ywc-sequential-executor</a>
+          <a href="#">ywc-parallel-executor</a>
+          <a href="#">ywc-agentic</a>
+          <a href="#">ywc-code-gen</a>
+        </div>
+      </div>
+      <div class="navgroup">
+        <div class="gt">Review &amp; Verification</div>
+        <div class="navlist">
+          <a href="#">ywc-impl-review</a>
+          <a href="#">ywc-security-audit</a>
+          <a href="#">ywc-ui-ux-review</a>
+          <a href="#">ywc-debug-rootcause</a>
+        </div>
+      </div>
+      <div class="navgroup">
+        <div class="gt">Git &amp; Release</div>
+        <div class="navlist">
+          <a href="#">ywc-commit</a>
+          <a href="#">ywc-create-pr</a>
+          <a href="#">ywc-finish-branch</a>
+          <a href="#">ywc-changelog-release-notes</a>
+        </div>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <div class="crumbs"><a href="#">Docs</a><span class="sep">/</span><a href="#">Planning &amp; Spec</a><span class="sep">/</span><span style="color:var(--text-muted)">ywc-plan</span></div>
+
+    <h1 class="title">ywc-plan</h1>
+    <div class="badges">
+      <span class="badge" style="color:var(--amber-300);background:var(--amber-tint);border:1px solid rgba(245,166,35,.35)"><span class="bdot" style="background:#f5a623;box-shadow:0 0 8px #f5a623"></span>Claude Code</span>
+      <span class="badge" style="color:var(--cyan-400);background:var(--cyan-tint);border:1px solid rgba(69,199,206,.35)"><span class="bdot" style="background:#45c7ce;box-shadow:0 0 8px #45c7ce"></span>Codex</span>
+      <span class="badge" style="color:var(--text-muted);background:var(--surface);border:1px solid var(--border-strong)">Planning &amp; Spec</span>
+    </div>
+
+    <p class="lead">Convert a rough idea into an implementation-ready artifact — a directly executable <code>plan.md</code> (Small) or a spec document (Medium / Large). ywc-plan auto-assesses scale and routes to the right downstream skill.</p>
+
+    <h2 id="overview"><span class="hash">#</span>Overview</h2>
+    <p>ywc-plan is the pre-planning entry point of the pipeline. Given a natural-language change request, it clarifies intent, investigates the codebase, judges the change's <em>scale</em>, and produces the appropriate planning artifact — then hands off to the next skill. It never executes work itself; you decide when to proceed.</p>
+
+    <h2 id="when-to-use"><span class="hash">#</span>When to use</h2>
+    <ul>
+      <li>You want a plan for a feature but there's no spec and no tasks yet.</li>
+      <li>You're unsure whether a change is a Small fix or needs a full spec.</li>
+      <li>You need to prepare the spec that <code>ywc-task-generator</code> will consume.</li>
+    </ul>
+
+    <h2 id="usage"><span class="hash">#</span>Usage</h2>
+    <p>Invoke as a slash-command with your request, or just describe the change in natural language:</p>
+    <div class="cb">
+      <div class="lb">claude code · codex</div>
+      <div class="bd"><pre><span class="pr">/</span>ywc-plan "add notification settings to the profile page"</pre><button class="cpy" data-copy='/ywc-plan "add notification settings to the profile page"'>Copy</button></div>
+    </div>
+
+    <h2 id="input-output"><span class="hash">#</span>Input &amp; output</h2>
+    <p>Input is a natural-language change request. Output depends on the assessed scale:</p>
+    <table>
+      <thead><tr><th>Scale</th><th>Output</th></tr></thead>
+      <tbody>
+        <tr><td>Small</td><td><code>./plan.md</code> — a directly executable single-PR plan</td></tr>
+        <tr><td>Medium / Large</td><td><code>docs/ywc-plans/&lt;slug&gt;.md</code> — a spec consumed by <code>ywc-spec-validate</code> and <code>ywc-task-generator</code></td></tr>
+      </tbody>
+    </table>
+    <p>Each path prints an explicit handoff message naming the next step.</p>
+
+    <h2 id="how-it-works"><span class="hash">#</span>How it works</h2>
+    <p>Five steps, in order:</p>
+    <ul>
+      <li><b style="color:var(--text-bright)">Clarify</b> — asks the four anchors at once: What / Why / Out of Scope / Done When.</li>
+      <li><b style="color:var(--text-bright)">Investigate</b> — reads only the key files (<code>CLAUDE.md</code>, <code>package.json</code>, <code>docs/architecture/</code>).</li>
+      <li><b style="color:var(--text-bright)">Assess scale</b> — picks exactly one of Small / Medium / Large (defaults to Medium if ambiguous).</li>
+      <li><b style="color:var(--text-bright)">Branch</b> — writes <code>plan.md</code> for Small, or a spec document for Medium / Large.</li>
+      <li><b style="color:var(--text-bright)">Handoff</b> — names the next skill; you decide whether to run it.</li>
+    </ul>
+
+    <h2 id="safety"><span class="hash">#</span>Safety invariants</h2>
+    <p>The scale automatically escalates to Medium or higher when the change involves:</p>
+    <div class="callout">
+      <span class="ic">!</span>
+      <span class="bd">Database migrations or schema changes · introducing a new library or framework · a new externally-exposed API contract · authentication / authorization logic · cross-cutting changes spanning two or more modules.</span>
+    </div>
+
+    <h2 id="examples"><span class="hash">#</span>Examples</h2>
+    <h3>Small change → plan.md</h3>
+    <div class="cb">
+      <div class="bd"><pre><span class="pr">/</span>ywc-plan "fix the copy button tooltip on mobile"
+<span class="cm"># → Small · wrote ./plan.md · next: /ywc-code-gen</span></pre><button class="cpy" data-copy='/ywc-plan "fix the copy button tooltip on mobile"'>Copy</button></div>
+    </div>
+    <h3>Larger change → spec</h3>
+    <div class="cb">
+      <div class="bd"><pre><span class="pr">/</span>ywc-plan "add OAuth login across web and mobile"
+<span class="cm"># → Large · wrote docs/ywc-plans/oauth-login.md</span>
+<span class="cm"># next: /ywc-spec-ready  (or /ywc-spec-validate)</span></pre><button class="cpy" data-copy='/ywc-plan "add OAuth login across web and mobile"'>Copy</button></div>
+    </div>
+
+    <h2 id="related"><span class="hash">#</span>Related skills</h2>
+    <div class="chips">
+      <a href="#"><span class="ar">→</span>ywc-tech-research</a>
+      <a href="#"><span class="ar">→</span>ywc-spec-writer</a>
+      <a href="#"><span class="ar">→</span>ywc-spec-ready</a>
+      <a href="#"><span class="ar">→</span>ywc-spec-validate</a>
+      <a href="#"><span class="ar">→</span>ywc-task-generator</a>
+      <a href="#"><span class="ar">→</span>ywc-code-gen</a>
+    </div>
+
+    <div class="editrow">
+      <a href="https://github.com/yongwoon/ywc-agent-toolkit/blob/main/claude-code/skills/ywc-plan/README.md">✎ Edit this page on GitHub</a>
+      <span>Last updated · v1.x</span>
+    </div>
+
+    <div class="pagenav">
+      <a href="#" class="prev"><div class="lab">← Previous</div><div class="nm">Installation</div></a>
+      <a href="#" class="next"><div class="lab">Next →</div><div class="nm">ywc-spec-writer</div></a>
+    </div>
+  </main>
+
+  <aside class="toc">
+    <div class="tt">On this page</div>
+    <nav id="tocnav">
+      <a href="#overview">Overview</a>
+      <a href="#when-to-use">When to use</a>
+      <a href="#usage">Usage</a>
+      <a href="#input-output">Input &amp; output</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#safety">Safety invariants</a>
+      <a href="#examples">Examples</a>
+      <a href="#related">Related skills</a>
+    </nav>
+  </aside>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const root = this.el || document;
+    const $$ = (s) => Array.from(root.querySelectorAll(s));
+
+    // collapsible sidebar groups
+    $$('.navgroup > .gt').forEach((gt) => {
+      gt.addEventListener('click', () => gt.parentElement.classList.toggle('open'));
+    });
+
+    // mobile menu drawer
+    const sb = root.querySelector('#sidebar');
+    const mb = root.querySelector('#menubtn');
+    if (mb && sb) mb.addEventListener('click', () => sb.classList.toggle('show'));
+
+    // copy buttons (clipboard with safe fallback)
+    $$('.cpy').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const text = btn.getAttribute('data-copy');
+        try { await navigator.clipboard.writeText(text); } catch (e) {}
+        const old = btn.textContent;
+        btn.textContent = 'Copied';
+        btn.classList.add('done');
+        setTimeout(() => { btn.textContent = old; btn.classList.remove('done'); }, 1500);
+      });
+    });
+
+    // TOC scroll-spy
+    const links = $$('#tocnav a');
+    const map = new Map(links.map((a) => [a.getAttribute('href').slice(1), a]));
+    if (links.length) {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            links.forEach((l) => l.classList.remove('on'));
+            const a = map.get(e.target.id);
+            if (a) a.classList.add('on');
+          }
+        });
+      }, { rootMargin: '-70px 0px -70% 0px', threshold: 0 });
+      $$('.content h2[id]').forEach((h) => obs.observe(h));
+    }
+  }
+
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

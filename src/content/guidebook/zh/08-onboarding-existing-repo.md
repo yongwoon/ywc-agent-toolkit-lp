@@ -16,24 +16,44 @@
 ## 示例运行
 
 **默认运行** - 检查整个仓库并生成入门指南和入门 CLAUDE.md
-```
-ywc-onboard-repo
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-onboard-repo" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-onboard-repo" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **仅检查 monorepo 中的特定工作区**
-```
-ywc-onboard-repo --scope apps/web/
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-onboard-repo --scope apps/web/" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-onboard-repo --scope apps/web/" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **当你只需要说明性文件，而不是 Starter CLAUDE.md**
-```
-ywc-onboard-repo --guide-only
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-onboard-repo --guide-only" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-onboard-repo --guide-only" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **当你只需要 CLAUDE.md，而不是入职指南时**
-```
-ywc-onboard-repo --claude-md-only
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-onboard-repo --claude-md-only" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-onboard-repo --claude-md-only" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 ## 下一步做什么
 

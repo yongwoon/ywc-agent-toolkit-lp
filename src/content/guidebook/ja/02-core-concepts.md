@@ -37,26 +37,18 @@ DB migration や新 Library 導入は、規模に関係なく**常に別扱い**
 
 ## 全体フローをひと目で見る
 
-```
-아이디어
-  │
-  ▼
-ywc-plan (규모 판단)
-  │
-  ├─ Small ────────────┐
-  │                     ▼
-  │              plan.md → ywc-spec-ready → ywc-code-gen → ywc-impl-review → ywc-create-pr
-  │
-  └─ Medium/Large ─────┐
-                        ▼
-                 docs/ywc-plans/<slug>.md → ywc-spec-ready → ywc-task-generator
-                        │
-                        ▼
-              ywc-sequential-executor --review  또는  ywc-parallel-executor --review
-                        │
-                        ▼
-                   PR → CI → Bot Review → Merge (Executor 가 자동 처리)
-```
+<FlowDiagram>
+  <FlowStep>アイデア</FlowStep>
+  <FlowStep>ywc-plan (規模判断)</FlowStep>
+  <FlowBranch label="Small">
+    <FlowChain items="plan.md, ywc-spec-ready, ywc-code-gen, ywc-impl-review, ywc-create-pr" />
+  </FlowBranch>
+  <FlowBranch label="Medium/Large">
+    <FlowChain items="docs/ywc-plans/<slug>.md, ywc-spec-ready, ywc-task-generator" />
+    <FlowStep>ywc-sequential-executor --review または ywc-parallel-executor --review</FlowStep>
+    <FlowChain items="PR, CI, Bot Review, Merge (Executor が自動処理)" />
+  </FlowBranch>
+</FlowDiagram>
 
 このフローの各分岐は、[04](./04-general-cycle-small.md), [05](./05-general-cycle-medium-large.md) ページで実際の command 例とともに詳しく扱います。
 

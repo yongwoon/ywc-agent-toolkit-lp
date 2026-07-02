@@ -22,19 +22,34 @@
 ## `ywc-gen-testcase` 示例
 
 **从 PR 号码创建开发+QA 测试表**
-```
-ywc-gen-testcase 250
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-gen-testcase 250" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-gen-testcase 250" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **使用当前的差异，仅限QA受众，日文输出**
-```
-ywc-gen-testcase --from-diff --audience qa --lang ja
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-gen-testcase --from-diff --audience qa --lang ja" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-gen-testcase --from-diff --audience qa --lang ja" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **基于Task的，包括回归项目**
-```
-ywc-gen-testcase 000020-010 --include-regression
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-gen-testcase 000020-010 --include-regression" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-gen-testcase 000020-010 --include-regression" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 ## 人工验证与自动化：何时使用哪种
 

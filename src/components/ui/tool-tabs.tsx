@@ -2,6 +2,7 @@
 
 import {
   Children,
+  cloneElement,
   isValidElement,
   useEffect,
   useId,
@@ -58,6 +59,34 @@ const laneBorderClasses: Record<Tool, string> = {
   "claude-code": "border-b-lane-claude",
   codex: "border-b-lane-codex"
 };
+
+// Claude Code skills are invoked as chat slash-commands (/skill-name), Codex skills as
+// shell CLI invocations ($ codex exec ...). A single hardcoded prompt char on CodeBlock
+// would visually claim every command is a shell command, which is only true for Codex.
+const toolPromptChars: Record<Tool, string> = {
+  "claude-code": "/",
+  codex: "$"
+};
+
+// Panel content is a <CodeBlock ... /> authored directly in MDX (see FR-1's
+// static-literal-props constraint) without a `prompt`, so inject the tool-appropriate
+// prompt here rather than requiring every content file to set it explicitly. An
+// explicit `prompt` already set on the content is left untouched. Children.map (not a
+// plain isValidElement check) because MDX's indentation/newlines around the tag make
+// this arrive as an array with whitespace text nodes, not a bare single element.
+function withToolPrompt(content: ReactNode, tool: Tool): ReactNode {
+  return Children.map(content, (child) => {
+    if (!isValidElement(child)) {
+      return child;
+    }
+
+    const props = child.props as { prompt?: string };
+
+    return cloneElement(child as ReactElement<{ prompt?: string }>, {
+      prompt: props.prompt ?? toolPromptChars[tool]
+    });
+  });
+}
 
 type Panel = {
   tool: Tool;
@@ -186,7 +215,7 @@ export function ToolTabs({ children }: ToolTabsProps) {
   }
 
   return (
-    <div className="overflow-hidden rounded-lg border border-border-subtle bg-surface shadow-[var(--edge-top)]">
+    <div className="mt-6 overflow-hidden rounded-lg border border-border-subtle bg-surface shadow-[var(--edge-top)]">
       <div aria-label="Tool" className="flex border-b border-border-subtle" onKeyDown={handleKeyDown} role="tablist">
         {panels.map((panel, index) => {
           const isActive = index === activeIndex;
@@ -233,7 +262,7 @@ export function ToolTabs({ children }: ToolTabsProps) {
             key={panel.tool}
             role="tabpanel"
           >
-            {panel.content}
+            {withToolPrompt(panel.content, panel.tool)}
           </div>
         );
       })}

@@ -63,5 +63,10 @@
     "slug": "13-skill-reference",
     "title": "13. Referencia completa Skill",
     "summary": "Esta página agrupa las Habilidades restantes que no se cubrieron en las guías de flujo de trabajo anteriores según lo que deseas hacer ."
+  },
+  {
+    "slug": "14-prerequisites-installation",
+    "title": "14. Requisitos previos e instalación",
+    "summary": "Para usar las Skills ywc-* de forma fiable, necesitas tener listas algunas herramientas de antemano."
   }
 ]

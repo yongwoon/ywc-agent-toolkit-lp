@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0b0a09"/>
+  <rect x="48" y="48" width="1104" height="534" rx="28" fill="#14110d" stroke="#3a3024" stroke-width="2"/>
+  <rect x="88" y="88" width="1024" height="454" rx="18" fill="#0f0d0a" stroke="#2b241b" stroke-width="2"/>
+  <circle cx="132" cy="128" r="9" fill="#f25f4c"/>
+  <circle cx="164" cy="128" r="9" fill="#f5a623"/>
+  <circle cx="196" cy="128" r="9" fill="#45c7ce"/>
+  <text x="128" y="210" fill="#f5a623" font-family="IBM Plex Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="28" font-weight="700">ywc-agent-toolkit</text>
+  <text x="128" y="300" fill="#f7efe2" font-family="Space Grotesk, Inter, ui-sans-serif, system-ui, sans-serif" font-size="64" font-weight="700">41 skills for Claude Code</text>
+  <text x="128" y="374" fill="#f7efe2" font-family="Space Grotesk, Inter, ui-sans-serif, system-ui, sans-serif" font-size="64" font-weight="700">and Codex</text>
+  <text x="128" y="456" fill="#bfb4a3" font-family="IBM Plex Sans, Inter, ui-sans-serif, system-ui, sans-serif" font-size="30">Expert agent workflows, guidebook, and install paths in 5 locales.</text>
+  <rect x="128" y="500" width="292" height="46" rx="8" fill="#f5a623"/>
+  <text x="150" y="531" fill="#17100a" font-family="IBM Plex Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="700">npm install toolkit</text>
+  <path d="M954 166h96v96h-96zM1050 262h64v64h-64zM890 262h64v64h-64zM954 326h96v78h-96z" fill="none" stroke="#45c7ce" stroke-width="7"/>
+  <path d="M1002 262v64M954 306h-64M1050 294h64M1002 166v-44" stroke="#f5a623" stroke-width="7" stroke-linecap="round"/>
+</svg>

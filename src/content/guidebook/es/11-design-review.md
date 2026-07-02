@@ -16,9 +16,14 @@ Las dos habilidades responden a preguntas diferentes. Elige según la pregunta q
 
 Combina el análisis estático de código con la ejecución real de la interfaz de usuario (Chrome DevTools MCP) para auditar la Arquitectura de la Información, el Diseño Visual, la Usabilidad y la Accesibilidad (WCAG 2.2 AA). El resultado es un informe de cuatro niveles: Crítico / Alto / Medio / Bajo.
 
-```
-ywc-ui-ux-review 결제 화면 usability 점검해줘
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-ui-ux-review 결제 화면 usability 점검해줘" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-ui-ux-review 결제 화면 usability 점검해줘" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 Debido a que se incluye la exploración de la interfaz de usuario en vivo, los resultados son más precisos cuando hay disponible una URL de prueba o de vista previa.
 
@@ -27,14 +32,24 @@ Debido a que se incluye la exploración de la interfaz de usuario en vivo, los r
 Usa esto cuando una pantalla existente sea ordinaria o parezca "generada por IA". Añade carácter visual o verifica detalles reveladores de IA, como texto degradado / cian sobre oscuro / Inter / cuadrículas de tarjetas uniformes.
 
 **Renovación de código (modo predeterminado)**
-```
-ywc-design-renew --target setup-collection/default-project/docs/design/README.md --url http://localhost:3000
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-design-renew --target setup-collection/default-project/docs/design/README.md --url http://localhost:3000" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-design-renew --target setup-collection/default-project/docs/design/README.md --url http://localhost:3000" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **Solo revisar, sin tocar el código**
-```
-ywc-design-renew --mode check --target setup-collection/default-project/docs/design/README.md --fail-on high
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-design-renew --mode check --target setup-collection/default-project/docs/design/README.md --fail-on high" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-design-renew --mode check --target setup-collection/default-project/docs/design/README.md --fail-on high" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 Si pasas `--url`, también se proporcionan capturas de pantalla antes/después. Si se omite, se procede solo con el análisis de código, lo cual es menos preciso. `--fail-on` es el umbral de puerta para el modo de verificación, y por defecto es `critical`.
 
