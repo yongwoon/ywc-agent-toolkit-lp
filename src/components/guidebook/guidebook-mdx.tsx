@@ -2,7 +2,7 @@
 
 import { MDXRemote, type MDXRemoteSerializeResult } from "next-mdx-remote";
 import Slugger from "github-slugger";
-import type { ComponentPropsWithoutRef, ReactNode } from "react";
+import { isValidElement, type ComponentPropsWithoutRef, type ReactNode } from "react";
 import { CodeBlock } from "@/components/ui/code-block";
 
 type GuidebookMdxProps = {
@@ -16,6 +16,10 @@ function textFromChildren(children: ReactNode): string {
 
   if (Array.isArray(children)) {
     return children.map(textFromChildren).join("");
+  }
+
+  if (isValidElement<{ children?: ReactNode }>(children)) {
+    return textFromChildren(children.props.children);
   }
 
   return "";
