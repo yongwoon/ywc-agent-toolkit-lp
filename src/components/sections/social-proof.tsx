@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 type SocialProofItem = {
   quote: string;
@@ -6,8 +6,8 @@ type SocialProofItem = {
   sourceUrl: string;
 };
 
-export function SocialProof() {
-  const t = useTranslations("socialProof");
+export async function SocialProof() {
+  const t = await getTranslations("socialProof");
   const items = t.raw("items") as SocialProofItem[];
 
   return (

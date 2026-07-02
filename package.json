@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "node scripts/generate-sitemap.mjs && node scripts/inject-csp.mjs",
+    "postbuild": "node scripts/generate-sitemap.mjs && node scripts/strip-landing-next-runtime.mjs && node scripts/inject-csp.mjs",
     "lint": "eslint ."
   },
   "dependencies": {

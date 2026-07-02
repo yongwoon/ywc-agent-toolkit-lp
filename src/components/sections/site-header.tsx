@@ -1,17 +1,22 @@
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { LocaleSwitcher } from "@/components/ui/locale-switcher";
+import type { Locale } from "@/i18n/routing";
 
 type NavLink = {
   label: string;
   target: string;
 };
 
-export function SiteHeader() {
-  const t = useTranslations("nav");
+type SiteHeaderProps = {
+  locale: Locale;
+};
+
+export async function SiteHeader({ locale }: SiteHeaderProps) {
+  const t = await getTranslations("nav");
   const links = t.raw("links") as NavLink[];
   const github = t.raw("github") as NavLink;
 
@@ -46,7 +51,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="ml-auto hidden items-center gap-2 sm:flex">
-          <LocaleSwitcher />
+          <LocaleSwitcher value={locale} />
           <a
             aria-label={github.label}
             className="outline-none focus-visible:shadow-[var(--focus-ring)]"
@@ -96,7 +101,7 @@ export function SiteHeader() {
               ))}
             </nav>
             <div className="mt-2 grid gap-2 border-t border-border-subtle pt-2">
-              <LocaleSwitcher align="start" className="w-full" />
+              <LocaleSwitcher align="start" className="w-full" value={locale} />
               <Button href="#install" size="sm" variant="primary" block>
                 {links.find((link) => link.target === "#install")?.label ??
                   "Install"}

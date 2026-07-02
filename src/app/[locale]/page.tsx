@@ -10,7 +10,7 @@ import { ProblemSolution } from "@/components/sections/problem-solution";
 import { SiteHeader } from "@/components/sections/site-header";
 import { SiteFooter } from "@/components/sections/site-footer";
 import { SocialProof } from "@/components/sections/social-proof";
-import { routing } from "@/i18n/routing";
+import { routing, type Locale } from "@/i18n/routing";
 
 type LocaleHomePageProps = {
   params: Promise<{ locale: string }>;
@@ -27,7 +27,7 @@ export default async function LocaleHomePage({ params }: LocaleHomePageProps) {
 
   return (
     <div id="top" className="min-h-screen">
-      <SiteHeader />
+      <SiteHeader locale={locale as Locale} />
       <main>
         <Hero />
         <ProblemSolution />
