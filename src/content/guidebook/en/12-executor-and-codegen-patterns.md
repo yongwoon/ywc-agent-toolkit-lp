@@ -28,49 +28,91 @@ Only the branch name prefix differs (`work/` vs `aggregate/`); the operating pri
 
 ## ywc-sequential-executor - when you want to run Tasks in order
 
+> **Note**: `ywc-sequential-executor` itself has no separate `--tdd` flag. Each Task's implementation step internally follows the same default TDD gate as `ywc-code-gen` (confirming a failing test before implementation). If you need the full RED → GREEN → REFACTOR ritual with per-stage checkpoint commits, use the `--tdd` flag from the `ywc-code-gen` section below and include it explicitly in that Task's implementation request.
+
 **Run one Task with defaults**
-```
-ywc-sequential-executor 000020-010
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-sequential-executor 000020-010" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-sequential-executor 000020-010" />
+  </ToolTabsPanel>
+</ToolTabs>
 Default `normal-pr` mode automatically handles PR creation -> CI -> bot review -> merge.
 
 **Automatically run code review before opening the PR**
-```
-ywc-sequential-executor 000020-010 --review --base-branch develop
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-sequential-executor 000020-010 --review --base-branch develop" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-sequential-executor 000020-010 --review --base-branch develop" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **Run multiple Tasks at once and receive the PR description in Japanese**
-```
-ywc-sequential-executor 000020-010..000025-010 --review --pr-lang ja
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-sequential-executor 000020-010..000025-010 --review --pr-lang ja" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-sequential-executor 000020-010..000025-010 --review --pr-lang ja" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **Finish quickly with local merge, without a PR**
-```
-ywc-sequential-executor 000020-010..000025-010 --review --local-merge --run-tests-locally
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-sequential-executor 000020-010..000025-010 --review --local-merge --run-tests-locally" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-sequential-executor 000020-010..000025-010 --review --local-merge --run-tests-locally" />
+  </ToolTabsPanel>
+</ToolTabs>
 In PR mode, CI runs tests for you. With `--local-merge`, there is no remote CI, so it is better to require passing local tests before merge with `--run-tests-locally`.
 
 **Deliver multiple Tasks as one PR (`--aggregate-pr`)**
-```
-ywc-sequential-executor 000020-010..000025-010 --aggregate-pr --group-name project-health --review
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-sequential-executor 000020-010..000025-010 --aggregate-pr --group-name project-health --review" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-sequential-executor 000020-010..000025-010 --aggregate-pr --group-name project-health --review" />
+  </ToolTabsPanel>
+</ToolTabs>
 Tasks are stacked sequentially on one `work/project-health` branch and delivered as **one** PR. See the "Shared concept" section above for the full `--aggregate-pr` and `--group-name` model.
 
 **Create only a PR and let a human merge later**
-```
-ywc-sequential-executor 000020-010 --draft
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-sequential-executor 000020-010 --draft" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-sequential-executor 000020-010 --draft" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **You do not know what to run; preview the plan first**
-```
-ywc-sequential-executor --dry-run
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-sequential-executor --dry-run" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-sequential-executor --dry-run" />
+  </ToolTabsPanel>
+</ToolTabs>
 If no Task is specified, it automatically detects the next executable target from `dependency-graph` and prints only the execution plan (nothing actually runs).
 
 **Run in isolation so it does not interfere with other work in the main checkout (`--worktree`)**
-```
-ywc-sequential-executor 000020-010..000025-010 --worktree --review
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-sequential-executor 000020-010..000025-010 --worktree --review" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-sequential-executor 000020-010..000025-010 --worktree --review" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 `--worktree` runs the entire range **inside one git worktree**. The original clone is left untouched so you can continue other work. The key point is that this is **run-level isolation**: one worktree wraps the whole range, and Tasks inside it still run sequentially. (By contrast, `ywc-parallel-executor` creates a separate worktree **per Task** - see the parallel executor section below.)
 
@@ -80,14 +122,24 @@ ywc-sequential-executor 000020-010..000025-010 --worktree --review
   - Used with `--aggregate-pr` -> the manual step above is unnecessary. The `work/<name>` branch is created inside the worktree, and the `work -> base` PR is opened automatically at the end.
 - **If it fails midway (`BLOCKED` / `DONE_WITH_CONCERNS`)**, the worktree is not deleted and remains in place. You can later enter the path printed in the report and resume.
 - With `--dry-run`, it does not create an actual worktree; it only previews which path and name would be used:
-  ```
-  ywc-sequential-executor 000020-010..000025-010 --worktree --dry-run
-  ```
+  <ToolTabs>
+    <ToolTabsPanel tool="claude-code" label="Claude Code">
+      <CodeBlock label="claude code" code="ywc-sequential-executor 000020-010..000025-010 --worktree --dry-run" />
+    </ToolTabsPanel>
+    <ToolTabsPanel tool="codex" label="Codex">
+      <CodeBlock label="codex" code="ywc-sequential-executor 000020-010..000025-010 --worktree --dry-run" />
+    </ToolTabsPanel>
+  </ToolTabs>
 
 **`--worktree` + `--aggregate-pr` - isolated execution and single-PR delivery at the same time**
-```
-ywc-sequential-executor 000020-010..000025-010 --worktree --aggregate-pr --group-name project-health --review
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-sequential-executor 000020-010..000025-010 --worktree --aggregate-pr --group-name project-health --review" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-sequential-executor 000020-010..000025-010 --worktree --aggregate-pr --group-name project-health --review" />
+  </ToolTabsPanel>
+</ToolTabs>
 This is the most complete combination when you want to leave the main checkout untouched while bundling multiple Tasks into one PR through deployment.
 
 > **Note**: `--local-merge` / `--draft` / `--skip-ci-wait` / `--aggregate-pr` are mutually exclusive. If you use two or more together, execution stops and asks for clarification. `--review` and `--worktree` can be combined with any of those modes.
@@ -95,26 +147,46 @@ This is the most complete combination when you want to leave the main checkout u
 ## ywc-parallel-executor - when you want to run independent Tasks concurrently
 
 **Run independent Tasks in parallel, creating and merging one PR per Task**
-```
-ywc-parallel-executor 000020-010..000025-010 --per-task-pr --review
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-parallel-executor 000020-010..000025-010 --per-task-pr --review" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-parallel-executor 000020-010..000025-010 --per-task-pr --review" />
+  </ToolTabsPanel>
+</ToolTabs>
 They run concurrently by wave, and each Task independently completes PR creation -> CI -> bot review -> **merge**.
 
 **Quickly local-merge each Task without PRs**
-```
-ywc-parallel-executor 000020-010..000025-010 --local-merge --review
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-parallel-executor 000020-010..000025-010 --local-merge --review" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-parallel-executor 000020-010..000025-010 --local-merge --review" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **Run all Tasks in parallel and deliver them as one PR (`--aggregate-pr`)**
-```
-ywc-parallel-executor --all --aggregate-pr --group-name payments --review
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-parallel-executor --all --aggregate-pr --group-name payments --review" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-parallel-executor --all --aggregate-pr --group-name payments --review" />
+  </ToolTabsPanel>
+</ToolTabs>
 Tasks are stacked by wave on one `aggregate/payments` branch and delivered as **one** PR. See the "Shared concept" section at the top of this page for the full `--aggregate-pr` and `--group-name` model. It is exactly the same concept as `ywc-sequential-executor`, with only the shared branch prefix changing from `work/` to `aggregate/`.
 
 **After all work completes, let a human review and merge everything at once**
-```
-ywc-parallel-executor 000020-010..000025-010 --draft
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-parallel-executor 000020-010..000025-010 --draft" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-parallel-executor 000020-010..000025-010 --draft" />
+  </ToolTabsPanel>
+</ToolTabs>
 After all waves complete, one draft PR is created and merge is manual.
 
 > **Note**: If none of `--local-merge` / `--draft` / `--per-task-pr` / `--aggregate-pr` is specified, it asks which of the four modes you want instead of silently choosing a default. `--review` can be combined with any mode. (For reference, `ywc-parallel-executor` has no separate `--worktree` flag because per-Task worktree isolation is this Skill's default behavior.)
@@ -122,20 +194,35 @@ After all waves complete, one draft PR is created and merge is manual.
 ## ywc-code-gen - when you want to generate code directly without Task decomposition
 
 **Generate Backend + Frontend + QA at once**
-```
-ywc-code-gen --spec docs/ywc-plans/ywc-improve-architecture-skill.md --feature "improve architecture skill docs"
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-code-gen --spec docs/ywc-plans/ywc-improve-architecture-skill.md --feature &quot;improve architecture skill docs&quot;" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-code-gen --spec docs/ywc-plans/ywc-improve-architecture-skill.md --feature &quot;improve architecture skill docs&quot;" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **Build carefully with TDD for sensitive functionality such as payment/auth**
-```
-ywc-code-gen --spec docs/ywc-plans/ywc-toolkit-eval-hardening.md --feature "payment webhook hardening" --tdd
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-code-gen --spec docs/ywc-plans/ywc-toolkit-eval-hardening.md --feature &quot;payment webhook hardening&quot; --tdd" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-code-gen --spec docs/ywc-plans/ywc-toolkit-eval-hardening.md --feature &quot;payment webhook hardening&quot; --tdd" />
+  </ToolTabsPanel>
+</ToolTabs>
 Keywords such as `payment` are automatically classified as `critical`, which forbids gray-box delegation (checking only interfaces without reading internal code). `--tdd` enforces RED -> GREEN -> REFACTOR commit boundaries.
 
 **You already checked reusable code and want to skip duplicate detection**
-```
-ywc-code-gen --spec docs/ywc-plans/improve-evaluate-codex-skills-agents-skill.md --feature "notification settings UI" --skip-reuse-check
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-code-gen --spec docs/ywc-plans/improve-evaluate-codex-skills-agents-skill.md --feature &quot;notification settings UI&quot; --skip-reuse-check" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-code-gen --spec docs/ywc-plans/improve-evaluate-codex-skills-agents-skill.md --feature &quot;notification settings UI&quot; --skip-reuse-check" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 > **Note**: `--spec` and `--feature` are both required. If either is empty, it stops with `NEEDS_CONTEXT`. If the work already has a `tasks/` directory, use `ywc-sequential-executor` / `ywc-parallel-executor` instead of this Skill.
 

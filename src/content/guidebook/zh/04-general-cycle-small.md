@@ -28,21 +28,50 @@ ywc-plan -> ywc-spec-ready -> ywc-code-gen -> ywc-impl-review -> ywc-create-pr
 
 ## 示例运行
 
-```
-ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움. 잠김/오타/미가입 등 구체적 사유를 보여주고 싶음
-```
-```
-ywc-spec-ready --spec plan.md
-```
-```
-ywc-code-gen --spec plan.md --feature "specific login failure reason"
-```
-```
-ywc-impl-review
-```
-```
-ywc-create-pr --title "fix: show specific login failure reason"
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움. 잠김/오타/미가입 등 구체적 사유를 보여주고 싶음" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움. 잠김/오타/미가입 등 구체적 사유를 보여주고 싶음" />
+  </ToolTabsPanel>
+</ToolTabs>
+
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-spec-ready --spec plan.md" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-spec-ready --spec plan.md" />
+  </ToolTabsPanel>
+</ToolTabs>
+
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-code-gen --spec plan.md --feature &quot;specific login failure reason&quot;" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-code-gen --spec plan.md --feature &quot;specific login failure reason&quot;" />
+  </ToolTabsPanel>
+</ToolTabs>
+
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-impl-review" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-impl-review" />
+  </ToolTabsPanel>
+</ToolTabs>
+
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-create-pr --title &quot;fix: show specific login failure reason&quot;" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-create-pr --title &quot;fix: show specific login failure reason&quot;" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 如果机器人审查意见、CI 失败或合并准备问题仍然存在，请继续使用 `ywc-handle-pr-reviews <pr-number>`。Small 流程基于 `plan.md`，因此没有 `tasks/<task-name>/` 目录，并且它不适合 `ywc-finish-branch` 的任务完成处理。
 

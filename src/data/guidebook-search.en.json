@@ -63,5 +63,10 @@
     "slug": "13-skill-reference",
     "title": "13. Full Skill Reference",
     "summary": "This page groups the remaining Skills not covered in the previous workflow guides by what you want to do ."
+  },
+  {
+    "slug": "14-prerequisites-installation",
+    "title": "14. Prerequisites and installation",
+    "summary": "To use ywc-* Skills reliably, a few tools need to be in place beforehand."
   }
 ]

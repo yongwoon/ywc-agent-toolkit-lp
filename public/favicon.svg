@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="ywc-agent-toolkit">
+  <rect x="1" y="1" width="510" height="510" rx="112" fill="#0b0a09" stroke="#342c21" stroke-width="10"></rect>
+  <text x="215" y="292" text-anchor="middle" font-family="&#39;IBM Plex Mono&#39;,&#39;SF Mono&#39;,ui-monospace,monospace" font-weight="700" font-size="320" fill="#f5a623">$</text>
+  <rect x="338" y="148" width="56" height="215" fill="#f5a623" opacity="0.9"></rect>
+</svg>

@@ -16,9 +16,14 @@ The two Skills answer different questions. Choose based on the question you are 
 
 Combines static code analysis with actual UI execution (Chrome DevTools MCP) to audit Information Architecture, Visual Design, Usability, and Accessibility (WCAG 2.2 AA). The result is a four-level report: Critical / High / Medium / Low.
 
-```
-ywc-ui-ux-review 결제 화면 usability 점검해줘
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-ui-ux-review 결제 화면 usability 점검해줘" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-ui-ux-review 결제 화면 usability 점검해줘" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 Because live UI exploration is included, results are more accurate when a staging or preview URL is available.
 
@@ -27,14 +32,24 @@ Because live UI exploration is included, results are more accurate when a stagin
 Use this when an existing screen is ordinary or feels "AI-generated." It adds visual character or checks for AI-slop tells such as gradient text / cyan-on-dark / Inter / uniform card grids.
 
 **Code renewal (default mode)**
-```
-ywc-design-renew --target setup-collection/default-project/docs/design/README.md --url http://localhost:3000
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-design-renew --target setup-collection/default-project/docs/design/README.md --url http://localhost:3000" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-design-renew --target setup-collection/default-project/docs/design/README.md --url http://localhost:3000" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **Check only, without touching code**
-```
-ywc-design-renew --mode check --target setup-collection/default-project/docs/design/README.md --fail-on high
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-design-renew --mode check --target setup-collection/default-project/docs/design/README.md --fail-on high" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-design-renew --mode check --target setup-collection/default-project/docs/design/README.md --fail-on high" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 If you pass `--url`, Before/After screenshots are also provided. If omitted, it proceeds with code analysis only, which is less accurate. `--fail-on` is the gate threshold for check mode, and defaults to `critical`.
 

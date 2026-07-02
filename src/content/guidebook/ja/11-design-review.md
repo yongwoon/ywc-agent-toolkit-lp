@@ -16,9 +16,14 @@
 
 静的コード分析と実際の UI 実行(Chrome DevTools MCP)を組み合わせ、Information Architecture、Visual Design、Usability、Accessibility(WCAG 2.2 AA)を監査します。結果は Critical / High / Medium / Low の 4 段階レポートとして出ます。
 
-```
-ywc-ui-ux-review 결제 화면 usability 점검해줘
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-ui-ux-review 결제 화면 usability 점검해줘" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-ui-ux-review 결제 화면 usability 점검해줘" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 Live UI 探索が含まれるため、staging または preview URL が用意されていると、より正確な結果になります。
 
@@ -27,14 +32,24 @@ Live UI 探索が含まれるため、staging または preview URL が用意さ
 既存画面が平凡、または「AI が作ったような」デザインに見えるとき、視覚的な個性を付与したり、gradient text / cyan-on-dark / Inter / 均一な card grid のような AI-slop tell を点検します。
 
 **コード renewal (デフォルトモード)**
-```
-ywc-design-renew --target setup-collection/default-project/docs/design/README.md --url http://localhost:3000
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-design-renew --target setup-collection/default-project/docs/design/README.md --url http://localhost:3000" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-design-renew --target setup-collection/default-project/docs/design/README.md --url http://localhost:3000" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **点検だけ行い、コードは触らない**
-```
-ywc-design-renew --mode check --target setup-collection/default-project/docs/design/README.md --fail-on high
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-design-renew --mode check --target setup-collection/default-project/docs/design/README.md --fail-on high" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-design-renew --mode check --target setup-collection/default-project/docs/design/README.md --fail-on high" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 `--url` を指定すると Before/After スクリーンショットも一緒に提供され、省略するとコード分析だけで進行します(精度は下がります)。`--fail-on` は check モードの gate 基準で、デフォルト値は `critical` です。
 

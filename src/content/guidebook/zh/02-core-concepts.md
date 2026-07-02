@@ -37,26 +37,18 @@
 
 ## 整体流程一览
 
-```
-Idea
-  |
-  v
-ywc-plan (scale decision)
-  |
-  +-- Small ------------+
-  |                     v
-  |              plan.md -> ywc-spec-ready -> ywc-code-gen -> ywc-impl-review -> ywc-create-pr
-  |
-  +-- Medium/Large -----+
-                        v
-                 docs/ywc-plans/<slug>.md -> ywc-spec-ready -> ywc-task-generator
-                        |
-                        v
-              ywc-sequential-executor --review  or  ywc-parallel-executor --review
-                        |
-                        v
-                   PR -> CI -> Bot Review -> Merge (automated by Executor)
-```
+<FlowDiagram>
+  <FlowStep>想法</FlowStep>
+  <FlowStep>ywc-plan (规模判断)</FlowStep>
+  <FlowBranch label="Small">
+    <FlowChain items="plan.md, ywc-spec-ready, ywc-code-gen, ywc-impl-review, ywc-create-pr" />
+  </FlowBranch>
+  <FlowBranch label="Medium/Large">
+    <FlowChain items="docs/ywc-plans/<slug>.md, ywc-spec-ready, ywc-task-generator" />
+    <FlowStep>ywc-sequential-executor --review 或 ywc-parallel-executor --review</FlowStep>
+    <FlowChain items="PR, CI, Bot Review, Merge (由 Executor 自动处理)" />
+  </FlowBranch>
+</FlowDiagram>
 
 本流程的每个分支在第 [04](./04-general-cycle-small.md) 页和 [05](./05-general-cycle-medium-large.md) 页上都有详细说明，并附有具体命令示例。
 

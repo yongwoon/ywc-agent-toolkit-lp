@@ -8,9 +8,14 @@ Use `ywc-e2e-test-strategy` when the project does not yet have Playwright-based 
 
 ## Initial setup (`--init`)
 
-```
-ywc-e2e-test-strategy --init
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-e2e-test-strategy --init" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-e2e-test-strategy --init" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 If `playwright.config.*` does not exist, this mode starts automatically. The sequence:
 
@@ -22,21 +27,36 @@ If `playwright.config.*` does not exist, this mode starts automatically. The seq
 ## Running it
 
 **Add one Flow at a time**
-```
-ywc-e2e-test-strategy --flow "checkout happy path"
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-e2e-test-strategy --flow &quot;checkout happy path&quot;" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-e2e-test-strategy --flow &quot;checkout happy path&quot;" />
+  </ToolTabsPanel>
+</ToolTabs>
 The clearer you make the entry URL, ordered actions, and expected final state, the better the result quality.
 
 **Audit existing coverage**
-```
-ywc-e2e-test-strategy --audit
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-e2e-test-strategy --audit" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-e2e-test-strategy --audit" />
+  </ToolTabsPanel>
+</ToolTabs>
 If `playwright.config.*` exists and no other flag is provided, this mode starts automatically. Tests without `waitForTimeout` / CSS class selectors (`.btn-*`) / `expect()` are marked fragile, and gaps are scored by a priority matrix (revenue impact x failure frequency). Only items scoring 5 or higher are proposed for automation.
 
 **Preview the plan before writing files**
-```
-ywc-e2e-test-strategy --dry-run
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-e2e-test-strategy --dry-run" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-e2e-test-strategy --dry-run" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 ## Flow selection criteria (first 5, highest ROI first)
 

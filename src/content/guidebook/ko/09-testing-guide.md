@@ -22,19 +22,34 @@
 ## `ywc-gen-testcase` 실행 예시
 
 **PR 번호로 dev+QA 겸용 testsheet 생성**
-```
-ywc-gen-testcase 250
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-gen-testcase 250" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-gen-testcase 250" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **현재 diff 기준, QA 전용으로만, 일본어로 생성**
-```
-ywc-gen-testcase --from-diff --audience qa --lang ja
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-gen-testcase --from-diff --audience qa --lang ja" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-gen-testcase --from-diff --audience qa --lang ja" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **Task 기반, regression 항목 포함**
-```
-ywc-gen-testcase 000020-010 --include-regression
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-gen-testcase 000020-010 --include-regression" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-gen-testcase 000020-010 --include-regression" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 ## 수기 검증 vs 자동화, 무엇을 언제 쓰는가
 

@@ -8,9 +8,14 @@
 
 ## 初始设置 (`--init`)
 
-```
-ywc-e2e-test-strategy --init
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-e2e-test-strategy --init" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-e2e-test-strategy --init" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 如果 `playwright.config.*` 不存在，此模式会自动启动。顺序如下：
 
@@ -22,21 +27,36 @@ ywc-e2e-test-strategy --init
 ## 运行它
 
 **一次添加一个流程**
-```
-ywc-e2e-test-strategy --flow "checkout happy path"
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-e2e-test-strategy --flow &quot;checkout happy path&quot;" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-e2e-test-strategy --flow &quot;checkout happy path&quot;" />
+  </ToolTabsPanel>
+</ToolTabs>
 你越清楚地说明入口 URL、操作顺序和预期的最终状态，结果质量就越好。
 
 **审查现有保障**
-```
-ywc-e2e-test-strategy --audit
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-e2e-test-strategy --audit" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-e2e-test-strategy --audit" />
+  </ToolTabsPanel>
+</ToolTabs>
 如果存在 `playwright.config.*` 且未提供其他标志，则此模式会自动启动。没有 `waitForTimeout` / CSS 类选择器 (`.btn-*`) / `expect()` 的测试会被标记为脆弱，缺口会根据优先矩阵（收入影响 x 失败频率）进行评分。只有评分为 5 或更高的项目才会被提议进行自动化。
 
 **在写入文件之前预览计划**
-```
-ywc-e2e-test-strategy --dry-run
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-e2e-test-strategy --dry-run" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-e2e-test-strategy --dry-run" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 ## 流程选择标准（前5项，按最高投资回报率排序）
 

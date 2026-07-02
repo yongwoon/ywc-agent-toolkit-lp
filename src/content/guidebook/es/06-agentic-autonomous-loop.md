@@ -31,32 +31,57 @@ Internamente, orquesta las habilidades existentes `ywc-*` tal como están. No ti
 ## Ejemplo de ejecución
 
 **Dar un objetivo en lenguaje natural (predeterminado, hasta 3 iteraciones)**
-```
-ywc-agentic "결제 실패 시 자동 재시도 로직을 추가해줘"
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot;" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot;" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **Aumenta el límite de iteraciones para que siga intentando más tiempo**
-```
-ywc-agentic "결제 실패 시 자동 재시도 로직을 추가해줘" --max-iterations 5
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot; --max-iterations 5" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot; --max-iterations 5" />
+  </ToolTabsPanel>
+</ToolTabs>
 `--max-iterations` es un límite de seguridad definido por el usuario. Si la ejecución no converge, el agente nunca aumenta el límite por sí mismo.
 
 **Elegir explícitamente al ejecutor**
-```
-ywc-agentic "알림 설정 화면과 API 추가" --executor sequential
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-agentic &quot;알림 설정 화면과 API 추가&quot; --executor sequential" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-agentic &quot;알림 설정 화면과 API 추가&quot; --executor sequential" />
+  </ToolTabsPanel>
+</ToolTabs>
 El `auto` predeterminado inspecciona `dependency-graph.md` y elige secuencial o paralelo automáticamente.
 
 **Reanudar una ejecución interrumpida**
-```
-ywc-agentic --resume
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-agentic --resume" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-agentic --resume" />
+  </ToolTabsPanel>
+</ToolTabs>
 Si quedan tareas sin terminar en `tasks/`, se omite la Fase de Planificación y se continúa desde ese punto.
 
 **Previsualizar las fases sin ejecutarlas realmente**
-```
-ywc-agentic "결제 실패 시 자동 재시도 로직을 추가해줘" --dry-run
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot; --dry-run" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot; --dry-run" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 ## Se detiene cuando el objetivo es ambiguo
 

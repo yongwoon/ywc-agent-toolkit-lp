@@ -31,32 +31,57 @@ Goal -> [Plan -> Execute -> Evaluate -> Repeat] -> Result
 ## 示例运行
 
 **给出一个自然语言目标（默认，最多三次迭代）**
-```
-ywc-agentic "결제 실패 시 자동 재시도 로직을 추가해줘"
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot;" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot;" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **增加迭代限制，这样它会尝试更长时间**
-```
-ywc-agentic "결제 실패 시 자동 재시도 로직을 추가해줘" --max-iterations 5
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot; --max-iterations 5" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot; --max-iterations 5" />
+  </ToolTabsPanel>
+</ToolTabs>
 `--max-iterations` 是一个用户定义的安全限制。如果运行未收敛，代理不会自行提高该限制。
 
 **明确选择执行者**
-```
-ywc-agentic "알림 설정 화면과 API 추가" --executor sequential
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-agentic &quot;알림 설정 화면과 API 추가&quot; --executor sequential" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-agentic &quot;알림 설정 화면과 API 추가&quot; --executor sequential" />
+  </ToolTabsPanel>
+</ToolTabs>
 默认的 `auto` 会检查 `dependency-graph.md` 并自动选择顺序或并行。
 
 **恢复中断的运行**
-```
-ywc-agentic --resume
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-agentic --resume" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-agentic --resume" />
+  </ToolTabsPanel>
+</ToolTabs>
 如果 `tasks/` 中仍有未完成的任务，它将跳过计划阶段并从该点继续。
 
 **在不实际运行的情况下预览各阶段**
-```
-ywc-agentic "결제 실패 시 자동 재시도 로직을 추가해줘" --dry-run
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot; --dry-run" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot; --dry-run" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 ## 当目标不明确时，它会停止
 

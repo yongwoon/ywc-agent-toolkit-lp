@@ -8,47 +8,77 @@
 
 ## 第1步 - 制定计划
 
-```
-ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움. 잠김/오타/미가입 등 구체적 사유를 보여주고 싶음
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움. 잠김/오타/미가입 등 구체적 사유를 보여주고 싶음" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움. 잠김/오타/미가입 등 구체적 사유를 보여주고 싶음" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 `ywc-plan` 首先读取代码库，然后决定这个变更是否 **足够小** 可以作为单个 PR 完成。如果被判断为小变更，则会创建一个 `plan.md` 文件。检查四个部分——是什么 / 为什么 / 不在范围内 / 完成标准——是否已填写完整。
 
 ## 步骤 2 - 汇总计划
 
-```
-ywc-spec-ready --spec plan.md
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-spec-ready --spec plan.md" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-spec-ready --spec plan.md" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 如果 `plan.md` 仍有顾虑，它们会被自动优化并重新验证。如果已经清晰，则会原样交给下一步。
 
 ## 步骤 3 - 生成代码
 
-```
-ywc-code-gen --spec plan.md --feature "specific login failure reason"
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-code-gen --spec plan.md --feature &quot;specific login failure reason&quot;" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-code-gen --spec plan.md --feature &quot;specific login failure reason&quot;" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 这会并行生成后端 / 前端 / QA 层。生成完成后，您会得到一个以 `DONE`、`DONE_WITH_CONCERNS`、`BLOCKED` 或 `NEEDS_CONTEXT` 结尾的完成报告。有关每个状态的含义，请参见 [02. Core concepts](./02-core-concepts.md)。
 
 ## 第4步 - 在开设PR之前进行审查
 
-```
-ywc-impl-review
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-impl-review" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-impl-review" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 `ywc-code-gen` 没有自动审查标志。如果你跳过此步骤，PR 将在没有代码审查的情况下被打开。**不要跳过它。**
 
 ## 步骤5 - 创建PR并处理审核
 
-```
-ywc-create-pr --title "fix: show specific login failure reason"
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-create-pr --title &quot;fix: show specific login failure reason&quot;" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-create-pr --title &quot;fix: show specific login failure reason&quot;" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 `ywc-create-pr` 处理提交、机密扫描、本地验证、草稿 PR 创建以及远程 CI/机器人审查检查。如果机器人审查评论或合并准备问题仍然存在，请像这样运行单独的 PR 健康扫描：
 
-```
-ywc-handle-pr-reviews 123
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-handle-pr-reviews 123" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-handle-pr-reviews 123" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 小流程基于`plan.md`，所以它没有`tasks/<task-name>/`的缺陷。因此，在审阅者批准后，通过GitHub界面或`gh pr merge`进行合并比使用包含任务完成处理的`ywc-finish-branch`更安全。
 

@@ -3,11 +3,34 @@ import Slugger from "github-slugger";
 import { isValidElement, type ComponentPropsWithoutRef, type ReactNode } from "react";
 import remarkGfm from "remark-gfm";
 import { CodeBlock } from "@/components/ui/code-block";
+import { FlowBranch, FlowChain, FlowDiagram, FlowStep } from "@/components/ui/flow-diagram";
 import { ToolTabs, ToolTabsPanel } from "@/components/ui/tool-tabs";
+import { getGuidebookHref, getGuidebookRootHref } from "@/components/guidebook/guidebook-nav";
+import type { Locale } from "@/i18n/locale-list";
 
 type GuidebookMdxProps = {
   source: string;
+  locale: Locale | string;
 };
+
+// Guidebook markdown authors write cross-page links the way they'd work in a plain
+// file browser -- "./05-general-cycle-medium-large.md", "./README.md" -- since that's
+// what resolves correctly when reading the source .md files directly on GitHub. The
+// rendered site has no matching file: each slug is a route (`/{locale}/guidebook/
+// {slug}/`), so left as-is these hrefs resolve relative to the CURRENT page's URL
+// (e.g. "./14-x.md" clicked from "/ko/guidebook/01-introduction/" lands on
+// "/ko/guidebook/01-introduction/14-x.md", a 404). Rewrite them to real routes here
+// instead of touching every content file.
+function resolveGuidebookHref(locale: Locale | string, href: string): string {
+  const match = /^\.\/(.+)\.md$/.exec(href);
+
+  if (!match) {
+    return href;
+  }
+
+  const [, target] = match;
+  return target === "README" ? getGuidebookRootHref(locale) : getGuidebookHref(locale, target);
+}
 
 function textFromChildren(children: ReactNode): string {
   if (typeof children === "string" || typeof children === "number") {
@@ -59,7 +82,7 @@ function createHeading(level: 1 | 2 | 3, slugger: Slugger) {
   };
 }
 
-export function GuidebookMdx({ source }: GuidebookMdxProps) {
+export function GuidebookMdx({ source, locale }: GuidebookMdxProps) {
   const slugger = new Slugger();
   const H1 = createHeading(1, slugger);
   const H2 = createHeading(2, slugger);
@@ -78,10 +101,11 @@ export function GuidebookMdx({ source }: GuidebookMdxProps) {
             className="my-5 text-[var(--text-body)] leading-[var(--lh-relaxed)] text-text"
           />
         ),
-        a: (props) => (
+        a: ({ href, ...props }) => (
           <a
             {...props}
             className="text-link underline decoration-border underline-offset-4 transition-colors duration-[var(--dur-fast)] hover:text-accent"
+            href={typeof href === "string" ? resolveGuidebookHref(locale, href) : href}
           />
         ),
         ul: (props) => <ul {...props} className="my-5 list-none space-y-2 pl-0" />,
@@ -137,7 +161,11 @@ export function GuidebookMdx({ source }: GuidebookMdxProps) {
         ToolTabsPanel,
         // CodeBlock is registered too since ToolTabsPanel content uses it as a direct JSX
         // tag, not the auto `pre` mapping above.
-        CodeBlock
+        CodeBlock,
+        FlowDiagram,
+        FlowStep,
+        FlowBranch,
+        FlowChain
       }}
       options={{
         parseFrontmatter: false,

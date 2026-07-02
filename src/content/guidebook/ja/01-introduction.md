@@ -8,11 +8,19 @@
 
 この Guidebook は、それらのツールを**初めて使う人**が「今の状況ではどの Skill を、どの順序で、どんな prompt で実行すべきか」をすぐに見つけられるように整理した実践ガイドです。Skill の内部実装原理(Rationalization Defense, Advisor Pattern など)は深く説明せず、**ユーザーが入力する command とその結果**に焦点を当てます。内部動作が気になる場合は、各 Skill の `SKILL.md` を直接参照してください。
 
+各 Skill の詳しいオプション、前提条件、内部処理の流れは、元 repository の Skill フォルダに整理されています。Claude Code 用 Skill は [`claude-code/skills`](https://github.com/yongwoon/ywc-agent-toolkit/tree/main/claude-code/skills)、Codex 用 Skill は [`codex/skills`](https://github.com/yongwoon/ywc-agent-toolkit/tree/main/codex/skills) を参照してください。この Guidebook ではよく使う実行フローを素早く確認し、詳細なリファレンスが必要なときに該当する `SKILL.md` を開く、という使い分けを想定しています。
+
 ## 誰のための文書か
 
 - この project で初めて `ywc-*` Skill を使う開発者
 - Skill は何度か使ったことがあるが、毎回どの順序で組み合わせるべきか迷う開発者
 - `ywc-sequential-executor`, `ywc-parallel-executor`, `ywc-code-gen` のようにオプションが多い Skill の正確な syntax が必要な開発者
+
+## 前提条件と推奨セットアップ
+
+Plugin marketplace または Codex plugin からインストールする場合、追加の前提条件はありません。必要なファイルコピーと登録はインストーラが自動で処理します。
+
+ただし Skill を実際に実行するときは `git`、`gh`、`python3` などいくつかの Tool が System に必要で、デザイン関連 Skill を使うなら別途セットアップしておくと安定します。必須 Tool と選択 Tool の一覧、インストール方法は [14. 事前準備とインストール](./14-prerequisites-installation.md) にまとめました — 始める前に一度目を通しておくことをおすすめします。
 
 ## 始める前に確認すること
 
@@ -27,9 +35,14 @@
 
 この Guidebook のすべての例は、Claude Code の会話欄に以下の形でそのまま入力することを前提にしています。
 
-```
-ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 先頭に `/` を付けた `/ywc-plan` 形式でも同じように動作します。この文書では可読性のため `/` を省略します。`--flag value` 形式のオプションは Skill ごとに異なり、各 Skill ページまたは [12. Executor / Code-gen Prompt パターン](./12-executor-and-codegen-patterns.md)に実例として整理しています。
 

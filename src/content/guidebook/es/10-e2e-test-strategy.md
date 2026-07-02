@@ -8,9 +8,14 @@ Use `ywc-e2e-test-strategy` cuando el proyecto aún no tenga pruebas basadas en 
 
 ## Configuración inicial (`--init`)
 
-```
-ywc-e2e-test-strategy --init
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-e2e-test-strategy --init" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-e2e-test-strategy --init" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 Si `playwright.config.*` no existe, este modo se inicia automáticamente. La secuencia:
 
@@ -22,21 +27,36 @@ Si `playwright.config.*` no existe, este modo se inicia automáticamente. La sec
 ## Ejecutándolo
 
 **Añadir un flujo a la vez**
-```
-ywc-e2e-test-strategy --flow "checkout happy path"
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-e2e-test-strategy --flow &quot;checkout happy path&quot;" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-e2e-test-strategy --flow &quot;checkout happy path&quot;" />
+  </ToolTabsPanel>
+</ToolTabs>
 Cuanto más claro hagas la URL de entrada, las acciones ordenadas y el estado final esperado, mejor será la calidad del resultado.
 
 **Auditar la cobertura existente**
-```
-ywc-e2e-test-strategy --audit
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-e2e-test-strategy --audit" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-e2e-test-strategy --audit" />
+  </ToolTabsPanel>
+</ToolTabs>
 Si `playwright.config.*` existe y no se proporciona ninguna otra bandera, este modo se inicia automáticamente. Las pruebas sin `waitForTimeout` / selectores de clase CSS (`.btn-*`) / `expect()` se marcan como frágiles, y las brechas se puntúan mediante una matriz de prioridad (impacto en los ingresos x frecuencia de falla). Solo los elementos que obtienen una puntuación de 5 o más se proponen para automatización.
 
 **Vista previa del plan antes de escribir archivos**
-```
-ywc-e2e-test-strategy --dry-run
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-e2e-test-strategy --dry-run" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-e2e-test-strategy --dry-run" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 ## Criterios de selección de flujo (primeros 5, con mayor ROI primero)
 

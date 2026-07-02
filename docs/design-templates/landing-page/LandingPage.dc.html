@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Landing Page" description="Full CLI/terminal marketing landing page — hero with animated terminal demo, problem/solution, feature grid, tabbed install (Claude Code / Codex), FAQ, footer. Locale switcher drives all 5 locales (en/ja/ko/zh/es)." -->
+<helmet>
+<script src="./ds-base.js"></script>
+<link rel="stylesheet" href="./page.css" />
+<script src="./messages.js"></script>
+</helmet>
+
+<div id="app">{{ app }}</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { ready: false, locale: 'en' };
+
+  componentDidMount() { this._boot(); }
+
+  async _boot() {
+    const NS = 'YwcAgentToolkitDesignSystem_0b93ac';
+    // Reuse the DC runtime's React so sections + bundle share one instance.
+    if (!window.React) window.React = React;
+
+    // The design-system bundle (loaded via ds-base.js) registers the section
+    // components on window (SiteHeader, Hero, …) alongside the NS primitives.
+    const depsReady = () =>
+      window.YWC_MESSAGES && window[NS] && window[NS].Button && window.SiteHeader && window.SiteFooter;
+    for (let i = 0; i < 200 && !depsReady(); i++) {
+      await new Promise((r) => setTimeout(r, 50));
+    }
+    if (!depsReady()) { console.error('LandingPage template: dependencies not ready'); return; }
+    this.setState({ ready: true });
+  }
+
+  renderVals() {
+    const R = React;
+    const msgs = window.YWC_MESSAGES;
+    if (!this.state.ready || !msgs || !window.SiteHeader) {
+      return {
+        app: R.createElement('div', {
+          style: { minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-mono)', fontSize: 'var(--text-mono-sm)', color: 'var(--text-faint)', letterSpacing: '.06em' }
+        }, R.createElement('span', { style: { color: 'var(--prompt)' } }, '$'), '\u00a0loading ywc-agent-toolkit\u2026'),
+      };
+    }
+    const locale = this.state.locale;
+    const t = msgs[locale];
+    const setLocale = (c) => this.setState({ locale: c });
+    const app = R.createElement('div', { key: locale, lang: locale },
+      R.createElement(window.SiteHeader, { locale, setLocale, t }),
+      R.createElement('main', null,
+        R.createElement(window.Hero, { t }),
+        R.createElement(window.ProblemSolution, { t }),
+        R.createElement(window.FeatureGrid, { t }),
+        R.createElement(window.InstallSteps, { t }),
+        R.createElement(window.Faq, { t })
+      ),
+      R.createElement(window.SiteFooter, { t })
+    );
+    return { app };
+  }
+}
+</script>
+</body>
+</html>

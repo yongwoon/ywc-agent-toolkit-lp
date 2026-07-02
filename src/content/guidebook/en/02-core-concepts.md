@@ -37,26 +37,18 @@ Almost every Skill finishes with one of the four states below. Once you know thi
 
 ## Overall flow at a glance
 
-```
-Idea
-  |
-  v
-ywc-plan (scale decision)
-  |
-  +-- Small ------------+
-  |                     v
-  |              plan.md -> ywc-spec-ready -> ywc-code-gen -> ywc-impl-review -> ywc-create-pr
-  |
-  +-- Medium/Large -----+
-                        v
-                 docs/ywc-plans/<slug>.md -> ywc-spec-ready -> ywc-task-generator
-                        |
-                        v
-              ywc-sequential-executor --review  or  ywc-parallel-executor --review
-                        |
-                        v
-                   PR -> CI -> Bot Review -> Merge (automated by Executor)
-```
+<FlowDiagram>
+  <FlowStep>Idea</FlowStep>
+  <FlowStep>ywc-plan (scale decision)</FlowStep>
+  <FlowBranch label="Small">
+    <FlowChain items="plan.md, ywc-spec-ready, ywc-code-gen, ywc-impl-review, ywc-create-pr" />
+  </FlowBranch>
+  <FlowBranch label="Medium/Large">
+    <FlowChain items="docs/ywc-plans/<slug>.md, ywc-spec-ready, ywc-task-generator" />
+    <FlowStep>ywc-sequential-executor --review or ywc-parallel-executor --review</FlowStep>
+    <FlowChain items="PR, CI, Bot Review, Merge (automated by Executor)" />
+  </FlowBranch>
+</FlowDiagram>
 
 Each branch of this flow is covered in detail with concrete command examples on pages [04](./04-general-cycle-small.md) and [05](./05-general-cycle-medium-large.md).
 

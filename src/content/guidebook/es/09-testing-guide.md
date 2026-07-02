@@ -22,19 +22,34 @@ Usa esto después de que la implementación de la función esté completa y nece
 ## Ejemplos de `ywc-gen-testcase`
 
 **Crear una hoja de pruebas de dev+QA a partir de un número PR**
-```
-ywc-gen-testcase 250
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-gen-testcase 250" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-gen-testcase 250" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **Usa la diferencia actual, audiencia solo de control de calidad, salida en japonés**
-```
-ywc-gen-testcase --from-diff --audience qa --lang ja
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-gen-testcase --from-diff --audience qa --lang ja" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-gen-testcase --from-diff --audience qa --lang ja" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **Basado en Task, incluyendo elementos de regresión**
-```
-ywc-gen-testcase 000020-010 --include-regression
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-gen-testcase 000020-010 --include-regression" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-gen-testcase 000020-010 --include-regression" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 ## Verificación manual vs automatización: cuándo usar qué
 

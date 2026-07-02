@@ -8,9 +8,14 @@
 
 ## 최초 설정 (`--init`)
 
-```
-ywc-e2e-test-strategy --init
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-e2e-test-strategy --init" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-e2e-test-strategy --init" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 `playwright.config.*` 가 없으면 자동으로 이 모드에 진입합니다. 진행 순서:
 
@@ -22,21 +27,36 @@ ywc-e2e-test-strategy --init
 ## 실행
 
 **Flow 하나씩 추가 생성**
-```
-ywc-e2e-test-strategy --flow "checkout happy path"
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-e2e-test-strategy --flow &quot;checkout happy path&quot;" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-e2e-test-strategy --flow &quot;checkout happy path&quot;" />
+  </ToolTabsPanel>
+</ToolTabs>
 entry URL, 순서대로의 action, 기대하는 최종 상태를 명확히 지정할수록 결과 품질이 좋아집니다.
 
 **기존 커버리지 점검**
-```
-ywc-e2e-test-strategy --audit
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-e2e-test-strategy --audit" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-e2e-test-strategy --audit" />
+  </ToolTabsPanel>
+</ToolTabs>
 `playwright.config.*` 가 있고 다른 flag 가 없으면 자동으로 이 모드로 진입합니다. `waitForTimeout` / CSS class selector(`.btn-*`) / `expect()` 없는 test 는 fragile 로 표시되며, priority matrix(revenue impact × failure frequency)로 gap 을 채점해 총점 5 이상만 자동화 대상으로 제안합니다.
 
 **파일 작성 전 계획만 확인**
-```
-ywc-e2e-test-strategy --dry-run
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-e2e-test-strategy --dry-run" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-e2e-test-strategy --dry-run" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 ## Flow 선정 기준 (처음 시작하는 5개, ROI 높은 순)
 

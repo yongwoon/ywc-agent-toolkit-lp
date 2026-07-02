@@ -2,7 +2,12 @@ import type { Locale } from "@/i18n/locale-list";
 
 export type GuidebookPageStatus = "available" | "pending";
 
-export type GuidebookGroupId = "prologue" | "getting-started" | "workflow-guides" | "reference";
+export type GuidebookGroupId =
+  | "prologue"
+  | "getting-started"
+  | "core-pipeline"
+  | "workflow-guides"
+  | "reference";
 
 export type GuidebookPageMeta = {
   slug: string;
@@ -26,31 +31,36 @@ export const groupLabelsByLocale: Record<Locale, Record<GuidebookGroupId, string
   en: {
     prologue: "Prologue",
     "getting-started": "Getting started",
-    "workflow-guides": "Workflow guides",
+    "core-pipeline": "Core pipeline",
+    "workflow-guides": "Situational guides",
     reference: "Reference"
   },
   ja: {
     prologue: "プロローグ",
     "getting-started": "はじめに",
-    "workflow-guides": "ワークフローガイド",
+    "core-pipeline": "コアパイプライン",
+    "workflow-guides": "状況別ガイド",
     reference: "リファレンス"
   },
   ko: {
     prologue: "프롤로그",
     "getting-started": "시작하기",
-    "workflow-guides": "워크플로우 가이드",
+    "core-pipeline": "핵심 파이프라인",
+    "workflow-guides": "상황별 가이드",
     reference: "레퍼런스"
   },
   zh: {
     prologue: "前言",
     "getting-started": "快速开始",
-    "workflow-guides": "工作流指南",
+    "core-pipeline": "核心流程",
+    "workflow-guides": "场景指南",
     reference: "参考"
   },
   es: {
     prologue: "Prólogo",
     "getting-started": "Primeros pasos",
-    "workflow-guides": "Guías de flujo de trabajo",
+    "core-pipeline": "Flujo principal",
+    "workflow-guides": "Guías por situación",
     reference: "Referencia"
   }
 };
@@ -99,14 +109,14 @@ export const guidebookNavGroups: readonly GuidebookNavGroup[] = [
     ]
   },
   {
-    groupId: "workflow-guides",
-    label: groupLabelsByLocale.en["workflow-guides"],
+    groupId: "core-pipeline",
+    label: groupLabelsByLocale.en["core-pipeline"],
     pages: [
       {
         slug: "04-general-cycle-small",
         title: "04. Handling a small change",
         description: "The standard flow for a change that finishes in a single PR without Task decomposition",
-        groupId: "workflow-guides",
+        groupId: "core-pipeline",
         order: 4,
         status: "pending"
       },
@@ -114,7 +124,7 @@ export const guidebookNavGroups: readonly GuidebookNavGroup[] = [
         slug: "05-general-cycle-medium-large",
         title: "05. Handling work split into multiple Tasks",
         description: "The flow for changes large enough to need spec validation and Task decomposition",
-        groupId: "workflow-guides",
+        groupId: "core-pipeline",
         order: 5,
         status: "pending"
       },
@@ -122,10 +132,16 @@ export const guidebookNavGroups: readonly GuidebookNavGroup[] = [
         slug: "06-agentic-autonomous-loop",
         title: "06. Finish automatically from one goal",
         description: "A flow that automatically repeats Plan -> Execute -> Evaluate -> Repeat from a single goal",
-        groupId: "workflow-guides",
+        groupId: "core-pipeline",
         order: 6,
         status: "pending"
-      },
+      }
+    ]
+  },
+  {
+    groupId: "workflow-guides",
+    label: groupLabelsByLocale.en["workflow-guides"],
+    pages: [
       {
         slug: "07-starting-a-new-project",
         title: "07. Starting a new Project",
@@ -188,6 +204,14 @@ export const guidebookNavGroups: readonly GuidebookNavGroup[] = [
         groupId: "reference",
         order: 13,
         status: "pending"
+      },
+      {
+        slug: "14-prerequisites-installation",
+        title: "14. Prerequisites and installation",
+        description: "Required vs. optional tools and how to install ywc-agent-toolkit before relying on it",
+        groupId: "reference",
+        order: 14,
+        status: "pending"
       }
     ]
   }
@@ -201,6 +225,26 @@ export const defaultGuidebookSlug = guidebookPages[0].slug;
 
 export function getGuidebookHref(locale: Locale | string, slug: string) {
   return `/${locale}/guidebook/${slug}/`;
+}
+
+export function getGuidebookRootHref(locale: Locale | string) {
+  return `/${locale}/guidebook/`;
+}
+
+// The core-pipeline pages (04-06) are alternative depths of the same job (choose one
+// by change scale), not a linear reading sequence -- surface them together so a reader
+// who lands on any one of them can see the other two options instead of assuming
+// Prev/Next means "read this next."
+export const scaleChoiceSlugs = [
+  "04-general-cycle-small",
+  "05-general-cycle-medium-large",
+  "06-agentic-autonomous-loop"
+] as const;
+
+export type ScaleChoiceSlug = (typeof scaleChoiceSlugs)[number];
+
+export function isScaleChoiceSlug(slug: string): slug is ScaleChoiceSlug {
+  return (scaleChoiceSlugs as readonly string[]).includes(slug);
 }
 
 export function normalizeGuidebookSlug(slug: string[] | undefined) {

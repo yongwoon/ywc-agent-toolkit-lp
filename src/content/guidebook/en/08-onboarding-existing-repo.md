@@ -16,24 +16,44 @@ Use this when you first enter an unfamiliar repository that already has code and
 ## Example run
 
 **Default run** - inspect the whole repo and generate both Onboarding Guide and Starter CLAUDE.md
-```
-ywc-onboard-repo
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-onboard-repo" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-onboard-repo" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **Inspect only a specific workspace in a monorepo**
-```
-ywc-onboard-repo --scope apps/web/
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-onboard-repo --scope apps/web/" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-onboard-repo --scope apps/web/" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **When you need only the explanatory document, not Starter CLAUDE.md**
-```
-ywc-onboard-repo --guide-only
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-onboard-repo --guide-only" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-onboard-repo --guide-only" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **When you need only CLAUDE.md, not the Onboarding Guide**
-```
-ywc-onboard-repo --claude-md-only
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-onboard-repo --claude-md-only" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-onboard-repo --claude-md-only" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 ## What to do next
 

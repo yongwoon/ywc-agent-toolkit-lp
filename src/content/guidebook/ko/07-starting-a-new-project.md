@@ -11,7 +11,7 @@ Git repository 자체가 없거나, 있어도 코드가 거의 없는 백지 상
 | 단계 | Skill | 역할 |
 |---|---|---|
 | 1 | `ywc-project-scaffold` | tech stack / architecture pattern 확정 후 directory 구조 설계 (Markdown plan 산출) |
-| 2 | `ywc-mission` | `docs/mission.md` 에 project 의 why, success criteria, rejected-approach log 기록 |
+| 2 | `ywc-project-mission` | `docs/mission.md` 에 project 의 why, success criteria, rejected-approach log 기록 |
 | 3 | `ywc-spec-writer --full` | `docs/specification/` 에 전체 사양서 작성 (goal / feature / data model / user flow) |
 | 4 | `ywc-spec-validate` | 사양서 completeness / consistency / feasibility / code-compatibility 검증 |
 | 5 | `ywc-project-docs` | Architecture / Product / Operations 등 부가 문서 (필요한 경우) |
@@ -21,36 +21,66 @@ Git repository 자체가 없거나, 있어도 코드가 거의 없는 백지 상
 ## 실행 예시
 
 **1. Directory 구조 설계**
-```
-ywc-project-scaffold FastAPI + GraphQL + Clean Architecture, medium scale
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-project-scaffold FastAPI + GraphQL + Clean Architecture, medium scale" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-project-scaffold FastAPI + GraphQL + Clean Architecture, medium scale" />
+  </ToolTabsPanel>
+</ToolTabs>
 Language 는 필수이고 나머지는 비어 있으면 되물으므로, 가능한 한 Framework / Architecture / Scale 을 함께 명시하세요. 이 skill 은 **Markdown plan 만** 산출합니다 — 실제 file 생성은 `ywc-code-gen` 의 몫입니다.
 
 **2. Project 의 why 를 기록**
-```
-ywc-mission 이 project 의 목표는 소규모 건설업체가 별도 앱 없이 출퇴근을 기록하게 하는 것. 성공 기준은 관리자 1명이 인력 10명 이하의 근태를 5분 안에 마감할 수 있는가
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-project-mission 이 project 의 목표는 소규모 건설업체가 별도 앱 없이 출퇴근을 기록하게 하는 것. 성공 기준은 관리자 1명이 인력 10명 이하의 근태를 5분 안에 마감할 수 있는가" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-project-mission 이 project 의 목표는 소규모 건설업체가 별도 앱 없이 출퇴근을 기록하게 하는 것. 성공 기준은 관리자 1명이 인력 10명 이하의 근태를 5분 안에 마감할 수 있는가" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **3. 전체 사양서 작성**
-```
-ywc-spec-writer --full --lang korean
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-spec-writer --full --lang korean" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-spec-writer --full --lang korean" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **4. 사양서 검증**
-```
-ywc-spec-validate --spec docs/specification/01-overview.md
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-spec-validate --spec docs/specification/01-overview.md" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-spec-validate --spec docs/specification/01-overview.md" />
+  </ToolTabsPanel>
+</ToolTabs>
 `DONE_WITH_CONCERNS` 가 나오면 `ywc-spec-writer` 로 돌아가 보완 후 재검증합니다 — `DONE` 이 될 때까지 반복하세요. (`ywc-spec-ready` 는 `ywc-plan` 이 만든 spec 전용 자동 수렴 loop 이므로 여기서는 사용하지 않습니다.)
 
 **5. 부가 문서 (필요시)**
-```
-ywc-project-docs --lang kr
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-project-docs --lang kr" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-project-docs --lang kr" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 **6. Task 분해**
-```
-ywc-task-generator --lang korean
-```
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-task-generator --lang korean" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-task-generator --lang korean" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 ## 참고
 

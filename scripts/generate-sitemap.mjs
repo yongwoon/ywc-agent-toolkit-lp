@@ -27,22 +27,46 @@ async function readLocales() {
   const source = await readFile(path.join(cwd, "src/i18n/locale-list.ts"), "utf8");
   const matches = source.matchAll(/code:\s*"([^"]+)"[\s\S]*?href:\s*"([^"]+)"/g);
   const locales = Array.from(matches, ([, code, href]) => ({ code, href }));
+  const defaultLocaleMatch = source.match(/defaultLocale\s*=\s*"([^"]+)"/);
 
   if (locales.length === 0) {
     throw new Error("No locales found in src/i18n/locale-list.ts");
   }
 
-  return locales;
+  return {
+    defaultLocale: defaultLocaleMatch?.[1] ?? locales[0].code,
+    locales
+  };
 }
 
-async function readGuidebookSlugs() {
-  const guidebookDir = path.join(cwd, "src/content/guidebook/ko");
-  const entries = await readdir(guidebookDir, { withFileTypes: true });
+async function readGuidebookSlugs(locales) {
+  const slugSets = await Promise.all(
+    locales.map(async (locale) => {
+      const guidebookDir = path.join(cwd, "src/content/guidebook", locale.code);
+      const entries = await readdir(guidebookDir, { withFileTypes: true });
 
-  return entries
-    .filter((entry) => entry.isFile() && /^\d+-.+\.md$/.test(entry.name))
-    .map((entry) => entry.name.replace(/\.md$/, ""))
-    .sort((a, b) => a.localeCompare(b, "en"));
+      return entries
+        .filter((entry) => entry.isFile() && /^\d+-.+\.md$/.test(entry.name))
+        .map((entry) => entry.name.replace(/\.md$/, ""));
+    })
+  );
+
+  return Array.from(new Set(slugSets.flat())).sort((a, b) =>
+    a.localeCompare(b, "en")
+  );
+}
+
+function buildAlternates(locales, defaultLocale, getHref) {
+  return [
+    ...locales.map((locale) => ({
+      code: locale.code,
+      href: getHref(locale.code)
+    })),
+    {
+      code: "x-default",
+      href: getHref(defaultLocale)
+    }
+  ];
 }
 
 function renderUrl({ loc, alternates = [] }) {
@@ -65,16 +89,35 @@ function renderUrl({ loc, alternates = [] }) {
     .join("\n");
 }
 
-const locales = await readLocales();
-const guidebookSlugs = await readGuidebookSlugs();
+const { defaultLocale, locales } = await readLocales();
+const guidebookSlugs = await readGuidebookSlugs(locales);
 const urls = [
   ...locales.map((locale) => ({
     loc: locale.href,
-    alternates: locales
+    alternates: buildAlternates(
+      locales,
+      defaultLocale,
+      (localeCode) => locales.find((locale) => locale.code === localeCode)?.href ?? "/en/"
+    )
   })),
-  ...guidebookSlugs.map((slug) => ({
-    loc: `/ko/guidebook/${slug}/`
-  }))
+  ...locales.map((locale) => ({
+    loc: `/${locale.code}/guidebook/`,
+    alternates: buildAlternates(
+      locales,
+      defaultLocale,
+      (localeCode) => `/${localeCode}/guidebook/`
+    )
+  })),
+  ...guidebookSlugs.flatMap((slug) =>
+    locales.map((locale) => ({
+      loc: `/${locale.code}/guidebook/${slug}/`,
+      alternates: buildAlternates(
+        locales,
+        defaultLocale,
+        (localeCode) => `/${localeCode}/guidebook/${slug}/`
+      )
+    }))
+  )
 ];
 
 const sitemap = [
@@ -98,5 +141,5 @@ await writeFile(path.join(outDir, "sitemap.xml"), sitemap);
 await writeFile(path.join(outDir, "robots.txt"), robots);
 
 console.log(
-  `[generate-sitemap] wrote ${urls.length} URLs (${locales.length} locale home, ${guidebookSlugs.length} ko guidebook) using ${siteUrl}.`
+  `[generate-sitemap] wrote ${urls.length} URLs (${locales.length} locale home, ${locales.length} guidebook roots, ${guidebookSlugs.length * locales.length} localized guidebook pages) using ${siteUrl}.`
 );
