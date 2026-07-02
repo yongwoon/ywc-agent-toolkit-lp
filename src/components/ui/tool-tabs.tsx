@@ -27,7 +27,18 @@ export type ToolTabsPanelProps = {
 // Never rendered directly — ToolTabs reads this component's props from its
 // children and renders the tab header + panel body itself. Typed as FC so JSX
 // callers get prop checking without an unused render parameter.
-const ToolTabsPanel: FC<ToolTabsPanelProps> = () => null;
+//
+// Exported by name (not only as the ToolTabs.Panel static property below): when this
+// "use client" module is imported into a Server Component, Next.js gives each named
+// export its own client reference, but a property bolted onto an export after
+// declaration (ToolTabs.Panel = ...) does not survive that boundary in production
+// builds — the member-expression JSX tag <ToolTabs.Panel> from MDX (rendered
+// server-side by next-mdx-remote/rsc) fails with "Expected component `ToolTabs.Panel`
+// to be defined" even though the same property resolves fine in `next dev`. MDX
+// content must use the flat <ToolTabsPanel> tag registered from this named export
+// instead (see guidebook-mdx.tsx); ToolTabs.Panel remains valid for direct TSX/JSX
+// consumers that don't cross a Server Component boundary.
+export const ToolTabsPanel: FC<ToolTabsPanelProps> = () => null;
 ToolTabsPanel.displayName = "ToolTabs.Panel";
 
 export type ToolTabsProps = {
@@ -64,19 +75,25 @@ function readPanels(children: ReactNode): Panel[] {
     .map((child) => {
       const { tool, label, children: content } = child.props;
 
-      // One message covers both misuse shapes we can't tell apart here: a real
-      // <ToolTabs.Panel> with a mistyped tool value, and a non-Panel element that
-      // wandered into <ToolTabs>'s children (which also arrives with no "tool" prop).
+      // One message covers both misuse shapes we can't tell apart here: a real panel
+      // with a mistyped tool value, and a non-panel element that wandered into
+      // <ToolTabs>'s children (which also arrives with no "tool" prop). Names both the
+      // TSX and MDX syntaxes — <ToolTabs.Panel> alone would mislead an MDX author,
+      // since that compound form doesn't work in MDX (see this file's export comment).
       if (!isTool(tool)) {
         throw new Error(
-          `<ToolTabs> children must be <ToolTabs.Panel tool="claude-code" | "codex" label="...">; ` +
-            `received a "tool" prop of ${JSON.stringify(tool)}. If this child isn't meant to be a ` +
-            `ToolTabs.Panel, remove it from <ToolTabs>'s children.`
+          `<ToolTabs> children must be a panel: <ToolTabs.Panel tool="claude-code" | "codex" ` +
+            `label="..."> in TSX, or <ToolTabsPanel tool="claude-code" | "codex" label="..."> in ` +
+            `MDX content; received a "tool" prop of ${JSON.stringify(tool)}. If this child isn't ` +
+            `meant to be a panel, remove it from <ToolTabs>'s children.`
         );
       }
 
       if (!label) {
-        throw new Error(`ToolTabs.Panel with tool="${tool}" is missing a required "label" prop.`);
+        throw new Error(
+          `ToolTabs panel with tool="${tool}" is missing a required "label" prop ` +
+            `(ToolTabs.Panel in TSX / ToolTabsPanel in MDX).`
+        );
       }
 
       return { tool, label, content };
