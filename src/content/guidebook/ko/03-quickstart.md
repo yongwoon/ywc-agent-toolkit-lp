@@ -8,6 +8,8 @@
 
 ## Step 1 — 계획 세우기
 
+{/* ToolTabs demo block — 000004-030 content re-sync가 재실행되면 덮어써질 수 있음.
+    재동기화 후 이 ToolTabs 마크업 재적용 필요 (guidebook-tool-tabs.md Edge Cases 참고) */}
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
     <CodeBlock label="claude code" code="ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움. 잠김/오타/미가입 등 구체적 사유를 보여주고 싶음" />

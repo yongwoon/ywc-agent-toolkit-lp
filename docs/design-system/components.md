@@ -99,7 +99,16 @@ static export always ships both tools' markup. In MDX content, `tool`/`label` (a
 component nested inside a panel, e.g. `CodeBlock`'s `code`) must be static string literals —
 `{}` JS expressions are blocked by the guidebook MDX pipeline.
 
+**MDX content must use the flat `ToolTabsPanel` tag, not the compound `ToolTabs.Panel` shown
+below** — `ToolTabs.Panel` is a static property attached after the component's declaration,
+and that pattern doesn't survive the Server→Client Component boundary in production builds
+when rendered by `next-mdx-remote/rsc` (it works in `next dev`, then fails `next build`'s
+static-export prerender with `Expected component 'ToolTabs.Panel' to be defined`).
+`ToolTabsPanel` (no dot) is the same component exported by name and is safe in both contexts;
+`ToolTabs.Panel` remains valid for direct TSX/JSX usage outside the MDX pipeline.
+
 ```tsx
+{/* Direct TSX/JSX usage */}
 <ToolTabs>
   <ToolTabs.Panel tool="claude-code" label="Claude Code">
     <CodeBlock label="claude code" code="ywc-plan ..." />
@@ -107,6 +116,18 @@ component nested inside a panel, e.g. `CodeBlock`'s `code`) must be static strin
   <ToolTabs.Panel tool="codex" label="Codex">
     <CodeBlock label="codex" code="codex exec ..." />
   </ToolTabs.Panel>
+</ToolTabs>
+```
+
+```mdx
+{/* Guidebook MDX content — flat tag, see caveat above */}
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-plan ..." />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="codex exec ..." />
+  </ToolTabsPanel>
 </ToolTabs>
 ```
 

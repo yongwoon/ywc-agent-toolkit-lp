@@ -75,19 +75,25 @@ function readPanels(children: ReactNode): Panel[] {
     .map((child) => {
       const { tool, label, children: content } = child.props;
 
-      // One message covers both misuse shapes we can't tell apart here: a real
-      // <ToolTabs.Panel> with a mistyped tool value, and a non-Panel element that
-      // wandered into <ToolTabs>'s children (which also arrives with no "tool" prop).
+      // One message covers both misuse shapes we can't tell apart here: a real panel
+      // with a mistyped tool value, and a non-panel element that wandered into
+      // <ToolTabs>'s children (which also arrives with no "tool" prop). Names both the
+      // TSX and MDX syntaxes — <ToolTabs.Panel> alone would mislead an MDX author,
+      // since that compound form doesn't work in MDX (see this file's export comment).
       if (!isTool(tool)) {
         throw new Error(
-          `<ToolTabs> children must be <ToolTabs.Panel tool="claude-code" | "codex" label="...">; ` +
-            `received a "tool" prop of ${JSON.stringify(tool)}. If this child isn't meant to be a ` +
-            `ToolTabs.Panel, remove it from <ToolTabs>'s children.`
+          `<ToolTabs> children must be a panel: <ToolTabs.Panel tool="claude-code" | "codex" ` +
+            `label="..."> in TSX, or <ToolTabsPanel tool="claude-code" | "codex" label="..."> in ` +
+            `MDX content; received a "tool" prop of ${JSON.stringify(tool)}. If this child isn't ` +
+            `meant to be a panel, remove it from <ToolTabs>'s children.`
         );
       }
 
       if (!label) {
-        throw new Error(`ToolTabs.Panel with tool="${tool}" is missing a required "label" prop.`);
+        throw new Error(
+          `ToolTabs panel with tool="${tool}" is missing a required "label" prop ` +
+            `(ToolTabs.Panel in TSX / ToolTabsPanel in MDX).`
+        );
       }
 
       return { tool, label, content };
