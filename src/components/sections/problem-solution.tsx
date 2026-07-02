@@ -1,5 +1,7 @@
 import { getTranslations } from "next-intl/server";
 
+import { SectionEyebrow } from "@/components/ui/section-eyebrow";
+
 type ComparisonColumn = {
   title: string;
   items: string[];
@@ -47,9 +49,7 @@ export async function ProblemSolution() {
     <section className="border-b border-border-subtle">
       <div className="mx-auto max-w-[var(--container)] px-[var(--gutter)] py-[var(--section-y)]">
         <div className="max-w-[760px]">
-          <p className="font-mono text-label font-semibold uppercase leading-none tracking-[var(--ls-label)] text-accent">
-            Why
-          </p>
+          <SectionEyebrow>Why</SectionEyebrow>
           <h2 className="mt-4 font-display text-h2 font-bold leading-[var(--lh-snug)] text-text-bright">
             {t("title")}
           </h2>
