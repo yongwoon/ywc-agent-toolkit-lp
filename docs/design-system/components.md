@@ -44,7 +44,8 @@ back to selecting the text** (non-secure context / denied) — never a dead end.
 ```
 
 ## Terminal
-Window-chrome shell for CLI demos / transcripts. Props: `title`, `glow` (amber halo — hero only).
+Window-chrome shell for CLI demos / transcripts. Props: `title`, `glow` (halo — hero only),
+`lane` (`claude` = amber halo, `codex` = cyan halo).
 Compose rows with `Terminal.Line` — `type`: `prompt|output|comment|success|error|info`;
 `caret` on the last live line for a blinking block cursor. Title bar = traffic-light dots +
 centered mono title; radius `--radius-lg`.

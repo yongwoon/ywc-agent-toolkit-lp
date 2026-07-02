@@ -91,7 +91,7 @@ export async function Hero() {
           </div>
           <div className="hidden gap-4 p-4 group-has-[#hero-tool-codex:checked]/demo:grid">
             <CodeBlock code={t("demoCommandCodex")} label="codex" />
-            <Terminal title="ywc-agent-toolkit - zsh" glow>
+            <Terminal lane="codex" title="ywc-agent-toolkit - zsh" glow>
               <Terminal.Line type="prompt">{t("demoCommandCodex")}</Terminal.Line>
               <Terminal.Line type="info">
                 resolving plugin marketplace source yongwoon/ywc-agent-toolkit
