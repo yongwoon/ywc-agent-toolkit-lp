@@ -3,7 +3,7 @@ import Slugger from "github-slugger";
 import { isValidElement, type ComponentPropsWithoutRef, type ReactNode } from "react";
 import remarkGfm from "remark-gfm";
 import { CodeBlock } from "@/components/ui/code-block";
-import { ToolTabs } from "@/components/ui/tool-tabs";
+import { ToolTabs, ToolTabsPanel } from "@/components/ui/tool-tabs";
 
 type GuidebookMdxProps = {
   source: string;
@@ -125,11 +125,18 @@ export function GuidebookMdx({ source }: GuidebookMdxProps) {
         td: (props) => (
           <td {...props} className="border-b border-border-subtle py-3 pr-4 text-text-secondary" />
         ),
-        // <ToolTabs.Panel> compiles to a member-expression JSX tag (`ToolTabs.Panel`), so
-        // registering `ToolTabs` here is sufficient — MDX resolves `.Panel` off it directly,
-        // no separate "ToolTabs.Panel" key is needed. CodeBlock is registered too since
-        // ToolTabs.Panel content uses it as a direct JSX tag, not the auto `pre` mapping above.
+        // MDX content uses the flat <ToolTabsPanel> tag, not the compound <ToolTabs.Panel>
+        // from FR-1's TSX-authoring sample: member-expression JSX tags resolve via a
+        // components.ToolTabs.Panel property chain, and that static property doesn't survive
+        // the Server Component boundary in production builds (works in `next dev`, fails
+        // during `next build`'s SSG worker with "Expected component `ToolTabs.Panel` to be
+        // defined"). The flat tag resolves ToolTabsPanel directly as its own named export,
+        // sidestepping the property chain entirely. ToolTabs.Panel remains valid for direct
+        // TSX/JSX consumers outside this MDX pipeline.
         ToolTabs,
+        ToolTabsPanel,
+        // CodeBlock is registered too since ToolTabsPanel content uses it as a direct JSX
+        // tag, not the auto `pre` mapping above.
         CodeBlock
       }}
       options={{

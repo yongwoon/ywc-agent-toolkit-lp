@@ -27,7 +27,18 @@ export type ToolTabsPanelProps = {
 // Never rendered directly — ToolTabs reads this component's props from its
 // children and renders the tab header + panel body itself. Typed as FC so JSX
 // callers get prop checking without an unused render parameter.
-const ToolTabsPanel: FC<ToolTabsPanelProps> = () => null;
+//
+// Exported by name (not only as the ToolTabs.Panel static property below): when this
+// "use client" module is imported into a Server Component, Next.js gives each named
+// export its own client reference, but a property bolted onto an export after
+// declaration (ToolTabs.Panel = ...) does not survive that boundary in production
+// builds — the member-expression JSX tag <ToolTabs.Panel> from MDX (rendered
+// server-side by next-mdx-remote/rsc) fails with "Expected component `ToolTabs.Panel`
+// to be defined" even though the same property resolves fine in `next dev`. MDX
+// content must use the flat <ToolTabsPanel> tag registered from this named export
+// instead (see guidebook-mdx.tsx); ToolTabs.Panel remains valid for direct TSX/JSX
+// consumers that don't cross a Server Component boundary.
+export const ToolTabsPanel: FC<ToolTabsPanelProps> = () => null;
 ToolTabsPanel.displayName = "ToolTabs.Panel";
 
 export type ToolTabsProps = {
