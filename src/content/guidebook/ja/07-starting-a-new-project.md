@@ -1,0 +1,62 @@
+[« 目次に戻る](./README.md)
+
+# 07. 新しい Project を始める
+
+## いつこのフローを使うか
+
+Git repository 自体がない、またはあってもコードがほとんどない白紙の状態で project を設計するときに使います。すでにコードがある未知の repo を把握したい場合は、このページではなく [08. 既存 Repo に初めて入る](./08-onboarding-existing-repo.md)へ移動してください。この 2 つのフローは逆方向であり、同じセッションで一緒に使いません。
+
+## 全体フロー
+
+| 段階 | Skill | 役割 |
+|---|---|---|
+| 1 | `ywc-project-scaffold` | tech stack / architecture pattern 確定後、directory 構造を設計 (Markdown plan を出力) |
+| 2 | `ywc-mission` | `docs/mission.md` に project の why、success criteria、rejected-approach log を記録 |
+| 3 | `ywc-spec-writer --full` | `docs/specification/` に全体仕様書を作成 (goal / feature / data model / user flow) |
+| 4 | `ywc-spec-validate` | 仕様書の completeness / consistency / feasibility / code-compatibility を検証 |
+| 5 | `ywc-project-docs` | Architecture / Product / Operations などの補助文書 (必要な場合) |
+| 6 | `ywc-task-generator` | `DONE` になった spec を dependency-safe Task に分解 |
+| 7 | [05. general cycle (medium/large)](./05-general-cycle-medium-large.md) へ入る | 実際の実装を開始 |
+
+## 実行例
+
+**1. Directory 構造を設計**
+```
+ywc-project-scaffold FastAPI + GraphQL + Clean Architecture, medium scale
+```
+Language は必須で、それ以外が空なら聞き返されるため、可能な限り Framework / Architecture / Scale を一緒に明示してください。この skill は **Markdown plan のみ**を出力します。実際の file 生成は `ywc-code-gen` の役割です。
+
+**2. Project の why を記録**
+```
+ywc-mission 이 project 의 목표는 소규모 건설업체가 별도 앱 없이 출퇴근을 기록하게 하는 것. 성공 기준은 관리자 1명이 인력 10명 이하의 근태를 5분 안에 마감할 수 있는가
+```
+
+**3. 全体仕様書を作成**
+```
+ywc-spec-writer --full --lang korean
+```
+
+**4. 仕様書を検証**
+```
+ywc-spec-validate --spec docs/specification/01-overview.md
+```
+`DONE_WITH_CONCERNS` が出たら `ywc-spec-writer` に戻って補完し、再検証します。`DONE` になるまで繰り返してください。(`ywc-spec-ready` は `ywc-plan` が作った spec 専用の自動収束 loop なので、ここでは使いません。)
+
+**5. 補助文書 (必要なら)**
+```
+ywc-project-docs --lang kr
+```
+
+**6. Task 分解**
+```
+ywc-task-generator --lang korean
+```
+
+## 参考
+
+- 規模が小さく spec 分解なしで直接実装できる場合は、`ywc-plan` が Small path へ routing し、このフロー全体を飛ばすことがあります。
+- `ywc-onboard-repo` はこのフローの逆方向(既存 repo 調査)なので、新しい project 作成時には使いません。
+
+---
+
+[← 前: 06. 目標 1 つで自動完了する](./06-agentic-autonomous-loop.md) · [次: 08. 既存 Repo に初めて入る →](./08-onboarding-existing-repo.md)
