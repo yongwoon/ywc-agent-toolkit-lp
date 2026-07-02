@@ -1,12 +1,11 @@
-"use client";
-
-import { MDXRemote, type MDXRemoteSerializeResult } from "next-mdx-remote";
+import { MDXRemote } from "next-mdx-remote/rsc";
 import Slugger from "github-slugger";
 import { isValidElement, type ComponentPropsWithoutRef, type ReactNode } from "react";
+import remarkGfm from "remark-gfm";
 import { CodeBlock } from "@/components/ui/code-block";
 
 type GuidebookMdxProps = {
-  source: MDXRemoteSerializeResult<Record<string, unknown>, Record<string, unknown>>;
+  source: string;
 };
 
 function textFromChildren(children: ReactNode): string {
@@ -67,7 +66,7 @@ export function GuidebookMdx({ source }: GuidebookMdxProps) {
 
   return (
     <MDXRemote
-      {...source}
+      source={source}
       components={{
         h1: H1,
         h2: H2,
@@ -125,6 +124,14 @@ export function GuidebookMdx({ source }: GuidebookMdxProps) {
         td: (props) => (
           <td {...props} className="border-b border-border-subtle py-3 pr-4 text-text-secondary" />
         )
+      }}
+      options={{
+        parseFrontmatter: false,
+        blockJS: true,
+        blockDangerousJS: true,
+        mdxOptions: {
+          remarkPlugins: [remarkGfm],
+        },
       }}
     />
   );
