@@ -1,10 +1,11 @@
 # Components — ywc-agent-toolkit
 
-The 7 reusable primitives. In the design-system project they live as React components under
+The 8 reusable primitives. In the design-system project they live as React components under
 `components/core/` (`Button`, `Badge`, `CodeBlock`, `Terminal`, `StatCard`, `FaqItem`,
-`LocaleSwitcher`). When implementing in the Next.js LP, recreate them under
+`LocaleSwitcher`, `ToolTabs`). When implementing in the Next.js LP, recreate them under
 `src/components/ui/` following these contracts — each is self-contained and reads styling from
-the CSS custom properties (or Tailwind utilities mapped in `tailwind-theme.css`).
+the CSS custom properties (or Tailwind utilities mapped in `tailwind-theme.css`), with one
+exception: `ToolTabs` needs a page-level `ToolTabsProvider` ancestor (see below).
 
 > The full reference source (props + styling) is in the design-system project's
 > `components/core/<Name>.{jsx,d.ts,prompt.md}` — copy values from there for pixel fidelity.
@@ -86,6 +87,27 @@ next-intl navigation. Closes on outside click; active locale amber-tinted.
 
 ```tsx
 <LocaleSwitcher value={locale} onChange={(code)=>router.push(`/${code}`)} />
+```
+
+## ToolTabs
+Tool-specific command tabs (Claude Code / Codex), synced page-wide and persisted via
+`localStorage`. Compound API: `ToolTabs` (tablist wrapper) + `ToolTabs.Panel` (`tool`:
+`claude-code|codex`, `label`), wrapping a `CodeBlock` per tool. Active tab takes the lane color
+(claude=amber, codex=cyan); full WAI-ARIA Tabs keyboard support (arrows, Home/End, Enter/Space).
+Requires a page-level `ToolTabsProvider`; inactive panels stay mounted (`hidden` attribute) so
+static export always ships both tools' markup. In MDX content, `tool`/`label` (and any prop on a
+component nested inside a panel, e.g. `CodeBlock`'s `code`) must be static string literals —
+`{}` JS expressions are blocked by the guidebook MDX pipeline.
+
+```tsx
+<ToolTabs>
+  <ToolTabs.Panel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-plan ..." />
+  </ToolTabs.Panel>
+  <ToolTabs.Panel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="codex exec ..." />
+  </ToolTabs.Panel>
+</ToolTabs>
 ```
 
 ---
