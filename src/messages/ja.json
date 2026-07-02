@@ -7,6 +7,10 @@
         "target": "/guidebook/"
       },
       {
+        "label": "使い方",
+        "target": "#how-it-works"
+      },
+      {
         "label": "機能",
         "target": "#features"
       },
@@ -29,7 +33,8 @@
     "subheading": "計画と仕様作成からコード生成、レビュー、リリースまで、開発 workflow 全体を terminal から離れずに自動化します。",
     "ctaLabels": {
       "install": "インストール",
-      "github": "GitHub で star"
+      "github": "GitHub で star",
+      "preview": "使い方を見る"
     },
     "demoCommand": "/plugin marketplace add yongwoon/ywc-agent-toolkit",
     "demoCommandCodex": "codex plugin marketplace add yongwoon/ywc-agent-toolkit"
@@ -49,34 +54,99 @@
       "items": [
         "`ywc-plan` と `ywc-task-generator` が粗い goal を実装可能な work に変えます。",
         "`ywc-code-gen` と `ywc-impl-review` が build、review、verification loop を明示的に保ちます。",
-        "`/ywc-agentic` と specialist agents が複雑な作業を Claude Code または Codex の適切な mode に振り分けます。"
+        "`/ywc-agentic` は複雑な作業を、上限付きで review-gated な loop に振り分けます — マージ前に `ywc-impl-review` を組み込んだ、最大 3 回の自動 iteration です。"
       ]
     }
   },
+  "pipeline": {
+    "eyebrow": "使い方",
+    "title": "寄せ集めの skill ではなく、意見を持った pipeline。",
+    "description": "41 skills の大部分は、自分で順序を組み立てる独立した prompt としてではなく、一つの sequence として連鎖します。",
+    "steps": [
+      {
+        "skill": "ywc-plan",
+        "label": "計画",
+        "description": "`ywc-plan` が粗い goal を spec に変換し、適切な規模の flow に振り分けます。"
+      },
+      {
+        "skill": "ywc-spec-ready",
+        "label": "収束",
+        "description": "`ywc-spec-ready` は、small change を超える作業について、spec が完成するまで planning と validation を loop します。"
+      },
+      {
+        "skill": "ywc-task-generator",
+        "label": "分解",
+        "description": "`ywc-task-generator` が spec を dependency-safe な tasks に分解し、parallel-execution graph を生成します。"
+      },
+      {
+        "skill": "ywc-sequential-executor",
+        "label": "実行",
+        "description": "executor が各 task を実装します — `--review` により review、PR、merge まで組み込まれます。"
+      },
+      {
+        "skill": "ywc-gen-testcase",
+        "label": "検証",
+        "description": "`ywc-gen-testcase` が PR ごとに QA test sheet を生成し、manual sign-off の準備を整えます。"
+      }
+    ],
+    "agentic": {
+      "title": "あるいは、`/ywc-agentic` に直接進むこともできます。",
+      "description": "goal を一つ入力するだけで、上限付きの review-gated loop が動きます — マージ前に `ywc-impl-review` を組み込んだ、最大 3 回の自動 Plan → Execute → Evaluate → Repeat iteration です。",
+      "cta": {
+        "label": "autonomous loop guide を見る",
+        "target": "/guidebook/06-agentic-autonomous-loop/"
+      }
+    },
+    "cta": {
+      "label": "full pipeline を見る",
+      "target": "/guidebook/05-general-cycle-medium-large/"
+    }
+  },
   "featureGrid": {
-    "title": "両方の tool のために設計。",
+    "title": "6 つの category、1 つの pipeline、2 つの tool。",
+    "description": "41 skills を、数だけでなく、何をするかで整理しました。",
     "items": [
       {
-        "label": "Claude Code skills",
-        "value": "41 skills",
-        "description": "Planning、spec writing、implementation、review、release、maintenance workflow を Claude Code 向けに package 化しています。"
+        "label": "Planning & Spec",
+        "value": "10 skills",
+        "description": "code を書く前に、粗い goal を validated な spec または task list に変換します。",
+        "lane": "claude"
+      },
+      {
+        "label": "Task & Execution",
+        "value": "8 skills",
+        "description": "Branch、implement、verify、merge を行います — sequential、parallel、または fully autonomous で。",
+        "lane": "claude"
+      },
+      {
+        "label": "Review & Verification",
+        "value": "12 skills",
+        "description": "Architecture、security、design、QA review に加えて、self-improving な learnings loop も備えています。",
+        "lane": "codex"
+      },
+      {
+        "label": "Git & Release",
+        "value": "7 skills",
+        "description": "Commit、PR、bot-review への対応、release notes までを end to end で扱います。",
+        "lane": "codex"
       },
       {
         "label": "Claude Code agents",
         "value": "12 agents",
-        "description": "Architecture、security、performance、root cause analysis、language-specific review のための custom specialist agents です。"
-      },
-      {
-        "label": "Codex skills",
-        "value": "41 skills",
-        "description": "同じ workflow coverage を Codex-native な instructions と plugin packaging に合わせて提供します。"
+        "description": "Architecture、security、performance、language-specific review のための specialist な read-only agents です。",
+        "lane": "claude"
       },
       {
         "label": "Codex agents",
         "value": "7 agents",
-        "description": "Codex workspaces 内で `ywc-*` skills を補完する read-only specialist agents です。"
+        "description": "同じ specialist coverage を、read-only な Codex agents として提供します。",
+        "lane": "codex"
       }
-    ]
+    ],
+    "cta": {
+      "label": "full skill reference を見る",
+      "target": "/guidebook/13-skill-reference/"
+    }
   },
   "installSteps": {
     "title": "plugin path からインストール。",
@@ -107,12 +177,38 @@
           }
         ]
       }
-    ]
+    ],
+    "nextStep": {
+      "title": "次はこれを試してみましょう",
+      "description": "インストールしたら、最初の idea を plan に変えましょう。",
+      "commandText": "/ywc-plan <作りたいものを説明>",
+      "cta": {
+        "label": "quickstart を確認する",
+        "target": "/guidebook/03-quickstart/"
+      }
+    }
   },
   "socialProof": {
-    "title": "Community proof",
-    "items": [],
-    "emptyState": "Community quotes は launch 後に追加されます。"
+    "title": "オープンに開発しています",
+    "description": "customer からの声はまだありません — インストール前に自分で確認できる情報はこちらです。",
+    "starsLabel": "GitHub star 数",
+    "starsDescription": "build のたびに取得する live count です。",
+    "items": [
+      {
+        "label": "ライセンス",
+        "value": "MIT",
+        "description": "Open source で、paid tier も account も不要です。"
+      },
+      {
+        "label": "リリース",
+        "value": "自動化",
+        "description": "main への merge のたびに、Release Please が version と changelog を生成します。"
+      }
+    ],
+    "contributeCta": {
+      "label": "skill を追加する",
+      "target": "https://github.com/yongwoon/ywc-agent-toolkit/blob/main/CONTRIBUTING.md"
+    }
   },
   "faq": {
     "title": "FAQ",
@@ -140,6 +236,26 @@
       {
         "question": "既存の workflow を使い続けられますか？",
         "answer": "はい。toolkit は `ywc-plan`、`ywc-code-gen`、`ywc-impl-review` などの reusable skills を追加します。Backend、account、project migration は不要です。"
+      },
+      {
+        "question": "toolkit は、私に確認せずに何を変更できますか？",
+        "answer": "`ywc-merge-dependabot` は dependency PR を auto-merge でき、`ywc-finish-branch` は checks が通れば branch を merge して削除できます。`ywc-agentic` は、マージ前に `ywc-impl-review` を組み込んだ、最大 3 回の自動 iteration を実行します。これらはすべて、あなたが呼び出す skill です — 呼び出さない限り何も実行されません。"
+      },
+      {
+        "question": "Claude Code や Codex 以外に何か必要ですか？",
+        "answer": "Plugin-marketplace installation 自体に前提条件はありません。ただし、その後 certain skills を使う場合は必要です: `ywc-parallel-executor` や `ywc-finish-branch` のような skill には `python3` ≥ 3.9（hooks には ≥ 3.11）、PR や release ベースの skill には `gh` CLI が必要です。"
+      },
+      {
+        "question": "これは shell や tool の動作を変更しますか？",
+        "answer": "optional な Claude Code hooks をインストールした場合のみです。危険な shell command のブロックや `.env`/SSH-key file へのアクセスブロックといった guardrail を追加します — 完全にスキップして skills だけを使うこともできます。"
+      },
+      {
+        "question": "generic な skill collection と何が違いますか？",
+        "answer": "41 skills の大部分は、自分で順序を組み立てる独立した prompt としてではなく、一つの opinionated な pipeline（plan → spec → tasks → execute → test）に組み込まれています。また、確認された defect は review-learnings loop に反映され、以降の review が自動的に強化されます。"
+      },
+      {
+        "question": "skill を contribute できますか？",
+        "answer": "はい。`ywc-skill-author` が convention を文書化しており、CONTRIBUTING.md に bug report、new skill、translation について記載されています。"
       }
     ]
   },

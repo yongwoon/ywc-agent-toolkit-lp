@@ -7,6 +7,10 @@
         "target": "/guidebook/"
       },
       {
+        "label": "How it works",
+        "target": "#how-it-works"
+      },
+      {
         "label": "Features",
         "target": "#features"
       },
@@ -29,7 +33,8 @@
     "subheading": "Automate the full development workflow — from planning and spec writing to code generation, review, and release without leaving your terminal.",
     "ctaLabels": {
       "install": "Install",
-      "github": "Star on GitHub"
+      "github": "Star on GitHub",
+      "preview": "See how it works"
     },
     "demoCommand": "/plugin marketplace add yongwoon/ywc-agent-toolkit",
     "demoCommandCodex": "codex plugin marketplace add yongwoon/ywc-agent-toolkit"
@@ -49,34 +54,99 @@
       "items": [
         "`ywc-plan` and `ywc-task-generator` turn rough goals into implementation-ready work.",
         "`ywc-code-gen` and `ywc-impl-review` keep build, review, and verification loops explicit.",
-        "`/ywc-agentic` and specialist agents route complex work to the right mode for Claude Code or Codex."
+        "`/ywc-agentic` routes complex work through a capped, review-gated loop — up to three automated iterations with `ywc-impl-review` folded in before anything merges."
       ]
     }
   },
+  "pipeline": {
+    "eyebrow": "How it works",
+    "title": "An opinionated pipeline, not a skill grab-bag.",
+    "description": "Most of the 41 skills chain into one sequence instead of standing alone as independent prompts you have to order yourself.",
+    "steps": [
+      {
+        "skill": "ywc-plan",
+        "label": "Plan",
+        "description": "`ywc-plan` turns a rough goal into a spec and routes it to the right size of flow."
+      },
+      {
+        "skill": "ywc-spec-ready",
+        "label": "Converge",
+        "description": "`ywc-spec-ready` loops planning and validation until the spec is done, for anything beyond a small change."
+      },
+      {
+        "skill": "ywc-task-generator",
+        "label": "Decompose",
+        "description": "`ywc-task-generator` breaks the spec into dependency-safe tasks with a parallel-execution graph."
+      },
+      {
+        "skill": "ywc-sequential-executor",
+        "label": "Execute",
+        "description": "The executor implements each task — review, PR, and merge folded in via `--review`."
+      },
+      {
+        "skill": "ywc-gen-testcase",
+        "label": "Verify",
+        "description": "`ywc-gen-testcase` generates a QA test sheet per PR, ready for manual sign-off."
+      }
+    ],
+    "agentic": {
+      "title": "Or skip straight to `/ywc-agentic`.",
+      "description": "One goal in, a capped review-gated loop out — up to three automated Plan → Execute → Evaluate → Repeat iterations with `ywc-impl-review` folded in before anything merges.",
+      "cta": {
+        "label": "See the autonomous loop guide",
+        "target": "/guidebook/06-agentic-autonomous-loop/"
+      }
+    },
+    "cta": {
+      "label": "See the full pipeline",
+      "target": "/guidebook/05-general-cycle-medium-large/"
+    }
+  },
   "featureGrid": {
-    "title": "Built for both tools.",
+    "title": "Six categories, one pipeline, two tools.",
+    "description": "41 skills organized by what they do, not just how many there are.",
     "items": [
       {
-        "label": "Claude Code skills",
-        "value": "41 skills",
-        "description": "Planning, spec writing, implementation, review, release, and maintenance workflows packaged for Claude Code."
+        "label": "Planning & Spec",
+        "value": "10 skills",
+        "description": "Turn a rough goal into a validated spec or task list before any code is written.",
+        "lane": "claude"
+      },
+      {
+        "label": "Task & Execution",
+        "value": "8 skills",
+        "description": "Branch, implement, verify, and merge — sequential, parallel, or fully autonomous.",
+        "lane": "claude"
+      },
+      {
+        "label": "Review & Verification",
+        "value": "12 skills",
+        "description": "Architecture, security, design, and QA review, plus a self-improving learnings loop.",
+        "lane": "codex"
+      },
+      {
+        "label": "Git & Release",
+        "value": "7 skills",
+        "description": "Commits, PRs, bot-review responses, and release notes handled end to end.",
+        "lane": "codex"
       },
       {
         "label": "Claude Code agents",
         "value": "12 agents",
-        "description": "Custom specialist agents for architecture, security, performance, root cause analysis, and language-specific review."
-      },
-      {
-        "label": "Codex skills",
-        "value": "41 skills",
-        "description": "The same workflow coverage adapted for Codex, with Codex-native instructions and plugin packaging."
+        "description": "Specialist read-only agents for architecture, security, performance, and language-specific review.",
+        "lane": "claude"
       },
       {
         "label": "Codex agents",
         "value": "7 agents",
-        "description": "Read-only specialist agents that complement `ywc-*` skills inside Codex workspaces."
+        "description": "The same specialist coverage, packaged as read-only Codex agents.",
+        "lane": "codex"
       }
-    ]
+    ],
+    "cta": {
+      "label": "Browse the full skill reference",
+      "target": "/guidebook/13-skill-reference/"
+    }
   },
   "installSteps": {
     "title": "Install from the plugin paths.",
@@ -107,12 +177,38 @@
           }
         ]
       }
-    ]
+    ],
+    "nextStep": {
+      "title": "Now try this",
+      "description": "Once installed, turn your first idea into a plan.",
+      "commandText": "/ywc-plan <describe what you want to build>",
+      "cta": {
+        "label": "Walk through the quickstart",
+        "target": "/guidebook/03-quickstart/"
+      }
+    }
   },
   "socialProof": {
-    "title": "Community proof",
-    "items": [],
-    "emptyState": "Community quotes will be added after launch."
+    "title": "Built in the open",
+    "description": "No customer quotes yet — here's what you can verify yourself before installing.",
+    "starsLabel": "GitHub stars",
+    "starsDescription": "Live count, fetched at every build.",
+    "items": [
+      {
+        "label": "License",
+        "value": "MIT",
+        "description": "Open source, no paid tier, no account required."
+      },
+      {
+        "label": "Releases",
+        "value": "Automated",
+        "description": "Release Please versions and changelogs on every merge to main."
+      }
+    ],
+    "contributeCta": {
+      "label": "Add a skill",
+      "target": "https://github.com/yongwoon/ywc-agent-toolkit/blob/main/CONTRIBUTING.md"
+    }
   },
   "faq": {
     "title": "FAQ",
@@ -140,6 +236,26 @@
       {
         "question": "Can I keep using my existing workflow?",
         "answer": "Yes. The toolkit adds reusable skills such as `ywc-plan`, `ywc-code-gen`, and `ywc-impl-review`; it does not require a backend, account, or project migration."
+      },
+      {
+        "question": "What can the toolkit change without asking me?",
+        "answer": "`ywc-merge-dependabot` can auto-merge dependency PRs, and `ywc-finish-branch` can merge and delete branches once its checks pass. `ywc-agentic` runs up to three automated iterations with `ywc-impl-review` folded in before anything merges. Every one of these is a skill you invoke — none of it runs unless you call it."
+      },
+      {
+        "question": "Do I need anything besides Claude Code or Codex?",
+        "answer": "Plugin-marketplace installation itself has no prerequisites. Using certain skills afterward does: `python3` ≥ 3.9 (≥ 3.11 for hooks) for skills like `ywc-parallel-executor` and `ywc-finish-branch`, and the `gh` CLI for PR- and release-based skills."
+      },
+      {
+        "question": "Does this modify my shell or tool behavior?",
+        "answer": "Only if you install the optional Claude Code hooks. They add guardrails like blocking dangerous shell commands and blocking access to `.env`/SSH-key files — you can skip them entirely and use only the skills."
+      },
+      {
+        "question": "How is this different from a generic skill collection?",
+        "answer": "Most of the 41 skills are wired into one opinionated pipeline (plan → spec → tasks → execute → test) instead of standing alone as prompts you sequence yourself, and confirmed defects feed a review-learnings loop that tightens future reviews automatically."
+      },
+      {
+        "question": "Can I contribute a skill?",
+        "answer": "Yes. `ywc-skill-author` documents the conventions, and CONTRIBUTING.md covers bug reports, new skills, and translations."
       }
     ]
   },

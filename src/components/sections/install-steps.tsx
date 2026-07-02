@@ -1,7 +1,8 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import { CodeBlock } from "@/components/ui/code-block";
 import { SectionEyebrow } from "@/components/ui/section-eyebrow";
+import { resolveLocalizedHref } from "@/lib/localized-href";
 
 type InstallStep = {
   stepNumber: number;
@@ -14,9 +15,21 @@ type InstallPath = {
   steps: InstallStep[];
 };
 
+type NextStep = {
+  title: string;
+  description: string;
+  commandText: string;
+  cta: {
+    label: string;
+    target: string;
+  };
+};
+
 export async function InstallSteps() {
   const t = await getTranslations("installSteps");
+  const locale = await getLocale();
   const paths = t.raw("paths") as InstallPath[];
+  const nextStep = t.raw("nextStep") as NextStep;
 
   return (
     <section className="border-b border-border-subtle bg-bg-subtle" id="install">
@@ -61,6 +74,24 @@ export async function InstallSteps() {
               </ol>
             </article>
           ))}
+        </div>
+
+        <div className="mt-6 rounded-md border border-border-subtle bg-surface p-5 shadow-[var(--edge-top)]">
+          <h3 className="font-display text-h3 font-bold leading-[var(--lh-snug)] text-text-bright">
+            {nextStep.title}
+          </h3>
+          <p className="mt-2 max-w-[640px] text-[var(--text-body-sm)] leading-[var(--lh-relaxed)] text-text-secondary">
+            {nextStep.description}
+          </p>
+          <div className="mt-4 max-w-[520px]">
+            <CodeBlock code={nextStep.commandText} label="next step" prompt="/" />
+          </div>
+          <a
+            className="mt-4 inline-flex font-mono text-[var(--text-mono-sm)] font-semibold text-link underline-offset-4 hover:underline focus-visible:outline-none focus-visible:shadow-[var(--focus-ring)]"
+            href={resolveLocalizedHref(locale, nextStep.cta.target)}
+          >
+            {nextStep.cta.label} →
+          </a>
         </div>
       </div>
     </section>
