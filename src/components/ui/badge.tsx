@@ -1,6 +1,6 @@
 import type { HTMLAttributes, ReactNode } from "react";
 
-type BadgeVariant = "neutral" | "amber" | "cyan" | "pass" | "fail" | "agent";
+type BadgeVariant = "neutral" | "amber" | "cyan" | "pass" | "fail" | "warn" | "agent";
 
 export type BadgeProps = HTMLAttributes<HTMLSpanElement> & {
   variant?: BadgeVariant;
@@ -14,6 +14,7 @@ const variantClasses: Record<BadgeVariant, string> = {
   cyan: "border-link/60 bg-[var(--cyan-tint)] text-link",
   pass: "border-state-pass/60 bg-[var(--green-tint)] text-state-pass",
   fail: "border-state-fail/60 bg-[var(--red-tint)] text-state-fail",
+  warn: "border-state-warn/60 bg-[var(--accent-tint)] text-state-warn",
   agent: "border-state-agent/60 bg-[var(--violet-tint)] text-state-agent"
 };
 
@@ -23,6 +24,7 @@ const dotClasses: Record<BadgeVariant, string> = {
   cyan: "bg-link shadow-[0_0_8px_var(--link)]",
   pass: "bg-state-pass shadow-[0_0_8px_var(--state-pass)]",
   fail: "bg-state-fail shadow-[0_0_8px_var(--state-fail)]",
+  warn: "bg-state-warn shadow-[0_0_8px_var(--state-warn)]",
   agent: "bg-state-agent shadow-[0_0_8px_var(--state-agent)]"
 };
 

@@ -24,8 +24,8 @@ press: scale 0.98. Font `--font-mono`, radius `--radius-sm`, heights `--control-
 ```
 
 ## Badge
-Compact mono pill for status / counts / lanes. `variant`: `neutral|amber|cyan|pass|fail|agent`.
-`dot` adds a glowing status indicator. `pass|fail|agent` carry pipeline meaning — don't use
+Compact mono pill for status / counts / lanes. `variant`: `neutral|amber|cyan|pass|fail|warn|agent`.
+`dot` adds a glowing status indicator. `pass|fail|warn|agent` carry pipeline meaning — don't use
 decoratively. Radius `--radius-pill`, size `--text-label`.
 
 ```tsx
