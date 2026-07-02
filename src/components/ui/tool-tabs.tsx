@@ -14,9 +14,9 @@ import {
   type ReactNode
 } from "react";
 
-import { useToolTabsContext, type Tool } from "./tool-tabs-provider";
+import { isTool, useToolTabsContext, type Tool } from "./tool-tabs-provider";
 
-const VALID_TOOLS: readonly Tool[] = ["claude-code", "codex"];
+export type { Tool };
 
 export type ToolTabsPanelProps = {
   tool: Tool;
@@ -64,13 +64,22 @@ function readPanels(children: ReactNode): Panel[] {
     .map((child) => {
       const { tool, label, children: content } = child.props;
 
-      if (!tool || !VALID_TOOLS.includes(tool)) {
+      // One message covers both misuse shapes we can't tell apart here: a real
+      // <ToolTabs.Panel> with a mistyped tool value, and a non-Panel element that
+      // wandered into <ToolTabs>'s children (which also arrives with no "tool" prop).
+      if (!isTool(tool)) {
         throw new Error(
-          `ToolTabs.Panel received an invalid "tool" prop: "${String(tool)}". Expected "claude-code" or "codex".`
+          `<ToolTabs> children must be <ToolTabs.Panel tool="claude-code" | "codex" label="...">; ` +
+            `received a "tool" prop of ${JSON.stringify(tool)}. If this child isn't meant to be a ` +
+            `ToolTabs.Panel, remove it from <ToolTabs>'s children.`
         );
       }
 
-      return { tool, label: label ?? tool, content };
+      if (!label) {
+        throw new Error(`ToolTabs.Panel with tool="${tool}" is missing a required "label" prop.`);
+      }
+
+      return { tool, label, content };
     });
 }
 

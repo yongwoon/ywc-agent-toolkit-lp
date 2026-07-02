@@ -7,7 +7,9 @@ export type Tool = "claude-code" | "codex";
 const STORAGE_KEY = "ywc-tool-preference";
 const DEFAULT_TOOL: Tool = "claude-code";
 
-function isTool(value: string | null): value is Tool {
+// Single source of truth for the Tool domain — tool-tabs.tsx imports this instead of
+// re-declaring its own validity list, so adding a third tool only means editing here.
+export function isTool(value: unknown): value is Tool {
   return value === "claude-code" || value === "codex";
 }
 
@@ -29,6 +31,10 @@ function createToolStore(): ToolStore {
   let hasHydrated = false;
   const listeners = new Set<Listener>();
 
+  // Must stay in subscribe(), never move into getSnapshot(): React calls subscribe
+  // exactly once after mount, client-only, guaranteed. getSnapshot must stay a pure,
+  // side-effect-free read — it also runs during SSR and on every render to check for
+  // tearing, so a localStorage read there would violate both of those guarantees.
   function hydrateFromStorageOnce() {
     if (hasHydrated) {
       return;
