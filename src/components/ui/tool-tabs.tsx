@@ -55,18 +55,22 @@ type Panel = {
 };
 
 function readPanels(children: ReactNode): Panel[] {
+  // Read props off each child directly rather than checking `child.type === ToolTabsPanel`:
+  // when <ToolTabs> is used from a Server Component (the MDX guidebook pipeline), the child
+  // elements' `type` crosses the RSC boundary as an opaque client reference that does not
+  // compare equal to the literal ToolTabsPanel function this client module holds.
   return Children.toArray(children)
-    .filter((child): child is ReactElement<ToolTabsPanelProps> => isValidElement(child) && child.type === ToolTabsPanel)
+    .filter((child): child is ReactElement<Partial<ToolTabsPanelProps>> => isValidElement(child))
     .map((child) => {
       const { tool, label, children: content } = child.props;
 
-      if (!VALID_TOOLS.includes(tool)) {
+      if (!tool || !VALID_TOOLS.includes(tool)) {
         throw new Error(
           `ToolTabs.Panel received an invalid "tool" prop: "${String(tool)}". Expected "claude-code" or "codex".`
         );
       }
 
-      return { tool, label, content };
+      return { tool, label: label ?? tool, content };
     });
 }
 
