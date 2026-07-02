@@ -40,7 +40,12 @@ export function LocaleSwitcher({
     >
       <details className="group">
         <summary className="inline-flex h-[var(--control-h-sm)] min-w-[8.25rem] cursor-pointer list-none items-center justify-between gap-3 rounded-sm border border-border-subtle bg-surface-raised px-3 font-mono text-[var(--text-mono-sm)] font-semibold text-text-bright outline-none transition-[background-color,border-color,color] duration-[var(--dur-fast)] hover:border-accent hover:bg-[var(--accent-tint)] focus-visible:shadow-[var(--focus-ring)] [&::-webkit-details-marker]:hidden">
-          <span className="truncate">{activeLocale.nativeLabel}</span>
+          <span className="flex min-w-0 items-center gap-2">
+            <span aria-hidden="true" className="text-accent">
+              ◍
+            </span>
+            <span className="truncate">{activeLocale.nativeLabel}</span>
+          </span>
           <span
             aria-hidden="true"
             className="text-accent transition-transform duration-[var(--dur-fast)] group-open:rotate-180 motion-reduce:transition-none"
