@@ -137,7 +137,7 @@ static-export prerender with `Expected component 'ToolTabs.Panel' to be defined`
 ## Section composition (LP)
 
 The landing page composes these into sections (mirrors `src/components/sections/` in the LP repo):
-`site-header` (wordmark · nav · GitHub star Badge · LocaleSwitcher · Install Button) → `hero`
+`site-header` (wordmark · nav · GitHub star Button · LocaleSwitcher · Install Button) → `hero`
 (headline + CTAs + CodeBlock + animated Terminal) → `problem-solution` (2-col ✗/✓) → `feature-grid`
 (4× StatCard + skill-category chips) → `install-steps` (tabbed Claude Code / Codex, numbered,
 CodeBlock per step) → `faq` (single-open FaqItem list) → `site-footer` (link columns). See the
