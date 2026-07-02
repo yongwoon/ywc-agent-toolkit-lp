@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "../globals.css";
-import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { getMessages, setRequestLocale } from "next-intl/server";
+import { hasLocale } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing, type Locale } from "@/i18n/routing";
 import { buildJsonLd, buildMetadata } from "@/lib/seo";
@@ -44,7 +44,6 @@ export default async function LocaleLayout({
 
   setRequestLocale(locale);
 
-  const messages = await getMessages({ locale });
   const jsonLd = buildJsonLd(locale as Locale);
 
   return (
@@ -56,9 +55,8 @@ export default async function LocaleLayout({
         />
       </head>
       <body>
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          {children}
-        </NextIntlClientProvider>
+        {children}
+        <script src="/copy-command.js" defer />
       </body>
     </html>
   );

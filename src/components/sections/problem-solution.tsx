@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 type ComparisonColumn = {
   title: string;
@@ -38,8 +38,8 @@ function ComparisonList({
   );
 }
 
-export function ProblemSolution() {
-  const t = useTranslations("problemSolution");
+export async function ProblemSolution() {
+  const t = await getTranslations("problemSolution");
   const before = t.raw("before") as ComparisonColumn;
   const after = t.raw("after") as ComparisonColumn;
 

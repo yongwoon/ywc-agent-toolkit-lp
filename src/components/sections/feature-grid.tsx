@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 import { Badge } from "@/components/ui/badge";
 import { StatCard } from "@/components/ui/stat-card";
@@ -27,8 +27,8 @@ function getCategory(item: FeatureItem) {
   return item.value.includes("skill") ? "skill category" : "agent category";
 }
 
-export function FeatureGrid() {
-  const t = useTranslations("featureGrid");
+export async function FeatureGrid() {
+  const t = await getTranslations("featureGrid");
   const items = t.raw("items") as FeatureItem[];
 
   return (

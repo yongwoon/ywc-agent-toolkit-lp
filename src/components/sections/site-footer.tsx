@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 type FooterLink = {
   label: string;
@@ -14,8 +14,8 @@ function isExternalLink(target: string) {
   return target.startsWith("http://") || target.startsWith("https://");
 }
 
-export function SiteFooter() {
-  const t = useTranslations("footer");
+export async function SiteFooter() {
+  const t = await getTranslations("footer");
   const groups = t.raw("groups") as FooterGroup[];
 
   return (
