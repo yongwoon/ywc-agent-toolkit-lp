@@ -1,0 +1,214 @@
+"use client";
+
+import {
+  Children,
+  isValidElement,
+  useEffect,
+  useId,
+  useMemo,
+  useRef,
+  useState,
+  type KeyboardEvent,
+  type ReactElement,
+  type ReactNode
+} from "react";
+
+import { useToolTabsContext, type Tool } from "./tool-tabs-provider";
+
+const VALID_TOOLS: readonly Tool[] = ["claude-code", "codex"];
+
+export type ToolTabsPanelProps = {
+  tool: Tool;
+  label: string;
+  children: ReactNode;
+};
+
+function ToolTabsPanel(_props: ToolTabsPanelProps) {
+  // Never rendered directly — ToolTabs reads this component's props from its
+  // children and renders the tab header + panel body itself.
+  return null;
+}
+ToolTabsPanel.displayName = "ToolTabs.Panel";
+
+export type ToolTabsProps = {
+  children: ReactNode;
+};
+
+function cx(...classes: Array<string | false | null | undefined>) {
+  return classes.filter(Boolean).join(" ");
+}
+
+const laneTextClasses: Record<Tool, string> = {
+  "claude-code": "text-lane-claude",
+  codex: "text-lane-codex"
+};
+
+const laneBorderClasses: Record<Tool, string> = {
+  "claude-code": "border-b-lane-claude",
+  codex: "border-b-lane-codex"
+};
+
+type Panel = {
+  tool: Tool;
+  label: string;
+  content: ReactNode;
+};
+
+function readPanels(children: ReactNode): Panel[] {
+  return Children.toArray(children)
+    .filter((child): child is ReactElement<ToolTabsPanelProps> => isValidElement(child) && child.type === ToolTabsPanel)
+    .map((child) => {
+      const { tool, label, children: content } = child.props;
+
+      if (!VALID_TOOLS.includes(tool)) {
+        throw new Error(
+          `ToolTabs.Panel received an invalid "tool" prop: "${String(tool)}". Expected "claude-code" or "codex".`
+        );
+      }
+
+      return { tool, label, content };
+    });
+}
+
+export function ToolTabs({ children }: ToolTabsProps) {
+  const instanceId = useId();
+  const { tool, setTool } = useToolTabsContext();
+  const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const [enteringIndex, setEnteringIndex] = useState<number | null>(null);
+  const previousActiveIndex = useRef<number | null>(null);
+
+  const panels = useMemo(() => readPanels(children), [children]);
+
+  const activeIndex = useMemo(() => {
+    const matched = panels.findIndex((panel) => panel.tool === tool);
+    return matched === -1 ? 0 : matched;
+  }, [panels, tool]);
+
+  useEffect(() => {
+    if (previousActiveIndex.current === null) {
+      previousActiveIndex.current = activeIndex;
+      return;
+    }
+
+    if (previousActiveIndex.current === activeIndex) {
+      return;
+    }
+
+    previousActiveIndex.current = activeIndex;
+    setEnteringIndex(activeIndex);
+    const frame = requestAnimationFrame(() => setEnteringIndex(null));
+
+    return () => cancelAnimationFrame(frame);
+  }, [activeIndex]);
+
+  if (panels.length === 0) {
+    return null;
+  }
+
+  function activateByIndex(index: number, focus: boolean) {
+    const panel = panels[index];
+
+    if (!panel) {
+      return;
+    }
+
+    setTool(panel.tool);
+
+    if (focus) {
+      tabRefs.current[index]?.focus();
+    }
+  }
+
+  function handleKeyDown(event: KeyboardEvent<HTMLDivElement>) {
+    const lastIndex = panels.length - 1;
+
+    switch (event.key) {
+      case "ArrowRight": {
+        event.preventDefault();
+        activateByIndex(activeIndex >= lastIndex ? 0 : activeIndex + 1, true);
+        break;
+      }
+      case "ArrowLeft": {
+        event.preventDefault();
+        activateByIndex(activeIndex <= 0 ? lastIndex : activeIndex - 1, true);
+        break;
+      }
+      case "Home": {
+        event.preventDefault();
+        activateByIndex(0, true);
+        break;
+      }
+      case "End": {
+        event.preventDefault();
+        activateByIndex(lastIndex, true);
+        break;
+      }
+      case "Enter":
+      case " ": {
+        event.preventDefault();
+        const focusedIndex = tabRefs.current.findIndex((el) => el === document.activeElement);
+        activateByIndex(focusedIndex === -1 ? activeIndex : focusedIndex, true);
+        break;
+      }
+      default:
+        break;
+    }
+  }
+
+  return (
+    <div className="overflow-hidden rounded-lg border border-border-subtle bg-surface shadow-[var(--edge-top)]">
+      <div aria-label="Tool" className="flex border-b border-border-subtle" onKeyDown={handleKeyDown} role="tablist">
+        {panels.map((panel, index) => {
+          const isActive = index === activeIndex;
+          const tabId = `${instanceId}-tab-${panel.tool}`;
+          const panelId = `${instanceId}-panel-${panel.tool}`;
+
+          return (
+            <button
+              aria-controls={panelId}
+              aria-selected={isActive}
+              className={cx(
+                "border-b-2 border-transparent px-4 py-2.5 font-mono text-label font-semibold uppercase leading-none tracking-[var(--ls-label)] text-text-muted outline-none transition-colors duration-[var(--dur-fast)] ease-out motion-reduce:transition-none focus-visible:shadow-[var(--focus-ring)]",
+                isActive && cx("text-text-bright", laneTextClasses[panel.tool], laneBorderClasses[panel.tool])
+              )}
+              id={tabId}
+              key={panel.tool}
+              onClick={() => activateByIndex(index, false)}
+              ref={(el) => {
+                tabRefs.current[index] = el;
+              }}
+              role="tab"
+              tabIndex={isActive ? 0 : -1}
+              type="button"
+            >
+              {panel.label}
+            </button>
+          );
+        })}
+      </div>
+      {panels.map((panel, index) => {
+        const isActive = index === activeIndex;
+        const tabId = `${instanceId}-tab-${panel.tool}`;
+        const panelId = `${instanceId}-panel-${panel.tool}`;
+
+        return (
+          <div
+            aria-labelledby={tabId}
+            className={cx(
+              "motion-safe:transition-opacity motion-safe:duration-[var(--dur-base)] motion-safe:ease-out",
+              isActive && enteringIndex === index ? "opacity-0" : "opacity-100"
+            )}
+            hidden={!isActive}
+            id={panelId}
+            key={panel.tool}
+            role="tabpanel"
+          >
+            {panel.content}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+ToolTabs.Panel = ToolTabsPanel;
