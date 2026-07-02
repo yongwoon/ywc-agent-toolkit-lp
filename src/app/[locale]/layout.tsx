@@ -82,6 +82,7 @@ export default async function LocaleLayout({
       <body>
         {children}
         <script src="/copy-command.js" defer />
+        <script src="/locale-hash-sync.js" defer />
       </body>
     </html>
   );

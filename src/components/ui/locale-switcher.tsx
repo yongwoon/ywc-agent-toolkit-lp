@@ -70,6 +70,7 @@ export function LocaleSwitcher({
                   "flex w-full items-center justify-between gap-4 rounded-xs px-3 py-2 text-left font-mono text-[var(--text-mono-sm)] text-text-secondary outline-none transition-[background-color,color] duration-[var(--dur-fast)] hover:bg-[var(--accent-tint)] hover:text-accent focus-visible:shadow-[var(--focus-ring)]",
                   selected && "bg-[var(--accent-tint)] text-accent"
                 )}
+                data-locale-link
                 href={href}
                 hrefLang={locale.code}
                 key={locale.code}
