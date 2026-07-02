@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import { useMemo, useState } from "react";
 import type { Locale } from "@/i18n/locale-list";
 import type { LocalizedGuidebookNavGroup } from "@/lib/guidebook-nav-content";
-import { getGuidebookHref, normalizeGuidebookSlug } from "./guidebook-nav";
+import { getGuidebookHref, getGuidebookSlugFromPathname } from "./guidebook-nav";
 
 type SidebarNavProps = {
   locale: Locale;
@@ -17,18 +17,9 @@ function cx(...classes: Array<string | false | null | undefined>) {
   return classes.filter(Boolean).join(" ");
 }
 
-function slugFromPathname(pathname: string | null) {
-  const segments = pathname?.split("/").filter(Boolean) ?? [];
-  const guidebookIndex = segments.indexOf("guidebook");
-
-  return normalizeGuidebookSlug(
-    guidebookIndex === -1 ? undefined : segments.slice(guidebookIndex + 1)
-  );
-}
-
 export function SidebarNav({ locale, mobileOpen, navGroups, onMobileClose }: SidebarNavProps) {
   const pathname = usePathname();
-  const activeSlug = slugFromPathname(pathname);
+  const activeSlug = getGuidebookSlugFromPathname(pathname);
   const activeGroup = navGroups.find((group) =>
     group.pages.some((page) => page.slug === activeSlug)
   )?.groupId;

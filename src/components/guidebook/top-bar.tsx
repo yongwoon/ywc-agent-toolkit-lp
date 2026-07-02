@@ -1,8 +1,10 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import type { Locale } from "@/i18n/locale-list";
 import { Badge } from "@/components/ui/badge";
 import { LocaleSwitcher } from "@/components/ui/locale-switcher";
+import { getGuidebookHref, getGuidebookSlugFromPathname } from "./guidebook-nav";
 
 type TopBarProps = {
   locale: Locale;
@@ -13,6 +15,9 @@ type TopBarProps = {
 const navItems = ["Docs", "Skills", "Agents", "Hooks"];
 
 export function TopBar({ locale, sidebarOpen, onSidebarToggle }: TopBarProps) {
+  const pathname = usePathname();
+  const activeSlug = getGuidebookSlugFromPathname(pathname);
+
   return (
     <header className="sticky top-0 z-40 h-[60px] border-b border-border-subtle bg-[rgba(11,10,9,.85)] backdrop-blur-[12px]">
       <div className="mx-auto flex h-full max-w-[1560px] items-center gap-4 px-4 md:px-6">
@@ -68,7 +73,11 @@ export function TopBar({ locale, sidebarOpen, onSidebarToggle }: TopBarProps) {
           >
             <option>v1.x</option>
           </select>
-          <LocaleSwitcher className="hidden lg:block" value={locale} />
+          <LocaleSwitcher
+            className="hidden lg:block"
+            getHref={(code) => getGuidebookHref(code, activeSlug)}
+            value={locale}
+          />
           <a
             aria-label="Star ywc-agent-toolkit on GitHub"
             className="outline-none focus-visible:shadow-[var(--focus-ring)]"

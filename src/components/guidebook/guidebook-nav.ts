@@ -206,3 +206,12 @@ export function getGuidebookHref(locale: Locale | string, slug: string) {
 export function normalizeGuidebookSlug(slug: string[] | undefined) {
   return slug?.filter(Boolean).join("/") || defaultGuidebookSlug;
 }
+
+export function getGuidebookSlugFromPathname(pathname: string | null) {
+  const segments = pathname?.split("/").filter(Boolean) ?? [];
+  const guidebookIndex = segments.indexOf("guidebook");
+
+  return normalizeGuidebookSlug(
+    guidebookIndex === -1 ? undefined : segments.slice(guidebookIndex + 1)
+  );
+}
