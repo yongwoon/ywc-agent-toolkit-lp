@@ -1,0 +1,208 @@
+{
+  "nav": {
+    "wordmark": "ywc-agent-toolkit",
+    "links": [
+      {
+        "label": "기능",
+        "target": "#features"
+      },
+      {
+        "label": "설치",
+        "target": "#install"
+      },
+      {
+        "label": "FAQ",
+        "target": "#faq"
+      }
+    ],
+    "github": {
+      "label": "GitHub",
+      "target": "https://github.com/yongwoon/ywc-agent-toolkit"
+    }
+  },
+  "hero": {
+    "headline": "Claude Code와 Codex를 위한 41 skills와 expert agents.",
+    "subheading": "계획과 사양 작성부터 코드 생성, 리뷰, 릴리스까지 전체 개발 workflow를 terminal을 떠나지 않고 자동화합니다.",
+    "ctaLabels": {
+      "install": "설치",
+      "github": "GitHub에서 star"
+    },
+    "demoCommand": "/plugin marketplace add yongwoon/ywc-agent-toolkit"
+  },
+  "problemSolution": {
+    "title": "반복 작업을 toolkit에 맡기면 workflow가 가벼워집니다.",
+    "before": {
+      "title": "toolkit 없이",
+      "items": [
+        "작업마다 planning prompt와 acceptance criteria를 다시 작성합니다.",
+        "흩어진 메모, review checklist, release step을 손으로 오갑니다.",
+        "내 development workflow를 모르는 범용 agent에 의존합니다."
+      ]
+    },
+    "after": {
+      "title": "toolkit 사용 시",
+      "items": [
+        "`ywc-plan`과 `ywc-task-generator`가 거친 goal을 구현 가능한 work로 바꿉니다.",
+        "`ywc-code-gen`과 `ywc-impl-review`가 build, review, verification loop를 명시적으로 유지합니다.",
+        "`/ywc-agentic`과 specialist agents가 복잡한 작업을 Claude Code 또는 Codex에 맞는 mode로 라우팅합니다."
+      ]
+    }
+  },
+  "featureGrid": {
+    "title": "두 tool 모두를 위해 설계.",
+    "items": [
+      {
+        "label": "Claude Code skills",
+        "value": "41 skills",
+        "description": "Planning, spec writing, implementation, review, release, maintenance workflow를 Claude Code용으로 패키징했습니다."
+      },
+      {
+        "label": "Claude Code agents",
+        "value": "12 agents",
+        "description": "Architecture, security, performance, root cause analysis, language-specific review를 위한 custom specialist agents입니다."
+      },
+      {
+        "label": "Codex skills",
+        "value": "41 skills",
+        "description": "동일한 workflow coverage를 Codex-native instructions와 plugin packaging에 맞춰 제공합니다."
+      },
+      {
+        "label": "Codex agents",
+        "value": "7 agents",
+        "description": "Codex workspaces 안에서 `ywc-*` skills를 보완하는 read-only specialist agents입니다."
+      }
+    ]
+  },
+  "installSteps": {
+    "title": "plugin path로 설치.",
+    "description": "Claude Code는 marketplace path를, Codex는 Codex plugin marketplace path를 사용합니다. 이 path에는 사전 요구사항이 없습니다.",
+    "paths": [
+      {
+        "label": "Claude Code",
+        "steps": [
+          {
+            "stepNumber": 1,
+            "instruction": "Claude Code에 marketplace source를 추가한 뒤 Plugin UI의 Marketplaces 탭에서 `ywc-agent-toolkit`을 설치하세요.",
+            "commandText": "/plugin marketplace add yongwoon/ywc-agent-toolkit"
+          }
+        ]
+      },
+      {
+        "label": "Codex",
+        "steps": [
+          {
+            "stepNumber": 1,
+            "instruction": "이 repository를 Codex plugin marketplace source로 추가하세요.",
+            "commandText": "codex plugin marketplace add yongwoon/ywc-agent-toolkit"
+          },
+          {
+            "stepNumber": 2,
+            "instruction": "설정된 marketplace에서 `ywc-agent-toolkit`을 설치하세요.",
+            "commandText": "codex plugin add ywc-agent-toolkit@ywc-agent-toolkit"
+          }
+        ]
+      }
+    ]
+  },
+  "socialProof": {
+    "title": "Community proof",
+    "items": [],
+    "emptyState": "Community quotes는 launch 이후 추가됩니다."
+  },
+  "faq": {
+    "title": "FAQ",
+    "items": [
+      {
+        "question": "이게 무엇인가요?",
+        "answer": "`ywc-agent-toolkit`은 Claude Code와 Codex를 위한 public toolkit으로, skills와 custom agents를 제공합니다. Planning부터 release까지 반복적인 development workflow를 실행하기 쉽게 만듭니다."
+      },
+      {
+        "question": "설치 요구사항은 무엇인가요?",
+        "answer": "Plugin-marketplace와 Codex-plugin installation에는 사전 요구사항이 없습니다. 위 command를 사용한 뒤 해당 plugin UI 또는 marketplace에서 설치하세요."
+      },
+      {
+        "question": "비용이나 token 영향은 어떤가요?",
+        "answer": "toolkit 자체는 open source이며 추가 paid service를 붙이지 않습니다. Token usage는 Claude Code 또는 Codex에서 skills와 agents를 얼마나 자주 호출하는지에 따라 달라집니다."
+      },
+      {
+        "question": "Claude Code와 Codex 모두에서 동작하나요?",
+        "answer": "예. 두 tool 모두 41 skills를 받습니다. Claude Code에는 12 custom agents가, Codex에는 7 custom agents가 포함됩니다."
+      },
+      {
+        "question": "repository를 clone해야 하나요?",
+        "answer": "이 페이지에서 다루는 path에서는 필요 없습니다. Claude Code marketplace installation과 Codex plugin marketplace installation은 manual clone이나 bash script 없이 설치되도록 설계되었습니다."
+      },
+      {
+        "question": "기존 workflow를 계속 사용할 수 있나요?",
+        "answer": "예. toolkit은 `ywc-plan`, `ywc-code-gen`, `ywc-impl-review` 같은 reusable skills를 추가합니다. Backend, account, project migration은 필요하지 않습니다."
+      }
+    ]
+  },
+  "footer": {
+    "groups": [
+      {
+        "title": "Product",
+        "links": [
+          {
+            "label": "기능",
+            "target": "#features"
+          },
+          {
+            "label": "설치",
+            "target": "#install"
+          }
+        ]
+      },
+      {
+        "title": "Resources",
+        "links": [
+          {
+            "label": "GitHub",
+            "target": "https://github.com/yongwoon/ywc-agent-toolkit"
+          },
+          {
+            "label": "CHANGELOG",
+            "target": "https://github.com/yongwoon/ywc-agent-toolkit/blob/main/CHANGELOG.md"
+          },
+          {
+            "label": "Issues",
+            "target": "https://github.com/yongwoon/ywc-agent-toolkit/issues"
+          },
+          {
+            "label": "License",
+            "target": "https://github.com/yongwoon/ywc-agent-toolkit/blob/main/LICENSE"
+          }
+        ]
+      }
+    ],
+    "copyright": "© 2026 yongwoon. ywc-agent-toolkit은 open source project입니다."
+  },
+  "seo": {
+    "title": "ywc-agent-toolkit — Claude Code와 Codex를 위한 41 skills와 expert agents",
+    "description": "Claude Code와 Codex에 41 skills와 tool-specific custom agents를 제공하는 ywc-agent-toolkit 설치용 static landing page.",
+    "canonicalPath": "/ko/",
+    "ogImage": "/og-image.png",
+    "alternates": [
+      {
+        "locale": "en",
+        "href": "/en/"
+      },
+      {
+        "locale": "ja",
+        "href": "/ja/"
+      },
+      {
+        "locale": "ko",
+        "href": "/ko/"
+      },
+      {
+        "locale": "zh",
+        "href": "/zh/"
+      },
+      {
+        "locale": "es",
+        "href": "/es/"
+      }
+    ]
+  }
+}
