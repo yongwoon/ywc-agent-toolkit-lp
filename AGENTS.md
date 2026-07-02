@@ -28,6 +28,8 @@ npx tsc --noEmit  # typecheck without emitting files
 
 ## Coding Style & Naming Conventions
 
+Always reply to the user in Korean for every session, regardless of the prompt language. This applies only to conversational responses; code identifiers, comments, and existing English docs stay English.
+
 Target stack: Next.js 16 App Router, TypeScript, Tailwind v4, and `next-intl`. Use English for code identifiers and comments. Keep specification and task documentation in Korean unless updating existing English docs. Use lowercase kebab-case filenames such as `site-header.tsx`, `code-block.tsx`, and `install-steps.tsx`.
 
 Do not add `middleware.ts`; this site must work as a static GitHub Pages export. Keep UI composition section-based: `components/sections/*` may import `components/ui/*`, but sections should not depend on each other.
