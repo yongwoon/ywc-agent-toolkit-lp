@@ -130,7 +130,7 @@
       },
       {
         "question": "repository を clone する必要がありますか？",
-        "answer": "このページで扱う path では不要です。Claude Code marketplace installation と Codex plugin marketplace installation は、manual clone や bash script なしでインストールできるように設計されています。"
+      "answer": "このページで扱う path では不要です。Claude Code marketplace installation と Codex plugin marketplace installation は、manual clone なしでインストールできるように設計されています。"
       },
       {
         "question": "既存の workflow を使い続けられますか？",

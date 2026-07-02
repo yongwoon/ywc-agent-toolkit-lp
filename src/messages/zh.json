@@ -130,7 +130,7 @@
       },
       {
         "question": "我需要 clone repository 吗？",
-        "answer": "对于本页覆盖的 path，不需要。Claude Code marketplace installation 和 Codex plugin marketplace installation 设计为无需 manual clone 或 bash scripts 即可安装。"
+      "answer": "对于本页覆盖的 path，不需要。Claude Code marketplace installation 和 Codex plugin marketplace installation 设计为无需 manual clone 即可安装。"
       },
       {
         "question": "我可以继续使用现有 workflow 吗？",

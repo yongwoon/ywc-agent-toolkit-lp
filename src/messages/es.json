@@ -130,7 +130,7 @@
       },
       {
         "question": "¿Necesito clonar el repository?",
-        "answer": "No para los paths cubiertos en esta página. Claude Code marketplace installation y Codex plugin marketplace installation están diseñados para instalar sin manual clone ni bash scripts."
+      "answer": "No para los paths cubiertos en esta página. Claude Code marketplace installation y Codex plugin marketplace installation están diseñados para instalar sin manual clone."
       },
       {
         "question": "¿Puedo mantener mi workflow actual?",

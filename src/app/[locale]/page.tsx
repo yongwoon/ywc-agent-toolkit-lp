@@ -2,10 +2,14 @@ import { hasLocale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
+import { Faq } from "@/components/sections/faq";
 import { FeatureGrid } from "@/components/sections/feature-grid";
 import { Hero } from "@/components/sections/hero";
+import { InstallSteps } from "@/components/sections/install-steps";
 import { ProblemSolution } from "@/components/sections/problem-solution";
 import { SiteHeader } from "@/components/sections/site-header";
+import { SiteFooter } from "@/components/sections/site-footer";
+import { SocialProof } from "@/components/sections/social-proof";
 import { routing } from "@/i18n/routing";
 
 type LocaleHomePageProps = {
@@ -28,8 +32,11 @@ export default async function LocaleHomePage({ params }: LocaleHomePageProps) {
         <Hero />
         <ProblemSolution />
         <FeatureGrid />
-        {/* 000003-030 appends install, social proof, FAQ, and footer here. */}
+        <InstallSteps />
+        <SocialProof />
+        <Faq />
       </main>
+      <SiteFooter />
     </div>
   );
 }
