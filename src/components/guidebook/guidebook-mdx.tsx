@@ -3,6 +3,7 @@ import Slugger from "github-slugger";
 import { isValidElement, type ComponentPropsWithoutRef, type ReactNode } from "react";
 import remarkGfm from "remark-gfm";
 import { CodeBlock } from "@/components/ui/code-block";
+import { ToolTabs } from "@/components/ui/tool-tabs";
 
 type GuidebookMdxProps = {
   source: string;
@@ -123,7 +124,13 @@ export function GuidebookMdx({ source }: GuidebookMdxProps) {
         ),
         td: (props) => (
           <td {...props} className="border-b border-border-subtle py-3 pr-4 text-text-secondary" />
-        )
+        ),
+        // <ToolTabs.Panel> compiles to a member-expression JSX tag (`ToolTabs.Panel`), so
+        // registering `ToolTabs` here is sufficient — MDX resolves `.Panel` off it directly,
+        // no separate "ToolTabs.Panel" key is needed. CodeBlock is registered too since
+        // ToolTabs.Panel content uses it as a direct JSX tag, not the auto `pre` mapping above.
+        ToolTabs,
+        CodeBlock
       }}
       options={{
         parseFrontmatter: false,
