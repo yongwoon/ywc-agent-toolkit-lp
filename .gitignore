@@ -1,3 +1,7 @@
 .omc
 .ywc-run-state.json
 .ywc-learnings.jsonl
+node_modules/
+.next/
+out/
+tsconfig.tsbuildinfo
