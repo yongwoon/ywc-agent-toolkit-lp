@@ -28,6 +28,11 @@
 - `000006-030-config-guidebook-i18n-zh` → depends on `000005-020-test-build-verification`
 - `000006-040-config-guidebook-i18n-es` → depends on `000005-020-test-build-verification`
 
+## Phase 000007 — Guidebook Tool Tabs (Claude Code / Codex)
+> spec: `docs/ywc-plans/guidebook-tool-tabs.md` (`ywc-spec-validate` DONE). Numbered as a new phase (append-only, `highest existing phase + 1`) rather than inserted into Phase 000004, per explicit user direction during generation — another concurrent session was actively executing tasks through the existing phase sequence, so inserting new sequence numbers mid-Phase-000004 risked a numbering/ordering collision. The true task-level dependencies below are narrower than the phase-level hard gate implies (see note).
+- `000007-010-ui-tool-tabs-primitive` → depends on `000003-010-ui-primitives-clipboard`
+- `000007-020-ui-guidebook-tool-tabs-demo` → depends on `000007-010-ui-tool-tabs-primitive`, `000004-020-ui-guidebook-layout`, `000004-030-config-guidebook-content-sync`
+
 ## Parallel Execution Notes
 
 - **Initial ready set**: `000001-010-lib-nextjs-i18n-setup` (유일한 root task; 이 프로젝트의 모든 task가 직접 또는 간접적으로 이 task에서 파생됨)
@@ -39,6 +44,7 @@
 - After `000003-030-ui-landing-sections-part2`와 `000004-030-config-guidebook-content-sync` 모두 merge되면 `000005-010-config-sitemap-robots`가 runnable해지고, 이어서 `000005-020-test-build-verification`이 runnable해진다
 - **Phase 000005 → 000006 hard gate**: `000005-020-test-build-verification`이 완전히 merge되기 전까지 Phase 000006의 어떤 task도 시작할 수 없다 (사용자가 명시적으로 "마지막 task 이후"로 지정)
 - **Phase 000006 내부 병렬성**: `000006-010`(ja), `000006-020`(en), `000006-030`(zh), `000006-040`(es)은 `000005-020` 완료 후 서로 완전히 병렬로 실행 가능하다 — 4개 task 모두 `src/content/guidebook/<locale>/**`라는 서로 disjoint한 디렉터리만 소유하며 Conflicts With가 없다
+- **Phase 000007 numbering note**: `000007-010`은 실제로는 `000003-010`에만 의존하고, `000007-020`은 `000007-010` + `000004-020` + `000004-030`에만 의존한다 — 즉 이 Phase는 기술적으로 Phase 000005/000006 완료를 필요로 하지 않는다. 그럼에도 append-only 번호 배정 규칙(및 다른 세션이 기존 phase 순서를 실행 중이라는 동시성 제약)에 따라 Phase 000007로 배정했으므로, "Phase N+1은 Phase N 전체 완료 후" 하드 게이트를 문자 그대로 적용하면 Phase 000007은 Phase 000006(4개 locale 확장 task)까지 끝난 뒤에야 시작 가능한 것으로 읽힌다. 실제 실행 시 이 hard gate를 완화해 `000007-010`/`000007-020`을 각자의 실제 `Depends On` 목록이 충족되는 즉시 시작해도 안전하다 — 단, 이 완화를 적용할지는 이 프로젝트의 task 순차 실행 컨벤션을 따르는 실행자가 최종 판단한다.
 
 ## Visual Dependency Graph
 
@@ -92,6 +98,14 @@ graph LR
     E2 --> F3
     E2 --> F4
   end
+  subgraph Phase 000007
+    G1[000007-010-ui-tool-tabs-primitive]
+    G2[000007-020-ui-guidebook-tool-tabs-demo]
+    C1 --> G1
+    G1 --> G2
+    D2 --> G2
+    D3 --> G2
+  end
 ```
 
 ## Open Questions
@@ -99,3 +113,5 @@ graph LR
 1. **Phase 000004/000006이 검증된 spec 범위를 벗어남**: `docs/specification/`은 현재 단일 페이지 마케팅 랜딩 페이지만 다루며, `01-overview.md`의 Out of Scope는 블로그/콘텐츠 관리 체계를 명시적으로 제외한다. Guidebook(Phase 000004/000006)은 세션 중간에 사용자가 추가한 신규 범위이므로, Phase 000004 착수 전 `ywc-spec-writer`로 `docs/specification/08-guidebook.md`를 작성해 정식 spec 근거를 마련하는 것을 권장한다. 현재 Phase 000004/000006의 모든 task는 `develop-with-llm/docs/guides/guidebook/README.md`(외부 저장소)만을 근거로 진행되고 있다.
 2. **Guidebook 06–12 페이지가 upstream에서 계속 작성 중**: `develop-with-llm` 저장소에는 현재 01–05 페이지만 존재하며, 06–12는 계속 작성되고 있다. `000004-030-config-guidebook-content-sync`의 sidebar TOC 와이어링(그룹/순서/제목)은 06–12가 upstream에 추가로 작성될 때마다 재확인이 필요하다.
 3. **Phase 000006의 정확한 번역 범위는 Phase 000006 착수 시점에 확정**: `000006-010`/`020`/`030`/`040` 각 locale task가 번역해야 할 정확한 페이지 수는, 그 task가 실제로 시작되는 시점에 `src/content/guidebook/ko/`에 몇 개의 페이지가 존재하는지(즉 06–12 중 얼마나 upstream에서 완성되었는지)에 따라 달라진다. Phase 000005 완료 시점과 Phase 000006 착수 시점 사이에 upstream 콘텐츠가 추가될 수 있으므로, 각 locale task 착수 직전에 `src/content/guidebook/ko/` 파일 목록을 다시 확인해야 한다.
+4. **Phase 000007의 Codex placeholder 커맨드**: `000007-020`의 데모(`03-quickstart.md`)에 들어갈 Codex 패널 커맨드는 upstream(`develop-with-llm`)에 아직 실제 Codex 대응 커맨드가 문서화되어 있지 않아 대표성 있는 placeholder로 진행한다(`docs/ywc-plans/guidebook-tool-tabs.md` Open Questions #1). 실제 Codex 커맨드가 upstream에 추가되면 재검토가 필요하다.
+5. **Phase 000007과 Phase 000005/000006 사이의 hard-gate 완화 여부**: 위 Parallel Execution Notes의 "Phase 000007 numbering note" 참고 — append-only 번호 배정으로 인해 문자 그대로는 Phase 000006 완료가 선행 조건처럼 보이지만, 실제 task-level Depends On은 더 이른 시점에 충족된다. 순차 실행 시 이 완화를 적용할지 실행자가 판단해야 한다.
