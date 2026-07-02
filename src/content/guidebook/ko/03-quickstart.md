@@ -8,9 +8,16 @@
 
 ## Step 1 — 계획 세우기
 
-```
-ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움. 잠김/오타/미가입 등 구체적 사유를 보여주고 싶음
-```
+{/* ToolTabs demo block — 000004-030 content re-sync가 재실행되면 덮어써질 수 있음.
+    재동기화 후 이 ToolTabs 마크업 재적용 필요 (guidebook-tool-tabs.md Edge Cases 참고) */}
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움. 잠김/오타/미가입 등 구체적 사유를 보여주고 싶음" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex (예시)">
+    <CodeBlock label="codex" code="codex exec &quot;로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움. 잠김/오타/미가입 등 구체적 사유를 보여주고 싶음&quot;" />
+  </ToolTabsPanel>
+</ToolTabs>
 
 `ywc-plan` 이 codebase 를 먼저 읽고, 이 변경이 단일 PR 로 끝날 수 있는 **Small** 규모인지 판단합니다. Small 로 판단되면 `plan.md` 파일이 생성됩니다 — What / Why / Out of Scope / Done When 4가지 항목이 채워져 있는지 확인하세요.
 

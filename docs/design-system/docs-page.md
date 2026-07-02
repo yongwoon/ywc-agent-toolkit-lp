@@ -43,7 +43,9 @@ group starts open.
 - **Inline code**: mono, `--surface-raised` bg, hairline border, `--amber-300` text.
 - **Code blocks**: the CodeBlock pattern — `--ink-850`, hairline, uppercase label bar, amber
   `$`/`/` prompt (non-selectable), comments in `--text-faint`, a Copy button that falls back to
-  text selection on clipboard failure. Horizontal scroll for long commands.
+  text selection on clipboard failure. Horizontal scroll for long commands. A tabbed variant
+  (`ToolTabs`) switches between per-tool `CodeBlock`s (Claude Code / Codex) with a page-wide
+  synced, `localStorage`-persisted selection.
 - **Tables**: hairline row borders, mono uppercase `th`, first column `--text-bright`.
 - **Callouts** (safety / notes): `--amber-tint` bg, `rgba(245,166,35,.3)` border, `!` glyph in amber.
 - **Bullets**: amber `▪` marker.
