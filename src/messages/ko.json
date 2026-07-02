@@ -27,7 +27,8 @@
       "install": "설치",
       "github": "GitHub에서 star"
     },
-    "demoCommand": "/plugin marketplace add yongwoon/ywc-agent-toolkit"
+    "demoCommand": "/plugin marketplace add yongwoon/ywc-agent-toolkit",
+    "demoCommandCodex": "codex plugin marketplace add yongwoon/ywc-agent-toolkit"
   },
   "problemSolution": {
     "title": "반복 작업을 toolkit에 맡기면 workflow가 가벼워집니다.",
@@ -130,7 +131,7 @@
       },
       {
         "question": "repository를 clone해야 하나요?",
-      "answer": "이 페이지에서 다루는 path에서는 필요 없습니다. Claude Code marketplace installation과 Codex plugin marketplace installation은 manual clone 없이 설치되도록 설계되었습니다."
+        "answer": "이 페이지에서 다루는 path에서는 필요 없습니다. Claude Code marketplace installation과 Codex plugin marketplace installation은 manual clone 없이 설치되도록 설계되었습니다."
       },
       {
         "question": "기존 workflow를 계속 사용할 수 있나요?",

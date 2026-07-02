@@ -27,7 +27,8 @@
       "install": "Instalar",
       "github": "Star en GitHub"
     },
-    "demoCommand": "/plugin marketplace add yongwoon/ywc-agent-toolkit"
+    "demoCommand": "/plugin marketplace add yongwoon/ywc-agent-toolkit",
+    "demoCommandCodex": "codex plugin marketplace add yongwoon/ywc-agent-toolkit"
   },
   "problemSolution": {
     "title": "El workflow pesa menos cuando el toolkit lleva el trabajo repetible.",
@@ -130,7 +131,7 @@
       },
       {
         "question": "¿Necesito clonar el repository?",
-      "answer": "No para los paths cubiertos en esta página. Claude Code marketplace installation y Codex plugin marketplace installation están diseñados para instalar sin manual clone."
+        "answer": "No para los paths cubiertos en esta página. Claude Code marketplace installation y Codex plugin marketplace installation están diseñados para instalar sin manual clone."
       },
       {
         "question": "¿Puedo mantener mi workflow actual?",
