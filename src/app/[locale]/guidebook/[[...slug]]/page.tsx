@@ -124,7 +124,7 @@ export default async function Page({ params }: GuidebookPageProps) {
 
           <div className="mt-10 text-[var(--text-body)] leading-[var(--lh-relaxed)] text-text">
             {content ? (
-              <GuidebookMdx source={content.mdxSource} />
+              <GuidebookMdx source={content.content} />
             ) : (
               <section
                 aria-labelledby="content-status"
