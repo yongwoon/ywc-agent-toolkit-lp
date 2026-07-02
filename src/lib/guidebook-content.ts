@@ -1,5 +1,5 @@
-import { readFile } from "node:fs/promises";
-import { basename } from "node:path";
+import { access, readFile } from "node:fs/promises";
+import { basename, join } from "node:path";
 
 import GithubSlugger from "github-slugger";
 import matter from "gray-matter";
@@ -109,6 +109,39 @@ export async function loadGuidebookPage(filePath: string): Promise<GuidebookPage
   };
 }
 
+const guidebookContentExtensions = [".md", ".mdx"] as const;
+
+export async function findGuidebookContentPath(
+  locale: string,
+  slug: string,
+): Promise<string | undefined> {
+  for (const extension of guidebookContentExtensions) {
+    const filePath = join(process.cwd(), "src", "content", "guidebook", locale, `${slug}${extension}`);
+
+    try {
+      await access(filePath);
+      return filePath;
+    } catch {
+      continue;
+    }
+  }
+
+  return undefined;
+}
+
+export async function loadGuidebookPageForLocale(
+  locale: string,
+  slug: string,
+): Promise<GuidebookPage | undefined> {
+  const contentPath = await findGuidebookContentPath(locale, slug);
+
+  if (!contentPath) {
+    return undefined;
+  }
+
+  return loadGuidebookPage(contentPath);
+}
+
 function normalizeGuidebookFrontmatter(
   data: Record<string, unknown>,
   content: string,
@@ -125,7 +158,7 @@ function normalizeGuidebookFrontmatter(
   return {
     ...data,
     title,
-    description: readOptionalString(data, "description"),
+    description: readOptionalString(data, "description") ?? extractFirstParagraphText(content),
     order,
     slug: readOptionalString(data, "slug"),
     group: readOptionalString(data, "group"),
@@ -186,6 +219,33 @@ function extractFirstHeadingTitle(markdown: string): string | undefined {
   });
 
   return title;
+}
+
+function extractFirstParagraphText(markdown: string): string | undefined {
+  const tree = unified().use(remarkParse).use(remarkMdx).parse(markdown) as Root;
+  let seenTitleHeading = false;
+
+  for (const node of tree.children) {
+    if (node.type === "heading" && node.depth === 1) {
+      seenTitleHeading = true;
+      continue;
+    }
+
+    if (!seenTitleHeading || node.type !== "paragraph") {
+      continue;
+    }
+
+    const text = toPlainText(node.children).trim().replace(/\s+/g, " ");
+
+    if (text.length === 0) {
+      continue;
+    }
+
+    const firstSentence = text.match(/^.*?[.!?](?=\s|$)/)?.[0] ?? text;
+    return firstSentence.trim();
+  }
+
+  return undefined;
 }
 
 function inferTitleFromFilePath(filePath: string | undefined): string | undefined {

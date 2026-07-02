@@ -1,18 +1,17 @@
-import { access } from "node:fs/promises";
-import path from "node:path";
 import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
 import type { Locale } from "@/i18n/locale-list";
 import { routing } from "@/i18n/routing";
-import {
-  findGuidebookPage,
-  guidebookPages,
-  normalizeGuidebookSlug
-} from "@/components/guidebook/guidebook-nav";
+import { getGroupLabel, guidebookPages, normalizeGuidebookSlug } from "@/components/guidebook/guidebook-nav";
 import { GuidebookMdx } from "@/components/guidebook/guidebook-mdx";
 import { PrevNextNav } from "@/components/guidebook/prev-next-nav";
 import { Toc } from "@/components/guidebook/toc";
-import { loadGuidebookPage, type GuidebookPage } from "@/lib/guidebook-content";
+import { loadGuidebookPageForLocale, type GuidebookPage } from "@/lib/guidebook-content";
+import {
+  findLocalizedGuidebookPage,
+  getLocalizedAdjacentGuidebookPages,
+  loadLocalizedGuidebookNav
+} from "@/lib/guidebook-nav-content";
 
 type GuidebookPageProps = {
   params: Promise<{
@@ -20,8 +19,6 @@ type GuidebookPageProps = {
     slug?: string[];
   }>;
 };
-
-const contentExtensions = [".md", ".mdx"] as const;
 
 export const dynamicParams = false;
 
@@ -35,59 +32,23 @@ export function generateStaticParams() {
   ]);
 }
 
-async function fileExists(filePath: string) {
-  try {
-    await access(filePath);
-    return true;
-  } catch {
-    return false;
-  }
-}
-
-async function findContentPath(locale: Locale, slug: string) {
-  for (const extension of contentExtensions) {
-    const filePath = path.join(
-      process.cwd(),
-      "src",
-      "content",
-      "guidebook",
-      locale,
-      `${slug}${extension}`
-    );
-
-    if (await fileExists(filePath)) {
-      return filePath;
-    }
-  }
-
-  return undefined;
-}
-
-async function loadPlannedPage(locale: Locale, slug: string) {
-  const contentPath = await findContentPath(locale, slug);
-
-  if (!contentPath) {
-    return undefined;
-  }
-
-  return loadGuidebookPage(contentPath);
-}
-
 export default async function Page({ params }: GuidebookPageProps) {
   const { locale: requestedLocale, slug: slugParam } = await params;
   const locale = hasLocale(routing.locales, requestedLocale)
     ? (requestedLocale as Locale)
     : routing.defaultLocale;
   const slug = normalizeGuidebookSlug(slugParam);
-  const navPage = findGuidebookPage(slug);
+  const nav = await loadLocalizedGuidebookNav(locale);
+  const navPage = findLocalizedGuidebookPage(nav, slug);
 
   if (!navPage) {
     notFound();
   }
 
-  const content = await loadPlannedPage(locale, slug);
-  const pageTitle = content?.frontmatter.title ?? navPage.title;
-  const pageDescription = content?.frontmatter.description ?? navPage.description;
+  const content = await loadGuidebookPageForLocale(locale, slug);
+  const pageTitle = navPage.title;
+  const pageDescription = navPage.description;
+  const { previous, next } = getLocalizedAdjacentGuidebookPages(nav, slug);
   const tocItems: GuidebookPage["toc"] = content?.toc ?? [
     {
       id: "content-status",
@@ -105,7 +66,7 @@ export default async function Page({ params }: GuidebookPageProps) {
       >
         <article className="mx-auto max-w-[70ch] text-wrap-pretty">
           <div className="mb-6 font-mono text-label font-semibold uppercase tracking-[var(--ls-label)] text-text-faint">
-            Guidebook / {navPage.group}
+            Guidebook / {getGroupLabel(locale, navPage.groupId)}
           </div>
           <h1 className="scroll-mt-[76px] font-display text-h1 font-bold leading-[var(--lh-tight)] text-text-bright">
             {pageTitle}
@@ -145,7 +106,7 @@ export default async function Page({ params }: GuidebookPageProps) {
             )}
           </div>
 
-          <PrevNextNav locale={locale} slug={slug} />
+          <PrevNextNav locale={locale} next={next} previous={previous} />
         </article>
       </main>
       <Toc items={tocItems} />
