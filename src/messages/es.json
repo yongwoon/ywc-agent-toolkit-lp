@@ -3,6 +3,10 @@
     "wordmark": "ywc-agent-toolkit",
     "links": [
       {
+        "label": "Documentación",
+        "target": "/guidebook/"
+      },
+      {
         "label": "Funciones",
         "target": "#features"
       },
@@ -151,6 +155,10 @@
           {
             "label": "Instalar",
             "target": "#install"
+          },
+          {
+            "label": "Documentación",
+            "target": "/guidebook/"
           }
         ]
       },

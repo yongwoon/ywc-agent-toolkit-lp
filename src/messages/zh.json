@@ -3,6 +3,10 @@
     "wordmark": "ywc-agent-toolkit",
     "links": [
       {
+        "label": "文档",
+        "target": "/guidebook/"
+      },
+      {
         "label": "功能",
         "target": "#features"
       },
@@ -151,6 +155,10 @@
           {
             "label": "安装",
             "target": "#install"
+          },
+          {
+            "label": "文档",
+            "target": "/guidebook/"
           }
         ]
       },

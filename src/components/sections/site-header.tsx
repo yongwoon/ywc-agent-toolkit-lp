@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { LocaleSwitcher } from "@/components/ui/locale-switcher";
 import githubStats from "@/data/github-stats.json";
 import type { Locale } from "@/i18n/routing";
+import { resolveLocalizedHref } from "@/lib/localized-href";
 
 type NavLink = {
   label: string;
@@ -42,7 +43,7 @@ export async function SiteHeader({ locale }: SiteHeaderProps) {
           {links.map((link) => (
             <a
               className="font-mono text-[var(--text-mono-sm)] font-semibold text-text-muted outline-none transition-colors duration-[var(--dur-fast)] hover:text-accent focus-visible:shadow-[var(--focus-ring)]"
-              href={link.target}
+              href={resolveLocalizedHref(locale, link.target)}
               key={link.target}
             >
               {link.label}
@@ -86,7 +87,7 @@ export async function SiteHeader({ locale }: SiteHeaderProps) {
               {links.map((link) => (
                 <a
                   className="rounded-xs px-3 py-2 font-mono text-[var(--text-mono-sm)] font-semibold text-text-secondary outline-none transition-[background-color,color] duration-[var(--dur-fast)] hover:bg-[var(--accent-tint)] hover:text-accent focus-visible:shadow-[var(--focus-ring)]"
-                  href={link.target}
+                  href={resolveLocalizedHref(locale, link.target)}
                   key={link.target}
                 >
                   {link.label}
