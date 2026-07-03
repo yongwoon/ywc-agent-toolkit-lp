@@ -29,6 +29,7 @@ Busca tu situación en la siguiente tabla y haz clic en el nombre de la Skill pa
 | [`ywc-release-pr-list`](#resume-la-lista-de-prs-fusionados-incluidos-en-una-release-pr-develop-main-etc) | Resume la lista de PRs fusionados incluidos en una Release PR (develop->main, etc.) |
 | [`ywc-changelog-release-notes`](#escribe-changelogmd-o-notas-de-la-versión-para-el-usuario) | Escribe CHANGELOG.md o notas de la versión para el usuario |
 | [`ywc-skill-author`](#quieres-crear-una-nueva-skill-ywc--o-ordenarauditar-una-skill-existente-según-las-reglas) | Quieres crear una nueva skill ywc-*, o ordenar/auditar una skill existente según las reglas |
+| [`ywc-setup-language` / `ywc-setup`](#configurar-un-idioma-de-salida-persistente-para-que-las-skills-no-lo-pidan-cada-vez) | Configurar un idioma de salida persistente para que las skills no lo pidan cada vez |
 | [`ywc-worktrees`](#quieres-crear-una-ruta-de-worktree-aislada-o-auditarlalimpiarla) | Quieres crear una ruta de worktree aislada, o auditarla/limpiarla |
 | [`ywc-docker-isolate`](#los-puertos-docker-de-tus-worktrees-paralelos-chocan-entre-sí-y-quieres-resolverlo) | Los puertos Docker de tus worktrees paralelos chocan entre sí y quieres resolverlo |
 
@@ -285,6 +286,20 @@ Si pasas `--pr-list <result file from ywc-release-pr-list>`, usa esa lista como 
   </ToolTabsPanel>
 </ToolTabs>
 Valida y alinea las reglas de frontmatter/body/references de una skill `ywc-*`. Úsala al crear o reestructurar una skill en sí misma, no al editar su contenido.
+
+### Configurar un idioma de salida persistente para que las skills no lo pidan cada vez
+
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-setup-language ko" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-setup --scope project --lang ko" />
+  </ToolTabsPanel>
+</ToolTabs>
+Úsala cuando quieras que los documentos generados, el texto de PR y los mensajes de commit mantengan el mismo idioma de salida sin pasar `--lang` en cada llamada a una skill. Configura un valor persistente de proyecto o usuario; no cambia el idioma del chat actual.
+
+Las banderas puntuales siguen teniendo prioridad. El orden de resolución es: `--lang` explícito en la skill consumidora > valor persistente de proyecto/usuario > preguntar.
 
 ### Quieres crear una ruta de worktree aislada, o auditarla/limpiarla
 

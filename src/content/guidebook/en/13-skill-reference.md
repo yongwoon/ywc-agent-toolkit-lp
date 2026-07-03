@@ -29,6 +29,7 @@ Find your situation in the table below and click a Skill name to jump straight t
 | [`ywc-release-pr-list`](#summarize-the-list-of-merged-prs-included-in-a-release-pr-develop-main-etc) | Summarize the list of merged PRs included in a Release PR (develop->main, etc.) |
 | [`ywc-changelog-release-notes`](#write-changelogmd-or-user-facing-release-notes) | Write CHANGELOG.md or user-facing release notes |
 | [`ywc-skill-author`](#you-want-to-create-a-new-ywc--skill-or-tidy-upaudit-an-existing-skill-against-the-rules) | You want to create a new ywc-* skill, or tidy up/audit an existing skill against the rules |
+| [`ywc-setup-language` / `ywc-setup`](#set-a-persistent-output-language-so-skills-stop-asking-for-language-each-time) | Set a persistent output language so skills stop asking for language each time |
 | [`ywc-worktrees`](#you-want-to-create-an-isolated-worktree-path-or-auditclean-it-up) | You want to create an isolated worktree path, or audit/clean it up |
 | [`ywc-docker-isolate`](#you-want-to-fix-docker-ports-colliding-across-parallel-worktrees) | You want to fix Docker ports colliding across parallel worktrees |
 
@@ -285,6 +286,20 @@ If you pass `--pr-list <result file from ywc-release-pr-list>`, it uses that lis
   </ToolTabsPanel>
 </ToolTabs>
 Validates and aligns a `ywc-*` skill's frontmatter/body/references rules. Use it when creating or restructuring a skill itself, not when editing a skill's content.
+
+### Set a persistent output language so skills stop asking for language each time
+
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-setup-language ko" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-setup --scope project --lang ko" />
+  </ToolTabsPanel>
+</ToolTabs>
+Use this when you want generated documents, PR text, and commit messages to keep using the same output language without passing `--lang` on every skill call. It sets a persistent project or user default; it does not change the current chat language.
+
+One-off flags still win. The resolution order is: explicit `--lang` on the consuming skill > persistent project/user default > ask.
 
 ### You want to create an isolated worktree path, or audit/clean it up
 

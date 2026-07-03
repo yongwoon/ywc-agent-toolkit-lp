@@ -29,6 +29,7 @@
 | [`ywc-release-pr-list`](#release-pr-developmain-などに含まれる-merged-pr-一覧を整理したい) | Release PR (develop→main など)に含まれる merged PR 一覧を整理したい |
 | [`ywc-changelog-release-notes`](#changelogmd-やユーザー向け-release-note-を作成したい) | CHANGELOG.md やユーザー向け release note を作成したい |
 | [`ywc-skill-author`](#新しい-ywc--skill-を作りたいまたは既存の-skill-をルールに沿って整理点検したい) | 新しい ywc-* skill を作りたい、または既存の skill をルールに沿って整理/点検したい |
+| [`ywc-setup-language` / `ywc-setup`](#出力言語の永続デフォルトを設定し毎回-language-を聞かれないようにしたい) | 出力言語の永続デフォルトを設定し、毎回 language を聞かれないようにしたい |
 | [`ywc-worktrees`](#隔離された-worktree-のパスを作りたいまたは点検整理したい) | 隔離された worktree のパスを作りたい、または点検/整理したい |
 | [`ywc-docker-isolate`](#並列で立ち上げた-worktree-の-docker-ポートが衝突する問題を解決したい) | 並列で立ち上げた worktree の Docker ポートが衝突する問題を解決したい |
 
@@ -285,6 +286,20 @@ User value、UX、growth、risk などビジネス観点でプロジェクトを
   </ToolTabsPanel>
 </ToolTabs>
 `ywc-*` skill の frontmatter/body/references のルールを検証し、揃えます。skill の内容を直すのではなく、skill「自体」を新規作成・再構成するときに使います。
+
+### 出力言語の永続デフォルトを設定し毎回 language を聞かれないようにしたい
+
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-setup-language ko" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-setup --scope project --lang ko" />
+  </ToolTabsPanel>
+</ToolTabs>
+生成される文書、PR 文、commit message の出力言語を、毎回 skill 呼び出しで `--lang` を渡さずに揃えたいときに使います。project または user の永続デフォルトを設定するもので、現在の chat 言語を切り替えるものではありません。
+
+一回だけの指定は引き続き優先されます。解決順は、対象 skill に明示した `--lang` > project/user の永続デフォルト > 質問、です。
 
 ### 隔離された worktree のパスを作りたい、または点検/整理したい
 
