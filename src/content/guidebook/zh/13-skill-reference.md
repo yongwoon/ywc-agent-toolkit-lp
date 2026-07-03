@@ -74,10 +74,10 @@
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-commit authentication 관련 변경만 커밋해줘" />
+    <CodeBlock label="claude code" code="ywc-commit 只提交 authentication 相关的更改" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-commit authentication 관련 변경만 커밋해줘" />
+    <CodeBlock label="codex" code="ywc-commit 只提交 authentication 相关的更改" />
   </ToolTabsPanel>
 </ToolTabs>
 这不是为了 PR 的创建或代码更改本身。它只是提交用的。
@@ -100,10 +100,10 @@
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-brainstorm 알림 기능을 만들고 싶은데 아직 어떻게 할지 구체적이지 않음" />
+    <CodeBlock label="claude code" code="ywc-brainstorm 想做一个通知功能，但还不确定具体怎么做" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-brainstorm 알림 기능을 만들고 싶은데 아직 어떻게 할지 구체적이지 않음" />
+    <CodeBlock label="codex" code="ywc-brainstorm 想做一个通知功能，但还不确定具体怎么做" />
   </ToolTabsPanel>
 </ToolTabs>
 通过苏格拉底式对话，它推导出目标/约束条件/成功标准以及2-3个备选方案，然后交给`ywc-plan`。
@@ -141,10 +141,10 @@
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-debug-rootcause 결제 webhook 이 가끔 중복 처리됨. 원인을 못 찾겠음" />
+    <CodeBlock label="claude code" code="ywc-debug-rootcause 支付 webhook 有时会被重复处理。找不到原因" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-debug-rootcause 결제 webhook 이 가끔 중복 처리됨. 원인을 못 찾겠음" />
+    <CodeBlock label="codex" code="ywc-debug-rootcause 支付 webhook 有时会被重复处理。找不到原因" />
   </ToolTabsPanel>
 </ToolTabs>
 这可以防止仅解决症状的补丁，并强制进行四步根本原因调查。如果修复在同一点失败三次或更多次，它会引导你质疑架构本身。
@@ -216,10 +216,10 @@
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-review-learnings 이 지적은 false positive 야, 학습해둬" />
+    <CodeBlock label="claude code" code="ywc-review-learnings 这个意见是 false positive，记住它" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-review-learnings 이 지적은 false positive 야, 학습해둬" />
+    <CodeBlock label="codex" code="ywc-review-learnings 这个意见是 false positive，记住它" />
   </ToolTabsPanel>
 </ToolTabs>
 
@@ -239,10 +239,10 @@
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-project-mission 이 project 의 목표는 ..." />
+    <CodeBlock label="claude code" code="ywc-project-mission 这个 project 的目标是 ..." />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-project-mission 이 project 의 목표는 ..." />
+    <CodeBlock label="codex" code="ywc-project-mission 这个 project 的目标是 ..." />
   </ToolTabsPanel>
 </ToolTabs>
 这已经在 [07. Starting a new Project](./07-starting-a-new-project.md) 中涵盖，并且当项目方向发生变化时也可以重复使用。

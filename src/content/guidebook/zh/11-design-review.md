@@ -18,10 +18,10 @@
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-ui-ux-review 결제 화면 usability 점검해줘" />
+    <CodeBlock label="claude code" code="ywc-ui-ux-review 检查支付界面的 usability" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-ui-ux-review 결제 화면 usability 점검해줘" />
+    <CodeBlock label="codex" code="ywc-ui-ux-review 检查支付界面的 usability" />
   </ToolTabsPanel>
 </ToolTabs>
 

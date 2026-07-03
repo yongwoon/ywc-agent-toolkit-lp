@@ -10,10 +10,10 @@
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움. 잠김/오타/미가입 등 구체적 사유를 보여주고 싶음" />
+    <CodeBlock label="claude code" code="ywc-plan ログイン失敗時のエラーメッセージが一般的すぎて原因を把握しにくい。ロック/入力ミス/未登録など具体的な理由を表示したい" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움. 잠김/오타/미가입 등 구체적 사유를 보여주고 싶음" />
+    <CodeBlock label="codex" code="ywc-plan ログイン失敗時のエラーメッセージが一般的すぎて原因を把握しにくい。ロック/入力ミス/未登録など具体的な理由を表示したい" />
   </ToolTabsPanel>
 </ToolTabs>
 

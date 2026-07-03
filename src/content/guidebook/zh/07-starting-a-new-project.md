@@ -34,10 +34,10 @@
 **2. 记录项目的原因**
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-project-mission 이 project 의 목표는 소규모 건설업체가 별도 앱 없이 출퇴근을 기록하게 하는 것. 성공 기준은 관리자 1명이 인력 10명 이하의 근태를 5분 안에 마감할 수 있는가" />
+    <CodeBlock label="claude code" code="ywc-project-mission 这个 project 的目标是让小型建筑公司无需单独的应用即可记录员工的上下班打卡。成功标准是一名管理员能否在 5 分钟内完成 10 名以下员工的考勤结算" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-project-mission 이 project 의 목표는 소규모 건설업체가 별도 앱 없이 출퇴근을 기록하게 하는 것. 성공 기준은 관리자 1명이 인력 10명 이하의 근태를 5분 안에 마감할 수 있는가" />
+    <CodeBlock label="codex" code="ywc-project-mission 这个 project 的目标是让小型建筑公司无需单独的应用即可记录员工的上下班打卡。成功标准是一名管理员能否在 5 分钟内完成 10 名以下员工的考勤结算" />
   </ToolTabsPanel>
 </ToolTabs>
 

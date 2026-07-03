@@ -37,10 +37,10 @@ All examples in this Guidebook assume you type the following form directly into 
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움" />
+    <CodeBlock label="claude code" code="ywc-plan Login failure error messages are too generic to understand the cause" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움" />
+    <CodeBlock label="codex" code="ywc-plan Login failure error messages are too generic to understand the cause" />
   </ToolTabsPanel>
 </ToolTabs>
 

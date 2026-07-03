@@ -37,10 +37,10 @@
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움" />
+    <CodeBlock label="claude code" code="ywc-plan 登录失败的错误信息过于笼统，因此很难理解原因" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움" />
+    <CodeBlock label="codex" code="ywc-plan 登录失败的错误信息过于笼统，因此很难理解原因" />
   </ToolTabsPanel>
 </ToolTabs>
 

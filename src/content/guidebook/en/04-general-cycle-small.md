@@ -30,10 +30,10 @@ ywc-plan -> ywc-spec-ready -> ywc-code-gen -> ywc-impl-review -> ywc-create-pr
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움. 잠김/오타/미가입 등 구체적 사유를 보여주고 싶음" />
+    <CodeBlock label="claude code" code="ywc-plan Login failure error messages are too generic to understand the cause. Want to show specific reasons like account locked / typo / not signed up" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움. 잠김/오타/미가입 등 구체적 사유를 보여주고 싶음" />
+    <CodeBlock label="codex" code="ywc-plan Login failure error messages are too generic to understand the cause. Want to show specific reasons like account locked / typo / not signed up" />
   </ToolTabsPanel>
 </ToolTabs>
 

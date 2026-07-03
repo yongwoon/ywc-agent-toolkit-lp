@@ -33,20 +33,20 @@ Internamente, orquesta las habilidades existentes `ywc-*` tal como están. No ti
 **Dar un objetivo en lenguaje natural (predeterminado, hasta 3 iteraciones)**
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot;" />
+    <CodeBlock label="claude code" code="ywc-agentic &quot;Agrega lógica de reintento automático cuando falle el pago&quot;" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot;" />
+    <CodeBlock label="codex" code="ywc-agentic &quot;Agrega lógica de reintento automático cuando falle el pago&quot;" />
   </ToolTabsPanel>
 </ToolTabs>
 
 **Aumenta el límite de iteraciones para que siga intentando más tiempo**
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot; --max-iterations 5" />
+    <CodeBlock label="claude code" code="ywc-agentic &quot;Agrega lógica de reintento automático cuando falle el pago&quot; --max-iterations 5" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot; --max-iterations 5" />
+    <CodeBlock label="codex" code="ywc-agentic &quot;Agrega lógica de reintento automático cuando falle el pago&quot; --max-iterations 5" />
   </ToolTabsPanel>
 </ToolTabs>
 `--max-iterations` es un límite de seguridad definido por el usuario. Si la ejecución no converge, el agente nunca aumenta el límite por sí mismo.
@@ -54,10 +54,10 @@ Internamente, orquesta las habilidades existentes `ywc-*` tal como están. No ti
 **Elegir explícitamente al ejecutor**
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-agentic &quot;알림 설정 화면과 API 추가&quot; --executor sequential" />
+    <CodeBlock label="claude code" code="ywc-agentic &quot;Agrega una pantalla de configuración de notificaciones y API&quot; --executor sequential" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-agentic &quot;알림 설정 화면과 API 추가&quot; --executor sequential" />
+    <CodeBlock label="codex" code="ywc-agentic &quot;Agrega una pantalla de configuración de notificaciones y API&quot; --executor sequential" />
   </ToolTabsPanel>
 </ToolTabs>
 El `auto` predeterminado inspecciona `dependency-graph.md` y elige secuencial o paralelo automáticamente.
@@ -76,10 +76,10 @@ Si quedan tareas sin terminar en `tasks/`, se omite la Fase de Planificación y 
 **Previsualizar las fases sin ejecutarlas realmente**
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot; --dry-run" />
+    <CodeBlock label="claude code" code="ywc-agentic &quot;Agrega lógica de reintento automático cuando falle el pago&quot; --dry-run" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot; --dry-run" />
+    <CodeBlock label="codex" code="ywc-agentic &quot;Agrega lógica de reintento automático cuando falle el pago&quot; --dry-run" />
   </ToolTabsPanel>
 </ToolTabs>
 

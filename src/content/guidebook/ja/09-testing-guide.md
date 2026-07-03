@@ -9,7 +9,7 @@
 ## 全体フロー
 
 ```
-1. test case 작성 → 2. test sheet 실행 (code test + e2e test) → 3. 기대와 다르면 수정 후 재실행
+1. test case を作成 → 2. test sheet を実行 (code test + e2e test) → 3. 期待と異なれば修正して再実行
 ```
 
 | 段階 | 何をするか |

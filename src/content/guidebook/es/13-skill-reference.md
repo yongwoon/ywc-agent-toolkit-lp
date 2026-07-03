@@ -74,10 +74,10 @@ Si omite `security`, se dirige a todas las PR de Dependabot. Si omite `parallel-
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-commit authentication 관련 변경만 커밋해줘" />
+    <CodeBlock label="claude code" code="ywc-commit Confirma solo los cambios relacionados con authentication" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-commit authentication 관련 변경만 커밋해줘" />
+    <CodeBlock label="codex" code="ywc-commit Confirma solo los cambios relacionados con authentication" />
   </ToolTabsPanel>
 </ToolTabs>
 Esto no es para la creación de PR ni para los cambios de código en sí mismos. Es solo para commits.
@@ -100,10 +100,10 @@ Esto bloquea el comportamiento por defecto de aceptar primero e implementar desp
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-brainstorm 알림 기능을 만들고 싶은데 아직 어떻게 할지 구체적이지 않음" />
+    <CodeBlock label="claude code" code="ywc-brainstorm Quiero crear una función de notificaciones, pero todavía no tengo claro cómo" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-brainstorm 알림 기능을 만들고 싶은데 아직 어떻게 할지 구체적이지 않음" />
+    <CodeBlock label="codex" code="ywc-brainstorm Quiero crear una función de notificaciones, pero todavía no tengo claro cómo" />
   </ToolTabsPanel>
 </ToolTabs>
 A través del diálogo socrático, se derivan el objetivo / las limitaciones / los criterios de éxito y 2-3 alternativas, luego se entrega a `ywc-plan`.
@@ -141,10 +141,10 @@ Esto se ha trasladado a la página dedicada `ywc-agentic`. Consulte [06. Finish 
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-debug-rootcause 결제 webhook 이 가끔 중복 처리됨. 원인을 못 찾겠음" />
+    <CodeBlock label="claude code" code="ywc-debug-rootcause El webhook de pago a veces se procesa por duplicado. No puedo encontrar la causa" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-debug-rootcause 결제 webhook 이 가끔 중복 처리됨. 원인을 못 찾겠음" />
+    <CodeBlock label="codex" code="ywc-debug-rootcause El webhook de pago a veces se procesa por duplicado. No puedo encontrar la causa" />
   </ToolTabsPanel>
 </ToolTabs>
 Esto evita los parches que solo abordan los síntomas y obliga a una investigación de causa raíz en cuatro pasos. Si las soluciones fallan en el mismo punto tres o más veces, te guía a cuestionar la arquitectura en sí.
@@ -216,10 +216,10 @@ Estas habilidades no son utilidades únicas. Gestionan el conocimiento que perma
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-review-learnings 이 지적은 false positive 야, 학습해둬" />
+    <CodeBlock label="claude code" code="ywc-review-learnings Este comentario es un falso positivo, recuérdalo" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-review-learnings 이 지적은 false positive 야, 학습해둬" />
+    <CodeBlock label="codex" code="ywc-review-learnings Este comentario es un falso positivo, recuérdalo" />
   </ToolTabsPanel>
 </ToolTabs>
 
@@ -239,10 +239,10 @@ Estas habilidades no son utilidades únicas. Gestionan el conocimiento que perma
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-project-mission 이 project 의 목표는 ..." />
+    <CodeBlock label="claude code" code="ywc-project-mission El objetivo de este project es ..." />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-project-mission 이 project 의 목표는 ..." />
+    <CodeBlock label="codex" code="ywc-project-mission El objetivo de este project es ..." />
   </ToolTabsPanel>
 </ToolTabs>
 Esto ya está cubierto en [07. Starting a new Project](./07-starting-a-new-project.md), y también se puede reutilizar cuando cambie la dirección del proyecto.
