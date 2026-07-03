@@ -4,9 +4,9 @@
 window.YWC_MESSAGES = {
   en: {
     nav_features: 'Features', nav_install: 'Install', nav_faq: 'FAQ', nav_cta: 'Install',
-    hero_badge: '41 skills',
+    hero_badge: '42 skills',
     hero_title: 'The full dev workflow,<br><span style="color:var(--accent)">automated.</span>',
-    hero_sub: 'A collection of 41 skills and expert agents for Claude Code and Codex — from planning and spec writing to code generation, review, and release.',
+    hero_sub: 'A collection of 42 skills and expert agents for Claude Code and Codex — from planning and spec writing to code generation, review, and release.',
     hero_cta_primary: 'Install now', hero_cta_secondary: 'Star on GitHub',
     hero_install_label: 'claude code · one line', hero_demo_caption: 'goal → shipped PR, one command',
 
@@ -27,13 +27,13 @@ window.YWC_MESSAGES = {
     ],
 
     fg_eyebrow: 'Scale', fg_title: 'Built for both tools.',
-    fg_sub: 'The same 41 skills across Claude Code and Codex, with tool-native custom agents on each side.',
+    fg_sub: 'The same 42 skills across Claude Code and Codex, with tool-native custom agents on each side.',
     fg_cc_skills_label: 'Workflow skills', fg_cc_skills_desc: 'Plan, spec, code-gen, review, and release — invokable as slash-commands.',
     fg_cc_agents_label: 'Custom agents', fg_cc_agents_desc: 'Worker, reviewer, and specialist agents for dispatch.',
     fg_cx_skills_label: 'Workflow skills', fg_cx_skills_desc: 'Codex-compatible frontmatter and tool guidance for every skill.',
     fg_cx_agents_label: 'Read-only specialists', fg_cx_agents_desc: 'Architect, security, performance, and language reviewers.',
     fg_cats_label: 'Skill categories',
-    fg_cat_plan: 'Planning & Spec', fg_cat_exec: 'Task & Execution', fg_cat_review: 'Review & Verify', fg_cat_release: 'Git & Release', fg_cat_docs: 'Docs & Other',
+    fg_cat_plan: 'Planning & Spec', fg_cat_exec: 'Task & Execution', fg_cat_review: 'Review & Verify', fg_cat_release: 'Git & Release', fg_cat_setup: 'Toolkit & Setup', fg_cat_docs: 'Docs & Other',
 
     inst_eyebrow: 'Install', inst_title: 'Running in under a minute.',
     inst_sub: 'Pick your tool. Both paths install from a plugin marketplace — no cloning, no prerequisites.',
@@ -50,7 +50,7 @@ window.YWC_MESSAGES = {
       { q: 'What is ywc-agent-toolkit?', a: 'A collection of skills for Claude Code and Codex that automates the full development workflow — from planning and spec writing to code generation, review, and release. It ships as a public GitHub repository you install as a plugin.' },
       { q: 'What are the install requirements?', a: 'Plugin-marketplace and Codex-plugin installation have <strong style="color:var(--text-bright)">no prerequisites</strong> — the tool handles everything automatically. Just add the marketplace source and install.' },
       { q: 'How does it affect cost and tokens?', a: 'Skills default to Markdown output, which is token-light. Only opt-in HTML reports use more tokens (2–4×), and those are off by default — you enable them per command when a human will read the report in a browser.' },
-      { q: 'Does it work with both Claude Code and Codex?', a: 'Yes. The same 41 skills run on both. Claude Code ships 12 custom agents; Codex ships 7 read-only specialist agents, each with tool-native packaging.' },
+      { q: 'Does it work with both Claude Code and Codex?', a: 'Yes. The same 42 skills run on both. Claude Code ships 12 custom agents; Codex ships 7 read-only specialist agents, each with tool-native packaging.' },
       { q: 'Is it free and open source?', a: 'Yes — MIT licensed and hosted publicly on GitHub. Contributions, bug reports, and translations are welcome.' },
     ],
 
@@ -60,9 +60,9 @@ window.YWC_MESSAGES = {
 
   ja: {
     nav_features: '機能', nav_install: 'インストール', nav_faq: 'FAQ', nav_cta: 'インストール',
-    hero_badge: '41 スキル',
+    hero_badge: '42 スキル',
     hero_title: '開発ワークフロー全体を、<br><span style="color:var(--accent)">自動化。</span>',
-    hero_sub: 'Claude Code と Codex のための 41 のスキルと専門エージェント群。計画・仕様策定からコード生成、レビュー、リリースまでを一貫して自動化します。',
+    hero_sub: 'Claude Code と Codex のための 42 のスキルと専門エージェント群。計画・仕様策定からコード生成、レビュー、リリースまでを一貫して自動化します。',
     hero_cta_primary: '今すぐ導入', hero_cta_secondary: 'GitHub でスター',
     hero_install_label: 'claude code · 一行で', hero_demo_caption: '目標から PR まで、コマンド一つ',
 
@@ -83,13 +83,13 @@ window.YWC_MESSAGES = {
     ],
 
     fg_eyebrow: '規模', fg_title: '両方のツールに対応。',
-    fg_sub: 'Claude Code と Codex で同じ 41 スキル。各ツールにネイティブなカスタムエージェントを備えます。',
+    fg_sub: 'Claude Code と Codex で同じ 42 スキル。各ツールにネイティブなカスタムエージェントを備えます。',
     fg_cc_skills_label: 'ワークフロースキル', fg_cc_skills_desc: '計画・仕様・コード生成・レビュー・リリースをスラッシュコマンドで呼び出し。',
     fg_cc_agents_label: 'カスタムエージェント', fg_cc_agents_desc: 'ワーカー・レビュアー・専門エージェントをディスパッチ。',
     fg_cx_skills_label: 'ワークフロースキル', fg_cx_skills_desc: '各スキルに Codex 互換のフロントマターとツールガイドを同梱。',
     fg_cx_agents_label: '読み取り専用の専門家', fg_cx_agents_desc: 'アーキテクト・セキュリティ・性能・言語レビュアー。',
     fg_cats_label: 'スキルカテゴリ',
-    fg_cat_plan: '計画・仕様', fg_cat_exec: 'タスク・実行', fg_cat_review: 'レビュー・検証', fg_cat_release: 'Git・リリース', fg_cat_docs: 'ドキュメント他',
+    fg_cat_plan: '計画・仕様', fg_cat_exec: 'タスク・実行', fg_cat_review: 'レビュー・検証', fg_cat_release: 'Git・リリース', fg_cat_setup: 'ツールキット・設定', fg_cat_docs: 'ドキュメント他',
 
     inst_eyebrow: 'インストール', inst_title: '1 分以内で動きます。',
     inst_sub: 'ツールを選ぶだけ。どちらもプラグインマーケットプレイスから導入 — クローン不要、前提条件なし。',
@@ -106,7 +106,7 @@ window.YWC_MESSAGES = {
       { q: 'ywc-agent-toolkit とは？', a: 'Claude Code と Codex 向けに、計画・仕様策定からコード生成・レビュー・リリースまで開発ワークフロー全体を自動化するスキル集です。公開 GitHub リポジトリとして配布され、プラグインとして導入します。' },
       { q: 'インストールの要件は？', a: 'プラグインマーケットプレイスと Codex プラグインでの導入に<strong style="color:var(--text-bright)">前提条件はありません</strong>。マーケットプレイスを追加してインストールするだけです。' },
       { q: 'コストやトークンへの影響は？', a: 'スキルは既定でトークン消費の少ない Markdown 出力です。HTML レポート（2〜4 倍）は任意で、既定ではオフ。ブラウザで読む場合にコマンド単位で有効化します。' },
-      { q: 'Claude Code と Codex の両方で使える？', a: 'はい。同じ 41 スキルが両方で動作します。Claude Code は 12、Codex は 7 のカスタムエージェントを、各ツールネイティブな形で同梱します。' },
+      { q: 'Claude Code と Codex の両方で使える？', a: 'はい。同じ 42 スキルが両方で動作します。Claude Code は 12、Codex は 7 のカスタムエージェントを、各ツールネイティブな形で同梱します。' },
       { q: '無料・オープンソース？', a: 'はい。MIT ライセンスで GitHub 上に公開しています。貢献・不具合報告・翻訳を歓迎します。' },
     ],
 
@@ -116,9 +116,9 @@ window.YWC_MESSAGES = {
 
   ko: {
     nav_features: '기능', nav_install: '설치', nav_faq: 'FAQ', nav_cta: '설치',
-    hero_badge: '41개 스킬',
+    hero_badge: '42개 스킬',
     hero_title: '개발 워크플로 전체를,<br><span style="color:var(--accent)">자동화.</span>',
-    hero_sub: 'Claude Code와 Codex를 위한 41개 스킬과 전문 에이전트 모음 — 계획·명세 작성부터 코드 생성, 리뷰, 릴리스까지.',
+    hero_sub: 'Claude Code와 Codex를 위한 42개 스킬과 전문 에이전트 모음 — 계획·명세 작성부터 코드 생성, 리뷰, 릴리스까지.',
     hero_cta_primary: '지금 설치', hero_cta_secondary: 'GitHub 스타',
     hero_install_label: 'claude code · 한 줄', hero_demo_caption: '목표에서 PR까지, 명령 하나로',
 
@@ -139,13 +139,13 @@ window.YWC_MESSAGES = {
     ],
 
     fg_eyebrow: '규모', fg_title: '두 도구 모두를 위해.',
-    fg_sub: 'Claude Code와 Codex에서 동일한 41개 스킬, 각 도구에 맞는 커스텀 에이전트 제공.',
+    fg_sub: 'Claude Code와 Codex에서 동일한 42개 스킬, 각 도구에 맞는 커스텀 에이전트 제공.',
     fg_cc_skills_label: '워크플로 스킬', fg_cc_skills_desc: '계획·명세·코드 생성·리뷰·릴리스를 슬래시 명령으로 호출.',
     fg_cc_agents_label: '커스텀 에이전트', fg_cc_agents_desc: '워커·리뷰어·전문 에이전트를 디스패치.',
     fg_cx_skills_label: '워크플로 스킬', fg_cx_skills_desc: '모든 스킬에 Codex 호환 프런트매터와 도구 가이드 포함.',
     fg_cx_agents_label: '읽기 전용 전문가', fg_cx_agents_desc: '아키텍트·보안·성능·언어 리뷰어.',
     fg_cats_label: '스킬 카테고리',
-    fg_cat_plan: '계획·명세', fg_cat_exec: '태스크·실행', fg_cat_review: '리뷰·검증', fg_cat_release: 'Git·릴리스', fg_cat_docs: '문서·기타',
+    fg_cat_plan: '계획·명세', fg_cat_exec: '태스크·실행', fg_cat_review: '리뷰·검증', fg_cat_release: 'Git·릴리스', fg_cat_setup: '툴킷·설정', fg_cat_docs: '문서·기타',
 
     inst_eyebrow: '설치', inst_title: '1분 안에 실행됩니다.',
     inst_sub: '도구만 고르세요. 두 경로 모두 플러그인 마켓플레이스에서 설치 — 클론 불필요, 사전 요구사항 없음.',
@@ -162,7 +162,7 @@ window.YWC_MESSAGES = {
       { q: 'ywc-agent-toolkit이 무엇인가요?', a: 'Claude Code와 Codex를 위한 스킬 모음으로, 계획·명세 작성부터 코드 생성·리뷰·릴리스까지 개발 워크플로 전체를 자동화합니다. 공개 GitHub 저장소로 배포되며 플러그인으로 설치합니다.' },
       { q: '설치 요구사항은 무엇인가요?', a: '플러그인 마켓플레이스와 Codex 플러그인 설치에는 <strong style="color:var(--text-bright)">사전 요구사항이 없습니다</strong>. 마켓플레이스 소스를 추가하고 설치하기만 하면 됩니다.' },
       { q: '비용과 토큰에 어떤 영향이 있나요?', a: '스킬은 기본적으로 토큰이 가벼운 Markdown 출력을 사용합니다. HTML 리포트(2~4배)는 선택 사항이며 기본은 꺼져 있어, 브라우저로 읽을 때 명령 단위로 켭니다.' },
-      { q: 'Claude Code와 Codex 모두에서 작동하나요?', a: '네. 동일한 41개 스킬이 양쪽에서 동작합니다. Claude Code는 12개, Codex는 7개의 읽기 전용 전문 에이전트를 각 도구에 맞게 제공합니다.' },
+      { q: 'Claude Code와 Codex 모두에서 작동하나요?', a: '네. 동일한 42개 스킬이 양쪽에서 동작합니다. Claude Code는 12개, Codex는 7개의 읽기 전용 전문 에이전트를 각 도구에 맞게 제공합니다.' },
       { q: '무료 오픈소스인가요?', a: '네 — MIT 라이선스로 GitHub에 공개되어 있습니다. 기여·버그 리포트·번역을 환영합니다.' },
     ],
 
@@ -172,9 +172,9 @@ window.YWC_MESSAGES = {
 
   zh: {
     nav_features: '功能', nav_install: '安装', nav_faq: '常见问题', nav_cta: '安装',
-    hero_badge: '41 项技能',
+    hero_badge: '42 项技能',
     hero_title: '完整开发流程，<br><span style="color:var(--accent)">自动化。</span>',
-    hero_sub: '为 Claude Code 与 Codex 打造的 41 项技能与专家智能体 —— 从规划、写规格到代码生成、评审与发布。',
+    hero_sub: '为 Claude Code 与 Codex 打造的 42 项技能与专家智能体 —— 从规划、写规格到代码生成、评审与发布。',
     hero_cta_primary: '立即安装', hero_cta_secondary: '在 GitHub 加星',
     hero_install_label: 'claude code · 一行', hero_demo_caption: '从目标到已合并 PR，一条命令',
 
@@ -195,13 +195,13 @@ window.YWC_MESSAGES = {
     ],
 
     fg_eyebrow: '规模', fg_title: '为两种工具而建。',
-    fg_sub: '在 Claude Code 与 Codex 上使用同样的 41 项技能，各自配有原生自定义智能体。',
+    fg_sub: '在 Claude Code 与 Codex 上使用同样的 42 项技能，各自配有原生自定义智能体。',
     fg_cc_skills_label: '工作流技能', fg_cc_skills_desc: '规划、规格、代码生成、评审与发布，可用斜杠命令调用。',
     fg_cc_agents_label: '自定义智能体', fg_cc_agents_desc: '工作、评审与专家智能体，按需调度。',
     fg_cx_skills_label: '工作流技能', fg_cx_skills_desc: '每项技能都带 Codex 兼容的前置元数据与工具指引。',
     fg_cx_agents_label: '只读专家', fg_cx_agents_desc: '架构、安全、性能与语言评审专家。',
     fg_cats_label: '技能类别',
-    fg_cat_plan: '规划与规格', fg_cat_exec: '任务与执行', fg_cat_review: '评审与验证', fg_cat_release: 'Git 与发布', fg_cat_docs: '文档及其他',
+    fg_cat_plan: '规划与规格', fg_cat_exec: '任务与执行', fg_cat_review: '评审与验证', fg_cat_release: 'Git 与发布', fg_cat_setup: '工具包与设置', fg_cat_docs: '文档及其他',
 
     inst_eyebrow: '安装', inst_title: '一分钟内即可运行。',
     inst_sub: '选择你的工具。两条路径都从插件市场安装 —— 无需克隆、无前置要求。',
@@ -218,7 +218,7 @@ window.YWC_MESSAGES = {
       { q: 'ywc-agent-toolkit 是什么？', a: '一套面向 Claude Code 与 Codex 的技能，自动化从规划、写规格到代码生成、评审与发布的完整开发流程。以公开 GitHub 仓库分发，作为插件安装。' },
       { q: '安装有什么要求？', a: '插件市场与 Codex 插件安装<strong style="color:var(--text-bright)">没有前置要求</strong> —— 工具会自动处理一切。只需添加市场源并安装。' },
       { q: '对成本和 token 有何影响？', a: '技能默认输出 token 占用较低的 Markdown。仅可选的 HTML 报告会多用 2–4 倍 token，且默认关闭 —— 需要在浏览器阅读时按命令启用。' },
-      { q: 'Claude Code 和 Codex 都能用吗？', a: '可以。同样的 41 项技能在两者上均可运行。Claude Code 提供 12 个自定义智能体，Codex 提供 7 个只读专家智能体，各自原生封装。' },
+      { q: 'Claude Code 和 Codex 都能用吗？', a: '可以。同样的 42 项技能在两者上均可运行。Claude Code 提供 12 个自定义智能体，Codex 提供 7 个只读专家智能体，各自原生封装。' },
       { q: '是免费开源的吗？', a: '是 —— 采用 MIT 许可并公开托管在 GitHub。欢迎贡献、报告问题与翻译。' },
     ],
 
@@ -228,9 +228,9 @@ window.YWC_MESSAGES = {
 
   es: {
     nav_features: 'Funciones', nav_install: 'Instalar', nav_faq: 'FAQ', nav_cta: 'Instalar',
-    hero_badge: '41 skills',
+    hero_badge: '42 skills',
     hero_title: 'Todo el flujo de desarrollo,<br><span style="color:var(--accent)">automatizado.</span>',
-    hero_sub: 'Una colección de 41 skills y agentes expertos para Claude Code y Codex — de la planificación y la escritura de specs a la generación de código, la revisión y el release.',
+    hero_sub: 'Una colección de 42 skills y agentes expertos para Claude Code y Codex — de la planificación y la escritura de specs a la generación de código, la revisión y el release.',
     hero_cta_primary: 'Instalar ya', hero_cta_secondary: 'Estrella en GitHub',
     hero_install_label: 'claude code · una línea', hero_demo_caption: 'del objetivo al PR fusionado, un comando',
 
@@ -251,13 +251,13 @@ window.YWC_MESSAGES = {
     ],
 
     fg_eyebrow: 'Escala', fg_title: 'Hecho para ambas herramientas.',
-    fg_sub: 'Los mismos 41 skills en Claude Code y Codex, con agentes personalizados nativos en cada lado.',
+    fg_sub: 'Los mismos 42 skills en Claude Code y Codex, con agentes personalizados nativos en cada lado.',
     fg_cc_skills_label: 'Skills de flujo', fg_cc_skills_desc: 'Plan, spec, generación de código, revisión y release como slash-commands.',
     fg_cc_agents_label: 'Agentes personalizados', fg_cc_agents_desc: 'Agentes de trabajo, revisión y especialistas para despacho.',
     fg_cx_skills_label: 'Skills de flujo', fg_cx_skills_desc: 'Frontmatter compatible con Codex y guía de herramientas en cada skill.',
     fg_cx_agents_label: 'Especialistas de solo lectura', fg_cx_agents_desc: 'Revisores de arquitectura, seguridad, rendimiento y lenguaje.',
     fg_cats_label: 'Categorías de skills',
-    fg_cat_plan: 'Plan y Spec', fg_cat_exec: 'Tareas y Ejecución', fg_cat_review: 'Revisión y Verificación', fg_cat_release: 'Git y Release', fg_cat_docs: 'Docs y Otros',
+    fg_cat_plan: 'Plan y Spec', fg_cat_exec: 'Tareas y Ejecución', fg_cat_review: 'Revisión y Verificación', fg_cat_release: 'Git y Release', fg_cat_setup: 'Toolkit y Setup', fg_cat_docs: 'Docs y Otros',
 
     inst_eyebrow: 'Instalar', inst_title: 'Funcionando en menos de un minuto.',
     inst_sub: 'Elige tu herramienta. Ambas rutas instalan desde un marketplace de plugins — sin clonar, sin requisitos.',
@@ -274,7 +274,7 @@ window.YWC_MESSAGES = {
       { q: '¿Qué es ywc-agent-toolkit?', a: 'Una colección de skills para Claude Code y Codex que automatiza todo el flujo de desarrollo — de la planificación y las specs a la generación de código, la revisión y el release. Se distribuye como un repositorio público de GitHub que instalas como plugin.' },
       { q: '¿Qué requisitos tiene la instalación?', a: 'La instalación por marketplace de plugins y por plugin de Codex <strong style="color:var(--text-bright)">no tiene requisitos previos</strong> — la herramienta lo gestiona todo. Solo añade la fuente e instala.' },
       { q: '¿Cómo afecta al coste y los tokens?', a: 'Los skills usan Markdown por defecto, ligero en tokens. Solo los informes HTML opcionales gastan 2–4× más, y están desactivados por defecto — los activas por comando cuando alguien leerá el informe en el navegador.' },
-      { q: '¿Funciona con Claude Code y Codex?', a: 'Sí. Los mismos 41 skills corren en ambos. Claude Code trae 12 agentes personalizados; Codex trae 7 agentes especialistas de solo lectura, cada uno con empaquetado nativo.' },
+      { q: '¿Funciona con Claude Code y Codex?', a: 'Sí. Los mismos 42 skills corren en ambos. Claude Code trae 12 agentes personalizados; Codex trae 7 agentes especialistas de solo lectura, cada uno con empaquetado nativo.' },
       { q: '¿Es gratis y de código abierto?', a: 'Sí — con licencia MIT y alojado públicamente en GitHub. Se agradecen contribuciones, reportes de bugs y traducciones.' },
     ],
 
