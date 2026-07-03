@@ -9,7 +9,7 @@ const cssBudgetBytes = 30 * 1024;
 // Matches the GitHub Pages deploy build's next.config.ts basePath, if any: asset URLs
 // in the HTML are prefixed (e.g. "/ywc-agent-toolkit-lp/_next/..."), but the physical
 // files still live at out/_next/..., so the prefix must be stripped before joining.
-const basePath = process.env.GITHUB_PAGES === "true" ? "/ywc-agent-toolkit-lp" : "";
+const basePath = process.env.NEXT_PUBLIC_GITHUB_PAGES === "true" ? "/ywc-agent-toolkit-lp" : "";
 
 function unique(values) {
   return Array.from(new Set(values));
