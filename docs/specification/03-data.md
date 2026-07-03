@@ -25,7 +25,7 @@
 - Locale Message Catalog에 속함
 
 ## Feature Item
-**What it represents**: feature-grid 섹션에 나열되는 개별 기능/통계 카드 하나 (예: "41개 skill", "12개 agent")
+**What it represents**: feature-grid 섹션에 나열되는 개별 기능/통계 카드 하나 (예: "42개 skill", "12개 agent")
 
 **Key attributes**:
 - Label: 기능 또는 통계 이름

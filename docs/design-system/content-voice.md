@@ -12,7 +12,7 @@ No hype, no exclamation marks, **no emoji**.
 - **Casing:** Sentence case for headlines & body. UPPERCASE + wide tracking **only** for the small
   mono eyebrows (`SCALE`, `INSTALL`, `WHY`, `FAQ`). Skill names stay lowercase-mono exactly as
   invoked: `ywc-plan`, `/ywc-agentic`, `ywc-impl-review`.
-- **Numbers — the one hard constraint:** **"41 skills"** is true on both tools → safe to state.
+- **Numbers — the one hard constraint:** **"42 skills"** is true on both tools → safe to state.
   **Agent counts differ (12 Claude Code / 7 Codex)** → the hero must say **"expert agents"** (no
   number); the exact counts appear only in the Feature Grid, split by lane. Never let hero and
   feature grid contradict each other.
@@ -35,7 +35,7 @@ every section live in the design-system project's `ui_kits/landing/messages.js` 
 
 ## Examples
 
-- ✅ "A collection of 41 skills and expert agents for Claude Code and Codex — from planning and spec writing to code generation, review, and release."
+- ✅ "A collection of 42 skills and expert agents for Claude Code and Codex — from planning and spec writing to code generation, review, and release."
 - ✅ "Plugin-marketplace and Codex-plugin installation have no prerequisites — the tool handles everything automatically."
 - ❌ "🚀 The BEST AI toolkit that will 10x your workflow!!!"
-- ❌ "41 skills and 12 agents for Claude Code and Codex" *(agent count is tool-specific — wrong in the hero)*
+- ❌ "42 skills and 12 agents for Claude Code and Codex" *(agent count is tool-specific — wrong in the hero)*
