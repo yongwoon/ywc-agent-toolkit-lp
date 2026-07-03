@@ -12,8 +12,8 @@ confirmation round.
 
 ## Mission
 
-ywc-agent-toolkit-lp exists to give ywc-agent-toolkit (a distribution toolkit of 41
-skills and 12 custom agents for Claude Code and Codex, hosted as a public GitHub
+ywc-agent-toolkit-lp exists to give ywc-agent-toolkit (a distribution toolkit of 42
+skills, plus 12 custom agents for Claude Code and 7 for Codex, hosted as a public GitHub
 repository) a public marketing landing page that communicates its value. Target
 outcome: a landing page at ohmyclaudecode.com's level of polish that drives
 installs/adoption for new users across 5 locales (en/ja/ko/zh/es).

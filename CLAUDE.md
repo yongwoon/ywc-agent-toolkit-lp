@@ -14,7 +14,7 @@ Do not assume any source files exist beyond what `ls`/`find` confirms. Treat `do
 
 ## What This Project Is
 
-A public, 5-locale (en/ja/ko/zh/es) marketing landing page for `ywc-agent-toolkit` (a distribution toolkit of 41 skills and per-tool custom agents — 12 for Claude Code, 7 for Codex — published on GitHub). It targets the information structure and polish level of ohmyclaudecode.com: hero → problem/solution → features → install → social proof → FAQ. Deployed as a zero-server static export to GitHub Pages.
+A public, 5-locale (en/ja/ko/zh/es) marketing landing page for `ywc-agent-toolkit` (a distribution toolkit of 42 skills and per-tool custom agents — 12 for Claude Code, 7 for Codex — published on GitHub). It targets the information structure and polish level of ohmyclaudecode.com: hero → problem/solution → features → install → social proof → FAQ. Deployed as a zero-server static export to GitHub Pages.
 
 Full context: `docs/mission.md` (success criteria SC001–SC003, rejected approaches RA001–RA003) and `docs/specification/01-overview.md` (scope, constraints, stakeholders).
 

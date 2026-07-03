@@ -30,7 +30,7 @@
 **User story**: 처음 방문한 개발자로서, 페이지에 진입한 순간 이 프로젝트가 무엇을 해결해주는지 한눈에 알 수 있어야 한다. 그래야 몇 초 안에 더 볼지 말지를 결정할 수 있기 때문이다.
 
 **Acceptance criteria**:
-- [ ] 헤드라인이 프로젝트의 핵심 가치를 한 문장으로 전달하며, "41개 skill"처럼 Claude Code/Codex 공통으로 참인 수치만 구체적으로 명시한다
+- [ ] 헤드라인이 프로젝트의 핵심 가치를 한 문장으로 전달하며, "42개 skill"처럼 Claude Code/Codex 공통으로 참인 수치만 구체적으로 명시한다
 - [ ] 헤드라인은 agent 개수를 특정 숫자로 명시하지 않는다("expert agents" 등 tool-무관 표현 사용) — Claude Code(12개)와 Codex(7개)의 agent 개수가 다르기 때문
 - [ ] "Install" CTA와 "Star on GitHub" CTA가 함께 노출된다
 - [ ] 예시 CLI 명령을 보여주는 데모 영역이 포함된다
@@ -54,7 +54,7 @@
 **User story**: 방문자로서, toolkit이 제공하는 skill과 agent의 규모를 숫자로 확인할 수 있어야 한다. 그래야 이 프로젝트의 성숙도를 빠르게 판단할 수 있기 때문이다.
 
 **Acceptance criteria**:
-- [ ] Claude Code 41개 skill / 12개 agent, Codex 41개 skill / 7개 agent 수치가 노출된다
+- [ ] Claude Code 42개 skill / 12개 agent, Codex 42개 skill / 7개 agent 수치가 노출된다
 - [ ] 각 통계 카드에 한두 문장의 보충 설명이 포함된다
 
 **Notes**: 수치는 ywc-agent-toolkit README.md의 "Supported Tools" 표와 항상 일치해야 하며, 값이 바뀌면 이 섹션도 함께 갱신되어야 한다.
