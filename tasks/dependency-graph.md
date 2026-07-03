@@ -33,6 +33,18 @@
 - `000007-010-ui-tool-tabs-primitive` → depends on `000003-010-ui-primitives-clipboard`
 - `000007-020-ui-guidebook-tool-tabs-demo` → depends on `000007-010-ui-tool-tabs-primitive`, `000004-020-ui-guidebook-layout`, `000004-030-config-guidebook-content-sync`
 
+## Phase 000008 — Upstream Language-Setup Sync: Verification Gate
+> spec: `docs/ywc-plans/sync-skill-count-language-setup.md` (`ywc-spec-validate` DONE, 9회 검증 라운드 후 수렴). upstream `ywc-agent-toolkit` PR #125가 계획 시점 `state: OPEN`, `mergedAt: null`이었으므로, 이 배치의 모든 숫자 편집은 Phase 000008의 재검증 결과에 의해 게이팅된다.
+- `000008-010-config-verify-upstream-language-setup-status` → (Phase 000008/000009/000010의 root; Phase 000007과 독립적으로 시작 가능)
+
+## Phase 000009 — Upstream Language-Setup Sync: Content Updates
+- `000009-010-ui-sync-app-skill-counts` → depends on `000008-010-config-verify-upstream-language-setup-status`
+- `000009-020-config-sync-docs-skill-counts` → depends on `000008-010-config-verify-upstream-language-setup-status`
+- `000009-030-config-guidebook-language-setup-entry` → depends on `000008-010-config-verify-upstream-language-setup-status`
+
+## Phase 000010 — Upstream Language-Setup Sync: Final Verification
+- `000010-010-test-verify-full-build` → depends on `000009-010-ui-sync-app-skill-counts`, `000009-020-config-sync-docs-skill-counts`, `000009-030-config-guidebook-language-setup-entry`
+
 ## Parallel Execution Notes
 
 - **Initial ready set**: `000001-010-lib-nextjs-i18n-setup` (유일한 root task; 이 프로젝트의 모든 task가 직접 또는 간접적으로 이 task에서 파생됨)
@@ -45,6 +57,9 @@
 - **Phase 000005 → 000006 hard gate**: `000005-020-test-build-verification`이 완전히 merge되기 전까지 Phase 000006의 어떤 task도 시작할 수 없다 (사용자가 명시적으로 "마지막 task 이후"로 지정)
 - **Phase 000006 내부 병렬성**: `000006-010`(ja), `000006-020`(en), `000006-030`(zh), `000006-040`(es)은 `000005-020` 완료 후 서로 완전히 병렬로 실행 가능하다 — 4개 task 모두 `src/content/guidebook/<locale>/**`라는 서로 disjoint한 디렉터리만 소유하며 Conflicts With가 없다
 - **Phase 000007 numbering note**: `000007-010`은 실제로는 `000003-010`에만 의존하고, `000007-020`은 `000007-010` + `000004-020` + `000004-030`에만 의존한다 — 즉 이 Phase는 기술적으로 Phase 000005/000006 완료를 필요로 하지 않는다. 그럼에도 append-only 번호 배정 규칙(및 다른 세션이 기존 phase 순서를 실행 중이라는 동시성 제약)에 따라 Phase 000007로 배정했으므로, "Phase N+1은 Phase N 전체 완료 후" 하드 게이트를 문자 그대로 적용하면 Phase 000007은 Phase 000006(4개 locale 확장 task)까지 끝난 뒤에야 시작 가능한 것으로 읽힌다. 실제 실행 시 이 hard gate를 완화해 `000007-010`/`000007-020`을 각자의 실제 `Depends On` 목록이 충족되는 즉시 시작해도 안전하다 — 단, 이 완화를 적용할지는 이 프로젝트의 task 순차 실행 컨벤션을 따르는 실행자가 최종 판단한다.
+- **Phase 000008 numbering note**: `000008-010`은 실제로는 `000001-010`(프로젝트 root) 외에 어떤 기존 task에도 의존하지 않는다 — Phase 000002~000007의 어떤 task도 선행 조건이 아니다. Append-only 번호 배정 규칙에 따라 highest existing phase(`000007`) + 1로 배정했을 뿐이며, 실제 실행 시 이 하드 게이트를 완화해 Phase 000002~000007과 완전히 독립적으로, 심지어 그보다 먼저 시작해도 기술적으로 안전하다 — Phase 000007과 마찬가지로 완화 적용 여부는 실행자가 최종 판단한다.
+- **Phase 000008 → 000009 hard gate (진짜 하드 게이트, 완화 대상 아님)**: `000008-010`이 PR #125 unmerged를 기록하면 Phase 000009의 세 task는 어떤 것도 시작할 수 없다 — 이것은 append-only 번호 배정의 인위적 부산물이 아니라, spec이 명시한 실제 도메인 제약(스펙 `## Scope`의 Stop condition)이다.
+- **Phase 000009 내부 병렬성**: `000009-010`(앱 코드/디자인 템플릿), `000009-020`(문서), `000009-030`(가이드북)은 `000008-010` 완료 후 서로 완전히 병렬로 실행 가능하다 — 세 task 모두 서로 disjoint한 파일만 소유하며 Conflicts With가 없다.
 
 ## Visual Dependency Graph
 
@@ -106,6 +121,24 @@ graph LR
     D2 --> G2
     D3 --> G2
   end
+  subgraph Phase 000008
+    H1[000008-010-config-verify-upstream-language-setup-status]
+    A1 --> H1
+  end
+  subgraph Phase 000009
+    I1[000009-010-ui-sync-app-skill-counts]
+    I2[000009-020-config-sync-docs-skill-counts]
+    I3[000009-030-config-guidebook-language-setup-entry]
+    H1 --> I1
+    H1 --> I2
+    H1 --> I3
+  end
+  subgraph Phase 000010
+    J1[000010-010-test-verify-full-build]
+    I1 --> J1
+    I2 --> J1
+    I3 --> J1
+  end
 ```
 
 ## Open Questions
@@ -115,3 +148,6 @@ graph LR
 3. **Phase 000006의 정확한 번역 범위는 Phase 000006 착수 시점에 확정**: `000006-010`/`020`/`030`/`040` 각 locale task가 번역해야 할 정확한 페이지 수는, 그 task가 실제로 시작되는 시점에 `src/content/guidebook/ko/`에 몇 개의 페이지가 존재하는지(즉 06–12 중 얼마나 upstream에서 완성되었는지)에 따라 달라진다. Phase 000005 완료 시점과 Phase 000006 착수 시점 사이에 upstream 콘텐츠가 추가될 수 있으므로, 각 locale task 착수 직전에 `src/content/guidebook/ko/` 파일 목록을 다시 확인해야 한다.
 4. **Phase 000007의 Codex placeholder 커맨드**: `000007-020`의 데모(`03-quickstart.md`)에 들어갈 Codex 패널 커맨드는 upstream(`develop-with-llm`)에 아직 실제 Codex 대응 커맨드가 문서화되어 있지 않아 대표성 있는 placeholder로 진행한다(`docs/ywc-plans/guidebook-tool-tabs.md` Open Questions #1). 실제 Codex 커맨드가 upstream에 추가되면 재검토가 필요하다.
 5. **Phase 000007과 Phase 000005/000006 사이의 hard-gate 완화 여부**: 위 Parallel Execution Notes의 "Phase 000007 numbering note" 참고 — append-only 번호 배정으로 인해 문자 그대로는 Phase 000006 완료가 선행 조건처럼 보이지만, 실제 task-level Depends On은 더 이른 시점에 충족된다. 순차 실행 시 이 완화를 적용할지 실행자가 판단해야 한다.
+6. **Phase 000008 착수 시점에 PR #125가 여전히 unmerged일 가능성**: 스펙 작성 시점에 `ywc-agent-toolkit` PR #125는 `state: OPEN`, `mergedAt: null`이었다. `000008-010`이 실제 실행되는 시점에도 여전히 unmerged라면, 그 task는 Stop Condition에 따라 즉시 멈추고 Phase 000009/000010은 실행하지 않는다 — 이는 이 배치 전체의 진짜 하드 블로커이며(append-only 번호 배정의 인위적 산물이 아님), 다른 저장소(`ywc-agent-toolkit`)의 소유자가 PR을 merge해야 해소된다.
+7. **`gh` CLI 실행 환경 전제조건**: `000008-010`은 `gh` CLI가 설치·인증되어 있고 `yongwoon/ywc-agent-toolkit`(이 프로젝트와 다른 저장소)에 대한 read 권한이 있다고 가정한다. 실행 환경(worktree, CI, sandbox 등)에 따라 이 전제조건이 충족되지 않을 수 있으므로, `000008-010` 착수 전 실행 환경에서 `gh auth status`로 사전 확인을 권장한다.
+8. **`000009-010`의 발산(divergent) 분기에서 Feature Grid blocking 처리의 구체적 형태**: 스펙 FR-5는 "사람이 해결할 때까지 편집을 생성하지 말라"는 blocking을 요구하지만, 그 blocking이 `000009-010` task 내부의 Stop Condition으로 표현되는지, 아니면 별도의 대기 task로 분리되어야 하는지는 이 task 분해에서 전자(기존 `000009-010` 내부 Stop Condition)로 판단했다 — `000008-010`의 판정이 발산일 경우, `000009-010` 실행자는 hero/featureGrid.description 전환까지만 수행하고 카테고리 산술 편집은 수행하지 않은 채 보고해야 한다(해당 task의 Notes 참고). 발산이 실제로 발생하면 이 처리가 충분한지 재검토가 필요할 수 있다.

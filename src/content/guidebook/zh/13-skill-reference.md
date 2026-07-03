@@ -29,6 +29,7 @@
 | [`ywc-release-pr-list`](#总结包含在发布版本-prdevelop-main-等中的已合并-pr-列表) | 总结包含在发布版本 PR（develop->main 等）中的已合并 PR 列表 |
 | [`ywc-changelog-release-notes`](#编写-changelogmd-或面向用户的版本说明) | 编写 CHANGELOG.md 或面向用户的版本说明 |
 | [`ywc-skill-author`](#想创建新的-ywc--skill或按规则整理检查现有-skill) | 想创建新的 ywc-* skill，或按规则整理/检查现有 skill |
+| [`ywc-setup-language` / `ywc-setup`](#设置持久输出语言让技能不再每次询问-language) | 设置持久输出语言，让技能不再每次询问 language |
 | [`ywc-worktrees`](#想创建隔离的-worktree-路径或检查清理它) | 想创建隔离的 worktree 路径，或检查/清理它 |
 | [`ywc-docker-isolate`](#并行启动的-worktree-之间-docker-端口互相冲突想解决这个问题) | 并行启动的 worktree 之间 Docker 端口互相冲突，想解决这个问题 |
 
@@ -285,6 +286,20 @@
   </ToolTabsPanel>
 </ToolTabs>
 验证并统一 `ywc-*` skill 的 frontmatter/body/references 规则。用于新建或重构 skill 本身，而不是修改 skill 的内容。
+
+### 设置持久输出语言让技能不再每次询问 language
+
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-setup-language ko" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-setup --scope project --lang ko" />
+  </ToolTabsPanel>
+</ToolTabs>
+当你希望生成的文档、PR 文本和 commit message 一直使用同一种输出语言，而不是每次调用 skill 都传 `--lang` 时使用它。它设置 project 或 user 的持久默认值，不会更改当前聊天语言。
+
+一次性标志仍然优先。解析顺序是：消费方 skill 上显式传入的 `--lang` > project/user 持久默认值 > 询问用户。
 
 ### 想创建隔离的 worktree 路径，或检查/清理它
 

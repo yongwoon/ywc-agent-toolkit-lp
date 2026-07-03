@@ -29,7 +29,7 @@
     }
   },
   "hero": {
-    "headline": "41 skills y expert agents para Claude Code y Codex.",
+    "headline": "42 skills y expert agents para Claude Code y Codex.",
     "subheading": "Automatiza todo el development workflow — desde planificación y especificaciones hasta generación de código, review y release sin salir de la terminal.",
     "ctaLabels": {
       "install": "Instalar",
@@ -61,7 +61,7 @@
   "pipeline": {
     "eyebrow": "Cómo funciona",
     "title": "Un pipeline con criterio propio, no una bolsa de skills sueltas.",
-    "description": "La mayoría de los 41 skills se encadenan en una sola secuencia en lugar de quedar como prompts independientes que tienes que ordenar tú mismo.",
+    "description": "La mayoría de los 42 skills se encadenan en una sola secuencia en lugar de quedar como prompts independientes que tienes que ordenar tú mismo.",
     "steps": [
       {
         "skill": "ywc-plan",
@@ -103,8 +103,8 @@
     }
   },
   "featureGrid": {
-    "title": "Seis categorías, un pipeline, dos herramientas.",
-    "description": "41 skills organizados por lo que hacen, no solo por cuántos hay.",
+    "title": "Siete categorías, un pipeline, dos herramientas.",
+    "description": "42 skills organizados por lo que hacen, no solo por cuántos hay.",
     "items": [
       {
         "label": "Planning & Spec",
@@ -129,6 +129,12 @@
         "value": "7 skills",
         "description": "Commits, PRs, respuestas a bot-review y release notes, todo gestionado de principio a fin.",
         "lane": "codex"
+      },
+      {
+        "label": "Toolkit & Setup",
+        "value": "5 skills",
+        "description": "Extiende el toolkit, configura valores por defecto y mantiene el project setup consistente entre herramientas.",
+        "lane": "claude"
       },
       {
         "label": "Claude Code agents",
@@ -227,7 +233,7 @@
       },
       {
         "question": "¿Funciona con Claude Code y Codex?",
-        "answer": "Sí. Ambas herramientas reciben 41 skills. Claude Code incluye 12 custom agents, mientras que Codex incluye 7 custom agents."
+        "answer": "Sí. Ambas herramientas reciben 42 skills. Claude Code incluye 12 custom agents, mientras que Codex incluye 7 custom agents."
       },
       {
         "question": "¿Necesito clonar el repository?",
@@ -251,7 +257,7 @@
       },
       {
         "question": "¿En qué se diferencia esto de una colección genérica de skills?",
-        "answer": "La mayoría de los 41 skills están conectados en un solo pipeline con criterio propio (plan → spec → tasks → execute → test) en lugar de quedar como prompts sueltos que tú mismo secuencias, y los defectos confirmados alimentan un review-learnings loop que ajusta automáticamente las reviews futuras."
+        "answer": "La mayoría de los 42 skills están conectados en un solo pipeline con criterio propio (plan → spec → tasks → execute → test) en lugar de quedar como prompts sueltos que tú mismo secuencias, y los defectos confirmados alimentan un review-learnings loop que ajusta automáticamente las reviews futuras."
       },
       {
         "question": "¿Puedo contribuir con un skill?",
@@ -303,8 +309,8 @@
     "copyright": "© 2026 yongwoon. ywc-agent-toolkit es un open source project."
   },
   "seo": {
-    "title": "ywc-agent-toolkit — 41 skills y expert agents para Claude Code y Codex",
-    "description": "Static landing page para instalar ywc-agent-toolkit, con 41 skills para Claude Code y Codex más tool-specific custom agents.",
+    "title": "ywc-agent-toolkit — 42 skills y expert agents para Claude Code y Codex",
+    "description": "Static landing page para instalar ywc-agent-toolkit, con 42 skills para Claude Code y Codex más tool-specific custom agents.",
     "canonicalPath": "/es/",
     "ogImage": "/og-image.png",
     "alternates": [

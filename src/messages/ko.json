@@ -29,7 +29,7 @@
     }
   },
   "hero": {
-    "headline": "Claude Code와 Codex를 위한 41 skills와 expert agents.",
+    "headline": "Claude Code와 Codex를 위한 42 skills와 expert agents.",
     "subheading": "계획과 사양 작성부터 코드 생성, 리뷰, 릴리스까지 전체 개발 workflow를 terminal을 떠나지 않고 자동화합니다.",
     "ctaLabels": {
       "install": "설치",
@@ -61,7 +61,7 @@
   "pipeline": {
     "eyebrow": "작동 방식",
     "title": "임의로 나열된 skill 모음이 아닌, 하나의 뚜렷한 pipeline.",
-    "description": "41개 skills 대부분은 직접 순서를 정해야 하는 독립적인 prompt로 존재하는 대신, 하나의 sequence로 연결됩니다.",
+    "description": "42개 skills 대부분은 직접 순서를 정해야 하는 독립적인 prompt로 존재하는 대신, 하나의 sequence로 연결됩니다.",
     "steps": [
       {
         "skill": "ywc-plan",
@@ -103,8 +103,8 @@
     }
   },
   "featureGrid": {
-    "title": "여섯 개 카테고리, 하나의 pipeline, 두 개의 tool.",
-    "description": "41 skills를 단순한 개수가 아니라 하는 일에 따라 분류했습니다.",
+    "title": "일곱 개 카테고리, 하나의 pipeline, 두 개의 tool.",
+    "description": "42 skills를 단순한 개수가 아니라 하는 일에 따라 분류했습니다.",
     "items": [
       {
         "label": "Planning & Spec",
@@ -129,6 +129,12 @@
         "value": "7 skills",
         "description": "Commit, PR, bot-review 응답, release note까지 end to end로 처리합니다.",
         "lane": "codex"
+      },
+      {
+        "label": "Toolkit & Setup",
+        "value": "5 skills",
+        "description": "toolkit 자체를 확장하고, 기본값을 설정하며, project setup을 두 tool에서 일관되게 유지합니다.",
+        "lane": "claude"
       },
       {
         "label": "Claude Code agents",
@@ -227,7 +233,7 @@
       },
       {
         "question": "Claude Code와 Codex 모두에서 동작하나요?",
-        "answer": "예. 두 tool 모두 41 skills를 받습니다. Claude Code에는 12 custom agents가, Codex에는 7 custom agents가 포함됩니다."
+        "answer": "예. 두 tool 모두 42 skills를 받습니다. Claude Code에는 12 custom agents가, Codex에는 7 custom agents가 포함됩니다."
       },
       {
         "question": "repository를 clone해야 하나요?",
@@ -251,7 +257,7 @@
       },
       {
         "question": "일반적인 skill collection과 어떻게 다른가요?",
-        "answer": "41 skills 대부분은 직접 순서를 정해야 하는 독립적인 prompt로 존재하는 대신 하나의 opinionated pipeline(plan → spec → tasks → execute → test)으로 연결되어 있으며, 확인된 defect는 review-learnings loop에 반영되어 이후 review를 자동으로 더 정교하게 만듭니다."
+        "answer": "42 skills 대부분은 직접 순서를 정해야 하는 독립적인 prompt로 존재하는 대신 하나의 opinionated pipeline(plan → spec → tasks → execute → test)으로 연결되어 있으며, 확인된 defect는 review-learnings loop에 반영되어 이후 review를 자동으로 더 정교하게 만듭니다."
       },
       {
         "question": "skill을 기여할 수 있나요?",
@@ -303,8 +309,8 @@
     "copyright": "© 2026 yongwoon. ywc-agent-toolkit은 open source project입니다."
   },
   "seo": {
-    "title": "ywc-agent-toolkit — Claude Code와 Codex를 위한 41 skills와 expert agents",
-    "description": "Claude Code와 Codex에 41 skills와 tool-specific custom agents를 제공하는 ywc-agent-toolkit 설치용 static landing page.",
+    "title": "ywc-agent-toolkit — Claude Code와 Codex를 위한 42 skills와 expert agents",
+    "description": "Claude Code와 Codex에 42 skills와 tool-specific custom agents를 제공하는 ywc-agent-toolkit 설치용 static landing page.",
     "canonicalPath": "/ko/",
     "ogImage": "/og-image.png",
     "alternates": [

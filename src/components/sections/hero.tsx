@@ -26,7 +26,7 @@ export async function Hero() {
     <section className="relative overflow-hidden border-b border-border-subtle">
       <div className="mx-auto grid max-w-[var(--container-wide)] gap-10 px-[var(--gutter)] py-[clamp(4rem,2.5rem+7vw,8rem)] lg:grid-cols-[minmax(0,1fr)_minmax(22rem,0.78fr)] lg:items-center">
         <div className="max-w-[780px]">
-          <SectionEyebrow>41 skills</SectionEyebrow>
+          <SectionEyebrow>42 skills</SectionEyebrow>
           <h1 className="mt-5 font-display text-display font-bold leading-[var(--lh-tight)] tracking-[var(--ls-normal)] text-text-bright">
             {t("headline")}
           </h1>
@@ -87,7 +87,7 @@ export async function Hero() {
                 resolving marketplace source yongwoon/ywc-agent-toolkit
               </Terminal.Line>
               <Terminal.Line type="success">
-                installed 41 skills for Claude Code and Codex
+                installed 42 skills for Claude Code and Codex
               </Terminal.Line>
               <Terminal.Line caret type="prompt">
                 restart your tool to load the toolkit
@@ -102,7 +102,7 @@ export async function Hero() {
                 resolving plugin marketplace source yongwoon/ywc-agent-toolkit
               </Terminal.Line>
               <Terminal.Line type="success">
-                installed 41 skills for Claude Code and Codex
+                installed 42 skills for Claude Code and Codex
               </Terminal.Line>
               <Terminal.Line caret type="prompt">
                 restart Codex to load the toolkit
