@@ -2,7 +2,7 @@
   {
     "slug": "01-introduction",
     "title": "01. Introduction",
-    "summary": "This repository defines around 30 Skills with the ywc-* prefix under tools/claude-code/skills/ , plus several dedicated Agents under tools/claude-code/agents/ ."
+    "summary": "This repository defines around 30 Skills with the ywc-* prefix under claude-code/skills/ , plus several dedicated Agents under claude-code/agents/ ."
   },
   {
     "slug": "02-core-concepts",

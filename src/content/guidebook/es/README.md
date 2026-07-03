@@ -73,4 +73,4 @@ Para situaciones no cubiertas en esta tabla, consulte [13. Full Skill Reference]
 
 ## Material fuente
 
-Toda la sintaxis de comandos y opciones en este Manual fue verificada contra el `SKILL.md` (`tools/claude-code/skills/<skill-name>/SKILL.md`) de cada Skill. Si una opción parece diferente del comportamiento real, el `SKILL.md` de ese Skill es la fuente de verdad actual. Este documento es una presentación secundaria amigable para el usuario de ese material.
+Toda la sintaxis de comandos y opciones en este Manual fue verificada contra el `SKILL.md` (`claude-code/skills/<skill-name>/SKILL.md`) de cada Skill. Si una opción parece diferente del comportamiento real, el `SKILL.md` de ese Skill es la fuente de verdad actual. Este documento es una presentación secundaria amigable para el usuario de ese material.

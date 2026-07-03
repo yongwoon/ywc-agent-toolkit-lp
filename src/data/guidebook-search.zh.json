@@ -2,7 +2,7 @@
   {
     "slug": "01-introduction",
     "title": "01. 介绍",
-    "summary": "本仓库在 tools/claude-code/skills/ 下定义了大约 30 个带有 ywc-* 前缀的技能，以及在 tools/claude-code/agents/ 下的几个专用代理。它们一起构成了一个工具包，通过结构化流程在 Claude Code 上运行完整的开发生命周期：\"创意 -> Spec -> Task 分解 -> 实现 -> 代码审查 -> PR -> 合并。\""
+    "summary": "本仓库在 claude-code/skills/ 下定义了大约 30 个带有 ywc-* 前缀的技能，以及在 claude-code/agents/ 下的几个专用代理。它们一起构成了一个工具包，通过结构化流程在 Claude Code 上运行完整的开发生命周期：\"创意 -> Spec -> Task 分解 -> 实现 -> 代码审查 -> PR -> 合并。\""
   },
   {
     "slug": "02-core-concepts",

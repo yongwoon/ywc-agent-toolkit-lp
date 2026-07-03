@@ -4,7 +4,7 @@
 
 ## What this Guidebook covers
 
-This repository defines around 30 Skills with the `ywc-*` prefix under `tools/claude-code/skills/`, plus several dedicated Agents under `tools/claude-code/agents/`. Together, they are a toolkit for running the full development Lifecycle on Claude Code through structured procedures: "idea -> Spec -> Task decomposition -> implementation -> code review -> PR -> Merge."
+This repository defines around 30 Skills with the `ywc-*` prefix under `claude-code/skills/`, plus several dedicated Agents under `claude-code/agents/`. Together, they are a toolkit for running the full development Lifecycle on Claude Code through structured procedures: "idea -> Spec -> Task decomposition -> implementation -> code review -> PR -> Merge."
 
 This Guidebook is a practical manual for **first-time users** of those tools, so you can quickly find "which Skill should I run, in what order, with what prompt, for my current situation?" It does not go deep into Skill internals such as Rationalization Defense or Advisor Pattern. Instead, it focuses on **the commands users enter and the results they should expect**. If you want to understand the internal operating principles, refer directly to each Skill's `SKILL.md`.
 

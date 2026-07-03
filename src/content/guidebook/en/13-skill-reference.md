@@ -130,10 +130,10 @@ This has moved to the dedicated `ywc-agentic` page. See [06. Finish automaticall
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-security-audit --code tools/codex-skill/skills/ywc-security-audit/SKILL.md" />
+    <CodeBlock label="claude code" code="ywc-security-audit --code codex/skills/ywc-security-audit/SKILL.md" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-security-audit --code tools/codex-skill/skills/ywc-security-audit/SKILL.md" />
+    <CodeBlock label="codex" code="ywc-security-audit --code codex/skills/ywc-security-audit/SKILL.md" />
   </ToolTabsPanel>
 </ToolTabs>
 
@@ -153,10 +153,10 @@ This prevents patches that only address symptoms and forces a four-step root-cau
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-refactor-clean --scope tools/codex-skill/skills/ywc-refactor-clean/ --tier safe" />
+    <CodeBlock label="claude code" code="ywc-refactor-clean --scope codex/skills/ywc-refactor-clean/ --tier safe" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-refactor-clean --scope tools/codex-skill/skills/ywc-refactor-clean/ --tier safe" />
+    <CodeBlock label="codex" code="ywc-refactor-clean --scope codex/skills/ywc-refactor-clean/ --tier safe" />
   </ToolTabsPanel>
 </ToolTabs>
 

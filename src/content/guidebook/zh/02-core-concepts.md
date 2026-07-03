@@ -8,7 +8,7 @@
 
 | 术语 | 意义 |
 |---|---|
-| **Skill** | 用户直接调用的过程，例如 `/ywc-plan`。它在 `tools/claude-code/skills/<name>/SKILL.md` 中定义，本指南的大部分内容都是关于技能的。 |
+| **Skill** | 用户直接调用的过程，例如 `/ywc-plan`。它在 `claude-code/skills/<name>/SKILL.md` 中定义，本指南的大部分内容都是关于技能的。 |
 | **Agent（子代理）** | 一个由 Skill 内部委派的专用执行单元，例如 `ywc-backend-coder` 或 `ywc-security-engineer`。用户不会直接调用它们；技能通过 Task 工具调度它们。 |
 | **Executor** | 实际执行 Tasks 的两种技能的统称：`ywc-sequential-executor`（顺序）和 `ywc-parallel-executor`（并行）。 |
 | **Task** | 当 `ywc-task-generator` 分解规范时，会创建一个 `tasks/<phase>-<sequence>-<slug>/` 目录。它由 `README.md`（元数据）和 `task.md`（实施清单）组成。 |

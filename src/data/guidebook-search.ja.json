@@ -2,7 +2,7 @@
   {
     "slug": "01-introduction",
     "title": "01. 概要",
-    "summary": "この repository には、 tools/claude-code/skills/ 配下に ywc-* 接頭辞を持つ 30 個以上の Skill と、 tools/claude-code/agents/ 配下にいくつかの専用 Agent が定義されています。これらは「アイデア → Spec → Task 分解 → 実装 → コードレビュー → PR → Merge」へ続く開発 Lifecycle 全体を、Claude Code 上で構造化された手順として実行するためのツール群です。"
+    "summary": "この repository には、 claude-code/skills/ 配下に ywc-* 接頭辞を持つ 30 個以上の Skill と、 claude-code/agents/ 配下にいくつかの専用 Agent が定義されています。これらは「アイデア → Spec → Task 分解 → 実装 → コードレビュー → PR → Merge」へ続く開発 Lifecycle 全体を、Claude Code 上で構造化された手順として実行するためのツール群です。"
   },
   {
     "slug": "02-core-concepts",

@@ -4,7 +4,7 @@
 
 ## Lo que cubre este manual
 
-Este repositorio define alrededor de 30 habilidades con el prefijo `ywc-*` bajo `tools/claude-code/skills/`, además de varios agentes dedicados bajo `tools/claude-code/agents/`. Juntos, forman un conjunto de herramientas para ejecutar todo el ciclo de desarrollo en Claude Code a través de procedimientos estructurados: "idea -> Spec -> descomposición Task -> implementación -> revisión de código -> PR -> fusión."
+Este repositorio define alrededor de 30 habilidades con el prefijo `ywc-*` bajo `claude-code/skills/`, además de varios agentes dedicados bajo `claude-code/agents/`. Juntos, forman un conjunto de herramientas para ejecutar todo el ciclo de desarrollo en Claude Code a través de procedimientos estructurados: "idea -> Spec -> descomposición Task -> implementación -> revisión de código -> PR -> fusión."
 
 Este Manual es una guía práctica para **usuarios primerizos** de esas herramientas, para que puedas encontrar rápidamente "¿qué Skill debo ejecutar, en qué orden, con qué instrucción, para mi situación actual?" No profundiza en internos de Skill como la Defensa de Racionalización o el Patrón de Asesor. En cambio, se centra en **los comandos que ingresan los usuarios y los resultados que deberían esperar**. Si deseas entender los principios operativos internos, consulta directamente el `SKILL.md` de cada Skill.
 

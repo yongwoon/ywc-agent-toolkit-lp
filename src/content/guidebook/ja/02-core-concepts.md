@@ -8,7 +8,7 @@
 
 | 用語 | 意味 |
 |---|---|
-| **Skill** | `/ywc-plan` のようにユーザーが直接呼び出す手順。`tools/claude-code/skills/<name>/SKILL.md` に定義されており、この Guidebook が扱う対象の大半です。 |
+| **Skill** | `/ywc-plan` のようにユーザーが直接呼び出す手順。`claude-code/skills/<name>/SKILL.md` に定義されており、この Guidebook が扱う対象の大半です。 |
 | **Agent (Subagent)** | Skill が内部的に委任する専門ロールの実行単位 (例: `ywc-backend-coder`, `ywc-security-engineer`)。ユーザーが直接呼び出すのではなく、Skill が Task ツールで dispatch します。 |
 | **Executor** | Task を実際に実行する 2 つの Skill、`ywc-sequential-executor` (順次) と `ywc-parallel-executor` (並列) をまとめて呼ぶ言葉。 |
 | **Task** | `ywc-task-generator` が spec を分解して作る、`tasks/<phase>-<sequence>-<slug>/` ディレクトリ 1 つ。`README.md`(metadata) + `task.md`(実装 checklist) で構成されます。 |
