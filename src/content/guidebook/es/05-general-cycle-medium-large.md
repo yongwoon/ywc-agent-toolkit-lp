@@ -52,10 +52,10 @@ ywc-plan -> ywc-spec-ready -> ywc-task-generator -> ywc-sequential-executor --re
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-task-generator --lang korean" />
+    <CodeBlock label="claude code" code="ywc-task-generator --lang ko" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-task-generator --lang korean" />
+    <CodeBlock label="codex" code="ywc-task-generator --lang ko" />
   </ToolTabsPanel>
 </ToolTabs>
 

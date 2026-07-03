@@ -44,10 +44,10 @@
 **3. 写出完整规格**
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-spec-writer --full --lang korean" />
+    <CodeBlock label="claude code" code="ywc-spec-writer --full --lang ko" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-spec-writer --full --lang korean" />
+    <CodeBlock label="codex" code="ywc-spec-writer --full --lang ko" />
   </ToolTabsPanel>
 </ToolTabs>
 
@@ -75,10 +75,10 @@
 **6. 分解为 Tasks**
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-task-generator --lang korean" />
+    <CodeBlock label="claude code" code="ywc-task-generator --lang ko" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-task-generator --lang korean" />
+    <CodeBlock label="codex" code="ywc-task-generator --lang ko" />
   </ToolTabsPanel>
 </ToolTabs>
 
