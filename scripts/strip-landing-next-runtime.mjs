@@ -4,8 +4,8 @@ import path from "node:path";
 const outDir = path.join(process.cwd(), "out");
 const locales = ["en", "ja", "ko", "zh", "es"];
 // Matches the GitHub Pages deploy build's next.config.ts basePath, if any, so the
-// generated _next/ asset URLs are still recognized when GITHUB_PAGES=true prefixes them.
-const basePath = process.env.GITHUB_PAGES === "true" ? "/ywc-agent-toolkit-lp" : "";
+// generated _next/ asset URLs are still recognized when NEXT_PUBLIC_GITHUB_PAGES=true prefixes them.
+const basePath = process.env.NEXT_PUBLIC_GITHUB_PAGES === "true" ? "/ywc-agent-toolkit-lp" : "";
 const nextAssetPathPattern = `${basePath.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}/_next/`;
 
 function stripNextRuntime(html) {
