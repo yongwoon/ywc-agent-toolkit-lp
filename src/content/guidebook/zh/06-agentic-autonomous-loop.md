@@ -33,20 +33,20 @@ Goal -> [Plan -> Execute -> Evaluate -> Repeat] -> Result
 **给出一个自然语言目标（默认，最多三次迭代）**
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot;" />
+    <CodeBlock label="claude code" code="ywc-agentic &quot;在支付失败时添加自动重试逻辑&quot;" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot;" />
+    <CodeBlock label="codex" code="ywc-agentic &quot;在支付失败时添加自动重试逻辑&quot;" />
   </ToolTabsPanel>
 </ToolTabs>
 
 **增加迭代限制，这样它会尝试更长时间**
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot; --max-iterations 5" />
+    <CodeBlock label="claude code" code="ywc-agentic &quot;在支付失败时添加自动重试逻辑&quot; --max-iterations 5" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot; --max-iterations 5" />
+    <CodeBlock label="codex" code="ywc-agentic &quot;在支付失败时添加自动重试逻辑&quot; --max-iterations 5" />
   </ToolTabsPanel>
 </ToolTabs>
 `--max-iterations` 是一个用户定义的安全限制。如果运行未收敛，代理不会自行提高该限制。
@@ -54,10 +54,10 @@ Goal -> [Plan -> Execute -> Evaluate -> Repeat] -> Result
 **明确选择执行者**
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-agentic &quot;알림 설정 화면과 API 추가&quot; --executor sequential" />
+    <CodeBlock label="claude code" code="ywc-agentic &quot;添加通知设置界面和 API&quot; --executor sequential" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-agentic &quot;알림 설정 화면과 API 추가&quot; --executor sequential" />
+    <CodeBlock label="codex" code="ywc-agentic &quot;添加通知设置界面和 API&quot; --executor sequential" />
   </ToolTabsPanel>
 </ToolTabs>
 默认的 `auto` 会检查 `dependency-graph.md` 并自动选择顺序或并行。
@@ -76,10 +76,10 @@ Goal -> [Plan -> Execute -> Evaluate -> Repeat] -> Result
 **在不实际运行的情况下预览各阶段**
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot; --dry-run" />
+    <CodeBlock label="claude code" code="ywc-agentic &quot;在支付失败时添加自动重试逻辑&quot; --dry-run" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot; --dry-run" />
+    <CodeBlock label="codex" code="ywc-agentic &quot;在支付失败时添加自动重试逻辑&quot; --dry-run" />
   </ToolTabsPanel>
 </ToolTabs>
 

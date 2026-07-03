@@ -8,7 +8,7 @@ Una vez que entiendas los términos y conceptos en esta página, puedes aplicar 
 
 | Término | Significado |
 |---|---|
-| **Skill** | Un procedimiento que los usuarios invocan directamente, como `/ywc-plan`. Está definido en `tools/claude-code/skills/<name>/SKILL.md`, y la mayor parte de este Manual trata sobre Habilidades. |
+| **Skill** | Un procedimiento que los usuarios invocan directamente, como `/ywc-plan`. Está definido en `claude-code/skills/<name>/SKILL.md`, y la mayor parte de este Manual trata sobre Habilidades. |
 | **Agent (Subagente)** | Una unidad de ejecución especializada delegada internamente por un Skill, como `ywc-backend-coder` o `ywc-security-engineer`. Los usuarios no las invocan directamente; las Habilidades las envían a través de la herramienta Task. |
 | **Executor** | Un término colectivo para las dos habilidades que realmente ejecutan Tasks: `ywc-sequential-executor` (secuencial) y `ywc-parallel-executor` (paralelo). |
 | **Task** | Se crea un directorio `tasks/<phase>-<sequence>-<slug>/` cuando `ywc-task-generator` descompone una especificación. Consiste en `README.md` (metadatos) y `task.md` (lista de verificación de implementación). |

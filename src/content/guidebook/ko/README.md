@@ -73,4 +73,4 @@
 
 ## 원본 자료
 
-이 Guidebook 의 모든 command syntax 와 옵션은 각 Skill 의 `SKILL.md` (`tools/claude-code/skills/<skill-name>/SKILL.md`)를 근거로 검증되었습니다. 옵션이 실제 동작과 다르게 느껴진다면 해당 Skill 의 `SKILL.md` 가 최신 기준입니다 — 이 문서는 그 내용을 사용자 친화적으로 재구성한 2차 자료입니다.
+이 Guidebook 의 모든 command syntax 와 옵션은 각 Skill 의 `SKILL.md` (`claude-code/skills/<skill-name>/SKILL.md`)를 근거로 검증되었습니다. 옵션이 실제 동작과 다르게 느껴진다면 해당 Skill 의 `SKILL.md` 가 최신 기준입니다 — 이 문서는 그 내용을 사용자 친화적으로 재구성한 2차 자료입니다.

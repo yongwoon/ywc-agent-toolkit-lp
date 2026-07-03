@@ -2,7 +2,7 @@
   {
     "slug": "01-introduction",
     "title": "01. 소개",
-    "summary": "이 repository 에는 tools/claude-code/skills/ 아래 ywc-* 접두사를 가진 Skill 30여 개와, tools/claude-code/agents/ 아래 전용 Agent 몇 개가 정의되어 있습니다."
+    "summary": "이 repository 에는 claude-code/skills/ 아래 ywc-* 접두사를 가진 Skill 30여 개와, claude-code/agents/ 아래 전용 Agent 몇 개가 정의되어 있습니다."
   },
   {
     "slug": "02-core-concepts",

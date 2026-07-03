@@ -34,10 +34,10 @@ ywc-plan -> ywc-spec-ready -> ywc-task-generator -> ywc-sequential-executor --re
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-plan 사용자가 알림 종류별로 켜고 끌 수 있는 설정 화면과 API 가 필요함. 이메일/푸시/인앱 3채널 지원" />
+    <CodeBlock label="claude code" code="ywc-plan Los usuarios necesitan una pantalla de configuración y una API para activar/desactivar cada tipo de notificación. Soporta 3 canales: correo electrónico/push/en la aplicación" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-plan 사용자가 알림 종류별로 켜고 끌 수 있는 설정 화면과 API 가 필요함. 이메일/푸시/인앱 3채널 지원" />
+    <CodeBlock label="codex" code="ywc-plan Los usuarios necesitan una pantalla de configuración y una API para activar/desactivar cada tipo de notificación. Soporta 3 canales: correo electrónico/push/en la aplicación" />
   </ToolTabsPanel>
 </ToolTabs>
 

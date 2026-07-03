@@ -33,20 +33,20 @@ Internally, it orchestrates the existing `ywc-*` skills as-is. It does not have 
 **Give one natural-language goal (default, up to 3 iterations)**
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot;" />
+    <CodeBlock label="claude code" code="ywc-agentic &quot;Add automatic retry logic for payment failures&quot;" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot;" />
+    <CodeBlock label="codex" code="ywc-agentic &quot;Add automatic retry logic for payment failures&quot;" />
   </ToolTabsPanel>
 </ToolTabs>
 
 **Increase the iteration limit so it keeps trying longer**
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot; --max-iterations 5" />
+    <CodeBlock label="claude code" code="ywc-agentic &quot;Add automatic retry logic for payment failures&quot; --max-iterations 5" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot; --max-iterations 5" />
+    <CodeBlock label="codex" code="ywc-agentic &quot;Add automatic retry logic for payment failures&quot; --max-iterations 5" />
   </ToolTabsPanel>
 </ToolTabs>
 `--max-iterations` is a user-defined safety limit. If the run does not converge, the agent never raises the limit on its own.
@@ -54,10 +54,10 @@ Internally, it orchestrates the existing `ywc-*` skills as-is. It does not have 
 **Explicitly choose the executor**
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-agentic &quot;알림 설정 화면과 API 추가&quot; --executor sequential" />
+    <CodeBlock label="claude code" code="ywc-agentic &quot;Add a notification settings screen and API&quot; --executor sequential" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-agentic &quot;알림 설정 화면과 API 추가&quot; --executor sequential" />
+    <CodeBlock label="codex" code="ywc-agentic &quot;Add a notification settings screen and API&quot; --executor sequential" />
   </ToolTabsPanel>
 </ToolTabs>
 The default `auto` inspects `dependency-graph.md` and chooses sequential or parallel automatically.
@@ -76,10 +76,10 @@ If unfinished tasks remain in `tasks/`, it skips the Plan Phase and resumes from
 **Preview the phases without actually running them**
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot; --dry-run" />
+    <CodeBlock label="claude code" code="ywc-agentic &quot;Add automatic retry logic for payment failures&quot; --dry-run" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-agentic &quot;결제 실패 시 자동 재시도 로직을 추가해줘&quot; --dry-run" />
+    <CodeBlock label="codex" code="ywc-agentic &quot;Add automatic retry logic for payment failures&quot; --dry-run" />
   </ToolTabsPanel>
 </ToolTabs>
 

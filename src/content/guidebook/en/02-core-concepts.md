@@ -8,7 +8,7 @@ Once you understand the terms and concepts on this page, you can apply the examp
 
 | Term | Meaning |
 |---|---|
-| **Skill** | A procedure users invoke directly, such as `/ywc-plan`. It is defined in `tools/claude-code/skills/<name>/SKILL.md`, and most of this Guidebook is about Skills. |
+| **Skill** | A procedure users invoke directly, such as `/ywc-plan`. It is defined in `claude-code/skills/<name>/SKILL.md`, and most of this Guidebook is about Skills. |
 | **Agent (Subagent)** | A specialized execution unit delegated to internally by a Skill, such as `ywc-backend-coder` or `ywc-security-engineer`. Users do not invoke these directly; Skills dispatch them through the Task tool. |
 | **Executor** | A collective term for the two Skills that actually execute Tasks: `ywc-sequential-executor` (sequential) and `ywc-parallel-executor` (parallel). |
 | **Task** | One `tasks/<phase>-<sequence>-<slug>/` directory created when `ywc-task-generator` decomposes a spec. It consists of `README.md` (metadata) and `task.md` (implementation checklist). |

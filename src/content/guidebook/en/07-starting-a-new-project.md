@@ -34,10 +34,10 @@ Language is required. If the other details are missing, the Skill asks follow-up
 **2. Record the project's why**
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-project-mission 이 project 의 목표는 소규모 건설업체가 별도 앱 없이 출퇴근을 기록하게 하는 것. 성공 기준은 관리자 1명이 인력 10명 이하의 근태를 5분 안에 마감할 수 있는가" />
+    <CodeBlock label="claude code" code="ywc-project-mission This project's goal is to let a small construction company record employee check-in/check-out without a separate app. Success criterion: can one manager close out attendance for 10 or fewer workers within 5 minutes" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-project-mission 이 project 의 목표는 소규모 건설업체가 별도 앱 없이 출퇴근을 기록하게 하는 것. 성공 기준은 관리자 1명이 인력 10명 이하의 근태를 5분 안에 마감할 수 있는가" />
+    <CodeBlock label="codex" code="ywc-project-mission This project's goal is to let a small construction company record employee check-in/check-out without a separate app. Success criterion: can one manager close out attendance for 10 or fewer workers within 5 minutes" />
   </ToolTabsPanel>
 </ToolTabs>
 

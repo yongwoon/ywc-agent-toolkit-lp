@@ -73,4 +73,4 @@ For situations not covered in this table, see [13. Full Skill Reference](./13-sk
 
 ## Source material
 
-All command syntax and options in this Guidebook were verified against each Skill's `SKILL.md` (`tools/claude-code/skills/<skill-name>/SKILL.md`). If an option seems different from the actual behavior, that Skill's `SKILL.md` is the current source of truth. This document is a user-friendly secondary presentation of that material.
+All command syntax and options in this Guidebook were verified against each Skill's `SKILL.md` (`claude-code/skills/<skill-name>/SKILL.md`). If an option seems different from the actual behavior, that Skill's `SKILL.md` is the current source of truth. This document is a user-friendly secondary presentation of that material.

@@ -2,7 +2,7 @@
   {
     "slug": "01-introduction",
     "title": "01. Introducción",
-    "summary": "Este repositorio define alrededor de 30 habilidades con el prefijo ywc-* bajo tools/claude-code/skills/ , además de varios agentes dedicados bajo tools/claude-code/agents/ ."
+    "summary": "Este repositorio define alrededor de 30 habilidades con el prefijo ywc-* bajo claude-code/skills/ , además de varios agentes dedicados bajo claude-code/agents/ ."
   },
   {
     "slug": "02-core-concepts",

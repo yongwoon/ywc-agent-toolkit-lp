@@ -4,7 +4,7 @@
 
 ## Lo que cubre este manual
 
-Este repositorio define alrededor de 30 habilidades con el prefijo `ywc-*` bajo `tools/claude-code/skills/`, además de varios agentes dedicados bajo `tools/claude-code/agents/`. Juntos, forman un conjunto de herramientas para ejecutar todo el ciclo de desarrollo en Claude Code a través de procedimientos estructurados: "idea -> Spec -> descomposición Task -> implementación -> revisión de código -> PR -> fusión."
+Este repositorio define alrededor de 30 habilidades con el prefijo `ywc-*` bajo `claude-code/skills/`, además de varios agentes dedicados bajo `claude-code/agents/`. Juntos, forman un conjunto de herramientas para ejecutar todo el ciclo de desarrollo en Claude Code a través de procedimientos estructurados: "idea -> Spec -> descomposición Task -> implementación -> revisión de código -> PR -> fusión."
 
 Este Manual es una guía práctica para **usuarios primerizos** de esas herramientas, para que puedas encontrar rápidamente "¿qué Skill debo ejecutar, en qué orden, con qué instrucción, para mi situación actual?" No profundiza en internos de Skill como la Defensa de Racionalización o el Patrón de Asesor. En cambio, se centra en **los comandos que ingresan los usuarios y los resultados que deberían esperar**. Si deseas entender los principios operativos internos, consulta directamente el `SKILL.md` de cada Skill.
 
@@ -37,10 +37,10 @@ Todos los ejemplos en este Manual asumen que escribes el siguiente formulario di
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움" />
+    <CodeBlock label="claude code" code="ywc-plan El mensaje de error de fallo de inicio de sesión es demasiado genérico, por lo que es difícil entender la causa" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움" />
+    <CodeBlock label="codex" code="ywc-plan El mensaje de error de fallo de inicio de sesión es demasiado genérico, por lo que es difícil entender la causa" />
   </ToolTabsPanel>
 </ToolTabs>
 

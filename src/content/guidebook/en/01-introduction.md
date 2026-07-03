@@ -4,7 +4,7 @@
 
 ## What this Guidebook covers
 
-This repository defines around 30 Skills with the `ywc-*` prefix under `tools/claude-code/skills/`, plus several dedicated Agents under `tools/claude-code/agents/`. Together, they are a toolkit for running the full development Lifecycle on Claude Code through structured procedures: "idea -> Spec -> Task decomposition -> implementation -> code review -> PR -> Merge."
+This repository defines around 30 Skills with the `ywc-*` prefix under `claude-code/skills/`, plus several dedicated Agents under `claude-code/agents/`. Together, they are a toolkit for running the full development Lifecycle on Claude Code through structured procedures: "idea -> Spec -> Task decomposition -> implementation -> code review -> PR -> Merge."
 
 This Guidebook is a practical manual for **first-time users** of those tools, so you can quickly find "which Skill should I run, in what order, with what prompt, for my current situation?" It does not go deep into Skill internals such as Rationalization Defense or Advisor Pattern. Instead, it focuses on **the commands users enter and the results they should expect**. If you want to understand the internal operating principles, refer directly to each Skill's `SKILL.md`.
 
@@ -37,10 +37,10 @@ All examples in this Guidebook assume you type the following form directly into 
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움" />
+    <CodeBlock label="claude code" code="ywc-plan Login failure error messages are too generic to understand the cause" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움" />
+    <CodeBlock label="codex" code="ywc-plan Login failure error messages are too generic to understand the cause" />
   </ToolTabsPanel>
 </ToolTabs>
 

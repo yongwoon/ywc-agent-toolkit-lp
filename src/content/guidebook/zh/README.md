@@ -73,4 +73,4 @@
 
 ## 源材料
 
-本指南中的所有命令语法和选项均已根据每个 Skill 的 `SKILL.md`（`tools/claude-code/skills/<skill-name>/SKILL.md`）进行验证。如果某个选项与实际行为看起来不同，则该 Skill 的 `SKILL.md` 是当前的真实来源。本文档是该材料的用户友好型次要呈现。
+本指南中的所有命令语法和选项均已根据每个 Skill 的 `SKILL.md`（`claude-code/skills/<skill-name>/SKILL.md`）进行验证。如果某个选项与实际行为看起来不同，则该 Skill 的 `SKILL.md` 是当前的真实来源。本文档是该材料的用户友好型次要呈现。

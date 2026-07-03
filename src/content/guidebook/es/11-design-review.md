@@ -18,10 +18,10 @@ Combina el análisis estático de código con la ejecución real de la interfaz 
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-ui-ux-review 결제 화면 usability 점검해줘" />
+    <CodeBlock label="claude code" code="ywc-ui-ux-review Revisa la usability de la pantalla de pago" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-ui-ux-review 결제 화면 usability 점검해줘" />
+    <CodeBlock label="codex" code="ywc-ui-ux-review Revisa la usability de la pantalla de pago" />
   </ToolTabsPanel>
 </ToolTabs>
 

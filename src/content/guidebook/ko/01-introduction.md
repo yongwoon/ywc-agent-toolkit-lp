@@ -4,7 +4,7 @@
 
 ## 이 Guidebook 은 무엇을 다루는가
 
-이 repository 에는 `tools/claude-code/skills/` 아래 `ywc-*` 접두사를 가진 Skill 30여 개와, `tools/claude-code/agents/` 아래 전용 Agent 몇 개가 정의되어 있습니다. 이들은 "아이디어 → Spec → Task 분해 → 구현 → 코드 리뷰 → PR → Merge" 로 이어지는 개발 Lifecycle 전체를 Claude Code 위에서 구조화된 절차로 실행하기 위한 도구 모음입니다.
+이 repository 에는 `claude-code/skills/` 아래 `ywc-*` 접두사를 가진 Skill 30여 개와, `claude-code/agents/` 아래 전용 Agent 몇 개가 정의되어 있습니다. 이들은 "아이디어 → Spec → Task 분해 → 구현 → 코드 리뷰 → PR → Merge" 로 이어지는 개발 Lifecycle 전체를 Claude Code 위에서 구조화된 절차로 실행하기 위한 도구 모음입니다.
 
 이 Guidebook 은 그 도구들을 **처음 사용하는 사람**이 "지금 내 상황엔 어떤 Skill 을, 어떤 순서로, 어떤 prompt 로 실행해야 하는가"를 바로 찾을 수 있도록 정리한 실전 설명서입니다. Skill 내부 구현 원리(Rationalization Defense, Advisor Pattern 등)를 깊게 설명하지 않고, **사용자가 입력할 command 와 그 결과**에 초점을 맞춥니다. 내부 동작 원리가 궁금하다면 각 Skill 의 `SKILL.md` 를 직접 참고하세요.
 
