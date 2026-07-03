@@ -44,10 +44,10 @@ Se requiere el idioma. Si faltan otros detalles, el Skill hace preguntas de segu
 **3. Escribe la especificación completa**
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-spec-writer --full --lang korean" />
+    <CodeBlock label="claude code" code="ywc-spec-writer --full --lang ko" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-spec-writer --full --lang korean" />
+    <CodeBlock label="codex" code="ywc-spec-writer --full --lang ko" />
   </ToolTabsPanel>
 </ToolTabs>
 
@@ -75,10 +75,10 @@ Si devuelve `DONE_WITH_CONCERNS`, vuelva a `ywc-spec-writer`, refine la especifi
 **6. Descomponer en Tasks**
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-task-generator --lang korean" />
+    <CodeBlock label="claude code" code="ywc-task-generator --lang ko" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-task-generator --lang korean" />
+    <CodeBlock label="codex" code="ywc-task-generator --lang ko" />
   </ToolTabsPanel>
 </ToolTabs>
 
