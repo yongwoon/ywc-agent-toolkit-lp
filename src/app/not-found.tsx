@@ -1,3 +1,4 @@
+import { withBasePath } from "@/lib/base-path";
 import { localeList } from "@/i18n/locale-list";
 
 export default function NotFound() {
@@ -9,7 +10,7 @@ export default function NotFound() {
         <ul>
           {localeList.map((locale) => (
             <li key={locale.code}>
-              <a href={locale.href} hrefLang={locale.code} lang={locale.code}>
+              <a href={withBasePath(locale.href)} hrefLang={locale.code} lang={locale.code}>
                 {locale.label}
               </a>
             </li>

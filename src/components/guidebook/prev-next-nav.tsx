@@ -1,4 +1,5 @@
 import type { Locale } from "@/i18n/locale-list";
+import { withBasePath } from "@/lib/base-path";
 import { Badge } from "@/components/ui/badge";
 import { getGuidebookHref, type GuidebookPageMeta } from "./guidebook-nav";
 
@@ -24,7 +25,7 @@ function NavCard({
   return (
     <a
       className="group block rounded-md border border-border-subtle bg-surface p-4 shadow-[var(--edge-top)] outline-none transition-[background-color,border-color,transform] duration-[var(--dur-fast)] hover:border-accent hover:bg-[var(--accent-tint)] focus-visible:shadow-[var(--focus-ring)] motion-safe:hover:-translate-y-0.5"
-      href={getGuidebookHref(locale, page.slug)}
+      href={withBasePath(getGuidebookHref(locale, page.slug))}
     >
       <span className="font-mono text-label font-semibold uppercase tracking-[var(--ls-label)] text-text-faint">
         {direction}

@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Locale } from "@/i18n/locale-list";
+import { withBasePath } from "@/lib/base-path";
 import searchEn from "@/data/guidebook-search.en.json";
 import searchEs from "@/data/guidebook-search.es.json";
 import searchJa from "@/data/guidebook-search.ja.json";
@@ -128,7 +129,7 @@ export function SearchModal({ locale }: SearchModalProps) {
                   <li key={entry.slug}>
                     <a
                       className="block rounded-sm px-3 py-2.5 outline-none transition-colors duration-[var(--dur-fast)] hover:bg-[var(--accent-tint)] focus-visible:bg-[var(--accent-tint)]"
-                      href={getGuidebookHref(locale, entry.slug)}
+                      href={withBasePath(getGuidebookHref(locale, entry.slug))}
                       onClick={() => setOpen(false)}
                     >
                       <span className="block font-mono text-[var(--text-mono)] font-semibold text-text-bright">

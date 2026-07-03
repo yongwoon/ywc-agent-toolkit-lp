@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { withBasePath } from "@/lib/base-path";
 import { defaultLocale, localeList, type Locale } from "@/i18n/locale-list";
 
 function getPreferredLocale(language: string): Locale {
@@ -24,7 +25,7 @@ function getPreferredLocale(language: string): Locale {
 export default function RootRedirectPage() {
   useEffect(() => {
     const preferredLocale = getPreferredLocale(navigator.language);
-    const targetPath = `/${preferredLocale}/`;
+    const targetPath = withBasePath(`/${preferredLocale}/`);
 
     if (window.location.pathname !== targetPath) {
       window.location.replace(targetPath);
@@ -39,7 +40,7 @@ export default function RootRedirectPage() {
         <ul>
           {localeList.map((locale) => (
             <li key={locale.code}>
-              <a href={locale.href} hrefLang={locale.code} lang={locale.code}>
+              <a href={withBasePath(locale.href)} hrefLang={locale.code} lang={locale.code}>
                 {locale.nativeLabel}
               </a>
             </li>

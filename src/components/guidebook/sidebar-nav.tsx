@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useMemo, useState } from "react";
 import type { Locale } from "@/i18n/locale-list";
+import { withBasePath } from "@/lib/base-path";
 import type { LocalizedGuidebookNavGroup } from "@/lib/guidebook-nav-content";
 import { getGuidebookHref, getGuidebookSlugFromPathname } from "./guidebook-nav";
 
@@ -108,7 +109,7 @@ export function SidebarNav({ locale, mobileOpen, navGroups, onMobileClose }: Sid
                                 "block rounded-r-sm border-l-2 border-transparent px-3 py-2 font-mono text-[var(--text-mono-sm)] leading-snug text-text-muted outline-none transition-[background-color,border-color,color] duration-[var(--dur-fast)] hover:bg-[var(--accent-tint)] hover:text-accent focus-visible:shadow-[var(--focus-ring)]",
                                 active && "border-l-accent bg-[var(--accent-tint)] text-accent"
                               )}
-                              href={getGuidebookHref(locale, page.slug)}
+                              href={withBasePath(getGuidebookHref(locale, page.slug))}
                               onClick={onMobileClose}
                             >
                               {page.title}
