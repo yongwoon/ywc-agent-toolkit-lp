@@ -1,4 +1,5 @@
 import type { HTMLAttributes } from "react";
+import { withBasePath } from "@/lib/base-path";
 import { localeList, type Locale } from "@/i18n/locale-list";
 
 type LocaleOption = {
@@ -61,7 +62,9 @@ export function LocaleSwitcher({
         >
           {locales.map((locale) => {
             const selected = locale.code === selectedLocale;
-            const href = getHref?.(locale.code) ?? locale.href ?? `/${locale.code}/`;
+            const href =
+              getHref?.(locale.code) ??
+              withBasePath(locale.href ?? `/${locale.code}/`);
 
             return (
               <a

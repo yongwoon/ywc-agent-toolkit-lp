@@ -223,6 +223,10 @@ export const guidebookPages: readonly GuidebookPageMeta[] = guidebookNavGroups.f
 
 export const defaultGuidebookSlug = guidebookPages[0].slug;
 
+// Base-path-free by design: consumed both for rendered <a> hrefs (wrap with
+// withBasePath at the render site) and for canonical/alternate URL metadata, where
+// absoluteUrl() already folds the basePath into siteUrl -- baking it in here too would
+// double it up.
 export function getGuidebookHref(locale: Locale | string, slug: string) {
   return `/${locale}/guidebook/${slug}/`;
 }

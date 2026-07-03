@@ -27,6 +27,7 @@ import {
   loadLocalizedGuidebookNav
 } from "@/lib/guidebook-nav-content";
 import { buildPageMetadata } from "@/lib/seo";
+import { withBasePath } from "@/lib/base-path";
 
 type GuidebookPageProps = {
   params: Promise<{
@@ -103,7 +104,7 @@ export default async function Page({ params }: GuidebookPageProps) {
   ];
   const currentGroup = nav.find((group) => group.groupId === navPage.groupId);
   const groupHref = currentGroup?.pages[0]
-    ? getGuidebookHref(locale, currentGroup.pages[0].slug)
+    ? withBasePath(getGuidebookHref(locale, currentGroup.pages[0].slug))
     : undefined;
   const readingTimeLabel = content
     ? formatReadingTimeLabel(locale, estimateReadingMinutes(content.content, locale))
@@ -123,7 +124,7 @@ export default async function Page({ params }: GuidebookPageProps) {
           <div className="mb-6 font-mono text-label font-semibold uppercase tracking-[var(--ls-label)] text-text-faint">
             <a
               className="outline-none transition-colors duration-[var(--dur-fast)] hover:text-accent focus-visible:shadow-[var(--focus-ring)]"
-              href={getGuidebookRootHref(locale)}
+              href={withBasePath(getGuidebookRootHref(locale))}
             >
               Guidebook
             </a>

@@ -6,6 +6,7 @@ import { hasLocale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing, type Locale } from "@/i18n/routing";
+import { withBasePath } from "@/lib/base-path";
 import { buildJsonLd, buildMetadata } from "@/lib/seo";
 
 const spaceGrotesk = Space_Grotesk({
@@ -81,8 +82,8 @@ export default async function LocaleLayout({
       </head>
       <body>
         {children}
-        <script src="/copy-command.js" defer />
-        <script src="/locale-hash-sync.js" defer />
+        <script src={withBasePath("/copy-command.js")} defer />
+        <script src={withBasePath("/locale-hash-sync.js")} defer />
       </body>
     </html>
   );

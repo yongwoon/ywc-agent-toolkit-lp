@@ -2,10 +2,15 @@
 
 import { usePathname } from "next/navigation";
 import type { Locale } from "@/i18n/locale-list";
+import { withBasePath } from "@/lib/base-path";
 import { Button } from "@/components/ui/button";
 import { LocaleSwitcher } from "@/components/ui/locale-switcher";
 import githubStats from "@/data/github-stats.json";
-import { getGuidebookHref, getGuidebookSlugFromPathname } from "./guidebook-nav";
+import {
+  getGuidebookHref,
+  getGuidebookRootHref,
+  getGuidebookSlugFromPathname
+} from "./guidebook-nav";
 import { SearchModal } from "./search-modal";
 
 type TopBarProps = {
@@ -37,7 +42,7 @@ export function TopBar({ locale, sidebarOpen, onSidebarToggle }: TopBarProps) {
 
         <a
           className="flex min-w-0 items-center gap-1.5 font-mono text-[var(--text-mono)] font-semibold text-text-bright outline-none focus-visible:shadow-[var(--focus-ring)]"
-          href={`/${locale}/`}
+          href={withBasePath(`/${locale}/`)}
         >
           <span className="text-accent">$</span>
           <span className="truncate">ywc</span>
@@ -49,7 +54,11 @@ export function TopBar({ locale, sidebarOpen, onSidebarToggle }: TopBarProps) {
             <a
               className="font-mono text-[var(--text-mono-sm)] font-semibold text-text-muted outline-none transition-colors duration-[var(--dur-fast)] hover:text-accent focus-visible:shadow-[var(--focus-ring)] data-[active=true]:text-accent"
               data-active={item === "Docs"}
-              href={item === "Docs" ? `/${locale}/guidebook/` : `/${locale}/`}
+              href={
+                item === "Docs"
+                  ? withBasePath(getGuidebookRootHref(locale))
+                  : withBasePath(`/${locale}/`)
+              }
               key={item}
             >
               {item}
@@ -71,7 +80,7 @@ export function TopBar({ locale, sidebarOpen, onSidebarToggle }: TopBarProps) {
           </a>
           <LocaleSwitcher
             className="hidden lg:block"
-            getHref={(code) => getGuidebookHref(code, activeSlug)}
+            getHref={(code) => withBasePath(getGuidebookHref(code, activeSlug))}
             value={locale}
           />
           <Button

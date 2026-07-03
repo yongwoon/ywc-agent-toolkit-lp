@@ -1,4 +1,5 @@
 import type { Locale } from "@/i18n/locale-list";
+import { withBasePath } from "@/lib/base-path";
 import { getGuidebookHref, type GuidebookPageMeta } from "./guidebook-nav";
 
 type ScaleSelectorProps = {
@@ -49,7 +50,7 @@ export function ScaleSelector({ locale, currentSlug, pages }: ScaleSelectorProps
                   ? "border-accent bg-[var(--accent-tint)]"
                   : "border-border-subtle hover:border-accent hover:bg-[var(--accent-tint)]"
               )}
-              href={getGuidebookHref(locale, page.slug)}
+              href={withBasePath(getGuidebookHref(locale, page.slug))}
             >
               {active ? (
                 <span className="mb-1 block font-mono text-[10px] font-semibold uppercase tracking-[var(--ls-label)] text-accent">

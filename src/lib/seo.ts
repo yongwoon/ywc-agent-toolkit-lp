@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { withBasePath } from "@/lib/base-path";
 import { defaultLocale, localeList, type Locale } from "@/i18n/locale-list";
 import enMessages from "@/messages/en.json";
 import esMessages from "@/messages/es.json";
@@ -87,11 +88,11 @@ export function buildMetadata(locale: Locale): Metadata {
     referrer: "origin-when-cross-origin",
     icons: {
       icon: [
-        { url: "/favicon.svg", type: "image/svg+xml" },
-        { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
-        { url: "/favicon-16.png", sizes: "16x16", type: "image/png" }
+        { url: withBasePath("/favicon.svg"), type: "image/svg+xml" },
+        { url: withBasePath("/favicon-32.png"), sizes: "32x32", type: "image/png" },
+        { url: withBasePath("/favicon-16.png"), sizes: "16x16", type: "image/png" }
       ],
-      apple: [{ url: "/apple-touch-icon.png" }]
+      apple: [{ url: withBasePath("/apple-touch-icon.png") }]
     },
     alternates: {
       canonical: canonicalUrl,

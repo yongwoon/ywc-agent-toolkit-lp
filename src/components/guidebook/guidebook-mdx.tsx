@@ -7,6 +7,7 @@ import { FlowBranch, FlowChain, FlowDiagram, FlowStep } from "@/components/ui/fl
 import { ToolTabs, ToolTabsPanel } from "@/components/ui/tool-tabs";
 import { getGuidebookHref, getGuidebookRootHref } from "@/components/guidebook/guidebook-nav";
 import type { Locale } from "@/i18n/locale-list";
+import { withBasePath } from "@/lib/base-path";
 
 type GuidebookMdxProps = {
   source: string;
@@ -29,7 +30,9 @@ function resolveGuidebookHref(locale: Locale | string, href: string): string {
   }
 
   const [, target] = match;
-  return target === "README" ? getGuidebookRootHref(locale) : getGuidebookHref(locale, target);
+  return withBasePath(
+    target === "README" ? getGuidebookRootHref(locale) : getGuidebookHref(locale, target)
+  );
 }
 
 function textFromChildren(children: ReactNode): string {
