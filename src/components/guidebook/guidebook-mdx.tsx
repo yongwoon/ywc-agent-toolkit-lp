@@ -175,7 +175,13 @@ export function GuidebookMdx({ source, locale }: GuidebookMdxProps) {
         blockJS: true,
         blockDangerousJS: true,
         mdxOptions: {
-          remarkPlugins: [remarkGfm],
+          // Content uses a bare "~" for numeric ranges (e.g. Korean "2~3", Chinese
+          // "二~三"). remark-gfm's default singleTilde:true treats any single "~" as
+          // a strikethrough delimiter (matching github.com, though the GFM spec
+          // requires "~~"), so an unrelated later "~" in the same paragraph pairs
+          // with it and both tildes plus the text between them get eaten. Disabling
+          // singleTilde requires "~~" for strikethrough, leaving lone tildes intact.
+          remarkPlugins: [[remarkGfm, { singleTilde: false }]],
         },
       }}
     />
