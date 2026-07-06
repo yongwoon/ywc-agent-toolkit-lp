@@ -80,32 +80,32 @@ export async function Hero() {
           </div>
 
           <div className="hidden gap-4 p-4 group-has-[#hero-tool-claude-code:checked]/demo:grid">
-            <CodeBlock code={t("demoCommand")} label="claude code" />
+            <CodeBlock
+              code={`${t("demoCommand")}\n${t("demoInstallCommand")}`}
+              label="claude code"
+            />
             <Terminal title="ywc-agent-toolkit - zsh" glow>
               <Terminal.Line type="prompt">{t("demoCommand")}</Terminal.Line>
-              <Terminal.Line type="info">
-                resolving marketplace source yongwoon/ywc-agent-toolkit
-              </Terminal.Line>
-              <Terminal.Line type="success">
-                installed 42 skills for Claude Code and Codex
-              </Terminal.Line>
+              <Terminal.Line type="info">{t("demoResolving")}</Terminal.Line>
+              <Terminal.Line type="prompt">{t("demoInstallCommand")}</Terminal.Line>
+              <Terminal.Line type="success">{t("demoInstalled")}</Terminal.Line>
               <Terminal.Line caret type="prompt">
-                restart your tool to load the toolkit
+                {t("demoRestart")}
               </Terminal.Line>
             </Terminal>
           </div>
           <div className="hidden gap-4 p-4 group-has-[#hero-tool-codex:checked]/demo:grid">
-            <CodeBlock code={t("demoCommandCodex")} label="codex" />
+            <CodeBlock
+              code={`${t("demoCommandCodex")}\n${t("demoInstallCommandCodex")}`}
+              label="codex"
+            />
             <Terminal lane="codex" title="ywc-agent-toolkit - zsh" glow>
               <Terminal.Line type="prompt">{t("demoCommandCodex")}</Terminal.Line>
-              <Terminal.Line type="info">
-                resolving plugin marketplace source yongwoon/ywc-agent-toolkit
-              </Terminal.Line>
-              <Terminal.Line type="success">
-                installed 42 skills for Claude Code and Codex
-              </Terminal.Line>
+              <Terminal.Line type="info">{t("demoResolvingCodex")}</Terminal.Line>
+              <Terminal.Line type="prompt">{t("demoInstallCommandCodex")}</Terminal.Line>
+              <Terminal.Line type="success">{t("demoInstalled")}</Terminal.Line>
               <Terminal.Line caret type="prompt">
-                restart Codex to load the toolkit
+                {t("demoRestartCodex")}
               </Terminal.Line>
             </Terminal>
           </div>

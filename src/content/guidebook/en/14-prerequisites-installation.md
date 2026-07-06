@@ -2,7 +2,7 @@
 
 # 14. Prerequisites and installation
 
-To use `ywc-*` Skills reliably, a few tools need to be in place beforehand. Installing via the Plugin marketplace or Codex plugin handles file copying and registration automatically, but when a Skill actually **runs**, it needs the tools below available on your system. This page separates required tools from optional ones.
+To use `ywc-*` Skills reliably, a few tools need to be in place beforehand. Installing via the Plugin marketplace or Codex plugin handles file copying and registration automatically, but when a Skill actually **runs**, it needs the tools below available on your system. The order is: **① install the required tools → ② install ywc-agent-toolkit itself (Claude Code / Codex)** — everything below that is an optional tool you prepare as needed.
 
 ## Required tools
 
@@ -16,6 +16,8 @@ To use `ywc-*` Skills reliably, a few tools need to be in place beforehand. Inst
 | `curl` | Translation script, API calls | Usually preinstalled |
 | `uv` | Runs Claude Code Python hooks | `curl -LsSf https://astral.sh/uv/install.sh \| sh` |
 | `ripgrep` (`rg`) | Repository scan, onboarding, validation search | `brew install ripgrep` |
+
+Of these, only `uv` is **Claude Code–only** — the rest are required for both Claude Code and Codex.
 
 Installing `gh` isn't enough on its own — it must be authenticated before Skills that handle PRs (`ywc-create-pr`, `ywc-handle-pr-reviews`, `ywc-merge-dependabot`, etc.) work correctly.
 
@@ -39,44 +41,45 @@ Everything works with the defaults; the following are optional overrides for whe
 
 ## Installing ywc-agent-toolkit
 
-### Via Claude Code plugin marketplace (recommended)
+Pick the tab for the tool you use. Neither path has any prerequisites.
 
-```bash
-# Add as a marketplace source (one-time setup)
-/plugin marketplace add yongwoon/ywc-agent-toolkit
-```
+### Method 1 — Plugin marketplace (recommended)
 
-After running the command, open the Plugin UI (**Marketplaces** tab) and install **ywc-agent-toolkit** from there.
-Skills are installed automatically to `~/.claude/skills/` — no cloning or bash required.
+<ToolTabs>
+<ToolTabsPanel tool="claude-code" label="Claude Code">
+<CodeBlock label="claude code" code="/plugin marketplace add yongwoon/ywc-agent-toolkit" />
+<CodeBlock label="claude code" code="/plugin install ywc-agent-toolkit@ywc-agent-toolkit" />
+</ToolTabsPanel>
+<ToolTabsPanel tool="codex" label="Codex">
+<CodeBlock label="codex" code="codex plugin marketplace add yongwoon/ywc-agent-toolkit" />
+<CodeBlock label="codex" code="codex plugin add ywc-agent-toolkit@ywc-agent-toolkit" />
+</ToolTabsPanel>
+</ToolTabs>
 
-### Codex plugin path
+The first command registers the marketplace source, and the second actually installs `ywc-agent-toolkit`. If you've already added the marketplace in Codex, run `codex plugin marketplace upgrade ywc-agent-toolkit` to pull the latest snapshot.
 
-```bash
-codex plugin marketplace add yongwoon/ywc-agent-toolkit
-codex plugin add ywc-agent-toolkit@ywc-agent-toolkit
-```
+### Method 2 — Bash script fallback
 
-If you've already added the marketplace, update to the latest snapshot.
-
-```bash
-codex plugin marketplace upgrade ywc-agent-toolkit
-```
-
-### Bash fallback path
-
-In environments where a plugin install is hard, clone the repository and use the fallback script.
+In environments where a plugin install is hard, clone the repository and use the fallback script. You can check the list of installable skills/agents below.
 
 ```bash
 bash scripts/install.sh --list
-bash scripts/install.sh --codex
-bash scripts/install.sh --codex-agents
 ```
 
-If you also use Claude Code, choose one of the following.
+<ToolTabs>
+<ToolTabsPanel tool="claude-code" label="Claude Code">
+<CodeBlock label="claude code" code="bash scripts/install.sh --cc" prompt="$" />
+<CodeBlock label="claude code" code="bash scripts/install.sh --cc-agents" prompt="$" />
+</ToolTabsPanel>
+<ToolTabsPanel tool="codex" label="Codex">
+<CodeBlock label="codex" code="bash scripts/install.sh --codex" />
+<CodeBlock label="codex" code="bash scripts/install.sh --codex-agents" />
+</ToolTabsPanel>
+</ToolTabs>
+
+If you use both Claude Code and Codex, install both at once.
 
 ```bash
-bash scripts/install.sh --cc
-bash scripts/install.sh --cc-agents
 bash scripts/install.sh --all
 ```
 

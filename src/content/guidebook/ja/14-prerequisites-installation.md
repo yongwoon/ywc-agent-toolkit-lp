@@ -2,7 +2,7 @@
 
 # 14. 事前準備とインストール
 
-`ywc-*` Skill を安定して使うには、いくつかの Tool を事前に準備しておく必要があります。Plugin marketplace や Codex plugin からインストールすればファイルコピーと登録は自動で処理されますが、Skill を**実際に実行**するときは以下の Tool が System に入っている必要があります。必須 Tool と選択 Tool を分けて整理しました。
+`ywc-*` Skill を安定して使うには、いくつかの Tool を事前に準備しておく必要があります。Plugin marketplace や Codex plugin からインストールすればファイルコピーと登録は自動で処理されますが、Skill を**実際に実行**するときは以下の Tool が System に入っている必要があります。手順は次のとおりです — **① 必須 Tool のインストール → ② ywc-agent-toolkit 自体のインストール(Claude Code / Codex)** → その下は状況に応じて準備する選択 Tool です。
 
 ## 必須 Tool
 
@@ -16,6 +16,8 @@
 | `curl` | translation script、API 呼び出し | 通常はプリインストール済み |
 | `uv` | Claude Code Python hook の実行 | `curl -LsSf https://astral.sh/uv/install.sh \| sh` |
 | `ripgrep` (`rg`) | repository scan、onboarding、validation search | `brew install ripgrep` |
+
+このうち `uv` のみ **Claude Code 専用**で、それ以外は Claude Code と Codex の両方で共通して必要です。
 
 `gh` はインストールだけでは不十分で、認証まで終えないと PR を扱う Skill(`ywc-create-pr`、`ywc-handle-pr-reviews`、`ywc-merge-dependabot` など)が正常に動作しません。
 
@@ -39,44 +41,45 @@ gh auth status
 
 ## ywc-agent-toolkit のインストール
 
-### Claude Code プラグインマーケットプレイス(推奨)
+使っている Tool のタブを選んでください。どちらの経路にも前提条件はありません。
 
-```bash
-# マーケットプレイスソースを追加(初回のみ)
-/plugin marketplace add yongwoon/ywc-agent-toolkit
-```
+### 方法 1 — Plugin マーケットプレイス(推奨)
 
-コマンド実行後、Plugin UI の **Marketplaces** タブから **ywc-agent-toolkit** をインストールしてください。
-クローンや bash 不要で `~/.claude/skills/` に自動インストールされます。
+<ToolTabs>
+<ToolTabsPanel tool="claude-code" label="Claude Code">
+<CodeBlock label="claude code" code="/plugin marketplace add yongwoon/ywc-agent-toolkit" />
+<CodeBlock label="claude code" code="/plugin install ywc-agent-toolkit@ywc-agent-toolkit" />
+</ToolTabsPanel>
+<ToolTabsPanel tool="codex" label="Codex">
+<CodeBlock label="codex" code="codex plugin marketplace add yongwoon/ywc-agent-toolkit" />
+<CodeBlock label="codex" code="codex plugin add ywc-agent-toolkit@ywc-agent-toolkit" />
+</ToolTabsPanel>
+</ToolTabs>
 
-### Codex plugin 経路
+1 つ目のコマンドが marketplace source を登録し、2 つ目のコマンドが `ywc-agent-toolkit` を実際にインストールします。Codex で既に marketplace を追加済みなら、`codex plugin marketplace upgrade ywc-agent-toolkit` で最新 snapshot を取得できます。
 
-```bash
-codex plugin marketplace add yongwoon/ywc-agent-toolkit
-codex plugin add ywc-agent-toolkit@ywc-agent-toolkit
-```
+### 方法 2 — Bash script fallback
 
-すでに marketplace を追加済みなら、最新 snapshot に更新します。
-
-```bash
-codex plugin marketplace upgrade ywc-agent-toolkit
-```
-
-### Bash fallback 経路
-
-Plugin のインストールが難しい環境では、repository を clone してから fallback script を使います。
+Plugin のインストールが難しい環境では、repository を clone してから fallback script を使います。インストール可能な skill/agent の一覧は以下で確認できます。
 
 ```bash
 bash scripts/install.sh --list
-bash scripts/install.sh --codex
-bash scripts/install.sh --codex-agents
 ```
 
-Claude Code も一緒に使うなら、以下のいずれかを選びます。
+<ToolTabs>
+<ToolTabsPanel tool="claude-code" label="Claude Code">
+<CodeBlock label="claude code" code="bash scripts/install.sh --cc" prompt="$" />
+<CodeBlock label="claude code" code="bash scripts/install.sh --cc-agents" prompt="$" />
+</ToolTabsPanel>
+<ToolTabsPanel tool="codex" label="Codex">
+<CodeBlock label="codex" code="bash scripts/install.sh --codex" />
+<CodeBlock label="codex" code="bash scripts/install.sh --codex-agents" />
+</ToolTabsPanel>
+</ToolTabs>
+
+Claude Code と Codex を両方使うなら、まとめてインストールできます。
 
 ```bash
-bash scripts/install.sh --cc
-bash scripts/install.sh --cc-agents
 bash scripts/install.sh --all
 ```
 

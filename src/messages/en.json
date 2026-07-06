@@ -37,7 +37,14 @@
       "preview": "See how it works"
     },
     "demoCommand": "/plugin marketplace add yongwoon/ywc-agent-toolkit",
-    "demoCommandCodex": "codex plugin marketplace add yongwoon/ywc-agent-toolkit"
+    "demoCommandCodex": "codex plugin marketplace add yongwoon/ywc-agent-toolkit",
+    "demoInstallCommand": "/plugin install ywc-agent-toolkit@ywc-agent-toolkit",
+    "demoInstallCommandCodex": "codex plugin add ywc-agent-toolkit@ywc-agent-toolkit",
+    "demoResolving": "resolving marketplace source yongwoon/ywc-agent-toolkit",
+    "demoResolvingCodex": "resolving plugin marketplace source yongwoon/ywc-agent-toolkit",
+    "demoInstalled": "installed 42 skills for Claude Code and Codex",
+    "demoRestart": "restart your tool to load the toolkit",
+    "demoRestartCodex": "restart Codex to load the toolkit"
   },
   "problemSolution": {
     "title": "The workflow gets lighter when the toolkit carries the repeatable work.",
@@ -163,8 +170,13 @@
         "steps": [
           {
             "stepNumber": 1,
-            "instruction": "Add the marketplace source in Claude Code, then install `ywc-agent-toolkit` from the Plugin UI Marketplaces tab.",
+            "instruction": "Add the repository as a Claude Code plugin marketplace source.",
             "commandText": "/plugin marketplace add yongwoon/ywc-agent-toolkit"
+          },
+          {
+            "stepNumber": 2,
+            "instruction": "Install `ywc-agent-toolkit` from the configured marketplace.",
+            "commandText": "/plugin install ywc-agent-toolkit@ywc-agent-toolkit"
           }
         ]
       },
