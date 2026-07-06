@@ -171,12 +171,12 @@
           {
             "stepNumber": 1,
             "instruction": "将此 repository 添加为 Claude Code plugin marketplace source。",
-            "commandText": "/plugin marketplace add yongwoon/ywc-agent-toolkit"
+            "commandText": "plugin marketplace add yongwoon/ywc-agent-toolkit"
           },
           {
             "stepNumber": 2,
             "instruction": "从已配置的 marketplace 安装 `ywc-agent-toolkit`。",
-            "commandText": "/plugin install ywc-agent-toolkit@ywc-agent-toolkit"
+            "commandText": "plugin install ywc-agent-toolkit@ywc-agent-toolkit"
           }
         ]
       },

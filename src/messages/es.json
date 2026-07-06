@@ -171,12 +171,12 @@
           {
             "stepNumber": 1,
             "instruction": "Añade este repository como Claude Code plugin marketplace source.",
-            "commandText": "/plugin marketplace add yongwoon/ywc-agent-toolkit"
+            "commandText": "plugin marketplace add yongwoon/ywc-agent-toolkit"
           },
           {
             "stepNumber": 2,
             "instruction": "Instala `ywc-agent-toolkit` desde el marketplace configurado.",
-            "commandText": "/plugin install ywc-agent-toolkit@ywc-agent-toolkit"
+            "commandText": "plugin install ywc-agent-toolkit@ywc-agent-toolkit"
           }
         ]
       },
