@@ -47,8 +47,8 @@ Elige la pestaña de la herramienta que uses. Ninguna de las dos rutas tiene pre
 
 <ToolTabs>
 <ToolTabsPanel tool="claude-code" label="Claude Code">
-<CodeBlock label="claude code" code="/plugin marketplace add yongwoon/ywc-agent-toolkit" />
-<CodeBlock label="claude code" code="/plugin install ywc-agent-toolkit@ywc-agent-toolkit" />
+<CodeBlock label="claude code" code="plugin marketplace add yongwoon/ywc-agent-toolkit" />
+<CodeBlock label="claude code" code="plugin install ywc-agent-toolkit@ywc-agent-toolkit" />
 </ToolTabsPanel>
 <ToolTabsPanel tool="codex" label="Codex">
 <CodeBlock label="codex" code="codex plugin marketplace add yongwoon/ywc-agent-toolkit" />
