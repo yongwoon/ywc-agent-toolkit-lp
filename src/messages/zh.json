@@ -37,7 +37,14 @@
       "preview": "查看工作原理"
     },
     "demoCommand": "/plugin marketplace add yongwoon/ywc-agent-toolkit",
-    "demoCommandCodex": "codex plugin marketplace add yongwoon/ywc-agent-toolkit"
+    "demoCommandCodex": "codex plugin marketplace add yongwoon/ywc-agent-toolkit",
+    "demoInstallCommand": "/plugin install ywc-agent-toolkit@ywc-agent-toolkit",
+    "demoInstallCommandCodex": "codex plugin add ywc-agent-toolkit@ywc-agent-toolkit",
+    "demoResolving": "正在解析 marketplace source yongwoon/ywc-agent-toolkit",
+    "demoResolvingCodex": "正在解析 plugin marketplace source yongwoon/ywc-agent-toolkit",
+    "demoInstalled": "已为 Claude Code 和 Codex 安装 42 skills",
+    "demoRestart": "重启 tool 以加载 toolkit",
+    "demoRestartCodex": "重启 Codex 以加载 toolkit"
   },
   "problemSolution": {
     "title": "当 toolkit 承担重复工作时，workflow 会变得更轻。",
@@ -163,8 +170,13 @@
         "steps": [
           {
             "stepNumber": 1,
-            "instruction": "在 Claude Code 中添加 marketplace source，然后从 Plugin UI 的 Marketplaces 标签页安装 `ywc-agent-toolkit`。",
+            "instruction": "将此 repository 添加为 Claude Code plugin marketplace source。",
             "commandText": "/plugin marketplace add yongwoon/ywc-agent-toolkit"
+          },
+          {
+            "stepNumber": 2,
+            "instruction": "从已配置的 marketplace 安装 `ywc-agent-toolkit`。",
+            "commandText": "/plugin install ywc-agent-toolkit@ywc-agent-toolkit"
           }
         ]
       },

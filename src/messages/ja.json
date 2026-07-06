@@ -37,7 +37,14 @@
       "preview": "使い方を見る"
     },
     "demoCommand": "/plugin marketplace add yongwoon/ywc-agent-toolkit",
-    "demoCommandCodex": "codex plugin marketplace add yongwoon/ywc-agent-toolkit"
+    "demoCommandCodex": "codex plugin marketplace add yongwoon/ywc-agent-toolkit",
+    "demoInstallCommand": "/plugin install ywc-agent-toolkit@ywc-agent-toolkit",
+    "demoInstallCommandCodex": "codex plugin add ywc-agent-toolkit@ywc-agent-toolkit",
+    "demoResolving": "marketplace source yongwoon/ywc-agent-toolkit を解決中",
+    "demoResolvingCodex": "plugin marketplace source yongwoon/ywc-agent-toolkit を解決中",
+    "demoInstalled": "Claude Code と Codex 用に 42 skills をインストールしました",
+    "demoRestart": "toolkit を読み込むには tool を再起動してください",
+    "demoRestartCodex": "toolkit を読み込むには Codex を再起動してください"
   },
   "problemSolution": {
     "title": "反復作業を toolkit に任せると、workflow は軽くなります。",
@@ -163,8 +170,13 @@
         "steps": [
           {
             "stepNumber": 1,
-            "instruction": "Claude Code に marketplace source を追加し、Plugin UI の Marketplaces タブから `ywc-agent-toolkit` をインストールします。",
+            "instruction": "この repository を Claude Code plugin marketplace source として追加します。",
             "commandText": "/plugin marketplace add yongwoon/ywc-agent-toolkit"
+          },
+          {
+            "stepNumber": 2,
+            "instruction": "設定済み marketplace から `ywc-agent-toolkit` をインストールします。",
+            "commandText": "/plugin install ywc-agent-toolkit@ywc-agent-toolkit"
           }
         ]
       },
