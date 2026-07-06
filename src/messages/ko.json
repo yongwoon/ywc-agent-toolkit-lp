@@ -199,7 +199,7 @@
     "nextStep": {
       "title": "지금 이렇게 해보세요",
       "description": "설치가 끝나면 첫 아이디어를 plan으로 바꿔보세요.",
-      "commandText": "/ywc-plan <만들고 싶은 것을 설명하세요>",
+      "commandText": "ywc-plan <만들고 싶은 것을 설명하세요>",
       "cta": {
         "label": "quickstart 둘러보기",
         "target": "/guidebook/03-quickstart/"

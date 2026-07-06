@@ -199,7 +199,7 @@
     "nextStep": {
       "title": "现在试试这个",
       "description": "安装完成后，将你的第一个想法转换为 plan。",
-      "commandText": "/ywc-plan <描述你想构建的内容>",
+      "commandText": "ywc-plan <描述你想构建的内容>",
       "cta": {
         "label": "查看 quickstart 演练",
         "target": "/guidebook/03-quickstart/"

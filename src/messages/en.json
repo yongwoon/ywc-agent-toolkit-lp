@@ -199,7 +199,7 @@
     "nextStep": {
       "title": "Now try this",
       "description": "Once installed, turn your first idea into a plan.",
-      "commandText": "/ywc-plan <describe what you want to build>",
+      "commandText": "ywc-plan <describe what you want to build>",
       "cta": {
         "label": "Walk through the quickstart",
         "target": "/guidebook/03-quickstart/"

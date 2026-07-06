@@ -199,7 +199,7 @@
     "nextStep": {
       "title": "次はこれを試してみましょう",
       "description": "インストールしたら、最初の idea を plan に変えましょう。",
-      "commandText": "/ywc-plan <作りたいものを説明>",
+      "commandText": "ywc-plan <作りたいものを説明>",
       "cta": {
         "label": "quickstart を確認する",
         "target": "/guidebook/03-quickstart/"
