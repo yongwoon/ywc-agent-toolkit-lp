@@ -39,6 +39,16 @@ gh auth status
 
 ## ywc-agent-toolkit のインストール
 
+### Claude Code プラグインマーケットプレイス(推奨)
+
+```bash
+# マーケットプレイスソースを追加(初回のみ)
+/plugin marketplace add yongwoon/ywc-agent-toolkit
+```
+
+コマンド実行後、Plugin UI の **Marketplaces** タブから **ywc-agent-toolkit** をインストールしてください。
+クローンや bash 不要で `~/.claude/skills/` に自動インストールされます。
+
 ### Codex plugin 経路
 
 ```bash

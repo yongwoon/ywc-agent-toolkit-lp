@@ -39,6 +39,16 @@ Todo funciona con los valores por defecto; las siguientes son sobrescrituras opc
 
 ## Instalación de ywc-agent-toolkit
 
+### Marketplace de plugins de Claude Code (recomendado)
+
+```bash
+# Añadir como fuente de marketplace (una sola vez)
+/plugin marketplace add yongwoon/ywc-agent-toolkit
+```
+
+Después de ejecutar el comando, abra la pestaña **Marketplaces** en el Plugin UI e instale **ywc-agent-toolkit** desde allí.
+Las skills se instalan automáticamente en `~/.claude/skills/` sin necesidad de clonar ni ejecutar bash.
+
 ### Ruta del plugin de Codex
 
 ```bash
