@@ -2,7 +2,7 @@
 
 # 14. 前置条件与安装
 
-要稳定使用 `ywc-*` Skill，需要预先准备好一些 Tool。通过 Plugin marketplace 或 Codex plugin 安装时，文件复制和注册会自动处理，但当 Skill **实际运行**时，以下 Tool 需要存在于你的系统中才能正常工作。本页将必需 Tool 和可选 Tool 分开整理。
+要稳定使用 `ywc-*` Skill，需要预先准备好一些 Tool。通过 Plugin marketplace 或 Codex plugin 安装时，文件复制和注册会自动处理，但当 Skill **实际运行**时，以下 Tool 需要存在于你的系统中才能正常工作。顺序如下 —— **① 安装必需 Tool → ② 安装 ywc-agent-toolkit 本身（Claude Code / Codex）** → 之后是根据情况准备的可选 Tool。
 
 ## 必需 Tool
 
@@ -16,6 +16,8 @@
 | `curl` | translation script、API 调用 | 通常已预装 |
 | `uv` | 运行 Claude Code Python hook | `curl -LsSf https://astral.sh/uv/install.sh \| sh` |
 | `ripgrep`（`rg`） | repository scan、onboarding、validation search | `brew install ripgrep` |
+
+其中只有 `uv` 是 **Claude Code 专用**，其余在 Claude Code 和 Codex 中都是共同必需的。
 
 仅安装 `gh` 是不够的，必须完成认证，处理 PR 的 Skill（`ywc-create-pr`、`ywc-handle-pr-reviews`、`ywc-merge-dependabot` 等）才能正常工作。
 
@@ -39,44 +41,45 @@ gh auth status
 
 ## 安装 ywc-agent-toolkit
 
-### Claude Code 插件市场（推荐）
+请选择你正在使用的 Tool 标签页。两种路径都没有前提条件。
 
-```bash
-# 添加市场源（仅需一次）
-/plugin marketplace add yongwoon/ywc-agent-toolkit
-```
+### 方式 1 — Plugin 市场（推荐）
 
-运行命令后，在 Plugin UI 的 **Marketplaces** 标签页中安装 **ywc-agent-toolkit**。
-无需克隆或运行 bash，自动安装到 `~/.claude/skills/`。
+<ToolTabs>
+<ToolTabsPanel tool="claude-code" label="Claude Code">
+<CodeBlock label="claude code" code="/plugin marketplace add yongwoon/ywc-agent-toolkit" />
+<CodeBlock label="claude code" code="/plugin install ywc-agent-toolkit@ywc-agent-toolkit" />
+</ToolTabsPanel>
+<ToolTabsPanel tool="codex" label="Codex">
+<CodeBlock label="codex" code="codex plugin marketplace add yongwoon/ywc-agent-toolkit" />
+<CodeBlock label="codex" code="codex plugin add ywc-agent-toolkit@ywc-agent-toolkit" />
+</ToolTabsPanel>
+</ToolTabs>
 
-### Codex plugin 方式
+第一条命令注册 marketplace source，第二条命令实际安装 `ywc-agent-toolkit`。如果你在 Codex 中已经添加过 marketplace，可以用 `codex plugin marketplace upgrade ywc-agent-toolkit` 获取最新 snapshot。
 
-```bash
-codex plugin marketplace add yongwoon/ywc-agent-toolkit
-codex plugin add ywc-agent-toolkit@ywc-agent-toolkit
-```
+### 方式 2 — Bash 脚本 fallback
 
-如果已经添加过 marketplace，更新到最新 snapshot。
-
-```bash
-codex plugin marketplace upgrade ywc-agent-toolkit
-```
-
-### Bash fallback 方式
-
-在难以安装 plugin 的环境中，clone 仓库后使用 fallback script。
+在难以安装 plugin 的环境中，clone 仓库后使用 fallback script。可安装的 skill/agent 列表可以通过以下命令查看。
 
 ```bash
 bash scripts/install.sh --list
-bash scripts/install.sh --codex
-bash scripts/install.sh --codex-agents
 ```
 
-如果同时使用 Claude Code，选择以下其中之一。
+<ToolTabs>
+<ToolTabsPanel tool="claude-code" label="Claude Code">
+<CodeBlock label="claude code" code="bash scripts/install.sh --cc" prompt="$" />
+<CodeBlock label="claude code" code="bash scripts/install.sh --cc-agents" prompt="$" />
+</ToolTabsPanel>
+<ToolTabsPanel tool="codex" label="Codex">
+<CodeBlock label="codex" code="bash scripts/install.sh --codex" />
+<CodeBlock label="codex" code="bash scripts/install.sh --codex-agents" />
+</ToolTabsPanel>
+</ToolTabs>
+
+如果同时使用 Claude Code 和 Codex，可以一次性安装。
 
 ```bash
-bash scripts/install.sh --cc
-bash scripts/install.sh --cc-agents
 bash scripts/install.sh --all
 ```
 
