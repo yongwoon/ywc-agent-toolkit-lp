@@ -39,6 +39,16 @@ Everything works with the defaults; the following are optional overrides for whe
 
 ## Installing ywc-agent-toolkit
 
+### Via Claude Code plugin marketplace (recommended)
+
+```bash
+# Add as a marketplace source (one-time setup)
+/plugin marketplace add yongwoon/ywc-agent-toolkit
+```
+
+After running the command, open the Plugin UI (**Marketplaces** tab) and install **ywc-agent-toolkit** from there.
+Skills are installed automatically to `~/.claude/skills/` — no cloning or bash required.
+
 ### Codex plugin path
 
 ```bash
