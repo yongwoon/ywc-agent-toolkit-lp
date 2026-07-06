@@ -36,9 +36,9 @@
       "github": "在 GitHub star",
       "preview": "查看工作原理"
     },
-    "demoCommand": "/plugin marketplace add yongwoon/ywc-agent-toolkit",
+    "demoCommand": "plugin marketplace add yongwoon/ywc-agent-toolkit",
     "demoCommandCodex": "codex plugin marketplace add yongwoon/ywc-agent-toolkit",
-    "demoInstallCommand": "/plugin install ywc-agent-toolkit@ywc-agent-toolkit",
+    "demoInstallCommand": "plugin install ywc-agent-toolkit@ywc-agent-toolkit",
     "demoInstallCommandCodex": "codex plugin add ywc-agent-toolkit@ywc-agent-toolkit",
     "demoResolving": "正在解析 marketplace source yongwoon/ywc-agent-toolkit",
     "demoResolvingCodex": "正在解析 plugin marketplace source yongwoon/ywc-agent-toolkit",
