@@ -18,6 +18,9 @@
 | [`ywc-agentic`](#목표-하나만-던지고-계획부터-구현까지-사람-개입-없이-맡기고-싶다) | 목표 하나만 던지고 계획부터 구현까지 사람 개입 없이 맡기고 싶다 |
 | [`ywc-security-audit`](#인증결제처럼-민감한-코드의-보안-취약점을-점검하고-싶다) | 인증/결제처럼 민감한 코드의 보안 취약점을 점검하고 싶다 |
 | [`ywc-refactor-clean`](#오래된-dead-code-미사용-함수export의존성를-정리하고-싶다) | 오래된 dead code (미사용 함수/export/의존성)를 정리하고 싶다 |
+| [`ywc-improve-architecture`](#뒤엉킨-shallow-module-구조를-deep-module-로-재구조화하고-싶다) | 뒤엉킨 shallow module 구조를 deep module 로 재구조화하고 싶다 |
+| [`ywc-impl-review`](#일반-cycle-밖에서-독립적으로-구현-품질과-maintenance-관점을-점검하고-싶다) | 일반 cycle 밖에서 독립적으로 구현 품질과 maintenance 관점을 점검하고 싶다 |
+| [`ywc-agent-legibility-audit`](#agent-가-코드를-고칠-때-드는-token-비용과-가독성을-측정하고-싶다) | Agent 가 코드를 고칠 때 드는 token 비용과 가독성을 측정하고 싶다 |
 | [`ywc-tdd-ritual`](#red--green--refactor-를-문서화된-절차대로-엄격하게-지키면서-구현하고-싶다) | RED → GREEN → REFACTOR 를 문서화된 절차대로 엄격하게 지키면서 구현하고 싶다 |
 | [`ywc-e2e-test-strategy`](#critical-user-flow-를-playwright-로-자동화하거나-기존-e2e-커버리지의-빈틈을-점검하고-싶다) | critical user flow 를 Playwright 로 자동화하거나, 기존 E2E 커버리지의 빈틈을 점검하고 싶다 |
 | [`ywc-product-review`](#코드가-아니라-비즈니스서비스-관점에서-프로젝트를-리뷰받고-싶다) | 코드가 아니라 비즈니스/서비스 관점에서 프로젝트를 리뷰받고 싶다 |
@@ -150,6 +153,42 @@ Socratic 대화로 목적/제약/성공 기준과 대안 2~3개를 도출한 뒤
     <CodeBlock label="codex" code="ywc-refactor-clean --scope codex/skills/ywc-refactor-clean/ --tier safe" />
   </ToolTabsPanel>
 </ToolTabs>
+
+### 뒤엉킨 shallow module 구조를 deep module 로 재구조화하고 싶다
+
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-improve-architecture --scope src/services/billing --dry-run" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-improve-architecture --scope src/services/billing --dry-run" />
+  </ToolTabsPanel>
+</ToolTabs>
+`--dry-run` 으로 먼저 Opportunity Backlog 만 확인한 뒤, 문제 없으면 flag 를 빼고 실제 consolidation 을 실행합니다. 전체 codebase 를 한 번에 대상으로 지정할 수는 없습니다(Scope Gate) — 반드시 module/directory 단위로 좁혀서 지정해야 합니다. 코드를 고치지 않고 legibility 문제만 짚어보고 싶다면 `ywc-agent-legibility-audit` 을, dead code 삭제만 필요하다면 `ywc-refactor-clean` 을 대신 씁니다.
+
+### 일반 cycle 밖에서 독립적으로 구현 품질과 maintenance 관점을 점검하고 싶다
+
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-impl-review --spec docs/ywc-plans/billing-refactor.md --git-range main..HEAD" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-impl-review --spec docs/ywc-plans/billing-refactor.md --git-range main..HEAD" />
+  </ToolTabsPanel>
+</ToolTabs>
+[04](./04-general-cycle-small.md), [05](./05-general-cycle-medium-large.md)의 PR 전 검증 단계로 이미 내장되어 있지만, 이 흐름 밖에서 이미 존재하는 코드를 대상으로 architecture/design/devex/security/QA 5축 리뷰만 단독으로 받고 싶을 때도 그대로 씁니다. 코드를 고치지 않는 읽기 전용 분석입니다 — 발견된 항목의 실제 수정은 Backend/Frontend 담당 agent 로 별도 dispatch 합니다.
+
+### Agent 가 코드를 고칠 때 드는 token 비용과 가독성을 측정하고 싶다
+
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-agent-legibility-audit --scope src/services/billing" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-agent-legibility-audit --scope src/services/billing" />
+  </ToolTabsPanel>
+</ToolTabs>
+Correctness/보안이 아니라 "이 코드를 agent 가 안전하게 고치는 데 토큰이 얼마나 드는가"를 deep/shallow module 비율과 change-point 명시성 기준으로 측정하는 읽기 전용 리포트입니다. 구조를 실제로 고치지는 않으며, 발견된 항목은 `ywc-improve-architecture`(shallow→deep 재구조화) 또는 `ywc-refactor-clean`(dead code 삭제)으로 routing 됩니다.
 
 ### Production 장애가 나서 회고 문서를 써야 한다
 
