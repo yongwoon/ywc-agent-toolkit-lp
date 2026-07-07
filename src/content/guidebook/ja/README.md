@@ -19,22 +19,22 @@
 | 目標だけ渡して、計画から実装まで自動で完了させたい | `ywc-agentic` | [06](./06-agentic-autonomous-loop.md) |
 | 完全に新しい project を最初から設計したい | `ywc-project-scaffold` | [07](./07-starting-a-new-project.md) |
 | 初めて見る未知の repo/codebase を把握したい | `ywc-onboard-repo` | [08](./08-onboarding-existing-repo.md) |
-| すでに分解された Task を実行したい (順次/並列) | `ywc-sequential-executor` / `ywc-parallel-executor` | [12](./12-executor-and-codegen-patterns.md) |
-| アイデアがまだ具体的でなく、整理から始めたい | `ywc-brainstorm` | [13](./13-skill-reference.md) |
+| すでに分解された Task を実行したい (順次/並列) | `ywc-sequential-executor` / `ywc-parallel-executor` | [13](./13-executor-and-codegen-patterns.md) |
+| アイデアがまだ具体的でなく、整理から始めたい | `ywc-brainstorm` | [14](./14-skill-reference.md) |
 | PR を検証するための手動 test 文書を作りたい | `ywc-gen-testcase` | [09](./09-testing-guide.md) |
 | E2E test 自動化を設定/拡張したい | `ywc-e2e-test-strategy` | [10](./10-e2e-test-strategy.md) |
 | 画面の usability やアクセシビリティを点検したい | `ywc-ui-ux-review` | [11](./11-design-review.md) |
 | 画面デザインが平凡に見えるので改善したい | `ywc-design-renew` | [11](./11-design-review.md) |
-| コードにセキュリティ脆弱性がないか点検したい | `ywc-security-audit` | [13](./13-skill-reference.md) |
-| バグの根本原因が見つからず困っている | `ywc-debug-rootcause` | [13](./13-skill-reference.md) |
-| Production 障害が起き、振り返りを書く必要がある | `ywc-incident-postmortem` | [13](./13-skill-reference.md) |
-| 古い dead code を整理したい | `ywc-refactor-clean` | [13](./13-skill-reference.md) |
-| 開いている PR の review comment に対応する必要がある | `ywc-handle-pr-reviews` | [13](./13-skill-reference.md) |
-| Dependabot PR が溜まっているので一度に整理したい | `ywc-merge-dependabot` | [13](./13-skill-reference.md) |
-| CHANGELOG や release note を書きたい | `ywc-changelog-release-notes` | [13](./13-skill-reference.md) |
-| ここまでの作業をそのまま commit したい | `ywc-commit` | [13](./13-skill-reference.md) |
+| コードにセキュリティ脆弱性がないか点検したい | `ywc-security-audit` | [14](./14-skill-reference.md) |
+| バグの根本原因が見つからず困っている | `ywc-debug-rootcause` | [12](./12-debugging-and-incident-postmortem.md) |
+| Production 障害が起き、振り返りを書く必要がある | `ywc-incident-postmortem` | [12](./12-debugging-and-incident-postmortem.md) |
+| 古い dead code を整理したい | `ywc-refactor-clean` | [14](./14-skill-reference.md) |
+| 開いている PR の review comment に対応する必要がある | `ywc-handle-pr-reviews` | [14](./14-skill-reference.md) |
+| Dependabot PR が溜まっているので一度に整理したい | `ywc-merge-dependabot` | [14](./14-skill-reference.md) |
+| CHANGELOG や release note を書きたい | `ywc-changelog-release-notes` | [14](./14-skill-reference.md) |
+| ここまでの作業をそのまま commit したい | `ywc-commit` | [14](./14-skill-reference.md) |
 
-この表にない状況は、[13. 全 Skill リファレンス](./13-skill-reference.md)で全体一覧を確認してください。
+この表にない状況は、[14. 全 Skill リファレンス](./14-skill-reference.md)で全体一覧を確認してください。
 
 ## 目次
 
@@ -63,13 +63,14 @@
 | [09. Test を作成して実行する](./09-testing-guide.md) | 手動検証 testsheet と自動化 test を一緒に運用する方法 |
 | [10. E2E Test 自動化戦略](./10-e2e-test-strategy.md) | Playwright ベースの E2E Suite を設定・拡張・保守する詳細ガイド |
 | [11. デザインをレビューして改善する](./11-design-review.md) | Usability 監査と視覚的 De-slop Renewal を区別して適用する方法 |
+| [12. デバッグとインシデント事後分析](./12-debugging-and-incident-postmortem.md) | バグの根本原因調査と Production 障害の事後分析を扱う 2 つの Skill を使い分ける方法 |
 
 ### リファレンス (Reference)
 
 | ページ | 説明 |
 |---|---|
-| [12. Executor / Code-gen Prompt パターン](./12-executor-and-codegen-patterns.md) | オプションが多い `ywc-sequential-executor` / `ywc-parallel-executor` / `ywc-code-gen` の実践 command 集 |
-| [13. 全 Skill リファレンス](./13-skill-reference.md) | 上記ガイドで扱わなかった残りの Skill を状況別に整理した索引 |
+| [13. Executor / Code-gen Prompt パターン](./13-executor-and-codegen-patterns.md) | オプションが多い `ywc-sequential-executor` / `ywc-parallel-executor` / `ywc-code-gen` の実践 command 集 |
+| [14. 全 Skill リファレンス](./14-skill-reference.md) | 上記ガイドで扱わなかった残りの Skill を状況別に整理した索引 |
 
 ## 原資料
 

@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 13. Referencia completa Skill
+# 14. Referencia completa Skill
 
 Esta página agrupa las Habilidades restantes que no se cubrieron en las guías de flujo de trabajo anteriores según **lo que deseas hacer**. Úsala cuando sea necesario en medio de cada flujo: ciclo Pequeño/Mediano/Grande, nuevo proyecto, incorporación, pruebas o diseño.
 
@@ -17,10 +17,9 @@ Busca tu situación en la siguiente tabla y haz clic en el nombre de la Skill pa
 | [`ywc-tech-research`](#quieres-comparar-librerías-o-enfoques-de-implementación-para-decidir-qué-usar) | Quieres comparar librerías o enfoques de implementación para decidir qué usar |
 | [`ywc-agentic`](#quieres-dar-un-objetivo-y-dejar-que-la-planificación-hasta-la-implementación-se-ejecute-sin-intervención-humana) | Quieres dar un objetivo y dejar que la planificación hasta la implementación se ejecute sin intervención humana |
 | [`ywc-security-audit`](#revisa-las-vulnerabilidades-de-seguridad-en-el-código-sensible-como-autenticaciónpagos) | Revisa las vulnerabilidades de seguridad en el código sensible, como autenticación/pagos |
-| [`ywc-debug-rootcause`](#estás-atascado-porque-no-puedes-encontrar-la-causa-de-un-error) | Estás atascado porque no puedes encontrar la causa de un error |
 | [`ywc-refactor-clean`](#limpiar-el-código-antiguo-muerto-funcionesexportacionesdependencias-no-utilizadas) | Limpiar el código antiguo muerto (funciones/exportaciones/dependencias no utilizadas) |
-| [`ywc-incident-postmortem`](#escribir-un-informe-postmortem-para-un-incidente-de-producción) | Escribir un informe postmortem para un incidente de producción |
 | [`ywc-tdd-ritual`](#quieres-seguir-estrictamente-el-procedimiento-documentado-red--green--refactor-mientras-implementas) | Quieres seguir estrictamente el procedimiento documentado RED → GREEN → REFACTOR mientras implementas |
+| [`ywc-debug-rootcause` y `ywc-incident-postmortem`](#) | Investigación de causa raíz y análisis posterior al incidente - ver [12. Debugging and incident postmortem](./12-debugging-and-incident-postmortem.md) |
 | [`ywc-e2e-test-strategy`](#quieres-automatizar-un-critical-user-flow-con-playwright-o-revisar-los-huecos-en-la-cobertura-e2e-existente) | Quieres automatizar un critical user flow con Playwright, o revisar los huecos en la cobertura E2E existente |
 | [`ywc-product-review`](#quieres-una-revisión-del-proyecto-desde-una-perspectiva-de-negocioservicio-no-de-código) | Quieres una revisión del proyecto desde una perspectiva de negocio/servicio, no de código |
 | [`ywc-review-learnings`](#enseñe-al-sistema-sobre-la-retroalimentación-repetida-de-la-revisión-de-código-para-que-no-genere-el-mismo-falso-positivo-nuevamente) | Enseñe al sistema sobre la retroalimentación repetida de la revisión de código para que no genere el mismo falso positivo nuevamente |
@@ -138,18 +137,6 @@ Esto se ha trasladado a la página dedicada `ywc-agentic`. Consulte [06. Finish 
   </ToolTabsPanel>
 </ToolTabs>
 
-### Estás atascado porque no puedes encontrar la causa de un error
-
-<ToolTabs>
-  <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-debug-rootcause El webhook de pago a veces se procesa por duplicado. No puedo encontrar la causa" />
-  </ToolTabsPanel>
-  <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-debug-rootcause El webhook de pago a veces se procesa por duplicado. No puedo encontrar la causa" />
-  </ToolTabsPanel>
-</ToolTabs>
-Esto evita los parches que solo abordan los síntomas y obliga a una investigación de causa raíz en cuatro pasos. Si las soluciones fallan en el mismo punto tres o más veces, te guía a cuestionar la arquitectura en sí.
-
 ### Limpiar el código antiguo muerto (funciones/exportaciones/dependencias no utilizadas)
 
 <ToolTabs>
@@ -160,18 +147,6 @@ Esto evita los parches que solo abordan los síntomas y obliga a una investigaci
     <CodeBlock label="codex" code="ywc-refactor-clean --scope codex/skills/ywc-refactor-clean/ --tier safe" />
   </ToolTabsPanel>
 </ToolTabs>
-
-### Escribir un informe postmortem para un incidente de producción
-
-<ToolTabs>
-  <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-incident-postmortem --client" />
-  </ToolTabsPanel>
-  <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-incident-postmortem --client" />
-  </ToolTabsPanel>
-</ToolTabs>
-`--client` además crea un resumen para el cliente que omite detalles internos.
 
 ### Quieres seguir estrictamente el procedimiento documentado RED → GREEN → REFACTOR mientras implementas
 
@@ -327,4 +302,4 @@ La skill de asignación determinista de puertos que `ywc-parallel-executor` llam
 
 ---
 
-[Previous: 12. Executor / Code-gen Prompt patterns](./12-executor-and-codegen-patterns.md) - [Next: 14. Prerequisites and installation](./14-prerequisites-installation.md)
+[Previous: 13. Executor / Patrones de indicación de generación de código](./13-executor-and-codegen-patterns.md) - [Next: 15. Requisitos previos e instalación](./15-prerequisites-installation.md)

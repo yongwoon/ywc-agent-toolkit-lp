@@ -87,7 +87,7 @@ Small フローは `plan.md` ベースなので、`tasks/<task-name>/` artifact 
 これで、1 つの変更を最初から最後まで完走しました。次に見るとよいページ:
 
 - 変更規模がこれより大きく、Task を複数に分ける必要がある場合 → [05. general cycle (medium/large)](./05-general-cycle-medium-large.md)
-- まだアイデアが具体的でない場合 (この演習のように問題がすでに明確な場合ではないなら) → `ywc-brainstorm` から開始 ([13. 全 Skill リファレンス](./13-skill-reference.md) 参照)
+- まだアイデアが具体的でない場合 (この演習のように問題がすでに明確な場合ではないなら) → `ywc-brainstorm` から開始 ([14. 全 Skill リファレンス](./14-skill-reference.md) 参照)
 - 毎回自分で進行を管理せず、目標だけ渡して最後まで自動で進めたい場合 → [06. 目標 1 つで自動完了する](./06-agentic-autonomous-loop.md)
 
 ---

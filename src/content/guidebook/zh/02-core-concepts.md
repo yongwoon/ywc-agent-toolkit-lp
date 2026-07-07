@@ -54,7 +54,7 @@
 
 ## 共享 PR 交付模式概念
 
-`ywc-finish-branch`、`ywc-sequential-executor` 和 `ywc-parallel-executor` 共享以下用于基于任务交付的模式概念。基于 `plan.md` 的小流程没有任务工件，因此它使用 `ywc-create-pr` 打开 PR，并单独处理审查/合并。精确的标志组合在 [12. Executor / Code-gen Prompt patterns](./12-executor-and-codegen-patterns.md) 中有说明。
+`ywc-finish-branch`、`ywc-sequential-executor` 和 `ywc-parallel-executor` 共享以下用于基于任务交付的模式概念。基于 `plan.md` 的小流程没有任务工件，因此它使用 `ywc-create-pr` 打开 PR，并单独处理审查/合并。精确的标志组合在 [13. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md) 中有说明。
 
 | 模式 | 意义 |
 |---|---|

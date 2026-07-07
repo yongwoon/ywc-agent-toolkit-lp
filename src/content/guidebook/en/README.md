@@ -19,22 +19,22 @@ This is organized around **what you are trying to do now**, not "which Skills ex
 | Give one goal and have the system finish from planning through implementation automatically | `ywc-agentic` | [06](./06-agentic-autonomous-loop.md) |
 | Design a completely new project from scratch | `ywc-project-scaffold` | [07](./07-starting-a-new-project.md) |
 | Understand an unfamiliar repo/codebase for the first time | `ywc-onboard-repo` | [08](./08-onboarding-existing-repo.md) |
-| Execute Tasks that are already decomposed (sequential/parallel) | `ywc-sequential-executor` / `ywc-parallel-executor` | [12](./12-executor-and-codegen-patterns.md) |
-| Clarify an idea that is not concrete yet | `ywc-brainstorm` | [13](./13-skill-reference.md) |
+| Execute Tasks that are already decomposed (sequential/parallel) | `ywc-sequential-executor` / `ywc-parallel-executor` | [13](./13-executor-and-codegen-patterns.md) |
+| Clarify an idea that is not concrete yet | `ywc-brainstorm` | [14](./14-skill-reference.md) |
 | Create a manual test document for PR verification | `ywc-gen-testcase` | [09](./09-testing-guide.md) |
 | Set up or expand E2E test automation | `ywc-e2e-test-strategy` | [10](./10-e2e-test-strategy.md) |
 | Check screen usability or accessibility | `ywc-ui-ux-review` | [11](./11-design-review.md) |
 | Improve a screen that feels visually ordinary | `ywc-design-renew` | [11](./11-design-review.md) |
-| Check code for security vulnerabilities | `ywc-security-audit` | [13](./13-skill-reference.md) |
-| You are stuck because you cannot find the root cause of a bug | `ywc-debug-rootcause` | [13](./13-skill-reference.md) |
-| A production incident happened and you need to write a postmortem | `ywc-incident-postmortem` | [13](./13-skill-reference.md) |
-| Clean up old dead code | `ywc-refactor-clean` | [13](./13-skill-reference.md) |
-| Respond to review comments on an open PR | `ywc-handle-pr-reviews` | [13](./13-skill-reference.md) |
-| Clean up a backlog of Dependabot PRs at once | `ywc-merge-dependabot` | [13](./13-skill-reference.md) |
-| Write a CHANGELOG or release note | `ywc-changelog-release-notes` | [13](./13-skill-reference.md) |
-| Just commit the work done so far | `ywc-commit` | [13](./13-skill-reference.md) |
+| Check code for security vulnerabilities | `ywc-security-audit` | [14](./14-skill-reference.md) |
+| You are stuck because you cannot find the root cause of a bug | `ywc-debug-rootcause` | [12](./12-debugging-and-incident-postmortem.md) |
+| A production incident happened and you need to write a postmortem | `ywc-incident-postmortem` | [12](./12-debugging-and-incident-postmortem.md) |
+| Clean up old dead code | `ywc-refactor-clean` | [14](./14-skill-reference.md) |
+| Respond to review comments on an open PR | `ywc-handle-pr-reviews` | [14](./14-skill-reference.md) |
+| Clean up a backlog of Dependabot PRs at once | `ywc-merge-dependabot` | [14](./14-skill-reference.md) |
+| Write a CHANGELOG or release note | `ywc-changelog-release-notes` | [14](./14-skill-reference.md) |
+| Just commit the work done so far | `ywc-commit` | [14](./14-skill-reference.md) |
 
-For situations not covered in this table, see [13. Full Skill Reference](./13-skill-reference.md).
+For situations not covered in this table, see [14. Full Skill Reference](./14-skill-reference.md).
 
 ## Table of contents
 
@@ -63,13 +63,14 @@ For situations not covered in this table, see [13. Full Skill Reference](./13-sk
 | [09. Writing and running Tests](./09-testing-guide.md) | How to operate manual verification testsheets together with automated tests |
 | [10. E2E Test automation strategy](./10-e2e-test-strategy.md) | An advanced guide to setting up, expanding, and maintaining a Playwright-based E2E Suite |
 | [11. Reviewing and improving design](./11-design-review.md) | How to distinguish and apply usability audits and visual De-slop Renewal |
+| [12. Debugging and incident postmortems](./12-debugging-and-incident-postmortem.md) | How ywc-debug-rootcause drives a root-cause investigation and ywc-incident-postmortem writes the follow-up report |
 
 ### Reference
 
 | Page | Description |
 |---|---|
-| [12. Executor / Code-gen Prompt patterns](./12-executor-and-codegen-patterns.md) | Practical command examples for option-heavy `ywc-sequential-executor` / `ywc-parallel-executor` / `ywc-code-gen` |
-| [13. Full Skill Reference](./13-skill-reference.md) | An index of the remaining Skills not covered in the guides above, organized by situation |
+| [13. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md) | Practical command examples for option-heavy `ywc-sequential-executor` / `ywc-parallel-executor` / `ywc-code-gen` |
+| [14. Full Skill Reference](./14-skill-reference.md) | An index of the remaining Skills not covered in the guides above, organized by situation |
 
 ## Source material
 

@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 14. 前置条件与安装
+# 15. 前置条件与安装
 
 要稳定使用 `ywc-*` Skill，需要预先准备好一些 Tool。通过 Plugin marketplace 或 Codex plugin 安装时，文件复制和注册会自动处理，但当 Skill **实际运行**时，以下 Tool 需要存在于你的系统中才能正常工作。顺序如下 —— **① 安装必需 Tool → ② 安装 ywc-agent-toolkit 本身（Claude Code / Codex）** → 之后是根据情况准备的可选 Tool。
 
@@ -162,4 +162,4 @@ gh pr checks --watch
 
 ---
 
-[Previous: 13. Full Skill Reference](./13-skill-reference.md) - [Back to table of contents](./README.md)
+[Previous: 14. 完整 Skill 参考](./14-skill-reference.md) - [Back to table of contents](./README.md)
