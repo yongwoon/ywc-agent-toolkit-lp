@@ -59,7 +59,7 @@ ywc-plan -> ywc-spec-ready -> ywc-task-generator -> ywc-sequential-executor --re
   </ToolTabsPanel>
 </ToolTabs>
 
-The execution commands after this have many options, so they are covered on a separate page: [12. Executor / Code-gen Prompt patterns](./12-executor-and-codegen-patterns.md). The simplest starting point is:
+The execution commands after this have many options, so they are covered on a separate page: [13. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md). The simplest starting point is:
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">

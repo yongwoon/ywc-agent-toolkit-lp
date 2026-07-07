@@ -87,7 +87,7 @@
 你已经从头到尾完成了一次更改。接下来的好页面：
 
 - 如果更改大于此，并且需要拆分为多个 Tasks -> [05. general cycle (medium/large)](./05-general-cycle-medium-large.md)
-- 如果想法还不具体，不像这个练习中问题已经很清楚 -> 从 `ywc-brainstorm` 开始（参见 [13. Full Skill Reference](./13-skill-reference.md)）
+- 如果想法还不具体，不像这个练习中问题已经很清楚 -> 从 `ywc-brainstorm` 开始（参见 [14. Full Skill Reference](./14-skill-reference.md)）
 - 如果您想交出一个目标，并让系统自动进行到结束，而不是自己管理每一步 -> [06. Finish automatically from one goal](./06-agentic-autonomous-loop.md)
 
 ---

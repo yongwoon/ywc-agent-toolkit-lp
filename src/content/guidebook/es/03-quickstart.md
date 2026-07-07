@@ -87,7 +87,7 @@ El flujo Small se basa en `plan.md`, por lo que no tiene el artefacto `tasks/<ta
 Has completado un cambio de principio a fin. Buenas siguientes páginas:
 
 - Si el cambio es mayor que esto y necesita ser dividido en múltiples Tasks -> [05. general cycle (medium/large)](./05-general-cycle-medium-large.md)
-- Si la idea aún no es concreta, a diferencia de este ejercicio donde el problema ya está claro -> comienza con `ywc-brainstorm` (ver [13. Full Skill Reference](./13-skill-reference.md))
+- Si la idea aún no es concreta, a diferencia de este ejercicio donde el problema ya está claro -> comienza con `ywc-brainstorm` (ver [14. Full Skill Reference](./14-skill-reference.md))
 - Si quieres entregar un objetivo y hacer que el sistema continúe automáticamente hasta el final en lugar de gestionar cada paso tú mismo -> [06. Finish automatically from one goal](./06-agentic-autonomous-loop.md)
 
 ---

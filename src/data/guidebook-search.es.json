@@ -55,17 +55,22 @@
     "summary": "Las dos habilidades responden a preguntas diferentes."
   },
   {
-    "slug": "12-executor-and-codegen-patterns",
+    "slug": "12-debugging-and-incident-postmortem",
+    "title": "12. Debugging e informe postmortem",
+    "summary": "Las dos habilidades responden a preguntas diferentes."
+  },
+  {
+    "slug": "13-executor-and-codegen-patterns",
     "title": "12. Executor / Patrones de indicación de generación de código",
     "summary": "ywc-sequential-executor , ywc-parallel-executor y ywc-code-gen son las tres Habilidades cuyas muchas opciones te hacen consultar repetidamente la sintaxis exacta."
   },
   {
-    "slug": "13-skill-reference",
-    "title": "13. Referencia completa Skill",
+    "slug": "14-skill-reference",
+    "title": "14. Referencia completa Skill",
     "summary": "Esta página agrupa las Habilidades restantes que no se cubrieron en las guías de flujo de trabajo anteriores según lo que deseas hacer ."
   },
   {
-    "slug": "14-prerequisites-installation",
+    "slug": "15-prerequisites-installation",
     "title": "14. Requisitos previos e instalación",
     "summary": "Para usar las Skills ywc-* de forma fiable, necesitas tener listas algunas herramientas de antemano."
   }

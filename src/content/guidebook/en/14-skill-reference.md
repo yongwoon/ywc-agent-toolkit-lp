@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 13. Full Skill Reference
+# 14. Full Skill Reference
 
 This page groups the remaining Skills not covered in the previous workflow guides by **what you want to do**. Use it when needed in the middle of each flow: Small/Medium/Large cycle, new project, onboarding, testing, or design.
 
@@ -17,9 +17,7 @@ Find your situation in the table below and click a Skill name to jump straight t
 | [`ywc-tech-research`](#you-want-to-compare-libraries-or-implementation-approaches-to-decide-what-to-use) | You want to compare libraries or implementation approaches to decide what to use |
 | [`ywc-agentic`](#you-want-to-give-one-goal-and-leave-planning-through-implementation-to-run-without-human-intervention) | You want to give one goal and leave planning through implementation to run without human intervention |
 | [`ywc-security-audit`](#check-security-vulnerabilities-in-sensitive-code-such-as-authpayment) | Check security vulnerabilities in sensitive code such as auth/payment |
-| [`ywc-debug-rootcause`](#you-are-stuck-because-you-cannot-find-the-cause-of-a-bug) | You are stuck because you cannot find the cause of a bug |
 | [`ywc-refactor-clean`](#clean-up-old-dead-code-unused-functionsexportsdependencies) | Clean up old dead code (unused functions/exports/dependencies) |
-| [`ywc-incident-postmortem`](#write-a-postmortem-for-a-production-incident) | Write a postmortem for a Production incident |
 | [`ywc-tdd-ritual`](#you-want-to-strictly-follow-the-documented-red--green--refactor-procedure-while-implementing) | You want to strictly follow the documented RED → GREEN → REFACTOR procedure while implementing |
 | [`ywc-e2e-test-strategy`](#you-want-to-automate-a-critical-user-flow-with-playwright-or-check-gaps-in-existing-e2e-coverage) | You want to automate a critical user flow with Playwright, or check gaps in existing E2E coverage |
 | [`ywc-product-review`](#you-want-a-review-of-the-project-from-a-businessservice-perspective-not-a-code-perspective) | You want a review of the project from a business/service perspective, not a code perspective |
@@ -140,15 +138,7 @@ This has moved to the dedicated `ywc-agentic` page. See [06. Finish automaticall
 
 ### You are stuck because you cannot find the cause of a bug
 
-<ToolTabs>
-  <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-debug-rootcause The payment webhook is sometimes processed twice. I can't find the cause" />
-  </ToolTabsPanel>
-  <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-debug-rootcause The payment webhook is sometimes processed twice. I can't find the cause" />
-  </ToolTabsPanel>
-</ToolTabs>
-This prevents patches that only address symptoms and forces a four-step root-cause investigation. If fixes fail at the same point three or more times, it guides you to question the architecture itself.
+This has moved to the dedicated page. See [12. Debugging and incident postmortems](./12-debugging-and-incident-postmortem.md) for usage and examples.
 
 ### Clean up old dead code (unused functions/exports/dependencies)
 
@@ -163,15 +153,7 @@ This prevents patches that only address symptoms and forces a four-step root-cau
 
 ### Write a postmortem for a Production incident
 
-<ToolTabs>
-  <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-incident-postmortem --client" />
-  </ToolTabsPanel>
-  <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-incident-postmortem --client" />
-  </ToolTabsPanel>
-</ToolTabs>
-`--client` additionally creates a customer-facing summary that omits internal details.
+This has moved to the dedicated page. See [12. Debugging and incident postmortems](./12-debugging-and-incident-postmortem.md) for usage and examples.
 
 ### You want to strictly follow the documented RED → GREEN → REFACTOR procedure while implementing
 
@@ -327,4 +309,4 @@ The deterministic port-allocation skill that `ywc-parallel-executor` calls autom
 
 ---
 
-[Previous: 12. Executor / Code-gen Prompt patterns](./12-executor-and-codegen-patterns.md) - [Next: 14. Prerequisites and installation](./14-prerequisites-installation.md)
+[Previous: 13. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md) - [Next: 15. Prerequisites and installation](./15-prerequisites-installation.md)

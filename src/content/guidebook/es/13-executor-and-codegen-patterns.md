@@ -228,4 +228,4 @@ Palabras clave como `payment` se clasifican automáticamente como `critical`, lo
 
 ---
 
-[Previous: 11. Reviewing and improving design](./11-design-review.md) - [Next: 13. Full Skill Reference](./13-skill-reference.md)
+[Previous: 11. Revisando y mejorando el diseño](./11-design-review.md) - [Next: 14. Referencia completa Skill](./14-skill-reference.md)

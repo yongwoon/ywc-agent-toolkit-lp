@@ -87,7 +87,7 @@ The Small flow is based on `plan.md`, so it has no `tasks/<task-name>/` artifact
 You have completed one change from start to finish. Good next pages:
 
 - If the change is larger than this and needs to be split into multiple Tasks -> [05. general cycle (medium/large)](./05-general-cycle-medium-large.md)
-- If the idea is not concrete yet, unlike this exercise where the problem is already clear -> start with `ywc-brainstorm` (see [13. Full Skill Reference](./13-skill-reference.md))
+- If the idea is not concrete yet, unlike this exercise where the problem is already clear -> start with `ywc-brainstorm` (see [14. Full Skill Reference](./14-skill-reference.md))
 - If you want to hand over one goal and have the system proceed automatically to the end instead of managing each step yourself -> [06. Finish automatically from one goal](./06-agentic-autonomous-loop.md)
 
 ---

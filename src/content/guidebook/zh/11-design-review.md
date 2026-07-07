@@ -59,4 +59,4 @@
 
 ---
 
-[Previous: 10. E2E Test automation strategy](./10-e2e-test-strategy.md) - [Next: 12. Executor / Code-gen Prompt patterns](./12-executor-and-codegen-patterns.md)
+[Previous: 10. E2E Test automation strategy](./10-e2e-test-strategy.md) - [Next: 12. 根本原因调查和事后分析](./12-debugging-and-incident-postmortem.md)

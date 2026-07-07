@@ -55,18 +55,23 @@
     "summary": "2 つの Skill は異なる質問に答えます。今したい質問が何かに応じて選んでください。"
   },
   {
-    "slug": "12-executor-and-codegen-patterns",
-    "title": "12. Executor / Code-gen Prompt パターン",
+    "slug": "12-debugging-and-incident-postmortem",
+    "title": "12. デバッグとインシデント事後分析",
+    "summary": "2 つの Skill は異なる質問に答えます。今したい質問が何かに応じて選んでください。"
+  },
+  {
+    "slug": "13-executor-and-codegen-patterns",
+    "title": "13. Executor / Code-gen Prompt パターン",
     "summary": "ywc-sequential-executor , ywc-parallel-executor , ywc-code-gen はオプションが多く、毎回正確な syntax を探しがちな 3 つの Skill です。このページでは Skill 名ではなく、**「今やりたいこと」**を基準に例を整理しました。やりたいことを見つけて、そのままコピーして使ってください。"
   },
   {
-    "slug": "13-skill-reference",
-    "title": "13. 全 Skill リファレンス",
+    "slug": "14-skill-reference",
+    "title": "14. 全 Skill リファレンス",
     "summary": "前のワークフローガイドで扱わなかった残りの Skill を、 やりたいこと 基準でまとめて整理しました。各フロー(Small/Medium/Large cycle、新規 project、onboarding、testing、design)の途中で必要になったときに参照してください。"
   },
   {
-    "slug": "14-prerequisites-installation",
-    "title": "14. 事前準備とインストール",
+    "slug": "15-prerequisites-installation",
+    "title": "15. 事前準備とインストール",
     "summary": "ywc-* Skill を安定して使うには、いくつかの Tool を事前に準備しておく必要があります。Plugin marketplace や Codex plugin からインストールすればファイルコピーと登録は自動で処理されますが、Skill を 実際に実行 するときは以下の Tool が System に入っている必要があります。手順は次のとおりです — ① 必須 Tool のインストール → ② ywc-agent-toolkit 自体のインストール(Claude Code / Codex) → その下は状況に応じて準備する選択 Tool です。"
   }
 ]

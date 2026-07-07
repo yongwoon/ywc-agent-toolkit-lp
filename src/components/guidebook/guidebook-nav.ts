@@ -182,6 +182,15 @@ export const guidebookNavGroups: readonly GuidebookNavGroup[] = [
         groupId: "workflow-guides",
         order: 11,
         status: "pending"
+      },
+      {
+        slug: "12-debugging-and-incident-postmortem",
+        title: "12. Debugging and incident postmortems",
+        description:
+          "How ywc-debug-rootcause drives a root-cause investigation and ywc-incident-postmortem writes the follow-up report",
+        groupId: "workflow-guides",
+        order: 12,
+        status: "pending"
       }
     ]
   },
@@ -190,27 +199,27 @@ export const guidebookNavGroups: readonly GuidebookNavGroup[] = [
     label: groupLabelsByLocale.en.reference,
     pages: [
       {
-        slug: "12-executor-and-codegen-patterns",
-        title: "12. Executor / Code-gen Prompt patterns",
+        slug: "13-executor-and-codegen-patterns",
+        title: "13. Executor / Code-gen Prompt patterns",
         description: "A practical command reference for option-heavy executor/code-gen tools",
-        groupId: "reference",
-        order: 12,
-        status: "pending"
-      },
-      {
-        slug: "13-skill-reference",
-        title: "13. Full Skill Reference",
-        description: "An index of the remaining Skills not covered above, organized by situation",
         groupId: "reference",
         order: 13,
         status: "pending"
       },
       {
-        slug: "14-prerequisites-installation",
-        title: "14. Prerequisites and installation",
-        description: "Required vs. optional tools and how to install ywc-agent-toolkit before relying on it",
+        slug: "14-skill-reference",
+        title: "14. Full Skill Reference",
+        description: "An index of the remaining Skills not covered above, organized by situation",
         groupId: "reference",
         order: 14,
+        status: "pending"
+      },
+      {
+        slug: "15-prerequisites-installation",
+        title: "15. Prerequisites and installation",
+        description: "Required vs. optional tools and how to install ywc-agent-toolkit before relying on it",
+        groupId: "reference",
+        order: 15,
         status: "pending"
       }
     ]

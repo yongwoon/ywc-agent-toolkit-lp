@@ -59,4 +59,4 @@ Live UI 探索が含まれるため、staging または preview URL が用意さ
 
 ---
 
-[← 前: 10. E2E Test 自動化戦略](./10-e2e-test-strategy.md) · [次: 12. Executor / Code-gen Prompt パターン →](./12-executor-and-codegen-patterns.md)
+[← 前: 10. E2E Test 自動化戦略](./10-e2e-test-strategy.md) · [次: 12. デバッグとインシデント事後分析 →](./12-debugging-and-incident-postmortem.md)

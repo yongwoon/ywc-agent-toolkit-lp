@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 13. 完整 Skill 参考
+# 14. 完整 Skill 参考
 
 本页面将之前工作流程指南中未涵盖的剩余技能按**你想做的事情**进行分组。在每个流程（小/中/大周期、新项目、入职、测试或设计）中需要时使用它。
 
@@ -17,9 +17,7 @@
 | [`ywc-tech-research`](#想比较库或实现方式决定要用什么) | 想比较库或实现方式，决定要用什么 |
 | [`ywc-agentic`](#你想设定一个目标然后让整个从规划到执行的过程在无人干预下运行) | 你想设定一个目标，然后让整个从规划到执行的过程在无人干预下运行 |
 | [`ywc-security-audit`](#检查敏感代码中的安全漏洞例如认证支付) | 检查敏感代码中的安全漏洞，例如认证/支付 |
-| [`ywc-debug-rootcause`](#你被卡住了因为你找不到错误的原因) | 你被卡住了，因为你找不到错误的原因 |
 | [`ywc-refactor-clean`](#清理旧的无用代码未使用的函数导出依赖) | 清理旧的无用代码（未使用的函数/导出/依赖） |
-| [`ywc-incident-postmortem`](#为生产事故撰写事后分析报告) | 为生产事故撰写事后分析报告 |
 | [`ywc-tdd-ritual`](#想严格按照文档化的流程执行-red--green--refactor) | 想严格按照文档化的流程执行 RED → GREEN → REFACTOR |
 | [`ywc-e2e-test-strategy`](#想用-playwright-自动化-critical-user-flow或检查现有-e2e-覆盖率的缺口) | 想用 Playwright 自动化 critical user flow，或检查现有 E2E 覆盖率的缺口 |
 | [`ywc-product-review`](#想从业务服务角度而不是代码角度获得项目评审) | 想从业务/服务角度而不是代码角度获得项目评审 |
@@ -140,15 +138,7 @@
 
 ### 你被卡住了，因为你找不到错误的原因
 
-<ToolTabs>
-  <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-debug-rootcause 支付 webhook 有时会被重复处理。找不到原因" />
-  </ToolTabsPanel>
-  <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-debug-rootcause 支付 webhook 有时会被重复处理。找不到原因" />
-  </ToolTabsPanel>
-</ToolTabs>
-这可以防止仅解决症状的补丁，并强制进行四步根本原因调查。如果修复在同一点失败三次或更多次，它会引导你质疑架构本身。
+此技能已移至专用页面 [12. 根本原因调查和事后分析](./12-debugging-and-incident-postmortem.md)。
 
 ### 清理旧的无用代码（未使用的函数/导出/依赖）
 
@@ -163,15 +153,7 @@
 
 ### 为生产事故撰写事后分析报告
 
-<ToolTabs>
-  <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-incident-postmortem --client" />
-  </ToolTabsPanel>
-  <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-incident-postmortem --client" />
-  </ToolTabsPanel>
-</ToolTabs>
-`--client` 另外会创建一个面向客户的摘要，省略内部细节。
+此技能已移至专用页面 [12. 根本原因调查和事后分析](./12-debugging-and-incident-postmortem.md)。
 
 ### 想严格按照文档化的流程执行 RED → GREEN → REFACTOR
 
@@ -327,4 +309,4 @@
 
 ---
 
-[Previous: 12. Executor / Code-gen Prompt patterns](./12-executor-and-codegen-patterns.md) - [Next: 14. Prerequisites and installation](./14-prerequisites-installation.md)
+[Previous: 13. Executor / Code-gen 提示模式](./13-executor-and-codegen-patterns.md) - [Next: 15. 前置条件与安装](./15-prerequisites-installation.md)

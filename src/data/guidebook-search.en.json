@@ -55,18 +55,23 @@
     "summary": "The two Skills answer different questions."
   },
   {
-    "slug": "12-executor-and-codegen-patterns",
-    "title": "12. Executor / Code-gen Prompt patterns",
+    "slug": "12-debugging-and-incident-postmortem",
+    "title": "12. Debugging and incident postmortems",
+    "summary": "The two Skills answer different questions."
+  },
+  {
+    "slug": "13-executor-and-codegen-patterns",
+    "title": "13. Executor / Code-gen Prompt patterns",
     "summary": "ywc-sequential-executor , ywc-parallel-executor , and ywc-code-gen are the three Skills whose many options make you repeatedly look up exact syntax."
   },
   {
-    "slug": "13-skill-reference",
-    "title": "13. Full Skill Reference",
+    "slug": "14-skill-reference",
+    "title": "14. Full Skill Reference",
     "summary": "This page groups the remaining Skills not covered in the previous workflow guides by what you want to do ."
   },
   {
-    "slug": "14-prerequisites-installation",
-    "title": "14. Prerequisites and installation",
+    "slug": "15-prerequisites-installation",
+    "title": "15. Prerequisites and installation",
     "summary": "To use ywc-* Skills reliably, a few tools need to be in place beforehand."
   }
 ]

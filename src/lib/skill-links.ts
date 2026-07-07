@@ -3,10 +3,12 @@
 // everything falls back to the full skill reference except mentions that already
 // have a topically exact guide.
 const SKILL_GUIDEBOOK_SLUG_OVERRIDES: Record<string, string> = {
-  "ywc-agentic": "06-agentic-autonomous-loop"
+  "ywc-agentic": "06-agentic-autonomous-loop",
+  "ywc-debug-rootcause": "12-debugging-and-incident-postmortem",
+  "ywc-incident-postmortem": "12-debugging-and-incident-postmortem"
 };
 
-const DEFAULT_SKILL_GUIDEBOOK_SLUG = "13-skill-reference";
+const DEFAULT_SKILL_GUIDEBOOK_SLUG = "14-skill-reference";
 
 export function getSkillGuidebookTarget(skillName: string): string {
   const normalized = skillName.replace(/^\//, "");
