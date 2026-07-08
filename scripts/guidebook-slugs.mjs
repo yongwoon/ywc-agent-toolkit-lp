@@ -7,12 +7,15 @@
 // guidebookNavGroups is the single source of truth for page order/membership
 // (src/lib/guidebook-nav-content.ts, generateStaticParams). Keeping this list
 // here (rather than re-deriving it from a directory scan) is what lets both
-// scripts stop mismatching the actual directory contents (e.g. treating
-// README.md as a page) or missing future non-numeric-prefixed slugs.
+// scripts stop silently missing future non-numeric-prefixed slugs (the
+// numeric-prefix regex the scan used to run required a leading digit, so it
+// never matched README.md -- but it would have silently excluded any future
+// page added without one).
 //
 // Kept in the same order as guidebookNavGroups so a reviewer can diff this
-// file against guidebook-nav.ts's 16 entries to catch drift.
-export const guidebookSlugs = [
+// file against guidebook-nav.ts's 16 entries to catch drift. Frozen so the
+// two importing scripts can't accidentally mutate shared module state.
+export const guidebookSlugs = Object.freeze([
   "01-introduction",
   "02-core-concepts",
   "03-quickstart",
@@ -29,4 +32,4 @@ export const guidebookSlugs = [
   "14-skill-reference",
   "15-prerequisites-installation",
   "16-code-structure-and-maintainability"
-];
+]);
