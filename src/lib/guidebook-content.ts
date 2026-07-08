@@ -25,7 +25,6 @@ export type GuidebookTocItem = {
 export type GuidebookFrontmatter = {
   title: string;
   description?: string;
-  order?: number;
   slug?: string;
   group?: string;
   [key: string]: unknown;
@@ -151,7 +150,6 @@ function normalizeGuidebookFrontmatter(
 ): GuidebookFrontmatter {
   const title =
     readOptionalString(data, "title") ?? extractFirstHeadingTitle(content) ?? inferTitleFromFilePath(filePath);
-  const order = readOptionalNumber(data, "order") ?? inferOrderFromFilePath(filePath);
 
   if (title === undefined) {
     throw new Error('Guidebook content must include frontmatter title, an H1 heading, or a file path title.');
@@ -161,7 +159,6 @@ function normalizeGuidebookFrontmatter(
     ...data,
     title,
     description: readOptionalString(data, "description") ?? extractFirstParagraphText(content),
-    order,
     slug: readOptionalString(data, "slug"),
     group: readOptionalString(data, "group"),
   };
@@ -180,28 +177,6 @@ function readOptionalString(data: Record<string, unknown>, key: string): string 
 
   const trimmed = value.trim();
   return trimmed.length > 0 ? trimmed : undefined;
-}
-
-function readOptionalNumber(data: Record<string, unknown>, key: string): number | undefined {
-  const value = data[key];
-
-  if (value === undefined || value === null) {
-    return undefined;
-  }
-
-  if (typeof value === "number" && Number.isFinite(value)) {
-    return value;
-  }
-
-  if (typeof value === "string" && value.trim().length > 0) {
-    const parsed = Number(value);
-
-    if (Number.isFinite(parsed)) {
-      return parsed;
-    }
-  }
-
-  throw new Error(`Guidebook frontmatter "${key}" must be a finite number when provided.`);
 }
 
 function extractFirstHeadingTitle(markdown: string): string | undefined {
@@ -261,14 +236,6 @@ function inferTitleFromFilePath(filePath: string | undefined): string | undefine
   return title.length > 0 ? title : undefined;
 }
 
-function inferOrderFromFilePath(filePath: string | undefined): number | undefined {
-  if (filePath === undefined) {
-    return undefined;
-  }
-
-  const match = /^(\d+)/.exec(basename(filePath));
-  return match === null ? undefined : Number(match[1]);
-}
 
 const cjkReadingLocales = new Set<Locale>(["ja", "ko", "zh"]);
 const wordsPerMinute = 200;

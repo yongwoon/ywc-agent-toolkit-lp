@@ -3,15 +3,20 @@ import type { Locale } from "@/i18n/locale-list";
 import {
   getGroupLabel,
   guidebookNavGroups,
+  guidebookPages,
   type GuidebookGroupId,
   type GuidebookPageMeta
 } from "@/components/guidebook/guidebook-nav";
 import { loadGuidebookPageForLocale } from "@/lib/guidebook-content";
 
+export type LocalizedGuidebookPageMeta = GuidebookPageMeta & {
+  displayNumber: string;
+};
+
 export type LocalizedGuidebookNavGroup = {
   groupId: GuidebookGroupId;
   label: string;
-  pages: GuidebookPageMeta[];
+  pages: LocalizedGuidebookPageMeta[];
 };
 
 // Sidebar titles/descriptions used to come straight from the hardcoded (Korean-only)
@@ -28,11 +33,15 @@ export const loadLocalizedGuidebookNav = cache(
         pages: await Promise.all(
           group.pages.map(async (page) => {
             const content = await loadGuidebookPageForLocale(locale, page.slug);
+            const displayNumber = String(
+              1 + guidebookPages.findIndex((globalPage) => globalPage.slug === page.slug)
+            ).padStart(2, "0");
 
             return {
               ...page,
               title: content?.frontmatter.title ?? page.title,
-              description: content?.frontmatter.description ?? page.description
+              description: content?.frontmatter.description ?? page.description,
+              displayNumber
             };
           })
         )
@@ -44,7 +53,7 @@ export const loadLocalizedGuidebookNav = cache(
 export function findLocalizedGuidebookPage(
   nav: LocalizedGuidebookNavGroup[],
   slug: string
-): GuidebookPageMeta | undefined {
+): LocalizedGuidebookPageMeta | undefined {
   return nav.flatMap((group) => group.pages).find((page) => page.slug === slug);
 }
 
