@@ -1,5 +1,7 @@
-import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
+
+import { guidebookSlugs } from "./guidebook-slugs.mjs";
 
 const cwd = process.cwd();
 const outDir = path.join(cwd, "out");
@@ -39,23 +41,6 @@ async function readLocales() {
   };
 }
 
-async function readGuidebookSlugs(locales) {
-  const slugSets = await Promise.all(
-    locales.map(async (locale) => {
-      const guidebookDir = path.join(cwd, "src/content/guidebook", locale.code);
-      const entries = await readdir(guidebookDir, { withFileTypes: true });
-
-      return entries
-        .filter((entry) => entry.isFile() && /^\d+-.+\.md$/.test(entry.name))
-        .map((entry) => entry.name.replace(/\.md$/, ""));
-    })
-  );
-
-  return Array.from(new Set(slugSets.flat())).sort((a, b) =>
-    a.localeCompare(b, "en")
-  );
-}
-
 function buildAlternates(locales, defaultLocale, getHref) {
   return [
     ...locales.map((locale) => ({
@@ -90,7 +75,6 @@ function renderUrl({ loc, alternates = [] }) {
 }
 
 const { defaultLocale, locales } = await readLocales();
-const guidebookSlugs = await readGuidebookSlugs(locales);
 const urls = [
   ...locales.map((locale) => ({
     loc: locale.href,
