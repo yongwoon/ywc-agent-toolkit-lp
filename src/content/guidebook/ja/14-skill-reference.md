@@ -1,6 +1,6 @@
 [« 目次に戻る](./README.md)
 
-# 14. 全 Skill リファレンス
+# 15. 全 Skill リファレンス
 
 前のワークフローガイドで扱わなかった残りの Skill を、**やりたいこと**基準でまとめて整理しました。各フロー(Small/Medium/Large cycle、新規 project、onboarding、testing、design)の途中で必要になったときに参照してください。
 

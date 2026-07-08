@@ -66,17 +66,17 @@
   },
   {
     "slug": "13-executor-and-codegen-patterns",
-    "title": "13. Executor / 代码生成提示模式",
+    "title": "14. Executor / 代码生成提示模式",
     "summary": "ywc-sequential-executor 、 ywc-parallel-executor 和 ywc-code-gen 是三个技能，其众多选项会让你反复查找准确的语法。本页按 “你现在想要做什么” 来组织示例，而不是按 Skill 名称。找到你的任务并按原样复制命令。"
   },
   {
     "slug": "14-skill-reference",
-    "title": "14. 完整 Skill 参考",
+    "title": "15. 完整 Skill 参考",
     "summary": "本页面将之前工作流程指南中未涵盖的剩余技能按 你想做的事情 进行分组。在每个流程（小/中/大周期、新项目、入职、测试或设计）中需要时使用它。"
   },
   {
     "slug": "15-prerequisites-installation",
-    "title": "15. 前置条件与安装",
+    "title": "16. 前置条件与安装",
     "summary": "要稳定使用 ywc-* Skill，需要预先准备好一些 Tool。通过 Plugin marketplace 或 Codex plugin 安装时，文件复制和注册会自动处理，但当 Skill 实际运行 时，以下 Tool 需要存在于你的系统中才能正常工作。顺序如下 —— ① 安装必需 Tool → ② 安装 ywc-agent-toolkit 本身（Claude Code / Codex） → 之后是根据情况准备的可选 Tool。"
   }
 ]

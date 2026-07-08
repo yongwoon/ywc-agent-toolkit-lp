@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 13. Executor / 代码生成提示模式
+# 14. Executor / 代码生成提示模式
 
 `ywc-sequential-executor`、`ywc-parallel-executor` 和 `ywc-code-gen` 是三个技能，其众多选项会让你反复查找准确的语法。本页按 **“你现在想要做什么”** 来组织示例，而不是按 Skill 名称。找到你的任务并按原样复制命令。
 

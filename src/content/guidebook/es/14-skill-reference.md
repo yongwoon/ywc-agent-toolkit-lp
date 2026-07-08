@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 14. Referencia completa Skill
+# 15. Referencia completa Skill
 
 Esta página agrupa las Habilidades restantes que no se cubrieron en las guías de flujo de trabajo anteriores según **lo que deseas hacer**. Úsala cuando sea necesario en medio de cada flujo: ciclo Pequeño/Mediano/Grande, nuevo proyecto, incorporación, pruebas o diseño.
 

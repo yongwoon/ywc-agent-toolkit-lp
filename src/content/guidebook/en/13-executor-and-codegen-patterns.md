@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 13. Executor / Code-gen Prompt patterns
+# 14. Executor / Code-gen Prompt patterns
 
 `ywc-sequential-executor`, `ywc-parallel-executor`, and `ywc-code-gen` are the three Skills whose many options make you repeatedly look up exact syntax. This page organizes examples by **"what you are trying to do now"**, not by Skill name. Find your task and copy the command as-is.
 

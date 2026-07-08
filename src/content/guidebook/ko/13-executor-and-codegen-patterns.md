@@ -1,6 +1,6 @@
 [« 목차로 돌아가기](./README.md)
 
-# 12. Executor / Code-gen Prompt 패턴
+# 14. Executor / Code-gen Prompt 패턴
 
 `ywc-sequential-executor`, `ywc-parallel-executor`, `ywc-code-gen` 은 모두 "코드를 만들게 하는" Skill 이지만 쓰는 순간이 다릅니다. 이 페이지는 Skill 이름보다 **지금 하려는 일**을 기준으로 정리했습니다. 먼저 아래 표에서 상황을 고른 뒤, 해당 섹션의 명령을 그대로 복사해 쓰세요.
 

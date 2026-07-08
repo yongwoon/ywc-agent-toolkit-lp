@@ -66,17 +66,17 @@
   },
   {
     "slug": "13-executor-and-codegen-patterns",
-    "title": "12. Executor / Patrones de indicación de generación de código",
+    "title": "14. Executor / Patrones de indicación de generación de código",
     "summary": "ywc-sequential-executor , ywc-parallel-executor y ywc-code-gen son las tres Habilidades cuyas muchas opciones te hacen consultar repetidamente la sintaxis exacta."
   },
   {
     "slug": "14-skill-reference",
-    "title": "14. Referencia completa Skill",
+    "title": "15. Referencia completa Skill",
     "summary": "Esta página agrupa las Habilidades restantes que no se cubrieron en las guías de flujo de trabajo anteriores según lo que deseas hacer ."
   },
   {
     "slug": "15-prerequisites-installation",
-    "title": "15. Requisitos previos e instalación",
+    "title": "16. Requisitos previos e instalación",
     "summary": "Para usar las Skills ywc-* de forma fiable, necesitas tener listas algunas herramientas de antemano."
   }
 ]

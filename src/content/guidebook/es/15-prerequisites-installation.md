@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 15. Requisitos previos e instalación
+# 16. Requisitos previos e instalación
 
 Para usar las Skills `ywc-*` de forma fiable, necesitas tener listas algunas herramientas de antemano. Instalar mediante el Plugin marketplace o el Codex plugin gestiona automáticamente la copia y el registro de archivos, pero cuando una Skill realmente **se ejecuta**, necesita las herramientas de abajo disponibles en tu sistema. El orden es el siguiente — **① instalar las herramientas requeridas → ② instalar ywc-agent-toolkit en sí (Claude Code / Codex)** — todo lo que sigue son herramientas opcionales que preparas según lo necesites.
 

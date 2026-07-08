@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 14. Full Skill Reference
+# 15. Full Skill Reference
 
 This page groups the remaining Skills not covered in the previous workflow guides by **what you want to do**. Use it when needed in the middle of each flow: Small/Medium/Large cycle, new project, onboarding, testing, or design.
 

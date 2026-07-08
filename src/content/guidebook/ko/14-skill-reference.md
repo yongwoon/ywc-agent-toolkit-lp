@@ -1,6 +1,6 @@
 [« 목차로 돌아가기](./README.md)
 
-# 13. 전체 Skill 레퍼런스
+# 15. 전체 Skill 레퍼런스
 
 앞선 워크플로우 가이드에서 다루지 않은 나머지 Skill 을 **하려는 일** 기준으로 묶어 정리했습니다. 각 흐름(Small/Medium/Large cycle, 신규 project, onboarding, testing, design)의 중간중간 필요할 때 참고하세요.
 
