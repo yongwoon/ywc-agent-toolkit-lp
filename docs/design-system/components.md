@@ -29,7 +29,7 @@ Compact mono pill for status / counts / lanes. `variant`: `neutral|amber|cyan|pa
 decoratively. Radius `--radius-pill`, size `--text-label`.
 
 ```tsx
-<Badge variant="amber" dot>42 skills</Badge>
+<Badge variant="amber" dot>46 skills</Badge>
 <Badge variant="pass" dot>merged</Badge>
 ```
 
@@ -61,11 +61,11 @@ centered mono title; radius `--radius-lg`.
 ## StatCard
 Feature-grid stat tile. Props: `value`, `unit`, `label`, `description`, `eyebrow`,
 `lane` (`claude` = amber, `codex` = cyan). Big display figure; hover lifts 2px + reveals lane
-border. Used for the 42/12 (Claude) and 42/7 (Codex) split — **hero says "expert agents", exact
+border. Used for the 46/13 (Claude) and 46/8 (Codex) split — **hero says "expert agents", exact
 counts live here.**
 
 ```tsx
-<StatCard lane="claude" eyebrow="claude code" value="42" unit="skills"
+<StatCard lane="claude" eyebrow="claude code" value="46" unit="skills"
   label="Workflow skills" description="Plan → spec → code → review → release." />
 ```
 

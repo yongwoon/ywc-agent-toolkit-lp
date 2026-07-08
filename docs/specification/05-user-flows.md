@@ -7,7 +7,7 @@
 **Steps**:
 1. 방문자가 hero 섹션에서 핵심 가치 제안을 읽는다
 2. System이 problem/solution 섹션에서 현재 워크플로우와의 차이를 보여준다
-3. 방문자가 feature-grid에서 tool별 skill/agent 규모(Claude Code 42개/12개, Codex 42개/7개)를 확인한다
+3. 방문자가 feature-grid에서 tool별 skill/agent 규모(Claude Code 46개/13개, Codex 46개/8개)를 확인한다
 4. 방문자가 install-steps로 스크롤해 자신의 도구(Claude Code 또는 Codex)에 해당하는 명령을 복사한다
 5. 방문자가 터미널에서 명령을 실행해 설치를 완료한다
 

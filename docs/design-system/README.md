@@ -55,6 +55,6 @@ family to the generated CSS variable). CJK families are already appended in `--c
 - Hairline 1px borders; nearly-square radii; flat cards with a lit top edge — **not** floating drop-shadows.
 - Mono for commands, labels, badges, nav, buttons, eyebrows. **No emoji. No invented logo.**
 - Motion is transform/opacity/clip-path only, guarded by `prefers-reduced-motion`.
-- Hero says "expert agents" (agent counts differ 12/7); exact counts only in the feature grid.
+- Hero says "expert agents" (agent counts differ 13/8); exact counts only in the feature grid.
 
 See `../../readme.md` (design-system project root) for the exhaustive CONTENT and VISUAL foundations.

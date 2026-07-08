@@ -14,7 +14,7 @@ Do not assume any source files exist beyond what `ls`/`find` confirms. Treat `do
 
 ## What This Project Is
 
-A public, 5-locale (en/ja/ko/zh/es) marketing landing page for `ywc-agent-toolkit` (a distribution toolkit of 42 skills and per-tool custom agents — 12 for Claude Code, 7 for Codex — published on GitHub). It targets the information structure and polish level of ohmyclaudecode.com: hero → problem/solution → features → install → social proof → FAQ. Deployed as a zero-server static export to GitHub Pages.
+A public, 5-locale (en/ja/ko/zh/es) marketing landing page for `ywc-agent-toolkit` (a distribution toolkit of 46 skills and per-tool custom agents — 13 for Claude Code, 8 for Codex — published on GitHub). It targets the information structure and polish level of ohmyclaudecode.com: hero → problem/solution → features → install → social proof → FAQ. Deployed as a zero-server static export to GitHub Pages.
 
 Full context: `docs/mission.md` (success criteria SC001–SC003, rejected approaches RA001–RA003) and `docs/specification/01-overview.md` (scope, constraints, stakeholders).
 
@@ -30,7 +30,7 @@ Load-bearing constraints (all from `docs/tech-stack.md` and `docs/specification/
 - **Root `src/app/page.tsx` is a static redirect stub**, not real content — a `<meta http-equiv="refresh" content="0; url=/en/">` plus hreflang links to all 5 locales (works with JS disabled), with a `useEffect` `navigator.language` match layered on top only as progressive enhancement.
 - **`en.json` is the source of truth** for `src/messages/*.json`; other locales are translated from it. A missing key in any non-en catalog must **fail the build** (build-time key-parity check), not silently ship a broken locale page.
 - **CSP is hash-based, not nonce-based** (`<meta http-equiv="Content-Security-Policy">` with `'sha256-<hash>'`) — GitHub Pages can't set response headers, and nonces don't work against a pre-built static HTML file served identically to every visitor.
-- **Hero and Feature Grid must never contradict each other on agent counts.** Hero copy uses tool-agnostic language ("expert agents") because Claude Code (12) and Codex (7) have different agent counts; only Feature Grid states the exact per-tool numbers. This is a recurring spec-validation failure mode — check it whenever touching either section.
+- **Hero and Feature Grid must never contradict each other on agent counts.** Hero copy uses tool-agnostic language ("expert agents") because Claude Code (13) and Codex (8) have different agent counts; only Feature Grid states the exact per-tool numbers. This is a recurring spec-validation failure mode — check it whenever touching either section.
 - No backend, no database, no auth, no forms — anything resembling `lib/api/`, `prisma/`, or client-side app state stores is out of scope by design.
 
 ## Working From the Task List

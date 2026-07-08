@@ -26,7 +26,7 @@ export async function Hero() {
     <section className="relative overflow-hidden border-b border-border-subtle">
       <div className="mx-auto grid max-w-[var(--container-wide)] gap-10 px-[var(--gutter)] py-[clamp(4rem,2.5rem+7vw,8rem)] lg:grid-cols-[minmax(0,1fr)_minmax(22rem,0.78fr)] lg:items-center">
         <div className="max-w-[780px]">
-          <SectionEyebrow>42 skills</SectionEyebrow>
+          <SectionEyebrow>46 skills</SectionEyebrow>
           <h1 className="mt-5 font-display text-display font-bold leading-[var(--lh-tight)] tracking-[var(--ls-normal)] text-text-bright">
             {t("headline")}
           </h1>
