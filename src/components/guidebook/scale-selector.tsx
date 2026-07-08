@@ -1,11 +1,12 @@
 import type { Locale } from "@/i18n/locale-list";
 import { withBasePath } from "@/lib/base-path";
-import { getGuidebookHref, type GuidebookPageMeta } from "./guidebook-nav";
+import type { LocalizedGuidebookPageMeta } from "@/lib/guidebook-nav-content";
+import { formatGuidebookPageTitle, getGuidebookHref } from "./guidebook-nav";
 
 type ScaleSelectorProps = {
   locale: Locale;
   currentSlug: string;
-  pages: readonly GuidebookPageMeta[];
+  pages: readonly LocalizedGuidebookPageMeta[];
 };
 
 type ScaleSelectorCopy = {
@@ -58,7 +59,7 @@ export function ScaleSelector({ locale, currentSlug, pages }: ScaleSelectorProps
                 </span>
               ) : null}
               <span className="block font-mono text-[var(--text-mono-sm)] font-semibold text-text-bright">
-                {page.title}
+                {formatGuidebookPageTitle(page)}
               </span>
               <span className="mt-1 block text-sm leading-relaxed text-text-muted">
                 {page.description}
