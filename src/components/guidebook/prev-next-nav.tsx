@@ -1,12 +1,13 @@
 import type { Locale } from "@/i18n/locale-list";
 import { withBasePath } from "@/lib/base-path";
 import { Badge } from "@/components/ui/badge";
-import { getGuidebookHref, type GuidebookPageMeta } from "./guidebook-nav";
+import type { LocalizedGuidebookPageMeta } from "@/lib/guidebook-nav-content";
+import { formatGuidebookPageTitle, getGuidebookHref } from "./guidebook-nav";
 
 type PrevNextNavProps = {
   locale: Locale;
-  previous: GuidebookPageMeta | undefined;
-  next: GuidebookPageMeta | undefined;
+  previous: LocalizedGuidebookPageMeta | undefined;
+  next: LocalizedGuidebookPageMeta | undefined;
 };
 
 function NavCard({
@@ -16,7 +17,7 @@ function NavCard({
 }: {
   direction: "Previous" | "Next";
   locale: Locale;
-  page: GuidebookPageMeta | undefined;
+  page: LocalizedGuidebookPageMeta | undefined;
 }) {
   if (!page) {
     return <div className="hidden min-[560px]:block" />;
@@ -31,7 +32,7 @@ function NavCard({
         {direction}
       </span>
       <span className="mt-2 block font-mono text-[var(--text-mono)] font-semibold text-accent">
-        {page.title}
+        {formatGuidebookPageTitle(page)}
       </span>
       <span className="mt-2 block text-sm leading-relaxed text-text-muted">
         {page.description}

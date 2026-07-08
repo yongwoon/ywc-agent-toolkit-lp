@@ -4,6 +4,7 @@ import { hasLocale } from "next-intl";
 import type { Locale } from "@/i18n/locale-list";
 import { routing } from "@/i18n/routing";
 import {
+  formatGuidebookPageTitle,
   getGroupLabel,
   getGuidebookHref,
   getGuidebookRootHref,
@@ -92,7 +93,7 @@ export default async function Page({ params }: GuidebookPageProps) {
   }
 
   const content = await loadGuidebookPageForLocale(locale, slug);
-  const pageTitle = navPage.title;
+  const pageTitle = formatGuidebookPageTitle(navPage);
   const pageDescription = navPage.description;
   const { previous, next } = getLocalizedAdjacentGuidebookPages(nav, slug);
   const tocItems: GuidebookPage["toc"] = content?.toc ?? [

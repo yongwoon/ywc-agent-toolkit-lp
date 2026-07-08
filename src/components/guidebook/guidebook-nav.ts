@@ -69,6 +69,23 @@ export function getGroupLabel(locale: Locale | string, groupId: GuidebookGroupId
   return labels[groupId];
 }
 
+// Defined here (not in guidebook-nav-content.ts, which also holds
+// LocalizedGuidebookPageMeta) so client components can import it without
+// pulling in guidebook-nav-content.ts's node:fs/promises-dependent chain
+// (loadLocalizedGuidebookNav -> loadGuidebookPageForLocale).
+//
+// The 80 existing markdown files' H1 text (and therefore their
+// locale-content-derived title) still carries its original "NN. " prefix --
+// out of scope to rewrite per the refactor's render-time-override variant.
+// Strip any such prefix here before applying the computed displayNumber, so
+// existing pages don't render "16. 16. Title" while never trusting the H1's
+// literal digits as the actual order source (displayNumber already comes
+// from array position, computed upstream).
+export function formatGuidebookPageTitle(page: { displayNumber: string; title: string }): string {
+  const title = page.title.replace(/^\d+\.\s*/, "");
+  return `${page.displayNumber}. ${title}`;
+}
+
 export const guidebookNavGroups: readonly GuidebookNavGroup[] = [
   {
     groupId: "prologue",
