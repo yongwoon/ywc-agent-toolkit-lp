@@ -29,7 +29,7 @@
     }
   },
   "hero": {
-    "headline": "42 skills and expert agents for Claude Code and Codex.",
+    "headline": "46 skills and expert agents for Claude Code and Codex.",
     "subheading": "Automate the full development workflow — from planning and spec writing to code generation, review, and release without leaving your terminal.",
     "ctaLabels": {
       "install": "Install",
@@ -42,7 +42,7 @@
     "demoInstallCommandCodex": "codex plugin add ywc-agent-toolkit@ywc-agent-toolkit",
     "demoResolving": "resolving marketplace source yongwoon/ywc-agent-toolkit",
     "demoResolvingCodex": "resolving plugin marketplace source yongwoon/ywc-agent-toolkit",
-    "demoInstalled": "installed 42 skills for Claude Code and Codex",
+    "demoInstalled": "installed 46 skills for Claude Code and Codex",
     "demoRestart": "restart your tool to load the toolkit",
     "demoRestartCodex": "restart Codex to load the toolkit"
   },
@@ -68,7 +68,7 @@
   "pipeline": {
     "eyebrow": "How it works",
     "title": "An opinionated pipeline, not a skill grab-bag.",
-    "description": "Most of the 42 skills chain into one sequence instead of standing alone as independent prompts you have to order yourself.",
+    "description": "Most of the 46 skills chain into one sequence instead of standing alone as independent prompts you have to order yourself.",
     "steps": [
       {
         "skill": "ywc-plan",
@@ -110,8 +110,8 @@
     }
   },
   "featureGrid": {
-    "title": "Seven categories, one pipeline, two tools.",
-    "description": "42 skills organized by what they do, not just how many there are.",
+    "title": "Eight categories, one pipeline, two tools.",
+    "description": "46 skills organized by what they do, not just how many there are.",
     "items": [
       {
         "label": "Planning & Spec",
@@ -144,14 +144,20 @@
         "lane": "claude"
       },
       {
+        "label": "Infrastructure & Cloud",
+        "value": "4 skills",
+        "description": "Provision, review, and optimize infrastructure as code without leaving your terminal.",
+        "lane": "codex"
+      },
+      {
         "label": "Claude Code agents",
-        "value": "12 agents",
+        "value": "13 agents",
         "description": "Specialist read-only agents for architecture, security, performance, and language-specific review.",
         "lane": "claude"
       },
       {
         "label": "Codex agents",
-        "value": "7 agents",
+        "value": "8 agents",
         "description": "The same specialist coverage, packaged as read-only Codex agents.",
         "lane": "codex"
       }
@@ -245,7 +251,7 @@
       },
       {
         "question": "Does it work with both Claude Code and Codex?",
-        "answer": "Yes. Both tools receive 42 skills. Claude Code includes 12 custom agents, while Codex includes 7 custom agents."
+        "answer": "Yes. Both tools receive 46 skills. Claude Code includes 13 custom agents, while Codex includes 8 custom agents."
       },
       {
         "question": "Do I need to clone the repository?",
@@ -269,7 +275,7 @@
       },
       {
         "question": "How is this different from a generic skill collection?",
-        "answer": "Most of the 42 skills are wired into one opinionated pipeline (plan → spec → tasks → execute → test) instead of standing alone as prompts you sequence yourself, and confirmed defects feed a review-learnings loop that tightens future reviews automatically."
+        "answer": "Most of the 46 skills are wired into one opinionated pipeline (plan → spec → tasks → execute → test) instead of standing alone as prompts you sequence yourself, and confirmed defects feed a review-learnings loop that tightens future reviews automatically."
       },
       {
         "question": "Can I contribute a skill?",
@@ -321,8 +327,8 @@
     "copyright": "© 2026 yongwoon. ywc-agent-toolkit is an open source project."
   },
   "seo": {
-    "title": "ywc-agent-toolkit — 42 skills and expert agents for Claude Code and Codex",
-    "description": "A static landing page for installing ywc-agent-toolkit, with 42 skills for Claude Code and Codex plus tool-specific custom agents.",
+    "title": "ywc-agent-toolkit — 46 skills and expert agents for Claude Code and Codex",
+    "description": "A static landing page for installing ywc-agent-toolkit, with 46 skills for Claude Code and Codex plus tool-specific custom agents.",
     "canonicalPath": "/en/",
     "ogImage": "/og-image.png",
     "alternates": [

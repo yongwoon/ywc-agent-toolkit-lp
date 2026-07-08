@@ -29,7 +29,7 @@
     }
   },
   "hero": {
-    "headline": "为 Claude Code 和 Codex 提供 42 skills 与 expert agents。",
+    "headline": "为 Claude Code 和 Codex 提供 46 skills 与 expert agents。",
     "subheading": "从规划和规格编写，到代码生成、review 和 release，在不离开 terminal 的情况下自动化完整 development workflow。",
     "ctaLabels": {
       "install": "安装",
@@ -42,7 +42,7 @@
     "demoInstallCommandCodex": "codex plugin add ywc-agent-toolkit@ywc-agent-toolkit",
     "demoResolving": "正在解析 marketplace source yongwoon/ywc-agent-toolkit",
     "demoResolvingCodex": "正在解析 plugin marketplace source yongwoon/ywc-agent-toolkit",
-    "demoInstalled": "已为 Claude Code 和 Codex 安装 42 skills",
+    "demoInstalled": "已为 Claude Code 和 Codex 安装 46 skills",
     "demoRestart": "重启 tool 以加载 toolkit",
     "demoRestartCodex": "重启 Codex 以加载 toolkit"
   },
@@ -68,7 +68,7 @@
   "pipeline": {
     "eyebrow": "工作原理",
     "title": "一个有明确主张的 pipeline，而不是一堆 skill 的大杂烩。",
-    "description": "42 个 skills 中的大部分会串联成一个 sequence，而不是作为需要你自己排序的独立 prompt 各自独立存在。",
+    "description": "46 个 skills 中的大部分会串联成一个 sequence，而不是作为需要你自己排序的独立 prompt 各自独立存在。",
     "steps": [
       {
         "skill": "ywc-plan",
@@ -110,8 +110,8 @@
     }
   },
   "featureGrid": {
-    "title": "七个类别，一个 pipeline，两种 tool。",
-    "description": "42 个 skills 按照它们的功能分类，而不仅仅按数量划分。",
+    "title": "八个类别，一个 pipeline，两种 tool。",
+    "description": "46 个 skills 按照它们的功能分类，而不仅仅按数量划分。",
     "items": [
       {
         "label": "Planning & Spec",
@@ -144,14 +144,20 @@
         "lane": "claude"
       },
       {
+        "label": "Infrastructure & Cloud",
+        "value": "4 skills",
+        "description": "无需离开 terminal，即可以代码形式构建、评审并优化 infrastructure。",
+        "lane": "codex"
+      },
+      {
         "label": "Claude Code agents",
-        "value": "12 agents",
+        "value": "13 agents",
         "description": "面向 architecture、security、performance 和 language-specific review 的 specialist read-only agents。",
         "lane": "claude"
       },
       {
         "label": "Codex agents",
-        "value": "7 agents",
+        "value": "8 agents",
         "description": "相同的 specialist coverage，打包为 read-only 的 Codex agents。",
         "lane": "codex"
       }
@@ -245,7 +251,7 @@
       },
       {
         "question": "它同时支持 Claude Code 和 Codex 吗？",
-        "answer": "是的。两种 tool 都获得 42 skills。Claude Code 包含 12 custom agents，Codex 包含 7 custom agents。"
+        "answer": "是的。两种 tool 都获得 46 skills。Claude Code 包含 13 custom agents，Codex 包含 8 custom agents。"
       },
       {
         "question": "我需要 clone repository 吗？",
@@ -269,7 +275,7 @@
       },
       {
         "question": "这和一个通用的 skill collection 有什么不同？",
-        "answer": "42 个 skills 中的大部分被串联进一个有明确主张的 pipeline（plan → spec → tasks → execute → test），而不是作为你需要自己排序的独立 prompt 各自存在，并且确认的 defect 会反馈到 review-learnings loop 中，自动收紧未来的 review。"
+        "answer": "46 个 skills 中的大部分被串联进一个有明确主张的 pipeline（plan → spec → tasks → execute → test），而不是作为你需要自己排序的独立 prompt 各自存在，并且确认的 defect 会反馈到 review-learnings loop 中，自动收紧未来的 review。"
       },
       {
         "question": "我可以贡献一个 skill 吗？",
@@ -321,8 +327,8 @@
     "copyright": "© 2026 yongwoon. ywc-agent-toolkit 是 open source project。"
   },
   "seo": {
-    "title": "ywc-agent-toolkit — 为 Claude Code 和 Codex 提供 42 skills 与 expert agents",
-    "description": "用于安装 ywc-agent-toolkit 的 static landing page，为 Claude Code 和 Codex 提供 42 skills 与 tool-specific custom agents。",
+    "title": "ywc-agent-toolkit — 为 Claude Code 和 Codex 提供 46 skills 与 expert agents",
+    "description": "用于安装 ywc-agent-toolkit 的 static landing page，为 Claude Code 和 Codex 提供 46 skills 与 tool-specific custom agents。",
     "canonicalPath": "/zh/",
     "ogImage": "/og-image.png",
     "alternates": [
