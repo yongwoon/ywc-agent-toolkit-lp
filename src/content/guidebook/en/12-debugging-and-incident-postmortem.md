@@ -43,4 +43,4 @@ This prevents patches that only address symptoms and forces a four-step root-cau
 
 ---
 
-[Previous: 11. Reviewing and improving design](./11-design-review.md) - [Next: 13. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md)
+[Previous: 11. Reviewing and improving design](./11-design-review.md) - [Next: 13. Managing Code Structure and Maintainability](./16-code-structure-and-maintainability.md)

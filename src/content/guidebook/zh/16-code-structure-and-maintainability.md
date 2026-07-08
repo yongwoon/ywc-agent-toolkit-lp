@@ -1,6 +1,6 @@
 [« 返回目录](./README.md)
 
-# 16. 管理代码结构与可维护性
+# 13. 管理代码结构与可维护性
 
 ## 何时使用这 4 个 Skill
 
@@ -95,4 +95,4 @@
 
 ---
 
-[← 上一页：15. 事前准备与安装](./15-prerequisites-installation.md) · [返回目录 »](./README.md)
+[Previous: 12. 根本原因调查和事后分析](./12-debugging-and-incident-postmortem.md) - [Next: 14. Executor / 代码生成提示模式](./13-executor-and-codegen-patterns.md)

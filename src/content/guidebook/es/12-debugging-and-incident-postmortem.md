@@ -43,4 +43,4 @@ Esto evita los parches que solo abordan los síntomas y obliga a una investigaci
 
 ---
 
-[Previous: 11. Revisando y mejorando el diseño](./11-design-review.md) - [Next: 13. Executor / Patrones de indicación de generación de código](./13-executor-and-codegen-patterns.md)
+[Previous: 11. Revisando y mejorando el diseño](./11-design-review.md) - [Next: 13. Gestionar la estructura del código y la mantenibilidad](./16-code-structure-and-maintainability.md)

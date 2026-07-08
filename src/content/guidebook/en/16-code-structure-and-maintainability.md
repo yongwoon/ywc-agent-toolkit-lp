@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 16. Managing Code Structure and Maintainability
+# 13. Managing Code Structure and Maintainability
 
 ## When to use these 4 Skills
 
@@ -95,4 +95,4 @@ Once the restructuring is done, run a 5-axis review before opening the PR to cat
 
 ---
 
-[Previous: 15. Prerequisites and installation](./15-prerequisites-installation.md) · [Back to table of contents »](./README.md)
+[Previous: 12. Debugging and incident postmortems](./12-debugging-and-incident-postmortem.md) - [Next: 14. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md)

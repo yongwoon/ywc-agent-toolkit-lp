@@ -19,25 +19,25 @@ This is organized around **what you are trying to do now**, not "which Skills ex
 | Give one goal and have the system finish from planning through implementation automatically | `ywc-agentic` | [06](./06-agentic-autonomous-loop.md) |
 | Design a completely new project from scratch | `ywc-project-scaffold` | [07](./07-starting-a-new-project.md) |
 | Understand an unfamiliar repo/codebase for the first time | `ywc-onboard-repo` | [08](./08-onboarding-existing-repo.md) |
-| Execute Tasks that are already decomposed (sequential/parallel) | `ywc-sequential-executor` / `ywc-parallel-executor` | [13](./13-executor-and-codegen-patterns.md) |
-| Clarify an idea that is not concrete yet | `ywc-brainstorm` | [14](./14-skill-reference.md) |
+| Execute Tasks that are already decomposed (sequential/parallel) | `ywc-sequential-executor` / `ywc-parallel-executor` | [14](./13-executor-and-codegen-patterns.md) |
+| Clarify an idea that is not concrete yet | `ywc-brainstorm` | [15](./14-skill-reference.md) |
 | Create a manual test document for PR verification | `ywc-gen-testcase` | [09](./09-testing-guide.md) |
 | Set up or expand E2E test automation | `ywc-e2e-test-strategy` | [10](./10-e2e-test-strategy.md) |
 | Check screen usability or accessibility | `ywc-ui-ux-review` | [11](./11-design-review.md) |
 | Improve a screen that feels visually ordinary | `ywc-design-renew` | [11](./11-design-review.md) |
-| Check code for security vulnerabilities | `ywc-security-audit` | [14](./14-skill-reference.md) |
+| Check code for security vulnerabilities | `ywc-security-audit` | [15](./14-skill-reference.md) |
 | You are stuck because you cannot find the root cause of a bug | `ywc-debug-rootcause` | [12](./12-debugging-and-incident-postmortem.md) |
 | A production incident happened and you need to write a postmortem | `ywc-incident-postmortem` | [12](./12-debugging-and-incident-postmortem.md) |
-| Clean up old dead code | `ywc-refactor-clean` | [16](./16-code-structure-and-maintainability.md) |
-| Respond to review comments on an open PR | `ywc-handle-pr-reviews` | [14](./14-skill-reference.md) |
-| Clean up a backlog of Dependabot PRs at once | `ywc-merge-dependabot` | [14](./14-skill-reference.md) |
-| Write a CHANGELOG or release note | `ywc-changelog-release-notes` | [14](./14-skill-reference.md) |
-| Just commit the work done so far | `ywc-commit` | [14](./14-skill-reference.md) |
-| Structure is tangled or implementation quality is poor from a maintainability standpoint | `ywc-improve-architecture` | [16](./16-code-structure-and-maintainability.md) |
-| Compare libraries or implementation approaches to decide what to use | `ywc-tech-research` | [14](./14-skill-reference.md) |
-| Manage knowledge (glossary/review learnings/mission) that persists in the project after the conversation ends | `ywc-ubiquitous-language` | [14](./14-skill-reference.md) |
+| Clean up old dead code | `ywc-refactor-clean` | [13](./16-code-structure-and-maintainability.md) |
+| Respond to review comments on an open PR | `ywc-handle-pr-reviews` | [15](./14-skill-reference.md) |
+| Clean up a backlog of Dependabot PRs at once | `ywc-merge-dependabot` | [15](./14-skill-reference.md) |
+| Write a CHANGELOG or release note | `ywc-changelog-release-notes` | [15](./14-skill-reference.md) |
+| Just commit the work done so far | `ywc-commit` | [15](./14-skill-reference.md) |
+| Structure is tangled or implementation quality is poor from a maintainability standpoint | `ywc-improve-architecture` | [13](./16-code-structure-and-maintainability.md) |
+| Compare libraries or implementation approaches to decide what to use | `ywc-tech-research` | [15](./14-skill-reference.md) |
+| Manage knowledge (glossary/review learnings/mission) that persists in the project after the conversation ends | `ywc-ubiquitous-language` | [15](./14-skill-reference.md) |
 
-For situations not covered in this table, see [14. Full Skill Reference](./14-skill-reference.md).
+For situations not covered in this table, see [15. Full Skill Reference](./14-skill-reference.md).
 
 ## Table of contents
 
@@ -67,15 +67,15 @@ For situations not covered in this table, see [14. Full Skill Reference](./14-sk
 | [10. E2E Test automation strategy](./10-e2e-test-strategy.md) | An advanced guide to setting up, expanding, and maintaining a Playwright-based E2E Suite |
 | [11. Reviewing and improving design](./11-design-review.md) | How to distinguish and apply usability audits and visual De-slop Renewal |
 | [12. Debugging and incident postmortems](./12-debugging-and-incident-postmortem.md) | How ywc-debug-rootcause drives a root-cause investigation and ywc-incident-postmortem writes the follow-up report |
+| [13. Managing Code Structure and Maintainability](./16-code-structure-and-maintainability.md) | How to use the 4 Skills that clean up, restructure, and verify code with poor structure or maintainability, and the order they work together in |
 
 ### Reference
 
 | Page | Description |
 |---|---|
-| [13. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md) | Practical command examples for option-heavy `ywc-sequential-executor` / `ywc-parallel-executor` / `ywc-code-gen` |
-| [14. Full Skill Reference](./14-skill-reference.md) | An index of the remaining Skills not covered in the guides above, organized by situation |
-| [15. Prerequisites and installation](./15-prerequisites-installation.md) | The required and optional tools you need in place before ywc-* Skills run reliably |
-| [16. Managing Code Structure and Maintainability](./16-code-structure-and-maintainability.md) | How to use the 4 Skills that clean up, restructure, and verify code with poor structure or maintainability, and the order they work together in |
+| [14. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md) | Practical command examples for option-heavy `ywc-sequential-executor` / `ywc-parallel-executor` / `ywc-code-gen` |
+| [15. Full Skill Reference](./14-skill-reference.md) | An index of the remaining Skills not covered in the guides above, organized by situation |
+| [16. Prerequisites and installation](./15-prerequisites-installation.md) | The required and optional tools you need in place before ywc-* Skills run reliably |
 
 ## Source material
 

@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 15. Prerequisites and installation
+# 16. Prerequisites and installation
 
 To use `ywc-*` Skills reliably, a few tools need to be in place beforehand. Installing via the Plugin marketplace or Codex plugin handles file copying and registration automatically, but when a Skill actually **runs**, it needs the tools below available on your system. The order is: **① install the required tools → ② install ywc-agent-toolkit itself (Claude Code / Codex)** — everything below that is an optional tool you prepare as needed.
 
@@ -162,4 +162,4 @@ gh pr checks --watch
 
 ---
 
-[Previous: 14. Full Skill Reference](./14-skill-reference.md) - [Next: 16. Managing Code Structure and Maintainability](./16-code-structure-and-maintainability.md)
+[Previous: 15. Full Skill Reference](./14-skill-reference.md) · [Back to table of contents »](./README.md)

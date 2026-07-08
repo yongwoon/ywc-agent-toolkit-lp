@@ -1,6 +1,6 @@
 [« 目次に戻る](./README.md)
 
-# 16. コード構造と保守性の管理
+# 13. コード構造と保守性の管理
 
 ## いつこの 4 つの Skill を使うか
 
@@ -95,4 +95,4 @@ dead code を取り除いても shallow module の山が残っているなら、
 
 ---
 
-[← 前へ: 15. 事前準備とインストール](./15-prerequisites-installation.md) · [目次に戻る »](./README.md)
+[← 前: 12. デバッグとインシデント事後分析](./12-debugging-and-incident-postmortem.md) · [次: 14. Executor / Code-gen Prompt パターン →](./13-executor-and-codegen-patterns.md)

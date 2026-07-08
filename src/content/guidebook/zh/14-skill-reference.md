@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 14. 完整 Skill 参考
+# 15. 完整 Skill 参考
 
 本页面将之前工作流程指南中未涵盖的剩余技能按**你想做的事情**进行分组。在每个流程（小/中/大周期、新项目、入职、测试或设计）中需要时使用它。
 
@@ -145,19 +145,19 @@
 
 ### 清理旧的无用代码（未使用的函数/导出/依赖）
 
-这已移至专用的 `ywc-refactor-clean` 页面。用法和示例请参见 [16. 管理代码结构与可维护性](./16-code-structure-and-maintainability.md)。
+这已移至专用的 `ywc-refactor-clean` 页面。用法和示例请参见 [13. 管理代码结构与可维护性](./16-code-structure-and-maintainability.md)。
 
 ### 想将纠缠不清的 shallow module 结构重构为 deep module
 
-这已移至专用的 `ywc-improve-architecture` 页面。用法和示例请参见 [16. 管理代码结构与可维护性](./16-code-structure-and-maintainability.md)。
+这已移至专用的 `ywc-improve-architecture` 页面。用法和示例请参见 [13. 管理代码结构与可维护性](./16-code-structure-and-maintainability.md)。
 
 ### 想在常规 cycle 之外，独立检查实现质量和 maintenance 角度
 
-这已移至专用的 `ywc-impl-review` 页面。用法和示例请参见 [16. 管理代码结构与可维护性](./16-code-structure-and-maintainability.md)。
+这已移至专用的 `ywc-impl-review` 页面。用法和示例请参见 [13. 管理代码结构与可维护性](./16-code-structure-and-maintainability.md)。
 
 ### 想衡量 agent 修改代码所需的 token 成本和可读性
 
-这已移至专用的 `ywc-agent-legibility-audit` 页面。用法和示例请参见 [16. 管理代码结构与可维护性](./16-code-structure-and-maintainability.md)。
+这已移至专用的 `ywc-agent-legibility-audit` 页面。用法和示例请参见 [13. 管理代码结构与可维护性](./16-code-structure-and-maintainability.md)。
 
 ### 为生产事故撰写事后分析报告
 
@@ -321,11 +321,11 @@
 
 | Skill | 说明 | 位置 |
 |---|---|---|
-| `ywc-agent-legibility-audit` | 想衡量 agent 修改代码所需的 token 成本和可读性 | [16](./16-code-structure-and-maintainability.md) |
+| `ywc-agent-legibility-audit` | 想衡量 agent 修改代码所需的 token 成本和可读性 | [13](./16-code-structure-and-maintainability.md) |
 | `ywc-agentic` | 你想设定一个目标，然后让整个从规划到执行的过程在无人干预下运行 | [此处](#你想设定一个目标然后让整个从规划到执行的过程在无人干预下运行) |
 | `ywc-brainstorm` | 你的想法还不具体，你想先把它弄清楚 | [此处](#你的想法还不具体你想先把它弄清楚) |
 | `ywc-changelog-release-notes` | 编写 CHANGELOG.md 或面向用户的版本说明 | [此处](#编写-changelogmd-或面向用户的版本说明) |
-| `ywc-code-gen` | 并行同时生成 Backend/Frontend/QA 三层的多层代码生成 skill | [13](./13-executor-and-codegen-patterns.md) |
+| `ywc-code-gen` | 并行同时生成 Backend/Frontend/QA 三层的多层代码生成 skill | [14](./13-executor-and-codegen-patterns.md) |
 | `ywc-commit` | 只提交目前完成的工作 | [此处](#只提交目前完成的工作) |
 | `ywc-confidence-gate` | 用 PROCEED/REVIEW/STOP 判定成果是否可以进入下一阶段的信心 gate | [06](./06-agentic-autonomous-loop.md) |
 | `ywc-create-pr` | 提交更改并打开草稿 PR | [此处](#提交更改并打开草稿-pr) |
@@ -336,23 +336,23 @@
 | `ywc-finish-branch` | 将已完成的 feature branch 从创建 PR 到 merge、清理全部收尾的 skill | [04](./04-general-cycle-small.md) |
 | `ywc-gen-testcase` | 根据 spec 生成用于 PR 验证的手动测试文档（testsheet）的 skill | [09](./09-testing-guide.md) |
 | `ywc-handle-pr-reviews` | 回应开放 PR 的审查意见，并清理 CI/冲突 | [此处](#回应开放-pr-的审查意见并清理-ci冲突) |
-| `ywc-impl-review` | 想在常规 cycle 之外，独立检查实现质量和 maintenance 角度 | [16](./16-code-structure-and-maintainability.md) |
-| `ywc-improve-architecture` | 想将纠缠不清的 shallow module 结构重构为 deep module | [16](./16-code-structure-and-maintainability.md) |
+| `ywc-impl-review` | 想在常规 cycle 之外，独立检查实现质量和 maintenance 角度 | [13](./16-code-structure-and-maintainability.md) |
+| `ywc-improve-architecture` | 想将纠缠不清的 shallow module 结构重构为 deep module | [13](./16-code-structure-and-maintainability.md) |
 | `ywc-incident-postmortem` | 发生了生产事故，你需要写一份事后分析报告 | [12](./12-debugging-and-incident-postmortem.md) |
 | `ywc-merge-dependabot` | 一次性清理累积的 Dependabot PR | [此处](#一次性清理累积的-dependabot-pr) |
 | `ywc-mission` | 记录项目的原因和被拒绝的方法 | [此处](#记录项目的原因和被拒绝的方法) |
 | `ywc-onboard-repo` | 反推陌生 repo 的约定并生成 CLAUDE.md 的 onboarding skill | [08](./08-onboarding-existing-repo.md) |
-| `ywc-parallel-executor` | 在隔离的 worktree 中并行执行多个 Task 的 executor | [13](./13-executor-and-codegen-patterns.md) |
+| `ywc-parallel-executor` | 在隔离的 worktree 中并行执行多个 Task 的 executor | [14](./13-executor-and-codegen-patterns.md) |
 | `ywc-plan` | 为功能/变更制定实现计划的入口 skill | [04](./04-general-cycle-small.md) |
 | `ywc-product-review` | 想从业务/服务角度而不是代码角度获得项目评审 | [此处](#想从业务服务角度而不是代码角度获得项目评审) |
 | `ywc-project-docs` | 按照 docs/ 目录结构生成 project 文档的 skill | [07](./07-starting-a-new-project.md) |
 | `ywc-project-scaffold` | 从零设计全新 project 目录结构的 skill | [07](./07-starting-a-new-project.md) |
 | `ywc-receive-review` | 不想无条件接受审查者（人类或 CodeRabbit/Codex/Claude）的意见，想先进行技术验证再回应 | [此处](#不想无条件接受审查者人类或-coderabbitcodexclaude的意见想先进行技术验证再回应) |
-| `ywc-refactor-clean` | 清理旧的无用代码（未使用的函数/导出/依赖） | [16](./16-code-structure-and-maintainability.md) |
+| `ywc-refactor-clean` | 清理旧的无用代码（未使用的函数/导出/依赖） | [13](./16-code-structure-and-maintainability.md) |
 | `ywc-release-pr-list` | 总结包含在发布版本 PR（develop->main 等）中的已合并 PR 列表 | [此处](#总结包含在发布版本-prdevelop-main-等中的已合并-pr-列表) |
 | `ywc-review-learnings` | 教系统关于重复代码审查反馈的内容，这样它就不会再次提出相同的误报 | [此处](#教系统关于重复代码审查反馈的内容这样它就不会再次提出相同的误报) |
 | `ywc-security-audit` | 检查敏感代码中的安全漏洞，例如认证/支付 | [此处](#检查敏感代码中的安全漏洞例如认证支付) |
-| `ywc-sequential-executor` | 按顺序逐个执行多个 Task 的 executor | [13](./13-executor-and-codegen-patterns.md) |
+| `ywc-sequential-executor` | 按顺序逐个执行多个 Task 的 executor | [14](./13-executor-and-codegen-patterns.md) |
 | `ywc-setup` | 设置持久输出语言让技能不再每次询问 language | [此处](#设置持久输出语言让技能不再每次询问-language) |
 | `ywc-skill-author` | 想创建新的 ywc-* skill，或按规则整理/检查现有 skill | [此处](#想创建新的-ywc--skill或按规则整理检查现有-skill) |
 | `ywc-spec-ready` | 验证 spec 文档是否已达到可实现程度的 gate | [05](./05-general-cycle-medium-large.md) |
@@ -368,4 +368,4 @@
 
 ---
 
-[Previous: 13. Executor / Code-gen 提示模式](./13-executor-and-codegen-patterns.md) - [Next: 15. 前置条件与安装](./15-prerequisites-installation.md)
+[Previous: 14. Executor / Code-gen 提示模式](./13-executor-and-codegen-patterns.md) - [Next: 16. 前置条件与安装](./15-prerequisites-installation.md)

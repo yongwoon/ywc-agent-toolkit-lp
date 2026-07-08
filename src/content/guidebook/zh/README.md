@@ -19,25 +19,25 @@
 | 给出一个目标，并让系统自动完成从规划到实施的全过程 | `ywc-agentic` | [06](./06-agentic-autonomous-loop.md) |
 | 从零开始设计一个全新的项目 | `ywc-project-scaffold` | [07](./07-starting-a-new-project.md) |
 | 第一次理解不熟悉的仓库/代码库 | `ywc-onboard-repo` | [08](./08-onboarding-existing-repo.md) |
-| 执行已经分解的 Tasks（顺序/并行） | `ywc-sequential-executor` / `ywc-parallel-executor` | [13](./13-executor-and-codegen-patterns.md) |
-| 澄清一个尚不具体的想法 | `ywc-brainstorm` | [14](./14-skill-reference.md) |
+| 执行已经分解的 Tasks（顺序/并行） | `ywc-sequential-executor` / `ywc-parallel-executor` | [14](./13-executor-and-codegen-patterns.md) |
+| 澄清一个尚不具体的想法 | `ywc-brainstorm` | [15](./14-skill-reference.md) |
 | 为 PR 验证创建手动测试文档 | `ywc-gen-testcase` | [09](./09-testing-guide.md) |
 | 建立或扩展 E2E 测试自动化 | `ywc-e2e-test-strategy` | [10](./10-e2e-test-strategy.md) |
 | 检查屏幕可用性或可访问性 | `ywc-ui-ux-review` | [11](./11-design-review.md) |
 | 改善看起来视觉上普通的屏幕 | `ywc-design-renew` | [11](./11-design-review.md) |
-| 检查代码中的安全漏洞 | `ywc-security-audit` | [14](./14-skill-reference.md) |
+| 检查代码中的安全漏洞 | `ywc-security-audit` | [15](./14-skill-reference.md) |
 | 你被卡住了，因为你找不到一个错误的根本原因 | `ywc-debug-rootcause` | [12](./12-debugging-and-incident-postmortem.md) |
 | 发生了生产事故，你需要写一份事后分析报告 | `ywc-incident-postmortem` | [12](./12-debugging-and-incident-postmortem.md) |
-| 清理旧的死代码 | `ywc-refactor-clean` | [16](./16-code-structure-and-maintainability.md) |
-| 回复有关开放 PR 的评审意见 | `ywc-handle-pr-reviews` | [14](./14-skill-reference.md) |
-| 一次性清理积压的 Dependabot PR | `ywc-merge-dependabot` | [14](./14-skill-reference.md) |
-| 编写 CHANGELOG 或发布说明 | `ywc-changelog-release-notes` | [14](./14-skill-reference.md) |
-| 只提交到目前为止完成的工作 | `ywc-commit` | [14](./14-skill-reference.md) |
-| 结构混乱，或从 maintenance 角度看实现质量不佳 | `ywc-improve-architecture` | [16](./16-code-structure-and-maintainability.md) |
-| 想比较库或实现方式，决定要用什么 | `ywc-tech-research` | [14](./14-skill-reference.md) |
-| 想管理对话结束后仍留在 project 中的知识（术语表/评审学习/mission） | `ywc-ubiquitous-language` | [14](./14-skill-reference.md) |
+| 清理旧的死代码 | `ywc-refactor-clean` | [13](./16-code-structure-and-maintainability.md) |
+| 回复有关开放 PR 的评审意见 | `ywc-handle-pr-reviews` | [15](./14-skill-reference.md) |
+| 一次性清理积压的 Dependabot PR | `ywc-merge-dependabot` | [15](./14-skill-reference.md) |
+| 编写 CHANGELOG 或发布说明 | `ywc-changelog-release-notes` | [15](./14-skill-reference.md) |
+| 只提交到目前为止完成的工作 | `ywc-commit` | [15](./14-skill-reference.md) |
+| 结构混乱，或从 maintenance 角度看实现质量不佳 | `ywc-improve-architecture` | [13](./16-code-structure-and-maintainability.md) |
+| 想比较库或实现方式，决定要用什么 | `ywc-tech-research` | [15](./14-skill-reference.md) |
+| 想管理对话结束后仍留在 project 中的知识（术语表/评审学习/mission） | `ywc-ubiquitous-language` | [15](./14-skill-reference.md) |
 
-对于本表未涵盖的情况，请参见 [14. Full Skill Reference](./14-skill-reference.md)。
+对于本表未涵盖的情况，请参见 [15. Full Skill Reference](./14-skill-reference.md)。
 
 ## 目录
 
@@ -67,15 +67,15 @@
 | [10. E2E Test automation strategy](./10-e2e-test-strategy.md) | 基于 Playwright 的 E2E 套件的高级设置、扩展和维护指南 |
 | [11. Reviewing and improving design](./11-design-review.md) | 如何区分和应用可用性审核与视觉去倾斜更新 |
 | [12. 根本原因调查和事后分析](./12-debugging-and-incident-postmortem.md) | 如何使用 `ywc-debug-rootcause` 进行根本原因调查，以及使用 `ywc-incident-postmortem` 编写事后分析报告 |
+| [13. 管理代码结构与可维护性](./16-code-structure-and-maintainability.md) | 整理、重构和验证结构不佳或难以维护的代码的 4 个 Skill 的用法，以及它们协同工作的顺序 |
 
 ### 参考
 
 | 页面 | 描述 |
 |---|---|
-| [13. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md) | 针对选项繁多的 `ywc-sequential-executor` / `ywc-parallel-executor` / `ywc-code-gen` 的实用命令示例 |
-| [14. Full Skill Reference](./14-skill-reference.md) | 未在上述指南中涵盖的剩余技能索引，按情境分类 |
-| [15. 前置条件与安装](./15-prerequisites-installation.md) | 为了让 ywc-* Skill 稳定运行，需要预先准备的必需/可选 Tool 列表 |
-| [16. 管理代码结构与可维护性](./16-code-structure-and-maintainability.md) | 整理、重构和验证结构不佳或难以维护的代码的 4 个 Skill 的用法，以及它们协同工作的顺序 |
+| [14. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md) | 针对选项繁多的 `ywc-sequential-executor` / `ywc-parallel-executor` / `ywc-code-gen` 的实用命令示例 |
+| [15. Full Skill Reference](./14-skill-reference.md) | 未在上述指南中涵盖的剩余技能索引，按情境分类 |
+| [16. 前置条件与安装](./15-prerequisites-installation.md) | 为了让 ywc-* Skill 稳定运行，需要预先准备的必需/可选 Tool 列表 |
 
 ## 源材料
 

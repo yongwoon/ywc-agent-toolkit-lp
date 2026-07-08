@@ -28,8 +28,8 @@ export const guidebookSlugs = Object.freeze([
   "10-e2e-test-strategy",
   "11-design-review",
   "12-debugging-and-incident-postmortem",
+  "16-code-structure-and-maintainability",
   "13-executor-and-codegen-patterns",
   "14-skill-reference",
-  "15-prerequisites-installation",
-  "16-code-structure-and-maintainability"
+  "15-prerequisites-installation"
 ]);

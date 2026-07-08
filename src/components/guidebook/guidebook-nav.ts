@@ -205,6 +205,14 @@ export const guidebookNavGroups: readonly GuidebookNavGroup[] = [
           "How ywc-debug-rootcause drives a root-cause investigation and ywc-incident-postmortem writes the follow-up report",
         groupId: "workflow-guides",
         status: "pending"
+      },
+      {
+        slug: "16-code-structure-and-maintainability",
+        title: "Managing Code Structure and Maintainability",
+        description:
+          "A decision table and 4-step pipeline for ywc-refactor-clean, ywc-improve-architecture, ywc-impl-review, and ywc-agent-legibility-audit",
+        groupId: "workflow-guides",
+        status: "pending"
       }
     ]
   },
@@ -230,14 +238,6 @@ export const guidebookNavGroups: readonly GuidebookNavGroup[] = [
         slug: "15-prerequisites-installation",
         title: "Prerequisites and installation",
         description: "Required vs. optional tools and how to install ywc-agent-toolkit before relying on it",
-        groupId: "reference",
-        status: "pending"
-      },
-      {
-        slug: "16-code-structure-and-maintainability",
-        title: "Managing Code Structure and Maintainability",
-        description:
-          "A decision table and 4-step pipeline for ywc-refactor-clean, ywc-improve-architecture, ywc-impl-review, and ywc-agent-legibility-audit",
         groupId: "reference",
         status: "pending"
       }

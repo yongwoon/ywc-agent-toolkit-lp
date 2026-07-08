@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 12. Executor / Patrones de indicación de generación de código
+# 14. Executor / Patrones de indicación de generación de código
 
 `ywc-sequential-executor`, `ywc-parallel-executor` y `ywc-code-gen` son las tres Habilidades cuyas muchas opciones te hacen consultar repetidamente la sintaxis exacta. Esta página organiza los ejemplos por **"lo que estás tratando de hacer ahora"**, no por el nombre de Skill. Encuentra tu tarea y copia el comando tal como está.
 
@@ -228,4 +228,4 @@ Palabras clave como `payment` se clasifican automáticamente como `critical`, lo
 
 ---
 
-[Previous: 11. Revisando y mejorando el diseño](./11-design-review.md) - [Next: 14. Referencia completa Skill](./14-skill-reference.md)
+[Previous: 13. Gestionar la estructura del código y la mantenibilidad](./16-code-structure-and-maintainability.md) - [Next: 15. Referencia completa Skill](./14-skill-reference.md)
