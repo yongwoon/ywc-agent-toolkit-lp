@@ -236,7 +236,6 @@ function inferTitleFromFilePath(filePath: string | undefined): string | undefine
   return title.length > 0 ? title : undefined;
 }
 
-
 const cjkReadingLocales = new Set<Locale>(["ja", "ko", "zh"]);
 const wordsPerMinute = 200;
 const charsPerMinuteCjk = 400;

@@ -33,9 +33,16 @@ export const loadLocalizedGuidebookNav = cache(
         pages: await Promise.all(
           group.pages.map(async (page) => {
             const content = await loadGuidebookPageForLocale(locale, page.slug);
-            const displayNumber = String(
-              1 + guidebookPages.findIndex((globalPage) => globalPage.slug === page.slug)
-            ).padStart(2, "0");
+            // Indexed against the flat guidebookPages array (not group.pages) so
+            // numbering is global across group boundaries, matching the existing
+            // continuous 01-16 scheme rather than restarting per section.
+            const globalIndex = guidebookPages.findIndex((globalPage) => globalPage.slug === page.slug);
+
+            if (globalIndex === -1) {
+              throw new Error(`Guidebook page "${page.slug}" is missing from guidebookPages.`);
+            }
+
+            const displayNumber = String(1 + globalIndex).padStart(2, "0");
 
             return {
               ...page,
