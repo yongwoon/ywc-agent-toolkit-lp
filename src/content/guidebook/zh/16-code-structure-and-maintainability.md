@@ -95,4 +95,4 @@
 
 ---
 
-[Previous: 12. 根本原因调查和事后分析](./12-debugging-and-incident-postmortem.md) - [Next: 14. Executor / 代码生成提示模式](./13-executor-and-codegen-patterns.md)
+[Previous: 12. 根本原因调查和事后分析](./12-debugging-and-incident-postmortem.md) - [Next: 14. 管理云基础设施](./17-infrastructure-and-cloud.md)

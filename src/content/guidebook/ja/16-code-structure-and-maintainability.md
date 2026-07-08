@@ -95,4 +95,4 @@ dead code を取り除いても shallow module の山が残っているなら、
 
 ---
 
-[← 前: 12. デバッグとインシデント事後分析](./12-debugging-and-incident-postmortem.md) · [次: 14. Executor / Code-gen Prompt パターン →](./13-executor-and-codegen-patterns.md)
+[← 前: 12. デバッグとインシデント事後分析](./12-debugging-and-incident-postmortem.md) · [次: 14. クラウドインフラの管理 →](./17-infrastructure-and-cloud.md)
