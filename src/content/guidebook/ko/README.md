@@ -33,6 +33,9 @@
 | Dependabot PR 이 쌓여서 한번에 정리하고 싶다 | `ywc-merge-dependabot` | [14](./14-skill-reference.md) |
 | CHANGELOG 나 release note 를 작성하고 싶다 | `ywc-changelog-release-notes` | [14](./14-skill-reference.md) |
 | 지금까지 한 작업을 그냥 commit 하고 싶다 | `ywc-commit` | [14](./14-skill-reference.md) |
+| 구조가 뒤엉켰거나 maintenance 관점에서 구현 품질이 안 좋다 | `ywc-improve-architecture` | [14](./14-skill-reference.md) |
+| 라이브러리나 구현 방식을 비교해서 뭘 쓸지 결정하고 싶다 | `ywc-tech-research` | [14](./14-skill-reference.md) |
+| 대화가 끝나도 project 에 남는 지식(용어집/리뷰 학습/mission)을 관리하고 싶다 | `ywc-ubiquitous-language` | [14](./14-skill-reference.md) |
 
 이 표에 없는 상황은 [14. 전체 Skill 레퍼런스](./14-skill-reference.md)에서 전체 목록을 확인하세요.
 

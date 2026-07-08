@@ -18,12 +18,15 @@ Find your situation in the table below and click a Skill name to jump straight t
 | [`ywc-agentic`](#you-want-to-give-one-goal-and-leave-planning-through-implementation-to-run-without-human-intervention) | You want to give one goal and leave planning through implementation to run without human intervention |
 | [`ywc-security-audit`](#check-security-vulnerabilities-in-sensitive-code-such-as-authpayment) | Check security vulnerabilities in sensitive code such as auth/payment |
 | [`ywc-refactor-clean`](#clean-up-old-dead-code-unused-functionsexportsdependencies) | Clean up old dead code (unused functions/exports/dependencies) |
+| [`ywc-improve-architecture`](#restructure-a-tangled-shallow-module-structure-into-a-deep-module) | Restructure a tangled shallow module structure into a deep module |
+| [`ywc-impl-review`](#check-implementation-quality-and-maintainability-outside-the-general-cycle-standalone) | Check implementation quality and maintainability outside the general cycle, standalone |
+| [`ywc-agent-legibility-audit`](#measure-the-token-cost-and-legibility-of-code-from-an-agents-perspective) | Measure the token cost and legibility of code from an agent's perspective |
 | [`ywc-tdd-ritual`](#you-want-to-strictly-follow-the-documented-red--green--refactor-procedure-while-implementing) | You want to strictly follow the documented RED → GREEN → REFACTOR procedure while implementing |
 | [`ywc-e2e-test-strategy`](#you-want-to-automate-a-critical-user-flow-with-playwright-or-check-gaps-in-existing-e2e-coverage) | You want to automate a critical user flow with Playwright, or check gaps in existing E2E coverage |
 | [`ywc-product-review`](#you-want-a-review-of-the-project-from-a-businessservice-perspective-not-a-code-perspective) | You want a review of the project from a business/service perspective, not a code perspective |
 | [`ywc-review-learnings`](#teach-the-system-about-repeated-code-review-feedback-so-it-does-not-raise-the-same-false-positive-again) | Teach the system about repeated code review feedback so it does not raise the same false positive again |
 | [`ywc-ubiquitous-language`](#create-or-update-a-domain-glossary-shared-by-developers-domain-experts-and-llms) | Create or update a domain glossary shared by developers, domain experts, and LLMs |
-| [`ywc-project-mission`](#record-the-projects-why-and-rejected-approaches) | Record the project's why and rejected approaches |
+| [`ywc-mission`](#record-the-projects-why-and-rejected-approaches) | Record the project's why and rejected approaches |
 | [`ywc-release-pr-list`](#summarize-the-list-of-merged-prs-included-in-a-release-pr-develop-main-etc) | Summarize the list of merged PRs included in a Release PR (develop->main, etc.) |
 | [`ywc-changelog-release-notes`](#write-changelogmd-or-user-facing-release-notes) | Write CHANGELOG.md or user-facing release notes |
 | [`ywc-skill-author`](#you-want-to-create-a-new-ywc--skill-or-tidy-upaudit-an-existing-skill-against-the-rules) | You want to create a new ywc-* skill, or tidy up/audit an existing skill against the rules |
@@ -151,6 +154,42 @@ This has moved to the dedicated page. See [12. Debugging and incident postmortem
   </ToolTabsPanel>
 </ToolTabs>
 
+### Restructure a tangled shallow module structure into a deep module
+
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-improve-architecture --scope src/services/billing --dry-run" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-improve-architecture --scope src/services/billing --dry-run" />
+  </ToolTabsPanel>
+</ToolTabs>
+Check the Opportunity Backlog first with `--dry-run`, then drop the flag and run the actual consolidation once it looks right. You cannot target the whole codebase at once (Scope Gate) — you must scope it to a module/directory. Use `ywc-agent-legibility-audit` instead if you only want to surface legibility issues without changing code, or `ywc-refactor-clean` if you only need to delete dead code.
+
+### Check implementation quality and maintainability outside the general cycle, standalone
+
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-impl-review --spec docs/ywc-plans/billing-refactor.md --git-range main..HEAD" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-impl-review --spec docs/ywc-plans/billing-refactor.md --git-range main..HEAD" />
+  </ToolTabsPanel>
+</ToolTabs>
+This is already built into the pre-PR verification step in [04](./04-general-cycle-small.md) and [05](./05-general-cycle-medium-large.md), but you can also use it standalone outside those flows when you just want a 5-axis (architecture/design/devex/security/QA) review of existing code. It is a read-only analysis that does not change code — any fix for a found item is dispatched separately to the Backend/Frontend agent.
+
+### Measure the token cost and legibility of code from an agent's perspective
+
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-agent-legibility-audit --scope src/services/billing" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-agent-legibility-audit --scope src/services/billing" />
+  </ToolTabsPanel>
+</ToolTabs>
+This is a read-only report that measures — not correctness or security, but "how many tokens it costs an agent to safely change this code" — based on the deep/shallow module ratio and how clearly the change point is named. It does not restructure anything itself; findings route to `ywc-improve-architecture` (shallow→deep restructuring) or `ywc-refactor-clean` (dead code deletion).
+
 ### Write a postmortem for a Production incident
 
 This has moved to the dedicated page. See [12. Debugging and incident postmortems](./12-debugging-and-incident-postmortem.md) for usage and examples.
@@ -222,10 +261,10 @@ These Skills are not one-off utilities. They manage knowledge that remains in th
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-project-mission This project's goal is ..." />
+    <CodeBlock label="claude code" code="ywc-mission This project's goal is ..." />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-project-mission This project's goal is ..." />
+    <CodeBlock label="codex" code="ywc-mission This project's goal is ..." />
   </ToolTabsPanel>
 </ToolTabs>
 This is already covered in [07. Starting a new Project](./07-starting-a-new-project.md), and can also be reused when the project direction changes.
@@ -306,6 +345,57 @@ Usually called internally by `ywc-parallel-executor`, but you can also audit/pru
   </ToolTabsPanel>
 </ToolTabs>
 The deterministic port-allocation skill that `ywc-parallel-executor` calls automatically for every task worktree — it assigns each worktree its own `COMPOSE_PROJECT_NAME` and port block to prevent "port is already allocated" collisions.
+
+## Full Skill Index (A-Z)
+
+All `ywc-*` skills in this toolkit, listed alphabetically. See each skill's location (a dedicated page, or the situational entry above) for detailed usage.
+
+| Skill | Description | Location |
+|---|---|---|
+| `ywc-agent-legibility-audit` | Measure the token cost and legibility of code from an agent's perspective | [here](#measure-the-token-cost-and-legibility-of-code-from-an-agents-perspective) |
+| `ywc-agentic` | You want to give one goal and leave planning through implementation to run without human intervention | [here](#you-want-to-give-one-goal-and-leave-planning-through-implementation-to-run-without-human-intervention) |
+| `ywc-brainstorm` | Your idea is not concrete yet and you want to clarify it first | [here](#your-idea-is-not-concrete-yet-and-you-want-to-clarify-it-first) |
+| `ywc-changelog-release-notes` | Write CHANGELOG.md or user-facing release notes | [here](#write-changelogmd-or-user-facing-release-notes) |
+| `ywc-code-gen` | Multi-layer code generation skill that generates Backend/Frontend/QA in parallel | [13](./13-executor-and-codegen-patterns.md) |
+| `ywc-commit` | Just commit the work done so far | [here](#just-commit-the-work-done-so-far) |
+| `ywc-confidence-gate` | A confidence gate that scores PROCEED/REVIEW/STOP to decide whether an artifact can move to the next stage | [06](./06-agentic-autonomous-loop.md) |
+| `ywc-create-pr` | Commit changes and open a draft PR | [here](#commit-changes-and-open-a-draft-pr) |
+| `ywc-debug-rootcause` | You are stuck because you cannot find the root cause of a bug | [12](./12-debugging-and-incident-postmortem.md) |
+| `ywc-design-renew` | Visually de-slop-renews a screen that feels ordinary | [11](./11-design-review.md) |
+| `ywc-docker-isolate` | You want to fix Docker ports colliding across parallel worktrees | [here](#you-want-to-fix-docker-ports-colliding-across-parallel-worktrees) |
+| `ywc-e2e-test-strategy` | You want to automate a critical user flow with Playwright, or check gaps in existing E2E coverage | [here](#you-want-to-automate-a-critical-user-flow-with-playwright-or-check-gaps-in-existing-e2e-coverage) |
+| `ywc-finish-branch` | Finishes a completed feature branch — PR creation through merge and cleanup | [04](./04-general-cycle-small.md) |
+| `ywc-gen-testcase` | Generates a manual test document (testsheet) from a spec for PR verification | [09](./09-testing-guide.md) |
+| `ywc-handle-pr-reviews` | Respond to review comments on an open PR and clean up CI/conflicts too | [here](#respond-to-review-comments-on-an-open-pr-and-clean-up-ciconflicts-too) |
+| `ywc-impl-review` | Check implementation quality and maintainability outside the general cycle, standalone | [here](#check-implementation-quality-and-maintainability-outside-the-general-cycle-standalone) |
+| `ywc-improve-architecture` | Restructure a tangled shallow module structure into a deep module | [here](#restructure-a-tangled-shallow-module-structure-into-a-deep-module) |
+| `ywc-incident-postmortem` | A production incident happened and you need to write a postmortem | [12](./12-debugging-and-incident-postmortem.md) |
+| `ywc-merge-dependabot` | Clean up accumulated Dependabot PRs at once | [here](#clean-up-accumulated-dependabot-prs-at-once) |
+| `ywc-mission` | Record the project's why and rejected approaches | [here](#record-the-projects-why-and-rejected-approaches) |
+| `ywc-onboard-repo` | Onboarding skill that reverse-engineers an unfamiliar repo's conventions into a CLAUDE.md | [08](./08-onboarding-existing-repo.md) |
+| `ywc-parallel-executor` | Executes multiple Tasks in parallel using isolated worktrees | [13](./13-executor-and-codegen-patterns.md) |
+| `ywc-plan` | Entry-point skill that drafts an implementation plan for a feature or change | [04](./04-general-cycle-small.md) |
+| `ywc-product-review` | You want a review of the project from a business/service perspective, not a code perspective | [here](#you-want-a-review-of-the-project-from-a-businessservice-perspective-not-a-code-perspective) |
+| `ywc-project-docs` | Generates project docs that follow the docs/ directory structure | [07](./07-starting-a-new-project.md) |
+| `ywc-project-scaffold` | Designs the directory structure for a completely new project | [07](./07-starting-a-new-project.md) |
+| `ywc-receive-review` | You don't want to accept a reviewer's (human or CodeRabbit/Codex/Claude) feedback unconditionally — you want to verify it technically before responding | [here](#you-dont-want-to-accept-a-reviewers-human-or-coderabbitcodexclaude-feedback-unconditionally--you-want-to-verify-it-technically-before-responding) |
+| `ywc-refactor-clean` | Clean up old dead code (unused functions/exports/dependencies) | [here](#clean-up-old-dead-code-unused-functionsexportsdependencies) |
+| `ywc-release-pr-list` | Summarize the list of merged PRs included in a Release PR (develop->main, etc.) | [here](#summarize-the-list-of-merged-prs-included-in-a-release-pr-develop-main-etc) |
+| `ywc-review-learnings` | Teach the system about repeated code review feedback so it does not raise the same false positive again | [here](#teach-the-system-about-repeated-code-review-feedback-so-it-does-not-raise-the-same-false-positive-again) |
+| `ywc-security-audit` | Check security vulnerabilities in sensitive code such as auth/payment | [here](#check-security-vulnerabilities-in-sensitive-code-such-as-authpayment) |
+| `ywc-sequential-executor` | Executes multiple Tasks one at a time, in order | [13](./13-executor-and-codegen-patterns.md) |
+| `ywc-setup` | Set a persistent output language so skills stop asking for language each time | [here](#set-a-persistent-output-language-so-skills-stop-asking-for-language-each-time) |
+| `ywc-skill-author` | You want to create a new ywc-* skill, or tidy up/audit an existing skill against the rules | [here](#you-want-to-create-a-new-ywc--skill-or-tidy-upaudit-an-existing-skill-against-the-rules) |
+| `ywc-spec-ready` | Gate that verifies a spec document is ready to implement | [05](./05-general-cycle-medium-large.md) |
+| `ywc-spec-validate` | Checks a spec document for contradictions and gaps | [05](./05-general-cycle-medium-large.md) |
+| `ywc-spec-writer` | Writes a PRD/spec document | [07](./07-starting-a-new-project.md) |
+| `ywc-task-generator` | Decomposes a spec into executable Tasks | [05](./05-general-cycle-medium-large.md) |
+| `ywc-tdd-ritual` | You want to strictly follow the documented RED → GREEN → REFACTOR procedure while implementing | [here](#you-want-to-strictly-follow-the-documented-red--green--refactor-procedure-while-implementing) |
+| `ywc-tech-research` | You want to compare libraries or implementation approaches to decide what to use | [here](#you-want-to-compare-libraries-or-implementation-approaches-to-decide-what-to-use) |
+| `ywc-ubiquitous-language` | Create or update a domain glossary shared by developers, domain experts, and LLMs | [here](#create-or-update-a-domain-glossary-shared-by-developers-domain-experts-and-llms) |
+| `ywc-ui-ux-review` | Checks screen usability and accessibility | [11](./11-design-review.md) |
+| `ywc-verify-done` | Mechanically verifies completion by running lint/typecheck/test/build | [06](./06-agentic-autonomous-loop.md) |
+| `ywc-worktrees` | You want to create an isolated worktree path, or audit/clean it up | [here](#you-want-to-create-an-isolated-worktree-path-or-auditclean-it-up) |
 
 ---
 

@@ -33,6 +33,9 @@
 | 一次性清理积压的 Dependabot PR | `ywc-merge-dependabot` | [14](./14-skill-reference.md) |
 | 编写 CHANGELOG 或发布说明 | `ywc-changelog-release-notes` | [14](./14-skill-reference.md) |
 | 只提交到目前为止完成的工作 | `ywc-commit` | [14](./14-skill-reference.md) |
+| 结构混乱，或从 maintenance 角度看实现质量不佳 | `ywc-improve-architecture` | [14](./14-skill-reference.md) |
+| 想比较库或实现方式，决定要用什么 | `ywc-tech-research` | [14](./14-skill-reference.md) |
+| 想管理对话结束后仍留在 project 中的知识（术语表/评审学习/mission） | `ywc-ubiquitous-language` | [14](./14-skill-reference.md) |
 
 对于本表未涵盖的情况，请参见 [14. Full Skill Reference](./14-skill-reference.md)。
 

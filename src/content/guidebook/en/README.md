@@ -33,6 +33,9 @@ This is organized around **what you are trying to do now**, not "which Skills ex
 | Clean up a backlog of Dependabot PRs at once | `ywc-merge-dependabot` | [14](./14-skill-reference.md) |
 | Write a CHANGELOG or release note | `ywc-changelog-release-notes` | [14](./14-skill-reference.md) |
 | Just commit the work done so far | `ywc-commit` | [14](./14-skill-reference.md) |
+| Structure is tangled or implementation quality is poor from a maintainability standpoint | `ywc-improve-architecture` | [14](./14-skill-reference.md) |
+| Compare libraries or implementation approaches to decide what to use | `ywc-tech-research` | [14](./14-skill-reference.md) |
+| Manage knowledge (glossary/review learnings/mission) that persists in the project after the conversation ends | `ywc-ubiquitous-language` | [14](./14-skill-reference.md) |
 
 For situations not covered in this table, see [14. Full Skill Reference](./14-skill-reference.md).
 

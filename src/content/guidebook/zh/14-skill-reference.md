@@ -18,12 +18,15 @@
 | [`ywc-agentic`](#你想设定一个目标然后让整个从规划到执行的过程在无人干预下运行) | 你想设定一个目标，然后让整个从规划到执行的过程在无人干预下运行 |
 | [`ywc-security-audit`](#检查敏感代码中的安全漏洞例如认证支付) | 检查敏感代码中的安全漏洞，例如认证/支付 |
 | [`ywc-refactor-clean`](#清理旧的无用代码未使用的函数导出依赖) | 清理旧的无用代码（未使用的函数/导出/依赖） |
+| [`ywc-improve-architecture`](#想将纠缠不清的-shallow-module-结构重构为-deep-module) | 想将纠缠不清的 shallow module 结构重构为 deep module |
+| [`ywc-impl-review`](#想在常规-cycle-之外独立检查实现质量和-maintenance-角度) | 想在常规 cycle 之外，独立检查实现质量和 maintenance 角度 |
+| [`ywc-agent-legibility-audit`](#想衡量-agent-修改代码所需的-token-成本和可读性) | 想衡量 agent 修改代码所需的 token 成本和可读性 |
 | [`ywc-tdd-ritual`](#想严格按照文档化的流程执行-red--green--refactor) | 想严格按照文档化的流程执行 RED → GREEN → REFACTOR |
 | [`ywc-e2e-test-strategy`](#想用-playwright-自动化-critical-user-flow或检查现有-e2e-覆盖率的缺口) | 想用 Playwright 自动化 critical user flow，或检查现有 E2E 覆盖率的缺口 |
 | [`ywc-product-review`](#想从业务服务角度而不是代码角度获得项目评审) | 想从业务/服务角度而不是代码角度获得项目评审 |
 | [`ywc-review-learnings`](#教系统关于重复代码审查反馈的内容这样它就不会再次提出相同的误报) | 教系统关于重复代码审查反馈的内容，这样它就不会再次提出相同的误报 |
 | [`ywc-ubiquitous-language`](#创建或更新由开发人员领域专家和大型语言模型共享的领域词汇表) | 创建或更新由开发人员、领域专家和大型语言模型共享的领域词汇表 |
-| [`ywc-project-mission`](#记录项目的原因和被拒绝的方法) | 记录项目的原因和被拒绝的方法 |
+| [`ywc-mission`](#记录项目的原因和被拒绝的方法) | 记录项目的原因和被拒绝的方法 |
 | [`ywc-release-pr-list`](#总结包含在发布版本-prdevelop-main-等中的已合并-pr-列表) | 总结包含在发布版本 PR（develop->main 等）中的已合并 PR 列表 |
 | [`ywc-changelog-release-notes`](#编写-changelogmd-或面向用户的版本说明) | 编写 CHANGELOG.md 或面向用户的版本说明 |
 | [`ywc-skill-author`](#想创建新的-ywc--skill或按规则整理检查现有-skill) | 想创建新的 ywc-* skill，或按规则整理/检查现有 skill |
@@ -151,6 +154,42 @@
   </ToolTabsPanel>
 </ToolTabs>
 
+### 想将纠缠不清的 shallow module 结构重构为 deep module
+
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-improve-architecture --scope src/services/billing --dry-run" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-improve-architecture --scope src/services/billing --dry-run" />
+  </ToolTabsPanel>
+</ToolTabs>
+先用 `--dry-run` 只查看 Opportunity Backlog，确认没问题后去掉该 flag 执行实际的 consolidation。不能一次性针对整个 codebase(Scope Gate) — 必须缩小到 module/directory 级别指定范围。如果只想在不修改代码的情况下找出 legibility 问题，请改用 `ywc-agent-legibility-audit`；如果只需要删除 dead code，请改用 `ywc-refactor-clean`。
+
+### 想在常规 cycle 之外，独立检查实现质量和 maintenance 角度
+
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-impl-review --spec docs/ywc-plans/billing-refactor.md --git-range main..HEAD" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-impl-review --spec docs/ywc-plans/billing-refactor.md --git-range main..HEAD" />
+  </ToolTabsPanel>
+</ToolTabs>
+在 [04](./04-general-cycle-small.md)、[05](./05-general-cycle-medium-large.md) 中已作为 PR 前验证步骤内置，但当你想在这个流程之外，针对已有代码单独获得 architecture/design/devex/security/QA 5 个维度的评审时，也可以照常使用。这是不修改代码的只读分析 — 发现的问题的实际修复会另行分派给 Backend/Frontend 负责的 agent。
+
+### 想衡量 agent 修改代码所需的 token 成本和可读性
+
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-agent-legibility-audit --scope src/services/billing" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-agent-legibility-audit --scope src/services/billing" />
+  </ToolTabsPanel>
+</ToolTabs>
+这是一份只读报告，衡量的不是 correctness 或安全性，而是"agent 安全修改这段代码需要多少 token 成本"，依据是 deep/shallow module 比例以及 change-point 的明确程度。它本身不会真正修改结构，发现的问题会 routing 到 `ywc-improve-architecture`(shallow→deep 重构)或 `ywc-refactor-clean`(删除 dead code)。
+
 ### 为生产事故撰写事后分析报告
 
 此技能已移至专用页面 [12. 根本原因调查和事后分析](./12-debugging-and-incident-postmortem.md)。
@@ -222,10 +261,10 @@
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-project-mission 这个 project 的目标是 ..." />
+    <CodeBlock label="claude code" code="ywc-mission 这个 project 的目标是 ..." />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-project-mission 这个 project 的目标是 ..." />
+    <CodeBlock label="codex" code="ywc-mission 这个 project 的目标是 ..." />
   </ToolTabsPanel>
 </ToolTabs>
 这已经在 [07. Starting a new Project](./07-starting-a-new-project.md) 中涵盖，并且当项目方向发生变化时也可以重复使用。
@@ -306,6 +345,57 @@
   </ToolTabsPanel>
 </ToolTabs>
 `ywc-parallel-executor` 为每个 task worktree 自动调用的确定性端口分配 skill —— 为每个 worktree 分配独立的 `COMPOSE_PROJECT_NAME` 和端口区块，避免"port is already allocated"冲突。
+
+## 全部 Skill 索引 (A-Z)
+
+按字母顺序列出此 toolkit 中的所有 `ywc-*` skill。详细用法请参见各 skill 的位置(专用页面或上方的情境条目)。
+
+| Skill | 说明 | 位置 |
+|---|---|---|
+| `ywc-agent-legibility-audit` | 想衡量 agent 修改代码所需的 token 成本和可读性 | [此处](#想衡量-agent-修改代码所需的-token-成本和可读性) |
+| `ywc-agentic` | 你想设定一个目标，然后让整个从规划到执行的过程在无人干预下运行 | [此处](#你想设定一个目标然后让整个从规划到执行的过程在无人干预下运行) |
+| `ywc-brainstorm` | 你的想法还不具体，你想先把它弄清楚 | [此处](#你的想法还不具体你想先把它弄清楚) |
+| `ywc-changelog-release-notes` | 编写 CHANGELOG.md 或面向用户的版本说明 | [此处](#编写-changelogmd-或面向用户的版本说明) |
+| `ywc-code-gen` | 并行同时生成 Backend/Frontend/QA 三层的多层代码生成 skill | [13](./13-executor-and-codegen-patterns.md) |
+| `ywc-commit` | 只提交目前完成的工作 | [此处](#只提交目前完成的工作) |
+| `ywc-confidence-gate` | 用 PROCEED/REVIEW/STOP 判定成果是否可以进入下一阶段的信心 gate | [06](./06-agentic-autonomous-loop.md) |
+| `ywc-create-pr` | 提交更改并打开草稿 PR | [此处](#提交更改并打开草稿-pr) |
+| `ywc-debug-rootcause` | 你被卡住了，因为你找不到一个错误的根本原因 | [12](./12-debugging-and-incident-postmortem.md) |
+| `ywc-design-renew` | 对看起来平凡的界面进行视觉 De-slop renewal 的 skill | [11](./11-design-review.md) |
+| `ywc-docker-isolate` | 并行启动的 worktree 之间 Docker 端口互相冲突，想解决这个问题 | [此处](#并行启动的-worktree-之间-docker-端口互相冲突想解决这个问题) |
+| `ywc-e2e-test-strategy` | 想用 Playwright 自动化 critical user flow，或检查现有 E2E 覆盖率的缺口 | [此处](#想用-playwright-自动化-critical-user-flow或检查现有-e2e-覆盖率的缺口) |
+| `ywc-finish-branch` | 将已完成的 feature branch 从创建 PR 到 merge、清理全部收尾的 skill | [04](./04-general-cycle-small.md) |
+| `ywc-gen-testcase` | 根据 spec 生成用于 PR 验证的手动测试文档（testsheet）的 skill | [09](./09-testing-guide.md) |
+| `ywc-handle-pr-reviews` | 回应开放 PR 的审查意见，并清理 CI/冲突 | [此处](#回应开放-pr-的审查意见并清理-ci冲突) |
+| `ywc-impl-review` | 想在常规 cycle 之外，独立检查实现质量和 maintenance 角度 | [此处](#想在常规-cycle-之外独立检查实现质量和-maintenance-角度) |
+| `ywc-improve-architecture` | 想将纠缠不清的 shallow module 结构重构为 deep module | [此处](#想将纠缠不清的-shallow-module-结构重构为-deep-module) |
+| `ywc-incident-postmortem` | 发生了生产事故，你需要写一份事后分析报告 | [12](./12-debugging-and-incident-postmortem.md) |
+| `ywc-merge-dependabot` | 一次性清理累积的 Dependabot PR | [此处](#一次性清理累积的-dependabot-pr) |
+| `ywc-mission` | 记录项目的原因和被拒绝的方法 | [此处](#记录项目的原因和被拒绝的方法) |
+| `ywc-onboard-repo` | 反推陌生 repo 的约定并生成 CLAUDE.md 的 onboarding skill | [08](./08-onboarding-existing-repo.md) |
+| `ywc-parallel-executor` | 在隔离的 worktree 中并行执行多个 Task 的 executor | [13](./13-executor-and-codegen-patterns.md) |
+| `ywc-plan` | 为功能/变更制定实现计划的入口 skill | [04](./04-general-cycle-small.md) |
+| `ywc-product-review` | 想从业务/服务角度而不是代码角度获得项目评审 | [此处](#想从业务服务角度而不是代码角度获得项目评审) |
+| `ywc-project-docs` | 按照 docs/ 目录结构生成 project 文档的 skill | [07](./07-starting-a-new-project.md) |
+| `ywc-project-scaffold` | 从零设计全新 project 目录结构的 skill | [07](./07-starting-a-new-project.md) |
+| `ywc-receive-review` | 不想无条件接受审查者（人类或 CodeRabbit/Codex/Claude）的意见，想先进行技术验证再回应 | [此处](#不想无条件接受审查者人类或-coderabbitcodexclaude的意见想先进行技术验证再回应) |
+| `ywc-refactor-clean` | 清理旧的无用代码（未使用的函数/导出/依赖） | [此处](#清理旧的无用代码未使用的函数导出依赖) |
+| `ywc-release-pr-list` | 总结包含在发布版本 PR（develop->main 等）中的已合并 PR 列表 | [此处](#总结包含在发布版本-prdevelop-main-等中的已合并-pr-列表) |
+| `ywc-review-learnings` | 教系统关于重复代码审查反馈的内容，这样它就不会再次提出相同的误报 | [此处](#教系统关于重复代码审查反馈的内容这样它就不会再次提出相同的误报) |
+| `ywc-security-audit` | 检查敏感代码中的安全漏洞，例如认证/支付 | [此处](#检查敏感代码中的安全漏洞例如认证支付) |
+| `ywc-sequential-executor` | 按顺序逐个执行多个 Task 的 executor | [13](./13-executor-and-codegen-patterns.md) |
+| `ywc-setup` | 设置持久输出语言让技能不再每次询问 language | [此处](#设置持久输出语言让技能不再每次询问-language) |
+| `ywc-skill-author` | 想创建新的 ywc-* skill，或按规则整理/检查现有 skill | [此处](#想创建新的-ywc--skill或按规则整理检查现有-skill) |
+| `ywc-spec-ready` | 验证 spec 文档是否已达到可实现程度的 gate | [05](./05-general-cycle-medium-large.md) |
+| `ywc-spec-validate` | 检查 spec 文档中矛盾与遗漏的验证 skill | [05](./05-general-cycle-medium-large.md) |
+| `ywc-spec-writer` | 编写 PRD/spec 文档的 skill | [07](./07-starting-a-new-project.md) |
+| `ywc-task-generator` | 将 spec 拆解为可执行 Task 的 skill | [05](./05-general-cycle-medium-large.md) |
+| `ywc-tdd-ritual` | 想严格按照文档化的流程执行 RED → GREEN → REFACTOR | [此处](#想严格按照文档化的流程执行-red--green--refactor) |
+| `ywc-tech-research` | 想比较库或实现方式，决定要用什么 | [此处](#想比较库或实现方式决定要用什么) |
+| `ywc-ubiquitous-language` | 创建或更新由开发人员、领域专家和大型语言模型共享的领域词汇表 | [此处](#创建或更新由开发人员领域专家和大型语言模型共享的领域词汇表) |
+| `ywc-ui-ux-review` | 检查界面可用性和可访问性的 skill | [11](./11-design-review.md) |
+| `ywc-verify-done` | 通过运行 lint/typecheck/test/build 机械化验证完成情况的 skill | [06](./06-agentic-autonomous-loop.md) |
+| `ywc-worktrees` | 想创建隔离的 worktree 路径，或检查/清理它 | [此处](#想创建隔离的-worktree-路径或检查清理它) |
 
 ---
 

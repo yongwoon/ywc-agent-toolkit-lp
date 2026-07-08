@@ -15,7 +15,7 @@ Este flujo es un embudo: **divergir → decidir → converger → puerta de arra
 | Paso | Skill | Rol |
 |---|---|---|
 | uno | `ywc-brainstorm` *(opcional)* | Cuando la idea aún es difusa, fija propósito, restricciones, criterios de éxito y 2–3 enfoques alternativos mediante un diálogo socrático de una pregunta a la vez. Omítelo si la intención ya es firme |
-| Dos | `ywc-project-mission` | Registra el motivo del proyecto, los criterios de éxito y el registro de enfoques rechazados en `docs/mission.md`. **Fija el porqué antes de diseñar cualquier estructura** |
+| Dos | `ywc-mission` | Registra el motivo del proyecto, los criterios de éxito y el registro de enfoques rechazados en `docs/mission.md`. **Fija el porqué antes de diseñar cualquier estructura** |
 | tres | `ywc-tech-research` *(opcional)* | Compara en paralelo los candidatos de pila tecnológica / biblioteca y registra la justificación de la elección. Omítelo si la pila ya está decidida |
 | cuatro | `ywc-project-scaffold` | Con la pila decidida, diseña la estructura del directorio (genera un plan Markdown) |
 | cinco | `ywc-ubiquitous-language` *(recomendado para proyectos ricos en dominio)* | Define el vocabulario compartido para desarrolladores, expertos de dominio y el LLM en `docs/ubiquitous-language.md` → la especificación y `ywc-code-gen` usan luego los términos canónicos |
@@ -42,10 +42,10 @@ Estrecha el propósito, las restricciones y las alternativas mediante un diálog
 **2. Registra el porqué del proyecto**
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-project-mission El objetivo de este project es permitir que una pequeña empresa de construcción registre la entrada/salida de los trabajadores sin una aplicación aparte. Criterio de éxito: si un solo administrador puede cerrar la asistencia de 10 trabajadores o menos en 5 minutos" />
+    <CodeBlock label="claude code" code="ywc-mission El objetivo de este project es permitir que una pequeña empresa de construcción registre la entrada/salida de los trabajadores sin una aplicación aparte. Criterio de éxito: si un solo administrador puede cerrar la asistencia de 10 trabajadores o menos en 5 minutos" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-project-mission El objetivo de este project es permitir que una pequeña empresa de construcción registre la entrada/salida de los trabajadores sin una aplicación aparte. Criterio de éxito: si un solo administrador puede cerrar la asistencia de 10 trabajadores o menos en 5 minutos" />
+    <CodeBlock label="codex" code="ywc-mission El objetivo de este project es permitir que una pequeña empresa de construcción registre la entrada/salida de los trabajadores sin una aplicación aparte. Criterio de éxito: si un solo administrador puede cerrar la asistencia de 10 trabajadores o menos en 5 minutos" />
   </ToolTabsPanel>
 </ToolTabs>
 Fija el **porqué y los criterios de éxito** antes que la estructura del directorio o la especificación: cada paso posterior se juzga contra esta mission.

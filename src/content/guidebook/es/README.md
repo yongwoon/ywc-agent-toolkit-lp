@@ -33,6 +33,9 @@ Esto está organizado en torno a **lo que estás intentando hacer ahora**, no a 
 | Limpiar de una vez un acumulado de PRs de Dependabot | `ywc-merge-dependabot` | [14](./14-skill-reference.md) |
 | Escribe una CHANGELOG o nota de lanzamiento | `ywc-changelog-release-notes` | [14](./14-skill-reference.md) |
 | Simplemente confirma el trabajo realizado hasta ahora | `ywc-commit` | [14](./14-skill-reference.md) |
+| La estructura está enredada o la calidad de implementación es mala desde una perspectiva de mantenibilidad | `ywc-improve-architecture` | [14](./14-skill-reference.md) |
+| Quieres comparar librerías o enfoques de implementación para decidir qué usar | `ywc-tech-research` | [14](./14-skill-reference.md) |
+| Gestionar el conocimiento (glosario/aprendizajes de revisión/mission) que permanece en el proyecto después de que termina la conversación | `ywc-ubiquitous-language` | [14](./14-skill-reference.md) |
 
 Para situaciones no cubiertas en esta tabla, consulte [14. Full Skill Reference](./14-skill-reference.md).
 
