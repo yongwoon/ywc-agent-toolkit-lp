@@ -324,4 +324,4 @@ wave 단위로 동시 실행되며, Task 마다 PR 생성 → CI → bot review 
 
 ---
 
-[← 이전: 12. 버그 디버깅과 장애 사후분석](./12-debugging-and-incident-postmortem.md) · [다음: 14. 전체 Skill 레퍼런스 →](./14-skill-reference.md)
+[← 이전: 13. 코드 구조와 유지보수성 관리](./16-code-structure-and-maintainability.md) · [다음: 15. 전체 Skill 레퍼런스 →](./14-skill-reference.md)

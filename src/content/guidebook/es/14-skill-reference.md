@@ -142,19 +142,19 @@ Esto se ha trasladado a la página dedicada `ywc-agentic`. Consulte [06. Finish 
 
 ### Limpiar el código antiguo muerto (funciones/exportaciones/dependencias no utilizadas)
 
-Esto se ha trasladado a la página dedicada `ywc-refactor-clean`. Consulte [16. Gestionar la estructura del código y la mantenibilidad](./16-code-structure-and-maintainability.md) para uso y ejemplos.
+Esto se ha trasladado a la página dedicada `ywc-refactor-clean`. Consulte [13. Gestionar la estructura del código y la mantenibilidad](./16-code-structure-and-maintainability.md) para uso y ejemplos.
 
 ### Quieres reestructurar una arquitectura de shallow module enredada en deep module
 
-Esto se ha trasladado a la página dedicada `ywc-improve-architecture`. Consulte [16. Gestionar la estructura del código y la mantenibilidad](./16-code-structure-and-maintainability.md) para uso y ejemplos.
+Esto se ha trasladado a la página dedicada `ywc-improve-architecture`. Consulte [13. Gestionar la estructura del código y la mantenibilidad](./16-code-structure-and-maintainability.md) para uso y ejemplos.
 
 ### Quieres revisar de forma independiente la calidad de implementación y el mantenimiento fuera del ciclo general
 
-Esto se ha trasladado a la página dedicada `ywc-impl-review`. Consulte [16. Gestionar la estructura del código y la mantenibilidad](./16-code-structure-and-maintainability.md) para uso y ejemplos.
+Esto se ha trasladado a la página dedicada `ywc-impl-review`. Consulte [13. Gestionar la estructura del código y la mantenibilidad](./16-code-structure-and-maintainability.md) para uso y ejemplos.
 
 ### Quieres medir el costo de tokens y la legibilidad del código desde la perspectiva de un agent
 
-Esto se ha trasladado a la página dedicada `ywc-agent-legibility-audit`. Consulte [16. Gestionar la estructura del código y la mantenibilidad](./16-code-structure-and-maintainability.md) para uso y ejemplos.
+Esto se ha trasladado a la página dedicada `ywc-agent-legibility-audit`. Consulte [13. Gestionar la estructura del código y la mantenibilidad](./16-code-structure-and-maintainability.md) para uso y ejemplos.
 
 ### Quieres seguir estrictamente el procedimiento documentado RED → GREEN → REFACTOR mientras implementas
 
@@ -314,11 +314,11 @@ Todas las skills `ywc-*` de este toolkit, ordenadas alfabéticamente. Consulta l
 
 | Skill | Descripción | Ubicación |
 |---|---|---|
-| `ywc-agent-legibility-audit` | Quieres medir el costo de tokens y la legibilidad del código desde la perspectiva de un agent | [16](./16-code-structure-and-maintainability.md) |
+| `ywc-agent-legibility-audit` | Quieres medir el costo de tokens y la legibilidad del código desde la perspectiva de un agent | [13](./16-code-structure-and-maintainability.md) |
 | `ywc-agentic` | Quieres dar un objetivo y dejar que la planificación hasta la implementación se ejecute sin intervención humana | [aquí](#quieres-dar-un-objetivo-y-dejar-que-la-planificación-hasta-la-implementación-se-ejecute-sin-intervención-humana) |
 | `ywc-brainstorm` | Tu idea aún no es concreta y quieres aclararla primero | [aquí](#tu-idea-aún-no-es-concreta-y-quieres-aclararla-primero) |
 | `ywc-changelog-release-notes` | Escribe CHANGELOG.md o notas de la versión para el usuario | [aquí](#escribe-changelogmd-o-notas-de-la-versión-para-el-usuario) |
-| `ywc-code-gen` | Skill de generación de código multicapa que genera Backend/Frontend/QA en paralelo | [13](./13-executor-and-codegen-patterns.md) |
+| `ywc-code-gen` | Skill de generación de código multicapa que genera Backend/Frontend/QA en paralelo | [14](./13-executor-and-codegen-patterns.md) |
 | `ywc-commit` | Simplemente confirma el trabajo realizado hasta ahora | [aquí](#simplemente-confirma-el-trabajo-realizado-hasta-ahora) |
 | `ywc-confidence-gate` | Un confidence gate que puntúa PROCEED/REVIEW/STOP para decidir si un artefacto puede avanzar a la siguiente etapa | [06](./06-agentic-autonomous-loop.md) |
 | `ywc-create-pr` | Confirmar cambios y abrir un borrador PR | [aquí](#confirmar-cambios-y-abrir-un-borrador-pr) |
@@ -329,23 +329,23 @@ Todas las skills `ywc-*` de este toolkit, ordenadas alfabéticamente. Consulta l
 | `ywc-finish-branch` | Finaliza una feature branch completada — desde la creación del PR hasta el merge y la limpieza | [04](./04-general-cycle-small.md) |
 | `ywc-gen-testcase` | Genera un documento de prueba manual (testsheet) a partir de un spec para la verificación del PR | [09](./09-testing-guide.md) |
 | `ywc-handle-pr-reviews` | Responder a los comentarios de la revisión en un PR abierto y limpiar también CI/conflictos | [aquí](#responder-a-los-comentarios-de-la-revisión-en-un-pr-abierto-y-limpiar-también-ciconflictos) |
-| `ywc-impl-review` | Quieres revisar de forma independiente la calidad de implementación y el mantenimiento fuera del ciclo general | [16](./16-code-structure-and-maintainability.md) |
-| `ywc-improve-architecture` | Quieres reestructurar una arquitectura de shallow module enredada en deep module | [16](./16-code-structure-and-maintainability.md) |
+| `ywc-impl-review` | Quieres revisar de forma independiente la calidad de implementación y el mantenimiento fuera del ciclo general | [13](./16-code-structure-and-maintainability.md) |
+| `ywc-improve-architecture` | Quieres reestructurar una arquitectura de shallow module enredada en deep module | [13](./16-code-structure-and-maintainability.md) |
 | `ywc-incident-postmortem` | Ocurrió un incidente de producción y necesitas escribir un informe posterior al incidente | [12](./12-debugging-and-incident-postmortem.md) |
 | `ywc-merge-dependabot` | Limpiar de una vez los PRs acumulados de Dependabot | [aquí](#limpiar-de-una-vez-los-prs-acumulados-de-dependabot) |
 | `ywc-mission` | Registra el porqué del proyecto y los enfoques rechazados | [aquí](#registra-el-porqué-del-proyecto-y-los-enfoques-rechazados) |
 | `ywc-onboard-repo` | Skill de onboarding que deduce las convenciones de un repo desconocido y genera un CLAUDE.md | [08](./08-onboarding-existing-repo.md) |
-| `ywc-parallel-executor` | Ejecuta múltiples Tasks en paralelo usando worktrees aislados | [13](./13-executor-and-codegen-patterns.md) |
+| `ywc-parallel-executor` | Ejecuta múltiples Tasks en paralelo usando worktrees aislados | [14](./13-executor-and-codegen-patterns.md) |
 | `ywc-plan` | Skill de punto de entrada que redacta un plan de implementación para una función o cambio | [04](./04-general-cycle-small.md) |
 | `ywc-product-review` | Quieres una revisión del proyecto desde una perspectiva de negocio/servicio, no de código | [aquí](#quieres-una-revisión-del-proyecto-desde-una-perspectiva-de-negocioservicio-no-de-código) |
 | `ywc-project-docs` | Genera documentación del proyecto siguiendo la estructura del directorio docs/ | [07](./07-starting-a-new-project.md) |
 | `ywc-project-scaffold` | Diseña la estructura de directorios de un proyecto completamente nuevo | [07](./07-starting-a-new-project.md) |
 | `ywc-receive-review` | No quieres aceptar incondicionalmente los comentarios de un revisor (humano o CodeRabbit/Codex/Claude); quieres verificarlos técnicamente antes de responder | [aquí](#no-quieres-aceptar-incondicionalmente-los-comentarios-de-un-revisor-humano-o-coderabbitcodexclaude-quieres-verificarlos-técnicamente-antes-de-responder) |
-| `ywc-refactor-clean` | Limpiar el código antiguo muerto (funciones/exportaciones/dependencias no utilizadas) | [16](./16-code-structure-and-maintainability.md) |
+| `ywc-refactor-clean` | Limpiar el código antiguo muerto (funciones/exportaciones/dependencias no utilizadas) | [13](./16-code-structure-and-maintainability.md) |
 | `ywc-release-pr-list` | Resume la lista de PRs fusionados incluidos en una Release PR (develop->main, etc.) | [aquí](#resume-la-lista-de-prs-fusionados-incluidos-en-una-release-pr-develop-main-etc) |
 | `ywc-review-learnings` | Enseñe al sistema sobre la retroalimentación repetida de la revisión de código para que no genere el mismo falso positivo nuevamente | [aquí](#enseñe-al-sistema-sobre-la-retroalimentación-repetida-de-la-revisión-de-código-para-que-no-genere-el-mismo-falso-positivo-nuevamente) |
 | `ywc-security-audit` | Revisa las vulnerabilidades de seguridad en el código sensible, como autenticación/pagos | [aquí](#revisa-las-vulnerabilidades-de-seguridad-en-el-código-sensible-como-autenticaciónpagos) |
-| `ywc-sequential-executor` | Ejecuta múltiples Tasks uno a la vez, en orden | [13](./13-executor-and-codegen-patterns.md) |
+| `ywc-sequential-executor` | Ejecuta múltiples Tasks uno a la vez, en orden | [14](./13-executor-and-codegen-patterns.md) |
 | `ywc-setup` | Configurar un idioma de salida persistente para que las skills no lo pidan cada vez | [aquí](#configurar-un-idioma-de-salida-persistente-para-que-las-skills-no-lo-pidan-cada-vez) |
 | `ywc-skill-author` | Quieres crear una nueva skill ywc-*, o ordenar/auditar una skill existente según las reglas | [aquí](#quieres-crear-una-nueva-skill-ywc--o-ordenarauditar-una-skill-existente-según-las-reglas) |
 | `ywc-spec-ready` | Gate que verifica si un documento spec está listo para implementarse | [05](./05-general-cycle-medium-large.md) |
@@ -361,4 +361,4 @@ Todas las skills `ywc-*` de este toolkit, ordenadas alfabéticamente. Consulta l
 
 ---
 
-[Previous: 13. Executor / Patrones de indicación de generación de código](./13-executor-and-codegen-patterns.md) - [Next: 15. Requisitos previos e instalación](./15-prerequisites-installation.md)
+[Previous: 14. Executor / Patrones de indicación de generación de código](./13-executor-and-codegen-patterns.md) - [Next: 16. Requisitos previos e instalación](./15-prerequisites-installation.md)

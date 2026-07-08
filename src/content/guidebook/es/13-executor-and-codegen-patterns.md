@@ -228,4 +228,4 @@ Palabras clave como `payment` se clasifican automáticamente como `critical`, lo
 
 ---
 
-[Previous: 11. Revisando y mejorando el diseño](./11-design-review.md) - [Next: 14. Referencia completa Skill](./14-skill-reference.md)
+[Previous: 13. Gestionar la estructura del código y la mantenibilidad](./16-code-structure-and-maintainability.md) - [Next: 15. Referencia completa Skill](./14-skill-reference.md)

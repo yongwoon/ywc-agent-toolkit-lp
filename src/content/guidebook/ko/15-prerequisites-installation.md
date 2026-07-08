@@ -162,4 +162,4 @@ gh pr checks --watch
 
 ---
 
-[← 이전: 14. 전체 Skill 레퍼런스](./14-skill-reference.md) · [다음: 16. 코드 구조와 유지보수성 관리 →](./16-code-structure-and-maintainability.md)
+[← 이전: 15. 전체 Skill 레퍼런스](./14-skill-reference.md) · [목차로 돌아가기 »](./README.md)

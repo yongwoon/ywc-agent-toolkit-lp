@@ -228,4 +228,4 @@ Keywords such as `payment` are automatically classified as `critical`, which for
 
 ---
 
-[Previous: 12. Debugging and incident postmortems](./12-debugging-and-incident-postmortem.md) - [Next: 14. Full Skill Reference](./14-skill-reference.md)
+[Previous: 13. Managing Code Structure and Maintainability](./16-code-structure-and-maintainability.md) - [Next: 15. Full Skill Reference](./14-skill-reference.md)

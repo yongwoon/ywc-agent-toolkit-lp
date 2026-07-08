@@ -162,4 +162,4 @@ gh pr checks --watch
 
 ---
 
-[Previous: 14. 完整 Skill 参考](./14-skill-reference.md) - [Next: 16. 管理代码结构与可维护性](./16-code-structure-and-maintainability.md)
+[Previous: 15. 完整 Skill 参考](./14-skill-reference.md) - [返回目录](./README.md)

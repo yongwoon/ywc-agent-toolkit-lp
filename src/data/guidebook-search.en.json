@@ -60,6 +60,11 @@
     "summary": "The two Skills answer different questions."
   },
   {
+    "slug": "16-code-structure-and-maintainability",
+    "title": "13. Managing Code Structure and Maintainability",
+    "summary": "All four Skills start from the same symptom — \"the code is bad\" — but answer different questions."
+  },
+  {
     "slug": "13-executor-and-codegen-patterns",
     "title": "13. Executor / Code-gen Prompt patterns",
     "summary": "ywc-sequential-executor , ywc-parallel-executor , and ywc-code-gen are the three Skills whose many options make you repeatedly look up exact syntax."
@@ -73,10 +78,5 @@
     "slug": "15-prerequisites-installation",
     "title": "15. Prerequisites and installation",
     "summary": "To use ywc-* Skills reliably, a few tools need to be in place beforehand."
-  },
-  {
-    "slug": "16-code-structure-and-maintainability",
-    "title": "16. Managing Code Structure and Maintainability",
-    "summary": "All four Skills start from the same symptom — \"the code is bad\" — but answer different questions."
   }
 ]

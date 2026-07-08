@@ -228,4 +228,4 @@ wave 単位で同時実行され、Task ごとに PR 作成 → CI → bot revie
 
 ---
 
-[← 前: 11. デザインをレビューして改善する](./11-design-review.md) · [次: 14. 全 Skill リファレンス →](./14-skill-reference.md)
+[← 前: 13. コード構造と保守性の管理](./16-code-structure-and-maintainability.md) · [次: 15. 全 Skill リファレンス →](./14-skill-reference.md)

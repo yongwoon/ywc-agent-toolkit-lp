@@ -1,6 +1,6 @@
 [« Volver al índice](./README.md)
 
-# 16. Gestionar la estructura del código y la mantenibilidad
+# 13. Gestionar la estructura del código y la mantenibilidad
 
 ## Cuándo usar estas 4 Skills
 
@@ -95,4 +95,4 @@ Una vez terminada la reestructuración, ejecuta una revisión de 5 ejes antes de
 
 ---
 
-[← Anterior: 15. Requisitos previos e instalación](./15-prerequisites-installation.md) · [Volver al índice »](./README.md)
+[Previous: 12. Debugging e informe postmortem](./12-debugging-and-incident-postmortem.md) - [Next: 14. Executor / Patrones de indicación de generación de código](./13-executor-and-codegen-patterns.md)

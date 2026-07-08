@@ -60,6 +60,11 @@
     "summary": "Las dos habilidades responden a preguntas diferentes."
   },
   {
+    "slug": "16-code-structure-and-maintainability",
+    "title": "13. Gestionar la estructura del código y la mantenibilidad",
+    "summary": "Las cuatro Skills parten del mismo síntoma — \"el código no está bien\" — pero responden preguntas distintas."
+  },
+  {
     "slug": "13-executor-and-codegen-patterns",
     "title": "12. Executor / Patrones de indicación de generación de código",
     "summary": "ywc-sequential-executor , ywc-parallel-executor y ywc-code-gen son las tres Habilidades cuyas muchas opciones te hacen consultar repetidamente la sintaxis exacta."
@@ -73,10 +78,5 @@
     "slug": "15-prerequisites-installation",
     "title": "15. Requisitos previos e instalación",
     "summary": "Para usar las Skills ywc-* de forma fiable, necesitas tener listas algunas herramientas de antemano."
-  },
-  {
-    "slug": "16-code-structure-and-maintainability",
-    "title": "16. Gestionar la estructura del código y la mantenibilidad",
-    "summary": "Las cuatro Skills parten del mismo síntoma — \"el código no está bien\" — pero responden preguntas distintas."
   }
 ]

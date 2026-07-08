@@ -162,4 +162,4 @@ gh pr checks --watch
 
 ---
 
-[Previous: 14. Referencia completa Skill](./14-skill-reference.md) - [Next: 16. Gestionar la estructura del código y la mantenibilidad](./16-code-structure-and-maintainability.md)
+[← Anterior: 15. Referencia completa Skill](./14-skill-reference.md) · [Volver al índice »](./README.md)
