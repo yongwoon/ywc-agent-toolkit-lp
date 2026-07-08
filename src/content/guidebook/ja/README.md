@@ -28,11 +28,14 @@
 | コードにセキュリティ脆弱性がないか点検したい | `ywc-security-audit` | [14](./14-skill-reference.md) |
 | バグの根本原因が見つからず困っている | `ywc-debug-rootcause` | [12](./12-debugging-and-incident-postmortem.md) |
 | Production 障害が起き、振り返りを書く必要がある | `ywc-incident-postmortem` | [12](./12-debugging-and-incident-postmortem.md) |
-| 古い dead code を整理したい | `ywc-refactor-clean` | [14](./14-skill-reference.md) |
+| 古い dead code を整理したい | `ywc-refactor-clean` | [16](./16-code-structure-and-maintainability.md) |
 | 開いている PR の review comment に対応する必要がある | `ywc-handle-pr-reviews` | [14](./14-skill-reference.md) |
 | Dependabot PR が溜まっているので一度に整理したい | `ywc-merge-dependabot` | [14](./14-skill-reference.md) |
 | CHANGELOG や release note を書きたい | `ywc-changelog-release-notes` | [14](./14-skill-reference.md) |
 | ここまでの作業をそのまま commit したい | `ywc-commit` | [14](./14-skill-reference.md) |
+| 構造が絡み合っている、または maintenance 観点で実装品質が良くない | `ywc-improve-architecture` | [16](./16-code-structure-and-maintainability.md) |
+| ライブラリや実装方式を比較して何を使うか決めたい | `ywc-tech-research` | [14](./14-skill-reference.md) |
+| 会話が終わっても project に残る知識(用語集/レビュー学習/mission)を管理したい | `ywc-ubiquitous-language` | [14](./14-skill-reference.md) |
 
 この表にない状況は、[14. 全 Skill リファレンス](./14-skill-reference.md)で全体一覧を確認してください。
 
@@ -71,6 +74,8 @@
 |---|---|
 | [13. Executor / Code-gen Prompt パターン](./13-executor-and-codegen-patterns.md) | オプションが多い `ywc-sequential-executor` / `ywc-parallel-executor` / `ywc-code-gen` の実践 command 集 |
 | [14. 全 Skill リファレンス](./14-skill-reference.md) | 上記ガイドで扱わなかった残りの Skill を状況別に整理した索引 |
+| [15. 事前準備とインストール](./15-prerequisites-installation.md) | ywc-* Skill を安定して実行するために事前に準備すべき必須/選択 Tool の一覧 |
+| [16. コード構造と保守性の管理](./16-code-structure-and-maintainability.md) | 構造が悪い、または保守しづらいコードを整理・再構成・検証する 4 つの Skill の使い方と、それらが連携して働く順序 |
 
 ## 原資料
 

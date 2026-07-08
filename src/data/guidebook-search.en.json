@@ -73,5 +73,10 @@
     "slug": "15-prerequisites-installation",
     "title": "15. Prerequisites and installation",
     "summary": "To use ywc-* Skills reliably, a few tools need to be in place beforehand."
+  },
+  {
+    "slug": "16-code-structure-and-maintainability",
+    "title": "16. Managing Code Structure and Maintainability",
+    "summary": "All four Skills start from the same symptom — \"the code is bad\" — but answer different questions."
   }
 ]

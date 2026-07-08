@@ -162,4 +162,4 @@ gh pr checks --watch
 
 ---
 
-[← 前: 14. 全 Skill リファレンス](./14-skill-reference.md) · [目次に戻る »](./README.md)
+[← 前: 14. 全 Skill リファレンス](./14-skill-reference.md) · [次: 16. コード構造と保守性の管理 →](./16-code-structure-and-maintainability.md)

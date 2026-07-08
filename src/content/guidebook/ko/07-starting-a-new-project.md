@@ -15,7 +15,7 @@ Git repository 자체가 없거나, 있어도 코드가 거의 없는 백지 상
 | 단계 | Skill | 역할 |
 |---|---|---|
 | 1 | `ywc-brainstorm` *(선택)* | 아이디어가 아직 흐릿할 때, 목적·제약·success criteria·대안 2~3개를 한 질문씩 Socratic 대화로 확정. 의도가 이미 확고하면 건너뜀 |
-| 2 | `ywc-project-mission` | project 의 why, success criteria, rejected-approach log 를 `docs/mission.md` 에 기록. **구조를 짜기 전에 왜를 먼저 못박음** |
+| 2 | `ywc-mission` | project 의 why, success criteria, rejected-approach log 를 `docs/mission.md` 에 기록. **구조를 짜기 전에 왜를 먼저 못박음** |
 | 3 | `ywc-tech-research` *(선택)* | tech stack / library 후보를 병렬 비교하고 선택 근거를 기록. stack 이 이미 정해졌으면 건너뜀 |
 | 4 | `ywc-project-scaffold` | 확정된 stack 기준으로 directory 구조 설계 (Markdown plan 산출) |
 | 5 | `ywc-ubiquitous-language` *(도메인 중심 project 권장)* | 개발자·도메인 전문가·LLM 이 공유할 표준 용어집을 `docs/ubiquitous-language.md` 에 정의 → 이후 spec 과 `ywc-code-gen` 이 canonical term 을 사용 |
@@ -42,10 +42,10 @@ Git repository 자체가 없거나, 있어도 코드가 거의 없는 백지 상
 **2. Project 의 why 를 기록**
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-project-mission 이 project 의 목표는 소규모 건설업체가 별도 앱 없이 출퇴근을 기록하게 하는 것. 성공 기준은 관리자 1명이 인력 10명 이하의 근태를 5분 안에 마감할 수 있는가" />
+    <CodeBlock label="claude code" code="ywc-mission 이 project 의 목표는 소규모 건설업체가 별도 앱 없이 출퇴근을 기록하게 하는 것. 성공 기준은 관리자 1명이 인력 10명 이하의 근태를 5분 안에 마감할 수 있는가" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-project-mission 이 project 의 목표는 소규모 건설업체가 별도 앱 없이 출퇴근을 기록하게 하는 것. 성공 기준은 관리자 1명이 인력 10명 이하의 근태를 5분 안에 마감할 수 있는가" />
+    <CodeBlock label="codex" code="ywc-mission 이 project 의 목표는 소규모 건설업체가 별도 앱 없이 출퇴근을 기록하게 하는 것. 성공 기준은 관리자 1명이 인력 10명 이하의 근태를 5분 안에 마감할 수 있는가" />
   </ToolTabsPanel>
 </ToolTabs>
 directory 구조나 사양보다 먼저 **왜와 성공 기준**을 못박습니다 — 이후 모든 단계가 이 mission 을 기준으로 판단됩니다.

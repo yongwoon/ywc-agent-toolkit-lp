@@ -28,11 +28,14 @@ This is organized around **what you are trying to do now**, not "which Skills ex
 | Check code for security vulnerabilities | `ywc-security-audit` | [14](./14-skill-reference.md) |
 | You are stuck because you cannot find the root cause of a bug | `ywc-debug-rootcause` | [12](./12-debugging-and-incident-postmortem.md) |
 | A production incident happened and you need to write a postmortem | `ywc-incident-postmortem` | [12](./12-debugging-and-incident-postmortem.md) |
-| Clean up old dead code | `ywc-refactor-clean` | [14](./14-skill-reference.md) |
+| Clean up old dead code | `ywc-refactor-clean` | [16](./16-code-structure-and-maintainability.md) |
 | Respond to review comments on an open PR | `ywc-handle-pr-reviews` | [14](./14-skill-reference.md) |
 | Clean up a backlog of Dependabot PRs at once | `ywc-merge-dependabot` | [14](./14-skill-reference.md) |
 | Write a CHANGELOG or release note | `ywc-changelog-release-notes` | [14](./14-skill-reference.md) |
 | Just commit the work done so far | `ywc-commit` | [14](./14-skill-reference.md) |
+| Structure is tangled or implementation quality is poor from a maintainability standpoint | `ywc-improve-architecture` | [16](./16-code-structure-and-maintainability.md) |
+| Compare libraries or implementation approaches to decide what to use | `ywc-tech-research` | [14](./14-skill-reference.md) |
+| Manage knowledge (glossary/review learnings/mission) that persists in the project after the conversation ends | `ywc-ubiquitous-language` | [14](./14-skill-reference.md) |
 
 For situations not covered in this table, see [14. Full Skill Reference](./14-skill-reference.md).
 
@@ -71,6 +74,8 @@ For situations not covered in this table, see [14. Full Skill Reference](./14-sk
 |---|---|
 | [13. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md) | Practical command examples for option-heavy `ywc-sequential-executor` / `ywc-parallel-executor` / `ywc-code-gen` |
 | [14. Full Skill Reference](./14-skill-reference.md) | An index of the remaining Skills not covered in the guides above, organized by situation |
+| [15. Prerequisites and installation](./15-prerequisites-installation.md) | The required and optional tools you need in place before ywc-* Skills run reliably |
+| [16. Managing Code Structure and Maintainability](./16-code-structure-and-maintainability.md) | How to use the 4 Skills that clean up, restructure, and verify code with poor structure or maintainability, and the order they work together in |
 
 ## Source material
 

@@ -15,7 +15,7 @@ This flow is a funnel: **diverge → decide → converge → readiness gate**. S
 | Step | Skill | Role |
 |---|---|---|
 | 1 | `ywc-brainstorm` *(optional)* | When the idea is still fuzzy, pin down purpose, constraints, success criteria, and 2–3 alternative approaches through one-question-at-a-time Socratic dialogue. Skip if intent is already firm |
-| 2 | `ywc-project-mission` | Record the project's why, success criteria, and rejected-approach log in `docs/mission.md`. **Pin down the why before designing any structure** |
+| 2 | `ywc-mission` | Record the project's why, success criteria, and rejected-approach log in `docs/mission.md`. **Pin down the why before designing any structure** |
 | 3 | `ywc-tech-research` *(optional)* | Compare tech stack / library candidates in parallel and record the rationale for the choice. Skip if the stack is already decided |
 | 4 | `ywc-project-scaffold` | With the decided stack, design the directory structure (outputs a Markdown plan) |
 | 5 | `ywc-ubiquitous-language` *(recommended for domain-rich projects)* | Define the shared vocabulary for developers, domain experts, and the LLM in `docs/ubiquitous-language.md` → the spec and `ywc-code-gen` then use canonical terms |
@@ -42,10 +42,10 @@ It narrows purpose, constraints, and alternatives through one-question-at-a-time
 **2. Record the project's why**
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-project-mission This project's goal is to let a small construction company record employee check-in/check-out without a separate app. Success criterion: can one manager close out attendance for 10 or fewer workers within 5 minutes" />
+    <CodeBlock label="claude code" code="ywc-mission This project's goal is to let a small construction company record employee check-in/check-out without a separate app. Success criterion: can one manager close out attendance for 10 or fewer workers within 5 minutes" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-project-mission This project's goal is to let a small construction company record employee check-in/check-out without a separate app. Success criterion: can one manager close out attendance for 10 or fewer workers within 5 minutes" />
+    <CodeBlock label="codex" code="ywc-mission This project's goal is to let a small construction company record employee check-in/check-out without a separate app. Success criterion: can one manager close out attendance for 10 or fewer workers within 5 minutes" />
   </ToolTabsPanel>
 </ToolTabs>
 Pin down the **why and success criteria** before the directory structure or the spec — every later step is judged against this mission.

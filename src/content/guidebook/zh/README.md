@@ -28,11 +28,14 @@
 | 检查代码中的安全漏洞 | `ywc-security-audit` | [14](./14-skill-reference.md) |
 | 你被卡住了，因为你找不到一个错误的根本原因 | `ywc-debug-rootcause` | [12](./12-debugging-and-incident-postmortem.md) |
 | 发生了生产事故，你需要写一份事后分析报告 | `ywc-incident-postmortem` | [12](./12-debugging-and-incident-postmortem.md) |
-| 清理旧的死代码 | `ywc-refactor-clean` | [14](./14-skill-reference.md) |
+| 清理旧的死代码 | `ywc-refactor-clean` | [16](./16-code-structure-and-maintainability.md) |
 | 回复有关开放 PR 的评审意见 | `ywc-handle-pr-reviews` | [14](./14-skill-reference.md) |
 | 一次性清理积压的 Dependabot PR | `ywc-merge-dependabot` | [14](./14-skill-reference.md) |
 | 编写 CHANGELOG 或发布说明 | `ywc-changelog-release-notes` | [14](./14-skill-reference.md) |
 | 只提交到目前为止完成的工作 | `ywc-commit` | [14](./14-skill-reference.md) |
+| 结构混乱，或从 maintenance 角度看实现质量不佳 | `ywc-improve-architecture` | [16](./16-code-structure-and-maintainability.md) |
+| 想比较库或实现方式，决定要用什么 | `ywc-tech-research` | [14](./14-skill-reference.md) |
+| 想管理对话结束后仍留在 project 中的知识（术语表/评审学习/mission） | `ywc-ubiquitous-language` | [14](./14-skill-reference.md) |
 
 对于本表未涵盖的情况，请参见 [14. Full Skill Reference](./14-skill-reference.md)。
 
@@ -71,6 +74,8 @@
 |---|---|
 | [13. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md) | 针对选项繁多的 `ywc-sequential-executor` / `ywc-parallel-executor` / `ywc-code-gen` 的实用命令示例 |
 | [14. Full Skill Reference](./14-skill-reference.md) | 未在上述指南中涵盖的剩余技能索引，按情境分类 |
+| [15. 前置条件与安装](./15-prerequisites-installation.md) | 为了让 ywc-* Skill 稳定运行，需要预先准备的必需/可选 Tool 列表 |
+| [16. 管理代码结构与可维护性](./16-code-structure-and-maintainability.md) | 整理、重构和验证结构不佳或难以维护的代码的 4 个 Skill 的用法，以及它们协同工作的顺序 |
 
 ## 源材料
 
