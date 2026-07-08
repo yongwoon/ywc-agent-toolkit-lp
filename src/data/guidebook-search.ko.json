@@ -65,6 +65,11 @@
     "summary": "네 Skill 은 모두 \"코드가 안 좋다\"는 같은 증상에서 출발하지만 서로 다른 질문에 답합니다."
   },
   {
+    "slug": "17-infrastructure-and-cloud",
+    "title": "14. 클라우드 인프라 관리",
+    "summary": "네 Skill 은 \"설계 → 작성 → 리뷰 → 개선\"이라는 하나의 연속된 라이프사이클을 다루지만, 각각 답하는 질문이 다릅니다."
+  },
+  {
     "slug": "13-executor-and-codegen-patterns",
     "title": "14. Executor / Code-gen Prompt 패턴",
     "summary": "ywc-sequential-executor , ywc-parallel-executor , ywc-code-gen 은 모두 \"코드를 만들게 하는\" Skill 이지만 쓰는 순간이 다릅니다."
