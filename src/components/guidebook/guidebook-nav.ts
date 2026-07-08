@@ -14,7 +14,6 @@ export type GuidebookPageMeta = {
   title: string;
   description: string;
   groupId: GuidebookGroupId;
-  order: number;
   status: GuidebookPageStatus;
 };
 
@@ -70,6 +69,33 @@ export function getGroupLabel(locale: Locale | string, groupId: GuidebookGroupId
   return labels[groupId];
 }
 
+// Structural (not LocalizedGuidebookPageMeta) so this function can live here
+// rather than in guidebook-nav-content.ts, which also holds
+// LocalizedGuidebookPageMeta but pulls in a node:fs/promises-dependent chain
+// (loadLocalizedGuidebookNav -> loadGuidebookPageForLocale) that client
+// components must not import. LocalizedGuidebookPageMeta is structurally
+// assignable to this type, so every call site works unchanged.
+export type GuidebookTitleSource = { displayNumber: string; title: string };
+
+// The 80 existing markdown files' H1 text (and therefore their
+// locale-content-derived title) still carries its original "NN. " prefix --
+// out of scope to rewrite per the refactor's render-time-override variant.
+// Strip any such prefix here before applying the computed displayNumber, so
+// existing pages don't render "16. 16. Title" while never trusting the H1's
+// literal digits as the actual order source (displayNumber already comes
+// from array position, computed upstream).
+//
+// Known limitation: a title that legitimately starts with "<digits>. "
+// unrelated to page ordering (e.g. "5.0 Release notes") would be silently
+// stripped too. None of the current 16 titles have this shape.
+//
+// formatGuidebookPageTitle({ displayNumber: "16", title: "16. Foo" }) -> "16. Foo"
+// formatGuidebookPageTitle({ displayNumber: "01", title: "Foo" }) -> "01. Foo"
+export function formatGuidebookPageTitle(page: GuidebookTitleSource): string {
+  const title = page.title.replace(/^\d+\.\s*/, "");
+  return `${page.displayNumber}. ${title}`;
+}
+
 export const guidebookNavGroups: readonly GuidebookNavGroup[] = [
   {
     groupId: "prologue",
@@ -77,19 +103,17 @@ export const guidebookNavGroups: readonly GuidebookNavGroup[] = [
     pages: [
       {
         slug: "01-introduction",
-        title: "01. Introduction",
+        title: "Introduction",
         description: "What this Skill/Agent ecosystem is, who it's for, and what problem it solves",
         groupId: "prologue",
-        order: 1,
         status: "pending"
       },
       {
         slug: "02-core-concepts",
-        title: "02. Core concepts",
+        title: "Core concepts",
         description:
           "Skill / Agent / Executor / Task terminology, invocation syntax, and the 4 completion states (DONE, etc.)",
         groupId: "prologue",
-        order: 2,
         status: "pending"
       }
     ]
@@ -100,10 +124,9 @@ export const guidebookNavGroups: readonly GuidebookNavGroup[] = [
     pages: [
       {
         slug: "03-quickstart",
-        title: "03. Ship your first feature in 5 minutes",
+        title: "Ship your first feature in 5 minutes",
         description: "A hands-on walkthrough of one small feature, from idea to merge",
         groupId: "getting-started",
-        order: 3,
         status: "pending"
       }
     ]
@@ -114,26 +137,23 @@ export const guidebookNavGroups: readonly GuidebookNavGroup[] = [
     pages: [
       {
         slug: "04-general-cycle-small",
-        title: "04. Handling a small change",
+        title: "Handling a small change",
         description: "The standard flow for a change that finishes in a single PR without Task decomposition",
         groupId: "core-pipeline",
-        order: 4,
         status: "pending"
       },
       {
         slug: "05-general-cycle-medium-large",
-        title: "05. Handling work split into multiple Tasks",
+        title: "Handling work split into multiple Tasks",
         description: "The flow for changes large enough to need spec validation and Task decomposition",
         groupId: "core-pipeline",
-        order: 5,
         status: "pending"
       },
       {
         slug: "06-agentic-autonomous-loop",
-        title: "06. Finish automatically from one goal",
+        title: "Finish automatically from one goal",
         description: "A flow that automatically repeats Plan -> Execute -> Evaluate -> Repeat from a single goal",
         groupId: "core-pipeline",
-        order: 6,
         status: "pending"
       }
     ]
@@ -144,52 +164,46 @@ export const guidebookNavGroups: readonly GuidebookNavGroup[] = [
     pages: [
       {
         slug: "07-starting-a-new-project",
-        title: "07. Starting a new Project",
+        title: "Starting a new Project",
         description: "From a blank slate to designing a project and finishing its first spec",
         groupId: "workflow-guides",
-        order: 7,
         status: "pending"
       },
       {
         slug: "08-onboarding-existing-repo",
-        title: "08. Entering an existing Repo for the first time",
+        title: "Entering an existing Repo for the first time",
         description:
           "An onboarding flow that reverse-engineers an unfamiliar codebase's conventions into a CLAUDE.md",
         groupId: "workflow-guides",
-        order: 8,
         status: "pending"
       },
       {
         slug: "09-testing-guide",
-        title: "09. Writing and running Tests",
+        title: "Writing and running Tests",
         description: "How to run manual-verification testsheets alongside automated tests",
         groupId: "workflow-guides",
-        order: 9,
         status: "pending"
       },
       {
         slug: "10-e2e-test-strategy",
-        title: "10. E2E Test automation strategy",
+        title: "E2E Test automation strategy",
         description: "An in-depth guide to setting up, extending, and maintaining a Playwright-based E2E suite",
         groupId: "workflow-guides",
-        order: 10,
         status: "pending"
       },
       {
         slug: "11-design-review",
-        title: "11. Reviewing and improving design",
+        title: "Reviewing and improving design",
         description: "How to distinguish between and apply usability audits vs. visual de-slop renewal",
         groupId: "workflow-guides",
-        order: 11,
         status: "pending"
       },
       {
         slug: "12-debugging-and-incident-postmortem",
-        title: "12. Debugging and incident postmortems",
+        title: "Debugging and incident postmortems",
         description:
           "How ywc-debug-rootcause drives a root-cause investigation and ywc-incident-postmortem writes the follow-up report",
         groupId: "workflow-guides",
-        order: 12,
         status: "pending"
       }
     ]
@@ -200,35 +214,31 @@ export const guidebookNavGroups: readonly GuidebookNavGroup[] = [
     pages: [
       {
         slug: "13-executor-and-codegen-patterns",
-        title: "13. Executor / Code-gen Prompt patterns",
+        title: "Executor / Code-gen Prompt patterns",
         description: "A practical command reference for option-heavy executor/code-gen tools",
         groupId: "reference",
-        order: 13,
         status: "pending"
       },
       {
         slug: "14-skill-reference",
-        title: "14. Full Skill Reference",
+        title: "Full Skill Reference",
         description: "An index of the remaining Skills not covered above, organized by situation",
         groupId: "reference",
-        order: 14,
         status: "pending"
       },
       {
         slug: "15-prerequisites-installation",
-        title: "15. Prerequisites and installation",
+        title: "Prerequisites and installation",
         description: "Required vs. optional tools and how to install ywc-agent-toolkit before relying on it",
         groupId: "reference",
-        order: 15,
         status: "pending"
       },
       {
         slug: "16-code-structure-and-maintainability",
-        title: "16. Managing Code Structure and Maintainability",
+        title: "Managing Code Structure and Maintainability",
         description:
           "A decision table and 4-step pipeline for ywc-refactor-clean, ywc-improve-architecture, ywc-impl-review, and ywc-agent-legibility-audit",
         groupId: "reference",
-        order: 16,
         status: "pending"
       }
     ]

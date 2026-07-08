@@ -4,6 +4,7 @@ import { hasLocale } from "next-intl";
 import type { Locale } from "@/i18n/locale-list";
 import { routing } from "@/i18n/routing";
 import {
+  formatGuidebookPageTitle,
   getGroupLabel,
   getGuidebookHref,
   getGuidebookRootHref,
@@ -69,6 +70,11 @@ export async function generateMetadata({
       ? getGuidebookRootHref(alternateLocale)
       : getGuidebookHref(alternateLocale, slug);
 
+  // Intentionally raw (not formatGuidebookPageTitle): per spec, SEO
+  // <title>/OG/Twitter titles keep their existing behavior unchanged. This
+  // is not a formatting gap -- navPage.title already carries the same
+  // zero-padded "NN. " prefix from the markdown H1 as the rendered <h1>
+  // does, since none of the 16 existing pages' H1 text is being rewritten.
   return buildPageMetadata({
     locale,
     title: navPage.title,
@@ -92,7 +98,7 @@ export default async function Page({ params }: GuidebookPageProps) {
   }
 
   const content = await loadGuidebookPageForLocale(locale, slug);
-  const pageTitle = navPage.title;
+  const pageTitle = formatGuidebookPageTitle(navPage);
   const pageDescription = navPage.description;
   const { previous, next } = getLocalizedAdjacentGuidebookPages(nav, slug);
   const tocItems: GuidebookPage["toc"] = content?.toc ?? [

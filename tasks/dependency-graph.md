@@ -45,6 +45,17 @@
 ## Phase 000010 — Upstream Language-Setup Sync: Final Verification
 - `000010-010-test-verify-full-build` → depends on `000009-010-ui-sync-app-skill-counts`, `000009-020-config-sync-docs-skill-counts`, `000009-030-config-guidebook-language-setup-entry`
 
+## Phase 000011 — Guidebook Page Numbering Refactor: Foundation
+> spec: `docs/ywc-plans/guidebook-page-numbering-refactor.md` (`ywc-spec-ready` DONE after 1 validate+re-plan cycle + 1 confirming re-check, 9 Critical resolved via Iteration 1 Amendments). Assigned Phase 000011 via append-only numbering (`highest existing phase 000010` + 1) — this phase's tasks do not actually depend on any Phase 000001–000010 task; they depend only on the already-merged codebase state at the time this batch was generated.
+- `000011-010-refactor-guidebook-nav-remove-order` → (root of this batch; independent of Phase 000001–000010)
+- `000011-020-refactor-guidebook-slug-discovery-scripts` → (root of this batch; independent of `000011-010` and of Phase 000001–000010)
+
+## Phase 000012 — Guidebook Page Numbering Refactor: Render Sites
+- `000012-010-ui-guidebook-render-sites-display-number` → depends on `000011-010-refactor-guidebook-nav-remove-order`
+
+## Phase 000013 — Guidebook Page Numbering Refactor: Verification
+- `000013-010-test-guidebook-numbering-invariant-and-fixture` → depends on `000011-010-refactor-guidebook-nav-remove-order`, `000011-020-refactor-guidebook-slug-discovery-scripts`, `000012-010-ui-guidebook-render-sites-display-number`
+
 ## Parallel Execution Notes
 
 - **Initial ready set**: `000001-010-lib-nextjs-i18n-setup` (유일한 root task; 이 프로젝트의 모든 task가 직접 또는 간접적으로 이 task에서 파생됨)
@@ -60,6 +71,10 @@
 - **Phase 000008 numbering note**: `000008-010`은 실제로는 `000001-010`(프로젝트 root) 외에 어떤 기존 task에도 의존하지 않는다 — Phase 000002~000007의 어떤 task도 선행 조건이 아니다. Append-only 번호 배정 규칙에 따라 highest existing phase(`000007`) + 1로 배정했을 뿐이며, 실제 실행 시 이 하드 게이트를 완화해 Phase 000002~000007과 완전히 독립적으로, 심지어 그보다 먼저 시작해도 기술적으로 안전하다 — Phase 000007과 마찬가지로 완화 적용 여부는 실행자가 최종 판단한다.
 - **Phase 000008 → 000009 hard gate (진짜 하드 게이트, 완화 대상 아님)**: `000008-010`이 PR #125 unmerged를 기록하면 Phase 000009의 세 task는 어떤 것도 시작할 수 없다 — 이것은 append-only 번호 배정의 인위적 부산물이 아니라, spec이 명시한 실제 도메인 제약(스펙 `## Scope`의 Stop condition)이다.
 - **Phase 000009 내부 병렬성**: `000009-010`(앱 코드/디자인 템플릿), `000009-020`(문서), `000009-030`(가이드북)은 `000008-010` 완료 후 서로 완전히 병렬로 실행 가능하다 — 세 task 모두 서로 disjoint한 파일만 소유하며 Conflicts With가 없다.
+- **Phase 000011 numbering note**: `000011-010`과 `000011-020`은 Phase 000001~000010의 어떤 task에도 의존하지 않는다 — append-only 번호 배정 규칙에 따라 highest existing phase(`000010`) + 1로 배정했을 뿐이며, 실제로는 이 저장소의 어느 시점에서든(Phase 000001 완료 직후부터도) 독립적으로 시작 가능하다.
+- **Phase 000011 내부 병렬성**: `000011-010`(타입/데이터 레이어)과 `000011-020`(스크립트 slug 파생)은 서로 다른 파일을 소유하며(`guidebook-nav.ts`/`guidebook-content.ts`/`guidebook-nav-content.ts` vs. `scripts/generate-search-index.mjs`/`scripts/generate-sitemap.mjs`) `guidebookNavGroups`의 `slug` 필드만 공유(양쪽 다 읽기 전용 또는 무관)하므로 완전히 병렬 실행 가능하다.
+- **Phase 000011 → 000012 hard gate**: `000012-010`은 `000011-010`이 만드는 `LocalizedGuidebookPageMeta`/`displayNumber` 타입 없이는 타입 체크를 통과할 수 없다 — 진짜 하드 게이트.
+- **Phase 000012 → 000013 hard gate**: `000013-010`의 AC6 fixture 검증은 4개 렌더 사이트가 이미 `displayNumber`를 표시하고 있어야 end-to-end로 의미 있는 검증이 된다 — 진짜 하드 게이트. 또한 `000013-010`은 `guidebook-nav.ts`를 fixture 목적으로 일시 편집하므로 `000011-010`이 완전히 merge된 이후에만 시작해야 파일 충돌을 피할 수 있다.
 
 ## Visual Dependency Graph
 
@@ -138,6 +153,20 @@ graph LR
     I1 --> J1
     I2 --> J1
     I3 --> J1
+  end
+  subgraph Phase 000011
+    K1[000011-010-refactor-guidebook-nav-remove-order]
+    K2[000011-020-refactor-guidebook-slug-discovery-scripts]
+  end
+  subgraph Phase 000012
+    L1[000012-010-ui-guidebook-render-sites-display-number]
+    K1 --> L1
+  end
+  subgraph Phase 000013
+    M1[000013-010-test-guidebook-numbering-invariant-and-fixture]
+    K1 --> M1
+    K2 --> M1
+    L1 --> M1
   end
 ```
 

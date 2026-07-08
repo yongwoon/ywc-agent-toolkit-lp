@@ -1,9 +1,11 @@
-import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 import remarkMdx from "remark-mdx";
 import remarkParse from "remark-parse";
 import { unified } from "unified";
+
+import { guidebookSlugs } from "./guidebook-slugs.mjs";
 
 const cwd = process.cwd();
 const contentDir = path.join(cwd, "src/content/guidebook");
@@ -13,7 +15,7 @@ const locales = ["en", "ko", "ja", "zh", "es"];
 // Mirrors extractFirstHeadingTitle/extractFirstParagraphText/toPlainText in
 // src/lib/guidebook-content.ts. Duplicated rather than imported: this is a plain
 // Node .mjs script and that file is TypeScript, which Node can't import directly
-// (see generate-sitemap.mjs for the same constraint/pattern).
+// (see guidebook-slugs.mjs for the same constraint/pattern).
 function toPlainText(nodes) {
   return nodes
     .map((node) => {
@@ -59,16 +61,6 @@ function extractTitleAndSummary(markdown) {
   return { title, summary };
 }
 
-async function readSlugs() {
-  const entries = await readdir(path.join(contentDir, "en"), { withFileTypes: true });
-
-  return entries
-    .filter((entry) => entry.isFile() && /^\d+-.+\.md$/.test(entry.name))
-    .map((entry) => entry.name.replace(/\.md$/, ""))
-    .sort((a, b) => a.localeCompare(b, "en"));
-}
-
-const slugs = await readSlugs();
 let totalEntries = 0;
 
 await mkdir(outputDir, { recursive: true });
@@ -76,9 +68,19 @@ await mkdir(outputDir, { recursive: true });
 for (const locale of locales) {
   const entries = [];
 
-  for (const slug of slugs) {
+  for (const slug of guidebookSlugs) {
     const filePath = path.join(contentDir, locale, `${slug}.md`);
-    const source = await readFile(filePath, "utf8");
+    let source;
+
+    try {
+      source = await readFile(filePath, "utf8");
+    } catch (error) {
+      throw new Error(
+        `[generate-search-index] "${slug}" is listed in guidebook-slugs.mjs but ${filePath} does not exist -- check it's still registered in guidebookNavGroups (guidebook-nav.ts) and guidebook-slugs.mjs stays in sync.`,
+        { cause: error }
+      );
+    }
+
     const { title, summary } = extractTitleAndSummary(source);
 
     entries.push({

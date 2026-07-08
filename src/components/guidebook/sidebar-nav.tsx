@@ -5,7 +5,7 @@ import { useMemo, useState } from "react";
 import type { Locale } from "@/i18n/locale-list";
 import { withBasePath } from "@/lib/base-path";
 import type { LocalizedGuidebookNavGroup } from "@/lib/guidebook-nav-content";
-import { getGuidebookHref, getGuidebookSlugFromPathname } from "./guidebook-nav";
+import { formatGuidebookPageTitle, getGuidebookHref, getGuidebookSlugFromPathname } from "./guidebook-nav";
 
 type SidebarNavProps = {
   locale: Locale;
@@ -112,7 +112,7 @@ export function SidebarNav({ locale, mobileOpen, navGroups, onMobileClose }: Sid
                               href={withBasePath(getGuidebookHref(locale, page.slug))}
                               onClick={onMobileClose}
                             >
-                              {page.title}
+                              {formatGuidebookPageTitle(page)}
                             </a>
                           </li>
                         );
