@@ -20,7 +20,7 @@ Para ver más detalles sobre las opciones, requisitos previos y flujo interno de
 
 La instalación mediante Plugin marketplace o Codex plugin no tiene requisitos previos separados. El instalador gestiona automáticamente la copia de archivos y el registro necesarios.
 
-Dicho esto, para ejecutar una Skill de verdad necesitas tener listas algunas herramientas en tu sistema — `git`, `gh`, `python3`, entre otras — y las Skills relacionadas con diseño funcionan mejor con una configuración adicional. Consulta [15. Requisitos previos e instalación](./15-prerequisites-installation.md) para la lista completa de herramientas requeridas y opcionales, además de los pasos de instalación — vale la pena leerlo antes de empezar.
+Dicho esto, para ejecutar una Skill de verdad necesitas tener listas algunas herramientas en tu sistema — `git`, `gh`, `python3`, entre otras — y las Skills relacionadas con diseño funcionan mejor con una configuración adicional. Consulta [17. Requisitos previos e instalación](./15-prerequisites-installation.md) para la lista completa de herramientas requeridas y opcionales, además de los pasos de instalación — vale la pena leerlo antes de empezar.
 
 ## Qué revisar antes de empezar
 
@@ -44,7 +44,7 @@ Todos los ejemplos en este Manual asumen que escribes el siguiente formulario di
   </ToolTabsPanel>
 </ToolTabs>
 
-El formulario `/ywc-plan` con un `/` inicial funciona de la misma manera. Este documento omite `/` para mayor claridad. Las opciones en el formulario `--flag value` difieren por Skill, y los ejemplos concretos se recopilan en cada página Skill o en [13. Executor / Patrones de indicación de generación de código](./13-executor-and-codegen-patterns.md).
+El formulario `/ywc-plan` con un `/` inicial funciona de la misma manera. Este documento omite `/` para mayor claridad. Las opciones en el formulario `--flag value` difieren por Skill, y los ejemplos concretos se recopilan en cada página Skill o en [15. Executor / Patrones de indicación de generación de código](./13-executor-and-codegen-patterns.md).
 
 ---
 

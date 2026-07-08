@@ -59,7 +59,7 @@ ywc-plan -> ywc-spec-ready -> ywc-task-generator -> ywc-sequential-executor --re
   </ToolTabsPanel>
 </ToolTabs>
 
-之后的执行命令有许多选项，因此它们在单独的页面上介绍：[13. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md)。最简单的起点是：
+之后的执行命令有许多选项，因此它们在单独的页面上介绍：[15. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md)。最简单的起点是：
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
