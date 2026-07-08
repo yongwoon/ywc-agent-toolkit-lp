@@ -20,7 +20,7 @@ For deeper details on each Skill's options, prerequisites, and internal flow, re
 
 Plugin marketplace installation and Codex plugin installation have no separate prerequisites. The installer handles the required file copying and registration automatically.
 
-That said, actually running a Skill needs a few tools in place on your system — `git`, `gh`, `python3`, and more — and design-related Skills work better with some extra setup. See [15. Prerequisites and installation](./15-prerequisites-installation.md) for the full list of required and optional tools plus install steps — worth a quick read before you get started.
+That said, actually running a Skill needs a few tools in place on your system — `git`, `gh`, `python3`, and more — and design-related Skills work better with some extra setup. See [17. Prerequisites and installation](./15-prerequisites-installation.md) for the full list of required and optional tools plus install steps — worth a quick read before you get started.
 
 ## What to check before starting
 
@@ -44,7 +44,7 @@ All examples in this Guidebook assume you type the following form directly into 
   </ToolTabsPanel>
 </ToolTabs>
 
-The `/ywc-plan` form with a leading `/` works the same way. This document omits `/` for readability. Options in the form `--flag value` differ by Skill, and concrete examples are collected on each Skill page or in [13. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md).
+The `/ywc-plan` form with a leading `/` works the same way. This document omits `/` for readability. Options in the form `--flag value` differ by Skill, and concrete examples are collected on each Skill page or in [15. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md).
 
 ---
 

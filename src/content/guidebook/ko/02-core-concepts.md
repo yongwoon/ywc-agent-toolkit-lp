@@ -54,7 +54,7 @@ DB migration 이나 새 Library 도입은 규모와 무관하게 **항상 별도
 
 ## PR Delivery 모드 공통 개념
 
-`ywc-finish-branch`, `ywc-sequential-executor`, `ywc-parallel-executor` 는 task 기반 delivery 에서 아래 모드 개념을 공유합니다. `plan.md` 기반 Small 흐름은 task artifact 가 없으므로 `ywc-create-pr` 로 PR 을 열고 이후 review/merge 를 별도로 처리합니다. 정확한 flag 조합은 [13. Executor / Code-gen Prompt 패턴](./13-executor-and-codegen-patterns.md)에서 다룹니다.
+`ywc-finish-branch`, `ywc-sequential-executor`, `ywc-parallel-executor` 는 task 기반 delivery 에서 아래 모드 개념을 공유합니다. `plan.md` 기반 Small 흐름은 task artifact 가 없으므로 `ywc-create-pr` 로 PR 을 열고 이후 review/merge 를 별도로 처리합니다. 정확한 flag 조합은 [15. Executor / Code-gen Prompt 패턴](./13-executor-and-codegen-patterns.md)에서 다룹니다.
 
 | 모드 | 의미 |
 |---|---|
