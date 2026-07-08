@@ -213,6 +213,14 @@ export const guidebookNavGroups: readonly GuidebookNavGroup[] = [
           "A decision table and 4-step pipeline for ywc-refactor-clean, ywc-improve-architecture, ywc-impl-review, and ywc-agent-legibility-audit",
         groupId: "workflow-guides",
         status: "pending"
+      },
+      {
+        slug: "17-infrastructure-and-cloud",
+        title: "Managing Cloud Infrastructure",
+        description:
+          "A decision table and 4-step pipeline for ywc-infra-design, ywc-iac-author, ywc-infra-review, and ywc-infra-optimize, dispatching to the ywc-cloud-engineer agent",
+        groupId: "workflow-guides",
+        status: "pending"
       }
     ]
   },

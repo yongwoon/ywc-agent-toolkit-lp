@@ -13,7 +13,7 @@
 // page added without one).
 //
 // Kept in the same order as guidebookNavGroups so a reviewer can diff this
-// file against guidebook-nav.ts's 16 entries to catch drift. Frozen so the
+// file against guidebook-nav.ts's entries to catch drift. Frozen so the
 // two importing scripts can't accidentally mutate shared module state.
 export const guidebookSlugs = Object.freeze([
   "01-introduction",
@@ -29,6 +29,7 @@ export const guidebookSlugs = Object.freeze([
   "11-design-review",
   "12-debugging-and-incident-postmortem",
   "16-code-structure-and-maintainability",
+  "17-infrastructure-and-cloud",
   "13-executor-and-codegen-patterns",
   "14-skill-reference",
   "15-prerequisites-installation"
