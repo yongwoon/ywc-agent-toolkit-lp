@@ -70,6 +70,11 @@ export async function generateMetadata({
       ? getGuidebookRootHref(alternateLocale)
       : getGuidebookHref(alternateLocale, slug);
 
+  // Intentionally raw (not formatGuidebookPageTitle): per spec, SEO
+  // <title>/OG/Twitter titles keep their existing behavior unchanged. This
+  // is not a formatting gap -- navPage.title already carries the same
+  // zero-padded "NN. " prefix from the markdown H1 as the rendered <h1>
+  // does, since none of the 16 existing pages' H1 text is being rewritten.
   return buildPageMetadata({
     locale,
     title: navPage.title,

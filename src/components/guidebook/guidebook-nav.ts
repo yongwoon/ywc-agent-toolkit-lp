@@ -69,11 +69,14 @@ export function getGroupLabel(locale: Locale | string, groupId: GuidebookGroupId
   return labels[groupId];
 }
 
-// Defined here (not in guidebook-nav-content.ts, which also holds
-// LocalizedGuidebookPageMeta) so client components can import it without
-// pulling in guidebook-nav-content.ts's node:fs/promises-dependent chain
-// (loadLocalizedGuidebookNav -> loadGuidebookPageForLocale).
-//
+// Structural (not LocalizedGuidebookPageMeta) so this function can live here
+// rather than in guidebook-nav-content.ts, which also holds
+// LocalizedGuidebookPageMeta but pulls in a node:fs/promises-dependent chain
+// (loadLocalizedGuidebookNav -> loadGuidebookPageForLocale) that client
+// components must not import. LocalizedGuidebookPageMeta is structurally
+// assignable to this type, so every call site works unchanged.
+export type GuidebookTitleSource = { displayNumber: string; title: string };
+
 // The 80 existing markdown files' H1 text (and therefore their
 // locale-content-derived title) still carries its original "NN. " prefix --
 // out of scope to rewrite per the refactor's render-time-override variant.
@@ -81,7 +84,14 @@ export function getGroupLabel(locale: Locale | string, groupId: GuidebookGroupId
 // existing pages don't render "16. 16. Title" while never trusting the H1's
 // literal digits as the actual order source (displayNumber already comes
 // from array position, computed upstream).
-export function formatGuidebookPageTitle(page: { displayNumber: string; title: string }): string {
+//
+// Known limitation: a title that legitimately starts with "<digits>. "
+// unrelated to page ordering (e.g. "5.0 Release notes") would be silently
+// stripped too. None of the current 16 titles have this shape.
+//
+// formatGuidebookPageTitle({ displayNumber: "16", title: "16. Foo" }) -> "16. Foo"
+// formatGuidebookPageTitle({ displayNumber: "01", title: "Foo" }) -> "01. Foo"
+export function formatGuidebookPageTitle(page: GuidebookTitleSource): string {
   const title = page.title.replace(/^\d+\.\s*/, "");
   return `${page.displayNumber}. ${title}`;
 }
