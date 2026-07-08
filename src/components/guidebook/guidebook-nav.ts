@@ -221,6 +221,15 @@ export const guidebookNavGroups: readonly GuidebookNavGroup[] = [
         groupId: "reference",
         order: 15,
         status: "pending"
+      },
+      {
+        slug: "16-code-structure-and-maintainability",
+        title: "16. Managing Code Structure and Maintainability",
+        description:
+          "A decision table and 4-step pipeline for ywc-refactor-clean, ywc-improve-architecture, ywc-impl-review, and ywc-agent-legibility-audit",
+        groupId: "reference",
+        order: 16,
+        status: "pending"
       }
     ]
   }
