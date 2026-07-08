@@ -1,6 +1,6 @@
 [« 目次に戻る](./README.md)
 
-# 15. 全 Skill リファレンス
+# 16. 全 Skill リファレンス
 
 前のワークフローガイドで扱わなかった残りの Skill を、**やりたいこと**基準でまとめて整理しました。各フロー(Small/Medium/Large cycle、新規 project、onboarding、testing、design)の途中で必要になったときに参照してください。
 
@@ -325,7 +325,7 @@ User value、UX、growth、risk などビジネス観点でプロジェクトを
 | `ywc-agentic` | 目標だけ渡し、計画から実装まで人の介入なしで任せたい | [こちら](#目標だけ渡し計画から実装まで人の介入なしで任せたい) |
 | `ywc-brainstorm` | アイデアがまだ具体的でないので、整理から始めたい | [こちら](#アイデアがまだ具体的でないので整理から始めたい) |
 | `ywc-changelog-release-notes` | CHANGELOG.md やユーザー向け release note を作成したい | [こちら](#changelogmd-やユーザー向け-release-note-を作成したい) |
-| `ywc-code-gen` | Backend/Frontend/QA の 3 layer を並列に同時生成する多層 code 生成 skill | [14](./13-executor-and-codegen-patterns.md) |
+| `ywc-code-gen` | Backend/Frontend/QA の 3 layer を並列に同時生成する多層 code 生成 skill | [15](./13-executor-and-codegen-patterns.md) |
 | `ywc-commit` | ここまでの作業を commit だけしたい | [こちら](#ここまでの作業を-commit-だけしたい) |
 | `ywc-confidence-gate` | 成果物が次の段階に進んでよいかを PROCEED/REVIEW/STOP で判定する信頼度 gate | [06](./06-agentic-autonomous-loop.md) |
 | `ywc-create-pr` | 変更を commit して draft PR を開きたい | [こちら](#変更を-commit-して-draft-pr-を開きたい) |
@@ -336,13 +336,17 @@ User value、UX、growth、risk などビジネス観点でプロジェクトを
 | `ywc-finish-branch` | 完了した feature branch を PR 作成から merge・整理まで仕上げる skill | [04](./04-general-cycle-small.md) |
 | `ywc-gen-testcase` | PR 検証用の手動 test 文書(testsheet)を spec から生成する skill | [09](./09-testing-guide.md) |
 | `ywc-handle-pr-reviews` | 開いている PR の review comment に対応し、CI/conflict も一緒に整理したい | [こちら](#開いている-pr-の-review-comment-に対応しciconflict-も一緒に整理したい) |
+| `ywc-iac-author` | 完成した設計を実際の Infrastructure-as-Code にしたい | [14](./17-infrastructure-and-cloud.md) |
 | `ywc-impl-review` | 一般 cycle の外で、独立して実装品質と maintenance 観点を点検したい | [13](./16-code-structure-and-maintainability.md) |
 | `ywc-improve-architecture` | 絡み合った shallow module 構造を deep module に再構造化したい | [13](./16-code-structure-and-maintainability.md) |
 | `ywc-incident-postmortem` | Production 障害が起き、振り返り文書を書く必要がある | [12](./12-debugging-and-incident-postmortem.md) |
+| `ywc-infra-design` | IaC を書く前にクラウドアーキテクチャを設計したい | [14](./17-infrastructure-and-cloud.md) |
+| `ywc-infra-optimize` | すでに稼働中のインフラを改善したい | [14](./17-infrastructure-and-cloud.md) |
+| `ywc-infra-review` | apply する前に misconfiguration/コスト/信頼性の問題を見つけたい | [14](./17-infrastructure-and-cloud.md) |
 | `ywc-merge-dependabot` | 溜まっている Dependabot PR を一度に整理したい | [こちら](#溜まっている-dependabot-pr-を一度に整理したい) |
 | `ywc-mission` | Project の why と rejected-approach を記録したい | [こちら](#project-の-why-と-rejected-approach-を記録したい) |
 | `ywc-onboard-repo` | 未知の repo の慣習を逆算して CLAUDE.md を生成する onboarding skill | [08](./08-onboarding-existing-repo.md) |
-| `ywc-parallel-executor` | 複数の Task を隔離された worktree で並列実行する executor | [14](./13-executor-and-codegen-patterns.md) |
+| `ywc-parallel-executor` | 複数の Task を隔離された worktree で並列実行する executor | [15](./13-executor-and-codegen-patterns.md) |
 | `ywc-plan` | 機能/変更の実装計画を立てる入口 skill | [04](./04-general-cycle-small.md) |
 | `ywc-product-review` | コードではなくビジネス/サービスの観点でプロジェクトをレビューしてほしい | [こちら](#コードではなくビジネスサービスの観点でプロジェクトをレビューしてほしい) |
 | `ywc-project-docs` | docs/ ディレクトリ構造に沿って project 文書を生成する skill | [07](./07-starting-a-new-project.md) |
@@ -352,7 +356,7 @@ User value、UX、growth、risk などビジネス観点でプロジェクトを
 | `ywc-release-pr-list` | Release PR (develop→main など)に含まれる merged PR 一覧を整理したい | [こちら](#release-pr-developmain-などに含まれる-merged-pr-一覧を整理したい) |
 | `ywc-review-learnings` | Code review で繰り返し指摘される内容を学習させ、次から再指摘しないようにしたい | [こちら](#code-review-で繰り返し指摘される内容を学習させ次から再指摘しないようにしたい) |
 | `ywc-security-audit` | 認証/決済のような敏感なコードのセキュリティ脆弱性を点検したい | [こちら](#認証決済のような敏感なコードのセキュリティ脆弱性を点検したい) |
-| `ywc-sequential-executor` | 複数の Task を順番に 1 つずつ実行する executor | [14](./13-executor-and-codegen-patterns.md) |
+| `ywc-sequential-executor` | 複数の Task を順番に 1 つずつ実行する executor | [15](./13-executor-and-codegen-patterns.md) |
 | `ywc-setup` | 出力言語の永続デフォルトを設定し毎回 language を聞かれないようにしたい | [こちら](#出力言語の永続デフォルトを設定し毎回-language-を聞かれないようにしたい) |
 | `ywc-skill-author` | 新しい ywc-* skill を作りたい、または既存の skill をルールに沿って整理/点検したい | [こちら](#新しい-ywc--skill-を作りたいまたは既存の-skill-をルールに沿って整理点検したい) |
 | `ywc-spec-ready` | spec 文書が実装可能なレベルまで準備できているか検証する gate | [05](./05-general-cycle-medium-large.md) |
@@ -368,4 +372,4 @@ User value、UX、growth、risk などビジネス観点でプロジェクトを
 
 ---
 
-[← 前: 14. Executor / Code-gen Prompt パターン](./13-executor-and-codegen-patterns.md) · [次: 16. 事前準備とインストール →](./15-prerequisites-installation.md)
+[← 前: 15. Executor / Code-gen Prompt パターン](./13-executor-and-codegen-patterns.md) · [次: 17. 事前準備とインストール →](./15-prerequisites-installation.md)
