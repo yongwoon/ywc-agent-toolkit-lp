@@ -1,9 +1,11 @@
-import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 import remarkMdx from "remark-mdx";
 import remarkParse from "remark-parse";
 import { unified } from "unified";
+
+import { guidebookSlugs } from "./guidebook-slugs.mjs";
 
 const cwd = process.cwd();
 const contentDir = path.join(cwd, "src/content/guidebook");
@@ -59,16 +61,6 @@ function extractTitleAndSummary(markdown) {
   return { title, summary };
 }
 
-async function readSlugs() {
-  const entries = await readdir(path.join(contentDir, "en"), { withFileTypes: true });
-
-  return entries
-    .filter((entry) => entry.isFile() && /^\d+-.+\.md$/.test(entry.name))
-    .map((entry) => entry.name.replace(/\.md$/, ""))
-    .sort((a, b) => a.localeCompare(b, "en"));
-}
-
-const slugs = await readSlugs();
 let totalEntries = 0;
 
 await mkdir(outputDir, { recursive: true });
@@ -76,7 +68,7 @@ await mkdir(outputDir, { recursive: true });
 for (const locale of locales) {
   const entries = [];
 
-  for (const slug of slugs) {
+  for (const slug of guidebookSlugs) {
     const filePath = path.join(contentDir, locale, `${slug}.md`);
     const source = await readFile(filePath, "utf8");
     const { title, summary } = extractTitleAndSummary(source);
