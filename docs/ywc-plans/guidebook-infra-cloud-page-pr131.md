@@ -7,6 +7,8 @@
 > Spec Reference: `N/A — no docs/specification section owns individual guidebook page content; this is guidebook-content work governed by CLAUDE.md's "Working From the Task List" / docs/tech-stack.md structure references, not a spec-owned feature.`
 > Related: `docs/ywc-plans/sync-skill-count-infra-suite-pr131.md` (sibling spec — site-wide skill/agent count sync for the same upstream PR, intentionally split from this spec so each converges independently through `ywc-spec-validate`); `docs/ywc-plans/guidebook-page-numbering-refactor.md` (prior spec that established the array-position-based `displayNumber` model this spec's renumbering cascade must respect)
 
+> **Operative Sections** (per Iteration 1 Amendments): **AC3**, **AC5**, and **FR-5** (including its `14-skill-reference.md` row in `Existing Constraints Touched`) are superseded by [`## Iteration 1 Amendments`](#iteration-1-amendments) §A1 and §A2 respectively (A1 → AC3; A2 → AC5, FR-5, and the `14-skill-reference.md` Existing Constraints row) — treat the amendment text as authoritative for those items. **FR-4** is supplemented (scope widened, not contradicted) by §A1's additional cross-reference file list. AC1, AC4, AC7, the NFR section, FR-1, FR-2, and the `Existing Constraints Touched` rows for `scripts/guidebook-slugs.mjs` and `test/check-guidebook-nav-registration.mjs` are supplemented (narrowed or extended in place, not contradicted) by §A3–A8 — read both the original text and its matching amendment sub-section together. All other sections (Purpose, Scope, Out of Scope, AC2, AC6, AC8, FR-3, FR-6, Data Model, Edge Cases, Open Questions, Dependencies) remain authoritative as originally written.
+
 ## Purpose
 
 `ywc-agent-toolkit` (the upstream toolkit this landing page's Guidebook documents) has an **open, unmerged** PR — [#131](https://github.com/yongwoon/ywc-agent-toolkit/pull/131) — that adds a 4-skill infrastructure pipeline (`ywc-infra-design` → `ywc-iac-author` → `ywc-infra-review` → `ywc-infra-optimize`) to both Claude Code and Codex, backed by a new `ywc-cloud-engineer` agent and lens extensions to the existing `ywc-security-engineer`/`ywc-performance-engineer` agents.
@@ -68,6 +70,8 @@ This 4-skill cluster is structurally analogous to the existing Guidebook page **
 
 - [ ] **AC1 — New page registered consistently in all 3 required places**: `guidebook-nav.ts`, `guidebook-slugs.mjs`, and `src/content/guidebook/en/17-infrastructure-and-cloud.md` all exist and agree. Observable as: `npm run build` (which runs `test/check-guidebook-nav-registration.mjs` via `prebuild`) completes without a registration-mismatch error.
 - [ ] **AC2 — New page content exists and is complete in all 5 locales**: `src/content/guidebook/{en,ja,ko,zh,es}/17-infrastructure-and-cloud.md` each contain a decision table (4 skills), one `<ToolTabs>` example section per skill, and a pipeline walkthrough section, in that locale's own translated prose (not copy-pasted English). Observable as: all 5 files exist, each with 4 `<ToolTabs>` blocks and a "how the skills work together" (or locally-translated equivalent) heading.
+> ⚠️ SUPERSEDED by Iteration 1 — see [A1](#a1-cascade-renumbering--additional-stale-cross-reference-sites-critical)
+
 - [ ] **AC3 — Renumbering cascade fully applied, no stale numbers remain**: Every H1 and footer Previous/Next reference in `16-code-structure-and-maintainability.md`, `13-executor-and-codegen-patterns.md`, `14-skill-reference.md`, and `15-prerequisites-installation.md` — across all 5 locales — reflects the new display numbers (13/14/15/16/17 respectively for the code-structure/new-page/executor/skill-reference/prerequisites sequence). Observable as: for each of the 4 existing files in each locale, the H1 number matches the page's array position in `guidebookNavGroups`, and the footer's Previous/Next numbers match their linked pages' array positions.
 - [ ] **AC4 — README.md TOC and Quick Links consistent in all 5 locales**: Every `[N]` reference to the 3 shifted pages is bumped, and a new row exists for the new page in the Workflow Guides TOC table. Observable as: manually cross-checking each `README.md`'s bracketed numbers against `guidebookNavGroups`'s current array positions.
 - [ ] **AC5 — Full Skill Index (A-Z) includes the 4 new skills**: `14-skill-reference.md` in all 5 locales lists `ywc-iac-author`, `ywc-infra-design`, `ywc-infra-optimize`, `ywc-infra-review` alphabetically, each linking to the new page. Observable as: the 4 rows exist and their links resolve (anchor/file both exist).
@@ -101,6 +105,8 @@ Each locale's content is its own translated prose, not a mechanical copy of `en`
 ### FR-4: Renumbering Cascade
 
 Update the H1 heading and footer Previous/Next text (and, for `16-code-structure-and-maintainability.md`'s "Next" link, the link target too) in `16-code-structure-and-maintainability.md`, `13-executor-and-codegen-patterns.md`, `14-skill-reference.md`, and `15-prerequisites-installation.md`, across all 5 locales, per the exact mapping in Existing Constraints Touched. Apply the same numeral bump to each locale's `README.md` TOC and Quick Links tables (FR-5 covers `README.md` specifically).
+
+> ⚠️ SUPERSEDED by Iteration 1 — see [A2](#a2-full-skill-index-a-z--existing-14-rows-must-also-bump-critical)
 
 ### FR-5: README.md and Skill Index Updates
 
@@ -136,3 +142,66 @@ N/A — no schema, no API surface. Pure static content (Markdown pages, one Type
 
 - **Soft dependency, not a hard blocker**: PR #131 merging is not required before this spec's content-authoring work begins (unlike the sibling numeric-sync spec), since skill names and interfaces are stable in the current diff. FR-1 still requires re-verification if significant time passes before execution.
 - **No dependency on the sibling spec** `docs/ywc-plans/sync-skill-count-infra-suite-pr131.md` — the two specs can execute in either order or in parallel; neither spec's Acceptance Criteria references an artifact the other spec creates.
+
+## Iteration 1 Amendments
+
+> Addresses `ywc-spec-validate` iteration 1 findings: Critical 2 / Warning 5 / Suggestion 4. Appends to — does not replace — the sections above. Where an amendment below narrows or extends an original AC/FR's scope, the amendment is authoritative for that specific item; all other original content stands as written.
+
+### A1. Cascade renumbering — additional stale cross-reference sites (Critical)
+
+The original Existing Constraints Touched table and FR-4 covered H1 and footer text in only the 4 directly-renumbered pages (`16-code-structure-and-maintainability.md`, `13-executor-and-codegen-patterns.md`, `14-skill-reference.md`, `15-prerequisites-installation.md`). A repo-wide grep of `src/content/guidebook/en/**/*.md` for the patterns `\[1[3-6]\.\s` and `\]\(\./1[3-6]-(code-structure|executor-and-codegen|skill-reference|prerequisites)` (re-run against the actual current file contents while drafting this amendment) surfaced additional prose cross-references elsewhere in the guidebook that embed the SAME stale display numbers and were never in the original table. These must be corrected in the same pass, across all 5 locales (verify each locale's own equivalent line before editing — do not assume identical line numbers across locales):
+
+| File (`en` citation; verify the equivalent line in ja/ko/zh/es) | Current text | Required change |
+|---|---|---|
+| `01-introduction.md:23` | `[15. Prerequisites and installation](./15-prerequisites-installation.md)` | → `[17. Prerequisites and installation](./15-prerequisites-installation.md)` (link target unchanged, number only) |
+| `01-introduction.md:47` | `[13. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md)` | → `[15. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md)` |
+| `02-core-concepts.md:57` | `[13. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md)` | → `[15. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md)` |
+| `03-quickstart.md:90` | `[14. Full Skill Reference](./14-skill-reference.md)` | → `[16. Full Skill Reference](./14-skill-reference.md)` |
+| `05-general-cycle-medium-large.md:62` | `[13. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md)` | → `[15. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md)` |
+
+**No change needed** (verified, stays correct): every reference to "13. Managing Code Structure and Maintainability" / `./16-code-structure-and-maintainability.md` anywhere in the guidebook (`12-debugging-and-incident-postmortem.md:46`, `14-skill-reference.md:148,152,156,160,324,339,340,351`, `README.md:31,36,70`) — this page's own display number (13) is unaffected by the insertion, per the original spec's Existing Constraints Touched.
+
+> ⚠️ **AC3 is SUPERSEDED by Iteration 1 — see A1.** Amended AC3: "Renumbering cascade fully applied, no stale numbers remain — across the 4 directly-renumbered pages AND every other guidebook page containing an inline cross-reference to one of the 3 shifted display numbers (13→15, 14→16, 15→17), across all 5 locales." Observable: a repo-wide grep across `src/content/guidebook/**/*.md` for the patterns `\[1[3-6]\.\s` and `\]\(\./1[3-6]-(code-structure|executor-and-codegen|skill-reference|prerequisites)` returns **only** these pairings (any other pairing is stale) — `[13.` ↔ `./16-code-structure-and-maintainability.md` (unaffected, stays 13), `[14.` ↔ `./17-infrastructure-and-cloud.md` (new page), `[15.` ↔ `./13-executor-and-codegen-patterns.md`, `[16.` ↔ `./14-skill-reference.md`, `[17.` ↔ `./15-prerequisites-installation.md`. (A blanket "zero matches" reading of the grep is incorrect — legitimate post-fix references will still match these patterns; check the number/target **pairing**, not raw match count.)
+
+### A2. Full Skill Index (A-Z) — existing `[14]` rows must also bump (Critical)
+
+`14-skill-reference.md`'s A-Z table (and its ja/ko/zh/es equivalents) has 3 existing rows whose Location column reads `[14](./13-executor-and-codegen-patterns.md)`: `ywc-code-gen` (:328), `ywc-parallel-executor` (:345), `ywc-sequential-executor` (:355). The original spec's FR-5 only directed adding 4 new rows at `[14](./17-infrastructure-and-cloud.md)` — leaving these 3 existing rows unchanged would make the same table show two different link targets both labeled `[14]`.
+
+> ⚠️ **FR-5 and the `14-skill-reference.md` row of Existing Constraints Touched are SUPERSEDED by Iteration 1 — see A2.** Amended FR-5: in the same edit that adds the 4 new alphabetical rows at `[14](./17-infrastructure-and-cloud.md)`, also bump the 3 existing `[14](./13-executor-and-codegen-patterns.md)` rows to `[15](./13-executor-and-codegen-patterns.md)` (link target unchanged, bracket number only) — all 5 locales.
+
+Amended AC5 observable: the A-Z table contains no two rows whose bracketed number is identical unless their link targets are also identical.
+
+### A3. Atomic edit unit is nav + slugs + all 5 locale files, not just `en` (Warning)
+
+`scripts/generate-search-index.mjs` runs before `test/check-guidebook-nav-registration.mjs` in `prebuild` (see `package.json`'s `prebuild` script) and hard-throws if any locale's content file for a `guidebook-slugs.mjs`-registered slug is missing. Amended FR-2: the "atomic 3-way edit" must land `guidebook-nav.ts`, `scripts/guidebook-slugs.mjs`, AND all 5 locale content files (`src/content/guidebook/{en,ja,ko,zh,es}/17-infrastructure-and-cloud.md`) in the same commit/task — a partial-locale commit fails `npm run build` at the `generate-search-index` step before the registration check ever runs.
+
+### A4. AC1 wording narrowed to what the build gate actually checks (Warning)
+
+`test/check-guidebook-nav-registration.mjs` diffs slug SET membership across 3 sources; it does not check array order, group placement, or position. Amended AC1 text: "New page registered consistently in all 3 required places (same slug set)." The observable (`npm run build` completes without a registration-mismatch error) is unchanged, but the criterion no longer implies position/order is build-gated — the new page's correct array position (end of `workflow-guides`, immediately after `16-code-structure-and-maintainability`) remains a manual-review requirement, not an automated one.
+
+### A5. Non-en locale parity — concrete verification procedure (Warning)
+
+Amended AC3/AC4 observable: in addition to visual inspection, run a grep-based check per non-en locale before considering the cascade complete — for each of the 4 renumbered files in each locale, confirm the H1 line matches the expected new number (e.g. `rg "^# (13|14|15|16|17)\." src/content/guidebook/<locale>/{16-code-structure-and-maintainability,13-executor-and-codegen-patterns,14-skill-reference,15-prerequisites-installation}.md`) and that the file's footer Previous/Next numeral text matches the corrected values.
+
+### A6. Anchor-collision verification method named (Warning)
+
+Amended NFR (Anchor collision check): verification method is "read the new page's rendered heading list and confirm no two headings would produce the same slug via the same slugification approach `guidebook-mdx.tsx` already uses for TOC/anchor generation (`github-slugger`) — in practice, avoid two headings with identical text within the same file."
+
+### A7. `guidebook-slugs.mjs` header comment (Warning)
+
+Amended Existing Constraints Touched (`scripts/guidebook-slugs.mjs` row): the must-change edit also includes updating the file's header comment if it states a stale numeric entry count or size-specific description — reword generically (e.g. "kept in the same order as guidebookNavGroups") rather than leaving a stale count after the array grows to 17 entries.
+
+### A8. Suggestions folded in
+
+- Amended AC7: also list `npm run lint` and `npx tsc --noEmit` alongside `npm run build` / `npm run test:content`, matching actual CI parity for a content-only change.
+- Amended NFR (`npm run verify:bundle`): caveat added — this script measures the landing page bundle only and does not exercise guidebook content; kept as a general regression sanity check, not a guidebook-specific gate.
+- Amended FR-1: add an observable — note the verified PR head SHA / merge state in the PR description or final commit message, so FR-1's re-verification step is checkable after the fact.
+- Amended AC4 observable: explicitly include `README.md:40`'s prose sentence ("For situations not covered in this table, see [15. Full Skill Reference]", all 5 locales) as a required bump target, not just the two tables.
+
+### Iteration 1 — Step 4b.5 Self-Consistency Re-check (whole spec)
+
+- **Pass A** (cross-section): amended AC3/AC5 now match the widened FR-4/FR-5 scope introduced in A1/A2; no new orphan AC/FR introduced by this amendment.
+- **Pass B** (claim↔reality): every new file:line citation in A1/A2 (`01-introduction.md:23,47`; `02-core-concepts.md:57`; `03-quickstart.md:90`; `05-general-cycle-medium-large.md:62`; `14-skill-reference.md:328,345,355`) was verified directly against current file contents while drafting this amendment, not assumed.
+- **Pass C** (schema invariants): N/A — no DB/schema surface in this spec.
+
+No further cross-section drift identified as of this amendment.
