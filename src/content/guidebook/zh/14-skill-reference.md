@@ -145,50 +145,19 @@
 
 ### 清理旧的无用代码（未使用的函数/导出/依赖）
 
-<ToolTabs>
-  <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-refactor-clean --scope codex/skills/ywc-refactor-clean/ --tier safe" />
-  </ToolTabsPanel>
-  <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-refactor-clean --scope codex/skills/ywc-refactor-clean/ --tier safe" />
-  </ToolTabsPanel>
-</ToolTabs>
+这已移至专用的 `ywc-refactor-clean` 页面。用法和示例请参见 [16. 管理代码结构与可维护性](./16-code-structure-and-maintainability.md)。
 
 ### 想将纠缠不清的 shallow module 结构重构为 deep module
 
-<ToolTabs>
-  <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-improve-architecture --scope src/services/billing --dry-run" />
-  </ToolTabsPanel>
-  <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-improve-architecture --scope src/services/billing --dry-run" />
-  </ToolTabsPanel>
-</ToolTabs>
-先用 `--dry-run` 只查看 Opportunity Backlog，确认没问题后去掉该 flag 执行实际的 consolidation。不能一次性针对整个 codebase(Scope Gate) — 必须缩小到 module/directory 级别指定范围。如果只想在不修改代码的情况下找出 legibility 问题，请改用 `ywc-agent-legibility-audit`；如果只需要删除 dead code，请改用 `ywc-refactor-clean`。
+这已移至专用的 `ywc-improve-architecture` 页面。用法和示例请参见 [16. 管理代码结构与可维护性](./16-code-structure-and-maintainability.md)。
 
 ### 想在常规 cycle 之外，独立检查实现质量和 maintenance 角度
 
-<ToolTabs>
-  <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-impl-review --spec docs/ywc-plans/billing-refactor.md --git-range main..HEAD" />
-  </ToolTabsPanel>
-  <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-impl-review --spec docs/ywc-plans/billing-refactor.md --git-range main..HEAD" />
-  </ToolTabsPanel>
-</ToolTabs>
-在 [04](./04-general-cycle-small.md)、[05](./05-general-cycle-medium-large.md) 中已作为 PR 前验证步骤内置，但当你想在这个流程之外，针对已有代码单独获得 architecture/design/devex/security/QA 5 个维度的评审时，也可以照常使用。这是不修改代码的只读分析 — 发现的问题的实际修复会另行分派给 Backend/Frontend 负责的 agent。
+这已移至专用的 `ywc-impl-review` 页面。用法和示例请参见 [16. 管理代码结构与可维护性](./16-code-structure-and-maintainability.md)。
 
 ### 想衡量 agent 修改代码所需的 token 成本和可读性
 
-<ToolTabs>
-  <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-agent-legibility-audit --scope src/services/billing" />
-  </ToolTabsPanel>
-  <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-agent-legibility-audit --scope src/services/billing" />
-  </ToolTabsPanel>
-</ToolTabs>
-这是一份只读报告，衡量的不是 correctness 或安全性，而是"agent 安全修改这段代码需要多少 token 成本"，依据是 deep/shallow module 比例以及 change-point 的明确程度。它本身不会真正修改结构，发现的问题会 routing 到 `ywc-improve-architecture`(shallow→deep 重构)或 `ywc-refactor-clean`(删除 dead code)。
+这已移至专用的 `ywc-agent-legibility-audit` 页面。用法和示例请参见 [16. 管理代码结构与可维护性](./16-code-structure-and-maintainability.md)。
 
 ### 为生产事故撰写事后分析报告
 
@@ -352,7 +321,7 @@
 
 | Skill | 说明 | 位置 |
 |---|---|---|
-| `ywc-agent-legibility-audit` | 想衡量 agent 修改代码所需的 token 成本和可读性 | [此处](#想衡量-agent-修改代码所需的-token-成本和可读性) |
+| `ywc-agent-legibility-audit` | 想衡量 agent 修改代码所需的 token 成本和可读性 | [16](./16-code-structure-and-maintainability.md) |
 | `ywc-agentic` | 你想设定一个目标，然后让整个从规划到执行的过程在无人干预下运行 | [此处](#你想设定一个目标然后让整个从规划到执行的过程在无人干预下运行) |
 | `ywc-brainstorm` | 你的想法还不具体，你想先把它弄清楚 | [此处](#你的想法还不具体你想先把它弄清楚) |
 | `ywc-changelog-release-notes` | 编写 CHANGELOG.md 或面向用户的版本说明 | [此处](#编写-changelogmd-或面向用户的版本说明) |
@@ -367,8 +336,8 @@
 | `ywc-finish-branch` | 将已完成的 feature branch 从创建 PR 到 merge、清理全部收尾的 skill | [04](./04-general-cycle-small.md) |
 | `ywc-gen-testcase` | 根据 spec 生成用于 PR 验证的手动测试文档（testsheet）的 skill | [09](./09-testing-guide.md) |
 | `ywc-handle-pr-reviews` | 回应开放 PR 的审查意见，并清理 CI/冲突 | [此处](#回应开放-pr-的审查意见并清理-ci冲突) |
-| `ywc-impl-review` | 想在常规 cycle 之外，独立检查实现质量和 maintenance 角度 | [此处](#想在常规-cycle-之外独立检查实现质量和-maintenance-角度) |
-| `ywc-improve-architecture` | 想将纠缠不清的 shallow module 结构重构为 deep module | [此处](#想将纠缠不清的-shallow-module-结构重构为-deep-module) |
+| `ywc-impl-review` | 想在常规 cycle 之外，独立检查实现质量和 maintenance 角度 | [16](./16-code-structure-and-maintainability.md) |
+| `ywc-improve-architecture` | 想将纠缠不清的 shallow module 结构重构为 deep module | [16](./16-code-structure-and-maintainability.md) |
 | `ywc-incident-postmortem` | 发生了生产事故，你需要写一份事后分析报告 | [12](./12-debugging-and-incident-postmortem.md) |
 | `ywc-merge-dependabot` | 一次性清理累积的 Dependabot PR | [此处](#一次性清理累积的-dependabot-pr) |
 | `ywc-mission` | 记录项目的原因和被拒绝的方法 | [此处](#记录项目的原因和被拒绝的方法) |
@@ -379,7 +348,7 @@
 | `ywc-project-docs` | 按照 docs/ 目录结构生成 project 文档的 skill | [07](./07-starting-a-new-project.md) |
 | `ywc-project-scaffold` | 从零设计全新 project 目录结构的 skill | [07](./07-starting-a-new-project.md) |
 | `ywc-receive-review` | 不想无条件接受审查者（人类或 CodeRabbit/Codex/Claude）的意见，想先进行技术验证再回应 | [此处](#不想无条件接受审查者人类或-coderabbitcodexclaude的意见想先进行技术验证再回应) |
-| `ywc-refactor-clean` | 清理旧的无用代码（未使用的函数/导出/依赖） | [此处](#清理旧的无用代码未使用的函数导出依赖) |
+| `ywc-refactor-clean` | 清理旧的无用代码（未使用的函数/导出/依赖） | [16](./16-code-structure-and-maintainability.md) |
 | `ywc-release-pr-list` | 总结包含在发布版本 PR（develop->main 等）中的已合并 PR 列表 | [此处](#总结包含在发布版本-prdevelop-main-等中的已合并-pr-列表) |
 | `ywc-review-learnings` | 教系统关于重复代码审查反馈的内容，这样它就不会再次提出相同的误报 | [此处](#教系统关于重复代码审查反馈的内容这样它就不会再次提出相同的误报) |
 | `ywc-security-audit` | 检查敏感代码中的安全漏洞，例如认证/支付 | [此处](#检查敏感代码中的安全漏洞例如认证支付) |

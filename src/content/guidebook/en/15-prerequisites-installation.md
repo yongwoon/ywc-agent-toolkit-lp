@@ -162,4 +162,4 @@ gh pr checks --watch
 
 ---
 
-[Previous: 14. Full Skill Reference](./14-skill-reference.md) - [Back to table of contents](./README.md)
+[Previous: 14. Full Skill Reference](./14-skill-reference.md) - [Next: 16. Managing Code Structure and Maintainability](./16-code-structure-and-maintainability.md)

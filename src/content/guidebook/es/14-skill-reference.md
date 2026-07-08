@@ -142,50 +142,19 @@ Esto se ha trasladado a la página dedicada `ywc-agentic`. Consulte [06. Finish 
 
 ### Limpiar el código antiguo muerto (funciones/exportaciones/dependencias no utilizadas)
 
-<ToolTabs>
-  <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-refactor-clean --scope codex/skills/ywc-refactor-clean/ --tier safe" />
-  </ToolTabsPanel>
-  <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-refactor-clean --scope codex/skills/ywc-refactor-clean/ --tier safe" />
-  </ToolTabsPanel>
-</ToolTabs>
+Esto se ha trasladado a la página dedicada `ywc-refactor-clean`. Consulte [16. Gestionar la estructura del código y la mantenibilidad](./16-code-structure-and-maintainability.md) para uso y ejemplos.
 
 ### Quieres reestructurar una arquitectura de shallow module enredada en deep module
 
-<ToolTabs>
-  <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-improve-architecture --scope src/services/billing --dry-run" />
-  </ToolTabsPanel>
-  <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-improve-architecture --scope src/services/billing --dry-run" />
-  </ToolTabsPanel>
-</ToolTabs>
-Primero revisa solo el Opportunity Backlog con `--dry-run`, y si no hay problemas, quita el flag y ejecuta la consolidación real. No puedes apuntar a todo el codebase de una vez (Scope Gate) — debes limitarlo a un module/directory. Si solo quieres detectar problemas de legibility sin modificar el código, usa `ywc-agent-legibility-audit` en su lugar; si solo necesitas eliminar dead code, usa `ywc-refactor-clean`.
+Esto se ha trasladado a la página dedicada `ywc-improve-architecture`. Consulte [16. Gestionar la estructura del código y la mantenibilidad](./16-code-structure-and-maintainability.md) para uso y ejemplos.
 
 ### Quieres revisar de forma independiente la calidad de implementación y el mantenimiento fuera del ciclo general
 
-<ToolTabs>
-  <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-impl-review --spec docs/ywc-plans/billing-refactor.md --git-range main..HEAD" />
-  </ToolTabsPanel>
-  <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-impl-review --spec docs/ywc-plans/billing-refactor.md --git-range main..HEAD" />
-  </ToolTabsPanel>
-</ToolTabs>
-Ya está integrado como el paso de verificación previo al PR en [04](./04-general-cycle-small.md) y [05](./05-general-cycle-medium-large.md), pero también puedes usarlo de forma independiente fuera de esos flujos cuando solo quieras una revisión de 5 ejes (architecture/design/devex/security/QA) del código existente. Es un análisis de solo lectura que no modifica el código — la corrección real de cualquier hallazgo se despacha por separado al agent de Backend/Frontend.
+Esto se ha trasladado a la página dedicada `ywc-impl-review`. Consulte [16. Gestionar la estructura del código y la mantenibilidad](./16-code-structure-and-maintainability.md) para uso y ejemplos.
 
 ### Quieres medir el costo de tokens y la legibilidad del código desde la perspectiva de un agent
 
-<ToolTabs>
-  <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-agent-legibility-audit --scope src/services/billing" />
-  </ToolTabsPanel>
-  <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-agent-legibility-audit --scope src/services/billing" />
-  </ToolTabsPanel>
-</ToolTabs>
-Este es un informe de solo lectura que mide — no correctness ni seguridad, sino "cuántos tokens le cuesta a un agent modificar este código de forma segura" — según la proporción de deep/shallow module y qué tan claramente está nombrado el change point. No reestructura nada por sí mismo; los hallazgos se enrutan a `ywc-improve-architecture` (reestructuración shallow→deep) o `ywc-refactor-clean` (eliminación de dead code).
+Esto se ha trasladado a la página dedicada `ywc-agent-legibility-audit`. Consulte [16. Gestionar la estructura del código y la mantenibilidad](./16-code-structure-and-maintainability.md) para uso y ejemplos.
 
 ### Quieres seguir estrictamente el procedimiento documentado RED → GREEN → REFACTOR mientras implementas
 
@@ -345,7 +314,7 @@ Todas las skills `ywc-*` de este toolkit, ordenadas alfabéticamente. Consulta l
 
 | Skill | Descripción | Ubicación |
 |---|---|---|
-| `ywc-agent-legibility-audit` | Quieres medir el costo de tokens y la legibilidad del código desde la perspectiva de un agent | [aquí](#quieres-medir-el-costo-de-tokens-y-la-legibilidad-del-código-desde-la-perspectiva-de-un-agent) |
+| `ywc-agent-legibility-audit` | Quieres medir el costo de tokens y la legibilidad del código desde la perspectiva de un agent | [16](./16-code-structure-and-maintainability.md) |
 | `ywc-agentic` | Quieres dar un objetivo y dejar que la planificación hasta la implementación se ejecute sin intervención humana | [aquí](#quieres-dar-un-objetivo-y-dejar-que-la-planificación-hasta-la-implementación-se-ejecute-sin-intervención-humana) |
 | `ywc-brainstorm` | Tu idea aún no es concreta y quieres aclararla primero | [aquí](#tu-idea-aún-no-es-concreta-y-quieres-aclararla-primero) |
 | `ywc-changelog-release-notes` | Escribe CHANGELOG.md o notas de la versión para el usuario | [aquí](#escribe-changelogmd-o-notas-de-la-versión-para-el-usuario) |
@@ -360,8 +329,8 @@ Todas las skills `ywc-*` de este toolkit, ordenadas alfabéticamente. Consulta l
 | `ywc-finish-branch` | Finaliza una feature branch completada — desde la creación del PR hasta el merge y la limpieza | [04](./04-general-cycle-small.md) |
 | `ywc-gen-testcase` | Genera un documento de prueba manual (testsheet) a partir de un spec para la verificación del PR | [09](./09-testing-guide.md) |
 | `ywc-handle-pr-reviews` | Responder a los comentarios de la revisión en un PR abierto y limpiar también CI/conflictos | [aquí](#responder-a-los-comentarios-de-la-revisión-en-un-pr-abierto-y-limpiar-también-ciconflictos) |
-| `ywc-impl-review` | Quieres revisar de forma independiente la calidad de implementación y el mantenimiento fuera del ciclo general | [aquí](#quieres-revisar-de-forma-independiente-la-calidad-de-implementación-y-el-mantenimiento-fuera-del-ciclo-general) |
-| `ywc-improve-architecture` | Quieres reestructurar una arquitectura de shallow module enredada en deep module | [aquí](#quieres-reestructurar-una-arquitectura-de-shallow-module-enredada-en-deep-module) |
+| `ywc-impl-review` | Quieres revisar de forma independiente la calidad de implementación y el mantenimiento fuera del ciclo general | [16](./16-code-structure-and-maintainability.md) |
+| `ywc-improve-architecture` | Quieres reestructurar una arquitectura de shallow module enredada en deep module | [16](./16-code-structure-and-maintainability.md) |
 | `ywc-incident-postmortem` | Ocurrió un incidente de producción y necesitas escribir un informe posterior al incidente | [12](./12-debugging-and-incident-postmortem.md) |
 | `ywc-merge-dependabot` | Limpiar de una vez los PRs acumulados de Dependabot | [aquí](#limpiar-de-una-vez-los-prs-acumulados-de-dependabot) |
 | `ywc-mission` | Registra el porqué del proyecto y los enfoques rechazados | [aquí](#registra-el-porqué-del-proyecto-y-los-enfoques-rechazados) |
@@ -372,7 +341,7 @@ Todas las skills `ywc-*` de este toolkit, ordenadas alfabéticamente. Consulta l
 | `ywc-project-docs` | Genera documentación del proyecto siguiendo la estructura del directorio docs/ | [07](./07-starting-a-new-project.md) |
 | `ywc-project-scaffold` | Diseña la estructura de directorios de un proyecto completamente nuevo | [07](./07-starting-a-new-project.md) |
 | `ywc-receive-review` | No quieres aceptar incondicionalmente los comentarios de un revisor (humano o CodeRabbit/Codex/Claude); quieres verificarlos técnicamente antes de responder | [aquí](#no-quieres-aceptar-incondicionalmente-los-comentarios-de-un-revisor-humano-o-coderabbitcodexclaude-quieres-verificarlos-técnicamente-antes-de-responder) |
-| `ywc-refactor-clean` | Limpiar el código antiguo muerto (funciones/exportaciones/dependencias no utilizadas) | [aquí](#limpiar-el-código-antiguo-muerto-funcionesexportacionesdependencias-no-utilizadas) |
+| `ywc-refactor-clean` | Limpiar el código antiguo muerto (funciones/exportaciones/dependencias no utilizadas) | [16](./16-code-structure-and-maintainability.md) |
 | `ywc-release-pr-list` | Resume la lista de PRs fusionados incluidos en una Release PR (develop->main, etc.) | [aquí](#resume-la-lista-de-prs-fusionados-incluidos-en-una-release-pr-develop-main-etc) |
 | `ywc-review-learnings` | Enseñe al sistema sobre la retroalimentación repetida de la revisión de código para que no genere el mismo falso positivo nuevamente | [aquí](#enseñe-al-sistema-sobre-la-retroalimentación-repetida-de-la-revisión-de-código-para-que-no-genere-el-mismo-falso-positivo-nuevamente) |
 | `ywc-security-audit` | Revisa las vulnerabilidades de seguridad en el código sensible, como autenticación/pagos | [aquí](#revisa-las-vulnerabilidades-de-seguridad-en-el-código-sensible-como-autenticaciónpagos) |

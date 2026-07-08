@@ -71,7 +71,12 @@
   },
   {
     "slug": "15-prerequisites-installation",
-    "title": "14. Requisitos previos e instalación",
+    "title": "15. Requisitos previos e instalación",
     "summary": "Para usar las Skills ywc-* de forma fiable, necesitas tener listas algunas herramientas de antemano."
+  },
+  {
+    "slug": "16-code-structure-and-maintainability",
+    "title": "16. Gestionar la estructura del código y la mantenibilidad",
+    "summary": "Las cuatro Skills parten del mismo síntoma — \"el código no está bien\" — pero responden preguntas distintas."
   }
 ]

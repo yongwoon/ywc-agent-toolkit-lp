@@ -28,12 +28,12 @@ Esto está organizado en torno a **lo que estás intentando hacer ahora**, no a 
 | Verificar el código en busca de vulnerabilidades de seguridad | `ywc-security-audit` | [14](./14-skill-reference.md) |
 | Estás atascado porque no puedes encontrar la causa raíz de un error | `ywc-debug-rootcause` | [12](./12-debugging-and-incident-postmortem.md) |
 | Ocurrió un incidente de producción y necesitas escribir un informe posterior al incidente | `ywc-incident-postmortem` | [12](./12-debugging-and-incident-postmortem.md) |
-| Limpia el código antiguo muerto | `ywc-refactor-clean` | [14](./14-skill-reference.md) |
+| Limpia el código antiguo muerto | `ywc-refactor-clean` | [16](./16-code-structure-and-maintainability.md) |
 | Responder a los comentarios de revisión en un PR abierto | `ywc-handle-pr-reviews` | [14](./14-skill-reference.md) |
 | Limpiar de una vez un acumulado de PRs de Dependabot | `ywc-merge-dependabot` | [14](./14-skill-reference.md) |
 | Escribe una CHANGELOG o nota de lanzamiento | `ywc-changelog-release-notes` | [14](./14-skill-reference.md) |
 | Simplemente confirma el trabajo realizado hasta ahora | `ywc-commit` | [14](./14-skill-reference.md) |
-| La estructura está enredada o la calidad de implementación es mala desde una perspectiva de mantenibilidad | `ywc-improve-architecture` | [14](./14-skill-reference.md) |
+| La estructura está enredada o la calidad de implementación es mala desde una perspectiva de mantenibilidad | `ywc-improve-architecture` | [16](./16-code-structure-and-maintainability.md) |
 | Quieres comparar librerías o enfoques de implementación para decidir qué usar | `ywc-tech-research` | [14](./14-skill-reference.md) |
 | Gestionar el conocimiento (glosario/aprendizajes de revisión/mission) que permanece en el proyecto después de que termina la conversación | `ywc-ubiquitous-language` | [14](./14-skill-reference.md) |
 
@@ -74,6 +74,8 @@ Para situaciones no cubiertas en esta tabla, consulte [14. Full Skill Reference]
 |---|---|
 | [13. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md) | Ejemplos prácticos de comandos para `ywc-sequential-executor` / `ywc-parallel-executor` / `ywc-code-gen` con muchas opciones |
 | [14. Full Skill Reference](./14-skill-reference.md) | Un índice de las Habilidades restantes no cubiertas en las guías anteriores, organizado por situación |
+| [15. Requisitos previos e instalación](./15-prerequisites-installation.md) | La lista de herramientas obligatorias y opcionales que debes tener listas para que las Skills ywc-* funcionen de forma fiable |
+| [16. Gestionar la estructura del código y la mantenibilidad](./16-code-structure-and-maintainability.md) | Cómo usar las 4 Skills que limpian, reestructuran y verifican código con mala estructura o mantenibilidad, y el orden en que trabajan juntas |
 
 ## Material fuente
 

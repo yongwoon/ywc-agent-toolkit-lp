@@ -145,50 +145,19 @@ This has moved to the dedicated page. See [12. Debugging and incident postmortem
 
 ### Clean up old dead code (unused functions/exports/dependencies)
 
-<ToolTabs>
-  <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-refactor-clean --scope codex/skills/ywc-refactor-clean/ --tier safe" />
-  </ToolTabsPanel>
-  <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-refactor-clean --scope codex/skills/ywc-refactor-clean/ --tier safe" />
-  </ToolTabsPanel>
-</ToolTabs>
+This has moved to the dedicated `ywc-refactor-clean` page. See [16. Managing Code Structure and Maintainability](./16-code-structure-and-maintainability.md) for usage and examples.
 
 ### Restructure a tangled shallow module structure into a deep module
 
-<ToolTabs>
-  <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-improve-architecture --scope src/services/billing --dry-run" />
-  </ToolTabsPanel>
-  <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-improve-architecture --scope src/services/billing --dry-run" />
-  </ToolTabsPanel>
-</ToolTabs>
-Check the Opportunity Backlog first with `--dry-run`, then drop the flag and run the actual consolidation once it looks right. You cannot target the whole codebase at once (Scope Gate) — you must scope it to a module/directory. Use `ywc-agent-legibility-audit` instead if you only want to surface legibility issues without changing code, or `ywc-refactor-clean` if you only need to delete dead code.
+This has moved to the dedicated `ywc-improve-architecture` page. See [16. Managing Code Structure and Maintainability](./16-code-structure-and-maintainability.md) for usage and examples.
 
 ### Check implementation quality and maintainability outside the general cycle, standalone
 
-<ToolTabs>
-  <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-impl-review --spec docs/ywc-plans/billing-refactor.md --git-range main..HEAD" />
-  </ToolTabsPanel>
-  <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-impl-review --spec docs/ywc-plans/billing-refactor.md --git-range main..HEAD" />
-  </ToolTabsPanel>
-</ToolTabs>
-This is already built into the pre-PR verification step in [04](./04-general-cycle-small.md) and [05](./05-general-cycle-medium-large.md), but you can also use it standalone outside those flows when you just want a 5-axis (architecture/design/devex/security/QA) review of existing code. It is a read-only analysis that does not change code — any fix for a found item is dispatched separately to the Backend/Frontend agent.
+This has moved to the dedicated `ywc-impl-review` page. See [16. Managing Code Structure and Maintainability](./16-code-structure-and-maintainability.md) for usage and examples.
 
 ### Measure the token cost and legibility of code from an agent's perspective
 
-<ToolTabs>
-  <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-agent-legibility-audit --scope src/services/billing" />
-  </ToolTabsPanel>
-  <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-agent-legibility-audit --scope src/services/billing" />
-  </ToolTabsPanel>
-</ToolTabs>
-This is a read-only report that measures — not correctness or security, but "how many tokens it costs an agent to safely change this code" — based on the deep/shallow module ratio and how clearly the change point is named. It does not restructure anything itself; findings route to `ywc-improve-architecture` (shallow→deep restructuring) or `ywc-refactor-clean` (dead code deletion).
+This has moved to the dedicated `ywc-agent-legibility-audit` page. See [16. Managing Code Structure and Maintainability](./16-code-structure-and-maintainability.md) for usage and examples.
 
 ### Write a postmortem for a Production incident
 
@@ -352,7 +321,7 @@ All `ywc-*` skills in this toolkit, listed alphabetically. See each skill's loca
 
 | Skill | Description | Location |
 |---|---|---|
-| `ywc-agent-legibility-audit` | Measure the token cost and legibility of code from an agent's perspective | [here](#measure-the-token-cost-and-legibility-of-code-from-an-agents-perspective) |
+| `ywc-agent-legibility-audit` | Measure the token cost and legibility of code from an agent's perspective | [16](./16-code-structure-and-maintainability.md) |
 | `ywc-agentic` | You want to give one goal and leave planning through implementation to run without human intervention | [here](#you-want-to-give-one-goal-and-leave-planning-through-implementation-to-run-without-human-intervention) |
 | `ywc-brainstorm` | Your idea is not concrete yet and you want to clarify it first | [here](#your-idea-is-not-concrete-yet-and-you-want-to-clarify-it-first) |
 | `ywc-changelog-release-notes` | Write CHANGELOG.md or user-facing release notes | [here](#write-changelogmd-or-user-facing-release-notes) |
@@ -367,8 +336,8 @@ All `ywc-*` skills in this toolkit, listed alphabetically. See each skill's loca
 | `ywc-finish-branch` | Finishes a completed feature branch — PR creation through merge and cleanup | [04](./04-general-cycle-small.md) |
 | `ywc-gen-testcase` | Generates a manual test document (testsheet) from a spec for PR verification | [09](./09-testing-guide.md) |
 | `ywc-handle-pr-reviews` | Respond to review comments on an open PR and clean up CI/conflicts too | [here](#respond-to-review-comments-on-an-open-pr-and-clean-up-ciconflicts-too) |
-| `ywc-impl-review` | Check implementation quality and maintainability outside the general cycle, standalone | [here](#check-implementation-quality-and-maintainability-outside-the-general-cycle-standalone) |
-| `ywc-improve-architecture` | Restructure a tangled shallow module structure into a deep module | [here](#restructure-a-tangled-shallow-module-structure-into-a-deep-module) |
+| `ywc-impl-review` | Check implementation quality and maintainability outside the general cycle, standalone | [16](./16-code-structure-and-maintainability.md) |
+| `ywc-improve-architecture` | Restructure a tangled shallow module structure into a deep module | [16](./16-code-structure-and-maintainability.md) |
 | `ywc-incident-postmortem` | A production incident happened and you need to write a postmortem | [12](./12-debugging-and-incident-postmortem.md) |
 | `ywc-merge-dependabot` | Clean up accumulated Dependabot PRs at once | [here](#clean-up-accumulated-dependabot-prs-at-once) |
 | `ywc-mission` | Record the project's why and rejected approaches | [here](#record-the-projects-why-and-rejected-approaches) |
@@ -379,7 +348,7 @@ All `ywc-*` skills in this toolkit, listed alphabetically. See each skill's loca
 | `ywc-project-docs` | Generates project docs that follow the docs/ directory structure | [07](./07-starting-a-new-project.md) |
 | `ywc-project-scaffold` | Designs the directory structure for a completely new project | [07](./07-starting-a-new-project.md) |
 | `ywc-receive-review` | You don't want to accept a reviewer's (human or CodeRabbit/Codex/Claude) feedback unconditionally — you want to verify it technically before responding | [here](#you-dont-want-to-accept-a-reviewers-human-or-coderabbitcodexclaude-feedback-unconditionally--you-want-to-verify-it-technically-before-responding) |
-| `ywc-refactor-clean` | Clean up old dead code (unused functions/exports/dependencies) | [here](#clean-up-old-dead-code-unused-functionsexportsdependencies) |
+| `ywc-refactor-clean` | Clean up old dead code (unused functions/exports/dependencies) | [16](./16-code-structure-and-maintainability.md) |
 | `ywc-release-pr-list` | Summarize the list of merged PRs included in a Release PR (develop->main, etc.) | [here](#summarize-the-list-of-merged-prs-included-in-a-release-pr-develop-main-etc) |
 | `ywc-review-learnings` | Teach the system about repeated code review feedback so it does not raise the same false positive again | [here](#teach-the-system-about-repeated-code-review-feedback-so-it-does-not-raise-the-same-false-positive-again) |
 | `ywc-security-audit` | Check security vulnerabilities in sensitive code such as auth/payment | [here](#check-security-vulnerabilities-in-sensitive-code-such-as-authpayment) |
