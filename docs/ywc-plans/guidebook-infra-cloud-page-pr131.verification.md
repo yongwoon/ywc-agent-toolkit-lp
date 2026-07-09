@@ -43,7 +43,7 @@ All 4 files were found and read successfully at their exact expected paths. No p
 - **Description summary**: Use when designing cloud/infrastructure architecture *before* any IaC is written — requirements gathering, provider selection, network/compute/storage/IAM topology, and a reliability/cost/security 3-lens pre-check that produces `infra-design.md`, the input contract `ywc-iac-author` consumes. Never writes IaC itself.
 - **Frontmatter**: `category: spec`, `phase: planning`, `requires: []`, `advisor_budget: 2`
 - **Representative command example** (Arguments table):
-  ```
+  ```bash
   --provider aws|gcp|azure|k8s   # e.g. --provider aws — declare an already-decided provider, skip ywc-tech-research delegation
   --scope <system-name>          # e.g. --scope payments-api
   --skip-cloud-consult           # flag — skip the optional read-only ywc-cloud-engineer feasibility consult (Step 3)
@@ -55,7 +55,7 @@ All 4 files were found and read successfully at their exact expected paths. No p
 - **Description summary**: Use when authoring or modifying Infrastructure-as-Code from a design — Terraform modules/resources for AWS/GCP/Azure/Kubernetes (K8s/Helm via Terraform `kubernetes`/`helm` providers only, never raw manifests or a second IaC tool), including `terraform validate`/`plan` verification and a blast-radius summary.
 - **Frontmatter**: `category: implement`, `phase: implementation`, `requires: []`
 - **Representative command example**:
-  ```
+  ```bash
   --design-doc infra-design.md          # path to ywc-infra-design output to load as authoring input
   --scope infra/modules/network         # restrict authoring/fan-out to a single Terraform module
   --skip-review-recommendation          # flag — skip closing ywc-infra-review recommendation
@@ -68,7 +68,7 @@ All 4 files were found and read successfully at their exact expected paths. No p
 - **Description summary**: Use when reviewing IaC/cloud configuration for misconfiguration, least-privilege, cost, and reliability *before applying* — fans out to security/cost/reliability lenses and aggregates severity-rated findings across AWS/GCP/Azure/K8s Terraform. Diagnosis-only, never writes IaC.
 - **Frontmatter**: `category: review`, `phase: quality`, `requires: []`, `advisor_budget: 3`
 - **Representative command example**:
-  ```
+  ```bash
   --scope infra/modules/network          # restrict the 3-lens fan-out to a single module/path
   --skip-optimize-recommendation         # flag — skip closing ywc-infra-optimize recommendation
   ```
@@ -80,7 +80,7 @@ All 4 files were found and read successfully at their exact expected paths. No p
 - **Description summary**: Use when improving *existing* infrastructure: cost right-sizing, removing unused resources, reserved/spot adoption, drift detection & remediation, and reliability hardening for AWS/GCP/Azure/K8s — "the safe change-loop equivalent of refactor-clean for infra." Diagnoses **and executes** SAFE items (per-item `terraform plan` verification, one commit per item); CAUTION/DANGER items are escalated, never auto-executed.
 - **Frontmatter**: `category: maintenance`, `phase: cleanup`, `requires: []`, `advisor_budget: 2`
 - **Representative command example**:
-  ```
+  ```bash
   --scope infra/modules/compute   # restrict gather/classify/execute to a single module/path
   --dry-run                       # flag — gather+classify only, no SAFE execution
   --skip-verify-done              # flag — skip final ywc-verify-done handoff

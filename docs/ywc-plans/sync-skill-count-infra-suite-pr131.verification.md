@@ -29,7 +29,7 @@ Raw 출력:
 
 Raw 응답의 최상위 엔트리는 총 48개다. `type=="dir"`인 엔트리 이름 전체:
 
-```
+```text
 references
 scripts
 ywc-agentic
@@ -90,7 +90,7 @@ ywc-worktrees
 
 Raw 응답의 최상위 엔트리는 총 48개다. `type=="dir"`인 엔트리 이름 전체:
 
-```
+```text
 references
 scripts
 ywc-agentic
@@ -153,7 +153,7 @@ Codex 쪽 skill 목록은 Claude Code와 이름이 완전히 동일하지 않다
 
 Raw 응답 엔트리 이름 전체 (총 18개, 모두 `type=="file"`):
 
-```
+```text
 CLAUDE.md
 README.en.md
 README.ja.md
@@ -184,7 +184,7 @@ ywc-typescript-reviewer.md
 
 Raw 응답 엔트리 이름 전체 (총 9개, 모두 `type=="file"`):
 
-```
+```text
 README.md
 ywc-architect.toml
 ywc-cloud-engineer.toml

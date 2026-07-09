@@ -6,7 +6,7 @@
 > Author: ywc-plan (Claude)
 > Spec Reference: `N/A — no docs/specification section owns "upstream toolkit sync"; this spec touches docs/specification/01-overview.md`, `02-features.md`, `03-data.md`, `05-user-flows.md` directly (see Existing Constraints Touched) rather than superseding a dedicated spec file.
 > Related: `docs/ywc-plans/sync-skill-count-language-setup.md` (precedent for this exact change class, 41→42 skills); `docs/ywc-plans/guidebook-infra-cloud-page-pr131.md` (sibling spec — new guidebook page for the same upstream PR, intentionally split from this spec so each converges independently through `ywc-spec-validate`)
-
+>
 > **Operative Sections** (per Iteration 1 Amendments — see bottom of file): the `featureGrid.title` row in **Existing Constraints Touched**, **AC1**, **AC2**, **AC4**, and FR-3's closing sentence are marked `SUPERSEDED` in place; their Iteration 1 Amendments versions are authoritative. All other sections are unchanged and remain authoritative as originally written.
 
 ## Purpose

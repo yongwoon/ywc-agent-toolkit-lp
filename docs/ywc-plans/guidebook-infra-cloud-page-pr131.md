@@ -6,7 +6,7 @@
 > Author: ywc-plan (Claude)
 > Spec Reference: `N/A — no docs/specification section owns individual guidebook page content; this is guidebook-content work governed by CLAUDE.md's "Working From the Task List" / docs/tech-stack.md structure references, not a spec-owned feature.`
 > Related: `docs/ywc-plans/sync-skill-count-infra-suite-pr131.md` (sibling spec — site-wide skill/agent count sync for the same upstream PR, intentionally split from this spec so each converges independently through `ywc-spec-validate`); `docs/ywc-plans/guidebook-page-numbering-refactor.md` (prior spec that established the array-position-based `displayNumber` model this spec's renumbering cascade must respect)
-
+>
 > **Operative Sections** (per Iteration 1 Amendments): **AC3**, **AC5**, and **FR-5** (including its `14-skill-reference.md` row in `Existing Constraints Touched`) are superseded by [`## Iteration 1 Amendments`](#iteration-1-amendments) §A1 and §A2 respectively (A1 → AC3; A2 → AC5, FR-5, and the `14-skill-reference.md` Existing Constraints row) — treat the amendment text as authoritative for those items. **FR-4** is supplemented (scope widened, not contradicted) by §A1's additional cross-reference file list. AC1, AC4, AC7, the NFR section, FR-1, FR-2, and the `Existing Constraints Touched` rows for `scripts/guidebook-slugs.mjs` and `test/check-guidebook-nav-registration.mjs` are supplemented (narrowed or extended in place, not contradicted) by §A3–A8 — read both the original text and its matching amendment sub-section together. All other sections (Purpose, Scope, Out of Scope, AC2, AC6, AC8, FR-3, FR-6, Data Model, Edge Cases, Open Questions, Dependencies) remain authoritative as originally written.
 
 ## Purpose
@@ -96,7 +96,7 @@ Suggested page metadata (executor may refine wording): `slug: "17-infrastructure
 Author `src/content/guidebook/{en,ja,ko,zh,es}/17-infrastructure-and-cloud.md` following `16-code-structure-and-maintainability.md`'s proven structure:
 
 1. A "When to use these Skills" decision table (4 rows: design, author, review, optimize — each with its own question and skill name).
-2. One `## `ywc-<skill>`` section per skill with a short description and a `<ToolTabs>` `<ToolTabsPanel tool="claude-code">`/`<ToolTabsPanel tool="codex">` example, syntax sourced from FR-1's re-read `SKILL.md` files.
+2. One `` ## `ywc-<skill>` `` section per skill with a short description and a `<ToolTabs>` `<ToolTabsPanel tool="claude-code">`/`<ToolTabsPanel tool="codex">` example, syntax sourced from FR-1's re-read `SKILL.md` files.
 3. A "How the Skills work together" section walking through the design → author → review → optimize pipeline, mentioning that `ywc-infra-review` and `ywc-infra-optimize` can delegate to `ywc-cloud-engineer` and the lens-extended `ywc-security-engineer`/`ywc-performance-engineer` agents (prose mention only, consistent with how agents are named in passing elsewhere in this Guidebook — not a dedicated agent section).
 4. The standard `[Back to table of contents]` header link and `[Previous: 13. ...] - [Next: 15. ...]` footer, using the post-insertion display numbers.
 
