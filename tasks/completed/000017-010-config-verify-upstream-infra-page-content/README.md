@@ -40,7 +40,7 @@ FR-1은 "must run first"로 명시되어 있으며, 이 스펙은 형제 스펙(
 - `docs/ywc-plans/guidebook-infra-cloud-page-pr131.verification.md` (신규 생성 — 검증 결과 기록)
 
 ## Notes
-- 이 task는 다른 저장소(`yongwoon/ywc-agent-toolkit`)에 대한 읽기 전용 `gh` 조회만 수행한다. `gh` CLI 미설치/미인증 시 비인증 공개 REST 호출(`api.github.com/repos/yongwoon/ywc-agent-toolkit/contents/...`)로 대체 가능하다(공개 저장소).
+- 이 task는 다른 저장소(`yongwoon/ywc-agent-toolkit`)에 대한 읽기 전용 `gh` 조회만 수행한다. `gh` CLI 미설치/미인증 시 비인증 공개 REST 호출로 대체 가능하다(공개 저장소) — 단, 엔드포인트는 조회 대상에 따라 나뉜다: PR `#131`의 `state`/`mergedAt`/`headRefOid` 재확인(Notes 하단 항목)은 `api.github.com/repos/yongwoon/ywc-agent-toolkit/pulls/131`로, 4개 skill의 `SKILL.md` 본문 조회는 `api.github.com/repos/yongwoon/ywc-agent-toolkit/contents/{claude-code,codex}/skills/<skill>/SKILL.md`로 각각 조회한다. `contents` 엔드포인트는 파일 내용만 반환하므로 PR 메타데이터 확인을 대체할 수 없다.
 - 이 스펙 작성/검증 시점(`ywc-spec-ready` 2회차)에 이미 PR #131이 `MERGED`(`mergedAt: 2026-07-08T21:16:34Z`)로 확인된 바 있다 — 다만 이는 계획 시점의 관찰이며, 이 task 실행 시점에 반드시 재조회해야 한다(캐시된 값을 신뢰하지 않는다).
 - FR-1은 merge가 안 되어 있어도 in-flight diff 기준으로 계속 진행 가능하다고 명시하지만, 유의미한 시간이 지난 뒤 실행한다면 SKILL.md 내용이 계획 시점과 달라졌을 수 있으므로 반드시 재확인한다.
 - 4개 skill 모두 `requires: []`(다른 skill에 대한 하드 의존성 없음), `category`/`phase`가 서로 다르다(`ywc-infra-design`: spec/planning, `ywc-iac-author`: implement/implementation, `ywc-infra-review`: review/quality, `ywc-infra-optimize`: maintenance/cleanup) — 이 4단계 분류가 새 페이지의 "When to use these Skills" 결정 테이블 구조의 근거가 된다.

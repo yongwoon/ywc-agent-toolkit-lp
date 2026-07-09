@@ -16,7 +16,7 @@
 **Steps:**
 1. `/en/` 접속, hero 영역 확인
 2. `#features` 섹션까지 스크롤, 타일 개수가 기존 7개 그대로인지 확인
-3. task 실행 보고에서 "Feature Grid skill-count divergence unresolved" blocking 문구 확인
+3. task 실행 보고에서 "Feature Grid skill-count divergence unresolved — human decision required" blocking 문구 확인
 
 **Expected Result:**
 - Feature Grid 섹션은 카테고리 산술 편집이 수행되지 않은 상태(신규 카테고리 미추가, 타이틀 "Seven categories..." 그대로 유지)
