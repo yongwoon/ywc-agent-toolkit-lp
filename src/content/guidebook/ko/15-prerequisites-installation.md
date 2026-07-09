@@ -1,6 +1,6 @@
 [« 목차로 돌아가기](./README.md)
 
-# 16. 사전 준비와 설치
+# 17. 사전 준비와 설치
 
 `ywc-*` Skill 을 안정적으로 쓰려면 몇 가지 Tool 이 미리 준비되어 있어야 합니다. Plugin marketplace 나 Codex plugin 으로 설치하면 파일 복사와 등록은 자동으로 처리되지만, Skill 을 **실제로 실행**할 때는 아래 Tool 들이 System 에 있어야 정상 동작합니다. 순서는 다음과 같습니다 — **① 필수 Tool 설치 → ② ywc-agent-toolkit 자체 설치 (Claude Code / Codex)** → 그 아래는 상황에 따라 준비하면 되는 선택 Tool 입니다.
 
@@ -162,4 +162,4 @@ gh pr checks --watch
 
 ---
 
-[← 이전: 15. 전체 Skill 레퍼런스](./14-skill-reference.md) · [목차로 돌아가기 »](./README.md)
+[← 이전: 16. 전체 Skill 레퍼런스](./14-skill-reference.md) · [목차로 돌아가기 »](./README.md)

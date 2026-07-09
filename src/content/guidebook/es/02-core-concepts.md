@@ -54,7 +54,7 @@ Cada rama de este flujo se cubre en detalle con ejemplos concretos de comandos e
 
 ## Conceptos del modo de entrega compartido PR
 
-`ywc-finish-branch`, `ywc-sequential-executor` y `ywc-parallel-executor` comparten los conceptos de modo que se indican a continuación para la entrega basada en tareas. El flujo pequeño basado en `plan.md` no tiene artefacto de tarea, por lo que abre un PR con `ywc-create-pr` y maneja la revisión/fusión por separado. Las combinaciones exactas de banderas se cubren en [13. Executor / Patrones de indicación de generación de código](./13-executor-and-codegen-patterns.md).
+`ywc-finish-branch`, `ywc-sequential-executor` y `ywc-parallel-executor` comparten los conceptos de modo que se indican a continuación para la entrega basada en tareas. El flujo pequeño basado en `plan.md` no tiene artefacto de tarea, por lo que abre un PR con `ywc-create-pr` y maneja la revisión/fusión por separado. Las combinaciones exactas de banderas se cubren en [15. Executor / Patrones de indicación de generación de código](./13-executor-and-codegen-patterns.md).
 
 | Modo | Significado |
 |---|---|

@@ -54,7 +54,7 @@ Each branch of this flow is covered in detail with concrete command examples on 
 
 ## Shared PR Delivery mode concepts
 
-`ywc-finish-branch`, `ywc-sequential-executor`, and `ywc-parallel-executor` share the mode concepts below for task-based delivery. The Small flow based on `plan.md` has no task artifact, so it opens a PR with `ywc-create-pr` and handles review/merge separately. Exact flag combinations are covered in [13. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md).
+`ywc-finish-branch`, `ywc-sequential-executor`, and `ywc-parallel-executor` share the mode concepts below for task-based delivery. The Small flow based on `plan.md` has no task artifact, so it opens a PR with `ywc-create-pr` and handles review/merge separately. Exact flag combinations are covered in [15. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md).
 
 | Mode | Meaning |
 |---|---|

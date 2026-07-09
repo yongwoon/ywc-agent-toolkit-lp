@@ -95,4 +95,4 @@ Una vez terminada la reestructuración, ejecuta una revisión de 5 ejes antes de
 
 ---
 
-[Previous: 12. Debugging e informe postmortem](./12-debugging-and-incident-postmortem.md) - [Next: 14. Executor / Patrones de indicación de generación de código](./13-executor-and-codegen-patterns.md)
+[Previous: 12. Debugging e informe postmortem](./12-debugging-and-incident-postmortem.md) - [Next: 14. Gestionar la infraestructura en la nube](./17-infrastructure-and-cloud.md)

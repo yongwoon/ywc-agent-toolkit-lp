@@ -2,7 +2,7 @@
 
 ## Project Goal
 
-ywc-agent-toolkit-lp는 ywc-agent-toolkit(Claude Code와 Codex를 위한 42개 skill과, tool별로 서로 다른 규모의 custom agent(Claude Code 12개, Codex 7개)를 제공하는 공개 GitHub 배포 toolkit)을 처음 접하는 방문자에게 프로젝트의 가치를 빠르게 전달하고, 설치까지 이어지도록 안내하는 공개 마케팅 랜딩 페이지다. ohmyclaudecode.com과 동등한 완성도의 정보 구조(hero → problem/solution → feature → install → social proof → FAQ)를 목표로 하며, en/ja/ko/zh/es 5개 언어로 제공되어 비영어권 개발자의 진입 장벽을 낮춘다.
+ywc-agent-toolkit-lp는 ywc-agent-toolkit(Claude Code와 Codex를 위한 46개 skill과, tool별로 서로 다른 규모의 custom agent(Claude Code 13개, Codex 8개)를 제공하는 공개 GitHub 배포 toolkit)을 처음 접하는 방문자에게 프로젝트의 가치를 빠르게 전달하고, 설치까지 이어지도록 안내하는 공개 마케팅 랜딩 페이지다. ohmyclaudecode.com과 동등한 완성도의 정보 구조(hero → problem/solution → feature → install → social proof → FAQ)를 목표로 하며, en/ja/ko/zh/es 5개 언어로 제공되어 비영어권 개발자의 진입 장벽을 낮춘다.
 
 ## Target Users
 

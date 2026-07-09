@@ -56,6 +56,30 @@
 ## Phase 000013 — Guidebook Page Numbering Refactor: Verification
 - `000013-010-test-guidebook-numbering-invariant-and-fixture` → depends on `000011-010-refactor-guidebook-nav-remove-order`, `000011-020-refactor-guidebook-slug-discovery-scripts`, `000012-010-ui-guidebook-render-sites-display-number`
 
+## Phase 000014 — Upstream Infra-Suite Sync: Verification Gate
+> spec: `docs/ywc-plans/sync-skill-count-infra-suite-pr131.md` (`ywc-spec-ready` DONE, Iteration 1 Amendments 후 수렴 — Fix 1 consistency, Fix 2 completeness, Fix 3 feasibility, Fix 4 completeness 4건의 Critical/Warning 해소). upstream `ywc-agent-toolkit` PR #131이 계획 시점 `state: OPEN`, `mergedAt: null`이었으므로, 이 배치의 모든 숫자 편집은 Phase 000014의 재검증 결과에 의해 게이팅된다. Task 생성 시 `--mode llm`로 지정되어 Phase 000009~000010(human 모드, 5개 task)보다 적은 3개 task로 수직 통합했다.
+- `000014-010-config-verify-upstream-infra-suite-status` → (Phase 000014/000015/000016의 root; Phase 000001~000013과 독립적으로 시작 가능)
+
+## Phase 000015 — Upstream Infra-Suite Sync: Content Updates
+- `000015-010-ui-sync-skill-agent-counts` → depends on `000014-010-config-verify-upstream-infra-suite-status`
+
+## Phase 000016 — Upstream Infra-Suite Sync: Final Verification
+- `000016-010-test-verify-full-build` → depends on `000015-010-ui-sync-skill-agent-counts`
+
+## Phase 000017 — Guidebook Infra & Cloud 신규 페이지: 사전 검증 게이트
+> spec: `docs/ywc-plans/guidebook-infra-cloud-page-pr131.md` (`ywc-spec-ready` DONE, 2회 iteration 후 수렴 — Critical 2건은 A1/A2 amendment로, Warning 5건은 A3-A7 amendment로 해소). 형제 스펙 `sync-skill-count-infra-suite-pr131.md`(Phase 000014-016, 이미 실행 완료)와 upstream PR #131을 공유하지만 범위가 완전히 disjoint하다(가이드북 콘텐츠 vs. 마케팅 카피 숫자) — 이 spec은 두 스펙 중 어느 순서로도, 혹은 병렬로 실행 가능하다고 명시한다. Task 생성 시 `--mode llm`로 지정되어 5개 task로 수직 통합했다.
+- `000017-010-config-verify-upstream-infra-page-content` → (Phase 000017/000018/000019/000020의 root; Phase 000001~000016과 독립적으로 시작 가능)
+
+## Phase 000018 — Guidebook Infra & Cloud 신규 페이지: 등록 및 콘텐츠 작성
+- `000018-010-ui-guidebook-infra-cloud-page-registration` → depends on `000017-010-config-verify-upstream-infra-page-content`
+
+## Phase 000019 — Guidebook Infra & Cloud 신규 페이지: 리넘버링 캐스케이드
+- `000019-010-refactor-guidebook-renumber-core-pages` → depends on `000018-010-ui-guidebook-infra-cloud-page-registration`
+- `000019-020-config-guidebook-cross-reference-sweep` → depends on `000018-010-ui-guidebook-infra-cloud-page-registration`
+
+## Phase 000020 — Guidebook Infra & Cloud 신규 페이지: 최종 검증
+- `000020-010-test-verify-guidebook-infra-cloud-build` → depends on `000019-010-refactor-guidebook-renumber-core-pages`, `000019-020-config-guidebook-cross-reference-sweep`
+
 ## Parallel Execution Notes
 
 - **Initial ready set**: `000001-010-lib-nextjs-i18n-setup` (유일한 root task; 이 프로젝트의 모든 task가 직접 또는 간접적으로 이 task에서 파생됨)
@@ -75,6 +99,13 @@
 - **Phase 000011 내부 병렬성**: `000011-010`(타입/데이터 레이어)과 `000011-020`(스크립트 slug 파생)은 서로 다른 파일을 소유하며(`guidebook-nav.ts`/`guidebook-content.ts`/`guidebook-nav-content.ts` vs. `scripts/generate-search-index.mjs`/`scripts/generate-sitemap.mjs`) `guidebookNavGroups`의 `slug` 필드만 공유(양쪽 다 읽기 전용 또는 무관)하므로 완전히 병렬 실행 가능하다.
 - **Phase 000011 → 000012 hard gate**: `000012-010`은 `000011-010`이 만드는 `LocalizedGuidebookPageMeta`/`displayNumber` 타입 없이는 타입 체크를 통과할 수 없다 — 진짜 하드 게이트.
 - **Phase 000012 → 000013 hard gate**: `000013-010`의 AC6 fixture 검증은 4개 렌더 사이트가 이미 `displayNumber`를 표시하고 있어야 end-to-end로 의미 있는 검증이 된다 — 진짜 하드 게이트. 또한 `000013-010`은 `guidebook-nav.ts`를 fixture 목적으로 일시 편집하므로 `000011-010`이 완전히 merge된 이후에만 시작해야 파일 충돌을 피할 수 있다.
+- **Phase 000014 numbering note**: `000014-010`은 실제로는 `000001-010`(프로젝트 root) 외에 어떤 기존 task에도 의존하지 않는다 — Phase 000002~000013의 어떤 task도 선행 조건이 아니다. Append-only 번호 배정 규칙에 따라 highest existing phase(`000013`) + 1로 배정했을 뿐이며, 실제 실행 시 이 하드 게이트를 완화해 Phase 000002~000013과 완전히 독립적으로, 심지어 그보다 먼저 시작해도 기술적으로 안전하다 — 완화 적용 여부는 실행자가 최종 판단한다.
+- **Phase 000014 → 000015 hard gate (진짜 하드 게이트, 완화 대상 아님)**: `000014-010`이 PR #131 unmerged를 기록하면 `000015-010`은 시작할 수 없다 — 이것은 append-only 번호 배정의 인위적 부산물이 아니라, spec이 명시한 실제 도메인 제약(스펙 `## Scope`의 Stop condition)이다.
+- **Phase 000014/000015/000016 llm 모드 통합**: 이 배치는 `ywc-task-generator --mode llm`로 생성되었다 — Phase 000009(human 모드)가 앱 코드/문서/가이드북 3개 task로 병렬 분해했던 것과 달리, 이번 배치는 가이드북 콘텐츠 동기화가 애초에 이 스펙의 범위 밖(형제 스펙 `guidebook-infra-cloud-page-pr131.md` 책임)이고 남은 앱 코드+문서 동기화가 하나의 일관된 수직 슬라이스(총 16개 파일, llm 모드 예산 ~25개 파일 이내)로 간주되어 `000015-010` 단일 task로 통합했다. 따라서 Phase 000009와 달리 Phase 000015 내부에는 병렬 실행 가능한 여러 task가 없다.
+- **Phase 000017 numbering note**: `000017-010`은 실제로는 `000001-010`(프로젝트 root) 외에 어떤 기존 task에도 의존하지 않는다 — Phase 000002~000016의 어떤 task도 선행 조건이 아니다. Append-only 번호 배정 규칙에 따라 highest existing phase(`000016`) + 1로 배정했을 뿐이며, 실제 실행 시 이 하드 게이트를 완화해 Phase 000002~000016과 완전히 독립적으로, 심지어 그보다 먼저 시작해도 기술적으로 안전하다 — 완화 적용 여부는 실행자가 최종 판단한다.
+- **Phase 000017 → 000018 게이트 (소프트, 형제 스펙과 다름)**: 형제 스펙(Phase 000014→000015)의 PR merge 하드 게이트와 달리, 이 spec은 `## Dependencies`에서 PR merge를 "soft dependency, not a hard blocker"로 명시한다 — `000017-010`이 PR을 unmerged로 기록하더라도 `000018-010`은 in-flight diff 기준으로 진행 가능하다. `000017-010` → `000018-010` 의존은 merge 상태가 아니라 4개 신규 skill의 실제 커맨드 문법(ToolTabs 예제 소싱 근거) 제공 때문이다.
+- **Phase 000019 내부 병렬성**: `000019-010`(직접 리넘버링 4개 페이지 + A-Z 테이블)과 `000019-020`(A1 추가 교차 참조 4개 페이지 + README + skill-links.ts)은 `000018-010` 완료 후 서로 완전히 병렬로 실행 가능하다 — 두 task 모두 Ownership이 완전히 disjoint한 파일 세트만 소유하며 Conflicts With가 없다.
+- **Phase 000017/000018/000019/000020 llm 모드 통합**: 이 배치는 `ywc-task-generator --mode llm`로 생성되었다. 원자적 3-way 등록 요구(A3: nav + slugs + 5개 로케일 콘텐츠가 같은 커밋에 있어야 `generate-search-index.mjs`가 실패하지 않음)로 인해 `000018-010`은 mode와 무관하게 단일 task로 유지된다. 리넘버링 캐스케이드(원래 45개 이상의 파일에 걸침)는 human 모드였다면 로케일당 또는 관심사당 훨씬 많은 수의 task로 쪼개졌겠지만, llm 모드에서는 파일 소유권이 disjoint한 2개의 수직 슬라이스(`000019-010`/`000019-020`)로만 분해했다.
 
 ## Visual Dependency Graph
 
@@ -168,6 +199,37 @@ graph LR
     K2 --> M1
     L1 --> M1
   end
+  subgraph Phase 000014
+    N1[000014-010-config-verify-upstream-infra-suite-status]
+    A1 --> N1
+  end
+  subgraph Phase 000015
+    O1[000015-010-ui-sync-skill-agent-counts]
+    N1 --> O1
+  end
+  subgraph Phase 000016
+    P1[000016-010-test-verify-full-build]
+    O1 --> P1
+  end
+  subgraph Phase 000017
+    Q1[000017-010-config-verify-upstream-infra-page-content]
+    A1 --> Q1
+  end
+  subgraph Phase 000018
+    R1[000018-010-ui-guidebook-infra-cloud-page-registration]
+    Q1 --> R1
+  end
+  subgraph Phase 000019
+    S1[000019-010-refactor-guidebook-renumber-core-pages]
+    S2[000019-020-config-guidebook-cross-reference-sweep]
+    R1 --> S1
+    R1 --> S2
+  end
+  subgraph Phase 000020
+    T1[000020-010-test-verify-guidebook-infra-cloud-build]
+    S1 --> T1
+    S2 --> T1
+  end
 ```
 
 ## Open Questions
@@ -180,3 +242,9 @@ graph LR
 6. **Phase 000008 착수 시점에 PR #125가 여전히 unmerged일 가능성**: 스펙 작성 시점에 `ywc-agent-toolkit` PR #125는 `state: OPEN`, `mergedAt: null`이었다. `000008-010`이 실제 실행되는 시점에도 여전히 unmerged라면, 그 task는 Stop Condition에 따라 즉시 멈추고 Phase 000009/000010은 실행하지 않는다 — 이는 이 배치 전체의 진짜 하드 블로커이며(append-only 번호 배정의 인위적 산물이 아님), 다른 저장소(`ywc-agent-toolkit`)의 소유자가 PR을 merge해야 해소된다.
 7. **`gh` CLI 실행 환경 전제조건**: `000008-010`은 `gh` CLI가 설치·인증되어 있고 `yongwoon/ywc-agent-toolkit`(이 프로젝트와 다른 저장소)에 대한 read 권한이 있다고 가정한다. 실행 환경(worktree, CI, sandbox 등)에 따라 이 전제조건이 충족되지 않을 수 있으므로, `000008-010` 착수 전 실행 환경에서 `gh auth status`로 사전 확인을 권장한다.
 8. **`000009-010`의 발산(divergent) 분기에서 Feature Grid blocking 처리의 구체적 형태**: 스펙 FR-5는 "사람이 해결할 때까지 편집을 생성하지 말라"는 blocking을 요구하지만, 그 blocking이 `000009-010` task 내부의 Stop Condition으로 표현되는지, 아니면 별도의 대기 task로 분리되어야 하는지는 이 task 분해에서 전자(기존 `000009-010` 내부 Stop Condition)로 판단했다 — `000008-010`의 판정이 발산일 경우, `000009-010` 실행자는 hero/featureGrid.description 전환까지만 수행하고 카테고리 산술 편집은 수행하지 않은 채 보고해야 한다(해당 task의 Notes 참고). 발산이 실제로 발생하면 이 처리가 충분한지 재검토가 필요할 수 있다.
+9. **Phase 000014 착수 시점에 PR #131이 여전히 unmerged일 가능성**: 스펙 작성 시점에 `ywc-agent-toolkit` PR #131은 `state: OPEN`, `mergedAt: null`이었다(단, `ywc-spec-ready` 검증 과정에서 `gh pr view 131`을 조회했을 때는 이미 `MERGED`, `mergedAt: 2026-07-08T21:16:34Z`로 확인된 바 있다 — 이는 spec-validate 시점의 관찰이며, `000014-010` 실행 시점에도 반드시 재조회해야 한다). `000014-010`이 실제 실행되는 시점에 unmerged로 나오면 Stop Condition에 따라 즉시 멈추고 Phase 000015/000016은 실행하지 않는다.
+10. **`000015-010`의 발산(divergent) 분기 처리 방식은 `000009-010`과 동일한 패턴을 재사용**: FR-4b의 blocking을 별도 task로 분리하지 않고 `000015-010` 내부 Stop Condition/Implementation Steps 분기로 표현했다(Open Question #8과 동일한 판단 근거). 발산이 실제로 발생하면 재검토가 필요할 수 있다.
+11. **신규 Feature Grid 카테고리("Infrastructure & Cloud")의 정확한 label/description 문구**: 스펙은 lane(`codex`)과 value(산술)만 확정하고 정확한 label 문구는 예시로만 제시한다(`## Iteration 1 Amendments` Fix 1 참고) — `000015-010` 실행자가 en.json 작성 시 최종 문구를 확정하고, 이후 4개 로케일이 그 문구를 따라간다.
+12. **신규 Guidebook 페이지("Managing Cloud Infrastructure")의 정확한 title/description 문구**: `docs/ywc-plans/guidebook-infra-cloud-page-pr131.md`의 Open Questions에서 실행자 재량으로 남겨져 있다 — `000018-010` 실행자가 `en/17-infrastructure-and-cloud.md` 작성 시 최종 문구를 확정하고, `guidebook-nav.ts`의 `title`/`description`과 나머지 4개 로케일이 그 결정을 따라간다.
+13. **README.md에 인프라 파이프라인 전용 Quick Links 행을 추가할지 여부**: 같은 spec의 Open Questions에서 실행자 재량으로 남겨져 있다(AC4 충족에는 불필요) — `000019-020` 실행자가 판단한다.
+14. **`000017-010` 착수 시점에 PR #131의 실제 상태**: 이 task 분해 생성 시점에 `gh pr view 131 --repo yongwoon/ywc-agent-toolkit`을 직접 조회한 결과 이미 `MERGED`(`mergedAt: 2026-07-08T21:16:34Z`, `headRefOid: 513df53499c5e4f82ce23349d3eb614fcf65a33a`)로 확인되었다 — 형제 스펙(Phase 000014)의 하드 블로커와 달리 이 spec은 PR merge를 하드 블로커로 두지 않으므로(`## Dependencies`), `000017-010`이 실제 실행되는 시점에 재조회한 결과가 다시 unmerged로 나오더라도 `000018-010`은 진행 가능하다 — 다만 `000017-010`은 실행 시점의 실제 조회 결과를 캐시된 값 대신 기록해야 한다.
