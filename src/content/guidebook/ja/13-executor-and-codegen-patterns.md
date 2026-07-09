@@ -228,4 +228,4 @@ wave 単位で同時実行され、Task ごとに PR 作成 → CI → bot revie
 
 ---
 
-[← 前: 13. コード構造と保守性の管理](./16-code-structure-and-maintainability.md) · [次: 16. 全 Skill リファレンス →](./14-skill-reference.md)
+[← 前: 14. クラウドインフラの管理](./17-infrastructure-and-cloud.md) · [次: 16. 全 Skill リファレンス →](./14-skill-reference.md)

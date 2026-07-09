@@ -324,4 +324,4 @@ wave 단위로 동시 실행되며, Task 마다 PR 생성 → CI → bot review 
 
 ---
 
-[← 이전: 13. 코드 구조와 유지보수성 관리](./16-code-structure-and-maintainability.md) · [다음: 16. 전체 Skill 레퍼런스 →](./14-skill-reference.md)
+[← 이전: 14. 클라우드 인프라 관리](./17-infrastructure-and-cloud.md) · [다음: 16. 전체 Skill 레퍼런스 →](./14-skill-reference.md)

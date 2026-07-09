@@ -228,4 +228,4 @@ Keywords such as `payment` are automatically classified as `critical`, which for
 
 ---
 
-[Previous: 13. Managing Code Structure and Maintainability](./16-code-structure-and-maintainability.md) - [Next: 16. Full Skill Reference](./14-skill-reference.md)
+[Previous: 14. Managing Cloud Infrastructure](./17-infrastructure-and-cloud.md) - [Next: 16. Full Skill Reference](./14-skill-reference.md)

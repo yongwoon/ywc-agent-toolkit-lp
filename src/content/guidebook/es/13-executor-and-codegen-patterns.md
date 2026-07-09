@@ -228,4 +228,4 @@ Palabras clave como `payment` se clasifican automáticamente como `critical`, lo
 
 ---
 
-[Previous: 13. Gestionar la estructura del código y la mantenibilidad](./16-code-structure-and-maintainability.md) - [Next: 16. Referencia completa Skill](./14-skill-reference.md)
+[Previous: 14. Gestionar la infraestructura en la nube](./17-infrastructure-and-cloud.md) - [Next: 16. Referencia completa Skill](./14-skill-reference.md)
