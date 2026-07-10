@@ -13,18 +13,19 @@ Cuando `ywc-plan` juzga una solicitud como **Pequeña**, automáticamente entra 
 ## Flujo general
 
 ```
-ywc-plan -> ywc-spec-ready -> ywc-code-gen -> ywc-impl-review -> ywc-create-pr
+ywc-plan -> ywc-code-gen -> ywc-impl-review -> ywc-create-pr
 ```
 
 | Paso | Skill | Rol |
 |---|---|---|
 | uno | `ywc-plan` | Analiza la solicitud y crea `plan.md` (Qué / Por qué / Fuera de alcance / Hecho cuando) |
-| Dos | `ywc-spec-ready` | Converger automáticamente las preocupaciones restantes en `plan.md` |
-| tres | `ywc-code-gen` | Generar código de Backend + Frontend + QA en paralelo |
-| cuatro | `ywc-impl-review` | Revisión final del código antes de abrir un PR |
-| cinco | `ywc-create-pr` | Creación de PR -> CI -> Comprobación de revisión del bot |
+| Dos | `ywc-code-gen` | Generar código de Backend + Frontend + QA en paralelo |
+| tres | `ywc-impl-review` | Revisión final del código antes de abrir un PR |
+| cuatro | `ywc-create-pr` | Creación de PR -> CI -> Comprobación de revisión del bot |
 
-> **Nota**: `ywc-code-gen` no tiene un indicador de revisión automática como `--review`. Si omite el paso 4 (`ywc-impl-review`), el PR se abre sin revisión de código, por lo que este flujo debe ejecutarlo explícitamente. Los ejecutores en el flujo Medio/Grande pueden automatizar este paso con el indicador `--review` - vea [05](./05-general-cycle-medium-large.md).
+> **Nota**: El flujo Small hace que `ywc-plan` produzca `plan.md` (no un documento spec) directamente, por lo que `ywc-spec-ready` - que opera sobre un documento spec - no forma parte de este camino. `ywc-spec-ready` es el paso de convergencia de spec del flujo Medio/Grande (ver [05](./05-general-cycle-medium-large.md)).
+
+> **Nota**: `ywc-code-gen` no tiene un indicador de revisión automática como `--review`. Si omite el paso 3 (`ywc-impl-review`), el PR se abre sin revisión de código, por lo que este flujo debe ejecutarlo explícitamente. Los ejecutores en el flujo Medio/Grande pueden automatizar este paso con el indicador `--review` - vea [05](./05-general-cycle-medium-large.md).
 
 ## Ejemplo de ejecución
 
@@ -34,15 +35,6 @@ ywc-plan -> ywc-spec-ready -> ywc-code-gen -> ywc-impl-review -> ywc-create-pr
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
     <CodeBlock label="codex" code="ywc-plan El mensaje de error de fallo de inicio de sesión es demasiado genérico, por lo que es difícil entender la causa. Se quiere mostrar razones específicas como cuenta bloqueada / error de tipeo / no registrado" />
-  </ToolTabsPanel>
-</ToolTabs>
-
-<ToolTabs>
-  <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-spec-ready --spec plan.md" />
-  </ToolTabsPanel>
-  <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-spec-ready --spec plan.md" />
   </ToolTabsPanel>
 </ToolTabs>
 
