@@ -24,7 +24,7 @@ ywc-plan -> ywc-code-gen -> ywc-impl-review -> ywc-create-pr
 | cuatro | `ywc-create-pr` | Creación de PR -> CI -> Comprobación de revisión del bot |
 
 > **Nota**: El flujo Small hace que `ywc-plan` produzca `plan.md` (no un documento spec) directamente, por lo que `ywc-spec-ready` - que opera sobre un documento spec - no forma parte de este camino. `ywc-spec-ready` es el paso de convergencia de spec del flujo Medio/Grande (ver [05](./05-general-cycle-medium-large.md)).
-
+>
 > **Nota**: `ywc-code-gen` no tiene un indicador de revisión automática como `--review`. Si omite el paso 3 (`ywc-impl-review`), el PR se abre sin revisión de código, por lo que este flujo debe ejecutarlo explícitamente. Los ejecutores en el flujo Medio/Grande pueden automatizar este paso con el indicador `--review` - vea [05](./05-general-cycle-medium-large.md).
 
 ## Ejemplo de ejecución
