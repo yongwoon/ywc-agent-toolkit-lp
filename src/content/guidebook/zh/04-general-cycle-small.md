@@ -24,7 +24,7 @@ ywc-plan -> ywc-code-gen -> ywc-impl-review -> ywc-create-pr
 | 四 | `ywc-create-pr` | PR 创建 -> CI -> 机器人审核检查 |
 
 > **参考**：Small 流程由 `ywc-plan` 直接产出 `plan.md`（并非 spec 文档），因此针对 spec 文档运行的 `ywc-spec-ready` 不属于此路径。`ywc-spec-ready` 是 Medium/Large 流程的 spec 收敛步骤（参见 [05](./05-general-cycle-medium-large.md)）。
-
+>
 > **注意**：`ywc-code-gen` 没有像 `--review` 那样的自动审查标志。如果跳过第 3 步（`ywc-impl-review`），PR 将在没有代码审查的情况下被打开，因此此流程必须显式运行它。中/大型流程的执行者可以使用 `--review` 标志自动执行此步骤——参见 [05](./05-general-cycle-medium-large.md)。
 
 ## 示例运行
