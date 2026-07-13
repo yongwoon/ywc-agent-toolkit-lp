@@ -24,7 +24,7 @@ ywc-plan → ywc-code-gen → ywc-impl-review → ywc-create-pr
 | 4 | `ywc-create-pr` | PR 생성 → CI → Bot Review 확인 |
 
 > **참고**: Small 흐름은 `ywc-plan` 이 `plan.md` (spec 문서 아님) 를 바로 산출하므로, spec 문서를 대상으로 하는 `ywc-spec-ready` 는 이 경로에 포함되지 않습니다. `ywc-spec-ready` 는 Medium/Large 흐름의 spec 수렴 단계입니다 ([05](./05-general-cycle-medium-large.md) 참고).
-
+>
 > **주의**: `ywc-code-gen` 에는 `--review` 같은 자동 리뷰 flag 가 없습니다. 3단계(`ywc-impl-review`)를 생략하면 코드 리뷰 없이 그대로 PR 이 열리므로, 이 흐름에서는 반드시 명시적으로 실행해야 합니다. (Medium/Large 흐름의 executor 는 `--review` flag 로 이 단계를 자동화할 수 있습니다 — [05](./05-general-cycle-medium-large.md) 참고.)
 
 ## 실행 예시
