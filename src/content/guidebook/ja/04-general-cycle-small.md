@@ -24,7 +24,7 @@ ywc-plan → ywc-code-gen → ywc-impl-review → ywc-create-pr
 | 4 | `ywc-create-pr` | PR 作成 → CI → Bot Review 確認 |
 
 > **参考**: Small フローは `ywc-plan` が `plan.md` (spec 文書ではない) を直接生成するため、spec 文書を対象とする `ywc-spec-ready` はこの経路には含まれません。`ywc-spec-ready` は Medium/Large フローの spec 収束段階です ([05](./05-general-cycle-medium-large.md) 参照)。
-
+>
 > **注意**: `ywc-code-gen` には `--review` のような自動レビュー flag がありません。3 段階目(`ywc-impl-review`)を省略するとコードレビューなしでそのまま PR が開かれるため、このフローでは必ず明示的に実行してください。(Medium/Large フローの executor は `--review` flag でこの段階を自動化できます — [05](./05-general-cycle-medium-large.md) 参照。)
 
 ## 実行例
