@@ -13,18 +13,19 @@
 ## 전체 흐름
 
 ```
-ywc-plan → ywc-spec-ready → ywc-code-gen → ywc-impl-review → ywc-create-pr
+ywc-plan → ywc-code-gen → ywc-impl-review → ywc-create-pr
 ```
 
 | 단계 | Skill | 역할 |
 |---|---|---|
 | 1 | `ywc-plan` | 요청을 분석해 `plan.md` 생성 (What / Why / Out of Scope / Done When) |
-| 2 | `ywc-spec-ready` | `plan.md` 에 남은 concern 을 자동 수렴 |
-| 3 | `ywc-code-gen` | Backend + Frontend + QA 병렬 코드 생성 |
-| 4 | `ywc-impl-review` | PR 열기 전 최종 코드 리뷰 |
-| 5 | `ywc-create-pr` | PR 생성 → CI → Bot Review 확인 |
+| 2 | `ywc-code-gen` | Backend + Frontend + QA 병렬 코드 생성 |
+| 3 | `ywc-impl-review` | PR 열기 전 최종 코드 리뷰 |
+| 4 | `ywc-create-pr` | PR 생성 → CI → Bot Review 확인 |
 
-> **주의**: `ywc-code-gen` 에는 `--review` 같은 자동 리뷰 flag 가 없습니다. 4단계(`ywc-impl-review`)를 생략하면 코드 리뷰 없이 그대로 PR 이 열리므로, 이 흐름에서는 반드시 명시적으로 실행해야 합니다. (Medium/Large 흐름의 executor 는 `--review` flag 로 이 단계를 자동화할 수 있습니다 — [05](./05-general-cycle-medium-large.md) 참고.)
+> **참고**: Small 흐름은 `ywc-plan` 이 `plan.md` (spec 문서 아님) 를 바로 산출하므로, spec 문서를 대상으로 하는 `ywc-spec-ready` 는 이 경로에 포함되지 않습니다. `ywc-spec-ready` 는 Medium/Large 흐름의 spec 수렴 단계입니다 ([05](./05-general-cycle-medium-large.md) 참고).
+>
+> **주의**: `ywc-code-gen` 에는 `--review` 같은 자동 리뷰 flag 가 없습니다. 3단계(`ywc-impl-review`)를 생략하면 코드 리뷰 없이 그대로 PR 이 열리므로, 이 흐름에서는 반드시 명시적으로 실행해야 합니다. (Medium/Large 흐름의 executor 는 `--review` flag 로 이 단계를 자동화할 수 있습니다 — [05](./05-general-cycle-medium-large.md) 참고.)
 
 ## 실행 예시
 
@@ -34,15 +35,6 @@ ywc-plan → ywc-spec-ready → ywc-code-gen → ywc-impl-review → ywc-create-
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
     <CodeBlock label="codex" code="ywc-plan 로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어려움. 잠김/오타/미가입 등 구체적 사유를 보여주고 싶음" />
-  </ToolTabsPanel>
-</ToolTabs>
-
-<ToolTabs>
-  <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-spec-ready --spec plan.md" />
-  </ToolTabsPanel>
-  <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-spec-ready --spec plan.md" />
   </ToolTabsPanel>
 </ToolTabs>
 

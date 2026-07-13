@@ -13,18 +13,19 @@
 ## 整体流程
 
 ```
-ywc-plan -> ywc-spec-ready -> ywc-code-gen -> ywc-impl-review -> ywc-create-pr
+ywc-plan -> ywc-code-gen -> ywc-impl-review -> ywc-create-pr
 ```
 
 | 步骤 | Skill | 角色 |
 |---|---|---|
 | 一 | `ywc-plan` | 分析请求并创建 `plan.md`（什么 / 为什么 / 不在范围内 / 完成条件） |
-| 二 | `ywc-spec-ready` | 自动在 `plan.md` 中汇总剩余问题 |
-| 三 | `ywc-code-gen` | 同时生成后端 + 前端 + 测试代码 |
-| 四 | `ywc-impl-review` | 在打开 PR 之前的最终代码审查 |
-| 五 | `ywc-create-pr` | PR 创建 -> CI -> 机器人审核检查 |
+| 二 | `ywc-code-gen` | 同时生成后端 + 前端 + 测试代码 |
+| 三 | `ywc-impl-review` | 在打开 PR 之前的最终代码审查 |
+| 四 | `ywc-create-pr` | PR 创建 -> CI -> 机器人审核检查 |
 
-> **注意**：`ywc-code-gen` 没有像 `--review` 那样的自动审查标志。如果跳过第 4 步（`ywc-impl-review`），PR 将在没有代码审查的情况下被打开，因此此流程必须显式运行它。中/大型流程的执行者可以使用 `--review` 标志自动执行此步骤——参见 [05](./05-general-cycle-medium-large.md)。
+> **参考**：Small 流程由 `ywc-plan` 直接产出 `plan.md`（并非 spec 文档），因此针对 spec 文档运行的 `ywc-spec-ready` 不属于此路径。`ywc-spec-ready` 是 Medium/Large 流程的 spec 收敛步骤（参见 [05](./05-general-cycle-medium-large.md)）。
+>
+> **注意**：`ywc-code-gen` 没有像 `--review` 那样的自动审查标志。如果跳过第 3 步（`ywc-impl-review`），PR 将在没有代码审查的情况下被打开，因此此流程必须显式运行它。中/大型流程的执行者可以使用 `--review` 标志自动执行此步骤——参见 [05](./05-general-cycle-medium-large.md)。
 
 ## 示例运行
 
@@ -34,15 +35,6 @@ ywc-plan -> ywc-spec-ready -> ywc-code-gen -> ywc-impl-review -> ywc-create-pr
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
     <CodeBlock label="codex" code="ywc-plan 登录失败的错误信息过于笼统，因此很难理解原因。希望显示账号锁定/输入错误/未注册等具体原因" />
-  </ToolTabsPanel>
-</ToolTabs>
-
-<ToolTabs>
-  <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-spec-ready --spec plan.md" />
-  </ToolTabsPanel>
-  <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-spec-ready --spec plan.md" />
   </ToolTabsPanel>
 </ToolTabs>
 

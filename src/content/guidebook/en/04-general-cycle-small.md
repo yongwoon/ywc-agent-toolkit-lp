@@ -13,18 +13,19 @@ When `ywc-plan` judges a request as **Small**, it automatically enters this path
 ## Overall flow
 
 ```
-ywc-plan -> ywc-spec-ready -> ywc-code-gen -> ywc-impl-review -> ywc-create-pr
+ywc-plan -> ywc-code-gen -> ywc-impl-review -> ywc-create-pr
 ```
 
 | Step | Skill | Role |
 |---|---|---|
 | 1 | `ywc-plan` | Analyze the request and create `plan.md` (What / Why / Out of Scope / Done When) |
-| 2 | `ywc-spec-ready` | Automatically converge remaining concerns in `plan.md` |
-| 3 | `ywc-code-gen` | Generate Backend + Frontend + QA code in parallel |
-| 4 | `ywc-impl-review` | Final code review before opening a PR |
-| 5 | `ywc-create-pr` | PR creation -> CI -> Bot Review check |
+| 2 | `ywc-code-gen` | Generate Backend + Frontend + QA code in parallel |
+| 3 | `ywc-impl-review` | Final code review before opening a PR |
+| 4 | `ywc-create-pr` | PR creation -> CI -> Bot Review check |
 
-> **Note**: `ywc-code-gen` does not have an automatic review flag such as `--review`. If you skip step 4 (`ywc-impl-review`), the PR is opened without code review, so this flow must run it explicitly. Executors in the Medium/Large flow can automate this step with the `--review` flag - see [05](./05-general-cycle-medium-large.md).
+> **Note**: The Small flow has `ywc-plan` produce `plan.md` (not a spec document) directly, so `ywc-spec-ready` - which operates on a spec document - is not part of this path. `ywc-spec-ready` is the spec-convergence step of the Medium/Large flow (see [05](./05-general-cycle-medium-large.md)).
+>
+> **Note**: `ywc-code-gen` does not have an automatic review flag such as `--review`. If you skip step 3 (`ywc-impl-review`), the PR is opened without code review, so this flow must run it explicitly. Executors in the Medium/Large flow can automate this step with the `--review` flag - see [05](./05-general-cycle-medium-large.md).
 
 ## Example run
 
@@ -34,15 +35,6 @@ ywc-plan -> ywc-spec-ready -> ywc-code-gen -> ywc-impl-review -> ywc-create-pr
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
     <CodeBlock label="codex" code="ywc-plan Login failure error messages are too generic to understand the cause. Want to show specific reasons like account locked / typo / not signed up" />
-  </ToolTabsPanel>
-</ToolTabs>
-
-<ToolTabs>
-  <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-spec-ready --spec plan.md" />
-  </ToolTabsPanel>
-  <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-spec-ready --spec plan.md" />
   </ToolTabsPanel>
 </ToolTabs>
 
