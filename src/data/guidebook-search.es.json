@@ -70,6 +70,11 @@
     "summary": "Las cuatro Skills cubren un mismo ciclo de vida continuo — diseñar, escribir, revisar y mejorar infraestructura en la nube — pero cada una responde una pregunta distinta."
   },
   {
+    "slug": "18-authentication-implementation",
+    "title": "15. Implementar autenticación",
+    "summary": "Usa ywc-auth-implement cuando un proyecto necesita una nueva funcionalidad de autenticación — inicio de sesión/registro, OAuth, MFA, manejo de sesiones, restablecimiento de contraseña, eliminación de cuenta o un flujo de consentimiento — y quieres que las decisiones de política queden explícitas antes de escribir ningún código."
+  },
+  {
     "slug": "13-executor-and-codegen-patterns",
     "title": "15. Executor / Patrones de indicación de generación de código",
     "summary": "ywc-sequential-executor , ywc-parallel-executor y ywc-code-gen son las tres Habilidades cuyas muchas opciones te hacen consultar repetidamente la sintaxis exacta."

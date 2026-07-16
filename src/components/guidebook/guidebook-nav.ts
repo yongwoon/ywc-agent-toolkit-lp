@@ -221,6 +221,14 @@ export const guidebookNavGroups: readonly GuidebookNavGroup[] = [
           "A decision table and 4-step pipeline for ywc-infra-design, ywc-iac-author, ywc-infra-review, and ywc-infra-optimize, dispatching to the ywc-cloud-engineer agent",
         groupId: "workflow-guides",
         status: "pending"
+      },
+      {
+        slug: "18-authentication-implementation",
+        title: "Implementing Authentication",
+        description:
+          "How ywc-auth-implement runs a preflight gate, a 9-category policy interview, and a dynamic recommendation, then dispatches ywc-backend-coder, ywc-frontend-coder, and ywc-doc-writer under a security-audit and E2E gate",
+        groupId: "workflow-guides",
+        status: "pending"
       }
     ]
   },

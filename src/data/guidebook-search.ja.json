@@ -70,6 +70,11 @@
     "summary": "4 つの Skill は「設計 → 実装 → レビュー → 改善」という一続きのライフサイクルをカバーしますが、それぞれ答える質問が異なります。今どの段階にいるかで選んでください。"
   },
   {
+    "slug": "18-authentication-implementation",
+    "title": "15. 認証機能の実装",
+    "summary": "ywc-auth-implement は、サインイン/サインアップ、OAuth、MFA、セッション管理、パスワードリセット、アカウント削除、同意フローなど、新しい認証機能をプロジェクトに追加したいとき、コードを書き始める前にポリシー判断を明示的に確定させたい場合に使います。ただし「認証に関わること全般」をカバーするわけではありません。"
+  },
+  {
     "slug": "13-executor-and-codegen-patterns",
     "title": "15. Executor / Code-gen Prompt パターン",
     "summary": "ywc-sequential-executor , ywc-parallel-executor , ywc-code-gen はオプションが多く、毎回正確な syntax を探しがちな 3 つの Skill です。このページでは Skill 名ではなく、**「今やりたいこと」**を基準に例を整理しました。やりたいことを見つけて、そのままコピーして使ってください。"

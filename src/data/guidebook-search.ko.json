@@ -70,6 +70,11 @@
     "summary": "네 Skill 은 \"설계 → 작성 → 리뷰 → 개선\"이라는 하나의 연속된 라이프사이클을 다루지만, 각각 답하는 질문이 다릅니다."
   },
   {
+    "slug": "18-authentication-implementation",
+    "title": "15. 인증 기능 구현",
+    "summary": "ywc-auth-implement 는 로그인/회원가입, OAuth, MFA, 세션 처리, 비밀번호 재설정, 계정 삭제, 동의 플로우 등 새로운 인증 기능이 필요할 때, 코드를 쓰기 전에 정책 결정을 명시적으로 먼저 확정하고 싶을 때 사용합니다."
+  },
+  {
     "slug": "13-executor-and-codegen-patterns",
     "title": "15. Executor / Code-gen Prompt 패턴",
     "summary": "ywc-sequential-executor , ywc-parallel-executor , ywc-code-gen 은 모두 \"코드를 만들게 하는\" Skill 이지만 쓰는 순간이 다릅니다."
