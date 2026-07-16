@@ -54,7 +54,7 @@ DB migration や新 Library 導入は、規模に関係なく**常に別扱い**
 
 ## PR Delivery モードの共通概念
 
-`ywc-finish-branch`, `ywc-sequential-executor`, `ywc-parallel-executor` は、task ベースの delivery で以下のモード概念を共有します。`plan.md` ベースの Small フローには task artifact がないため、`ywc-create-pr` で PR を開き、その後の review/merge は別途処理します。正確な flag の組み合わせは [15. Executor / Code-gen Prompt パターン](./13-executor-and-codegen-patterns.md)で扱います。
+`ywc-finish-branch`, `ywc-sequential-executor`, `ywc-parallel-executor` は、task ベースの delivery で以下のモード概念を共有します。`plan.md` ベースの Small フローには task artifact がないため、`ywc-create-pr` で PR を開き、その後の review/merge は別途処理します。正確な flag の組み合わせは [16. Executor / Code-gen Prompt パターン](./13-executor-and-codegen-patterns.md)で扱います。
 
 | モード | 意味 |
 |---|---|
