@@ -1,6 +1,6 @@
 [« 目次に戻る](./README.md)
 
-# 15. Executor / Code-gen Prompt パターン
+# 16. Executor / Code-gen Prompt パターン
 
 `ywc-sequential-executor`, `ywc-parallel-executor`, `ywc-code-gen` はオプションが多く、毎回正確な syntax を探しがちな 3 つの Skill です。このページでは Skill 名ではなく、**「今やりたいこと」**を基準に例を整理しました。やりたいことを見つけて、そのままコピーして使ってください。
 
@@ -228,4 +228,4 @@ wave 単位で同時実行され、Task ごとに PR 作成 → CI → bot revie
 
 ---
 
-[← 前: 14. クラウドインフラの管理](./17-infrastructure-and-cloud.md) · [次: 16. 全 Skill リファレンス →](./14-skill-reference.md)
+[← 前: 14. クラウドインフラの管理](./17-infrastructure-and-cloud.md) · [次: 17. 全 Skill リファレンス →](./14-skill-reference.md)

@@ -95,4 +95,4 @@ Once infrastructure is live, this Skill is the recurring maintenance pass: cost 
 
 ---
 
-[Previous: 13. Managing Code Structure and Maintainability](./16-code-structure-and-maintainability.md) - [Next: 15. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md)
+[Previous: 13. Managing Code Structure and Maintainability](./16-code-structure-and-maintainability.md) - [Next: 15. Implementing Authentication](./18-authentication-implementation.md)

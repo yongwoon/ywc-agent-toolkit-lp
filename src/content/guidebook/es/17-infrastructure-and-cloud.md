@@ -95,4 +95,4 @@ Una vez que la infraestructura está en producción, esta Skill es el paso de ma
 
 ---
 
-[Previous: 13. Gestionar la estructura del código y la mantenibilidad](./16-code-structure-and-maintainability.md) - [Next: 15. Patrones de indicación de generación de código](./13-executor-and-codegen-patterns.md)
+[Previous: 13. Gestionar la estructura del código y la mantenibilidad](./16-code-structure-and-maintainability.md) - [Next: 15. Implementar autenticación](./18-authentication-implementation.md)
