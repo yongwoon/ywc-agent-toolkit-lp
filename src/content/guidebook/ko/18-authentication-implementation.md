@@ -12,15 +12,56 @@
 
 ## 플로우가 작동하는 방식
 
-**Preflight gate.** 질문을 시작하기 전, 다섯 가지 idempotent 체크를 실행합니다: 기존 `feature/<auth-slug>` 브랜치가 있으면 재사용하고(새 브랜치는 long-lived 브랜치에서 시작할 때만 생성), `.env.example` 에는 누락된 placeholder 만 추가하며 기존 값은 절대 덮어쓰거나 노출하지 않고, 프레임워크/DB 근거가 부족하면 먼저 `ywc-tech-research` 로 라우팅하고, 기존 인증이 감지되면 `new`/`extend`/`migrate` 중 하나를 선택할 때까지 `NEEDS_CONTEXT` 로 hard-stop 하며, ToS/개인정보처리방침 초안에는 첫 줄부터 "법적 검토 대기 중인 초안" 라벨을 붙입니다.
+**1단계: Preflight gate**
 
-**9개 카테고리 정책 인터뷰.** 한 번의 집중된 라운드에서 로그인 방식과 OAuth provider 준비 상태, MFA 등록 및 복구, 세션 저장/TTL/로테이션/철회/디바이스 관리, 비밀번호 재설정과 해싱 라이브러리 경계, 프로필 필드, 계정 삭제 및 재인증, 얕은 RBAC(role, 기본값, claims), 동의 버전 관리/수집/철회, 그리고 남용 방지(rate limiting, 검증, 복구 제어)를 다룹니다. 각 답변은 승인됨, 리스크를 명시한 채 명시적으로 보류됨, 해당 없음 중 하나로 기록됩니다.
+질문을 시작하기 전, 다섯 가지 idempotent 체크를 실행합니다:
 
-**동적 추천.** 스택 근거와 승인된 정책 답변으로부터 실전에서 검증된 라이브러리나 매니지드 서비스를 추천합니다 — 고정된 "지원 스택" 목록은 절대 쓰지 않습니다. 근거가 부족하면 `ywc-tech-research` 를 통한 실시간 조사로 fallback 합니다.
+- 기존 `feature/<auth-slug>` 브랜치가 있으면 재사용합니다(새 브랜치는 long-lived 브랜치에서 시작할 때만 생성).
+- `.env.example` 에는 누락된 placeholder 만 추가하며 기존 값은 절대 덮어쓰거나 노출하지 않습니다.
+- 프레임워크/DB 근거가 부족하면 먼저 `ywc-tech-research` 로 라우팅합니다.
+- 기존 인증이 감지되면 `new`/`extend`/`migrate` 중 하나를 선택할 때까지 `NEEDS_CONTEXT` 로 hard-stop 합니다.
+- ToS/개인정보처리방침 초안에는 첫 줄부터 "법적 검토 대기 중인 초안" 라벨을 붙입니다.
 
-**구현 dispatch.** 이 Skill 은 오케스트레이션만 하며 인증 코드 자체를 작성하지 않습니다. 각각 `ywc-tdd-ritual`(RED → RED 검증 → GREEN → GREEN 검증 → REFACTOR → GREEN 검증)을 따르는 세 개의 agent 로 dispatch 합니다: 승인된 백엔드 정책을 담당하는 `ywc-backend-coder`(비밀번호 해싱, 토큰 서명, 비밀값 암호화를 직접 구현하지 않음), 로그인/회원가입 폼, MFA 등록 UI, 세션 인지 라우팅을 담당하는 `ywc-frontend-coder`, ToS/개인정보처리방침 초안을 담당하는 `ywc-doc-writer` 입니다.
+**2단계: 9개 카테고리 정책 인터뷰**
 
-**게이트.** dispatch 된 작업이 반영되면 그 diff 에 대해 `ywc-security-audit` 를 실행합니다. Critical/High 가 0건이면 승인된 플로우(이메일/비밀번호를 선택한 경우에만 회원가입/로그인/재설정, 활성화된 경우에만 계정 삭제, 설정된 OAuth provider 별로 하나의 플로우, 승인된 경우에만 MFA)만을 대상으로 하는 `ywc-e2e-test-strategy` 의 정책 조건부 E2E 로 진행합니다. Critical/High 가 1건이라도 있으면 `DONE_WITH_CONCERNS` 를 반환하고 시정될 때까지 E2E 와 PR 생성을 건너뜁니다. 두 게이트를 모두 통과해야만 이 Skill 은 `ywc-create-pr` 을 제안합니다 — 자동으로 실행하지 않습니다.
+한 번의 집중된 라운드에서 다음을 다룹니다:
+
+- 로그인 방식과 OAuth provider 준비 상태
+- MFA 등록 및 복구
+- 세션 저장/TTL/로테이션/철회/디바이스 관리
+- 비밀번호 재설정과 해싱 라이브러리 경계
+- 프로필 필드
+- 계정 삭제 및 재인증
+- 얕은 RBAC(role, 기본값, claims)
+- 동의 버전 관리/수집/철회
+- 남용 방지(rate limiting, 검증, 복구 제어)
+
+각 답변은 승인됨, 리스크를 명시한 채 명시적으로 보류됨, 해당 없음 중 하나로 기록됩니다.
+
+**3단계: 동적 추천**
+
+스택 근거와 승인된 정책 답변으로부터 실전에서 검증된 라이브러리나 매니지드 서비스를 추천합니다 — 고정된 "지원 스택" 목록은 절대 쓰지 않습니다. 근거가 부족하면 `ywc-tech-research` 를 통한 실시간 조사로 fallback 합니다.
+
+**4단계: 구현 dispatch**
+
+이 Skill 은 오케스트레이션만 하며 인증 코드 자체를 작성하지 않습니다. Claude Code 에서는 각각 `ywc-tdd-ritual`(RED → RED 검증 → GREEN → GREEN 검증 → REFACTOR → GREEN 검증)을 따르는 세 개의 agent 로 dispatch 합니다:
+
+- `ywc-backend-coder` — 승인된 백엔드 정책을 담당(비밀번호 해싱, 토큰 서명, 비밀값 암호화를 직접 구현하지 않음)
+- `ywc-frontend-coder` — 로그인/회원가입 폼, MFA 등록 UI, 세션 인지 라우팅을 담당
+- `ywc-doc-writer` — ToS/개인정보처리방침 초안을 담당
+
+Codex 에서는 같은 세 역할을 named agent 로의 직접 dispatch 대신 출력된 skill-chain 경로를 통해 커버합니다 — 정확한 방식은 아래 "Claude Code 와 Codex 의 차이"를 참고하세요.
+
+**5단계: 보안·E2E·PR 게이트**
+
+dispatch 된 작업이 반영되면 그 diff 에 대해 `ywc-security-audit` 를 실행합니다:
+
+| 감사 결과 | 다음에 일어나는 일 |
+|---|---|
+| Critical/High 0건 | 승인된 플로우(이메일/비밀번호를 선택한 경우에만 회원가입/로그인/재설정, 활성화된 경우에만 계정 삭제, 설정된 OAuth provider 별로 하나의 플로우, 승인된 경우에만 MFA)만을 대상으로 하는 `ywc-e2e-test-strategy` 의 정책 조건부 E2E 로 진행 |
+| Critical/High 1건 이상 | `DONE_WITH_CONCERNS` 를 반환하고 시정될 때까지 E2E 와 PR 생성을 건너뜀 |
+
+두 게이트를 모두 통과해야만 이 Skill 은 `ywc-create-pr` 을 제안합니다 — 자동으로 실행하지 않습니다.
 
 ## `ywc-auth-implement`
 

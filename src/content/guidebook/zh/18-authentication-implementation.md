@@ -12,15 +12,56 @@
 
 ## 流程如何运作
 
-**Preflight gate。** 在提出任何问题之前，先执行五项幂等检查：如果已存在 `feature/<auth-slug>` 分支就复用它（只有从 long-lived 分支开始时才会新建分支）；`.env.example` 只补充缺失的占位符，绝不覆盖或暴露已有的值；如果框架/数据库方面的证据不足，先路由到 `ywc-tech-research`；如果检测到已有认证，则以 `NEEDS_CONTEXT` 硬性停止，直到你选择 `new`/`extend`/`migrate` 之一；任何 ToS/隐私政策草案从第一行起就标注"待法务审查的草案"。
+**第 1 步：Preflight gate**
 
-**9 类策略访谈。** 在一轮集中的访谈中覆盖：登录方式与 OAuth provider 就绪情况、MFA 注册与恢复、会话存储/TTL/轮换/撤销/设备管理、密码重置与哈希库边界、资料字段、账户删除与重新认证、浅层 RBAC（角色、默认值、claims）、同意的版本管理/收集/撤回，以及滥用防范（限流、验证、恢复控制）。每个回答都会被记录为已批准、已明确说明风险后延后处理，或不适用。
+在提出任何问题之前，先执行五项幂等检查：
 
-**动态推荐。** 根据你的技术栈证据和已批准的策略回答，这个 Skill 会推荐经过实战检验的库或托管服务——绝不使用固定的"支持栈"清单。如果证据不足，就会回退到通过 `ywc-tech-research` 进行的实时调研。
+- 如果已存在 `feature/<auth-slug>` 分支就复用它（只有从 long-lived 分支开始时才会新建分支）
+- `.env.example` 只补充缺失的占位符，绝不覆盖或暴露已有的值
+- 如果框架/数据库方面的证据不足，先路由到 `ywc-tech-research`
+- 如果检测到已有认证，则以 `NEEDS_CONTEXT` 硬性停止，直到你选择 `new`/`extend`/`migrate` 之一
+- 任何 ToS/隐私政策草案从第一行起就标注"待法务审查的草案"
 
-**实现 dispatch。** 这个 Skill 只负责编排，不会自己编写认证代码。它会分派给三个 agent，每个都遵循 `ywc-tdd-ritual`（RED → 验证 RED → GREEN → 验证 GREEN → REFACTOR → 验证 GREEN）：`ywc-backend-coder` 负责已批准的后端策略（绝不自行实现密码哈希、令牌签名或密钥加密）；`ywc-frontend-coder` 负责登录/注册表单、MFA 注册 UI、以及会话感知路由；`ywc-doc-writer` 负责 ToS/隐私政策草案。
+**第 2 步：9 类策略访谈**
 
-**关卡。** dispatch 出去的工作落地后，会对该 diff 运行 `ywc-security-audit`：Critical/High 为 0 项时，进入只覆盖已批准流程（仅当选择了邮箱/密码时才有注册/登录/重置、仅当启用时才有账户删除、每个已配置的 OAuth provider 各一条流程、仅当批准时才有 MFA）的、由 `ywc-e2e-test-strategy` 执行的策略条件式 E2E；只要有 1 项 Critical/High，就会返回 `DONE_WITH_CONCERNS`，并跳过 E2E 和 PR 创建，直到问题被修复。只有两道关卡都通过后，这个 Skill 才会建议使用 `ywc-create-pr`——绝不会自动执行。
+在一轮集中的访谈中覆盖：
+
+- 登录方式与 OAuth provider 就绪情况
+- MFA 注册与恢复
+- 会话存储/TTL/轮换/撤销/设备管理
+- 密码重置与哈希库边界
+- 资料字段
+- 账户删除与重新认证
+- 浅层 RBAC（角色、默认值、claims）
+- 同意的版本管理/收集/撤回
+- 滥用防范（限流、验证、恢复控制）
+
+每个回答都会被记录为已批准、已明确说明风险后延后处理，或不适用。
+
+**第 3 步：动态推荐**
+
+根据你的技术栈证据和已批准的策略回答，这个 Skill 会推荐经过实战检验的库或托管服务——绝不使用固定的"支持栈"清单。如果证据不足，就会回退到通过 `ywc-tech-research` 进行的实时调研。
+
+**第 4 步：实现 dispatch**
+
+这个 Skill 只负责编排，不会自己编写认证代码。在 Claude Code 上，它会分派给三个 agent，每个都遵循 `ywc-tdd-ritual`（RED → 验证 RED → GREEN → 验证 GREEN → REFACTOR → 验证 GREEN）：
+
+- `ywc-backend-coder` — 负责已批准的后端策略（绝不自行实现密码哈希、令牌签名或密钥加密）
+- `ywc-frontend-coder` — 负责登录/注册表单、MFA 注册 UI、以及会话感知路由
+- `ywc-doc-writer` — 负责 ToS/隐私政策草案
+
+在 Codex 上，同样的三个角色通过打印出的 skill-chain 路线来覆盖，而不是直接 dispatch 给 named agent——具体机制参见下文"Claude Code 与 Codex 的区别"。
+
+**第 5 步：安全、E2E 与 PR 关卡**
+
+dispatch 出去的工作落地后，会对该 diff 运行 `ywc-security-audit`：
+
+| 审计结果 | 接下来发生什么 |
+|---|---|
+| Critical/High 为 0 项 | 进入只覆盖已批准流程（仅当选择了邮箱/密码时才有注册/登录/重置、仅当启用时才有账户删除、每个已配置的 OAuth provider 各一条流程、仅当批准时才有 MFA）的、由 `ywc-e2e-test-strategy` 执行的策略条件式 E2E |
+| 只要有 1 项 Critical/High | 返回 `DONE_WITH_CONCERNS`，并跳过 E2E 和 PR 创建，直到问题被修复 |
+
+只有两道关卡都通过后，这个 Skill 才会建议使用 `ywc-create-pr`——绝不会自动执行。
 
 ## `ywc-auth-implement`
 

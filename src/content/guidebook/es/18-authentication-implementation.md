@@ -12,15 +12,56 @@ Usa `ywc-auth-implement` cuando un proyecto necesita una nueva funcionalidad de 
 
 ## Cómo funciona el flujo
 
-**Preflight gate.** Antes de hacer cualquier pregunta, la Skill ejecuta cinco verificaciones idempotentes: reutiliza una rama `feature/<auth-slug>` si ya existe (solo crea una rama nueva partiendo de una rama de larga duración); añade únicamente los placeholders que falten en `.env.example`, sin sobrescribir ni exponer valores reales; enruta primero a `ywc-tech-research` si la evidencia de framework/base de datos es insuficiente; se detiene por completo con `NEEDS_CONTEXT` si detecta autenticación existente, hasta que elijas `new`, `extend` o `migrate`; y etiqueta cualquier borrador de ToS/Política de Privacidad como "borrador pendiente de revisión legal" desde su primera línea.
+**Paso 1: Preflight gate**
 
-**Entrevista de políticas en 9 categorías.** Una ronda enfocada cubre: método de inicio de sesión y preparación del provider de OAuth, inscripción y recuperación de MFA, almacenamiento/TTL/rotación/revocación de sesión y gestión de dispositivos, restablecimiento de contraseña y el límite de la librería de hashing, campos de perfil, eliminación de cuenta y reautenticación, RBAC superficial (roles, valores por defecto, claims), versionado/recolección/retiro del consentimiento, y prevención de abuso (rate limiting, verificación, controles de recuperación). Cada respuesta se registra como aprobada, explícitamente diferida con su riesgo indicado, o no aplicable.
+Antes de hacer cualquier pregunta, la Skill ejecuta cinco verificaciones idempotentes:
 
-**Recomendación dinámica.** A partir de tu evidencia de stack y las respuestas de política aprobadas, la Skill recomienda una librería o servicio gestionado ya probado en producción — nunca una lista fija de "stack soportado". Cuando la evidencia es escasa, recurre a investigación en tiempo real vía `ywc-tech-research`.
+- Reutiliza una rama `feature/<auth-slug>` si ya existe (solo crea una rama nueva partiendo de una rama de larga duración).
+- Añade únicamente los placeholders que falten en `.env.example`, sin sobrescribir ni exponer valores reales.
+- Enruta primero a `ywc-tech-research` si la evidencia de framework/base de datos es insuficiente.
+- Se detiene por completo con `NEEDS_CONTEXT` si detecta autenticación existente, hasta que elijas `new`, `extend` o `migrate`.
+- Etiqueta cualquier borrador de ToS/Política de Privacidad como "borrador pendiente de revisión legal" desde su primera línea.
 
-**Dispatch de la implementación.** La Skill orquesta; no escribe el código de autenticación por sí misma. Despacha a tres agents, cada uno siguiendo `ywc-tdd-ritual` (RED → verificar RED → GREEN → verificar GREEN → REFACTOR → verificar GREEN): `ywc-backend-coder` para la política de backend aprobada (nunca implementa a mano el hashing de contraseñas, la firma de tokens o la criptografía de secretos), `ywc-frontend-coder` para los formularios de inicio de sesión/registro, la UI de inscripción a MFA y el enrutamiento consciente de sesión, y `ywc-doc-writer` para el borrador de ToS/Política de Privacidad.
+**Paso 2: Entrevista de políticas en 9 categorías**
 
-**Gates.** Una vez que el trabajo despachado aterriza, `ywc-security-audit` se ejecuta contra el diff: cero hallazgos Critical/High avanza a una pasada de `ywc-e2e-test-strategy` condicionada por política que cubre solo los flujos aprobados (registro/inicio de sesión/restablecimiento solo si se eligió email/contraseña, eliminación de cuenta solo si está habilitada, un flujo por cada provider de OAuth configurado, MFA solo si fue aprobada); cualquier hallazgo Critical/High devuelve `DONE_WITH_CONCERNS` y omite el E2E y la creación de PR hasta que se remedie. Solo después de que ambos gates pasan, la Skill sugiere `ywc-create-pr` — nunca automáticamente.
+Una ronda enfocada cubre:
+
+- Método de inicio de sesión y preparación del provider de OAuth
+- Inscripción y recuperación de MFA
+- Almacenamiento/TTL/rotación/revocación de sesión y gestión de dispositivos
+- Restablecimiento de contraseña y el límite de la librería de hashing
+- Campos de perfil
+- Eliminación de cuenta y reautenticación
+- RBAC superficial (roles, valores por defecto, claims)
+- Versionado/recolección/retiro del consentimiento
+- Prevención de abuso (rate limiting, verificación, controles de recuperación)
+
+Cada respuesta se registra como aprobada, explícitamente diferida con su riesgo indicado, o no aplicable.
+
+**Paso 3: Recomendación dinámica**
+
+A partir de tu evidencia de stack y las respuestas de política aprobadas, la Skill recomienda una librería o servicio gestionado ya probado en producción — nunca una lista fija de "stack soportado". Cuando la evidencia es escasa, recurre a investigación en tiempo real vía `ywc-tech-research`.
+
+**Paso 4: Dispatch de la implementación**
+
+La Skill orquesta; no escribe el código de autenticación por sí misma. En Claude Code, despacha a tres agents, cada uno siguiendo `ywc-tdd-ritual` (RED → verificar RED → GREEN → verificar GREEN → REFACTOR → verificar GREEN):
+
+- `ywc-backend-coder` — para la política de backend aprobada (nunca implementa a mano el hashing de contraseñas, la firma de tokens o la criptografía de secretos).
+- `ywc-frontend-coder` — para los formularios de inicio de sesión/registro, la UI de inscripción a MFA y el enrutamiento consciente de sesión.
+- `ywc-doc-writer` — para el borrador de ToS/Política de Privacidad.
+
+En Codex, esos mismos tres roles se cubren mediante una ruta de skill-chain impresa en lugar de un dispatch directo a agents — consulta "En qué se diferencian Claude Code y Codex" más abajo para el mecanismo exacto.
+
+**Paso 5: Gates de seguridad, E2E y PR**
+
+Una vez que el trabajo despachado aterriza, `ywc-security-audit` se ejecuta contra el diff:
+
+| Resultado de la auditoría | Qué sucede después |
+|---|---|
+| Cero hallazgos Critical/High | Avanza a una pasada de `ywc-e2e-test-strategy` condicionada por política que cubre solo los flujos aprobados (registro/inicio de sesión/restablecimiento solo si se eligió email/contraseña, eliminación de cuenta solo si está habilitada, un flujo por cada provider de OAuth configurado, MFA solo si fue aprobada) |
+| Cualquier hallazgo Critical/High | Devuelve `DONE_WITH_CONCERNS` y omite el E2E y la creación de PR hasta que se remedie |
+
+Solo después de que ambos gates pasan, la Skill sugiere `ywc-create-pr` — nunca automáticamente.
 
 ## `ywc-auth-implement`
 
