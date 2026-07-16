@@ -4,6 +4,7 @@
 // have a topically exact guide.
 const SKILL_GUIDEBOOK_SLUG_OVERRIDES: Record<string, string> = {
   "ywc-agentic": "06-agentic-autonomous-loop",
+  "ywc-auth-implement": "18-authentication-implementation",
   "ywc-debug-rootcause": "12-debugging-and-incident-postmortem",
   "ywc-incident-postmortem": "12-debugging-and-incident-postmortem",
   "ywc-iac-author": "17-infrastructure-and-cloud",

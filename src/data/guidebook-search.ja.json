@@ -70,18 +70,23 @@
     "summary": "4 つの Skill は「設計 → 実装 → レビュー → 改善」という一続きのライフサイクルをカバーしますが、それぞれ答える質問が異なります。今どの段階にいるかで選んでください。"
   },
   {
+    "slug": "18-authentication-implementation",
+    "title": "15. 認証機能の実装",
+    "summary": "ywc-auth-implement は、サインイン/サインアップ、OAuth、MFA、セッション管理、パスワードリセット、アカウント削除、同意フローなど、新しい認証機能をプロジェクトに追加したいとき、コードを書き始める前にポリシー判断を明示的に確定させたい場合に使います。ただし「認証に関わること全般」をカバーするわけではありません。"
+  },
+  {
     "slug": "13-executor-and-codegen-patterns",
-    "title": "15. Executor / Code-gen Prompt パターン",
+    "title": "16. Executor / Code-gen Prompt パターン",
     "summary": "ywc-sequential-executor , ywc-parallel-executor , ywc-code-gen はオプションが多く、毎回正確な syntax を探しがちな 3 つの Skill です。このページでは Skill 名ではなく、**「今やりたいこと」**を基準に例を整理しました。やりたいことを見つけて、そのままコピーして使ってください。"
   },
   {
     "slug": "14-skill-reference",
-    "title": "16. 全 Skill リファレンス",
+    "title": "17. 全 Skill リファレンス",
     "summary": "前のワークフローガイドで扱わなかった残りの Skill を、 やりたいこと 基準でまとめて整理しました。各フロー(Small/Medium/Large cycle、新規 project、onboarding、testing、design)の途中で必要になったときに参照してください。"
   },
   {
     "slug": "15-prerequisites-installation",
-    "title": "17. 事前準備とインストール",
+    "title": "18. 事前準備とインストール",
     "summary": "ywc-* Skill を安定して使うには、いくつかの Tool を事前に準備しておく必要があります。Plugin marketplace や Codex plugin からインストールすればファイルコピーと登録は自動で処理されますが、Skill を 実際に実行 するときは以下の Tool が System に入っている必要があります。手順は次のとおりです — ① 必須 Tool のインストール → ② ywc-agent-toolkit 自体のインストール(Claude Code / Codex) → その下は状況に応じて準備する選択 Tool です。"
   }
 ]

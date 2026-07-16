@@ -30,6 +30,7 @@ export const guidebookSlugs = Object.freeze([
   "12-debugging-and-incident-postmortem",
   "16-code-structure-and-maintainability",
   "17-infrastructure-and-cloud",
+  "18-authentication-implementation",
   "13-executor-and-codegen-patterns",
   "14-skill-reference",
   "15-prerequisites-installation"

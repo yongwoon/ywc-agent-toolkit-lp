@@ -80,6 +80,20 @@
 ## Phase 000020 — Guidebook Infra & Cloud 신규 페이지: 최종 검증
 - `000020-010-test-verify-guidebook-infra-cloud-build` → depends on `000019-010-refactor-guidebook-renumber-core-pages`, `000019-020-config-guidebook-cross-reference-sweep`
 
+## Phase 000021 — Guidebook Auth-Implement 신규 페이지: Upstream 검증
+> spec: `docs/ywc-plans/guidebook-auth-implement-page.md` (`ywc-spec-ready` DONE, 1회 validate 만에 Critical 0건으로 수렴). upstream `ywc-agent-toolkit` PR #144는 계획 시점 이미 `MERGED`(`mergedAt: 2026-07-16T05:54:48Z`)였으므로, 형제 spec(Phase 000014/000017)과 달리 PR merge 자체는 게이팅 조건이 아니다 — 이 Phase는 순수하게 `SKILL.md` 재확인/노트 기록만 담당한다.
+- `000021-010-config-verify-upstream-auth-content` → (Phase 000021/000022/000023/000024의 root; 다른 Phase와 독립적으로 시작 가능)
+
+## Phase 000022 — Guidebook Auth-Implement 신규 페이지: 등록
+- `000022-010-ui-guidebook-auth-implement-page-registration` → depends on `000021-010-config-verify-upstream-auth-content`
+
+## Phase 000023 — Guidebook Auth-Implement 신규 페이지: 리넘버링 캐스케이드
+- `000023-010-refactor-guidebook-renumber-core-pages` → depends on `000022-010-ui-guidebook-auth-implement-page-registration`
+- `000023-020-config-guidebook-cross-reference-sweep` → depends on `000022-010-ui-guidebook-auth-implement-page-registration`
+
+## Phase 000024 — Guidebook Auth-Implement 신규 페이지: 최종 검증
+- `000024-010-test-verify-guidebook-auth-implement-build` → depends on `000023-010-refactor-guidebook-renumber-core-pages`, `000023-020-config-guidebook-cross-reference-sweep`
+
 ## Parallel Execution Notes
 
 - **Initial ready set**: `000001-010-lib-nextjs-i18n-setup` (유일한 root task; 이 프로젝트의 모든 task가 직접 또는 간접적으로 이 task에서 파생됨)
@@ -106,6 +120,10 @@
 - **Phase 000017 → 000018 게이트 (소프트, 형제 스펙과 다름)**: 형제 스펙(Phase 000014→000015)의 PR merge 하드 게이트와 달리, 이 spec은 `## Dependencies`에서 PR merge를 "soft dependency, not a hard blocker"로 명시한다 — `000017-010`이 PR을 unmerged로 기록하더라도 `000018-010`은 in-flight diff 기준으로 진행 가능하다. `000017-010` → `000018-010` 의존은 merge 상태가 아니라 4개 신규 skill의 실제 커맨드 문법(ToolTabs 예제 소싱 근거) 제공 때문이다.
 - **Phase 000019 내부 병렬성**: `000019-010`(직접 리넘버링 4개 페이지 + A-Z 테이블)과 `000019-020`(A1 추가 교차 참조 4개 페이지 + README + skill-links.ts)은 `000018-010` 완료 후 서로 완전히 병렬로 실행 가능하다 — 두 task 모두 Ownership이 완전히 disjoint한 파일 세트만 소유하며 Conflicts With가 없다.
 - **Phase 000017/000018/000019/000020 llm 모드 통합**: 이 배치는 `ywc-task-generator --mode llm`로 생성되었다. 원자적 3-way 등록 요구(A3: nav + slugs + 5개 로케일 콘텐츠가 같은 커밋에 있어야 `generate-search-index.mjs`가 실패하지 않음)로 인해 `000018-010`은 mode와 무관하게 단일 task로 유지된다. 리넘버링 캐스케이드(원래 45개 이상의 파일에 걸침)는 human 모드였다면 로케일당 또는 관심사당 훨씬 많은 수의 task로 쪼개졌겠지만, llm 모드에서는 파일 소유권이 disjoint한 2개의 수직 슬라이스(`000019-010`/`000019-020`)로만 분해했다.
+- **Phase 000021 numbering note**: `000021-010`은 실제로는 `000001-010`(프로젝트 root) 외에 어떤 기존 task에도 의존하지 않는다 — Phase 000002~000020의 어떤 task도 선행 조건이 아니다. Append-only 번호 배정 규칙에 따라 highest existing phase(`000020`) + 1로 배정했을 뿐이며, 실제 실행 시 이 하드 게이트를 완화해 Phase 000002~000020과 완전히 독립적으로, 심지어 그보다 먼저 시작해도 기술적으로 안전하다 — 완화 적용 여부는 실행자가 최종 판단한다.
+- **Phase 000021 → 000022 게이트 (소프트, PR merge와 무관)**: 형제 spec들(Phase 000014→000015의 하드 게이트, Phase 000017→000018의 소프트 게이트)과 달리, 이 spec의 upstream PR #144는 계획 시점에 **이미 merge된 상태**로 시작했으므로 PR merge 여부는 애초에 게이팅 조건이 아니다. `000021-010` → `000022-010` 의존은 오직 `ywc-auth-implement`의 실제 커맨드 문법·플로우 요약(ToolTabs 예제 및 tool-difference 노트 소싱 근거) 제공 때문이다.
+- **Phase 000023 내부 병렬성**: `000023-010`(직접 리넘버링 4개 페이지 + A-Z 테이블)과 `000023-020`(추가 교차 참조 4개 페이지 + README + skill-links.ts)은 `000022-010` 완료 후 서로 완전히 병렬로 실행 가능하다 — 두 task 모두 Ownership이 완전히 disjoint한 파일 세트만 소유하며 Conflicts With가 없다.
+- **Phase 000021/000022/000023/000024 llm 모드 통합**: 이 배치는 `ywc-task-generator --mode llm`로 생성되었다. Phase 000017-000020(infra 페이지, 4개 skill)과 동일한 구조를 따르되, 이번 spec은 단일 skill(`ywc-auth-implement`)이므로 신규 페이지 자체의 스코프가 더 작다(`000022-010`이 `<ToolTabs>` 1개만 포함, infra의 4개 대비). 원자적 3-way 등록 요구(FR-2: nav + slugs + 5개 로케일 콘텐츠가 같은 커밋에 있어야 `generate-search-index.mjs`가 실패하지 않음)로 인해 `000022-010`은 mode와 무관하게 단일 task로 유지된다.
 
 ## Visual Dependency Graph
 
@@ -230,6 +248,25 @@ graph LR
     S1 --> T1
     S2 --> T1
   end
+  subgraph Phase 000021
+    U1[000021-010-config-verify-upstream-auth-content]
+    A1 --> U1
+  end
+  subgraph Phase 000022
+    V1[000022-010-ui-guidebook-auth-implement-page-registration]
+    U1 --> V1
+  end
+  subgraph Phase 000023
+    W1[000023-010-refactor-guidebook-renumber-core-pages]
+    W2[000023-020-config-guidebook-cross-reference-sweep]
+    V1 --> W1
+    V1 --> W2
+  end
+  subgraph Phase 000024
+    X1[000024-010-test-verify-guidebook-auth-implement-build]
+    W1 --> X1
+    W2 --> X1
+  end
 ```
 
 ## Open Questions
@@ -248,3 +285,6 @@ graph LR
 12. **신규 Guidebook 페이지("Managing Cloud Infrastructure")의 정확한 title/description 문구**: `docs/ywc-plans/guidebook-infra-cloud-page-pr131.md`의 Open Questions에서 실행자 재량으로 남겨져 있다 — `000018-010` 실행자가 `en/17-infrastructure-and-cloud.md` 작성 시 최종 문구를 확정하고, `guidebook-nav.ts`의 `title`/`description`과 나머지 4개 로케일이 그 결정을 따라간다.
 13. **README.md에 인프라 파이프라인 전용 Quick Links 행을 추가할지 여부**: 같은 spec의 Open Questions에서 실행자 재량으로 남겨져 있다(AC4 충족에는 불필요) — `000019-020` 실행자가 판단한다.
 14. **`000017-010` 착수 시점에 PR #131의 실제 상태**: 이 task 분해 생성 시점에 `gh pr view 131 --repo yongwoon/ywc-agent-toolkit`을 직접 조회한 결과 이미 `MERGED`(`mergedAt: 2026-07-08T21:16:34Z`, `headRefOid: 513df53499c5e4f82ce23349d3eb614fcf65a33a`)로 확인되었다 — 형제 스펙(Phase 000014)의 하드 블로커와 달리 이 spec은 PR merge를 하드 블로커로 두지 않으므로(`## Dependencies`), `000017-010`이 실제 실행되는 시점에 재조회한 결과가 다시 unmerged로 나오더라도 `000018-010`은 진행 가능하다 — 다만 `000017-010`은 실행 시점의 실제 조회 결과를 캐시된 값 대신 기록해야 한다.
+15. **신규 Guidebook 페이지("Implementing Authentication")의 정확한 title/description 문구**: `docs/ywc-plans/guidebook-auth-implement-page.md`의 Open Questions에서 실행자 재량으로 남겨져 있다 — `000022-010` 실행자가 `en/18-authentication-implementation.md` 작성 시 최종 문구를 확정하고, `guidebook-nav.ts`의 `title`/`description`과 나머지 4개 로케일이 그 결정을 따라간다.
+16. **README.md에 인증 관련 Quick Links 행 문구를 어떻게 쓸지**: 같은 spec의 Open Questions에서 실행자 재량으로 남겨져 있다(AC4 충족에는 불필요) — `000023-020` 실행자가 판단한다.
+17. **`ywc-spec-validate` Warning 2건이 spec 본문에는 아직 반영되지 않음**: `docs/ywc-plans/guidebook-auth-implement-page.md:16`의 "single-skill dedicated pages" 자기모순 라벨과 `:50`의 `17-infrastructure-and-cloud.md` footer "Previous" 텍스트 stale citation은 `ywc-spec-ready`가 Critical 없음으로 DONE 판정해 재계획 없이 넘어갔다 — 둘 다 task 분해 자체에는 영향이 없다(`000022-010`/`000023-010`은 이 task-generator 실행 시점에 직접 재확인한 실제 파일 상태를 기준으로 작성되었으므로, spec 본문의 stale citation을 그대로 옮기지 않았다). spec 문서 자체의 가독성을 위해 정정이 필요하면 별도로 `ywc-plan --update-spec`을 실행할 수 있다.

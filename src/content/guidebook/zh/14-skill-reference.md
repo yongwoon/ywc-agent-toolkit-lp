@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 16. 完整 Skill 参考
+# 17. 完整 Skill 参考
 
 本页面将之前工作流程指南中未涵盖的剩余技能按**你想做的事情**进行分组。在每个流程（小/中/大周期、新项目、入职、测试或设计）中需要时使用它。
 
@@ -323,9 +323,10 @@
 |---|---|---|
 | `ywc-agent-legibility-audit` | 想衡量 agent 修改代码所需的 token 成本和可读性 | [13](./16-code-structure-and-maintainability.md) |
 | `ywc-agentic` | 你想设定一个目标，然后让整个从规划到执行的过程在无人干预下运行 | [此处](#你想设定一个目标然后让整个从规划到执行的过程在无人干预下运行) |
+| `ywc-auth-implement` | 在写任何代码之前先确定策略决策，再实现身份验证功能 | [15](./18-authentication-implementation.md) |
 | `ywc-brainstorm` | 你的想法还不具体，你想先把它弄清楚 | [此处](#你的想法还不具体你想先把它弄清楚) |
 | `ywc-changelog-release-notes` | 编写 CHANGELOG.md 或面向用户的版本说明 | [此处](#编写-changelogmd-或面向用户的版本说明) |
-| `ywc-code-gen` | 并行同时生成 Backend/Frontend/QA 三层的多层代码生成 skill | [15](./13-executor-and-codegen-patterns.md) |
+| `ywc-code-gen` | 并行同时生成 Backend/Frontend/QA 三层的多层代码生成 skill | [16](./13-executor-and-codegen-patterns.md) |
 | `ywc-commit` | 只提交目前完成的工作 | [此处](#只提交目前完成的工作) |
 | `ywc-confidence-gate` | 用 PROCEED/REVIEW/STOP 判定成果是否可以进入下一阶段的信心 gate | [06](./06-agentic-autonomous-loop.md) |
 | `ywc-create-pr` | 提交更改并打开草稿 PR | [此处](#提交更改并打开草稿-pr) |
@@ -346,7 +347,7 @@
 | `ywc-merge-dependabot` | 一次性清理累积的 Dependabot PR | [此处](#一次性清理累积的-dependabot-pr) |
 | `ywc-mission` | 记录项目的原因和被拒绝的方法 | [此处](#记录项目的原因和被拒绝的方法) |
 | `ywc-onboard-repo` | 反推陌生 repo 的约定并生成 CLAUDE.md 的 onboarding skill | [08](./08-onboarding-existing-repo.md) |
-| `ywc-parallel-executor` | 在隔离的 worktree 中并行执行多个 Task 的 executor | [15](./13-executor-and-codegen-patterns.md) |
+| `ywc-parallel-executor` | 在隔离的 worktree 中并行执行多个 Task 的 executor | [16](./13-executor-and-codegen-patterns.md) |
 | `ywc-plan` | 为功能/变更制定实现计划的入口 skill | [04](./04-general-cycle-small.md) |
 | `ywc-product-review` | 想从业务/服务角度而不是代码角度获得项目评审 | [此处](#想从业务服务角度而不是代码角度获得项目评审) |
 | `ywc-project-docs` | 按照 docs/ 目录结构生成 project 文档的 skill | [07](./07-starting-a-new-project.md) |
@@ -356,7 +357,7 @@
 | `ywc-release-pr-list` | 总结包含在发布版本 PR（develop->main 等）中的已合并 PR 列表 | [此处](#总结包含在发布版本-prdevelop-main-等中的已合并-pr-列表) |
 | `ywc-review-learnings` | 教系统关于重复代码审查反馈的内容，这样它就不会再次提出相同的误报 | [此处](#教系统关于重复代码审查反馈的内容这样它就不会再次提出相同的误报) |
 | `ywc-security-audit` | 检查敏感代码中的安全漏洞，例如认证/支付 | [此处](#检查敏感代码中的安全漏洞例如认证支付) |
-| `ywc-sequential-executor` | 按顺序逐个执行多个 Task 的 executor | [15](./13-executor-and-codegen-patterns.md) |
+| `ywc-sequential-executor` | 按顺序逐个执行多个 Task 的 executor | [16](./13-executor-and-codegen-patterns.md) |
 | `ywc-setup` | 设置持久输出语言让技能不再每次询问 language | [此处](#设置持久输出语言让技能不再每次询问-language) |
 | `ywc-skill-author` | 想创建新的 ywc-* skill，或按规则整理/检查现有 skill | [此处](#想创建新的-ywc--skill或按规则整理检查现有-skill) |
 | `ywc-spec-ready` | 验证 spec 文档是否已达到可实现程度的 gate | [05](./05-general-cycle-medium-large.md) |
@@ -372,4 +373,4 @@
 
 ---
 
-[Previous: 15. Executor / Code-gen 提示模式](./13-executor-and-codegen-patterns.md) - [Next: 17. 前置条件与安装](./15-prerequisites-installation.md)
+[Previous: 16. Executor / Code-gen 提示模式](./13-executor-and-codegen-patterns.md) - [Next: 18. 前置条件与安装](./15-prerequisites-installation.md)
