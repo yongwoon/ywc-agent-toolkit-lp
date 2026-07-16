@@ -44,11 +44,13 @@
 
 **第 4 步：实现 dispatch**
 
-这个 Skill 只负责编排，不会自己编写认证代码。它会分派给三个 agent，每个都遵循 `ywc-tdd-ritual`（RED → 验证 RED → GREEN → 验证 GREEN → REFACTOR → 验证 GREEN）：
+这个 Skill 只负责编排，不会自己编写认证代码。在 Claude Code 上，它会分派给三个 agent，每个都遵循 `ywc-tdd-ritual`（RED → 验证 RED → GREEN → 验证 GREEN → REFACTOR → 验证 GREEN）：
 
 - `ywc-backend-coder` — 负责已批准的后端策略（绝不自行实现密码哈希、令牌签名或密钥加密）
 - `ywc-frontend-coder` — 负责登录/注册表单、MFA 注册 UI、以及会话感知路由
 - `ywc-doc-writer` — 负责 ToS/隐私政策草案
+
+在 Codex 上，同样的三个角色通过打印出的 skill-chain 路线来覆盖，而不是直接 dispatch 给 named agent——具体机制参见下文"Claude Code 与 Codex 的区别"。
 
 **第 5 步：安全、E2E 与 PR 关卡**
 

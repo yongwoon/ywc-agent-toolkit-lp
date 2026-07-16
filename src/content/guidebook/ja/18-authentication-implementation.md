@@ -44,11 +44,13 @@
 
 **Step 4: 実装の dispatch**
 
-この Skill はオーケストレーションのみを行い、認証コード自体は書きません。それぞれ `ywc-tdd-ritual`(RED → RED 確認 → GREEN → GREEN 確認 → REFACTOR → GREEN 確認)に従う 3 つの agent へ dispatch します:
+この Skill はオーケストレーションのみを行い、認証コード自体は書きません。Claude Code では、それぞれ `ywc-tdd-ritual`(RED → RED 確認 → GREEN → GREEN 確認 → REFACTOR → GREEN 確認)に従う 3 つの agent へ dispatch します:
 
 - `ywc-backend-coder` — 承認されたバックエンドポリシーを担当(パスワードハッシュ化・トークン署名・秘密情報の暗号化を自前実装しません)
 - `ywc-frontend-coder` — サインイン/サインアップフォーム・MFA 登録 UI・セッション対応ルーティングを担当
 - `ywc-doc-writer` — ToS/プライバシーポリシーのドラフトを担当
+
+Codex では、同じ 3 つの役割を named agent への直接 dispatch ではなく、印字された skill-chain のルートを通じてカバーします — 正確な仕組みは下記「Claude Code と Codex の違い」を参照してください。
 
 **Step 5: セキュリティ・E2E・PR ゲート**
 

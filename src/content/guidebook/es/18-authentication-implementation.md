@@ -44,11 +44,13 @@ A partir de tu evidencia de stack y las respuestas de política aprobadas, la Sk
 
 **Paso 4: Dispatch de la implementación**
 
-La Skill orquesta; no escribe el código de autenticación por sí misma. Despacha a tres agents, cada uno siguiendo `ywc-tdd-ritual` (RED → verificar RED → GREEN → verificar GREEN → REFACTOR → verificar GREEN):
+La Skill orquesta; no escribe el código de autenticación por sí misma. En Claude Code, despacha a tres agents, cada uno siguiendo `ywc-tdd-ritual` (RED → verificar RED → GREEN → verificar GREEN → REFACTOR → verificar GREEN):
 
 - `ywc-backend-coder` — para la política de backend aprobada (nunca implementa a mano el hashing de contraseñas, la firma de tokens o la criptografía de secretos).
 - `ywc-frontend-coder` — para los formularios de inicio de sesión/registro, la UI de inscripción a MFA y el enrutamiento consciente de sesión.
 - `ywc-doc-writer` — para el borrador de ToS/Política de Privacidad.
+
+En Codex, esos mismos tres roles se cubren mediante una ruta de skill-chain impresa en lugar de un dispatch directo a agents — consulta "En qué se diferencian Claude Code y Codex" más abajo para el mecanismo exacto.
 
 **Paso 5: Gates de seguridad, E2E y PR**
 

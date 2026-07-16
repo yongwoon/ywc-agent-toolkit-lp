@@ -44,11 +44,13 @@
 
 **4단계: 구현 dispatch**
 
-이 Skill 은 오케스트레이션만 하며 인증 코드 자체를 작성하지 않습니다. 각각 `ywc-tdd-ritual`(RED → RED 검증 → GREEN → GREEN 검증 → REFACTOR → GREEN 검증)을 따르는 세 개의 agent 로 dispatch 합니다:
+이 Skill 은 오케스트레이션만 하며 인증 코드 자체를 작성하지 않습니다. Claude Code 에서는 각각 `ywc-tdd-ritual`(RED → RED 검증 → GREEN → GREEN 검증 → REFACTOR → GREEN 검증)을 따르는 세 개의 agent 로 dispatch 합니다:
 
 - `ywc-backend-coder` — 승인된 백엔드 정책을 담당(비밀번호 해싱, 토큰 서명, 비밀값 암호화를 직접 구현하지 않음)
 - `ywc-frontend-coder` — 로그인/회원가입 폼, MFA 등록 UI, 세션 인지 라우팅을 담당
 - `ywc-doc-writer` — ToS/개인정보처리방침 초안을 담당
+
+Codex 에서는 같은 세 역할을 named agent 로의 직접 dispatch 대신 출력된 skill-chain 경로를 통해 커버합니다 — 정확한 방식은 아래 "Claude Code 와 Codex 의 차이"를 참고하세요.
 
 **5단계: 보안·E2E·PR 게이트**
 

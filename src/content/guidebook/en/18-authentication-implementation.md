@@ -44,11 +44,13 @@ From your stack evidence and approved policy answers, the Skill recommends a bat
 
 **Step 4: Implementation dispatch**
 
-The Skill orchestrates; it does not write the auth code itself. It dispatches three agents, each following `ywc-tdd-ritual` (RED → verify RED → GREEN → verify GREEN → REFACTOR → verify GREEN):
+The Skill orchestrates; it does not write the auth code itself. On Claude Code, it dispatches three agents, each following `ywc-tdd-ritual` (RED → verify RED → GREEN → verify GREEN → REFACTOR → verify GREEN):
 
 - `ywc-backend-coder` for the approved backend policy — never hand-rolling password hashing, token signing, or secret crypto.
 - `ywc-frontend-coder` for sign-in/sign-up forms, MFA enrollment UI, and session-aware routing.
 - `ywc-doc-writer` for the ToS/Privacy Policy draft.
+
+On Codex, the same three roles are covered through a printed skill-chain route instead of a direct agent dispatch — see "How Claude Code and Codex differ" below for the exact mechanism.
 
 **Step 5: Security, E2E, and PR gates**
 
@@ -56,7 +58,7 @@ Once the dispatched work lands, `ywc-security-audit` runs against the diff:
 
 | Audit result | What happens next |
 |---|---|
-| Zero Critical/High findings | Proceeds to a policy-conditional `ywc-e2e-test-strategy` pass covering only the approved flows (sign-up/sign-in, password reset, account deletion, one flow per configured OAuth provider, MFA if approved) |
+| Zero Critical/High findings | Proceeds to a policy-conditional `ywc-e2e-test-strategy` pass covering only the approved flows (sign-up/sign-in/password reset only if email/password was chosen, account deletion only if enabled, one flow per configured OAuth provider, MFA if approved) |
 | Any Critical/High finding | Returns `DONE_WITH_CONCERNS`; E2E and PR creation are skipped until remediated |
 
 Only after both gates pass does the Skill suggest `ywc-create-pr` — never automatically.
