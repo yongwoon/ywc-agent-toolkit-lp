@@ -70,6 +70,11 @@
     "summary": "All four Skills cover one continuous lifecycle — designing, authoring, reviewing, and improving cloud infrastructure — but each answers a different question."
   },
   {
+    "slug": "18-authentication-implementation",
+    "title": "15. Implementing Authentication",
+    "summary": "Use ywc-auth-implement when a project needs a new authentication feature — sign-in/sign-up, OAuth, MFA, session handling, password reset, account deletion, or a consent flow — and you want the policy decisions made explicitly before any code gets written."
+  },
+  {
     "slug": "13-executor-and-codegen-patterns",
     "title": "15. Executor / Code-gen Prompt patterns",
     "summary": "ywc-sequential-executor , ywc-parallel-executor , and ywc-code-gen are the three Skills whose many options make you repeatedly look up exact syntax."
