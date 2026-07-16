@@ -19,25 +19,26 @@
 | 目標だけ渡して、計画から実装まで自動で完了させたい | `ywc-agentic` | [06](./06-agentic-autonomous-loop.md) |
 | 完全に新しい project を最初から設計したい | `ywc-project-scaffold` | [07](./07-starting-a-new-project.md) |
 | 初めて見る未知の repo/codebase を把握したい | `ywc-onboard-repo` | [08](./08-onboarding-existing-repo.md) |
-| すでに分解された Task を実行したい (順次/並列) | `ywc-sequential-executor` / `ywc-parallel-executor` | [15](./13-executor-and-codegen-patterns.md) |
-| アイデアがまだ具体的でなく、整理から始めたい | `ywc-brainstorm` | [16](./14-skill-reference.md) |
+| すでに分解された Task を実行したい (順次/並列) | `ywc-sequential-executor` / `ywc-parallel-executor` | [16](./13-executor-and-codegen-patterns.md) |
+| アイデアがまだ具体的でなく、整理から始めたい | `ywc-brainstorm` | [17](./14-skill-reference.md) |
 | PR を検証するための手動 test 文書を作りたい | `ywc-gen-testcase` | [09](./09-testing-guide.md) |
 | E2E test 自動化を設定/拡張したい | `ywc-e2e-test-strategy` | [10](./10-e2e-test-strategy.md) |
 | 画面の usability やアクセシビリティを点検したい | `ywc-ui-ux-review` | [11](./11-design-review.md) |
 | 画面デザインが平凡に見えるので改善したい | `ywc-design-renew` | [11](./11-design-review.md) |
-| コードにセキュリティ脆弱性がないか点検したい | `ywc-security-audit` | [16](./14-skill-reference.md) |
+| コードにセキュリティ脆弱性がないか点検したい | `ywc-security-audit` | [17](./14-skill-reference.md) |
+| 認証機能 (login, OAuth, MFA) を実装したい | `ywc-auth-implement` | [15](./18-authentication-implementation.md) |
 | バグの根本原因が見つからず困っている | `ywc-debug-rootcause` | [12](./12-debugging-and-incident-postmortem.md) |
 | Production 障害が起き、振り返りを書く必要がある | `ywc-incident-postmortem` | [12](./12-debugging-and-incident-postmortem.md) |
 | 古い dead code を整理したい | `ywc-refactor-clean` | [13](./16-code-structure-and-maintainability.md) |
-| 開いている PR の review comment に対応する必要がある | `ywc-handle-pr-reviews` | [16](./14-skill-reference.md) |
-| Dependabot PR が溜まっているので一度に整理したい | `ywc-merge-dependabot` | [16](./14-skill-reference.md) |
-| CHANGELOG や release note を書きたい | `ywc-changelog-release-notes` | [16](./14-skill-reference.md) |
-| ここまでの作業をそのまま commit したい | `ywc-commit` | [16](./14-skill-reference.md) |
+| 開いている PR の review comment に対応する必要がある | `ywc-handle-pr-reviews` | [17](./14-skill-reference.md) |
+| Dependabot PR が溜まっているので一度に整理したい | `ywc-merge-dependabot` | [17](./14-skill-reference.md) |
+| CHANGELOG や release note を書きたい | `ywc-changelog-release-notes` | [17](./14-skill-reference.md) |
+| ここまでの作業をそのまま commit したい | `ywc-commit` | [17](./14-skill-reference.md) |
 | 構造が絡み合っている、または maintenance 観点で実装品質が良くない | `ywc-improve-architecture` | [13](./16-code-structure-and-maintainability.md) |
-| ライブラリや実装方式を比較して何を使うか決めたい | `ywc-tech-research` | [16](./14-skill-reference.md) |
-| 会話が終わっても project に残る知識(用語集/レビュー学習/mission)を管理したい | `ywc-ubiquitous-language` | [16](./14-skill-reference.md) |
+| ライブラリや実装方式を比較して何を使うか決めたい | `ywc-tech-research` | [17](./14-skill-reference.md) |
+| 会話が終わっても project に残る知識(用語集/レビュー学習/mission)を管理したい | `ywc-ubiquitous-language` | [17](./14-skill-reference.md) |
 
-この表にない状況は、[16. 全 Skill リファレンス](./14-skill-reference.md)で全体一覧を確認してください。
+この表にない状況は、[17. 全 Skill リファレンス](./14-skill-reference.md)で全体一覧を確認してください。
 
 ## 目次
 
@@ -69,14 +70,15 @@
 | [12. デバッグとインシデント事後分析](./12-debugging-and-incident-postmortem.md) | バグの根本原因調査と Production 障害の事後分析を扱う 2 つの Skill を使い分ける方法 |
 | [13. コード構造と保守性の管理](./16-code-structure-and-maintainability.md) | 構造が悪い、または保守しづらいコードを整理・再構成・検証する 4 つの Skill の使い方と、それらが連携して働く順序 |
 | [14. クラウドインフラの管理](./17-infrastructure-and-cloud.md) | `ywc-infra-design`、`ywc-iac-author`、`ywc-infra-review`、`ywc-infra-optimize` を判断表と 4 ステップのパイプラインで整理し、`ywc-cloud-engineer` agent へ橋渡しする |
+| [15. 認証機能の実装](./18-authentication-implementation.md) | `ywc-auth-implement` が preflight -> ポリシー面談 -> 推奨 -> dispatch の流れをどう進め、security / E2E / PR gate をどう強制するか |
 
 ### リファレンス (Reference)
 
 | ページ | 説明 |
 |---|---|
-| [15. Executor / Code-gen Prompt パターン](./13-executor-and-codegen-patterns.md) | オプションが多い `ywc-sequential-executor` / `ywc-parallel-executor` / `ywc-code-gen` の実践 command 集 |
-| [16. 全 Skill リファレンス](./14-skill-reference.md) | 上記ガイドで扱わなかった残りの Skill を状況別に整理した索引 |
-| [17. 事前準備とインストール](./15-prerequisites-installation.md) | ywc-* Skill を安定して実行するために事前に準備すべき必須/選択 Tool の一覧 |
+| [16. Executor / Code-gen Prompt パターン](./13-executor-and-codegen-patterns.md) | オプションが多い `ywc-sequential-executor` / `ywc-parallel-executor` / `ywc-code-gen` の実践 command 集 |
+| [17. 全 Skill リファレンス](./14-skill-reference.md) | 上記ガイドで扱わなかった残りの Skill を状況別に整理した索引 |
+| [18. 事前準備とインストール](./15-prerequisites-installation.md) | ywc-* Skill を安定して実行するために事前に準備すべき必須/選択 Tool の一覧 |
 
 ## 原資料
 
