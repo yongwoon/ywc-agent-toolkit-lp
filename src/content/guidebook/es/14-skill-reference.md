@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 16. Referencia completa Skill
+# 17. Referencia completa Skill
 
 Esta página agrupa las Habilidades restantes que no se cubrieron en las guías de flujo de trabajo anteriores según **lo que deseas hacer**. Úsala cuando sea necesario en medio de cada flujo: ciclo Pequeño/Mediano/Grande, nuevo proyecto, incorporación, pruebas o diseño.
 
@@ -316,9 +316,10 @@ Todas las skills `ywc-*` de este toolkit, ordenadas alfabéticamente. Consulta l
 |---|---|---|
 | `ywc-agent-legibility-audit` | Quieres medir el costo de tokens y la legibilidad del código desde la perspectiva de un agent | [13](./16-code-structure-and-maintainability.md) |
 | `ywc-agentic` | Quieres dar un objetivo y dejar que la planificación hasta la implementación se ejecute sin intervención humana | [aquí](#quieres-dar-un-objetivo-y-dejar-que-la-planificación-hasta-la-implementación-se-ejecute-sin-intervención-humana) |
+| `ywc-auth-implement` | Implementa una funcionalidad de autenticación con las decisiones de política definidas antes de escribir código | [15](./18-authentication-implementation.md) |
 | `ywc-brainstorm` | Tu idea aún no es concreta y quieres aclararla primero | [aquí](#tu-idea-aún-no-es-concreta-y-quieres-aclararla-primero) |
 | `ywc-changelog-release-notes` | Escribe CHANGELOG.md o notas de la versión para el usuario | [aquí](#escribe-changelogmd-o-notas-de-la-versión-para-el-usuario) |
-| `ywc-code-gen` | Skill de generación de código multicapa que genera Backend/Frontend/QA en paralelo | [15](./13-executor-and-codegen-patterns.md) |
+| `ywc-code-gen` | Skill de generación de código multicapa que genera Backend/Frontend/QA en paralelo | [16](./13-executor-and-codegen-patterns.md) |
 | `ywc-commit` | Simplemente confirma el trabajo realizado hasta ahora | [aquí](#simplemente-confirma-el-trabajo-realizado-hasta-ahora) |
 | `ywc-confidence-gate` | Un confidence gate que puntúa PROCEED/REVIEW/STOP para decidir si un artefacto puede avanzar a la siguiente etapa | [06](./06-agentic-autonomous-loop.md) |
 | `ywc-create-pr` | Confirmar cambios y abrir un borrador PR | [aquí](#confirmar-cambios-y-abrir-un-borrador-pr) |
@@ -339,7 +340,7 @@ Todas las skills `ywc-*` de este toolkit, ordenadas alfabéticamente. Consulta l
 | `ywc-merge-dependabot` | Limpiar de una vez los PRs acumulados de Dependabot | [aquí](#limpiar-de-una-vez-los-prs-acumulados-de-dependabot) |
 | `ywc-mission` | Registra el porqué del proyecto y los enfoques rechazados | [aquí](#registra-el-porqué-del-proyecto-y-los-enfoques-rechazados) |
 | `ywc-onboard-repo` | Skill de onboarding que deduce las convenciones de un repo desconocido y genera un CLAUDE.md | [08](./08-onboarding-existing-repo.md) |
-| `ywc-parallel-executor` | Ejecuta múltiples Tasks en paralelo usando worktrees aislados | [15](./13-executor-and-codegen-patterns.md) |
+| `ywc-parallel-executor` | Ejecuta múltiples Tasks en paralelo usando worktrees aislados | [16](./13-executor-and-codegen-patterns.md) |
 | `ywc-plan` | Skill de punto de entrada que redacta un plan de implementación para una función o cambio | [04](./04-general-cycle-small.md) |
 | `ywc-product-review` | Quieres una revisión del proyecto desde una perspectiva de negocio/servicio, no de código | [aquí](#quieres-una-revisión-del-proyecto-desde-una-perspectiva-de-negocioservicio-no-de-código) |
 | `ywc-project-docs` | Genera documentación del proyecto siguiendo la estructura del directorio docs/ | [07](./07-starting-a-new-project.md) |
@@ -349,7 +350,7 @@ Todas las skills `ywc-*` de este toolkit, ordenadas alfabéticamente. Consulta l
 | `ywc-release-pr-list` | Resume la lista de PRs fusionados incluidos en una Release PR (develop->main, etc.) | [aquí](#resume-la-lista-de-prs-fusionados-incluidos-en-una-release-pr-develop-main-etc) |
 | `ywc-review-learnings` | Enseñe al sistema sobre la retroalimentación repetida de la revisión de código para que no genere el mismo falso positivo nuevamente | [aquí](#enseñe-al-sistema-sobre-la-retroalimentación-repetida-de-la-revisión-de-código-para-que-no-genere-el-mismo-falso-positivo-nuevamente) |
 | `ywc-security-audit` | Revisa las vulnerabilidades de seguridad en el código sensible, como autenticación/pagos | [aquí](#revisa-las-vulnerabilidades-de-seguridad-en-el-código-sensible-como-autenticaciónpagos) |
-| `ywc-sequential-executor` | Ejecuta múltiples Tasks uno a la vez, en orden | [15](./13-executor-and-codegen-patterns.md) |
+| `ywc-sequential-executor` | Ejecuta múltiples Tasks uno a la vez, en orden | [16](./13-executor-and-codegen-patterns.md) |
 | `ywc-setup` | Configurar un idioma de salida persistente para que las skills no lo pidan cada vez | [aquí](#configurar-un-idioma-de-salida-persistente-para-que-las-skills-no-lo-pidan-cada-vez) |
 | `ywc-skill-author` | Quieres crear una nueva skill ywc-*, o ordenar/auditar una skill existente según las reglas | [aquí](#quieres-crear-una-nueva-skill-ywc--o-ordenarauditar-una-skill-existente-según-las-reglas) |
 | `ywc-spec-ready` | Gate que verifica si un documento spec está listo para implementarse | [05](./05-general-cycle-medium-large.md) |
@@ -365,4 +366,4 @@ Todas las skills `ywc-*` de este toolkit, ordenadas alfabéticamente. Consulta l
 
 ---
 
-[Previous: 15. Executor / Patrones de indicación de generación de código](./13-executor-and-codegen-patterns.md) - [Next: 17. Requisitos previos e instalación](./15-prerequisites-installation.md)
+[Previous: 16. Executor / Patrones de indicación de generación de código](./13-executor-and-codegen-patterns.md) - [Next: 18. Requisitos previos e instalación](./15-prerequisites-installation.md)

@@ -95,4 +95,4 @@
 
 ---
 
-[Previous: 13. 管理代码结构与可维护性](./16-code-structure-and-maintainability.md) - [Next: 15. Executor / 代码生成提示模式](./13-executor-and-codegen-patterns.md)
+[Previous: 13. 管理代码结构与可维护性](./16-code-structure-and-maintainability.md) - [Next: 15. 实现身份验证](./18-authentication-implementation.md)
