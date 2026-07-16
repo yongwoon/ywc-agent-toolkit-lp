@@ -12,15 +12,54 @@ Use `ywc-auth-implement` when a project needs a new authentication feature — s
 
 ## How the flow works
 
-**Preflight gate.** Before any question is asked, the Skill runs five idempotent checks: reuse a `feature/<auth-slug>` branch if one exists (only cutting a new branch from a long-lived branch); add only missing `.env.example` placeholders, never overwriting or exposing real values; route to `ywc-tech-research` first if framework/database evidence is insufficient; hard-stop with `NEEDS_CONTEXT` if existing auth is detected, until you choose `new`, `extend`, or `migrate`; and label any ToS/Privacy Policy draft "draft pending legal review" from its first line onward.
+**Step 1: Preflight gate**
 
-**9-category policy interview.** One focused round covers: sign-in method and OAuth provider readiness, MFA enrollment and recovery, session storage/TTL/rotation/revocation/device management, password reset and the hashing-library boundary, profile fields, account deletion and re-authentication, shallow RBAC (roles, defaults, claims), consent versioning/collection/withdrawal, and abuse prevention (rate limiting, verification, recovery controls). Each answer is recorded as approved, explicitly deferred with its risk stated, or not applicable.
+Before any question is asked, the Skill runs five idempotent checks:
 
-**Dynamic recommendation.** From your stack evidence and approved policy answers, the Skill recommends a battle-tested library or managed service — never a fixed "supported stack" list. When evidence is thin, it falls back to real-time research via `ywc-tech-research`.
+- Reuse a `feature/<auth-slug>` branch if one exists (only cutting a new branch from a long-lived branch).
+- Add only missing `.env.example` placeholders — never overwrite or expose real values.
+- Route to `ywc-tech-research` first if framework/database evidence is insufficient.
+- Hard-stop with `NEEDS_CONTEXT` if existing auth is detected, until you choose `new`, `extend`, or `migrate`.
+- Label any ToS/Privacy Policy draft "draft pending legal review" from its first line onward.
 
-**Implementation dispatch.** The Skill orchestrates; it does not write the auth code itself. It dispatches three agents, each following `ywc-tdd-ritual` (RED → verify RED → GREEN → verify GREEN → REFACTOR → verify GREEN): `ywc-backend-coder` for the approved backend policy (never hand-rolling password hashing, token signing, or secret crypto), `ywc-frontend-coder` for sign-in/sign-up forms, MFA enrollment UI, and session-aware routing, and `ywc-doc-writer` for the ToS/Privacy Policy draft.
+**Step 2: 9-category policy interview**
 
-**Gates.** Once the dispatched work lands, `ywc-security-audit` runs against the diff: zero Critical/High findings proceeds to a policy-conditional `ywc-e2e-test-strategy` pass covering only the approved flows (sign-up/sign-in, password reset, account deletion, one flow per configured OAuth provider, MFA if approved); any Critical/High finding returns `DONE_WITH_CONCERNS` and skips E2E and PR creation until remediated. Only after both gates pass does the Skill suggest `ywc-create-pr` — never automatically.
+One focused round covers:
+
+- Sign-in method and OAuth provider readiness
+- MFA enrollment and recovery
+- Session storage/TTL/rotation/revocation/device management
+- Password reset and the hashing-library boundary
+- Profile fields
+- Account deletion and re-authentication
+- Shallow RBAC (roles, defaults, claims)
+- Consent versioning/collection/withdrawal
+- Abuse prevention (rate limiting, verification, recovery controls)
+
+Each answer is recorded as approved, explicitly deferred with its risk stated, or not applicable.
+
+**Step 3: Dynamic recommendation**
+
+From your stack evidence and approved policy answers, the Skill recommends a battle-tested library or managed service — never a fixed "supported stack" list. When evidence is thin, it falls back to real-time research via `ywc-tech-research`.
+
+**Step 4: Implementation dispatch**
+
+The Skill orchestrates; it does not write the auth code itself. It dispatches three agents, each following `ywc-tdd-ritual` (RED → verify RED → GREEN → verify GREEN → REFACTOR → verify GREEN):
+
+- `ywc-backend-coder` for the approved backend policy — never hand-rolling password hashing, token signing, or secret crypto.
+- `ywc-frontend-coder` for sign-in/sign-up forms, MFA enrollment UI, and session-aware routing.
+- `ywc-doc-writer` for the ToS/Privacy Policy draft.
+
+**Step 5: Security, E2E, and PR gates**
+
+Once the dispatched work lands, `ywc-security-audit` runs against the diff:
+
+| Audit result | What happens next |
+|---|---|
+| Zero Critical/High findings | Proceeds to a policy-conditional `ywc-e2e-test-strategy` pass covering only the approved flows (sign-up/sign-in, password reset, account deletion, one flow per configured OAuth provider, MFA if approved) |
+| Any Critical/High finding | Returns `DONE_WITH_CONCERNS`; E2E and PR creation are skipped until remediated |
+
+Only after both gates pass does the Skill suggest `ywc-create-pr` — never automatically.
 
 ## `ywc-auth-implement`
 
