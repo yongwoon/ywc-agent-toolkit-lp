@@ -22,23 +22,23 @@ export async function SiteHeader({ locale }: SiteHeaderProps) {
   const starCount = githubStats.stars.toLocaleString("en-US");
 
   return (
-    <header className="sticky top-0 z-[var(--z-header)] border-b border-border-subtle bg-[rgba(11,10,9,.86)] backdrop-blur-[12px]">
+    <header className="sticky top-0 z-[var(--z-header)] border-b border-border-subtle bg-[var(--bg-translucent)] backdrop-blur-[12px]">
       <div className="mx-auto flex min-h-[64px] max-w-[var(--container-wide)] items-center gap-3 px-[var(--gutter)]">
         <a
           aria-label={`${t("wordmark")} home`}
-          className="flex min-w-0 items-center gap-1.5 font-mono text-[var(--text-mono)] font-semibold text-text-bright outline-none focus-visible:shadow-[var(--focus-ring)]"
+          className="flex shrink-0 items-center gap-1.5 font-mono text-[var(--text-mono)] font-semibold text-text-bright outline-none focus-visible:shadow-[var(--focus-ring)]"
           href="#top"
         >
           <span className="text-accent">$</span>
-          <span className="truncate">ywc</span>
-          <span className="hidden truncate text-text-muted sm:inline">
+          <span>ywc</span>
+          <span className="hidden text-text-muted sm:inline">
             -agent-toolkit
           </span>
         </a>
 
         <nav
           aria-label="Primary navigation"
-          className="ml-5 hidden items-center gap-5 md:flex"
+          className="ml-5 hidden items-center gap-5 lg:flex"
         >
           {links.map((link) => (
             <a
@@ -70,7 +70,7 @@ export async function SiteHeader({ locale }: SiteHeaderProps) {
           </Button>
         </div>
 
-        <details className="group relative ml-auto sm:ml-0 md:hidden">
+        <details className="group relative ml-auto sm:ml-0 lg:hidden">
           <summary
             aria-label="Open navigation"
             className="inline-flex size-9 cursor-pointer list-none items-center justify-center rounded-sm border border-border-subtle bg-surface-raised font-mono text-lg text-text-bright outline-none transition-[background-color,border-color,color] duration-[var(--dur-fast)] hover:border-accent hover:bg-[var(--accent-tint)] hover:text-accent focus-visible:shadow-[var(--focus-ring)] [&::-webkit-details-marker]:hidden"

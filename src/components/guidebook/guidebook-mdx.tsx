@@ -123,7 +123,7 @@ export function GuidebookMdx({ source, locale }: GuidebookMdxProps) {
         code: ({ children, ...props }) => (
           <code
             {...props}
-            className="rounded-xs border border-border-subtle bg-surface-raised px-1.5 py-0.5 font-mono text-[0.9em] text-amber-300"
+            className="rounded-xs border border-border-subtle bg-surface-raised px-1.5 py-0.5 font-mono text-[0.9em] text-accent"
           >
             {children}
           </code>
@@ -135,7 +135,7 @@ export function GuidebookMdx({ source, locale }: GuidebookMdxProps) {
         blockquote: (props) => (
           <blockquote
             {...props}
-            className="my-6 border border-[rgba(245,166,35,.3)] bg-[var(--accent-tint)] px-4 py-3 text-text-secondary before:mr-3 before:font-mono before:text-accent before:content-['!']"
+            className="my-6 border border-[var(--amber-tint-strong)] bg-[var(--accent-tint)] px-4 py-3 text-text-secondary before:mr-3 before:font-mono before:text-accent before:content-['!']"
           />
         ),
         table: (props) => (
