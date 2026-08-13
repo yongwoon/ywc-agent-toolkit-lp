@@ -234,6 +234,12 @@
       "target": "https://github.com/yongwoon/ywc-agent-toolkit/blob/main/CONTRIBUTING.md"
     }
   },
+  "changelog": {
+    "eyebrow": "Activity",
+    "title": "Recent updates",
+    "description": "The last few tagged releases from the toolkit's own CHANGELOG, pulled at every build.",
+    "fullHistoryLabel": "Full history on GitHub"
+  },
   "faq": {
     "title": "FAQ",
     "items": [

@@ -2,6 +2,7 @@ import { hasLocale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
+import { ChangelogSection } from "@/components/sections/changelog";
 import { Faq } from "@/components/sections/faq";
 import { FeatureGrid } from "@/components/sections/feature-grid";
 import { Hero } from "@/components/sections/hero";
@@ -36,6 +37,7 @@ export default async function LocaleHomePage({ params }: LocaleHomePageProps) {
         <FeatureGrid />
         <InstallSteps />
         <SocialProof />
+        <ChangelogSection />
         <Faq />
       </main>
       <SiteFooter locale={locale as Locale} />
