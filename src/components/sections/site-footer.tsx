@@ -21,6 +21,15 @@ function isExternalLink(target: string) {
   return target.startsWith("http://") || target.startsWith("https://");
 }
 
+function isRootRelativeStaticAsset(target: string) {
+  if (!target.startsWith("/")) {
+    return false;
+  }
+
+  const finalSegment = target.split("/").pop() ?? "";
+  return finalSegment.includes(".");
+}
+
 export async function SiteFooter({ locale }: SiteFooterProps) {
   const t = await getTranslations("footer");
   const groups = t.raw("groups") as FooterGroup[];
@@ -49,12 +58,16 @@ export async function SiteFooter({ locale }: SiteFooterProps) {
             <ul className="mt-4 grid gap-3">
               {group.links.map((link) => {
                 const external = isExternalLink(link.target);
+                const rootRelativeAsset = !external && isRootRelativeStaticAsset(link.target);
+                const href = external || rootRelativeAsset
+                  ? link.target
+                  : resolveLocalizedHref(locale, link.target);
 
                 return (
                   <li key={link.target}>
                     <a
                       className="text-[var(--text-body)] leading-[var(--lh-normal)] text-text-secondary underline-offset-4 hover:text-link hover:underline focus-visible:outline-none focus-visible:shadow-[var(--focus-ring)]"
-                      href={external ? link.target : resolveLocalizedHref(locale, link.target)}
+                      href={href}
                       rel={external ? "noreferrer" : undefined}
                       target={external ? "_blank" : undefined}
                     >
