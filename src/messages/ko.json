@@ -322,6 +322,15 @@
             "target": "https://github.com/yongwoon/ywc-agent-toolkit/blob/main/LICENSE"
           }
         ]
+      },
+      {
+        "title": "에이전트",
+        "links": [
+          {
+            "label": "llms.txt",
+            "target": "/llms.txt"
+          }
+        ]
       }
     ],
     "copyright": "© 2026 yongwoon. ywc-agent-toolkit은 open source project입니다."
