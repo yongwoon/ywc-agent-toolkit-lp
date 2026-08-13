@@ -19,8 +19,6 @@ type TopBarProps = {
   onSidebarToggle: () => void;
 };
 
-const navItems = ["Docs", "Skills", "Agents", "Hooks"];
-
 export function TopBar({ locale, sidebarOpen, onSidebarToggle }: TopBarProps) {
   const pathname = usePathname();
   const activeSlug = getGuidebookSlugFromPathname(pathname);
@@ -50,20 +48,12 @@ export function TopBar({ locale, sidebarOpen, onSidebarToggle }: TopBarProps) {
         </a>
 
         <nav aria-label="Guidebook sections" className="hidden items-center gap-5 min-[861px]:flex">
-          {navItems.map((item) => (
-            <a
-              className="font-mono text-[var(--text-mono-sm)] font-semibold text-text-muted outline-none transition-colors duration-[var(--dur-fast)] hover:text-accent focus-visible:shadow-[var(--focus-ring)] data-[active=true]:text-accent"
-              data-active={item === "Docs"}
-              href={
-                item === "Docs"
-                  ? withBasePath(getGuidebookRootHref(locale))
-                  : withBasePath(`/${locale}/`)
-              }
-              key={item}
-            >
-              {item}
-            </a>
-          ))}
+          <a
+            className="font-mono text-[var(--text-mono-sm)] font-semibold text-accent outline-none transition-colors duration-[var(--dur-fast)] hover:text-accent focus-visible:shadow-[var(--focus-ring)]"
+            href={withBasePath(getGuidebookRootHref(locale))}
+          >
+            Docs
+          </a>
         </nav>
 
         <SearchModal locale={locale} />
