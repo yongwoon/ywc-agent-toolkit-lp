@@ -1,4 +1,14 @@
+import { readFile, writeFile } from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { spawnSync } from "node:child_process";
+
 import { parseChangelog } from "../scripts/generate-toolkit-changelog.mjs";
+
+const currentDir = path.dirname(fileURLToPath(import.meta.url));
+const rootDir = path.resolve(currentDir, "..");
+const catalogPath = path.join(rootDir, "src/data/toolkit-changelog.json");
+const fetchOverridePath = path.join(rootDir, "test/build-verification/force-network-failure.mjs");
 
 let failed = false;
 
@@ -115,6 +125,50 @@ assert(
 // --- fallback contract: existing committed cache survives a parse failure ---
 const emptyResult = parseChangelog("# Changelog\n\n## Unreleased\n\n### Added\n\n* nothing dated here\n");
 assert(emptyResult.length === 0, "a changelog with no dated entries yields an empty array (caller falls back to cache)");
+
+// --- long-highlight truncation (140-char budget with ellipsis) ---
+const longBullet = "x".repeat(200);
+const longFixture = `## [9.9.9] (2026-01-01)\n\n### Added\n\n* ${longBullet}\n`;
+const longEntries = parseChangelog(longFixture);
+const longHighlight = longEntries[0]?.highlights[0] ?? "";
+assert(longHighlight.length === 141, `highlight over 140 chars is truncated with an ellipsis (got length ${longHighlight.length})`);
+assert(longHighlight.endsWith("…"), "truncated highlight ends with an ellipsis");
+
+const shortBullet = "short highlight text";
+const shortFixture = `## [9.9.8] (2026-01-01)\n\n### Added\n\n* ${shortBullet}\n`;
+const shortEntries = parseChangelog(shortFixture);
+assert(shortEntries[0]?.highlights[0] === shortBullet, "a highlight at or under 140 chars is left untruncated");
+
+// --- generator-level forced network failure: cache is preserved, process exits 0 ---
+async function verifyGeneratorFallback() {
+  const catalogBackup = await readFile(catalogPath, "utf8").catch(() => null);
+  assert(catalogBackup !== null, "committed src/data/toolkit-changelog.json exists as the fallback source");
+
+  if (catalogBackup === null) {
+    return;
+  }
+
+  try {
+    const result = spawnSync(
+      process.execPath,
+      ["--import", fetchOverridePath, "scripts/generate-toolkit-changelog.mjs"],
+      { cwd: rootDir, encoding: "utf8" }
+    );
+
+    assert(result.status === 0, "generate-toolkit-changelog.mjs exits 0 when GitHub is unreachable");
+    assert(
+      /falling back to cached catalog/.test(result.stderr ?? ""),
+      "logs a fallback warning naming the cause"
+    );
+
+    const catalogAfter = await readFile(catalogPath, "utf8");
+    assert(catalogAfter === catalogBackup, "committed cache is left untouched on fallback");
+  } finally {
+    await writeFile(catalogPath, catalogBackup);
+  }
+}
+
+await verifyGeneratorFallback();
 
 if (failed) {
   console.error("[changelog-verification] one or more assertions failed.");
