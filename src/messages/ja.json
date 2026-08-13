@@ -234,6 +234,12 @@
       "target": "https://github.com/yongwoon/ywc-agent-toolkit/blob/main/CONTRIBUTING.md"
     }
   },
+  "changelog": {
+    "eyebrow": "アクティビティ",
+    "title": "最近の更新",
+    "description": "ビルドのたびに取得される、toolkit 自身の CHANGELOG からの直近のタグ付きリリース。",
+    "fullHistoryLabel": "GitHub で全履歴を見る"
+  },
   "faq": {
     "title": "FAQ",
     "items": [
@@ -320,6 +326,15 @@
           {
             "label": "License",
             "target": "https://github.com/yongwoon/ywc-agent-toolkit/blob/main/LICENSE"
+          }
+        ]
+      },
+      {
+        "title": "エージェント",
+        "links": [
+          {
+            "label": "llms.txt",
+            "target": "/llms.txt"
           }
         ]
       }

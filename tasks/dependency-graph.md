@@ -125,6 +125,29 @@
 - **Phase 000023 내부 병렬성**: `000023-010`(직접 리넘버링 4개 페이지 + A-Z 테이블)과 `000023-020`(추가 교차 참조 4개 페이지 + README + skill-links.ts)은 `000022-010` 완료 후 서로 완전히 병렬로 실행 가능하다 — 두 task 모두 Ownership이 완전히 disjoint한 파일 세트만 소유하며 Conflicts With가 없다.
 - **Phase 000021/000022/000023/000024 llm 모드 통합**: 이 배치는 `ywc-task-generator --mode llm`로 생성되었다. Phase 000017-000020(infra 페이지, 4개 skill)과 동일한 구조를 따르되, 이번 spec은 단일 skill(`ywc-auth-implement`)이므로 신규 페이지 자체의 스코프가 더 작다(`000022-010`이 `<ToolTabs>` 1개만 포함, infra의 4개 대비). 원자적 3-way 등록 요구(FR-2: nav + slugs + 5개 로케일 콘텐츠가 같은 커밋에 있어야 `generate-search-index.mjs`가 실패하지 않음)로 인해 `000022-010`은 mode와 무관하게 단일 task로 유지된다.
 
+## Phase 000025 — Agent Catalog Foundation
+- `000025-010-config-generate-llms-catalog` → depends on `000024-010-test-verify-guidebook-auth-implement-build`
+
+## Phase 000026 — Agent Catalog Integration and Verification
+- `000026-010-ui-footer-llms-link` → depends on `000025-010-config-generate-llms-catalog`
+- `000026-020-test-llms-build-verification` → depends on `000025-010-config-generate-llms-catalog`, `000026-010-ui-footer-llms-link`
+
+## Parallel Execution Notes
+- Initial ready set: `000025-010-config-generate-llms-catalog` after Phase `000024` is merged.
+- After `000025-010-config-generate-llms-catalog` merges: `000026-010-ui-footer-llms-link` becomes runnable.
+- After `000026-010-ui-footer-llms-link` merges: `000026-020-test-llms-build-verification` becomes runnable.
+- `000027-010-config-generate-toolkit-changelog` modifies the same `package.json` `prebuild` surface as `000025-010`; the Phase 000026 hard gate keeps them sequential and removes concurrent ownership.
+- The footer task and verification task must not run in parallel because the verification task targets the footer DOM contract and test surfaces.
+- After `000026-020-test-llms-build-verification` merges: `000027-010-config-generate-toolkit-changelog` becomes runnable.
+- After `000027-010-config-generate-toolkit-changelog` merges: `000027-020-ui-changelog-section` becomes runnable.
+- After `000027-020-ui-changelog-section` merges: `000027-030-test-changelog-build-verification` becomes runnable.
+- The three Phase 000027 tasks are sequential; generator/cache, UI/message, and verification surfaces must not run concurrently.
+
+## Phase 000027 — Toolkit Changelog Recent Updates
+- `000027-010-config-generate-toolkit-changelog` → depends on `000026-020-test-llms-build-verification`
+- `000027-020-ui-changelog-section` → depends on `000027-010-config-generate-toolkit-changelog`
+- `000027-030-test-changelog-build-verification` → depends on `000027-020-ui-changelog-section`
+
 ## Visual Dependency Graph
 
 ```mermaid
@@ -267,6 +290,24 @@ graph LR
     W1 --> X1
     W2 --> X1
   end
+  subgraph Phase 000025
+    Y1[000025-010-config-generate-llms-catalog]
+    X1 --> Y1
+  end
+  subgraph Phase 000026
+    Z1[000026-010-ui-footer-llms-link]
+    Z2[000026-020-test-llms-build-verification]
+    Y1 --> Z1
+    Z1 --> Z2
+  end
+  subgraph Phase 000027
+    AA1[000027-010-config-generate-toolkit-changelog]
+    AA2[000027-020-ui-changelog-section]
+    AA3[000027-030-test-changelog-build-verification]
+    Z2 --> AA1
+    AA1 --> AA2
+    AA2 --> AA3
+  end
 ```
 
 ## Open Questions
@@ -288,3 +329,4 @@ graph LR
 15. **신규 Guidebook 페이지("Implementing Authentication")의 정확한 title/description 문구**: `docs/ywc-plans/guidebook-auth-implement-page.md`의 Open Questions에서 실행자 재량으로 남겨져 있다 — `000022-010` 실행자가 `en/18-authentication-implementation.md` 작성 시 최종 문구를 확정하고, `guidebook-nav.ts`의 `title`/`description`과 나머지 4개 로케일이 그 결정을 따라간다.
 16. **README.md에 인증 관련 Quick Links 행 문구를 어떻게 쓸지**: 같은 spec의 Open Questions에서 실행자 재량으로 남겨져 있다(AC4 충족에는 불필요) — `000023-020` 실행자가 판단한다.
 17. **`ywc-spec-validate` Warning 2건이 spec 본문에는 아직 반영되지 않음**: `docs/ywc-plans/guidebook-auth-implement-page.md:16`의 "single-skill dedicated pages" 자기모순 라벨과 `:50`의 `17-infrastructure-and-cloud.md` footer "Previous" 텍스트 stale citation은 `ywc-spec-ready`가 Critical 없음으로 DONE 판정해 재계획 없이 넘어갔다 — 둘 다 task 분해 자체에는 영향이 없다(`000022-010`/`000023-010`은 이 task-generator 실행 시점에 직접 재확인한 실제 파일 상태를 기준으로 작성되었으므로, spec 본문의 stale citation을 그대로 옮기지 않았다). spec 문서 자체의 가독성을 위해 정정이 필요하면 별도로 `ywc-plan --update-spec`을 실행할 수 있다.
+18. **`20260813-changelog-section`의 no-AC 요구사항**: 5개 표시 개수의 최종 적정성, Guidebook 확장 여부, 향후 `Breaking`/`Security` subsection 우선순위는 명세에 backing Acceptance Criterion이 없어 task로 생성하지 않았다. 필요 시 별도 spec 결정 후 재계획한다.

@@ -234,6 +234,12 @@
       "target": "https://github.com/yongwoon/ywc-agent-toolkit/blob/main/CONTRIBUTING.md"
     }
   },
+  "changelog": {
+    "eyebrow": "Actividad",
+    "title": "Actualizaciones recientes",
+    "description": "Las últimas versiones etiquetadas del CHANGELOG del propio toolkit, obtenidas en cada build.",
+    "fullHistoryLabel": "Ver historial completo en GitHub"
+  },
   "faq": {
     "title": "FAQ",
     "items": [
@@ -320,6 +326,15 @@
           {
             "label": "License",
             "target": "https://github.com/yongwoon/ywc-agent-toolkit/blob/main/LICENSE"
+          }
+        ]
+      },
+      {
+        "title": "Agentes",
+        "links": [
+          {
+            "label": "llms.txt",
+            "target": "/llms.txt"
           }
         ]
       }

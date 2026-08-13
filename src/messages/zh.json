@@ -234,6 +234,12 @@
       "target": "https://github.com/yongwoon/ywc-agent-toolkit/blob/main/CONTRIBUTING.md"
     }
   },
+  "changelog": {
+    "eyebrow": "动态",
+    "title": "近期更新",
+    "description": "每次构建时抓取的、toolkit 自身 CHANGELOG 中的最近打标签发布。",
+    "fullHistoryLabel": "在 GitHub 上查看完整历史"
+  },
   "faq": {
     "title": "FAQ",
     "items": [
@@ -320,6 +326,15 @@
           {
             "label": "License",
             "target": "https://github.com/yongwoon/ywc-agent-toolkit/blob/main/LICENSE"
+          }
+        ]
+      },
+      {
+        "title": "智能体",
+        "links": [
+          {
+            "label": "llms.txt",
+            "target": "/llms.txt"
           }
         ]
       }
