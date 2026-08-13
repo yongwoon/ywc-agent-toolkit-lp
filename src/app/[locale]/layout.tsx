@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, IBM_Plex_Sans, Space_Grotesk } from "next/font/google";
+import { IBM_Plex_Mono, Source_Sans_3, Source_Serif_4 } from "next/font/google";
 import type { ReactNode } from "react";
 import "../globals.css";
 import { hasLocale } from "next-intl";
@@ -9,17 +9,17 @@ import { routing, type Locale } from "@/i18n/routing";
 import { withBasePath } from "@/lib/base-path";
 import { buildJsonLd, buildMetadata } from "@/lib/seo";
 
-const spaceGrotesk = Space_Grotesk({
+const sourceSerif = Source_Serif_4({
   display: "swap",
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  variable: "--font-source-serif",
   weight: ["700"]
 });
 
-const ibmPlexSans = IBM_Plex_Sans({
+const sourceSans = Source_Sans_3({
   display: "swap",
   subsets: ["latin"],
-  variable: "--font-ibm-plex-sans",
+  variable: "--font-source-sans",
   weight: ["400"]
 });
 
@@ -71,7 +71,7 @@ export default async function LocaleLayout({
 
   return (
     <html
-      className={`${spaceGrotesk.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable}`}
+      className={`${sourceSerif.variable} ${sourceSans.variable} ${ibmPlexMono.variable}`}
       lang={locale}
     >
       <head>

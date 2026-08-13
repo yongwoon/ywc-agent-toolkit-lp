@@ -25,7 +25,7 @@ export function TopBar({ locale, sidebarOpen, onSidebarToggle }: TopBarProps) {
   const starCount = githubStats.stars.toLocaleString("en-US");
 
   return (
-    <header className="sticky top-0 z-40 h-[60px] border-b border-border-subtle bg-[rgba(11,10,9,.85)] backdrop-blur-[12px]">
+    <header className="sticky top-0 z-40 h-[60px] border-b border-border-subtle bg-[var(--bg-translucent)] backdrop-blur-[12px]">
       <div className="mx-auto flex h-full max-w-[1560px] items-center gap-4 px-4 md:px-6">
         <button
           aria-controls="guidebook-sidebar"
@@ -39,12 +39,12 @@ export function TopBar({ locale, sidebarOpen, onSidebarToggle }: TopBarProps) {
         </button>
 
         <a
-          className="flex min-w-0 items-center gap-1.5 font-mono text-[var(--text-mono)] font-semibold text-text-bright outline-none focus-visible:shadow-[var(--focus-ring)]"
+          className="flex shrink-0 items-center gap-1.5 font-mono text-[var(--text-mono)] font-semibold text-text-bright outline-none focus-visible:shadow-[var(--focus-ring)]"
           href={withBasePath(`/${locale}/`)}
         >
           <span className="text-accent">$</span>
-          <span className="truncate">ywc</span>
-          <span className="hidden truncate text-text-muted sm:inline">-agent-toolkit</span>
+          <span>ywc</span>
+          <span className="hidden text-text-muted sm:inline">-agent-toolkit</span>
         </a>
 
         <nav aria-label="Guidebook sections" className="hidden items-center gap-5 min-[861px]:flex">

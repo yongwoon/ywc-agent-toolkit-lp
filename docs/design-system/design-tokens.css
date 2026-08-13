@@ -3,80 +3,83 @@
    Drop this into src/app/globals.css (below `@import "tailwindcss";`).
    These are the same tokens the design system ships; consumers
    reference the SEMANTIC aliases (--bg, --text, --accent, …), not
-   the raw ramps. Dark is the deliberate default; a light scope can
-   be added later as `[data-theme="light"] { … }` overriding aliases.
+   the raw ramps. Light is the deliberate default (see
+   .impeccable.md / docs/design-system/README.md for the 2026-08-13
+   renewal rationale — calm, readable, trustworthy over the prior
+   dark terminal-phosphor treatment).
    ============================================================ */
 
 :root {
-  /* ---------- COLOR · warm neutral ink ramp ---------- */
-  --ink-900: #0b0a09;  --ink-850: #100e0b;  --ink-800: #16130f;
-  --ink-750: #1c1813;  --ink-700: #221d16;  --ink-650: #2a241b;
-  --ink-600: #342c21;  --ink-500: #443a2c;  --ink-400: #5c503e;
-  --ink-350: #766752;  --ink-300: #8f7f68;  --ink-200: #b8ab93;
-  --ink-100: #e9e1d1;  --ink-050: #f8f3e8;
+  /* ---------- COLOR · warm neutral ink ramp (light-calibrated) ---------- */
+  --ink-025: #fdfbf5; --ink-050: #f8f3e8; --ink-100: #efe8d8;
+  --ink-200: #ded3ba; --ink-300: #c9b998; --ink-350: #b8a684;
+  --ink-400: #a89273; --ink-500: #8f7a5c; --ink-600: #6e5c44;
+  --ink-650: #5c4c38; --ink-700: #493c2c; --ink-750: #362c20;
+  --ink-800: #241d15; --ink-850: #17120c; --ink-900: #0b0a09;
 
-  /* ---------- COLOR · amber phosphor (primary) ---------- */
-  --amber-700: #b06f0e; --amber-600: #d98a12; --amber-500: #f5a623;
-  --amber-400: #ffbb4d; --amber-300: #ffd489;
+  /* ---------- COLOR · amber (primary), deepened for AA text contrast ---------- */
+  --amber-700: #7a4a08; --amber-600: #8a540a; --amber-500: #9c5c0a;
+  --amber-400: #f5a623; --amber-300: #ffd489;
   --amber-tint: rgba(245,166,35,0.14);
-  --amber-tint-strong: rgba(245,166,35,0.24);
-  --amber-glow: rgba(245,166,35,0.35);
+  --amber-tint-strong: rgba(245,166,35,0.22);
+  --bg-translucent: rgba(248,243,232,0.86);
+  --amber-glow: rgba(138,84,10,0.24);
 
   /* ---------- COLOR · cyan (secondary / links / Codex) ---------- */
-  --cyan-600: #2ea39c; --cyan-500: #45c7ce; --cyan-400: #74dfe2;
-  --cyan-tint: rgba(69,199,206,0.14);
+  --cyan-600: #1a6e6a; --cyan-500: #1f7d78; --cyan-400: #45c7ce;
+  --cyan-tint: rgba(26,110,106,0.12);
 
   /* ---------- COLOR · pipeline / review states ---------- */
-  --green-500: #57c877; --green-tint: rgba(87,200,119,0.14);
-  --red-500: #f0574e;   --red-tint: rgba(240,87,78,0.14);
-  --violet-500: #a78bfa; --violet-tint: rgba(167,139,250,0.14);
+  --green-500: #227a3c; --green-tint: rgba(34,122,60,0.12);
+  --red-500: #c73a31;   --red-tint: rgba(199,58,49,0.12);
+  --violet-500: #6d4fd1; --violet-tint: rgba(109,79,209,0.12);
 
   /* ---------- SEMANTIC ALIASES (use these) ---------- */
-  --bg: var(--ink-900);
-  --bg-subtle: var(--ink-850);
-  --surface: var(--ink-800);
-  --surface-hover: var(--ink-750);
-  --surface-raised: var(--ink-700);
-  --surface-raised-hover: var(--ink-650);
+  --bg: var(--ink-050);
+  --bg-subtle: var(--ink-100);
+  --surface: var(--ink-025);
+  --surface-hover: var(--ink-100);
+  --surface-raised: var(--ink-025);
+  --surface-raised-hover: var(--ink-200);
 
-  --border-strong: var(--ink-600);
-  --border: var(--ink-500);
-  --border-subtle: var(--ink-700);
-  --divider: var(--ink-400);
+  --border-strong: var(--ink-400);
+  --border: var(--ink-300);
+  --border-subtle: var(--ink-200);
+  --divider: var(--ink-350);
 
-  --text-bright: var(--ink-050);
-  --text: var(--ink-100);
-  --text-secondary: var(--ink-200);
-  --text-muted: var(--ink-300);
-  --text-faint: var(--ink-350);
-  --text-on-accent: #1a1204;
+  --text-bright: var(--ink-900);
+  --text: var(--ink-800);
+  --text-secondary: var(--ink-700);
+  --text-muted: var(--ink-650);
+  --text-faint: var(--ink-600);
+  --text-on-accent: var(--ink-025);
 
-  --accent: var(--amber-500);
-  --accent-hover: var(--amber-400);
-  --accent-press: var(--amber-600);
+  --accent: var(--amber-600);
+  --accent-hover: var(--amber-500);
+  --accent-press: var(--amber-700);
   --accent-tint: var(--amber-tint);
   --accent-glow: var(--amber-glow);
 
-  --link: var(--cyan-500);
-  --link-hover: var(--cyan-400);
+  --link: var(--cyan-600);
+  --link-hover: var(--cyan-500);
 
-  --prompt: var(--amber-500);
-  --caret: var(--amber-400);
-  --selection: rgba(245,166,35,0.28);
+  --prompt: var(--accent);
+  --caret: var(--accent-hover);
+  --selection: rgba(138,84,10,0.18);
 
-  --lane-claude: var(--amber-500);
-  --lane-codex: var(--cyan-500);
+  --lane-claude: var(--accent);
+  --lane-codex: var(--link);
 
   --state-pass: var(--green-500);
   --state-fail: var(--red-500);
-  --state-warn: var(--amber-500);
-  --state-info: var(--cyan-500);
+  --state-warn: var(--accent);
+  --state-info: var(--link);
   --state-agent: var(--violet-500);
 
   /* ---------- TYPE · families ---------- */
   --cjk-fallback: 'Noto Sans JP','Noto Sans KR','Noto Sans SC','Hiragino Sans','Yu Gothic','Malgun Gothic','Microsoft YaHei',sans-serif;
-  --font-display: 'Space Grotesk', var(--cjk-fallback);
-  --font-sans: 'IBM Plex Sans', var(--cjk-fallback);
+  --font-display: 'Source Serif 4', var(--cjk-fallback);
+  --font-sans: 'Source Sans 3', var(--cjk-fallback);
   --font-mono: 'IBM Plex Mono','SF Mono','JetBrains Mono',ui-monospace,'Noto Sans Mono CJK JP',monospace;
 
   /* ---------- TYPE · weights ---------- */
@@ -98,8 +101,8 @@
   --text-label: 0.75rem;
 
   /* ---------- TYPE · line-height & tracking ---------- */
-  --lh-tight: 1.02; --lh-snug: 1.15; --lh-normal: 1.5; --lh-relaxed: 1.65; --lh-mono: 1.55;
-  --ls-tighter: -0.03em; --ls-tight: -0.015em; --ls-normal: 0;
+  --lh-tight: 1.05; --lh-snug: 1.2; --lh-normal: 1.55; --lh-relaxed: 1.7; --lh-mono: 1.55;
+  --ls-tighter: -0.02em; --ls-tight: -0.01em; --ls-normal: 0;
   --ls-wide: 0.02em; --ls-label: 0.18em; --ls-label-lg: 0.28em;
 
   /* ---------- SPACING · 4px grid ---------- */
@@ -119,27 +122,23 @@
   --border-w: 1px; --border-w-thick: 1.5px;
   --control-h: 2.75rem; --control-h-sm: 2.25rem; --control-h-lg: 3.25rem;
 
-  /* ---------- SHADOWS & EDGES (dark UI) ---------- */
-  --shadow-sm: 0 1px 2px rgba(0,0,0,0.4);
-  --shadow-md: 0 4px 16px rgba(0,0,0,0.45);
-  --shadow-lg: 0 16px 48px rgba(0,0,0,0.55);
-  --shadow-xl: 0 32px 80px rgba(0,0,0,0.6);
-  --edge-top: inset 0 1px 0 rgba(255,255,255,0.05);
-  --edge-inset: inset 0 0 0 1px rgba(255,255,255,0.03);
-  --glow-accent: 0 0 0 1px var(--amber-500), 0 0 24px -4px var(--amber-glow);
-  --glow-accent-soft: 0 0 32px -8px var(--amber-glow);
-  --glow-cyan: 0 0 0 1px var(--cyan-500), 0 0 24px -6px rgba(69,199,206,0.4);
-  --focus-ring: 0 0 0 2px var(--bg), 0 0 0 4px var(--amber-500);
+  /* ---------- SHADOWS & EDGES (light UI: soft, low-opacity, warm-tinted) ---------- */
+  --shadow-sm: 0 1px 2px rgba(36,29,21,0.06);
+  --shadow-md: 0 4px 16px rgba(36,29,21,0.08);
+  --shadow-lg: 0 16px 40px rgba(36,29,21,0.10);
+  --shadow-xl: 0 28px 64px rgba(36,29,21,0.12);
+  --edge-top: 0 1px 2px rgba(36,29,21,0.05);
+  --edge-inset: inset 0 0 0 1px rgba(36,29,21,0.04);
+  --glow-accent: 0 0 0 1px var(--accent), 0 2px 10px -3px var(--accent-glow);
+  --glow-accent-soft: 0 2px 10px -4px var(--accent-glow);
+  --glow-cyan: 0 0 0 1px var(--link), 0 2px 10px -3px rgba(26,110,106,0.22);
+  --focus-ring: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
 
   /* ---------- MOTION (compositor-friendly) ---------- */
   --ease-out: cubic-bezier(0.16,1,0.3,1);
   --ease-in-out: cubic-bezier(0.65,0,0.35,1);
   --ease-linear: linear;
   --dur-instant: 90ms; --dur-fast: 150ms; --dur-base: 240ms; --dur-slow: 420ms; --dur-slower: 680ms;
-
-  /* ---------- TERMINAL TEXTURES ---------- */
-  --grid-line: rgba(245,166,35,0.045);
-  --scanline: rgba(255,255,255,0.015);
 
   /* ---------- Z-INDEX ---------- */
   --z-sticky: 100; --z-header: 200; --z-overlay: 300; --z-modal: 400;
@@ -148,8 +147,6 @@
 /* Page canvas (apply to <body>) */
 body {
   background-color: var(--bg);
-  background-image: radial-gradient(var(--grid-line) 1px, transparent 1px);
-  background-size: 32px 32px;
   color: var(--text);
   font-family: var(--font-sans);
 }

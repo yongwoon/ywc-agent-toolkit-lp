@@ -98,15 +98,27 @@ export async function serializeGuidebookMdx(
   });
 }
 
+// Content files open with a "back to table of contents" link and an H1 for
+// GitHub-browsing context; the guidebook page template already renders both
+// (breadcrumb + <h1>), so leaving them in the body would double-render them.
+function stripLeadingChrome(content: string): string {
+  return content
+    .replace(/^\[[^\]]*\]\([^)]*\)\s*\n+/, "")
+    .replace(/^#[^\n]*\n+/, "")
+    .trimStart();
+}
+
 export async function loadGuidebookPage(filePath: string): Promise<GuidebookPage> {
   const source = await readFile(filePath, "utf8");
   const parsed = parseGuidebookSource(source, { filePath });
+  const content = stripLeadingChrome(parsed.content);
 
   return {
     ...parsed,
+    content,
     filePath,
-    toc: extractGuidebookToc(parsed.content),
-    mdxSource: await serializeGuidebookMdx(parsed.content),
+    toc: extractGuidebookToc(content),
+    mdxSource: await serializeGuidebookMdx(content),
   };
 }
 

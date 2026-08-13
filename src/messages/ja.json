@@ -29,6 +29,7 @@
     }
   },
   "hero": {
+    "eyebrow": "46 skills",
     "headline": "Claude Code と Codex のための 46 skills と expert agents。",
     "subheading": "計画と仕様作成からコード生成、レビュー、リリースまで、開発 workflow 全体を terminal から離れずに自動化します。",
     "ctaLabels": {
