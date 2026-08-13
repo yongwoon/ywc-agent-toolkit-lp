@@ -12,11 +12,14 @@ Claude Code (or any developer) can implement on-brand UI directly.
 
 ## Direction, in one line
 
-Terminal-native: warm near-black canvas, monospace-forward (IBM Plex Mono is the signature
-voice), **amber-phosphor** primary accent + **cyan** secondary, pipeline-state semantics, box-
-drawing / prompt motifs. **Dark is the deliberate default** (the audience lives in dark
-terminals; the product *is* a CLI tool). Semantic tokens are structured so a `[data-theme="light"]`
-scope could override the aliases later — client-only, since the site is a static export.
+Calm, readable, trustworthy (see `.impeccable.md` for the full brief): warm-paper light canvas,
+a serif/humanist-sans reading pair, IBM Plex Mono narrowed to UI chrome only (commands, labels,
+nav — not prose), **amber** primary accent + **cyan** secondary retained from the prior dark
+system but deepened for AA contrast, pipeline-state semantics and box-drawing / prompt motifs
+unchanged. **Light is the deliberate default** as of the 2026-08-13 renewal — the LP's guidebook
+half is read end-to-end like documentation, and the prior dark "terminal-phosphor" treatment
+(dot-grid texture, neon glow shadows) read as energetic rather than calm for that use case. No
+dark-mode toggle; this is a single committed theme, not a `[data-theme]` branch.
 
 ## Files
 
@@ -41,8 +44,8 @@ scope could override the aliases later — client-only, since the site is a stat
 Loaded from **Google Fonts** (no local binaries). In `app/[locale]/layout.tsx` use `next/font`:
 
 ```ts
-import { Space_Grotesk, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
-// Space Grotesk → --font-display, IBM Plex Sans → --font-sans, IBM Plex Mono → --font-mono
+import { Source_Serif_4, Source_Sans_3, IBM_Plex_Mono } from 'next/font/google';
+// Source Serif 4 → --font-display, Source Sans 3 → --font-sans, IBM Plex Mono → --font-mono
 // For CJK locales also load Noto Sans JP / KR / SC (subset by locale where possible).
 ```
 

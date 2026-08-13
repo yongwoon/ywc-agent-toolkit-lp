@@ -6,8 +6,8 @@
    font stacks, which only name the typefaces without loading them. Falls back to
    --cjk-fallback for non-Latin scripts, since these Google Fonts cover Latin only. */
 :root {
-  --font-display: var(--font-space-grotesk), var(--cjk-fallback);
-  --font-sans: var(--font-ibm-plex-sans), var(--cjk-fallback);
+  --font-display: var(--font-source-serif), var(--cjk-fallback);
+  --font-sans: var(--font-source-sans), var(--cjk-fallback);
   --font-mono: var(--font-ibm-plex-mono), "SF Mono", "JetBrains Mono", ui-monospace,
     "Noto Sans Mono CJK JP", monospace;
 }

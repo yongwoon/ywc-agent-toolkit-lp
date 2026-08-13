@@ -12,32 +12,33 @@
    ============================================================ */
 
 @theme {
-  /* Colors → bg-*, text-*, border-* */
-  --color-bg: var(--ink-900);
-  --color-bg-subtle: var(--ink-850);
-  --color-surface: var(--ink-800);
-  --color-surface-raised: var(--ink-700);
-  --color-border: var(--ink-500);
-  --color-border-strong: var(--ink-600);
-  --color-border-subtle: var(--ink-700);
+  /* Colors → bg-*, text-*, border-* (reference the SEMANTIC aliases, not raw ramp
+     steps, so a future theme change only touches design-tokens.css) */
+  --color-bg: var(--bg);
+  --color-bg-subtle: var(--bg-subtle);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-border-subtle: var(--border-subtle);
 
-  --color-text: var(--ink-100);
-  --color-text-bright: var(--ink-050);
-  --color-text-secondary: var(--ink-200);
-  --color-text-muted: var(--ink-300);
-  --color-text-faint: var(--ink-350);
+  --color-text: var(--text);
+  --color-text-bright: var(--text-bright);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-faint: var(--text-faint);
 
-  --color-accent: var(--amber-500);
-  --color-accent-hover: var(--amber-400);
-  --color-link: var(--cyan-500);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-link: var(--link);
 
-  --color-lane-claude: var(--amber-500);
-  --color-lane-codex: var(--cyan-500);
+  --color-lane-claude: var(--lane-claude);
+  --color-lane-codex: var(--lane-codex);
 
-  --color-state-pass: var(--green-500);
-  --color-state-fail: var(--red-500);
-  --color-state-warn: var(--amber-500);
-  --color-state-agent: var(--violet-500);
+  --color-state-pass: var(--state-pass);
+  --color-state-fail: var(--state-fail);
+  --color-state-warn: var(--state-warn);
+  --color-state-agent: var(--state-agent);
 
   /* full ramps, in case a utility needs a specific step */
   --color-amber-300: var(--amber-300);
@@ -67,9 +68,9 @@
   --radius-lg: 12px;
 
   /* Shadows → shadow-md/lg + brand glows */
-  --shadow-md: 0 4px 16px rgba(0,0,0,0.45);
-  --shadow-lg: 0 16px 48px rgba(0,0,0,0.55);
-  --shadow-glow-accent: 0 0 0 1px var(--amber-500), 0 0 24px -4px var(--amber-glow);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-glow-accent: var(--glow-accent);
 
   /* Motion → ease-out utility */
   --ease-out: cubic-bezier(0.16,1,0.3,1);

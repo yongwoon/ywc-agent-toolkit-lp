@@ -1,39 +1,42 @@
 # Foundations — ywc-agent-toolkit
 
-Terminal-native. Dark warm near-black canvas, monospace-forward, one amber accent, one
-cyan secondary, pipeline-state semantics. Token names below are the ones defined in
-`design-tokens.css` — always reference the **semantic alias**, never a raw hex.
+Calm, readable, trustworthy (see `.impeccable.md` for the full design-context brief behind the
+2026-08-13 renewal). Warm-paper light canvas, humanist body type, one amber accent, one cyan
+secondary, pipeline-state semantics carried over unchanged. Token names below are the ones
+defined in `design-tokens.css` — always reference the **semantic alias**, never a raw hex.
 
 ## Color
 
 | Role | Token | Value | Use |
 |------|-------|-------|-----|
-| Page background | `--bg` | `#0b0a09` | body; warm near-black (never blue-black) |
-| Subtle band | `--bg-subtle` | `#100e0b` | alternating section / footer |
-| Surface | `--surface` | `#16130f` | cards, panels |
-| Raised surface | `--surface-raised` | `#221d16` | buttons (secondary), menus, chips |
-| Border | `--border` / `--border-strong` / `--border-subtle` | `#443a2c` / `#342c21` / `#221d16` | hairline 1px only |
-| Text | `--text` | `#e9e1d1` | body (warm off-white) |
-| Bright text | `--text-bright` | `#f8f3e8` | headlines / high-emphasis |
-| Secondary / muted / faint | `--text-secondary` / `--text-muted` / `--text-faint` | `#b8ab93` / `#8f7f68` / `#766752` | de-emphasis ladder |
-| **Primary accent** | `--accent` | `#f5a623` | prompts, primary CTA, active, focus |
-| Accent hover | `--accent-hover` | `#ffbb4d` | |
-| On accent | `--text-on-accent` | `#1a1204` | text on amber fills |
-| **Secondary / link** | `--link` | `#45c7ce` | links, Codex lane |
-| Tool lanes | `--lane-claude` / `--lane-codex` | amber / cyan | distinguish Claude Code vs Codex |
-| States | `--state-pass` / `--state-fail` / `--state-warn` / `--state-agent` | green `#57c877` / red `#f0574e` / amber / violet `#a78bfa` | pass·merged / fail·block / warn·active / read-only agent |
+| Page background | `--bg` | `#f8f3e8` | body; warm paper (never stark `#fff`) |
+| Subtle band | `--bg-subtle` | `#efe8d8` | alternating section / footer |
+| Surface | `--surface` | `#fdfbf5` | cards, panels — brighter than `--bg` ("raised paper") |
+| Raised surface | `--surface-raised` | `#fdfbf5` | buttons (secondary), menus, chips |
+| Border | `--border` / `--border-strong` / `--border-subtle` | `#c9b998` / `#a89273` / `#ded3ba` | hairline 1px only |
+| Text | `--text` | `#241d15` | body (warm near-black) |
+| Bright text | `--text-bright` | `#0b0a09` | headlines / high-emphasis |
+| Secondary / muted / faint | `--text-secondary` / `--text-muted` / `--text-faint` | `#493c2c` / `#5c4c38` / `#6e5c44` | de-emphasis ladder, all ≥4.5:1 on `--bg` |
+| **Primary accent** | `--accent` | `#8a540a` | prompts, primary CTA, active, focus — deepened from the original `#f5a623` for AA text contrast on light |
+| Accent hover | `--accent-hover` | `#9c5c0a` | |
+| On accent | `--text-on-accent` | `#fdfbf5` | text on amber fills |
+| **Secondary / link** | `--link` | `#1a6e6a` | links, Codex lane — deepened from `#45c7ce` |
+| Tool lanes | `--lane-claude` / `--lane-codex` | amber / cyan | distinguish Claude Code vs Codex (unchanged mapping) |
+| States | `--state-pass` / `--state-fail` / `--state-warn` / `--state-agent` | green `#227a3c` / red `#c73a31` / amber / violet `#6d4fd1` | pass·merged / fail·block / warn·active / read-only agent |
 
 **Rules:** one primary accent (amber), used sparingly. Cyan is the only secondary. State colors
-appear as small **glowing dots** (`box-shadow: 0 0 8px <color>`) and badges — never as large
-fills. No purple gradients, no gradient blobs, no photography.
+appear as small dots and badges — never as large fills. No purple gradients, no gradient blobs,
+no photography. The original bright `amber-400 #f5a623` / `cyan-400 #45c7ce` survive only as
+tint/fill sources (badges, dot glows) — never as text, since they fail AA contrast on the light
+background.
 
 ## Type
 
 Three roles — set `font-family` from the token:
 
-- **Display** `--font-display` (Space Grotesk) — headlines. Bold `700`, tracking `--ls-tighter` (−0.03em), `text-wrap: balance`, line-height `--lh-tight`/`--lh-snug`.
-- **Body/UI** `--font-sans` (IBM Plex Sans) — reading text. `--lh-normal`→`--lh-relaxed`, `text-wrap: pretty`.
-- **Mono** `--font-mono` (IBM Plex Mono) — **the signature**: commands, labels, badges, nav, buttons, and all uppercase "status-line" eyebrows (`--text-label`, tracking `--ls-label` 0.18em, UPPERCASE).
+- **Display** `--font-display` (Source Serif 4) — headlines only. Bold `700`, tracking `--ls-tighter` (−0.02em), `text-wrap: balance`, line-height `--lh-tight`/`--lh-snug`. Never leaks into body copy.
+- **Body/UI** `--font-sans` (Source Sans 3) — reading text, the readability-priority face. `--lh-normal`→`--lh-relaxed` (slightly more relaxed than the prior IBM Plex Sans setting), `text-wrap: pretty`.
+- **Mono** `--font-mono` (IBM Plex Mono, unchanged) — reserved for UI chrome, not prose: commands, labels, badges, nav, buttons, and all uppercase "status-line" eyebrows (`--text-label`, tracking `--ls-label` 0.18em, UPPERCASE).
 
 Sizes are fluid `clamp()` tokens: `--text-display` → `--text-h1..h4` → `--text-lead` → `--text-body` → `--text-mono*` → `--text-label`. CJK: `--cjk-fallback` (Noto Sans JP/KR/SC) is appended to every family; `:lang(ja|ko|zh)` gets `--lh-relaxed`.
 
@@ -56,9 +59,13 @@ window (traffic-light dots + centered mono title).
 
 ## Shadows, depth & focus
 
-On dark, shadows are low/diffuse (`--shadow-md/lg`). Primary depth cue = lit top edge
-(`--edge-top`). Interactive/active chrome gets an **amber glow** (`--glow-accent` /
-`--glow-accent-soft`). Keyboard focus = `--focus-ring` (2px amber ring offset from bg).
+On light, shadows are soft and low-opacity, warm-tinted black (`--shadow-md/lg`), not the heavy
+black shadows a dark canvas needs. Primary depth cue = a subtle contact shadow (`--edge-top`)
+plus a hairline border — no lit inset highlight (that only reads on dark). Interactive/active
+chrome gets a restrained **amber ring + soft shadow** (`--glow-accent` / `--glow-accent-soft`) —
+deliberately not the blooming neon halo the prior dark theme used; a "phosphor glow" contradicts
+calm. Keyboard focus = `--focus-ring` (2px amber ring offset from bg, unchanged — accessibility
+here doesn't get softened).
 
 ## Motion
 

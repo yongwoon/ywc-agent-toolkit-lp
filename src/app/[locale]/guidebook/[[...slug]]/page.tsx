@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import type { Locale } from "@/i18n/locale-list";
 import { routing } from "@/i18n/routing";
 import {
@@ -99,8 +100,12 @@ export default async function Page({ params }: GuidebookPageProps) {
 
   const content = await loadGuidebookPageForLocale(locale, slug);
   const pageTitle = formatGuidebookPageTitle(navPage);
-  const pageDescription = navPage.description;
   const { previous, next } = getLocalizedAdjacentGuidebookPages(nav, slug);
+  const navT = await getTranslations("nav");
+  const docsLabel =
+    (navT.raw("links") as Array<{ label: string; target: string }>).find(
+      (link) => link.target === "/guidebook/"
+    )?.label ?? navT("wordmark");
   const tocItems: GuidebookPage["toc"] = content?.toc ?? [
     {
       id: "content-status",
@@ -132,7 +137,7 @@ export default async function Page({ params }: GuidebookPageProps) {
               className="outline-none transition-colors duration-[var(--dur-fast)] hover:text-accent focus-visible:shadow-[var(--focus-ring)]"
               href={withBasePath(getGuidebookRootHref(locale))}
             >
-              Guidebook
+              {docsLabel}
             </a>
             {" / "}
             {groupHref ? (
@@ -150,17 +155,13 @@ export default async function Page({ params }: GuidebookPageProps) {
             {pageTitle}
           </h1>
           <div className="mt-4 flex flex-wrap gap-2">
-            <span className="rounded-full border border-[rgba(245,166,35,.35)] bg-[var(--accent-tint)] px-2.5 py-1 font-mono text-label font-semibold uppercase tracking-[var(--ls-label)] text-accent">
+            <span className="rounded-full border border-[var(--amber-tint-strong)] bg-[var(--accent-tint)] px-2.5 py-1 font-mono text-label font-semibold uppercase tracking-[var(--ls-label)] text-accent">
               Guide
             </span>
             <span className="rounded-full border border-border-subtle bg-surface px-2.5 py-1 font-mono text-label font-semibold uppercase tracking-[var(--ls-label)] text-text-muted">
               {readingTimeLabel ?? "Pending content sync"}
             </span>
           </div>
-          <p className="mt-6 text-lead leading-[var(--lh-relaxed)] text-text-secondary">
-            {pageDescription}
-          </p>
-
           {scaleChoicePages ? (
             <ScaleSelector currentSlug={slug} locale={locale} pages={scaleChoicePages} />
           ) : null}
@@ -171,7 +172,7 @@ export default async function Page({ params }: GuidebookPageProps) {
             ) : (
               <section
                 aria-labelledby="content-status"
-                className="rounded-md border border-[rgba(245,166,35,.3)] bg-[var(--accent-tint)] px-4 py-4"
+                className="rounded-md border border-[var(--amber-tint-strong)] bg-[var(--accent-tint)] px-4 py-4"
               >
                 <h2
                   className="scroll-mt-[76px] font-display text-h3 font-bold leading-[var(--lh-snug)] text-text-bright"
