@@ -1,0 +1,720 @@
+{
+  "generatedAt": "2026-08-13T03:43:25.196Z",
+  "sourceCommit": "dbeda7d03c5f784ab021372f8d57349bb3845d0f",
+  "entries": [
+    {
+      "name": "ywc-cloud-engineer",
+      "kind": "agent",
+      "tool": "claude-code",
+      "description": "Use when implementing or modifying Infrastructure-as-Code — Terraform modules and resources for AWS / GCP / Azure / Kubernetes (K8s and Helm via the Terraform k…",
+      "path": "claude-code/agents/ywc-cloud-engineer.md"
+    },
+    {
+      "name": "ywc-backend-coder",
+      "kind": "agent",
+      "tool": "claude-code",
+      "description": "Use when implementing server-side code — API endpoints, business logic, database schema and queries, external service integration.",
+      "path": "claude-code/agents/ywc-backend-coder.md"
+    },
+    {
+      "name": "ywc-doc-writer",
+      "kind": "agent",
+      "tool": "claude-code",
+      "description": "Use when authoring or updating documentation — README locale set entries, ubiquitous-language glossary items, hand-authored CHANGELOG entries, API documentation…",
+      "path": "claude-code/agents/ywc-doc-writer.md"
+    },
+    {
+      "name": "ywc-frontend-coder",
+      "kind": "agent",
+      "tool": "claude-code",
+      "description": "Use when implementing client-side code — UI components, state management, routing, accessibility, styling.",
+      "path": "claude-code/agents/ywc-frontend-coder.md"
+    },
+    {
+      "name": "ywc-architect",
+      "kind": "agent",
+      "tool": "claude-code",
+      "description": "Use when an architectural decision or design trade-off requires Opus-level judgment and project-internal evidence alone cannot resolve it — module boundary choi…",
+      "path": "claude-code/agents/ywc-architect.md"
+    },
+    {
+      "name": "ywc-python-reviewer",
+      "kind": "agent",
+      "tool": "claude-code",
+      "description": "Use when reviewing Python code for type-system depth (PEP 484 / 526 / 612 generics, `Protocol` structural typing, `TypedDict`, `TypeGuard` / `TypeIs`, `Self` ty…",
+      "path": "claude-code/agents/ywc-python-reviewer.md"
+    },
+    {
+      "name": "ywc-performance-engineer",
+      "kind": "agent",
+      "tool": "claude-code",
+      "description": "Use when analyzing performance characteristics across backend (N+1 query cost, missing-index cost, hot-loop algorithmic cost, synchronous IO inside an async pat…",
+      "path": "claude-code/agents/ywc-performance-engineer.md"
+    },
+    {
+      "name": "ywc-qa-engineer",
+      "kind": "agent",
+      "tool": "claude-code",
+      "description": "Use when authoring or expanding test code — unit, integration, edge-case enumeration, fixtures, mocks.",
+      "path": "claude-code/agents/ywc-qa-engineer.md"
+    },
+    {
+      "name": "ywc-go-reviewer",
+      "kind": "agent",
+      "tool": "claude-code",
+      "description": "Use when reviewing Go code for goroutine lifecycle (leak detection, `context.Context` cancellation propagation, `errgroup.Group` shutdown, worker-pool terminati…",
+      "path": "claude-code/agents/ywc-go-reviewer.md"
+    },
+    {
+      "name": "ywc-refactor-cleaner",
+      "kind": "agent",
+      "tool": "claude-code",
+      "description": "Use when executing the SAFE deletion loop from ywc-refactor-clean Step 3 — per-item grep verification, scoped test run before and after, surgical deletion with …",
+      "path": "claude-code/agents/ywc-refactor-cleaner.md"
+    },
+    {
+      "name": "ywc-root-cause-analyst",
+      "kind": "agent",
+      "tool": "claude-code",
+      "description": "Use when a defect, test failure, or incident requires deep root-cause reasoning that the caller cannot resolve with a single guess — 5 Whys chains, hypothesis t…",
+      "path": "claude-code/agents/ywc-root-cause-analyst.md"
+    },
+    {
+      "name": "ywc-typescript-reviewer",
+      "kind": "agent",
+      "tool": "claude-code",
+      "description": "Use when reviewing TypeScript or JavaScript code for type-system depth, async correctness, framework-specific idioms (React hooks rules, Vue Composition API, Sv…",
+      "path": "claude-code/agents/ywc-typescript-reviewer.md"
+    },
+    {
+      "name": "ywc-auth-implement",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when implementing authentication features (email/password, OAuth, MFA, shallow RBAC) — runs a policy interview, detects the stack, recommends battle-t…",
+      "path": "claude-code/skills/ywc-auth-implement/SKILL.md"
+    },
+    {
+      "name": "ywc-adr",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when capturing, reading, listing, or curating (deprecating) a project's Architecture Decision Records — durable records of a hard-to-reverse architect…",
+      "path": "claude-code/skills/ywc-adr/SKILL.md"
+    },
+    {
+      "name": "ywc-agentic",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when the user explicitly requests autonomous, end-to-end lifecycle delivery through Plan → Execute → Evaluate → Repeat.",
+      "path": "claude-code/skills/ywc-agentic/SKILL.md"
+    },
+    {
+      "name": "ywc-security-engineer",
+      "kind": "agent",
+      "tool": "claude-code",
+      "description": "Use when a static security review is needed — OWASP Top 10 analysis, threat modeling on a bounded diff or path scope, secret / PII surface scan, Infrastructure-…",
+      "path": "claude-code/agents/ywc-security-engineer.md"
+    },
+    {
+      "name": "ywc-brainstorm",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when the user has a rough idea, half-formed feature request, or \"let's build X\" framing and intent isn't pinned down yet.",
+      "path": "claude-code/skills/ywc-brainstorm/SKILL.md"
+    },
+    {
+      "name": "ywc-changelog-release-notes",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when you need to generate CHANGELOG.md entries or user-facing release notes from git history, merged PRs, or ywc-release-pr-list output after completi…",
+      "path": "claude-code/skills/ywc-changelog-release-notes/SKILL.md"
+    },
+    {
+      "name": "ywc-commit",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when the user says \"commit\", \"커밋\", \"커밋 해줘\", \"commit push\", \"push\", \"지금까지 한 작업 커밋\", \"コミット\", \"コミットして\", \"プッシュ\", or any phrase indicating intent to stage,…",
+      "path": "claude-code/skills/ywc-commit/SKILL.md"
+    },
+    {
+      "name": "ywc-confidence-gate",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when you need to gate an implementation start — before non-trivial implementation, before invoking ywc-code-gen, ywc-sequential-executor, or ywc-paral…",
+      "path": "claude-code/skills/ywc-confidence-gate/SKILL.md"
+    },
+    {
+      "name": "ywc-create-pr",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when the user wants to open a pull request and says \"create a PR\", \"open a PR\", \"submit code for review\", \"push and create PR\", \"PR 만들어줘\", \"풀리퀘 작성\", \"…",
+      "path": "claude-code/skills/ywc-create-pr/SKILL.md"
+    },
+    {
+      "name": "ywc-code-gen",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when the user wants parallel multi-layer code generation (Backend + Frontend + QA simultaneously) from a spec.",
+      "path": "claude-code/skills/ywc-code-gen/SKILL.md"
+    },
+    {
+      "name": "ywc-docker-isolate",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when parallel Git worktrees each run their own Docker stack and collide on host ports (\"port is already allocated\") — derives a deterministic per-work…",
+      "path": "claude-code/skills/ywc-docker-isolate/SKILL.md"
+    },
+    {
+      "name": "ywc-debug-rootcause",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when a bug, test failure, build failure, or unexpected behavior appears, before proposing or applying a fix.",
+      "path": "claude-code/skills/ywc-debug-rootcause/SKILL.md"
+    },
+    {
+      "name": "ywc-design-renew",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when an existing frontend surface looks generic or \"AI-made\" and needs distinctive visual-design renewal, or an AI-slop audit (gradient text, cyan-on-…",
+      "path": "claude-code/skills/ywc-design-renew/SKILL.md"
+    },
+    {
+      "name": "ywc-finish-branch",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when delivering a single completed feature branch to the base branch — covers mark-PR-ready, CI wait + bot review polling, merge (PR/local), post-merg…",
+      "path": "claude-code/skills/ywc-finish-branch/SKILL.md"
+    },
+    {
+      "name": "ywc-e2e-test-strategy",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when designing an automated E2E test strategy, setting up Playwright from scratch, auditing E2E coverage gaps, or generating Playwright test code for …",
+      "path": "claude-code/skills/ywc-e2e-test-strategy/SKILL.md"
+    },
+    {
+      "name": "ywc-handle-pr-reviews",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when handling an open PR's review feedback — addressing comments, replying to review threads, and leaving the PR mergeable by clearing CI failures and…",
+      "path": "claude-code/skills/ywc-handle-pr-reviews/SKILL.md"
+    },
+    {
+      "name": "ywc-incident-postmortem",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when a production incident has occurred and you need a structured postmortem: timeline reconstruction, root cause analysis (5 Whys), impact assessment…",
+      "path": "claude-code/skills/ywc-incident-postmortem/SKILL.md"
+    },
+    {
+      "name": "ywc-iac-author",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when authoring or modifying Infrastructure-as-Code from a design — Terraform for AWS/GCP/Azure/Kubernetes (K8s/Helm via Terraform kubernetes/helm prov…",
+      "path": "claude-code/skills/ywc-iac-author/SKILL.md"
+    },
+    {
+      "name": "ywc-infra-design",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when designing cloud/infrastructure architecture before writing IaC — requirements gathering, provider selection, network/compute/ storage/IAM topolog…",
+      "path": "claude-code/skills/ywc-infra-design/SKILL.md"
+    },
+    {
+      "name": "ywc-infra-optimize",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when improving existing infrastructure: cost right-sizing, removing unused resources, reserved/spot adoption, drift detection & remediation, and relia…",
+      "path": "claude-code/skills/ywc-infra-optimize/SKILL.md"
+    },
+    {
+      "name": "ywc-impl-review",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when implementation is complete and before creating a PR, to validate code against the spec or run a comprehensive quality review.",
+      "path": "claude-code/skills/ywc-impl-review/SKILL.md"
+    },
+    {
+      "name": "ywc-infra-review",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when reviewing IaC / cloud configuration for misconfiguration, least-privilege, cost, and reliability before applying — security groups, IAM, public e…",
+      "path": "claude-code/skills/ywc-infra-review/SKILL.md"
+    },
+    {
+      "name": "ywc-onboard-repo",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when entering an unfamiliar repository for the first time to generate a starter CLAUDE.md from detected conventions or produce an architecture/convent…",
+      "path": "claude-code/skills/ywc-onboard-repo/SKILL.md"
+    },
+    {
+      "name": "ywc-parallel-executor",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when multiple independent tasks from tasks/ can run simultaneously and the user wants faster execution via Git Worktree isolation.",
+      "path": "claude-code/skills/ywc-parallel-executor/SKILL.md"
+    },
+    {
+      "name": "ywc-plan",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when the user has a rough feature idea or change request and needs a concrete plan before implementation, including scale assessment and routing to th…",
+      "path": "claude-code/skills/ywc-plan/SKILL.md"
+    },
+    {
+      "name": "ywc-project-docs",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when the user wants to generate or add project docs/ documentation in Korean, Japanese, English, Chinese, or Spanish (Task, Architecture, Specificatio…",
+      "path": "claude-code/skills/ywc-project-docs/SKILL.md"
+    },
+    {
+      "name": "ywc-project-scaffold",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when the user wants to scaffold a new project structure, design a folder layout, or organize files for a specific tech stack.",
+      "path": "claude-code/skills/ywc-project-scaffold/SKILL.md"
+    },
+    {
+      "name": "ywc-review-learnings",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when capturing, reading, or curating a project's accumulated code-review learnings — durable review preferences (what, why, polarity) that sharpen fut…",
+      "path": "claude-code/skills/ywc-review-learnings/SKILL.md"
+    },
+    {
+      "name": "ywc-receive-review",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when receiving code-review feedback (human, CodeRabbit, Codex, Claude, or ChatGPT review) before responding.",
+      "path": "claude-code/skills/ywc-receive-review/SKILL.md"
+    },
+    {
+      "name": "ywc-refactor-clean",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when removing dead code (unused functions / exports / files / dependencies / imports), consolidating near-duplicate utilities, or running a scheduled …",
+      "path": "claude-code/skills/ywc-refactor-clean/SKILL.md"
+    },
+    {
+      "name": "ywc-project-mission",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when capturing, reading, or curating a project's durable Mission / North-Star, measurable Success Criteria, and Out-of-Scope non-goals — the \"why this…",
+      "path": "claude-code/skills/ywc-project-mission/SKILL.md"
+    },
+    {
+      "name": "ywc-spec-ready",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when a spec from ywc-plan still has Critical/Warning findings and you want it auto-driven to ywc-spec-validate DONE — looping ywc-plan --update-spec a…",
+      "path": "claude-code/skills/ywc-spec-ready/SKILL.md"
+    },
+    {
+      "name": "ywc-security-audit",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when reviewing authentication/authorization code, external-facing endpoints, code handling sensitive data, or for periodic security reviews.",
+      "path": "claude-code/skills/ywc-security-audit/SKILL.md"
+    },
+    {
+      "name": "ywc-skill-author",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when creating a new ywc-* skill, restructuring an existing one's frontmatter/body sections/references, or auditing existing ywc-* skills against the c…",
+      "path": "claude-code/skills/ywc-skill-author/SKILL.md"
+    },
+    {
+      "name": "ywc-sequential-executor",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when executing tasks from the tasks/ directory in strict order through their full lifecycle (branch → implement → commit → PR → CI → merge → cleanup).",
+      "path": "claude-code/skills/ywc-sequential-executor/SKILL.md"
+    },
+    {
+      "name": "ywc-task-generator",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when converting a specification into implementation tasks.",
+      "path": "claude-code/skills/ywc-task-generator/SKILL.md"
+    },
+    {
+      "name": "ywc-tdd-ritual",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when implementing any new feature, bug fix, or behavior change, before writing production code.",
+      "path": "claude-code/skills/ywc-tdd-ritual/SKILL.md"
+    },
+    {
+      "name": "ywc-ubiquitous-language",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when creating, extracting, or updating a project's ubiquitous language document (shared domain vocabulary between developers, domain experts, and LLMs…",
+      "path": "claude-code/skills/ywc-ubiquitous-language/SKILL.md"
+    },
+    {
+      "name": "ywc-ui-ux-review",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when the user wants a UI/UX review combining static code analysis with live UI exploration (Chrome DevTools MCP) covering information architecture, vi…",
+      "path": "claude-code/skills/ywc-ui-ux-review/SKILL.md"
+    },
+    {
+      "name": "ywc-worktrees",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when creating, auditing, pruning, or resolving the worktree location for an isolated workspace — delegated from `ywc-parallel-executor` (creation, Pre…",
+      "path": "claude-code/skills/ywc-worktrees/SKILL.md"
+    },
+    {
+      "name": "ywc-brainstorm",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when the user has a rough idea or \"let's build X\" framing and intent is not yet pinned down.",
+      "path": "codex/skills/ywc-brainstorm/SKILL.md"
+    },
+    {
+      "name": "ywc-architecture-invariants",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Validate an optional repository-root architecture-invariants.json contract and bounded normalized edge evidence.",
+      "path": "codex/skills/ywc-architecture-invariants/SKILL.md"
+    },
+    {
+      "name": "ywc-verify-done",
+      "kind": "skill",
+      "tool": "claude-code",
+      "description": "(ywc) Use when about to claim that work is complete, tests pass, the build succeeds, a bug is fixed, requirements are met, or a subagent finishes — and before c…",
+      "path": "claude-code/skills/ywc-verify-done/SKILL.md"
+    },
+    {
+      "name": "ywc-agentic",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when the user explicitly wants autonomous end-to-end delivery through Plan -> Execute -> Evaluate -> Repeat; supports resuming an existing `tasks/` ru…",
+      "path": "codex/skills/ywc-agentic/SKILL.md"
+    },
+    {
+      "name": "ywc-auth-implement",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when planning a secure application authentication feature, choosing an auth library/service from project evidence, or gating auth implementation throu…",
+      "path": "codex/skills/ywc-auth-implement/SKILL.md"
+    },
+    {
+      "name": "ywc-changelog-release-notes",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when generating CHANGELOG.md entries or user-facing release notes from git history, merged PRs, or ywc-release-pr-list output after a release or sprin…",
+      "path": "codex/skills/ywc-changelog-release-notes/SKILL.md"
+    },
+    {
+      "name": "ywc-code-gen",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when the user wants parallel multi-layer code generation (Backend + Frontend + QA simultaneously) from a spec.",
+      "path": "codex/skills/ywc-code-gen/SKILL.md"
+    },
+    {
+      "name": "ywc-commit",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when the user says \"commit\", \"커밋\", \"커밋 해줘\", \"commit push\", \"push\", \"지금까지 한 작업 커밋\", \"コミットして\", \"プッシュして\", or any phrase indicating intent to stage, commi…",
+      "path": "codex/skills/ywc-commit/SKILL.md"
+    },
+    {
+      "name": "ywc-create-pr",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when the user wants to open a pull request and says \"create a PR\", \"open a PR\", \"submit code for review\", \"push and create PR\", \"PR 만들어줘\", \"풀리퀘 작성\", \"…",
+      "path": "codex/skills/ywc-create-pr/SKILL.md"
+    },
+    {
+      "name": "ywc-confidence-gate",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when checking readiness before non-trivial implementation, executor/code-gen delegation, or a design path with material rework cost.",
+      "path": "codex/skills/ywc-confidence-gate/SKILL.md"
+    },
+    {
+      "name": "ywc-debug-rootcause",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when a bug, test/build failure, or other unexpected behavior appears before any fix is proposed.",
+      "path": "codex/skills/ywc-debug-rootcause/SKILL.md"
+    },
+    {
+      "name": "ywc-design-renew",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when an existing frontend surface looks generic or AI-made and needs visual renewal, or an AI-slop audit before shipping.",
+      "path": "codex/skills/ywc-design-renew/SKILL.md"
+    },
+    {
+      "name": "ywc-docker-isolate",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when parallel Git worktrees run separate Docker stacks and collide on host ports, for example \"port is already allocated\".",
+      "path": "codex/skills/ywc-docker-isolate/SKILL.md"
+    },
+    {
+      "name": "ywc-e2e-test-strategy",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when designing an automated E2E strategy for a web app, setting up Playwright, auditing E2E coverage gaps, or generating Playwright tests for a critic…",
+      "path": "codex/skills/ywc-e2e-test-strategy/SKILL.md"
+    },
+    {
+      "name": "ywc-finish-branch",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when delivering one completed feature branch to the base branch: PR-ready, CI wait, bot review polling, merge, post-merge verification, task bookkeepi…",
+      "path": "codex/skills/ywc-finish-branch/SKILL.md"
+    },
+    {
+      "name": "ywc-gen-testcase",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when generating a manual verification testsheet (developer + QA gate) from a PR, task directory, task directory range, git range, or diff, with Markdo…",
+      "path": "codex/skills/ywc-gen-testcase/SKILL.md"
+    },
+    {
+      "name": "ywc-iac-author",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when authoring Terraform from a design for AWS, GCP, Azure, or Kubernetes/Helm, with validate/plan verification and a blast-radius summary.",
+      "path": "codex/skills/ywc-iac-author/SKILL.md"
+    },
+    {
+      "name": "ywc-handle-pr-reviews",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when an open GitHub PR has review threads, comments, or feedback that must be fetched, fixed, replied to, marked, pushed, and CI-verified.",
+      "path": "codex/skills/ywc-handle-pr-reviews/SKILL.md"
+    },
+    {
+      "name": "ywc-impl-review",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when implementation is complete and the user wants pre-PR code quality review, spec conformance checks, or comprehensive implementation validation.",
+      "path": "codex/skills/ywc-impl-review/SKILL.md"
+    },
+    {
+      "name": "ywc-implement",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when the user asks to implement exactly one approved repository specification or ticket through a focused, review-gated change.",
+      "path": "codex/skills/ywc-implement/SKILL.md"
+    },
+    {
+      "name": "ywc-incident-postmortem",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when a production incident needs a structured postmortem: timeline reconstruction, 5 Whys, impact assessment, prevention actions, and optionally a san…",
+      "path": "codex/skills/ywc-incident-postmortem/SKILL.md"
+    },
+    {
+      "name": "ywc-infra-optimize",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when improving existing infrastructure: cost right-sizing, unused resource cleanup, reserved/spot adoption, drift remediation, and reliability hardeni…",
+      "path": "codex/skills/ywc-infra-optimize/SKILL.md"
+    },
+    {
+      "name": "ywc-infra-design",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when designing cloud/infrastructure architecture before IaC: provider, topology, and a reliability/cost/security pre-check that produces infra-design.…",
+      "path": "codex/skills/ywc-infra-design/SKILL.md"
+    },
+    {
+      "name": "ywc-infra-review",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when reviewing IaC or cloud configuration for misconfiguration, least privilege, cost, and reliability before apply across AWS, GCP, Azure, or K8s Ter…",
+      "path": "codex/skills/ywc-infra-review/SKILL.md"
+    },
+    {
+      "name": "ywc-merge-dependabot",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when the user wants to merge Dependabot PRs, batch-process dependency updates, or clean up accumulated Dependabot PRs.",
+      "path": "codex/skills/ywc-merge-dependabot/SKILL.md"
+    },
+    {
+      "name": "ywc-onboard-repo",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when first entering an unfamiliar repository to generate a starter AGENTS.md or an onboarding architecture/convention briefing.",
+      "path": "codex/skills/ywc-onboard-repo/SKILL.md"
+    },
+    {
+      "name": "ywc-parallel-executor",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when multiple independent tasks from tasks/ can run simultaneously and the user wants faster execution via Git Worktree isolation.",
+      "path": "codex/skills/ywc-parallel-executor/SKILL.md"
+    },
+    {
+      "name": "ywc-plan",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when a rough feature idea or change request needs a concrete plan, scale assessment, and routing before implementation.",
+      "path": "codex/skills/ywc-plan/SKILL.md"
+    },
+    {
+      "name": "ywc-product-review",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when the user wants a business/service perspective review of a project (user value, UX, growth, risk, market).",
+      "path": "codex/skills/ywc-product-review/SKILL.md"
+    },
+    {
+      "name": "ywc-project-scaffold",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when designing a new project's directory structure or architecture skeleton before files are generated.",
+      "path": "codex/skills/ywc-project-scaffold/SKILL.md"
+    },
+    {
+      "name": "ywc-project-docs",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when creating or updating project docs in Korean, Japanese, English, Chinese, or Spanish.",
+      "path": "codex/skills/ywc-project-docs/SKILL.md"
+    },
+    {
+      "name": "ywc-receive-review",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when receiving code-review feedback and about to reply or implement changes; verify comments before agreeing or coding, avoid performative acknowledgm…",
+      "path": "codex/skills/ywc-receive-review/SKILL.md"
+    },
+    {
+      "name": "ywc-refactor-clean",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when removing dead code, unused dependencies/imports/files, consolidating near-duplicate utilities, or running a hygiene pass.",
+      "path": "codex/skills/ywc-refactor-clean/SKILL.md"
+    },
+    {
+      "name": "ywc-release-pr-list",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when working on a release PR (for example develop→main) and the user wants the merged PR numbers grouped by author for the PR description's `## PR LIS…",
+      "path": "codex/skills/ywc-release-pr-list/SKILL.md"
+    },
+    {
+      "name": "ywc-review-learnings",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when capturing or curating durable repo-specific code-review preferences.",
+      "path": "codex/skills/ywc-review-learnings/SKILL.md"
+    },
+    {
+      "name": "ywc-sequential-executor",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when executing tasks from the tasks/ directory in strict order through their full lifecycle.",
+      "path": "codex/skills/ywc-sequential-executor/SKILL.md"
+    },
+    {
+      "name": "ywc-security-audit",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when reviewing authentication/authorization code, external-facing endpoints, code handling sensitive data, or for periodic security reviews.",
+      "path": "codex/skills/ywc-security-audit/SKILL.md"
+    },
+    {
+      "name": "ywc-spec-ready",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when a natural-language goal or existing specification needs to be refined until it is ready for task generation.",
+      "path": "codex/skills/ywc-spec-ready/SKILL.md"
+    },
+    {
+      "name": "ywc-spec-validate",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when a specification document exists and the user wants to validate spec completeness, consistency, feasibility, or readiness before task decompositio…",
+      "path": "codex/skills/ywc-spec-validate/SKILL.md"
+    },
+    {
+      "name": "ywc-skill-author",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when creating a new ywc-* skill, restructuring an existing skill's frontmatter/body/references/agents metadata, or auditing ywc-* skills against the c…",
+      "path": "codex/skills/ywc-skill-author/SKILL.md"
+    },
+    {
+      "name": "ywc-spec-writer",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when creating or updating docs/specification/ from project context, task ranges, or PRs.",
+      "path": "codex/skills/ywc-spec-writer/SKILL.md"
+    },
+    {
+      "name": "ywc-task-generator",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when converting a specification into implementation tasks.",
+      "path": "codex/skills/ywc-task-generator/SKILL.md"
+    },
+    {
+      "name": "ywc-team-assemble",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when the user explicitly asks Codex to assemble a specialist team, delegate work to subagents, run a swarm, or split a complex task across parallel ex…",
+      "path": "codex/skills/ywc-team-assemble/SKILL.md"
+    },
+    {
+      "name": "ywc-tdd-ritual",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when implementing a new feature, bug fix, or behavior change before production code is written; enforce RED → GREEN → REFACTOR and a real failing-test…",
+      "path": "codex/skills/ywc-tdd-ritual/SKILL.md"
+    },
+    {
+      "name": "ywc-tech-research",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when comparing libraries, investigating implementation approaches, evaluating technology options, or gathering sourced best practices before a plan/sp…",
+      "path": "codex/skills/ywc-tech-research/SKILL.md"
+    },
+    {
+      "name": "ywc-ubiquitous-language",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when creating, extracting, or updating a project's ubiquitous language document: the shared domain vocabulary between developers, experts, and LLMs.",
+      "path": "codex/skills/ywc-ubiquitous-language/SKILL.md"
+    },
+    {
+      "name": "ywc-ui-ux-review",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when the user wants a UI/UX review combining static code analysis with live UI exploration across IA, visual design, usability, and accessibility.",
+      "path": "codex/skills/ywc-ui-ux-review/SKILL.md"
+    },
+    {
+      "name": "ywc-verify-done",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when about to claim work is complete, tests/build pass, a bug is fixed, requirements are met, or a subagent has finished, and before commit, PR creati…",
+      "path": "codex/skills/ywc-verify-done/SKILL.md"
+    },
+    {
+      "name": "ywc-wayfinder",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when a large or uncertain change needs multi-session discovery with a deterministic local map and exactly one active ticket before planning or impleme…",
+      "path": "codex/skills/ywc-wayfinder/SKILL.md"
+    },
+    {
+      "name": "ywc-worktrees",
+      "kind": "skill",
+      "tool": "codex",
+      "description": "(ywc) Use when creating, auditing, pruning, or resolving git worktrees for isolated task workspaces, whether delegated from an executor or used standalone.",
+      "path": "codex/skills/ywc-worktrees/SKILL.md"
+    }
+  ]
+}
