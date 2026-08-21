@@ -48,9 +48,10 @@
     <FlowStep>ywc-sequential-executor --review 或 ywc-parallel-executor --review</FlowStep>
     <FlowChain items="PR, CI, Bot Review, Merge (由 Executor 自动处理)" />
   </FlowBranch>
+  <FlowStep>测试 &amp; 集成测试 (ywc-gen-testcase，必要时 ywc-e2e-test-strategy)</FlowStep>
 </FlowDiagram>
 
-本流程的每个分支在第 [04](./04-general-cycle-small.md) 页和 [05](./05-general-cycle-medium-large.md) 页上都有详细说明，并附有具体命令示例。
+本流程的每个分支在第 [04](./04-general-cycle-small.md) 页和 [05](./05-general-cycle-medium-large.md) 页上都有详细说明，并附有具体命令示例；最后的测试阶段在第 [09](./09-testing-guide.md) 页和第 [10](./10-e2e-test-strategy.md) 页说明。
 
 ## 共享 PR 交付模式概念
 
