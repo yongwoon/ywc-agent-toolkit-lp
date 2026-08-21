@@ -48,9 +48,10 @@ DB migration 이나 새 Library 도입은 규모와 무관하게 **항상 별도
     <FlowStep>ywc-sequential-executor --review 또는 ywc-parallel-executor --review</FlowStep>
     <FlowChain items="PR, CI, Bot Review, Merge (Executor 가 자동 처리)" />
   </FlowBranch>
+  <FlowStep>테스트 &amp; 통합테스트 (ywc-gen-testcase, 필요 시 ywc-e2e-test-strategy)</FlowStep>
 </FlowDiagram>
 
-이 흐름의 각 갈래는 [04](./04-general-cycle-small.md), [05](./05-general-cycle-medium-large.md) 페이지에서 실제 command 예시와 함께 자세히 다룹니다.
+이 흐름의 각 갈래는 [04](./04-general-cycle-small.md), [05](./05-general-cycle-medium-large.md) 페이지에서 실제 command 예시와 함께 자세히 다루며, 마지막 테스트 단계는 [09](./09-testing-guide.md), [10](./10-e2e-test-strategy.md) 페이지에서 다룹니다.
 
 ## PR Delivery 모드 공통 개념
 

@@ -48,9 +48,10 @@ Almost every Skill finishes with one of the four states below. Once you know thi
     <FlowStep>ywc-sequential-executor --review or ywc-parallel-executor --review</FlowStep>
     <FlowChain items="PR, CI, Bot Review, Merge (automated by Executor)" />
   </FlowBranch>
+  <FlowStep>Testing &amp; integration testing (ywc-gen-testcase, ywc-e2e-test-strategy when needed)</FlowStep>
 </FlowDiagram>
 
-Each branch of this flow is covered in detail with concrete command examples on pages [04](./04-general-cycle-small.md) and [05](./05-general-cycle-medium-large.md).
+Each branch of this flow is covered in detail with concrete command examples on pages [04](./04-general-cycle-small.md) and [05](./05-general-cycle-medium-large.md), and the final testing step is covered on pages [09](./09-testing-guide.md) and [10](./10-e2e-test-strategy.md).
 
 ## Shared PR Delivery mode concepts
 

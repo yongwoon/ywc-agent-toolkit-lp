@@ -48,9 +48,10 @@ Casi todos los Skill terminan con uno de los cuatro estados que se indican a con
     <FlowStep>ywc-sequential-executor --review o ywc-parallel-executor --review</FlowStep>
     <FlowChain items="PR, CI, Bot Review, Merge (automatizado por Executor)" />
   </FlowBranch>
+  <FlowStep>Pruebas e integración (ywc-gen-testcase, ywc-e2e-test-strategy si es necesario)</FlowStep>
 </FlowDiagram>
 
-Cada rama de este flujo se cubre en detalle con ejemplos concretos de comandos en las páginas [04](./04-general-cycle-small.md) y [05](./05-general-cycle-medium-large.md).
+Cada rama de este flujo se cubre en detalle con ejemplos concretos de comandos en las páginas [04](./04-general-cycle-small.md) y [05](./05-general-cycle-medium-large.md), y el paso final de pruebas se cubre en las páginas [09](./09-testing-guide.md) y [10](./10-e2e-test-strategy.md).
 
 ## Conceptos del modo de entrega compartido PR
 
