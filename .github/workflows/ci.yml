@@ -79,6 +79,8 @@ jobs:
         run: npm ci
 
       - name: Build static export
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run build
 
       - name: Verify bundle budget
@@ -192,6 +194,7 @@ jobs:
       - name: Build static export for GitHub Pages
         env:
           NEXT_PUBLIC_GITHUB_PAGES: "true"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run build
 
       - name: Setup Pages
