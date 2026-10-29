@@ -88,5 +88,10 @@
     "slug": "15-prerequisites-installation",
     "title": "18. 前置条件与安装",
     "summary": "要稳定使用 ywc-* Skill，需要预先准备好一些 Tool。通过 Plugin marketplace 或 Codex plugin 安装时，文件复制和注册会自动处理，但当 Skill 实际运行 时，以下 Tool 需要存在于你的系统中才能正常工作。顺序如下 —— ① 安装必需 Tool → ② 安装 ywc-agent-toolkit 本身（Claude Code / Codex） → 之后是根据情况准备的可选 Tool。"
+  },
+  {
+    "slug": "19-skill-combination-recipes",
+    "title": "19. Skill 组合用法",
+    "summary": "其他页面每次只讲解一个流程或一个 Skill。本页展示 Skill 之间如何相互衔接：一个 Skill 留下了什么，又由哪个 Skill 接手。下面的每一个衔接都是 Skill 自己完成的动作（读取共享文件、提议 hand-off），而不是需要你记住的约定。"
   }
 ]

@@ -79,6 +79,7 @@
 | [16. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md) | 针对选项繁多的 `ywc-sequential-executor` / `ywc-parallel-executor` / `ywc-code-gen` 的实用命令示例 |
 | [17. Full Skill Reference](./14-skill-reference.md) | 未在上述指南中涵盖的剩余技能索引，按情境分类 |
 | [18. 前置条件与安装](./15-prerequisites-installation.md) | 为了让 ywc-* Skill 稳定运行，需要预先准备的必需/可选 Tool 列表 |
+| [19. Skill 组合用法](./19-skill-combination-recipes.md) | Skill 之间如何相互交接：review 学习循环、从 Bug 到预防、PR gate、决策记录、探索、并行执行与 release |
 
 ## 源材料
 

@@ -33,5 +33,6 @@ export const guidebookSlugs = Object.freeze([
   "18-authentication-implementation",
   "13-executor-and-codegen-patterns",
   "14-skill-reference",
-  "15-prerequisites-installation"
+  "15-prerequisites-installation",
+  "19-skill-combination-recipes"
 ]);

@@ -88,5 +88,10 @@
     "slug": "15-prerequisites-installation",
     "title": "18. Requisitos previos e instalación",
     "summary": "Para usar las Skills ywc-* de forma fiable, necesitas tener listas algunas herramientas de antemano."
+  },
+  {
+    "slug": "19-skill-combination-recipes",
+    "title": "19. Recetas para combinar Skills",
+    "summary": "Las demás páginas explican un flujo o una Skill a la vez."
   }
 ]

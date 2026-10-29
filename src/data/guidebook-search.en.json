@@ -88,5 +88,10 @@
     "slug": "15-prerequisites-installation",
     "title": "18. Prerequisites and installation",
     "summary": "To use ywc-* Skills reliably, a few tools need to be in place beforehand."
+  },
+  {
+    "slug": "19-skill-combination-recipes",
+    "title": "19. Skill combination recipes",
+    "summary": "The other pages explain one flow or one Skill at a time."
   }
 ]

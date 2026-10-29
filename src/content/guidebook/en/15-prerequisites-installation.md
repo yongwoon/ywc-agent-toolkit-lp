@@ -162,4 +162,4 @@ gh pr checks --watch
 
 ---
 
-[Previous: 17. Full Skill Reference](./14-skill-reference.md) · [Back to table of contents »](./README.md)
+[Previous: 17. Full Skill Reference](./14-skill-reference.md) · [Next: 19. Skill combination recipes](./19-skill-combination-recipes.md)
