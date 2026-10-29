@@ -1,6 +1,6 @@
 [« 目次に戻る](./README.md)
 
-# 16. Executor / Code-gen Prompt パターン
+# 18. Executor / Code-gen Prompt パターン
 
 `ywc-sequential-executor`, `ywc-parallel-executor`, `ywc-code-gen` はオプションが多く、毎回正確な syntax を探しがちな 3 つの Skill です。このページでは Skill 名ではなく、**「今やりたいこと」**を基準に例を整理しました。やりたいことを見つけて、そのままコピーして使ってください。
 
@@ -246,4 +246,4 @@ task に `## Quality Gate Contract` が宣言されている場合(CRAP スコ�
 
 ---
 
-[← 前: 14. クラウドインフラの管理](./17-infrastructure-and-cloud.md) · [次: 17. 全 Skill リファレンス →](./14-skill-reference.md)
+[← 前へ: 17. 認証機能の実装](./18-authentication-implementation.md) · [次へ: 19. 全 Skill リファレンス →](./14-skill-reference.md)

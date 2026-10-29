@@ -1,10 +1,10 @@
 [Back to table of contents](./README.md)
 
-# 08. 第一次进入现有的仓库
+# 10. 第一次进入现有的仓库
 
 ## 何时使用此流程
 
-当你第一次进入一个已经有代码的陌生仓库并且需要了解“这个代码库的样子”时，使用这个方法。相反，如果你正在从零开始设计一个新项目，请前往 [07. Starting a new Project](./07-starting-a-new-project.md)。这两种流程的方向相反，不应在同一会话中一起使用。
+当你第一次进入一个已经有代码的陌生仓库并且需要了解“这个代码库的样子”时，使用这个方法。相反，如果你正在从零开始设计一个新项目，请前往 [09. Starting a new Project](./07-starting-a-new-project.md)。这两种流程的方向相反，不应在同一会话中一起使用。
 
 ## 它的作用
 
@@ -62,4 +62,4 @@
 
 ---
 
-[Previous: 07. Starting a new Project](./07-starting-a-new-project.md) - [Next: 09. Writing and running Tests](./09-testing-guide.md)
+[← 上一页: 09. 开始一个新项目](./07-starting-a-new-project.md) · [下一页: 11. 编写和运行测试 →](./09-testing-guide.md)

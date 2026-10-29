@@ -1,13 +1,13 @@
 [Back to table of contents](./README.md)
 
-# 06. Finish automatically from one goal (ywc-agentic)
+# 07. Finish automatically from one goal (ywc-agentic)
 
 ## When to use this flow
 
-[04](./04-general-cycle-small.md) and [05](./05-general-cycle-medium-large.md) are **manual control** flows where the user invokes each step one by one (`ywc-plan` -> ... -> executor). `ywc-agentic` takes one natural-language goal and automatically repeats the full pipeline as a **Plan -> Execute -> Evaluate -> Repeat** loop until verification passes or the iteration limit is reached, without human intervention.
+[05](./04-general-cycle-small.md) and [06](./05-general-cycle-medium-large.md) are **manual control** flows where the user invokes each step one by one (`ywc-plan` -> ... -> executor). `ywc-agentic` takes one natural-language goal and automatically repeats the full pipeline as a **Plan -> Execute -> Evaluate -> Repeat** loop until verification passes or the iteration limit is reached, without human intervention.
 
 - If you want to give one goal instead of manually tracking the next skill every time -> this page
-- If you want direct control at the Task level, deciding which task runs when -> use the executor directly from [05](./05-general-cycle-medium-large.md)
+- If you want direct control at the Task level, deciding which task runs when -> use the executor directly from [06](./05-general-cycle-medium-large.md)
 - If you want to run an existing `tasks/` backlog as-is without Task decomposition -> invoke `ywc-sequential-executor` / `ywc-parallel-executor` directly, not agentic
 
 ## What it automates
@@ -110,4 +110,4 @@ If unfinished tasks remain in `tasks/`, it skips the Plan Phase and resumes from
 
 ---
 
-[Previous: 05. Handling work split into multiple Tasks](./05-general-cycle-medium-large.md) - [Next: 07. Starting a new Project](./07-starting-a-new-project.md)
+[Previous: 06. Handling work split into multiple Tasks (general cycle - medium/large)](./05-general-cycle-medium-large.md) · [Next: 08. Skill combination recipes](./19-skill-combination-recipes.md)

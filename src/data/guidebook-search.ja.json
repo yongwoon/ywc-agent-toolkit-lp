@@ -10,88 +10,88 @@
     "summary": "このページの用語と概念を理解すると、残りのすべてのガイドページの例をそのまま応用できます。"
   },
   {
+    "slug": "15-prerequisites-installation",
+    "title": "03. 事前準備とインストール",
+    "summary": "ywc-* Skill を安定して使うには、いくつかの Tool を事前に準備しておく必要があります。Plugin marketplace や Codex plugin からインストールすればファイルコピーと登録は自動で処理されますが、Skill を 実際に実行 するときは以下の Tool が System に入っている必要があります。手順は次のとおりです — ① 必須 Tool のインストール → ② ywc-agent-toolkit 自体のインストール(Claude Code / Codex) → その下は状況に応じて準備する選択 Tool です。"
+  },
+  {
     "slug": "03-quickstart",
-    "title": "03. 5 分で最初の機能をデプロイする",
+    "title": "04. 5 分で最初の機能をデプロイする",
     "summary": "このページは、小さなバグ修正 1 つをアイデア段階から merge まで実際にたどってみる最初の演習です。例のシナリオ: 「ログイン失敗時のエラーメッセージが一般的すぎて原因を把握しにくい」 というリクエストを処理します。"
   },
   {
     "slug": "04-general-cycle-small",
-    "title": "04. 小さな変更を処理する (general cycle · small)",
-    "summary": "ywc-plan がリクエストを Small と判断したとき、自動的にこの経路に入ります。判断基準は「Task 分解なしで単一 PR に収められるか」であり、以下のいずれかに該当すると Small ではなく Medium/Large に格上げされます ( 05 参照)。"
+    "title": "05. 小さな変更を処理する (general cycle · small)",
+    "summary": "ywc-plan がリクエストを Small と判断したとき、自動的にこの経路に入ります。判断基準は「Task 分解なしで単一 PR に収められるか」であり、以下のいずれかに該当すると Small ではなく Medium/Large に格上げされます ( 06 参照)。"
   },
   {
     "slug": "05-general-cycle-medium-large",
-    "title": "05. 複数の Task に分けて処理する (general cycle · medium/large)",
+    "title": "06. 複数の Task に分けて処理する (general cycle · medium/large)",
     "summary": "次のいずれかに該当すると、 ywc-plan はこの経路へ routing します。"
   },
   {
     "slug": "06-agentic-autonomous-loop",
-    "title": "06. 目標 1 つで自動完了する (ywc-agentic)",
-    "summary": "04 , 05 は、各段階( ywc-plan → ..."
+    "title": "07. 目標 1 つで自動完了する (ywc-agentic)",
+    "summary": "05 , 06 は、各段階( ywc-plan → ..."
+  },
+  {
+    "slug": "19-skill-combination-recipes",
+    "title": "08. Skill 組み合わせレシピ",
+    "summary": "他のページはフロー 1 つ、または Skill 1 つずつを説明しています。このページでは、Skill 同士がどうつながるか — ある Skill が何を残し、それをどの Skill が引き継ぐか — を示します。以下のつながりはすべて Skill 自身が行う動作(共有ファイルの読み込み、次の Skill への hand-off の提案)であり、ユーザーが覚えておくべき慣習ではありません。"
   },
   {
     "slug": "07-starting-a-new-project",
-    "title": "07. 新しい Project を始める",
-    "summary": "Git repository 自体がない、またはあってもコードがほとんどない白紙の状態で project を設計するときに使います。すでにコードがある未知の repo を把握したい場合は、このページではなく 08."
+    "title": "09. 新しい Project を始める",
+    "summary": "Git repository 自体がない、またはあってもコードがほとんどない白紙の状態で project を設計するときに使います。すでにコードがある未知の repo を把握したい場合は、このページではなく 10."
   },
   {
     "slug": "08-onboarding-existing-repo",
-    "title": "08. 既存 Repo に初めて入る",
-    "summary": "すでにコードが存在する未知の repository に初めて入り、「この codebase がどういう構造か」を把握する必要があるときに使います。逆に白紙状態から新しい project を設計する場合は、 07."
+    "title": "10. 既存 Repo に初めて入る",
+    "summary": "すでにコードが存在する未知の repository に初めて入り、「この codebase がどういう構造か」を把握する必要があるときに使います。逆に白紙状態から新しい project を設計する場合は、 09."
   },
   {
     "slug": "09-testing-guide",
-    "title": "09. Test を作成して実行する",
+    "title": "11. Test を作成して実行する",
     "summary": "機能実装が終わった後、「本当に意図通りに動作するか」を検証する必要があるときに使います。検証は性質の異なる 2 つの系統に分かれます。自動化されたコード test と、人が判断すべき手動検証です。"
   },
   {
     "slug": "10-e2e-test-strategy",
-    "title": "10. E2E Test 自動化戦略",
+    "title": "12. E2E Test 自動化戦略",
     "summary": "プロジェクトに Playwright ベースの E2E test がまだない、またはあってもカバレッジが散らばっていて「どの flow から自動化すべきか」が不明確なときに ywc-e2e-test-strategy を使います。繰り返し回帰が発生する核心 flow(ログイン、決済など)を最小コストで自動化することが目的です。"
   },
   {
     "slug": "11-design-review",
-    "title": "11. デザインをレビューして改善する",
-    "summary": "2 つの Skill は異なる質問に答えます。今したい質問が何かに応じて選んでください。"
-  },
-  {
-    "slug": "12-debugging-and-incident-postmortem",
-    "title": "12. デバッグとインシデント事後分析",
+    "title": "13. デザインをレビューして改善する",
     "summary": "2 つの Skill は異なる質問に答えます。今したい質問が何かに応じて選んでください。"
   },
   {
     "slug": "16-code-structure-and-maintainability",
-    "title": "13. コード構造と保守性の管理",
+    "title": "14. コード構造と保守性の管理",
     "summary": "2 つの Skill はどちらも「コードが良くない」という同じ症状から出発しますが、扱う問いが異なります。今どの問いに答えが欲しいかで選んでください。"
   },
   {
+    "slug": "12-debugging-and-incident-postmortem",
+    "title": "15. デバッグとインシデント事後分析",
+    "summary": "2 つの Skill は異なる質問に答えます。今したい質問が何かに応じて選んでください。"
+  },
+  {
     "slug": "17-infrastructure-and-cloud",
-    "title": "14. クラウドインフラの管理",
+    "title": "16. クラウドインフラの管理",
     "summary": "4 つの Skill は「設計 → 実装 → レビュー → 改善」という一続きのライフサイクルをカバーしますが、それぞれ答える質問が異なります。今どの段階にいるかで選んでください。"
   },
   {
     "slug": "18-authentication-implementation",
-    "title": "15. 認証機能の実装",
+    "title": "17. 認証機能の実装",
     "summary": "ywc-auth-implement は、サインイン/サインアップ、OAuth、MFA、セッション管理、パスワードリセット、アカウント削除、同意フローなど、新しい認証機能をプロジェクトに追加したいとき、コードを書き始める前にポリシー判断を明示的に確定させたい場合に使います。ただし「認証に関わること全般」をカバーするわけではありません。"
   },
   {
     "slug": "13-executor-and-codegen-patterns",
-    "title": "16. Executor / Code-gen Prompt パターン",
+    "title": "18. Executor / Code-gen Prompt パターン",
     "summary": "ywc-sequential-executor , ywc-parallel-executor , ywc-code-gen はオプションが多く、毎回正確な syntax を探しがちな 3 つの Skill です。このページでは Skill 名ではなく、**「今やりたいこと」**を基準に例を整理しました。やりたいことを見つけて、そのままコピーして使ってください。"
   },
   {
     "slug": "14-skill-reference",
-    "title": "17. 全 Skill リファレンス",
+    "title": "19. 全 Skill リファレンス",
     "summary": "前のワークフローガイドで扱わなかった残りの Skill を、 やりたいこと 基準でまとめて整理しました。各フロー(Small/Medium/Large cycle、新規 project、onboarding、testing、design)の途中で必要になったときに参照してください。"
-  },
-  {
-    "slug": "15-prerequisites-installation",
-    "title": "18. 事前準備とインストール",
-    "summary": "ywc-* Skill を安定して使うには、いくつかの Tool を事前に準備しておく必要があります。Plugin marketplace や Codex plugin からインストールすればファイルコピーと登録は自動で処理されますが、Skill を 実際に実行 するときは以下の Tool が System に入っている必要があります。手順は次のとおりです — ① 必須 Tool のインストール → ② ywc-agent-toolkit 自体のインストール(Claude Code / Codex) → その下は状況に応じて準備する選択 Tool です。"
-  },
-  {
-    "slug": "19-skill-combination-recipes",
-    "title": "19. Skill 組み合わせレシピ",
-    "summary": "他のページはフロー 1 つ、または Skill 1 つずつを説明しています。このページでは、Skill 同士がどうつながるか — ある Skill が何を残し、それをどの Skill が引き継ぐか — を示します。以下のつながりはすべて Skill 自身が行う動作(共有ファイルの読み込み、次の Skill への hand-off の提案)であり、ユーザーが覚えておくべき慣習ではありません。"
   }
 ]

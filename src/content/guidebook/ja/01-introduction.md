@@ -20,7 +20,7 @@
 
 Plugin marketplace または Codex plugin からインストールする場合、追加の前提条件はありません。必要なファイルコピーと登録はインストーラが自動で処理します。
 
-ただし Skill を実際に実行するときは `git`、`gh`、`python3` などいくつかの Tool が System に必要で、デザイン関連 Skill を使うなら別途セットアップしておくと安定します。必須 Tool と選択 Tool の一覧、インストール方法は [18. 事前準備とインストール](./15-prerequisites-installation.md) にまとめました — 始める前に一度目を通しておくことをおすすめします。
+ただし Skill を実際に実行するときは `git`、`gh`、`python3` などいくつかの Tool が System に必要で、デザイン関連 Skill を使うなら別途セットアップしておくと安定します。必須 Tool と選択 Tool の一覧、インストール方法は [03. 事前準備とインストール](./15-prerequisites-installation.md) にまとめました — 始める前に一度目を通しておくことをおすすめします。
 
 ## 始める前に確認すること
 
@@ -28,8 +28,8 @@ Plugin marketplace または Codex plugin からインストールする場合�
 |---|---|
 | Claude Code がこの repository を認識しているか | 会話欄で `/` を入力したとき、`ywc-*` Skill 一覧が自動補完に表示されるか確認 |
 | `gh` CLI が認証済みか | `gh auth status` — PR 作成/merge を扱う多くの Skill が必要とする |
-| project に `CLAUDE.md` があるか | なければ [08. 既存 Repo に初めて入る](./08-onboarding-existing-repo.md) を参照 — Skill は言語・commit convention をここから推論する |
-| 作業対象が新規 project か、既存コード変更か | 新規なら [07. 新しい Project を始める](./07-starting-a-new-project.md)、既存変更なら [02. 核心概念](./02-core-concepts.md) から |
+| project に `CLAUDE.md` があるか | なければ [10. 既存 Repo に初めて入る](./08-onboarding-existing-repo.md) を参照 — Skill は言語・commit convention をここから推論する |
+| 作業対象が新規 project か、既存コード変更か | 新規なら [09. 新しい Project を始める](./07-starting-a-new-project.md)、既存変更なら [02. 核心概念](./02-core-concepts.md) から |
 
 ## Skill 呼び出し文法
 
@@ -44,8 +44,8 @@ Plugin marketplace または Codex plugin からインストールする場合�
   </ToolTabsPanel>
 </ToolTabs>
 
-先頭に `/` を付けた `/ywc-plan` 形式でも同じように動作します。この文書では可読性のため `/` を省略します。`--flag value` 形式のオプションは Skill ごとに異なり、各 Skill ページまたは [16. Executor / Code-gen Prompt パターン](./13-executor-and-codegen-patterns.md)に実例として整理しています。
+先頭に `/` を付けた `/ywc-plan` 形式でも同じように動作します。この文書では可読性のため `/` を省略します。`--flag value` 形式のオプションは Skill ごとに異なり、各 Skill ページまたは [18. Executor / Code-gen Prompt パターン](./13-executor-and-codegen-patterns.md)に実例として整理しています。
 
 ---
 
-[次: 02. 核心概念 →](./02-core-concepts.md)
+[次へ: 02. 核心概念 →](./02-core-concepts.md)

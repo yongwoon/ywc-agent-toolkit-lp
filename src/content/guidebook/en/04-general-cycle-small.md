@@ -1,10 +1,10 @@
 [Back to table of contents](./README.md)
 
-# 04. Handling a small change (general cycle - small)
+# 05. Handling a small change (general cycle - small)
 
 ## When to use this flow
 
-When `ywc-plan` judges a request as **Small**, it automatically enters this path. The decision criterion is "can this finish as a single PR without Task decomposition?" If any item below applies, it is elevated to Medium/Large instead of Small (see [05](./05-general-cycle-medium-large.md)).
+When `ywc-plan` judges a request as **Small**, it automatically enters this path. The decision criterion is "can this finish as a single PR without Task decomposition?" If any item below applies, it is elevated to Medium/Large instead of Small (see [06](./05-general-cycle-medium-large.md)).
 
 - Includes a DB migration
 - Introduces a new Library/Framework
@@ -23,9 +23,9 @@ ywc-plan -> ywc-code-gen -> ywc-impl-review -> ywc-create-pr
 | 3 | `ywc-impl-review` | Final code review before opening a PR |
 | 4 | `ywc-create-pr` | PR creation -> CI -> Bot Review check |
 
-> **Note**: The Small flow has `ywc-plan` produce `plan.md` (not a spec document) directly, so `ywc-spec-ready` - which operates on a spec document - is not part of this path. `ywc-spec-ready` is the spec-convergence step of the Medium/Large flow (see [05](./05-general-cycle-medium-large.md)).
+> **Note**: The Small flow has `ywc-plan` produce `plan.md` (not a spec document) directly, so `ywc-spec-ready` - which operates on a spec document - is not part of this path. `ywc-spec-ready` is the spec-convergence step of the Medium/Large flow (see [06](./05-general-cycle-medium-large.md)).
 >
-> **Note**: `ywc-code-gen` does not have an automatic review flag such as `--review`. If you skip step 3 (`ywc-impl-review`), the PR is opened without code review, so this flow must run it explicitly. Executors in the Medium/Large flow can automate this step with the `--review` flag - see [05](./05-general-cycle-medium-large.md).
+> **Note**: `ywc-code-gen` does not have an automatic review flag such as `--review`. If you skip step 3 (`ywc-impl-review`), the PR is opened without code review, so this flow must run it explicitly. Executors in the Medium/Large flow can automate this step with the `--review` flag - see [06](./05-general-cycle-medium-large.md).
 
 ## Example run
 
@@ -71,11 +71,11 @@ If Bot review comments, failed CI, or merge-readiness issues remain, continue wi
 
 | Situation | Action |
 |---|---|
-| `ywc-plan` judges the work as Medium instead of Small | This is normal - move to [05. general cycle (medium/large)](./05-general-cycle-medium-large.md) |
+| `ywc-plan` judges the work as Medium instead of Small | This is normal - move to [06. general cycle (medium/large)](./05-general-cycle-medium-large.md) |
 | `ywc-code-gen` returns `BLOCKED` | The spec may be unclear or project context could not be read - check the reported blocker |
 | `ywc-impl-review` returns `DONE_WITH_CONCERNS` | If it is a correctness issue, fix and rerun; if it is an observation, record it in the PR description and proceed |
 | The PR fails CI | `ywc-create-pr` or `ywc-handle-pr-reviews` checks the failure log and attempts fixes up to two times - if it still fails, the issue is surfaced as `DONE_WITH_CONCERNS` or `BLOCKED` |
 
 ---
 
-[Previous: 03. Ship your first feature in 5 minutes](./03-quickstart.md) - [Next: 05. Handling work split into multiple Tasks](./05-general-cycle-medium-large.md)
+[Previous: 04. Ship your first feature in 5 minutes](./03-quickstart.md) · [Next: 06. Handling work split into multiple Tasks (general cycle - medium/large)](./05-general-cycle-medium-large.md)

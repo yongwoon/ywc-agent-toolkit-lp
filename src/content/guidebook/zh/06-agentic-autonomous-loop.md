@@ -1,13 +1,13 @@
 [Back to table of contents](./README.md)
 
-# 06. 从一个目标自动完成 (ywc-agentic)
+# 07. 从一个目标自动完成 (ywc-agentic)
 
 ## 何时使用此流程
 
-[04](./04-general-cycle-small.md) 和 [05](./05-general-cycle-medium-large.md) 是**手动控制**流程，用户逐步调用每个步骤（`ywc-plan` -> ... -> 执行器）。`ywc-agentic` 接收一个自然语言目标，并自动将完整流程重复作为**计划 -> 执行 -> 评估 -> 重复**的循环，直到验证通过或达到迭代上限，无需人工干预。
+[05](./04-general-cycle-small.md) 和 [06](./05-general-cycle-medium-large.md) 是**手动控制**流程，用户逐步调用每个步骤（`ywc-plan` -> ... -> 执行器）。`ywc-agentic` 接收一个自然语言目标，并自动将完整流程重复作为**计划 -> 执行 -> 评估 -> 重复**的循环，直到验证通过或达到迭代上限，无需人工干预。
 
 - 如果你想设定一个目标，而不是每次手动跟踪下一个技能 -> 这个页面
-- 如果你想在 Task 级别上直接控制，决定哪个任务何时运行 -> 直接使用 [05](./05-general-cycle-medium-large.md) 的执行器
+- 如果你想在 Task 级别上直接控制，决定哪个任务何时运行 -> 直接使用 [06](./05-general-cycle-medium-large.md) 的执行器
 - 如果你想按原样运行现有的 `tasks/` 积压任务而不进行 Task 分解 -> 直接调用 `ywc-sequential-executor` / `ywc-parallel-executor`，而不是通过代理
 
 ## 它自动化的内容
@@ -110,4 +110,4 @@ Goal -> [Plan -> Execute -> Evaluate -> Repeat] -> Result
 
 ---
 
-[Previous: 05. Handling work split into multiple Tasks](./05-general-cycle-medium-large.md) - [Next: 07. Starting a new Project](./07-starting-a-new-project.md)
+[← 上一页: 06. 处理分成多个 Tasks 的工作（通用周期 - 中/大型）](./05-general-cycle-medium-large.md) · [下一页: 08. Skill 组合用法 →](./19-skill-combination-recipes.md)

@@ -28,7 +28,7 @@ Agent は Skill の中で実行され、ユーザーが直接呼び出すこと�
 | `ywc-backend-coder` / `ywc-frontend-coder` / `ywc-qa-engineer` | Server コード / UI コード / test コードを作成 | `ywc-code-gen`, 2 つの executor | ✓ | |
 | `ywc-refactor-cleaner` | 安全な dead code 削除ループを実行 | `ywc-refactor-clean` | ✓ | |
 | `ywc-doc-writer` | ドキュメントを作成 | `ywc-auth-implement`, `ywc-project-docs` | ✓ | |
-| `ywc-complexity-cleaner` / `ywc-test-hardener` | 品質ゲートの worker: production コードの複雑度を下げる / 生き残った mutant に対して test を強化する | Executor の品質ゲート ([16](./13-executor-and-codegen-patterns.md)) | | ✓ |
+| `ywc-complexity-cleaner` / `ywc-test-hardener` | 品質ゲートの worker: production コードの複雑度を下げる / 生き残った mutant に対して test を強化する | Executor の品質ゲート ([18](./13-executor-and-codegen-patterns.md)) | | ✓ |
 
 ## 規模(Scale) がフローを決める
 
@@ -36,8 +36,8 @@ Agent は Skill の中で実行され、ユーザーが直接呼び出すこと�
 
 | 規模 | 判断基準 | 成果物 | 次の段階 |
 |---|---|---|---|
-| **Small** | 単一 PR で終わる変更、DB migration/新 Library 導入がない | `plan.md` | [04. general cycle (small)](./04-general-cycle-small.md) |
-| **Medium/Large** | 複数 Task に分ける必要がある、DB migration または新 Library 導入を含む | `docs/ywc-plans/<slug>.md` | [05. general cycle (medium/large)](./05-general-cycle-medium-large.md) |
+| **Small** | 単一 PR で終わる変更、DB migration/新 Library 導入がない | `plan.md` | [05. general cycle (small)](./04-general-cycle-small.md) |
+| **Medium/Large** | 複数 Task に分ける必要がある、DB migration または新 Library 導入を含む | `docs/ywc-plans/<slug>.md` | [06. general cycle (medium/large)](./05-general-cycle-medium-large.md) |
 
 DB migration や新 Library 導入は、規模に関係なく**常に別扱い**されます。これは `ywc-plan` と `ywc-task-generator` の両方に共通する安全不変式(Safety Invariant)です。
 
@@ -68,11 +68,11 @@ DB migration や新 Library 導入は、規模に関係なく**常に別扱い**
   <FlowStep>テスト＆統合テスト (ywc-gen-testcase、必要に応じて ywc-e2e-test-strategy)</FlowStep>
 </FlowDiagram>
 
-このフローの各分岐は、[04](./04-general-cycle-small.md), [05](./05-general-cycle-medium-large.md) ページで実際の command 例とともに詳しく扱い、最後のテスト段階は [09](./09-testing-guide.md), [10](./10-e2e-test-strategy.md) ページで扱います。
+このフローの各分岐は、[05](./04-general-cycle-small.md), [06](./05-general-cycle-medium-large.md) ページで実際の command 例とともに詳しく扱い、最後のテスト段階は [11](./09-testing-guide.md), [12](./10-e2e-test-strategy.md) ページで扱います。
 
 ## PR Delivery モードの共通概念
 
-`ywc-finish-branch`, `ywc-sequential-executor`, `ywc-parallel-executor` は、task ベースの delivery で以下のモード概念を共有します。`plan.md` ベースの Small フローには task artifact がないため、`ywc-create-pr` で PR を開き、その後の review/merge は別途処理します。正確な flag の組み合わせは [16. Executor / Code-gen Prompt パターン](./13-executor-and-codegen-patterns.md)で扱います。
+`ywc-finish-branch`, `ywc-sequential-executor`, `ywc-parallel-executor` は、task ベースの delivery で以下のモード概念を共有します。`plan.md` ベースの Small フローには task artifact がないため、`ywc-create-pr` で PR を開き、その後の review/merge は別途処理します。正確な flag の組み合わせは [18. Executor / Code-gen Prompt パターン](./13-executor-and-codegen-patterns.md)で扱います。
 
 | モード | 意味 |
 |---|---|
@@ -83,4 +83,4 @@ DB migration や新 Library 導入は、規模に関係なく**常に別扱い**
 
 ---
 
-[← 前: 01. 概要](./01-introduction.md) · [次: 03. 5 分で最初の機能をデプロイする →](./03-quickstart.md)
+[← 前へ: 01. 概要](./01-introduction.md) · [次へ: 03. 事前準備とインストール →](./15-prerequisites-installation.md)

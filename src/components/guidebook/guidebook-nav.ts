@@ -6,7 +6,9 @@ export type GuidebookGroupId =
   | "prologue"
   | "getting-started"
   | "core-pipeline"
-  | "workflow-guides"
+  | "project-setup"
+  | "quality"
+  | "operations"
   | "reference";
 
 export type GuidebookPageMeta = {
@@ -31,35 +33,45 @@ export const groupLabelsByLocale: Record<Locale, Record<GuidebookGroupId, string
     prologue: "Prologue",
     "getting-started": "Getting started",
     "core-pipeline": "Core pipeline",
-    "workflow-guides": "Situational guides",
+    "project-setup": "Starting a project",
+    quality: "Quality and verification",
+    operations: "Operations and specialized domains",
     reference: "Reference"
   },
   ja: {
     prologue: "プロローグ",
     "getting-started": "はじめに",
     "core-pipeline": "コアパイプライン",
-    "workflow-guides": "状況別ガイド",
+    "project-setup": "プロジェクトの開始",
+    quality: "品質と検証",
+    operations: "運用と専門領域",
     reference: "リファレンス"
   },
   ko: {
     prologue: "프롤로그",
     "getting-started": "시작하기",
     "core-pipeline": "핵심 파이프라인",
-    "workflow-guides": "상황별 가이드",
+    "project-setup": "프로젝트 시작",
+    quality: "품질과 검증",
+    operations: "운영과 전문 영역",
     reference: "레퍼런스"
   },
   zh: {
     prologue: "前言",
     "getting-started": "快速开始",
     "core-pipeline": "核心流程",
-    "workflow-guides": "场景指南",
+    "project-setup": "项目起步",
+    quality: "质量与验证",
+    operations: "运维与专项领域",
     reference: "参考"
   },
   es: {
     prologue: "Prólogo",
     "getting-started": "Primeros pasos",
     "core-pipeline": "Flujo principal",
-    "workflow-guides": "Guías por situación",
+    "project-setup": "Inicio de un proyecto",
+    quality: "Calidad y verificación",
+    operations: "Operaciones y áreas especializadas",
     reference: "Referencia"
   }
 };
@@ -123,6 +135,13 @@ export const guidebookNavGroups: readonly GuidebookNavGroup[] = [
     label: groupLabelsByLocale.en["getting-started"],
     pages: [
       {
+        slug: "15-prerequisites-installation",
+        title: "Prerequisites and installation",
+        description: "Required vs. optional tools and how to install ywc-agent-toolkit before relying on it",
+        groupId: "getting-started",
+        status: "pending"
+      },
+      {
         slug: "03-quickstart",
         title: "Ship your first feature in 5 minutes",
         description: "A hands-on walkthrough of one small feature, from idea to merge",
@@ -155,18 +174,26 @@ export const guidebookNavGroups: readonly GuidebookNavGroup[] = [
         description: "A flow that automatically repeats Plan -> Execute -> Evaluate -> Repeat from a single goal",
         groupId: "core-pipeline",
         status: "pending"
+      },
+      {
+        slug: "19-skill-combination-recipes",
+        title: "Skill combination recipes",
+        description:
+          "How Skills hand off to each other: the review learning loop, bug-to-prevention, PR gates, decision records, discovery, parallel execution, and release",
+        groupId: "core-pipeline",
+        status: "pending"
       }
     ]
   },
   {
-    groupId: "workflow-guides",
-    label: groupLabelsByLocale.en["workflow-guides"],
+    groupId: "project-setup",
+    label: groupLabelsByLocale.en["project-setup"],
     pages: [
       {
         slug: "07-starting-a-new-project",
         title: "Starting a new Project",
         description: "From a blank slate to designing a project and finishing its first spec",
-        groupId: "workflow-guides",
+        groupId: "project-setup",
         status: "pending"
       },
       {
@@ -174,36 +201,34 @@ export const guidebookNavGroups: readonly GuidebookNavGroup[] = [
         title: "Entering an existing Repo for the first time",
         description:
           "An onboarding flow that reverse-engineers an unfamiliar codebase's conventions into a CLAUDE.md",
-        groupId: "workflow-guides",
+        groupId: "project-setup",
         status: "pending"
-      },
+      }
+    ]
+  },
+  {
+    groupId: "quality",
+    label: groupLabelsByLocale.en.quality,
+    pages: [
       {
         slug: "09-testing-guide",
         title: "Writing and running Tests",
         description: "How to run manual-verification testsheets alongside automated tests",
-        groupId: "workflow-guides",
+        groupId: "quality",
         status: "pending"
       },
       {
         slug: "10-e2e-test-strategy",
         title: "E2E Test automation strategy",
         description: "An in-depth guide to setting up, extending, and maintaining a Playwright-based E2E suite",
-        groupId: "workflow-guides",
+        groupId: "quality",
         status: "pending"
       },
       {
         slug: "11-design-review",
         title: "Reviewing and improving design",
         description: "How to distinguish between and apply usability audits vs. visual de-slop renewal",
-        groupId: "workflow-guides",
-        status: "pending"
-      },
-      {
-        slug: "12-debugging-and-incident-postmortem",
-        title: "Debugging and incident postmortems",
-        description:
-          "How ywc-debug-rootcause drives a root-cause investigation and ywc-incident-postmortem writes the follow-up report",
-        groupId: "workflow-guides",
+        groupId: "quality",
         status: "pending"
       },
       {
@@ -211,7 +236,21 @@ export const guidebookNavGroups: readonly GuidebookNavGroup[] = [
         title: "Managing Code Structure and Maintainability",
         description:
           "A decision table and 2-step pipeline for ywc-refactor-clean and ywc-impl-review",
-        groupId: "workflow-guides",
+        groupId: "quality",
+        status: "pending"
+      }
+    ]
+  },
+  {
+    groupId: "operations",
+    label: groupLabelsByLocale.en.operations,
+    pages: [
+      {
+        slug: "12-debugging-and-incident-postmortem",
+        title: "Debugging and incident postmortems",
+        description:
+          "How ywc-debug-rootcause drives a root-cause investigation and ywc-incident-postmortem writes the follow-up report",
+        groupId: "operations",
         status: "pending"
       },
       {
@@ -219,7 +258,7 @@ export const guidebookNavGroups: readonly GuidebookNavGroup[] = [
         title: "Managing Cloud Infrastructure",
         description:
           "A decision table and 4-step pipeline for ywc-infra-design, ywc-iac-author, ywc-infra-review, and ywc-infra-optimize, dispatching to the ywc-cloud-engineer agent",
-        groupId: "workflow-guides",
+        groupId: "operations",
         status: "pending"
       },
       {
@@ -227,7 +266,7 @@ export const guidebookNavGroups: readonly GuidebookNavGroup[] = [
         title: "Implementing Authentication",
         description:
           "How ywc-auth-implement runs a preflight gate, a 9-category policy interview, and a dynamic recommendation, then dispatches ywc-backend-coder, ywc-frontend-coder, and ywc-doc-writer under a security-audit and E2E gate",
-        groupId: "workflow-guides",
+        groupId: "operations",
         status: "pending"
       }
     ]
@@ -247,21 +286,6 @@ export const guidebookNavGroups: readonly GuidebookNavGroup[] = [
         slug: "14-skill-reference",
         title: "Full Skill Reference",
         description: "An index of the remaining Skills not covered above, organized by situation",
-        groupId: "reference",
-        status: "pending"
-      },
-      {
-        slug: "15-prerequisites-installation",
-        title: "Prerequisites and installation",
-        description: "Required vs. optional tools and how to install ywc-agent-toolkit before relying on it",
-        groupId: "reference",
-        status: "pending"
-      },
-      {
-        slug: "19-skill-combination-recipes",
-        title: "Skill combination recipes",
-        description:
-          "How Skills hand off to each other: the review learning loop, bug-to-prevention, PR gates, decision records, discovery, parallel execution, and release",
         groupId: "reference",
         status: "pending"
       }

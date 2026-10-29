@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 12. 根本原因调查和事后分析
+# 15. 根本原因调查和事后分析
 
 ## 何时使用此流程
 
@@ -43,4 +43,4 @@
 
 ---
 
-[Previous: 11. 审查和改进设计](./11-design-review.md) - [Next: 13. 管理代码结构与可维护性](./16-code-structure-and-maintainability.md)
+[← 上一页: 14. 管理代码结构与可维护性](./16-code-structure-and-maintainability.md) · [下一页: 16. 管理云基础设施 →](./17-infrastructure-and-cloud.md)

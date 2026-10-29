@@ -1,6 +1,6 @@
 [« 목차로 돌아가기](./README.md)
 
-# 11. 디자인 검토 및 개선하기
+# 13. 디자인 검토 및 개선하기
 
 ## 언제 이 흐름을 쓰는가
 
@@ -59,4 +59,4 @@ Live UI 탐색이 포함되므로 staging 또는 preview URL 이 준비되어 �
 
 ---
 
-[← 이전: 10. E2E Test 자동화 전략](./10-e2e-test-strategy.md) · [다음: 12. 버그 디버깅과 장애 사후분석 →](./12-debugging-and-incident-postmortem.md)
+[← 이전: 12. E2E Test 자동화 전략](./10-e2e-test-strategy.md) · [다음: 14. 코드 구조와 유지보수성 관리 →](./16-code-structure-and-maintainability.md)

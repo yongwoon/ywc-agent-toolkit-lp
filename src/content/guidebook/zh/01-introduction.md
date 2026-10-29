@@ -20,7 +20,7 @@
 
 通过 Plugin marketplace 或 Codex plugin 安装时，没有额外前置条件。安装工具会自动处理所需的文件复制和注册。
 
-不过，实际运行 Skill 时需要系统中准备好 `git`、`gh`、`python3` 等几个 Tool，如果要使用设计相关 Skill，额外的设置也会有帮助。必需 Tool 与可选 Tool 的完整列表和安装方法整理在 [18. 前置条件与安装](./15-prerequisites-installation.md) —— 建议在开始之前先浏览一遍。
+不过，实际运行 Skill 时需要系统中准备好 `git`、`gh`、`python3` 等几个 Tool，如果要使用设计相关 Skill，额外的设置也会有帮助。必需 Tool 与可选 Tool 的完整列表和安装方法整理在 [03. 前置条件与安装](./15-prerequisites-installation.md) —— 建议在开始之前先浏览一遍。
 
 ## 开始前需要检查的事项
 
@@ -28,8 +28,8 @@
 |---|---|
 | Claude Code 识别这个仓库吗？ | 在对话中输入 `/` 并确认自动完成中出现 `ywc-*` Skill 列表 |
 | `gh` CLI 已被认证吗？ | `gh auth status` - 大多数创建或合并 PR 的技能所需 |
-| 这个项目有 `CLAUDE.md` 吗？ | 如果没有，请参阅 [08. Entering an existing Repo for the first time](./08-onboarding-existing-repo.md) - 从此文件推断语言和提交约定的技能 |
-| 目标是一个新项目还是对现有代码的更改？ | 对于新项目，请访问 [07. Starting a new Project](./07-starting-a-new-project.md)；对于已有更改，请从 [02. Core concepts](./02-core-concepts.md) 开始 |
+| 这个项目有 `CLAUDE.md` 吗？ | 如果没有，请参阅 [10. Entering an existing Repo for the first time](./08-onboarding-existing-repo.md) - 从此文件推断语言和提交约定的技能 |
+| 目标是一个新项目还是对现有代码的更改？ | 对于新项目，请访问 [09. Starting a new Project](./07-starting-a-new-project.md)；对于已有更改，请从 [02. Core concepts](./02-core-concepts.md) 开始 |
 
 ## Skill 调用语法
 
@@ -44,8 +44,8 @@
   </ToolTabsPanel>
 </ToolTabs>
 
-带有前导 `/` 的 `/ywc-plan` 表单工作方式相同。为了可读性，本文件省略了 `/`。表单 `--flag value` 中的选项因 Skill 而异，具体示例收集在每个 Skill 页面或 [16. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md) 中。
+带有前导 `/` 的 `/ywc-plan` 表单工作方式相同。为了可读性，本文件省略了 `/`。表单 `--flag value` 中的选项因 Skill 而异，具体示例收集在每个 Skill 页面或 [18. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md) 中。
 
 ---
 
-[Next: 02. Core concepts](./02-core-concepts.md)
+[下一页: 02. 核心概念 →](./02-core-concepts.md)

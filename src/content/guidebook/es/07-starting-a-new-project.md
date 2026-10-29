@@ -1,10 +1,10 @@
 [Back to table of contents](./README.md)
 
-# 07. Empezando un nuevo proyecto
+# 09. Empezando un nuevo proyecto
 
 ## Cuándo usar este flujo
 
-Usa esto cuando aún no hay un repositorio Git, o cuando el repositorio existe pero es básicamente un lienzo en blanco con poco código. Si estás intentando entender un repositorio desconocido que ya tiene código, ve a [08. Entering an existing Repo for the first time](./08-onboarding-existing-repo.md) en su lugar. Estos flujos se mueven en direcciones opuestas y no deberían usarse juntos en la misma sesión.
+Usa esto cuando aún no hay un repositorio Git, o cuando el repositorio existe pero es básicamente un lienzo en blanco con poco código. Si estás intentando entender un repositorio desconocido que ya tiene código, ve a [10. Entering an existing Repo for the first time](./08-onboarding-existing-repo.md) en su lugar. Estos flujos se mueven en direcciones opuestas y no deberían usarse juntos en la misma sesión.
 
 > Antes de empezar: si prefieres no pasar `--lang` en cada llamada, fija el idioma de salida una vez con `ywc-setup-language`. A partir de entonces los skills de abajo siguen esa configuración.
 
@@ -24,7 +24,7 @@ Este flujo es un embudo: **divergir → decidir → converger → puerta de arra
 | ocho | `ywc-project-docs` | Documentos adicionales como Arquitectura / Producto / Operaciones, cuando sea necesario |
 | nueve | `ywc-task-generator` | Descomponer la especificación `DONE` en Tasks segura para dependencias |
 | diez | `ywc-confidence-gate` | Puntúa la preparación en cinco dimensiones antes de la implementación (PROCEED ≥90 / REVIEW 70–89 / STOP &lt;70) |
-| once | Ingrese [05. general cycle (medium/large)](./05-general-cycle-medium-large.md) | Comenzar la implementación real |
+| once | Ingrese [06. general cycle (medium/large)](./05-general-cycle-medium-large.md) | Comenzar la implementación real |
 
 ## Ejemplo de ejecución
 
@@ -128,7 +128,7 @@ Si devuelve `DONE_WITH_CONCERNS`, vuelva al paso 6 `ywc-spec-writer`, refine la 
     <CodeBlock label="codex" code="ywc-confidence-gate revisa si es seguro empezar a implementar con esta spec y estas tasks" />
   </ToolTabsPanel>
 </ToolTabs>
-Puntúa cinco dimensiones: scope clarity / architecture compliance / evidence quality / reuse verified / root cause. Con `PROCEED` (≥90) entra en [05. general cycle](./05-general-cycle-medium-large.md); con `STOP` (&lt;70), refuerza primero la dimensión señalada.
+Puntúa cinco dimensiones: scope clarity / architecture compliance / evidence quality / reuse verified / root cause. Con `PROCEED` (≥90) entra en [06. general cycle](./05-general-cycle-medium-large.md); con `STOP` (&lt;70), refuerza primero la dimensión señalada.
 
 ## Notas
 
@@ -142,4 +142,4 @@ Puntúa cinco dimensiones: scope clarity / architecture compliance / evidence qu
 
 ---
 
-[Previous: 06. Finish automatically from one goal](./06-agentic-autonomous-loop.md) - [Next: 08. Entering an existing Repo for the first time](./08-onboarding-existing-repo.md)
+[← Anterior: 08. Recetas para combinar Skills](./19-skill-combination-recipes.md) · [Siguiente: 10. Entrando en un repositorio existente por primera vez →](./08-onboarding-existing-repo.md)

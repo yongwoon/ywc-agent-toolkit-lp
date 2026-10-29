@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 16. Executor / 代码生成提示模式
+# 18. Executor / 代码生成提示模式
 
 `ywc-sequential-executor`、`ywc-parallel-executor` 和 `ywc-code-gen` 是三个技能，其众多选项会让你反复查找准确的语法。本页按 **“你现在想要做什么”** 来组织示例，而不是按 Skill 名称。找到你的任务并按原样复制命令。
 
@@ -246,4 +246,4 @@ Tasks 按 wave 在一个 `aggregate/payments` 分支上堆叠，并作为 **一�
 
 ---
 
-[Previous: 14. 管理云基础设施](./17-infrastructure-and-cloud.md) - [Next: 17. 完整 Skill 参考](./14-skill-reference.md)
+[← 上一页: 17. 实现身份验证](./18-authentication-implementation.md) · [下一页: 19. 完整 Skill 参考 →](./14-skill-reference.md)

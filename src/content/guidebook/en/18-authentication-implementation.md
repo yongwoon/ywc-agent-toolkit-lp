@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 15. Implementing Authentication
+# 17. Implementing Authentication
 
 ## When to use this Skill
 
@@ -8,7 +8,7 @@ Use `ywc-auth-implement` when a project needs a new authentication feature — s
 
 - After the auth code already exists and you want a security pass on it, use [`ywc-security-audit`](./14-skill-reference.md) instead — this Skill drives the build, not a post-hoc review.
 - For general feature planning that has nothing to do with authentication, use [`ywc-plan`](./14-skill-reference.md) — this Skill's policy interview is auth-specific and does not replace a general planning pass.
-- For authoring E2E coverage outside auth flows, use [11. E2E Test automation strategy](./10-e2e-test-strategy.md) — this Skill only drives the auth-flow E2E gate described below, not the project's broader test suite.
+- For authoring E2E coverage outside auth flows, use [12. E2E Test automation strategy](./10-e2e-test-strategy.md) — this Skill only drives the auth-flow E2E gate described below, not the project's broader test suite.
 
 ## How the flow works
 
@@ -82,4 +82,4 @@ The interview, the no-fixed-stack recommendation rule, the `new`/`extend`/`migra
 
 ---
 
-[Previous: 14. Managing Cloud Infrastructure](./17-infrastructure-and-cloud.md) - [Next: 16. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md)
+[Previous: 16. Managing Cloud Infrastructure](./17-infrastructure-and-cloud.md) · [Next: 18. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md)

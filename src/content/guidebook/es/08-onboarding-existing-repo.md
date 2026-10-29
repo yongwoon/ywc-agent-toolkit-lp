@@ -1,10 +1,10 @@
 [Back to table of contents](./README.md)
 
-# 08. Entrando en un repositorio existente por primera vez
+# 10. Entrando en un repositorio existente por primera vez
 
 ## Cuándo usar este flujo
 
-Usa esto cuando entres por primera vez a un repositorio desconocido que ya tiene código y necesites entender "cómo es esta base de código." Por el contrario, si estás diseñando un proyecto nuevo desde cero, ve a [07. Starting a new Project](./07-starting-a-new-project.md). Estos dos flujos se mueven en direcciones opuestas y no deben usarse juntos en la misma sesión.
+Usa esto cuando entres por primera vez a un repositorio desconocido que ya tiene código y necesites entender "cómo es esta base de código." Por el contrario, si estás diseñando un proyecto nuevo desde cero, ve a [09. Starting a new Project](./07-starting-a-new-project.md). Estos dos flujos se mueven en direcciones opuestas y no deben usarse juntos en la misma sesión.
 
 ## Lo que hace
 
@@ -62,4 +62,4 @@ Usa esto cuando entres por primera vez a un repositorio desconocido que ya tiene
 
 ---
 
-[Previous: 07. Starting a new Project](./07-starting-a-new-project.md) - [Next: 09. Writing and running Tests](./09-testing-guide.md)
+[← Anterior: 09. Empezando un nuevo proyecto](./07-starting-a-new-project.md) · [Siguiente: 11. Escribir y ejecutar pruebas →](./09-testing-guide.md)

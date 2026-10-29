@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 05. Handling work split into multiple Tasks (general cycle - medium/large)
+# 06. Handling work split into multiple Tasks (general cycle - medium/large)
 
 ## When to use this flow
 
@@ -70,7 +70,7 @@ ywc-plan -> ywc-spec-ready -> ywc-task-generator -> ywc-sequential-executor --re
   </ToolTabsPanel>
 </ToolTabs>
 
-The execution commands after this have many options, so they are covered on a separate page: [16. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md). The simplest starting point is:
+The execution commands after this have many options, so they are covered on a separate page: [18. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md). The simplest starting point is:
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
@@ -85,7 +85,7 @@ If you omit the task, it automatically finds the next executable Task from `depe
 
 ## Always include `--review`
 
-Both executors use the `--review` flag to automatically run `/ywc-impl-review` before PR creation/merge for each Task. Running without this flag is equivalent to completely skipping the review step in the small cycle from [04](./04-general-cycle-small.md). There is no good reason to omit it. (If a Task has `Criticality: critical`, review is forced regardless of the flag.)
+Both executors use the `--review` flag to automatically run `/ywc-impl-review` before PR creation/merge for each Task. Running without this flag is equivalent to completely skipping the review step in the small cycle from [05](./04-general-cycle-small.md). There is no good reason to omit it. (If a Task has `Criticality: critical`, review is forced regardless of the flag.)
 
 ## When you get blocked at each step
 
@@ -97,4 +97,4 @@ Both executors use the `--review` flag to automatically run `/ywc-impl-review` b
 
 ---
 
-[Previous: 04. Handling a small change](./04-general-cycle-small.md) - [Next: 06. Finish automatically from one goal](./06-agentic-autonomous-loop.md)
+[Previous: 05. Handling a small change (general cycle - small)](./04-general-cycle-small.md) · [Next: 07. Finish automatically from one goal (ywc-agentic)](./06-agentic-autonomous-loop.md)

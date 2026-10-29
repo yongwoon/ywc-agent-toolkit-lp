@@ -1,6 +1,6 @@
 [« 目次に戻る](./README.md)
 
-# 13. コード構造と保守性の管理
+# 14. コード構造と保守性の管理
 
 ## いつこの 2 つの Skill を使うか
 
@@ -28,7 +28,7 @@
 
 ## `ywc-impl-review` — 実装品質レビュー(単独実行)
 
-Architecture / Design / Devex / Security / QA の 5 軸並列レビューを実行します。[04](./04-general-cycle-small.md)、[05](./05-general-cycle-medium-large.md)の PR 前検証ステップとしてすでに組み込まれていますが、その流れの外で既存の code を対象に単独実行することもできます。
+Architecture / Design / Devex / Security / QA の 5 軸並列レビューを実行します。[05](./04-general-cycle-small.md)、[06](./05-general-cycle-medium-large.md)の PR 前検証ステップとしてすでに組み込まれていますが、その流れの外で既存の code を対象に単独実行することもできます。
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
@@ -67,4 +67,4 @@ PR を開く前に 5 軸レビューで残った問題がないか確認しま�
 
 ---
 
-[← 前: 12. デバッグとインシデント事後分析](./12-debugging-and-incident-postmortem.md) · [次: 14. クラウドインフラの管理 →](./17-infrastructure-and-cloud.md)
+[← 前へ: 13. デザインをレビューして改善する](./11-design-review.md) · [次へ: 15. デバッグとインシデント事後分析 →](./12-debugging-and-incident-postmortem.md)

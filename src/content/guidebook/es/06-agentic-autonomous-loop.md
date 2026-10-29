@@ -1,13 +1,13 @@
 [Back to table of contents](./README.md)
 
-# 06. Terminar automáticamente desde un objetivo (ywc-agentic)
+# 07. Terminar automáticamente desde un objetivo (ywc-agentic)
 
 ## Cuándo usar este flujo
 
-[04](./04-general-cycle-small.md) y [05](./05-general-cycle-medium-large.md) son flujos de **control manual** donde el usuario invoca cada paso uno por uno (`ywc-plan` -> ... -> ejecutor). `ywc-agentic` toma un objetivo en lenguaje natural y repite automáticamente toda la secuencia como un bucle de **Planificar -> Ejecutar -> Evaluar -> Repetir** hasta que la verificación pase o se alcance el límite de iteraciones, sin intervención humana.
+[05](./04-general-cycle-small.md) y [06](./05-general-cycle-medium-large.md) son flujos de **control manual** donde el usuario invoca cada paso uno por uno (`ywc-plan` -> ... -> ejecutor). `ywc-agentic` toma un objetivo en lenguaje natural y repite automáticamente toda la secuencia como un bucle de **Planificar -> Ejecutar -> Evaluar -> Repetir** hasta que la verificación pase o se alcance el límite de iteraciones, sin intervención humana.
 
 - Si quieres dar un objetivo en lugar de rastrear manualmente la siguiente habilidad cada vez -> esta página
-- Si quieres control directo a nivel Task, decidiendo qué tarea se ejecuta cuándo -> utiliza el ejecutor directamente desde [05](./05-general-cycle-medium-large.md)
+- Si quieres control directo a nivel Task, decidiendo qué tarea se ejecuta cuándo -> utiliza el ejecutor directamente desde [06](./05-general-cycle-medium-large.md)
 - Si quieres ejecutar un backlog `tasks/` existente tal como está sin descomposición Task -> llama a `ywc-sequential-executor` / `ywc-parallel-executor` directamente, no de manera agentiva
 
 ## Lo que automatiza
@@ -110,4 +110,4 @@ Si quedan tareas sin terminar en `tasks/`, se omite la Fase de Planificación y 
 
 ---
 
-[Previous: 05. Handling work split into multiple Tasks](./05-general-cycle-medium-large.md) - [Next: 07. Starting a new Project](./07-starting-a-new-project.md)
+[← Anterior: 06. Manejo del trabajo dividido en múltiples Tasks (ciclo general - mediano/grande)](./05-general-cycle-medium-large.md) · [Siguiente: 08. Recetas para combinar Skills →](./19-skill-combination-recipes.md)

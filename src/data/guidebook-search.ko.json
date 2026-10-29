@@ -10,88 +10,88 @@
     "summary": "이 페이지의 용어와 개념을 알고 나면 나머지 모든 가이드 페이지의 예시를 그대로 응용할 수 있습니다."
   },
   {
+    "slug": "15-prerequisites-installation",
+    "title": "03. 사전 준비와 설치",
+    "summary": "ywc-* Skill 을 안정적으로 쓰려면 몇 가지 Tool 이 미리 준비되어 있어야 합니다."
+  },
+  {
     "slug": "03-quickstart",
-    "title": "03. 5분 안에 첫 기능 배포하기",
+    "title": "04. 5분 안에 첫 기능 배포하기",
     "summary": "이 페이지는 작은 버그 수정 하나를 아이디어 단계부터 merge 까지 실제로 따라가 보는 첫 실습입니다."
   },
   {
     "slug": "04-general-cycle-small",
-    "title": "04. 작은 변경 처리하기 (general cycle · small)",
+    "title": "05. 작은 변경 처리하기 (general cycle · small)",
     "summary": "ywc-plan 이 요청을 Small 로 판단했을 때 자동으로 이 경로에 들어섭니다."
   },
   {
     "slug": "05-general-cycle-medium-large",
-    "title": "05. 여러 Task 로 나누어 처리하기 (general cycle · medium/large)",
+    "title": "06. 여러 Task 로 나누어 처리하기 (general cycle · medium/large)",
     "summary": "다음 중 하나라도 해당되면 ywc-plan 이 이 경로로 routing 합니다."
   },
   {
     "slug": "06-agentic-autonomous-loop",
-    "title": "06. 목표 하나로 자동 완료하기 (ywc-agentic)",
-    "summary": "04 , 05 는 각 단계( ywc-plan → ..."
+    "title": "07. 목표 하나로 자동 완료하기 (ywc-agentic)",
+    "summary": "05 , 06 는 각 단계( ywc-plan → ..."
+  },
+  {
+    "slug": "19-skill-combination-recipes",
+    "title": "08. Skill 조합 레시피",
+    "summary": "다른 페이지는 흐름 하나, 또는 Skill 하나씩을 설명합니다."
   },
   {
     "slug": "07-starting-a-new-project",
-    "title": "07. 새 Project 시작하기",
+    "title": "09. 새 Project 시작하기",
     "summary": "Git repository 자체가 없거나, 있어도 코드가 거의 없는 백지 상태에서 project 를 설계할 때 사용합니다."
   },
   {
     "slug": "08-onboarding-existing-repo",
-    "title": "08. 기존 Repo 에 처음 진입하기",
+    "title": "10. 기존 Repo 에 처음 진입하기",
     "summary": "이미 코드가 존재하는 낯선 repository 에 처음 들어가서 \"이 codebase 가 어떻게 생겼는지\" 파악해야 할 때 사용합니다."
   },
   {
     "slug": "09-testing-guide",
-    "title": "09. Test 작성 및 실행하기",
+    "title": "11. Test 작성 및 실행하기",
     "summary": "기능 구현이 끝난 뒤 \"정말 의도대로 동작하는지\" 검증해야 할 때 사용합니다."
   },
   {
     "slug": "10-e2e-test-strategy",
-    "title": "10. E2E Test 자동화 전략",
+    "title": "12. E2E Test 자동화 전략",
     "summary": "프로젝트에 Playwright 기반 E2E test 가 아직 없거나, 있어도 커버리지가 흩어져 있어 \"어떤 flow 부터 자동화해야 하는가\"가 불명확할 때 ywc-e2e-test-strategy 를 사용합니다."
   },
   {
     "slug": "11-design-review",
-    "title": "11. 디자인 검토 및 개선하기",
-    "summary": "두 Skill 은 서로 다른 질문에 답합니다."
-  },
-  {
-    "slug": "12-debugging-and-incident-postmortem",
-    "title": "12. 버그 디버깅과 장애 사후분석",
+    "title": "13. 디자인 검토 및 개선하기",
     "summary": "두 Skill 은 서로 다른 질문에 답합니다."
   },
   {
     "slug": "16-code-structure-and-maintainability",
-    "title": "13. 코드 구조와 유지보수성 관리",
+    "title": "14. 코드 구조와 유지보수성 관리",
     "summary": "두 Skill 은 모두 \"코드가 안 좋다\"는 같은 증상에서 출발하지만 서로 다른 질문에 답합니다."
   },
   {
+    "slug": "12-debugging-and-incident-postmortem",
+    "title": "15. 버그 디버깅과 장애 사후분석",
+    "summary": "두 Skill 은 서로 다른 질문에 답합니다."
+  },
+  {
     "slug": "17-infrastructure-and-cloud",
-    "title": "14. 클라우드 인프라 관리",
+    "title": "16. 클라우드 인프라 관리",
     "summary": "네 Skill 은 \"설계 → 작성 → 리뷰 → 개선\"이라는 하나의 연속된 라이프사이클을 다루지만, 각각 답하는 질문이 다릅니다."
   },
   {
     "slug": "18-authentication-implementation",
-    "title": "15. 인증 기능 구현",
+    "title": "17. 인증 기능 구현",
     "summary": "ywc-auth-implement 는 로그인/회원가입, OAuth, MFA, 세션 처리, 비밀번호 재설정, 계정 삭제, 동의 플로우 등 새로운 인증 기능이 필요할 때, 코드를 쓰기 전에 정책 결정을 명시적으로 먼저 확정하고 싶을 때 사용합니다."
   },
   {
     "slug": "13-executor-and-codegen-patterns",
-    "title": "16. Executor / Code-gen Prompt 패턴",
+    "title": "18. Executor / Code-gen Prompt 패턴",
     "summary": "ywc-sequential-executor , ywc-parallel-executor , ywc-code-gen 은 모두 \"코드를 만들게 하는\" Skill 이지만 쓰는 순간이 다릅니다."
   },
   {
     "slug": "14-skill-reference",
-    "title": "17. 전체 Skill 레퍼런스",
+    "title": "19. 전체 Skill 레퍼런스",
     "summary": "앞선 워크플로우 가이드에서 다루지 않은 나머지 Skill 을 하려는 일 기준으로 묶어 정리했습니다."
-  },
-  {
-    "slug": "15-prerequisites-installation",
-    "title": "18. 사전 준비와 설치",
-    "summary": "ywc-* Skill 을 안정적으로 쓰려면 몇 가지 Tool 이 미리 준비되어 있어야 합니다."
-  },
-  {
-    "slug": "19-skill-combination-recipes",
-    "title": "19. Skill 조합 레시피",
-    "summary": "다른 페이지는 흐름 하나, 또는 Skill 하나씩을 설명합니다."
   }
 ]

@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 19. Skill combination recipes
+# 08. Skill combination recipes
 
 The other pages explain one flow or one Skill at a time. This page shows how Skills feed each other: what one Skill leaves behind, and which Skill picks it up next. Every link below is something the Skills do themselves (read a shared file, offer a hand-off), not a convention you have to remember.
 
@@ -37,7 +37,7 @@ The loop works in both tools. Each pass makes the next review quieter: comments 
 
 ## From bug fix to prevention
 
-1. `ywc-debug-rootcause` finds the root cause, adds a regression test, and gates the fix with `ywc-verify-done` ([12](./12-debugging-and-incident-postmortem.md)).
+1. `ywc-debug-rootcause` finds the root cause, adds a regression test, and gates the fix with `ywc-verify-done` ([15](./12-debugging-and-incident-postmortem.md)).
 2. If the same class of defect could appear elsewhere, it offers to record it as a review learning (`ywc-review-learnings --mode update --source debug`).
 3. After a Production incident, `ywc-incident-postmortem` writes the report and offers its recurrence-preventing action items the same way (`--source incident`).
 4. From then on `ywc-impl-review` reads those learnings, so the same class of defect is caught in review instead of in Production.
@@ -49,7 +49,7 @@ Steps 2 and 3 are Claude Code only. In Codex the two Skills do not hand off to `
 | When | Skill | What it checks |
 |---|---|---|
 | Before implementation | `ywc-confidence-gate` | Scores readiness on five dimensions: PROCEED (90 or more), REVIEW (70-89), STOP (below 70). Below 90, implementation waits until the weakest dimension is raised or you accept the risk |
-| After implementation | `ywc-impl-review` | Five-aspect review against the spec ([13](./16-code-structure-and-maintainability.md)) |
+| After implementation | `ywc-impl-review` | Five-aspect review against the spec ([14](./16-code-structure-and-maintainability.md)) |
 | When the change touches security | `ywc-security-audit` | Static security review (OWASP Top 10, secrets, threat model) |
 | Before saying "done" | `ywc-verify-done` | Fresh evidence (test or build output) for every completion claim |
 | Opening the PR | `ywc-create-pr` | Commit, push, and a PR body built from the task or plan |
@@ -76,7 +76,7 @@ This recipe is Codex only.
 
 1. `ywc-wayfinder` keeps a local map at `docs/ywc-plans/<slug>-wayfinder.md` across sessions. The map can hold many tickets, but exactly one is active at a time, and the Skill never implements anything itself.
 2. Once a ticket's route is clear, it hands off to `ywc-plan` (or to `ywc-tech-research` when the ticket is blocked on a technical comparison).
-3. From there the usual flow continues: `ywc-spec-ready` → `ywc-task-generator` → executor ([05](./05-general-cycle-medium-large.md)). When a single approved spec or ticket only needs implementing, `ywc-implement` does it as one focused, review-gated change.
+3. From there the usual flow continues: `ywc-spec-ready` → `ywc-task-generator` → executor ([06](./05-general-cycle-medium-large.md)). When a single approved spec or ticket only needs implementing, `ywc-implement` does it as one focused, review-gated change.
 
 <CodeBlock label="codex" code="ywc-wayfinder Split billing out of the monolith into its own service. The scope is still unclear" />
 
@@ -86,7 +86,7 @@ Use it only for work that is large, uncertain, or spans several sessions. Ordina
 
 `ywc-parallel-executor` creates each task's worktree through `ywc-worktrees`. In Docker projects it also gives each worktree its own host-port block through `ywc-docker-isolate`, so the stacks don't collide ("port is already allocated"). After the merge, `ywc-finish-branch` removes the worktree with `ywc-worktrees --mode prune`.
 
-You normally call none of these yourself; the executor drives them in both tools. To make or clean up a worktree outside an executor run, use the commands in [17](./14-skill-reference.md).
+You normally call none of these yourself; the executor drives them in both tools. To make or clean up a worktree outside an executor run, use the commands in [19](./14-skill-reference.md).
 
 ## Release preparation
 
@@ -105,4 +105,4 @@ You normally call none of these yourself; the executor drives them in both tools
 
 ---
 
-[Previous: 18. Prerequisites and installation](./15-prerequisites-installation.md) · [Back to table of contents »](./README.md)
+[Previous: 07. Finish automatically from one goal (ywc-agentic)](./06-agentic-autonomous-loop.md) · [Next: 09. Starting a new Project](./07-starting-a-new-project.md)

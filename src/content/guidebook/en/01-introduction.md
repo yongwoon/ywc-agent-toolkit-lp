@@ -20,7 +20,7 @@ For deeper details on each Skill's options, prerequisites, and internal flow, re
 
 Plugin marketplace installation and Codex plugin installation have no separate prerequisites. The installer handles the required file copying and registration automatically.
 
-That said, actually running a Skill needs a few tools in place on your system — `git`, `gh`, `python3`, and more — and design-related Skills work better with some extra setup. See [18. Prerequisites and installation](./15-prerequisites-installation.md) for the full list of required and optional tools plus install steps — worth a quick read before you get started.
+That said, actually running a Skill needs a few tools in place on your system — `git`, `gh`, `python3`, and more — and design-related Skills work better with some extra setup. See [03. Prerequisites and installation](./15-prerequisites-installation.md) for the full list of required and optional tools plus install steps — worth a quick read before you get started.
 
 ## What to check before starting
 
@@ -28,8 +28,8 @@ That said, actually running a Skill needs a few tools in place on your system �
 |---|---|
 | Does Claude Code recognize this repository? | Type `/` in the conversation and confirm that the `ywc-*` Skill list appears in autocomplete |
 | Is the `gh` CLI authenticated? | `gh auth status` - required by most Skills that create or merge PRs |
-| Does the project have `CLAUDE.md`? | If not, see [08. Entering an existing Repo for the first time](./08-onboarding-existing-repo.md) - Skills infer language and commit conventions from this file |
-| Is the target a new project or a change to existing code? | For a new project, go to [07. Starting a new Project](./07-starting-a-new-project.md); for an existing change, start with [02. Core concepts](./02-core-concepts.md) |
+| Does the project have `CLAUDE.md`? | If not, see [10. Entering an existing Repo for the first time](./08-onboarding-existing-repo.md) - Skills infer language and commit conventions from this file |
+| Is the target a new project or a change to existing code? | For a new project, go to [09. Starting a new Project](./07-starting-a-new-project.md); for an existing change, start with [02. Core concepts](./02-core-concepts.md) |
 
 ## Skill invocation syntax
 
@@ -44,7 +44,7 @@ All examples in this Guidebook assume you type the following form directly into 
   </ToolTabsPanel>
 </ToolTabs>
 
-The `/ywc-plan` form with a leading `/` works the same way. This document omits `/` for readability. Options in the form `--flag value` differ by Skill, and concrete examples are collected on each Skill page or in [16. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md).
+The `/ywc-plan` form with a leading `/` works the same way. This document omits `/` for readability. Options in the form `--flag value` differ by Skill, and concrete examples are collected on each Skill page or in [18. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md).
 
 ---
 

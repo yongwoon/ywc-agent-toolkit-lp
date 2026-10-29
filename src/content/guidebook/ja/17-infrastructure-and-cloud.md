@@ -1,6 +1,6 @@
 [« 目次に戻る](./README.md)
 
-# 14. クラウドインフラの管理
+# 16. クラウドインフラの管理
 
 ## いつこの Skill を使うか
 
@@ -95,4 +95,4 @@ Terraform を書く前に、provider と network/compute/storage/IAM の形、�
 
 ---
 
-[← 前: 13. コード構造と保守性の管理](./16-code-structure-and-maintainability.md) · [次: 15. 認証機能の実装 →](./18-authentication-implementation.md)
+[← 前へ: 15. デバッグとインシデント事後分析](./12-debugging-and-incident-postmortem.md) · [次へ: 17. 認証機能の実装 →](./18-authentication-implementation.md)

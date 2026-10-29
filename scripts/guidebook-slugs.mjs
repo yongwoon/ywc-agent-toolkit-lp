@@ -18,21 +18,21 @@
 export const guidebookSlugs = Object.freeze([
   "01-introduction",
   "02-core-concepts",
+  "15-prerequisites-installation",
   "03-quickstart",
   "04-general-cycle-small",
   "05-general-cycle-medium-large",
   "06-agentic-autonomous-loop",
+  "19-skill-combination-recipes",
   "07-starting-a-new-project",
   "08-onboarding-existing-repo",
   "09-testing-guide",
   "10-e2e-test-strategy",
   "11-design-review",
-  "12-debugging-and-incident-postmortem",
   "16-code-structure-and-maintainability",
+  "12-debugging-and-incident-postmortem",
   "17-infrastructure-and-cloud",
   "18-authentication-implementation",
   "13-executor-and-codegen-patterns",
-  "14-skill-reference",
-  "15-prerequisites-installation",
-  "19-skill-combination-recipes"
+  "14-skill-reference"
 ]);

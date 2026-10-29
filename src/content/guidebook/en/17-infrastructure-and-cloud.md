@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 14. Managing Cloud Infrastructure
+# 16. Managing Cloud Infrastructure
 
 ## When to use these Skills
 
@@ -95,4 +95,4 @@ Once infrastructure is live, this Skill is the recurring maintenance pass: cost 
 
 ---
 
-[Previous: 13. Managing Code Structure and Maintainability](./16-code-structure-and-maintainability.md) - [Next: 15. Implementing Authentication](./18-authentication-implementation.md)
+[Previous: 15. Debugging and incident postmortems](./12-debugging-and-incident-postmortem.md) · [Next: 17. Implementing Authentication](./18-authentication-implementation.md)

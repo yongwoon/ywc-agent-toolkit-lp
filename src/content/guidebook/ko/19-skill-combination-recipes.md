@@ -1,6 +1,6 @@
 [« 목차로 돌아가기](./README.md)
 
-# 19. Skill 조합 레시피
+# 08. Skill 조합 레시피
 
 다른 페이지는 흐름 하나, 또는 Skill 하나씩을 설명합니다. 이 페이지는 Skill 들이 서로 어떻게 이어지는지 — 한 Skill 이 무엇을 남기고, 그것을 어느 Skill 이 이어받는지 — 를 보여줍니다. 아래의 연결은 모두 Skill 이 스스로 하는 동작(공유 파일 읽기, 다음 Skill 로의 hand-off 제안)이며, 사용자가 따로 외워야 하는 관례가 아닙니다.
 
@@ -37,7 +37,7 @@
 
 ## 버그 수정에서 재발 방지까지
 
-1. `ywc-debug-rootcause` 가 근본 원인을 찾고 regression test 를 추가한 뒤, `ywc-verify-done` 으로 수정을 검증합니다([12](./12-debugging-and-incident-postmortem.md)).
+1. `ywc-debug-rootcause` 가 근본 원인을 찾고 regression test 를 추가한 뒤, `ywc-verify-done` 으로 수정을 검증합니다([15](./12-debugging-and-incident-postmortem.md)).
 2. 같은 유형의 결함이 다른 곳에서도 생길 수 있다면, 이를 review 학습으로 기록할지 제안합니다(`ywc-review-learnings --mode update --source debug`).
 3. Production 장애 후에는 `ywc-incident-postmortem` 이 보고서를 작성하고, 재발 방지 action item 을 같은 방식으로 제안합니다(`--source incident`).
 4. 이후 `ywc-impl-review` 가 그 학습 내용을 읽으므로, 같은 유형의 결함이 Production 이 아니라 review 단계에서 잡힙니다.
@@ -49,7 +49,7 @@
 | 시점 | Skill | 확인하는 것 |
 |---|---|---|
 | 구현 전 | `ywc-confidence-gate` | 준비 상태를 5개 차원으로 채점합니다: PROCEED(90 이상), REVIEW(70-89), STOP(70 미만). 90 미만이면 가장 약한 차원을 보강하거나 사용자가 위험을 수용할 때까지 구현을 시작하지 않습니다 |
-| 구현 후 | `ywc-impl-review` | Spec 대비 5개 관점 review([13](./16-code-structure-and-maintainability.md)) |
+| 구현 후 | `ywc-impl-review` | Spec 대비 5개 관점 review([14](./16-code-structure-and-maintainability.md)) |
 | 보안과 관련된 변경일 때 | `ywc-security-audit` | 정적 보안 review(OWASP Top 10, secret, threat model) |
 | "완료"라고 말하기 전 | `ywc-verify-done` | 모든 완료 주장에 대한 새로운 증거(test 또는 build 출력) |
 | PR 생성 | `ywc-create-pr` | Commit, push, 그리고 task 나 plan 을 바탕으로 한 PR 본문 |
@@ -76,7 +76,7 @@ Codex 에는 `ywc-adr` 와 `ywc-project-mission` 이 없으므로, 결정 이유
 
 1. `ywc-wayfinder` 는 `docs/ywc-plans/<slug>-wayfinder.md` 에 local map 을 두고 여러 session 에 걸쳐 이어갑니다. Map 에는 ticket 이 여러 개 있을 수 있지만 active 상태는 항상 하나뿐이며, 이 Skill 이 직접 구현하지는 않습니다.
 2. Ticket 의 경로가 분명해지면 `ywc-plan` 으로 넘깁니다(기술 비교가 막혀 있다면 `ywc-tech-research` 로 넘깁니다).
-3. 그다음은 평소 흐름대로 `ywc-spec-ready` → `ywc-task-generator` → executor 로 이어집니다([05](./05-general-cycle-medium-large.md)). 승인된 spec 이나 ticket 하나를 구현하기만 하면 되는 경우에는 `ywc-implement` 가 범위를 좁힌, review gate 를 거치는 변경 하나로 처리합니다.
+3. 그다음은 평소 흐름대로 `ywc-spec-ready` → `ywc-task-generator` → executor 로 이어집니다([06](./05-general-cycle-medium-large.md)). 승인된 spec 이나 ticket 하나를 구현하기만 하면 되는 경우에는 `ywc-implement` 가 범위를 좁힌, review gate 를 거치는 변경 하나로 처리합니다.
 
 <CodeBlock label="codex" code="ywc-wayfinder 결제 기능을 monolith 에서 별도 service 로 분리하고 싶음. 아직 범위가 불분명함" />
 
@@ -86,7 +86,7 @@ Codex 에는 `ywc-adr` 와 `ywc-project-mission` 이 없으므로, 결정 이유
 
 `ywc-parallel-executor` 는 task 마다 `ywc-worktrees` 로 worktree 를 만듭니다. Docker project 에서는 `ywc-docker-isolate` 로 worktree 마다 별도의 host port 대역을 배정해 stack 끼리 충돌("port is already allocated")하지 않게 합니다. Merge 후에는 `ywc-finish-branch` 가 `ywc-worktrees --mode prune` 으로 worktree 를 정리합니다.
 
-보통은 이 Skill 들을 직접 호출할 필요가 없습니다. 두 도구 모두 executor 가 알아서 호출합니다. Executor 밖에서 worktree 를 만들거나 정리하려면 [17](./14-skill-reference.md) 의 명령을 사용하세요.
+보통은 이 Skill 들을 직접 호출할 필요가 없습니다. 두 도구 모두 executor 가 알아서 호출합니다. Executor 밖에서 worktree 를 만들거나 정리하려면 [19](./14-skill-reference.md) 의 명령을 사용하세요.
 
 ## Release 준비
 
@@ -105,4 +105,4 @@ Codex 에는 `ywc-adr` 와 `ywc-project-mission` 이 없으므로, 결정 이유
 
 ---
 
-[← 이전: 18. 사전 준비와 설치](./15-prerequisites-installation.md) · [목차로 돌아가기 »](./README.md)
+[← 이전: 07. 목표 하나로 자동 완료하기 (ywc-agentic)](./06-agentic-autonomous-loop.md) · [다음: 09. 새 Project 시작하기 →](./07-starting-a-new-project.md)

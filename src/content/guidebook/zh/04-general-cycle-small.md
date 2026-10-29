@@ -1,10 +1,10 @@
 [Back to table of contents](./README.md)
 
-# 04. 处理小变动（一般周期 - 小）
+# 05. 处理小变动（一般周期 - 小）
 
 ## 何时使用此流程
 
-当 `ywc-plan` 将请求判断为 **Small** 时，它会自动进入此路径。判定标准是“是否可以作为单个 PR 完成而无需 Task 拆解？” 如果以下任何一项适用，它将被提升为 Medium/Large 而不是 Small（参见 [05](./05-general-cycle-medium-large.md)）。
+当 `ywc-plan` 将请求判断为 **Small** 时，它会自动进入此路径。判定标准是“是否可以作为单个 PR 完成而无需 Task 拆解？” 如果以下任何一项适用，它将被提升为 Medium/Large 而不是 Small（参见 [06](./05-general-cycle-medium-large.md)）。
 
 - 包括数据库迁移
 - 介绍一个新的库/框架
@@ -23,9 +23,9 @@ ywc-plan -> ywc-code-gen -> ywc-impl-review -> ywc-create-pr
 | 三 | `ywc-impl-review` | 在打开 PR 之前的最终代码审查 |
 | 四 | `ywc-create-pr` | PR 创建 -> CI -> 机器人审核检查 |
 
-> **参考**：Small 流程由 `ywc-plan` 直接产出 `plan.md`（并非 spec 文档），因此针对 spec 文档运行的 `ywc-spec-ready` 不属于此路径。`ywc-spec-ready` 是 Medium/Large 流程的 spec 收敛步骤（参见 [05](./05-general-cycle-medium-large.md)）。
+> **参考**：Small 流程由 `ywc-plan` 直接产出 `plan.md`（并非 spec 文档），因此针对 spec 文档运行的 `ywc-spec-ready` 不属于此路径。`ywc-spec-ready` 是 Medium/Large 流程的 spec 收敛步骤（参见 [06](./05-general-cycle-medium-large.md)）。
 >
-> **注意**：`ywc-code-gen` 没有像 `--review` 那样的自动审查标志。如果跳过第 3 步（`ywc-impl-review`），PR 将在没有代码审查的情况下被打开，因此此流程必须显式运行它。中/大型流程的执行者可以使用 `--review` 标志自动执行此步骤——参见 [05](./05-general-cycle-medium-large.md)。
+> **注意**：`ywc-code-gen` 没有像 `--review` 那样的自动审查标志。如果跳过第 3 步（`ywc-impl-review`），PR 将在没有代码审查的情况下被打开，因此此流程必须显式运行它。中/大型流程的执行者可以使用 `--review` 标志自动执行此步骤——参见 [06](./05-general-cycle-medium-large.md)。
 
 ## 示例运行
 
@@ -71,11 +71,11 @@ ywc-plan -> ywc-code-gen -> ywc-impl-review -> ywc-create-pr
 
 | 情况 | 动作 |
 |---|---|
-| `ywc-plan` 将这项工作评为中等，而不是小型 | 这是正常的 - 移动到 [05. general cycle (medium/large)](./05-general-cycle-medium-large.md) |
+| `ywc-plan` 将这项工作评为中等，而不是小型 | 这是正常的 - 移动到 [06. general cycle (medium/large)](./05-general-cycle-medium-large.md) |
 | `ywc-code-gen` 返回 `BLOCKED` | 规格可能不清楚或无法读取项目上下文 - 请检查报告的阻塞因素 |
 | `ywc-impl-review` 返回 `DONE_WITH_CONCERNS` | 如果是正确性问题，修复并重新运行；如果是观察结果，将其记录在PR描述中并继续 |
 | PR 失败 CI | `ywc-create-pr` 或 `ywc-handle-pr-reviews` 会检查失败日志并尝试修复最多两次——如果仍然失败，该问题会显示为 `DONE_WITH_CONCERNS` 或 `BLOCKED` |
 
 ---
 
-[Previous: 03. Ship your first feature in 5 minutes](./03-quickstart.md) - [Next: 05. Handling work split into multiple Tasks](./05-general-cycle-medium-large.md)
+[← 上一页: 04. 在5分钟内发布你的第一个功能](./03-quickstart.md) · [下一页: 06. 处理分成多个 Tasks 的工作（通用周期 - 中/大型） →](./05-general-cycle-medium-large.md)

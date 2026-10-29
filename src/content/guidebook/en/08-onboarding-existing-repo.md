@@ -1,10 +1,10 @@
 [Back to table of contents](./README.md)
 
-# 08. Entering an existing Repo for the first time
+# 10. Entering an existing Repo for the first time
 
 ## When to use this flow
 
-Use this when you first enter an unfamiliar repository that already has code and need to understand "what this codebase looks like." Conversely, if you are designing a new project from a blank slate, go to [07. Starting a new Project](./07-starting-a-new-project.md). These two flows move in opposite directions and should not be used together in the same session.
+Use this when you first enter an unfamiliar repository that already has code and need to understand "what this codebase looks like." Conversely, if you are designing a new project from a blank slate, go to [09. Starting a new Project](./07-starting-a-new-project.md). These two flows move in opposite directions and should not be used together in the same session.
 
 ## What it does
 
@@ -62,4 +62,4 @@ Use this when you first enter an unfamiliar repository that already has code and
 
 ---
 
-[Previous: 07. Starting a new Project](./07-starting-a-new-project.md) - [Next: 09. Writing and running Tests](./09-testing-guide.md)
+[Previous: 09. Starting a new Project](./07-starting-a-new-project.md) · [Next: 11. Writing and running Tests](./09-testing-guide.md)

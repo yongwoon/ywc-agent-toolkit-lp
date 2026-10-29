@@ -1,6 +1,6 @@
 [« 目次に戻る](./README.md)
 
-# 12. デバッグとインシデント事後分析
+# 15. デバッグとインシデント事後分析
 
 ## いつこのフローを使うか
 
@@ -45,4 +45,4 @@ Production 障害が起きたとき、事後分析 (postmortem) 文書を作成�
 
 ---
 
-[Previous: 11. デザインをレビューして改善する](./11-design-review.md) - [Next: 13. コード構造と保守性の管理](./16-code-structure-and-maintainability.md)
+[← 前へ: 14. コード構造と保守性の管理](./16-code-structure-and-maintainability.md) · [次へ: 16. クラウドインフラの管理 →](./17-infrastructure-and-cloud.md)

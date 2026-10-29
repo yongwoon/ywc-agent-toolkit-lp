@@ -1,6 +1,6 @@
 [« 目次に戻る](./README.md)
 
-# 05. 複数の Task に分けて処理する (general cycle · medium/large)
+# 06. 複数の Task に分けて処理する (general cycle · medium/large)
 
 ## いつこのフローを使うか
 
@@ -79,7 +79,7 @@ Task ディレクトリも同じ名前になります。イニシャルのない
   </ToolTabsPanel>
 </ToolTabs>
 
-以降の実行 command はオプションが多いため、別ページで扱います → [16. Executor / Code-gen Prompt パターン](./13-executor-and-codegen-patterns.md)。最も単純な開始は以下です。
+以降の実行 command はオプションが多いため、別ページで扱います → [18. Executor / Code-gen Prompt パターン](./13-executor-and-codegen-patterns.md)。最も単純な開始は以下です。
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
@@ -94,7 +94,7 @@ task 指定を省略すると、`dependency-graph.md` から次に実行可能�
 
 ## `--review` を必ず付けてください
 
-両 executor とも `--review` flag によって、各 Task の PR 作成/merge 前に `/ywc-impl-review` を自動実行します。この flag なしで実行すると、[04](./04-general-cycle-small.md) の small cycle と同様にレビュー段階が完全に抜けます。付けない理由はありません。(ただし、Task の `Criticality: critical` が設定されている場合は flag の有無に関係なく常に強制実行されます。)
+両 executor とも `--review` flag によって、各 Task の PR 作成/merge 前に `/ywc-impl-review` を自動実行します。この flag なしで実行すると、[05](./04-general-cycle-small.md) の small cycle と同様にレビュー段階が完全に抜けます。付けない理由はありません。(ただし、Task の `Criticality: critical` が設定されている場合は flag の有無に関係なく常に強制実行されます。)
 
 ## 各段階で詰まったとき
 
@@ -106,4 +106,4 @@ task 指定を省略すると、`dependency-graph.md` から次に実行可能�
 
 ---
 
-[← 前: 04. 小さな変更を処理する](./04-general-cycle-small.md) · [次: 06. 目標 1 つで自動完了する →](./06-agentic-autonomous-loop.md)
+[← 前へ: 05. 小さな変更を処理する (general cycle · small)](./04-general-cycle-small.md) · [次へ: 07. 目標 1 つで自動完了する (ywc-agentic) →](./06-agentic-autonomous-loop.md)

@@ -1,6 +1,6 @@
 [« 목차로 돌아가기](./README.md)
 
-# 12. 버그 디버깅과 장애 사후분석
+# 15. 버그 디버깅과 장애 사후분석
 
 ## 언제 이 두 Skill 을 쓰는가
 
@@ -55,4 +55,4 @@ Production 장애가 발생하고 근본 원인도 알았을 때, 이를 문서�
 
 ---
 
-[← 이전: 11. 디자인 검토 및 개선하기](./11-design-review.md) · [다음: 13. 코드 구조와 유지보수성 관리 →](./16-code-structure-and-maintainability.md)
+[← 이전: 14. 코드 구조와 유지보수성 관리](./16-code-structure-and-maintainability.md) · [다음: 16. 클라우드 인프라 관리 →](./17-infrastructure-and-cloud.md)

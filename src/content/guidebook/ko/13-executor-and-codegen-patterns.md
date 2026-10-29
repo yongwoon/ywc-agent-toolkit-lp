@@ -1,6 +1,6 @@
 [« 목차로 돌아가기](./README.md)
 
-# 16. Executor / Code-gen Prompt 패턴
+# 18. Executor / Code-gen Prompt 패턴
 
 `ywc-sequential-executor`, `ywc-parallel-executor`, `ywc-code-gen` 은 모두 "코드를 만들게 하는" Skill 이지만 쓰는 순간이 다릅니다. 이 페이지는 Skill 이름보다 **지금 하려는 일**을 기준으로 정리했습니다. 먼저 아래 표에서 상황을 고른 뒤, 해당 섹션의 명령을 그대로 복사해 쓰세요.
 
@@ -348,4 +348,4 @@ resume 할 때 executor 는 `wave-int/<N>` branch 의 tip SHA 가 기록된 값�
 
 ---
 
-[← 이전: 14. 클라우드 인프라 관리](./17-infrastructure-and-cloud.md) · [다음: 17. 전체 Skill 레퍼런스 →](./14-skill-reference.md)
+[← 이전: 17. 인증 기능 구현](./18-authentication-implementation.md) · [다음: 19. 전체 Skill 레퍼런스 →](./14-skill-reference.md)
