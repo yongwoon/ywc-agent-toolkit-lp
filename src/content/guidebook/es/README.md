@@ -34,7 +34,7 @@ Esto está organizado en torno a **lo que estás intentando hacer ahora**, no a 
 | Limpiar de una vez un acumulado de PRs de Dependabot | `ywc-merge-dependabot` | [17](./14-skill-reference.md) |
 | Escribe una CHANGELOG o nota de lanzamiento | `ywc-changelog-release-notes` | [17](./14-skill-reference.md) |
 | Simplemente confirma el trabajo realizado hasta ahora | `ywc-commit` | [17](./14-skill-reference.md) |
-| La estructura está enredada o la calidad de implementación es mala desde una perspectiva de mantenibilidad | `ywc-improve-architecture` | [13](./16-code-structure-and-maintainability.md) |
+| Quiero una revisión independiente de la calidad de implementación y la mantenibilidad | `ywc-impl-review` | [13](./16-code-structure-and-maintainability.md) |
 | Quieres comparar librerías o enfoques de implementación para decidir qué usar | `ywc-tech-research` | [17](./14-skill-reference.md) |
 | Gestionar el conocimiento (glosario/aprendizajes de revisión/mission) que permanece en el proyecto después de que termina la conversación | `ywc-ubiquitous-language` | [17](./14-skill-reference.md) |
 
@@ -68,7 +68,7 @@ Para situaciones no cubiertas en esta tabla, consulte [17. Full Skill Reference]
 | [10. E2E Test automation strategy](./10-e2e-test-strategy.md) | Una guía avanzada para configurar, expandir y mantener una Suite E2E basada en Playwright |
 | [11. Reviewing and improving design](./11-design-review.md) | Cómo distinguir y aplicar auditorías de usabilidad y Renovación visual de deslizamiento |
 | [12. Debugging and incident postmortem](./12-debugging-and-incident-postmortem.md) | Investigación de causa raíz mientras el incidente está activo, y análisis posterior al incidente después de que se implementa la solución |
-| [13. Gestionar la estructura del código y la mantenibilidad](./16-code-structure-and-maintainability.md) | Cómo usar las 4 Skills que limpian, reestructuran y verifican código con mala estructura o mantenibilidad, y el orden en que trabajan juntas |
+| [13. Gestionar la estructura del código y la mantenibilidad](./16-code-structure-and-maintainability.md) | Cómo usar las 2 Skills que limpian y verifican código con mala estructura o mantenibilidad, y el orden en que trabajan juntas |
 | [14. Gestionar la infraestructura en la nube](./17-infrastructure-and-cloud.md) | Una tabla de decisión y un pipeline de 4 pasos para `ywc-infra-design`, `ywc-iac-author`, `ywc-infra-review` y `ywc-infra-optimize`, que se conecta con el agente `ywc-cloud-engineer` |
 | [15. Implementar autenticación](./18-authentication-implementation.md) | Cómo `ywc-auth-implement` ejecuta el flujo preflight -> entrevista de políticas -> recomendación -> dispatch, y las puertas de security / E2E / PR que aplica |
 

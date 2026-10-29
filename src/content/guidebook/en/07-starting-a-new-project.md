@@ -15,7 +15,7 @@ This flow is a funnel: **diverge → decide → converge → readiness gate**. S
 | Step | Skill | Role |
 |---|---|---|
 | 1 | `ywc-brainstorm` *(optional)* | When the idea is still fuzzy, pin down purpose, constraints, success criteria, and 2–3 alternative approaches through one-question-at-a-time Socratic dialogue. Skip if intent is already firm |
-| 2 | `ywc-mission` | Record the project's why, success criteria, and rejected-approach log in `docs/mission.md`. **Pin down the why before designing any structure** |
+| 2 | `ywc-project-mission` *(Claude Code only)* | Record the project's mission, measurable success criteria and non-goals in `docs/project-mission.md`. Fix the *why* before shaping structure |
 | 3 | `ywc-tech-research` *(optional)* | Compare tech stack / library candidates in parallel and record the rationale for the choice. Skip if the stack is already decided |
 | 4 | `ywc-project-scaffold` | With the decided stack, design the directory structure (outputs a Markdown plan) |
 | 5 | `ywc-ubiquitous-language` *(recommended for domain-rich projects)* | Define the shared vocabulary for developers, domain experts, and the LLM in `docs/ubiquitous-language.md` → the spec and `ywc-code-gen` then use canonical terms |
@@ -40,15 +40,11 @@ This flow is a funnel: **diverge → decide → converge → readiness gate**. S
 It narrows purpose, constraints, and alternatives through one-question-at-a-time Socratic dialogue. If you already know clearly what to build, skip this and start from step 2.
 
 **2. Record the project's why**
-<ToolTabs>
-  <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-mission This project's goal is to let a small construction company record employee check-in/check-out without a separate app. Success criterion: can one manager close out attendance for 10 or fewer workers within 5 minutes" />
-  </ToolTabsPanel>
-  <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-mission This project's goal is to let a small construction company record employee check-in/check-out without a separate app. Success criterion: can one manager close out attendance for 10 or fewer workers within 5 minutes" />
-  </ToolTabsPanel>
-</ToolTabs>
-Pin down the **why and success criteria** before the directory structure or the spec — every later step is judged against this mission.
+<CodeBlock label="claude code" code="ywc-project-mission This project's goal is to let a small construction company record employee check-in/check-out without a separate app. Success criterion: can one manager close out attendance for 10 or fewer workers within 5 minutes" />
+
+This step is Claude Code only — Codex has no mission skill; on Codex, state the success criteria in the spec at step 6 instead.
+
+Pin down the **mission and success criteria** before the directory structure or the spec — every later step is judged against this mission.
 
 **3. Decide the tech stack (optional)**
 <ToolTabs>
@@ -141,6 +137,7 @@ It scores five dimensions: scope clarity / architecture compliance / evidence qu
 - If `ywc-confidence-gate` returns `STOP` (&lt;70), do not move into implementation — fill in the flagged dimension first, then pass the gate again.
 - If the scope is small enough to implement directly without spec decomposition, `ywc-plan` can route to the Small path and skip this whole flow.
 - `ywc-onboard-repo` moves in the opposite direction from this flow (investigating an existing repo), so do not use it when creating a new project.
+- `ywc-project-mission` does not keep a rejected-approach log. To record a hard-to-reverse decision together with the alternatives you rejected, use `ywc-adr` (Claude Code only).
 
 ---
 

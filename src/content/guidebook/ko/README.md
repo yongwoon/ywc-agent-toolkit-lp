@@ -34,7 +34,7 @@
 | Dependabot PR 이 쌓여서 한번에 정리하고 싶다 | `ywc-merge-dependabot` | [17](./14-skill-reference.md) |
 | CHANGELOG 나 release note 를 작성하고 싶다 | `ywc-changelog-release-notes` | [17](./14-skill-reference.md) |
 | 지금까지 한 작업을 그냥 commit 하고 싶다 | `ywc-commit` | [17](./14-skill-reference.md) |
-| 구조가 뒤엉켰거나 maintenance 관점에서 구현 품질이 안 좋다 | `ywc-improve-architecture` | [13](./16-code-structure-and-maintainability.md) |
+| 구현 품질과 maintainability 를 독립적으로 점검받고 싶다 | `ywc-impl-review` | [13](./16-code-structure-and-maintainability.md) |
 | 라이브러리나 구현 방식을 비교해서 뭘 쓸지 결정하고 싶다 | `ywc-tech-research` | [17](./14-skill-reference.md) |
 | 대화가 끝나도 project 에 남는 지식(용어집/리뷰 학습/mission)을 관리하고 싶다 | `ywc-ubiquitous-language` | [17](./14-skill-reference.md) |
 
@@ -68,7 +68,7 @@
 | [10. E2E Test 자동화 전략](./10-e2e-test-strategy.md) | Playwright 기반 E2E Suite 를 설정 · 확장 · 유지보수하는 심화 가이드 |
 | [11. 디자인 검토 및 개선하기](./11-design-review.md) | Usability 감사와 시각적 De-slop Renewal 을 구분해 적용하는 방법 |
 | [12. 버그 디버깅과 장애 사후분석](./12-debugging-and-incident-postmortem.md) | 근본 원인 규명과 장애 회고를 구분해 적용하는 방법 |
-| [13. 코드 구조와 유지보수성 관리](./16-code-structure-and-maintainability.md) | 구조가 안 좋거나 유지보수가 어려운 코드를 정리·재구성·검증하는 4개 Skill 사용법과 함께 작동하는 순서 |
+| [13. 코드 구조와 유지보수성 관리](./16-code-structure-and-maintainability.md) | 구조가 안 좋거나 유지보수가 어려운 코드를 정리하고 검증하는 2개 Skill 사용법과 함께 작동하는 순서 |
 | [14. 클라우드 인프라 관리](./17-infrastructure-and-cloud.md) | `ywc-infra-design`, `ywc-iac-author`, `ywc-infra-review`, `ywc-infra-optimize` 를 판단표와 4단계 파이프라인으로 정리하고 `ywc-cloud-engineer` agent 로 이어주는 가이드 |
 | [15. 인증 기능 구현](./18-authentication-implementation.md) | `ywc-auth-implement` 이 preflight -> 정책 인터뷰 -> 추천 -> dispatch 흐름을 어떻게 진행하고 security / E2E / PR gate 를 어떻게 강제하는지 |
 

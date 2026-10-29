@@ -158,7 +158,7 @@
       },
       {
         "label": "Codex agents",
-        "value": "8 agents",
+        "value": "10 agents",
         "description": "同じ specialist coverage を、read-only な Codex agents として提供します。",
         "lane": "codex"
       }
@@ -258,7 +258,7 @@
       },
       {
         "question": "Claude Code と Codex の両方で使えますか？",
-        "answer": "はい。両方の tool に 46 skills があります。Claude Code には 13 custom agents、Codex には 8 custom agents が含まれます。"
+        "answer": "はい。両方の tool で 46 skills を共通して利用でき、Claude Code には tool 固有の skill が 3 つ、Codex には 5 つ追加されます。Claude Code には 13 custom agents、Codex には 10 custom agents が含まれます。"
       },
       {
         "question": "repository を clone する必要がありますか？",

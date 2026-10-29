@@ -196,20 +196,20 @@ Después de que se completen todas las olas, se crea un borrador PR y la fusión
 **Generar Backend + Frontend + QA a la vez**
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-code-gen --spec docs/ywc-plans/ywc-improve-architecture-skill.md --feature &quot;improve architecture skill docs&quot;" />
+    <CodeBlock label="claude code" code="ywc-code-gen --spec docs/ywc-plans/billing-refactor.md --feature &quot;billing refactor&quot;" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-code-gen --spec docs/ywc-plans/ywc-improve-architecture-skill.md --feature &quot;improve architecture skill docs&quot;" />
+    <CodeBlock label="codex" code="ywc-code-gen --spec docs/ywc-plans/billing-refactor.md --feature &quot;billing refactor&quot;" />
   </ToolTabsPanel>
 </ToolTabs>
 
 **Construye cuidadosamente con TDD para funcionalidades sensibles como pago/autenticación**
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-code-gen --spec docs/ywc-plans/ywc-toolkit-eval-hardening.md --feature &quot;payment webhook hardening&quot; --tdd" />
+    <CodeBlock label="claude code" code="ywc-code-gen --spec docs/ywc-plans/payment-webhook-hardening.md --feature &quot;payment webhook hardening&quot; --tdd" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-code-gen --spec docs/ywc-plans/ywc-toolkit-eval-hardening.md --feature &quot;payment webhook hardening&quot; --tdd" />
+    <CodeBlock label="codex" code="ywc-code-gen --spec docs/ywc-plans/payment-webhook-hardening.md --feature &quot;payment webhook hardening&quot; --tdd" />
   </ToolTabsPanel>
 </ToolTabs>
 Palabras clave como `payment` se clasifican automáticamente como `critical`, lo que prohíbe la delegación de caja gris (verificar solo las interfaces sin leer el código interno). `--tdd` aplica límites de commits RED -> GREEN -> REFACTOR.

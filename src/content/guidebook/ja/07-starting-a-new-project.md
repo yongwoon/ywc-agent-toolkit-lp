@@ -15,7 +15,7 @@ Git repository 自体がない、またはあってもコードがほとんど�
 | 段階 | Skill | 役割 |
 |---|---|---|
 | 1 | `ywc-brainstorm` *(任意)* | アイデアがまだ曖昧なとき、目的・制約・success criteria・代替案 2〜3 個を、一問ずつの Socratic 対話で固める。意図がすでに明確なら飛ばす |
-| 2 | `ywc-mission` | project の why、success criteria、rejected-approach log を `docs/mission.md` に記録。**構造を設計する前に why を先に固める** |
+| 2 | `ywc-project-mission` *(Claude Code のみ)* | project の mission、測定可能な success criteria、非目標を `docs/project-mission.md` に記録。**構造を設計する前に why を先に固める** |
 | 3 | `ywc-tech-research` *(任意)* | tech stack / library の候補を並列で比較し、選定理由を記録。stack がすでに決まっていれば飛ばす |
 | 4 | `ywc-project-scaffold` | 確定した stack を基準に directory 構造を設計 (Markdown plan を出力) |
 | 5 | `ywc-ubiquitous-language` *(ドメイン中心の project に推奨)* | 開発者・ドメイン専門家・LLM が共有する標準用語集を `docs/ubiquitous-language.md` に定義 → 以降の spec と `ywc-code-gen` が canonical term を使う |
@@ -40,15 +40,10 @@ Git repository 自体がない、またはあってもコードがほとんど�
 一問ずつ聞き返す Socratic 対話で、目的・制約・代替案を絞り込みます。何を作るかがすでに明確なら、この段階は飛ばして 2 番から始めてください。
 
 **2. Project の why を記録**
-<ToolTabs>
-  <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-mission この project の目標は、小規模建設会社が専用アプリなしで出退勤を記録できるようにすること。成功基準は、管理者 1 名が作業員 10 名以下の勤怠を 5 分以内に締められるか" />
-  </ToolTabsPanel>
-  <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-mission この project の目標は、小規模建設会社が専用アプリなしで出退勤を記録できるようにすること。成功基準は、管理者 1 名が作業員 10 名以下の勤怠を 5 分以内に締められるか" />
-  </ToolTabsPanel>
-</ToolTabs>
-directory 構造や仕様よりも先に **why と成功基準** を固めます — 以降のすべての段階は、この mission を基準に判断されます。
+<CodeBlock label="claude code" code="ywc-project-mission この project の目標は、小規模建設会社が専用アプリなしで出退勤を記録できるようにすること。成功基準は、管理者 1 名が作業員 10 名以下の勤怠を 5 分以内に締められるか" />
+この手順は Claude Code 専用です。Codex には mission skill がないため、Codex では 6 番の仕様書の中で成功基準を明記してください。
+
+directory 構造や仕様よりも先に **mission と成功基準** を固めます — 以降のすべての段階は、この mission を基準に判断されます。
 
 **3. Tech stack を決定 (任意)**
 <ToolTabs>

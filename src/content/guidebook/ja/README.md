@@ -34,7 +34,7 @@
 | Dependabot PR が溜まっているので一度に整理したい | `ywc-merge-dependabot` | [17](./14-skill-reference.md) |
 | CHANGELOG や release note を書きたい | `ywc-changelog-release-notes` | [17](./14-skill-reference.md) |
 | ここまでの作業をそのまま commit したい | `ywc-commit` | [17](./14-skill-reference.md) |
-| 構造が絡み合っている、または maintenance 観点で実装品質が良くない | `ywc-improve-architecture` | [13](./16-code-structure-and-maintainability.md) |
+| 実装品質と保守性について、独立した点検を受けたい | `ywc-impl-review` | [13](./16-code-structure-and-maintainability.md) |
 | ライブラリや実装方式を比較して何を使うか決めたい | `ywc-tech-research` | [17](./14-skill-reference.md) |
 | 会話が終わっても project に残る知識(用語集/レビュー学習/mission)を管理したい | `ywc-ubiquitous-language` | [17](./14-skill-reference.md) |
 
@@ -68,7 +68,7 @@
 | [10. E2E Test 自動化戦略](./10-e2e-test-strategy.md) | Playwright ベースの E2E Suite を設定・拡張・保守する詳細ガイド |
 | [11. デザインをレビューして改善する](./11-design-review.md) | Usability 監査と視覚的 De-slop Renewal を区別して適用する方法 |
 | [12. デバッグとインシデント事後分析](./12-debugging-and-incident-postmortem.md) | バグの根本原因調査と Production 障害の事後分析を扱う 2 つの Skill を使い分ける方法 |
-| [13. コード構造と保守性の管理](./16-code-structure-and-maintainability.md) | 構造が悪い、または保守しづらいコードを整理・再構成・検証する 4 つの Skill の使い方と、それらが連携して働く順序 |
+| [13. コード構造と保守性の管理](./16-code-structure-and-maintainability.md) | 構造が悪い、または保守しづらいコードを整理・検証する 2 つの Skill の使い方と、それらが連携して働く順序 |
 | [14. クラウドインフラの管理](./17-infrastructure-and-cloud.md) | `ywc-infra-design`、`ywc-iac-author`、`ywc-infra-review`、`ywc-infra-optimize` を判断表と 4 ステップのパイプラインで整理し、`ywc-cloud-engineer` agent へ橋渡しする |
 | [15. 認証機能の実装](./18-authentication-implementation.md) | `ywc-auth-implement` が preflight -> ポリシー面談 -> 推奨 -> dispatch の流れをどう進め、security / E2E / PR gate をどう強制するか |
 

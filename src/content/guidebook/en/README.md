@@ -34,7 +34,7 @@ This is organized around **what you are trying to do now**, not "which Skills ex
 | Clean up a backlog of Dependabot PRs at once | `ywc-merge-dependabot` | [17](./14-skill-reference.md) |
 | Write a CHANGELOG or release note | `ywc-changelog-release-notes` | [17](./14-skill-reference.md) |
 | Just commit the work done so far | `ywc-commit` | [17](./14-skill-reference.md) |
-| Structure is tangled or implementation quality is poor from a maintainability standpoint | `ywc-improve-architecture` | [13](./16-code-structure-and-maintainability.md) |
+| I want an independent check of implementation quality and maintainability | `ywc-impl-review` | [13](./16-code-structure-and-maintainability.md) |
 | Compare libraries or implementation approaches to decide what to use | `ywc-tech-research` | [17](./14-skill-reference.md) |
 | Manage knowledge (glossary/review learnings/mission) that persists in the project after the conversation ends | `ywc-ubiquitous-language` | [17](./14-skill-reference.md) |
 
@@ -68,7 +68,7 @@ For situations not covered in this table, see [17. Full Skill Reference](./14-sk
 | [10. E2E Test automation strategy](./10-e2e-test-strategy.md) | An advanced guide to setting up, expanding, and maintaining a Playwright-based E2E Suite |
 | [11. Reviewing and improving design](./11-design-review.md) | How to distinguish and apply usability audits and visual De-slop Renewal |
 | [12. Debugging and incident postmortems](./12-debugging-and-incident-postmortem.md) | How ywc-debug-rootcause drives a root-cause investigation and ywc-incident-postmortem writes the follow-up report |
-| [13. Managing Code Structure and Maintainability](./16-code-structure-and-maintainability.md) | How to use the 4 Skills that clean up, restructure, and verify code with poor structure or maintainability, and the order they work together in |
+| [13. Managing Code Structure and Maintainability](./16-code-structure-and-maintainability.md) | How to use the 2 Skills that clean up and verify code with poor structure or maintainability, and the order they work together in |
 | [14. Managing Cloud Infrastructure](./17-infrastructure-and-cloud.md) | A decision table and 4-step pipeline for `ywc-infra-design`, `ywc-iac-author`, `ywc-infra-review`, and `ywc-infra-optimize`, dispatching to the `ywc-cloud-engineer` agent |
 | [15. Implementing Authentication](./18-authentication-implementation.md) | How `ywc-auth-implement` runs the preflight -> policy interview -> recommendation -> dispatch flow, and the security / E2E / PR gates it enforces |
 
