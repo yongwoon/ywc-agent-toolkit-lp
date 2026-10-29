@@ -98,6 +98,14 @@ function matchCatalogEntries(paths) {
   return matches;
 }
 
+// Codex custom agents ship as codex/agents/<name>.toml (not Markdown), so the
+// loop above never sees them.
+function matchCodexAgentEntries(paths) {
+  return paths
+    .filter((filePath) => /^codex\/agents\/[^/]+\.toml$/.test(filePath))
+    .map((filePath) => ({ kind: "agent", tool: "codex", path: filePath }));
+}
+
 /**
  * Per FR3: description is derived from frontmatter `description`, cut at the
  * first `Triggers:`/`Do not use for:` marker, then truncated to the first
@@ -122,6 +130,37 @@ function truncateDescription(rawDescription) {
   return `${sentence.slice(0, DESCRIPTION_MAX_LENGTH)}…`;
 }
 
+// ponytail: only the top-level `name`/`description` single-line strings are read;
+// swap in a real TOML parser if agent files ever need nested tables here.
+function parseTomlHeader(raw) {
+  const header = {};
+
+  for (const key of ["name", "description"]) {
+    const line = raw.match(new RegExp(`^${key}\\s*=\\s*(".*")\\s*$`, "m"));
+
+    if (line) {
+      header[key] = JSON.parse(line[1]);
+    }
+  }
+
+  return header;
+}
+
+function parseLooseFrontmatter(raw) {
+  const block = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/)?.[1] ?? "";
+  const header = {};
+
+  for (const key of ["name", "description"]) {
+    const line = block.match(new RegExp(`^${key}:[ \\t]*(.+)$`, "m"));
+
+    if (line) {
+      header[key] = line[1].trim().replace(/^(["'])(.*)\1$/, "$2");
+    }
+  }
+
+  return header;
+}
+
 async function fetchCatalogEntry(match) {
   const url = `https://raw.githubusercontent.com/${repo}/main/${match.path}`;
   const response = await fetchWithTimeout(url, { headers: githubHeaders() });
@@ -141,12 +180,11 @@ async function fetchCatalogEntry(match) {
   let frontmatter;
 
   try {
-    ({ data: frontmatter } = matter(raw));
-  } catch (error) {
-    console.warn(
-      `[generate-llms-txt] "${match.path}" has unparsable frontmatter (${error instanceof Error ? error.message : String(error)}), skipping.`
-    );
-    return null;
+    frontmatter = match.path.endsWith(".toml") ? parseTomlHeader(raw) : matter(raw).data;
+  } catch {
+    // Claude Code tolerates unquoted `Triggers: ...` colons in single-line
+    // descriptions that strict YAML rejects; recover the two fields line by line.
+    frontmatter = parseLooseFrontmatter(raw);
   }
 
   const name = typeof frontmatter.name === "string" && frontmatter.name.trim().length > 0
@@ -205,7 +243,7 @@ async function readExistingCatalog() {
 
 async function buildCatalogFromLive() {
   const { sha, paths } = await fetchTree();
-  const matches = matchCatalogEntries(paths);
+  const matches = [...matchCatalogEntries(paths), ...matchCodexAgentEntries(paths)];
 
   if (matches.length === 0) {
     throw new Error("Trees API returned zero matching skill/agent entries");
@@ -230,13 +268,13 @@ function renderLlmsTxt(catalog) {
       .filter((entry) => entry.kind === kind && entry.tool === tool)
       .sort((a, b) => a.name.localeCompare(b.name));
 
-  const skillCount = catalog.entries.filter((entry) => entry.kind === "skill").length;
-  const agentCount = catalog.entries.filter((entry) => entry.kind === "agent").length;
+  const count = (kind, tool) =>
+    catalog.entries.filter((entry) => entry.kind === kind && entry.tool === tool).length;
 
   const lines = [
     "# ywc-agent-toolkit",
     "",
-    `> ${skillCount} skills and ${agentCount} agents for Claude Code and Codex — a distribution toolkit published on GitHub.`,
+    `> A distribution toolkit published on GitHub. Claude Code: ${count("skill", "claude-code")} skills and ${count("agent", "claude-code")} agents. Codex: ${count("skill", "codex")} skills and ${count("agent", "codex")} agents.`,
     ""
   ];
 
