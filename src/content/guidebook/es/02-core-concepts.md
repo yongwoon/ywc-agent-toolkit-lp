@@ -13,6 +13,23 @@ Una vez que entiendas los términos y conceptos en esta página, puedes aplicar 
 | **Executor** | Un término colectivo para las dos habilidades que realmente ejecutan Tasks: `ywc-sequential-executor` (secuencial) y `ywc-parallel-executor` (paralelo). |
 | **Task** | Se crea un directorio `tasks/<phase>-<sequence>-<slug>/` cuando `ywc-task-generator` descompone una especificación. Consiste en `README.md` (metadatos) y `task.md` (lista de verificación de implementación). |
 
+### Agents por herramienta
+
+Los agents se ejecutan dentro de las Skills; nunca los invocas tú directamente. Las dos herramientas incluyen conjuntos distintos: 13 agents en Claude Code y 10 en Codex. En Claude Code, los worker agents escriben el código de servidor, de UI y de tests. En Codex, la propia sesión de la Skill escribe el código, y la mayoría de los agents son asesores y revisores de solo lectura.
+
+| Agent | Rol | Principales Skills que lo invocan | Claude Code | Codex |
+|---|---|---|---|---|
+| `ywc-architect` | Decisiones de arquitectura y trade-offs (solo lectura) | `ywc-plan`, `ywc-impl-review` | ✓ | ✓ |
+| `ywc-security-engineer` | Revisión de seguridad estática (solo lectura) | `ywc-security-audit`, `ywc-impl-review`, `ywc-infra-review` | ✓ | ✓ |
+| `ywc-root-cause-analyst` | Análisis de causa raíz (solo lectura) | `ywc-debug-rootcause` | ✓ | ✓ |
+| `ywc-performance-engineer` | Análisis de rendimiento y recomendaciones de profiling (solo lectura) | `ywc-impl-review` | ✓ | ✓ |
+| `ywc-typescript-reviewer` / `ywc-python-reviewer` / `ywc-go-reviewer` | Revisión específica por lenguaje (solo lectura) | `ywc-impl-review` | ✓ | ✓ |
+| `ywc-cloud-engineer` | IaC con Terraform. En Claude Code lo escribe y lo revisa; en Codex solo lo revisa (solo lectura) | `ywc-iac-author`, `ywc-infra-review`, `ywc-infra-optimize` | ✓ | ✓ |
+| `ywc-backend-coder` / `ywc-frontend-coder` / `ywc-qa-engineer` | Escriben código de servidor / código de UI / código de tests | `ywc-code-gen`, ambos executors | ✓ | |
+| `ywc-refactor-cleaner` | Ejecuta el bucle seguro de eliminación de código muerto | `ywc-refactor-clean` | ✓ | |
+| `ywc-doc-writer` | Escribe documentación | `ywc-auth-implement`, `ywc-project-docs` | ✓ | |
+| `ywc-complexity-cleaner` / `ywc-test-hardener` | Workers de la puerta de calidad: reducen la complejidad del código de producción / refuerzan los tests frente a los mutantes supervivientes | Puerta de calidad de los executors ([16](./13-executor-and-codegen-patterns.md)) | | ✓ |
+
 ## La escala determina el flujo
 
 Cada elemento de trabajo comienza con `ywc-plan`. `ywc-plan` juzga la escala de la solicitud y la dirige a uno de dos flujos.

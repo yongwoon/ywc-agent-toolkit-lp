@@ -13,6 +13,23 @@
 | **Executor** | Task 를 실제로 실행하는 두 Skill, `ywc-sequential-executor` (순차) 와 `ywc-parallel-executor` (병렬)를 함께 부르는 말. |
 | **Task** | `ywc-task-generator` 가 spec 을 분해해서 만든, `tasks/<phase>-<sequence>-<slug>/` 디렉토리 하나. `README.md`(metadata) + `task.md`(구현 checklist) 로 구성됩니다. |
 
+### 도구별 Agent 구성
+
+Agent 는 Skill 안에서 실행되며, 사용자가 직접 호출하지 않습니다. 두 도구가 제공하는 agent 는 서로 다릅니다. Claude Code 는 13개, Codex 는 10개입니다. Claude Code 에서는 worker agent 가 server·UI·test code 를 작성합니다. Codex 에서는 Skill 을 실행하는 session 이 직접 code 를 작성하고, agent 는 대부분 read-only 자문·리뷰 역할입니다.
+
+| Agent | 역할 | 주로 호출하는 Skill | Claude Code | Codex |
+|---|---|---|---|---|
+| `ywc-architect` | 아키텍처 판단과 trade-off 자문 (read-only) | `ywc-plan`, `ywc-impl-review` | ✓ | ✓ |
+| `ywc-security-engineer` | 정적 보안 리뷰 (read-only) | `ywc-security-audit`, `ywc-impl-review`, `ywc-infra-review` | ✓ | ✓ |
+| `ywc-root-cause-analyst` | 근본 원인 분석 (read-only) | `ywc-debug-rootcause` | ✓ | ✓ |
+| `ywc-performance-engineer` | 성능 분석과 profiling 권고 (read-only) | `ywc-impl-review` | ✓ | ✓ |
+| `ywc-typescript-reviewer` / `ywc-python-reviewer` / `ywc-go-reviewer` | 언어별 리뷰 (read-only) | `ywc-impl-review` | ✓ | ✓ |
+| `ywc-cloud-engineer` | Terraform IaC. Claude Code 에서는 작성과 리뷰, Codex 에서는 리뷰만 (read-only) | `ywc-iac-author`, `ywc-infra-review`, `ywc-infra-optimize` | ✓ | ✓ |
+| `ywc-backend-coder` / `ywc-frontend-coder` / `ywc-qa-engineer` | Server code / UI code / test code 작성 | `ywc-code-gen`, 두 executor | ✓ | |
+| `ywc-refactor-cleaner` | 안전한 dead code 삭제 루프 실행 | `ywc-refactor-clean` | ✓ | |
+| `ywc-doc-writer` | 문서 작성 | `ywc-auth-implement`, `ywc-project-docs` | ✓ | |
+| `ywc-complexity-cleaner` / `ywc-test-hardener` | Quality gate worker: production code 복잡도 감소 / 살아남은 mutant 에 대한 test 보강 | Executor 의 quality gate ([16](./13-executor-and-codegen-patterns.md)) | | ✓ |
+
 ## 규모(Scale) 가 흐름을 결정한다
 
 모든 작업은 `ywc-plan` 에서 시작하며, `ywc-plan` 이 요청의 규모를 판단해 두 흐름 중 하나로 routing 합니다.

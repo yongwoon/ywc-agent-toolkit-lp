@@ -37,6 +37,13 @@ Esto está organizado en torno a **lo que estás intentando hacer ahora**, no a 
 | Quiero una revisión independiente de la calidad de implementación y la mantenibilidad | `ywc-impl-review` | [13](./16-code-structure-and-maintainability.md) |
 | Quieres comparar librerías o enfoques de implementación para decidir qué usar | `ywc-tech-research` | [17](./14-skill-reference.md) |
 | Gestionar el conocimiento (glosario/aprendizajes de revisión/mission) que permanece en el proyecto después de que termina la conversación | `ywc-ubiquitous-language` | [17](./14-skill-reference.md) |
+| Evitar que vuelvan a aparecer los mismos comentarios de revisión | `ywc-review-learnings` | [19](./19-skill-combination-recipes.md) |
+| Comprobar si el comentario de un revisor es realmente correcto antes de actuar | `ywc-receive-review` | [17](./14-skill-reference.md) |
+| Demostrar la finalización con puertas explícitas y re-ejecutables | `ywc-verify-done` | [17](./14-skill-reference.md) |
+| Revisar un proyecto desde la perspectiva del negocio y del usuario | `ywc-product-review` | [17](./14-skill-reference.md) |
+| Registrar una decisión de arquitectura difícil de revertir (solo en Claude Code) | `ywc-adr` | [17](./14-skill-reference.md) |
+| Explorar un cambio grande e incierto a lo largo de varias sesiones (solo en Codex) | `ywc-wayfinder` | [19](./19-skill-combination-recipes.md) |
+| Ver cómo se encadenan las Skills entre sí | - | [19](./19-skill-combination-recipes.md) |
 
 Para situaciones no cubiertas en esta tabla, consulte [17. Full Skill Reference](./14-skill-reference.md).
 

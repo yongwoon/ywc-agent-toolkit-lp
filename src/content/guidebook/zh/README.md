@@ -37,6 +37,13 @@
 | 想从独立的角度检查实现质量和可维护性 | `ywc-impl-review` | [13](./16-code-structure-and-maintainability.md) |
 | 想比较库或实现方式，决定要用什么 | `ywc-tech-research` | [17](./14-skill-reference.md) |
 | 想管理对话结束后仍留在 project 中的知识（术语表/评审学习/mission） | `ywc-ubiquitous-language` | [17](./14-skill-reference.md) |
+| 不想让同样的 review 意见反复出现 | `ywc-review-learnings` | [19](./19-skill-combination-recipes.md) |
+| 想先确认审查者的意见是否真的正确，再采取行动 | `ywc-receive-review` | [17](./14-skill-reference.md) |
+| 想用明确、可重复运行的 gate 证明完成情况 | `ywc-verify-done` | [17](./14-skill-reference.md) |
+| 想从业务和用户角度评审 project | `ywc-product-review` | [17](./14-skill-reference.md) |
+| 想记录难以逆转的架构决策（仅限 Claude Code） | `ywc-adr` | [17](./14-skill-reference.md) |
+| 想跨多个会话探索一个范围不确定的大型变更（仅限 Codex） | `ywc-wayfinder` | [19](./19-skill-combination-recipes.md) |
+| 想了解 Skill 之间如何衔接 | - | [19](./19-skill-combination-recipes.md) |
 
 对于本表未涵盖的情况，请参见 [17. Full Skill Reference](./14-skill-reference.md)。
 

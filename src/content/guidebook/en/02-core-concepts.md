@@ -13,6 +13,23 @@ Once you understand the terms and concepts on this page, you can apply the examp
 | **Executor** | A collective term for the two Skills that actually execute Tasks: `ywc-sequential-executor` (sequential) and `ywc-parallel-executor` (parallel). |
 | **Task** | One `tasks/<phase>-<sequence>-<slug>/` directory created when `ywc-task-generator` decomposes a spec. It consists of `README.md` (metadata) and `task.md` (implementation checklist). |
 
+### Agents by tool
+
+Agents run inside Skills; you never call them yourself. The two tools ship different sets: 13 agents for Claude Code and 10 for Codex. In Claude Code, worker agents write server, UI and test code. In Codex the Skill session writes the code itself, and most agents are read-only advisors and reviewers.
+
+| Agent | Role | Main calling Skills | Claude Code | Codex |
+|---|---|---|---|---|
+| `ywc-architect` | Architecture decisions and trade-offs (read-only) | `ywc-plan`, `ywc-impl-review` | ✓ | ✓ |
+| `ywc-security-engineer` | Static security review (read-only) | `ywc-security-audit`, `ywc-impl-review`, `ywc-infra-review` | ✓ | ✓ |
+| `ywc-root-cause-analyst` | Root-cause analysis (read-only) | `ywc-debug-rootcause` | ✓ | ✓ |
+| `ywc-performance-engineer` | Performance analysis and profiling advice (read-only) | `ywc-impl-review` | ✓ | ✓ |
+| `ywc-typescript-reviewer` / `ywc-python-reviewer` / `ywc-go-reviewer` | Language-specific review (read-only) | `ywc-impl-review` | ✓ | ✓ |
+| `ywc-cloud-engineer` | Terraform IaC. Writes and reviews it in Claude Code; review only (read-only) in Codex | `ywc-iac-author`, `ywc-infra-review`, `ywc-infra-optimize` | ✓ | ✓ |
+| `ywc-backend-coder` / `ywc-frontend-coder` / `ywc-qa-engineer` | Write server code / UI code / test code | `ywc-code-gen`, both executors | ✓ | |
+| `ywc-refactor-cleaner` | Runs the safe dead-code deletion loop | `ywc-refactor-clean` | ✓ | |
+| `ywc-doc-writer` | Writes documentation | `ywc-auth-implement`, `ywc-project-docs` | ✓ | |
+| `ywc-complexity-cleaner` / `ywc-test-hardener` | Quality-gate workers: reduce production-code complexity / harden tests against surviving mutants | executor quality gate ([16](./13-executor-and-codegen-patterns.md)) | | ✓ |
+
 ## Scale determines the flow
 
 Every work item starts with `ywc-plan`. `ywc-plan` judges the scale of the request and routes it into one of two flows.

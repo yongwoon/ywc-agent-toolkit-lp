@@ -13,6 +13,23 @@
 | **Executor** | Task を実際に実行する 2 つの Skill、`ywc-sequential-executor` (順次) と `ywc-parallel-executor` (並列) をまとめて呼ぶ言葉。 |
 | **Task** | `ywc-task-generator` が spec を分解して作る、`tasks/<phase>-<sequence>-<slug>/` ディレクトリ 1 つ。`README.md`(metadata) + `task.md`(実装 checklist) で構成されます。 |
 
+### ツール別の Agent 構成
+
+Agent は Skill の中で実行され、ユーザーが直接呼び出すことはありません。2 つのツールが提供する agent は異なり、Claude Code は 13 個、Codex は 10 個です。Claude Code では worker agent が server・UI・test のコードを書きます。Codex では Skill を実行する session 自身がコードを書き、agent の大半は読み取り専用の助言・レビュー役です。
+
+| Agent | 役割 | 主な呼び出し元 Skill | Claude Code | Codex |
+|---|---|---|---|---|
+| `ywc-architect` | アーキテクチャ判断と trade-off の助言 (読み取り専用) | `ywc-plan`, `ywc-impl-review` | ✓ | ✓ |
+| `ywc-security-engineer` | 静的セキュリティレビュー (読み取り専用) | `ywc-security-audit`, `ywc-impl-review`, `ywc-infra-review` | ✓ | ✓ |
+| `ywc-root-cause-analyst` | 根本原因分析 (読み取り専用) | `ywc-debug-rootcause` | ✓ | ✓ |
+| `ywc-performance-engineer` | 性能分析と profiling の推奨 (読み取り専用) | `ywc-impl-review` | ✓ | ✓ |
+| `ywc-typescript-reviewer` / `ywc-python-reviewer` / `ywc-go-reviewer` | 言語別レビュー (読み取り専用) | `ywc-impl-review` | ✓ | ✓ |
+| `ywc-cloud-engineer` | Terraform IaC。Claude Code では作成とレビュー、Codex ではレビューのみ (読み取り専用) | `ywc-iac-author`, `ywc-infra-review`, `ywc-infra-optimize` | ✓ | ✓ |
+| `ywc-backend-coder` / `ywc-frontend-coder` / `ywc-qa-engineer` | Server コード / UI コード / test コードを作成 | `ywc-code-gen`, 2 つの executor | ✓ | |
+| `ywc-refactor-cleaner` | 安全な dead code 削除ループを実行 | `ywc-refactor-clean` | ✓ | |
+| `ywc-doc-writer` | ドキュメントを作成 | `ywc-auth-implement`, `ywc-project-docs` | ✓ | |
+| `ywc-complexity-cleaner` / `ywc-test-hardener` | 品質ゲートの worker: production コードの複雑度を下げる / 生き残った mutant に対して test を強化する | Executor の品質ゲート ([16](./13-executor-and-codegen-patterns.md)) | | ✓ |
+
 ## 規模(Scale) がフローを決める
 
 すべての作業は `ywc-plan` から始まり、`ywc-plan` がリクエストの規模を判断して 2 つのフローのどちらかへ routing します。

@@ -13,6 +13,23 @@
 | **Executor** | 实际执行 Tasks 的两种技能的统称：`ywc-sequential-executor`（顺序）和 `ywc-parallel-executor`（并行）。 |
 | **Task** | 当 `ywc-task-generator` 分解规范时，会创建一个 `tasks/<phase>-<sequence>-<slug>/` 目录。它由 `README.md`（元数据）和 `task.md`（实施清单）组成。 |
 
+### 各工具的 Agent
+
+Agent 在 Skill 内部运行，用户不会直接调用它们。两个工具提供的 agent 并不相同：Claude Code 有 13 个，Codex 有 10 个。在 Claude Code 中，由 worker agent 编写服务端、UI 和测试代码。在 Codex 中，由运行 Skill 的会话自己编写代码，大多数 agent 是只读的顾问和审查者。
+
+| Agent | 角色 | 主要调用它的 Skill | Claude Code | Codex |
+|---|---|---|---|---|
+| `ywc-architect` | 架构决策与 trade-off 建议（只读） | `ywc-plan`, `ywc-impl-review` | ✓ | ✓ |
+| `ywc-security-engineer` | 静态安全审查（只读） | `ywc-security-audit`, `ywc-impl-review`, `ywc-infra-review` | ✓ | ✓ |
+| `ywc-root-cause-analyst` | 根本原因分析（只读） | `ywc-debug-rootcause` | ✓ | ✓ |
+| `ywc-performance-engineer` | 性能分析与 profiling 建议（只读） | `ywc-impl-review` | ✓ | ✓ |
+| `ywc-typescript-reviewer` / `ywc-python-reviewer` / `ywc-go-reviewer` | 特定语言的审查（只读） | `ywc-impl-review` | ✓ | ✓ |
+| `ywc-cloud-engineer` | Terraform IaC。在 Claude Code 中负责编写和审查，在 Codex 中只负责审查（只读） | `ywc-iac-author`, `ywc-infra-review`, `ywc-infra-optimize` | ✓ | ✓ |
+| `ywc-backend-coder` / `ywc-frontend-coder` / `ywc-qa-engineer` | 编写服务端代码 / UI 代码 / 测试代码 | `ywc-code-gen`、两个 executor | ✓ | |
+| `ywc-refactor-cleaner` | 执行安全的死代码删除循环 | `ywc-refactor-clean` | ✓ | |
+| `ywc-doc-writer` | 编写文档 | `ywc-auth-implement`, `ywc-project-docs` | ✓ | |
+| `ywc-complexity-cleaner` / `ywc-test-hardener` | Quality gate 的 worker：降低生产代码的复杂度 / 针对存活的 mutant 加强测试 | Executor 的 quality gate（[16](./13-executor-and-codegen-patterns.md)） | | ✓ |
+
 ## 规模决定流动
 
 每个工作项都以 `ywc-plan` 开始。`ywc-plan` 判断请求的规模，并将其导入两个流程之一。

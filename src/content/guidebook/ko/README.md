@@ -37,6 +37,13 @@
 | 구현 품질과 maintainability 를 독립적으로 점검받고 싶다 | `ywc-impl-review` | [13](./16-code-structure-and-maintainability.md) |
 | 라이브러리나 구현 방식을 비교해서 뭘 쓸지 결정하고 싶다 | `ywc-tech-research` | [17](./14-skill-reference.md) |
 | 대화가 끝나도 project 에 남는 지식(용어집/리뷰 학습/mission)을 관리하고 싶다 | `ywc-ubiquitous-language` | [17](./14-skill-reference.md) |
+| 같은 review 지적이 반복되지 않게 하고 싶다 | `ywc-review-learnings` | [19](./19-skill-combination-recipes.md) |
+| 리뷰어의 지적이 정말 맞는지 확인한 뒤 대응하고 싶다 | `ywc-receive-review` | [17](./14-skill-reference.md) |
+| 다시 실행할 수 있는 명시적인 gate 로 완료를 증명하고 싶다 | `ywc-verify-done` | [17](./14-skill-reference.md) |
+| 비즈니스·사용자 관점에서 project 를 점검받고 싶다 | `ywc-product-review` | [17](./14-skill-reference.md) |
+| 되돌리기 어려운 아키텍처 결정을 기록하고 싶다 (Claude Code 전용) | `ywc-adr` | [17](./14-skill-reference.md) |
+| 범위가 불확실한 큰 변경을 여러 session 에 걸쳐 탐색하고 싶다 (Codex 전용) | `ywc-wayfinder` | [19](./19-skill-combination-recipes.md) |
+| Skill 들이 서로 어떻게 이어지는지 알고 싶다 | - | [19](./19-skill-combination-recipes.md) |
 
 이 표에 없는 상황은 [17. 전체 Skill 레퍼런스](./14-skill-reference.md)에서 전체 목록을 확인하세요.
 

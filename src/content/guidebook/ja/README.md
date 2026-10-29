@@ -37,6 +37,13 @@
 | 実装品質と保守性について、独立した点検を受けたい | `ywc-impl-review` | [13](./16-code-structure-and-maintainability.md) |
 | ライブラリや実装方式を比較して何を使うか決めたい | `ywc-tech-research` | [17](./14-skill-reference.md) |
 | 会話が終わっても project に残る知識(用語集/レビュー学習/mission)を管理したい | `ywc-ubiquitous-language` | [17](./14-skill-reference.md) |
+| 同じ review 指摘が繰り返されないようにしたい | `ywc-review-learnings` | [19](./19-skill-combination-recipes.md) |
+| レビュアーの指摘が本当に正しいか確認してから対応したい | `ywc-receive-review` | [17](./14-skill-reference.md) |
+| 再実行できる明示的な gate で完了を証明したい | `ywc-verify-done` | [17](./14-skill-reference.md) |
+| ビジネス・ユーザーの観点で project を点検してほしい | `ywc-product-review` | [17](./14-skill-reference.md) |
+| 取り消しにくいアーキテクチャ決定を記録したい (Claude Code のみ) | `ywc-adr` | [17](./14-skill-reference.md) |
+| 範囲が不確かな大きな変更を、複数の session にわたって探索したい (Codex のみ) | `ywc-wayfinder` | [19](./19-skill-combination-recipes.md) |
+| Skill 同士がどうつながるかを知りたい | - | [19](./19-skill-combination-recipes.md) |
 
 この表にない状況は、[17. 全 Skill リファレンス](./14-skill-reference.md)で全体一覧を確認してください。
 
