@@ -1,8 +1,10 @@
-import { readFile } from "node:fs/promises";
+import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 
-// Fails the build when the skill/agent counts quoted in the landing messages drift
-// from the catalog generated out of ywc-agent-toolkit (src/data/agent-catalog.json).
+// Fails the build when the skill/agent counts quoted in the landing messages or in the
+// living docs drift from the catalog generated out of ywc-agent-toolkit
+// (src/data/agent-catalog.json). docs/ywc-plans and tasks/completed are historical
+// records and intentionally not checked.
 const cwd = process.cwd();
 const locales = ["en", "ja", "ko", "zh", "es"];
 
@@ -15,6 +17,11 @@ const claudeSkills = names("skill", "claude-code");
 const codexSkills = names("skill", "codex");
 const sharedSkills = [...claudeSkills].filter((name) => codexSkills.has(name)).length;
 const allowedAgents = new Set([names("agent", "claude-code").size, names("agent", "codex").size]);
+// A count printed next to a tool name is either its agent count or its tool-specific skill count.
+const perTool = {
+  "Claude Code": new Set([names("agent", "claude-code").size, claudeSkills.size - sharedSkills]),
+  Codex: new Set([names("agent", "codex").size, codexSkills.size - sharedSkills]),
+};
 
 function leaves(value, keyPath = "") {
   if (Array.isArray(value)) return value.flatMap((v, i) => leaves(v, `${keyPath}[${i}]`));
@@ -56,12 +63,43 @@ for (const locale of locales) {
   }
 }
 
+// Living docs: same rules, line based (English and Korean phrasing).
+const docFiles = ["CLAUDE.md", "AGENTS.md", "docs/mission.md"];
+for (const dir of ["docs/specification", "docs/design-system"]) {
+  for (const f of await readdir(path.join(cwd, dir))) if (f.endsWith(".md")) docFiles.push(`${dir}/${f}`);
+}
+
+for (const file of docFiles) {
+  const lines = (await readFile(path.join(cwd, file), "utf8")).split("\n");
+  lines.forEach((line, i) => {
+    const at = `${file}:${i + 1}`;
+    for (const m of line.matchAll(/(\d+)(?:개 | )skills?\b/g)) {
+      if (Number(m[1]) !== sharedSkills) failures.push(`${at} says "${m[0]}", expected ${sharedSkills} shared skills`);
+    }
+    for (const m of line.matchAll(/(\d+)(?:개 | )(?:custom )?agents?\b/g)) {
+      if (!allowedAgents.has(Number(m[1]))) {
+        failures.push(`${at} says "${m[0]}", expected one of ${[...allowedAgents].join("/")}`);
+      }
+    }
+    const perToolMatches = [
+      ...[...line.matchAll(/(Claude Code|Codex) ?\((\d+)(?:개)?\)/g)].map((m) => [m[0], m[1], m[2]]),
+      ...[...line.matchAll(/(Claude Code|Codex) (\d+)개/g)].map((m) => [m[0], m[1], m[2]]),
+      ...[...line.matchAll(/(\d+) for (Claude Code|Codex)/g)].map((m) => [m[0], m[2], m[1]]),
+    ];
+    for (const [text, tool, n] of perToolMatches) {
+      if (!perTool[tool].has(Number(n))) {
+        failures.push(`${at} says "${text}", expected one of ${[...perTool[tool]].join("/")} for ${tool}`);
+      }
+    }
+  });
+}
+
 if (failures.length > 0) {
-  console.error("[check-toolkit-counts] messages drift from the toolkit catalog:");
+  console.error("[check-toolkit-counts] counts drift from the toolkit catalog:");
   failures.forEach((f) => console.error(`  ${f}`));
   process.exit(1);
 }
 
 console.log(
-  `[check-toolkit-counts] ${locales.length} locales match catalog (shared skills ${sharedSkills}, agents ${[...allowedAgents].join("/")}).`
+  `[check-toolkit-counts] ${locales.length} locales and ${docFiles.length} docs match catalog (shared skills ${sharedSkills}, agents ${[...allowedAgents].join("/")}).`
 );
