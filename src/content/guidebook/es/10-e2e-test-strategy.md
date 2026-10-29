@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 10. Estrategia de automatización de pruebas E2E
+# 12. Estrategia de automatización de pruebas E2E
 
 ## Cuándo usar este flujo
 
@@ -66,7 +66,7 @@ Si `playwright.config.*` existe y no se proporciona ninguna otra bandera, este m
 4. Navegación / enrutamiento
 5. Manejo de errores API
 
-Comienza con 5-8 flujos y expande mientras mides la inestabilidad. "Probarlo todo" solo aumenta la carga de mantenimiento. Es mejor dejar el resto a `ywc-gen-testcase` en [09. Writing and running Tests](./09-testing-guide.md).
+Comienza con 5-8 flujos y expande mientras mides la inestabilidad. "Probarlo todo" solo aumenta la carga de mantenimiento. Es mejor dejar el resto a `ywc-gen-testcase` en [11. Writing and running Tests](./09-testing-guide.md).
 
 ## Qué dejar como verificación manual (`ywc-gen-testcase`) en lugar de automatización
 
@@ -100,4 +100,4 @@ Para los juicios de UX que la automatización no puede detectar, como un diseño
 
 ---
 
-[Previous: 09. Writing and running Tests](./09-testing-guide.md) - [Next: 11. Reviewing and improving design](./11-design-review.md)
+[← Anterior: 11. Escribir y ejecutar pruebas](./09-testing-guide.md) · [Siguiente: 13. Revisando y mejorando el diseño →](./11-design-review.md)

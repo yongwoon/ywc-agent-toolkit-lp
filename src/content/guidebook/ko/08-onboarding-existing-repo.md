@@ -1,10 +1,10 @@
 [« 목차로 돌아가기](./README.md)
 
-# 08. 기존 Repo 에 처음 진입하기
+# 10. 기존 Repo 에 처음 진입하기
 
 ## 언제 이 흐름을 쓰는가
 
-이미 코드가 존재하는 낯선 repository 에 처음 들어가서 "이 codebase 가 어떻게 생겼는지" 파악해야 할 때 사용합니다. 반대로 백지 상태에서 새 project 를 설계하는 것이라면 [07. 새 Project 시작하기](./07-starting-a-new-project.md)로 이동하세요 — 두 흐름은 반대 방향이라 같은 세션에서 함께 쓰지 않습니다.
+이미 코드가 존재하는 낯선 repository 에 처음 들어가서 "이 codebase 가 어떻게 생겼는지" 파악해야 할 때 사용합니다. 반대로 백지 상태에서 새 project 를 설계하는 것이라면 [09. 새 Project 시작하기](./07-starting-a-new-project.md)로 이동하세요 — 두 흐름은 반대 방향이라 같은 세션에서 함께 쓰지 않습니다.
 
 ## 무엇을 해주는가
 
@@ -62,4 +62,4 @@
 
 ---
 
-[← 이전: 07. 새 Project 시작하기](./07-starting-a-new-project.md) · [다음: 09. Test 작성 및 실행하기 →](./09-testing-guide.md)
+[← 이전: 09. 새 Project 시작하기](./07-starting-a-new-project.md) · [다음: 11. Test 작성 및 실행하기 →](./09-testing-guide.md)

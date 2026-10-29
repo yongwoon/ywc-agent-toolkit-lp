@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 11. 审查和改进设计
+# 13. 审查和改进设计
 
 ## 何时使用此流程
 
@@ -59,4 +59,4 @@
 
 ---
 
-[Previous: 10. E2E Test automation strategy](./10-e2e-test-strategy.md) - [Next: 12. 根本原因调查和事后分析](./12-debugging-and-incident-postmortem.md)
+[← 上一页: 12. E2E 测试自动化策略](./10-e2e-test-strategy.md) · [下一页: 14. 管理代码结构与可维护性 →](./16-code-structure-and-maintainability.md)

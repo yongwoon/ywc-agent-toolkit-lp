@@ -20,7 +20,7 @@ Para ver más detalles sobre las opciones, requisitos previos y flujo interno de
 
 La instalación mediante Plugin marketplace o Codex plugin no tiene requisitos previos separados. El instalador gestiona automáticamente la copia de archivos y el registro necesarios.
 
-Dicho esto, para ejecutar una Skill de verdad necesitas tener listas algunas herramientas en tu sistema — `git`, `gh`, `python3`, entre otras — y las Skills relacionadas con diseño funcionan mejor con una configuración adicional. Consulta [18. Requisitos previos e instalación](./15-prerequisites-installation.md) para la lista completa de herramientas requeridas y opcionales, además de los pasos de instalación — vale la pena leerlo antes de empezar.
+Dicho esto, para ejecutar una Skill de verdad necesitas tener listas algunas herramientas en tu sistema — `git`, `gh`, `python3`, entre otras — y las Skills relacionadas con diseño funcionan mejor con una configuración adicional. Consulta [03. Requisitos previos e instalación](./15-prerequisites-installation.md) para la lista completa de herramientas requeridas y opcionales, además de los pasos de instalación — vale la pena leerlo antes de empezar.
 
 ## Qué revisar antes de empezar
 
@@ -28,8 +28,8 @@ Dicho esto, para ejecutar una Skill de verdad necesitas tener listas algunas her
 |---|---|
 | ¿Reconoce Claude Code este repositorio? | Escriba `/` en la conversación y confirme que la lista `ywc-*` Skill aparece en la autocompletación |
 | ¿Está autenticado el `gh` CLI? | `gh auth status` - requerido por la mayoría de las Skills que crean o fusionan PRs |
-| ¿El proyecto tiene `CLAUDE.md`? | Si no, consulte [08. Entering an existing Repo for the first time](./08-onboarding-existing-repo.md): las habilidades infieren el lenguaje y aplican las convenciones de este archivo |
-| ¿El objetivo es un proyecto nuevo o un cambio en el código existente? | Para un nuevo proyecto, vaya a [07. Starting a new Project](./07-starting-a-new-project.md); para un cambio existente, comience con [02. Core concepts](./02-core-concepts.md) |
+| ¿El proyecto tiene `CLAUDE.md`? | Si no, consulte [10. Entering an existing Repo for the first time](./08-onboarding-existing-repo.md): las habilidades infieren el lenguaje y aplican las convenciones de este archivo |
+| ¿El objetivo es un proyecto nuevo o un cambio en el código existente? | Para un nuevo proyecto, vaya a [09. Starting a new Project](./07-starting-a-new-project.md); para un cambio existente, comience con [02. Core concepts](./02-core-concepts.md) |
 
 ## Sintaxis de invocación Skill
 
@@ -44,8 +44,8 @@ Todos los ejemplos en este Manual asumen que escribes el siguiente formulario di
   </ToolTabsPanel>
 </ToolTabs>
 
-El formulario `/ywc-plan` con un `/` inicial funciona de la misma manera. Este documento omite `/` para mayor claridad. Las opciones en el formulario `--flag value` difieren por Skill, y los ejemplos concretos se recopilan en cada página Skill o en [16. Executor / Patrones de indicación de generación de código](./13-executor-and-codegen-patterns.md).
+El formulario `/ywc-plan` con un `/` inicial funciona de la misma manera. Este documento omite `/` para mayor claridad. Las opciones en el formulario `--flag value` difieren por Skill, y los ejemplos concretos se recopilan en cada página Skill o en [18. Executor / Patrones de indicación de generación de código](./13-executor-and-codegen-patterns.md).
 
 ---
 
-[Next: 02. Core concepts](./02-core-concepts.md)
+[Siguiente: 02. Conceptos fundamentales →](./02-core-concepts.md)

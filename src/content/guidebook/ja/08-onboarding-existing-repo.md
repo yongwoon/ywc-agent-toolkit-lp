@@ -1,10 +1,10 @@
 [« 目次に戻る](./README.md)
 
-# 08. 既存 Repo に初めて入る
+# 10. 既存 Repo に初めて入る
 
 ## いつこのフローを使うか
 
-すでにコードが存在する未知の repository に初めて入り、「この codebase がどういう構造か」を把握する必要があるときに使います。逆に白紙状態から新しい project を設計する場合は、[07. 新しい Project を始める](./07-starting-a-new-project.md)へ移動してください。この 2 つのフローは逆方向なので、同じセッションで一緒に使いません。
+すでにコードが存在する未知の repository に初めて入り、「この codebase がどういう構造か」を把握する必要があるときに使います。逆に白紙状態から新しい project を設計する場合は、[09. 新しい Project を始める](./07-starting-a-new-project.md)へ移動してください。この 2 つのフローは逆方向なので、同じセッションで一緒に使いません。
 
 ## 何をしてくれるか
 
@@ -62,4 +62,4 @@
 
 ---
 
-[← 前: 07. 新しい Project を始める](./07-starting-a-new-project.md) · [次: 09. Test を作成して実行する →](./09-testing-guide.md)
+[← 前へ: 09. 新しい Project を始める](./07-starting-a-new-project.md) · [次へ: 11. Test を作成して実行する →](./09-testing-guide.md)

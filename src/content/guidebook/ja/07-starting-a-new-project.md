@@ -1,10 +1,10 @@
 [« 目次に戻る](./README.md)
 
-# 07. 新しい Project を始める
+# 09. 新しい Project を始める
 
 ## いつこのフローを使うか
 
-Git repository 自体がない、またはあってもコードがほとんどない白紙の状態で project を設計するときに使います。すでにコードがある未知の repo を把握したい場合は、このページではなく [08. 既存 Repo に初めて入る](./08-onboarding-existing-repo.md)へ移動してください。この 2 つのフローは逆方向であり、同じセッションで一緒に使いません。
+Git repository 自体がない、またはあってもコードがほとんどない白紙の状態で project を設計するときに使います。すでにコードがある未知の repo を把握したい場合は、このページではなく [10. 既存 Repo に初めて入る](./08-onboarding-existing-repo.md)へ移動してください。この 2 つのフローは逆方向であり、同じセッションで一緒に使いません。
 
 > 始める前に: 毎回 `--lang` を付けたくない場合は、`ywc-setup-language` で出力言語を一度固定しておきましょう。以降、下記の skill はその設定に従います。
 
@@ -24,7 +24,7 @@ Git repository 自体がない、またはあってもコードがほとんど�
 | 8 | `ywc-project-docs` | Architecture / Product / Operations などの補助文書 (必要な場合) |
 | 9 | `ywc-task-generator` | `DONE` になった spec を dependency-safe Task に分解 |
 | 10 | `ywc-confidence-gate` | 実装着手の前に準備度を 5 つの軸で採点 (PROCEED ≥90 / REVIEW 70–89 / STOP &lt;70) |
-| 11 | [05. general cycle (medium/large)](./05-general-cycle-medium-large.md) へ入る | 実際の実装を開始 |
+| 11 | [06. general cycle (medium/large)](./05-general-cycle-medium-large.md) へ入る | 実際の実装を開始 |
 
 ## 実行例
 
@@ -128,7 +128,7 @@ Language は必須で、それ以外が空なら聞き返されるため、可�
     <CodeBlock label="codex" code="ywc-confidence-gate この spec と task で実装に着手してよいか点検" />
   </ToolTabsPanel>
 </ToolTabs>
-scope clarity / architecture compliance / evidence quality / reuse verified / root cause の 5 軸を採点します。`PROCEED`(≥90)なら [05. general cycle](./05-general-cycle-medium-large.md) へ進み、`STOP`(&lt;70)なら指摘された軸を先に補完してください。
+scope clarity / architecture compliance / evidence quality / reuse verified / root cause の 5 軸を採点します。`PROCEED`(≥90)なら [06. general cycle](./05-general-cycle-medium-large.md) へ進み、`STOP`(&lt;70)なら指摘された軸を先に補完してください。
 
 ## 参考
 
@@ -141,4 +141,4 @@ scope clarity / architecture compliance / evidence quality / reuse verified / ro
 
 ---
 
-[← 前: 06. 目標 1 つで自動完了する](./06-agentic-autonomous-loop.md) · [次: 08. 既存 Repo に初めて入る →](./08-onboarding-existing-repo.md)
+[← 前へ: 08. Skill 組み合わせレシピ](./19-skill-combination-recipes.md) · [次へ: 10. 既存 Repo に初めて入る →](./08-onboarding-existing-repo.md)

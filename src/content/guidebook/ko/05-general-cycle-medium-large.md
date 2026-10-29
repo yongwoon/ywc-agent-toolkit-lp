@@ -1,6 +1,6 @@
 [« 목차로 돌아가기](./README.md)
 
-# 05. 여러 Task 로 나누어 처리하기 (general cycle · medium/large)
+# 06. 여러 Task 로 나누어 처리하기 (general cycle · medium/large)
 
 ## 언제 이 흐름을 쓰는가
 
@@ -75,7 +75,7 @@ Task 생성 옵션 두 가지도 알아 두면 좋습니다.
   </ToolTabsPanel>
 </ToolTabs>
 
-이후 실행 command 는 옵션이 많아 별도 페이지에서 다룹니다 → [16. Executor / Code-gen Prompt 패턴](./13-executor-and-codegen-patterns.md). 가장 단순한 시작은 아래와 같습니다.
+이후 실행 command 는 옵션이 많아 별도 페이지에서 다룹니다 → [18. Executor / Code-gen Prompt 패턴](./13-executor-and-codegen-patterns.md). 가장 단순한 시작은 아래와 같습니다.
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
@@ -90,7 +90,7 @@ task 지정을 생략하면 `dependency-graph.md` 에서 다음 실행 가능한
 
 ## `--review` 를 반드시 붙이세요
 
-두 executor 모두 `--review` flag 로 각 Task 의 PR 생성/merge 전에 `/ywc-impl-review` 를 자동 실행합니다. 이 flag 없이 실행하면 [04](./04-general-cycle-small.md)의 small cycle 처럼 리뷰 단계가 완전히 빠지는 것과 같습니다 — 붙이지 않을 이유가 없습니다. (단, Task 의 `Criticality: critical` 이 설정된 경우 flag 유무와 무관하게 항상 강제 실행됩니다.)
+두 executor 모두 `--review` flag 로 각 Task 의 PR 생성/merge 전에 `/ywc-impl-review` 를 자동 실행합니다. 이 flag 없이 실행하면 [05](./04-general-cycle-small.md)의 small cycle 처럼 리뷰 단계가 완전히 빠지는 것과 같습니다 — 붙이지 않을 이유가 없습니다. (단, Task 의 `Criticality: critical` 이 설정된 경우 flag 유무와 무관하게 항상 강제 실행됩니다.)
 
 ## 각 단계에서 막혔을 때
 
@@ -102,4 +102,4 @@ task 지정을 생략하면 `dependency-graph.md` 에서 다음 실행 가능한
 
 ---
 
-[← 이전: 04. 작은 변경 처리하기](./04-general-cycle-small.md) · [다음: 06. 목표 하나로 자동 완료하기 →](./06-agentic-autonomous-loop.md)
+[← 이전: 05. 작은 변경 처리하기 (general cycle · small)](./04-general-cycle-small.md) · [다음: 07. 목표 하나로 자동 완료하기 (ywc-agentic) →](./06-agentic-autonomous-loop.md)

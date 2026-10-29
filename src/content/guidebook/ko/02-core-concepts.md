@@ -28,7 +28,7 @@ Agent 는 Skill 안에서 실행되며, 사용자가 직접 호출하지 않습�
 | `ywc-backend-coder` / `ywc-frontend-coder` / `ywc-qa-engineer` | Server code / UI code / test code 작성 | `ywc-code-gen`, 두 executor | ✓ | |
 | `ywc-refactor-cleaner` | 안전한 dead code 삭제 루프 실행 | `ywc-refactor-clean` | ✓ | |
 | `ywc-doc-writer` | 문서 작성 | `ywc-auth-implement`, `ywc-project-docs` | ✓ | |
-| `ywc-complexity-cleaner` / `ywc-test-hardener` | Quality gate worker: production code 복잡도 감소 / 살아남은 mutant 에 대한 test 보강 | Executor 의 quality gate ([16](./13-executor-and-codegen-patterns.md)) | | ✓ |
+| `ywc-complexity-cleaner` / `ywc-test-hardener` | Quality gate worker: production code 복잡도 감소 / 살아남은 mutant 에 대한 test 보강 | Executor 의 quality gate ([18](./13-executor-and-codegen-patterns.md)) | | ✓ |
 
 ## 규모(Scale) 가 흐름을 결정한다
 
@@ -36,8 +36,8 @@ Agent 는 Skill 안에서 실행되며, 사용자가 직접 호출하지 않습�
 
 | 규모 | 판단 기준 | 산출물 | 다음 단계 |
 |---|---|---|---|
-| **Small** | 단일 PR 로 끝나는 변경, DB migration/새 Library 도입이 없음 | `plan.md` | [04. general cycle (small)](./04-general-cycle-small.md) |
-| **Medium/Large** | 여러 Task 로 쪼개야 함, DB migration 또는 새 Library 도입 포함 | `docs/ywc-plans/<slug>.md` | [05. general cycle (medium/large)](./05-general-cycle-medium-large.md) |
+| **Small** | 단일 PR 로 끝나는 변경, DB migration/새 Library 도입이 없음 | `plan.md` | [05. general cycle (small)](./04-general-cycle-small.md) |
+| **Medium/Large** | 여러 Task 로 쪼개야 함, DB migration 또는 새 Library 도입 포함 | `docs/ywc-plans/<slug>.md` | [06. general cycle (medium/large)](./05-general-cycle-medium-large.md) |
 
 DB migration 이나 새 Library 도입은 규모와 무관하게 **항상 별도 취급**됩니다 — `ywc-plan` 과 `ywc-task-generator` 모두의 안전 불변식(Safety Invariant)입니다.
 
@@ -68,11 +68,11 @@ DB migration 이나 새 Library 도입은 규모와 무관하게 **항상 별도
   <FlowStep>테스트 &amp; 통합테스트 (ywc-gen-testcase, 필요 시 ywc-e2e-test-strategy)</FlowStep>
 </FlowDiagram>
 
-이 흐름의 각 갈래는 [04](./04-general-cycle-small.md), [05](./05-general-cycle-medium-large.md) 페이지에서 실제 command 예시와 함께 자세히 다루며, 마지막 테스트 단계는 [09](./09-testing-guide.md), [10](./10-e2e-test-strategy.md) 페이지에서 다룹니다.
+이 흐름의 각 갈래는 [05](./04-general-cycle-small.md), [06](./05-general-cycle-medium-large.md) 페이지에서 실제 command 예시와 함께 자세히 다루며, 마지막 테스트 단계는 [11](./09-testing-guide.md), [12](./10-e2e-test-strategy.md) 페이지에서 다룹니다.
 
 ## PR Delivery 모드 공통 개념
 
-`ywc-finish-branch`, `ywc-sequential-executor`, `ywc-parallel-executor` 는 task 기반 delivery 에서 아래 모드 개념을 공유합니다. `plan.md` 기반 Small 흐름은 task artifact 가 없으므로 `ywc-create-pr` 로 PR 을 열고 이후 review/merge 를 별도로 처리합니다. 정확한 flag 조합은 [16. Executor / Code-gen Prompt 패턴](./13-executor-and-codegen-patterns.md)에서 다룹니다.
+`ywc-finish-branch`, `ywc-sequential-executor`, `ywc-parallel-executor` 는 task 기반 delivery 에서 아래 모드 개념을 공유합니다. `plan.md` 기반 Small 흐름은 task artifact 가 없으므로 `ywc-create-pr` 로 PR 을 열고 이후 review/merge 를 별도로 처리합니다. 정확한 flag 조합은 [18. Executor / Code-gen Prompt 패턴](./13-executor-and-codegen-patterns.md)에서 다룹니다.
 
 | 모드 | 의미 |
 |---|---|
@@ -83,4 +83,4 @@ DB migration 이나 새 Library 도입은 규모와 무관하게 **항상 별도
 
 ---
 
-[← 이전: 01. 소개](./01-introduction.md) · [다음: 03. 5분 안에 첫 기능 배포하기 →](./03-quickstart.md)
+[← 이전: 01. 소개](./01-introduction.md) · [다음: 03. 사전 준비와 설치 →](./15-prerequisites-installation.md)

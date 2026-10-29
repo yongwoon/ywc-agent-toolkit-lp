@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 09. 编写和运行测试
+# 11. 编写和运行测试
 
 ## 何时使用此流程
 
@@ -16,7 +16,7 @@
 |---|---|
 | 1. 编写测试用例 | 使用 `ywc-gen-testcase` 创建 PR / Task / 基于差异的手动验证测试表给开发人员和 QA |
 | 2a. 代码测试 | 使用项目现有的测试运行器运行单元/集成测试 |
-| 2b. 端到端测试 | 运行由 `ywc-e2e-test-strategy` 生成的流程 - 参见 [10. E2E Test automation strategy](./10-e2e-test-strategy.md) |
+| 2b. 端到端测试 | 运行由 `ywc-e2e-test-strategy` 生成的流程 - 参见 [12. E2E Test automation strategy](./10-e2e-test-strategy.md) |
 | 3. 重新运行 | 修复与预期不符的结果，然后只重新运行相关测试 |
 
 ## `ywc-gen-testcase` 示例
@@ -57,11 +57,11 @@
 |---|---|
 | 视觉/像素精度，探索性用户体验判断 | `ywc-gen-testcase`（手动）- 需要人工判断的领域 |
 | 一次性迁移、第三方 OAuth 流程、邮箱/短信验证 | `ywc-gen-testcase`（手动）- 对于其价值来说通常自动化成本太高 |
-| 登录/注销，核心功能正常流程，伴随重复回归的流程 | `ywc-e2e-test-strategy`（自动）- 参见 [10](./10-e2e-test-strategy.md) |
+| 登录/注销，核心功能正常流程，伴随重复回归的流程 | `ywc-e2e-test-strategy`（自动）- 参见 [12](./10-e2e-test-strategy.md) |
 | 函数/模块级逻辑 | 该项目现有的单元/集成测试运行器 |
 
 这两种方法不是替代品；它们**互为补充**。对于自动化无法发现的用户体验判断，请在每次发布时补充使用来自 `ywc-gen-testcase` 的手动 QA 清单。
 
 ---
 
-[Previous: 08. Entering an existing Repo for the first time](./08-onboarding-existing-repo.md) - [Next: 10. E2E Test automation strategy](./10-e2e-test-strategy.md)
+[← 上一页: 10. 第一次进入现有的仓库](./08-onboarding-existing-repo.md) · [下一页: 12. E2E 测试自动化策略 →](./10-e2e-test-strategy.md)

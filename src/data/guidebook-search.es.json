@@ -10,88 +10,88 @@
     "summary": "Una vez que entiendas los términos y conceptos en esta página, puedes aplicar los ejemplos de cada otra página de la guía directamente."
   },
   {
+    "slug": "15-prerequisites-installation",
+    "title": "03. Requisitos previos e instalación",
+    "summary": "Para usar las Skills ywc-* de forma fiable, necesitas tener listas algunas herramientas de antemano."
+  },
+  {
     "slug": "03-quickstart",
-    "title": "03. Envía tu primera función en 5 minutos",
+    "title": "04. Envía tu primera función en 5 minutos",
     "summary": "Esta página es tu primer ejercicio práctico: sigue la corrección de un pequeño error desde la etapa de idea hasta la fusión."
   },
   {
     "slug": "04-general-cycle-small",
-    "title": "04. Manejo de un cambio pequeño (ciclo general - pequeño)",
+    "title": "05. Manejo de un cambio pequeño (ciclo general - pequeño)",
     "summary": "Cuando ywc-plan juzga una solicitud como Pequeña , automáticamente entra en este camino."
   },
   {
     "slug": "05-general-cycle-medium-large",
-    "title": "05. Manejo del trabajo dividido en múltiples Tasks (ciclo general - mediano/grande)",
+    "title": "06. Manejo del trabajo dividido en múltiples Tasks (ciclo general - mediano/grande)",
     "summary": "Si se aplica alguno de los siguientes casos, ywc-plan se redirige a esta ruta."
   },
   {
     "slug": "06-agentic-autonomous-loop",
-    "title": "06. Terminar automáticamente desde un objetivo (ywc-agentic)",
-    "summary": "04 y 05 son flujos de control manual donde el usuario invoca cada paso uno por uno ( ywc-plan -> ..."
+    "title": "07. Terminar automáticamente desde un objetivo (ywc-agentic)",
+    "summary": "05 y 06 son flujos de control manual donde el usuario invoca cada paso uno por uno ( ywc-plan -> ..."
+  },
+  {
+    "slug": "19-skill-combination-recipes",
+    "title": "08. Recetas para combinar Skills",
+    "summary": "Las demás páginas explican un flujo o una Skill a la vez."
   },
   {
     "slug": "07-starting-a-new-project",
-    "title": "07. Empezando un nuevo proyecto",
+    "title": "09. Empezando un nuevo proyecto",
     "summary": "Usa esto cuando aún no hay un repositorio Git, o cuando el repositorio existe pero es básicamente un lienzo en blanco con poco código."
   },
   {
     "slug": "08-onboarding-existing-repo",
-    "title": "08. Entrando en un repositorio existente por primera vez",
-    "summary": "Usa esto cuando entres por primera vez a un repositorio desconocido que ya tiene código y necesites entender \"cómo es esta base de código.\" Por el contrario, si estás diseñando un proyecto nuevo desde cero, ve a 07."
+    "title": "10. Entrando en un repositorio existente por primera vez",
+    "summary": "Usa esto cuando entres por primera vez a un repositorio desconocido que ya tiene código y necesites entender \"cómo es esta base de código.\" Por el contrario, si estás diseñando un proyecto nuevo desde cero, ve a 09."
   },
   {
     "slug": "09-testing-guide",
-    "title": "09. Escribir y ejecutar pruebas",
+    "title": "11. Escribir y ejecutar pruebas",
     "summary": "Usa esto después de que la implementación de la función esté completa y necesites verificar que realmente funciona como se pretende."
   },
   {
     "slug": "10-e2e-test-strategy",
-    "title": "10. Estrategia de automatización de pruebas E2E",
+    "title": "12. Estrategia de automatización de pruebas E2E",
     "summary": "Use ywc-e2e-test-strategy cuando el proyecto aún no tenga pruebas basadas en Playwright de E2E, o cuando la cobertura existente esté dispersa y no esté claro \"qué flujo debe automatizarse primero.\" El objetivo es automatizar la regresión repetida de flujos críticos, como el inicio de sesión o la compra, al menor costo posible."
   },
   {
     "slug": "11-design-review",
-    "title": "11. Revisando y mejorando el diseño",
-    "summary": "Las dos habilidades responden a preguntas diferentes."
-  },
-  {
-    "slug": "12-debugging-and-incident-postmortem",
-    "title": "12. Debugging e informe postmortem",
+    "title": "13. Revisando y mejorando el diseño",
     "summary": "Las dos habilidades responden a preguntas diferentes."
   },
   {
     "slug": "16-code-structure-and-maintainability",
-    "title": "13. Gestionar la estructura del código y la mantenibilidad",
+    "title": "14. Gestionar la estructura del código y la mantenibilidad",
     "summary": "Las dos Skills parten del mismo síntoma — \"el código no está bien\" — pero responden preguntas distintas."
   },
   {
+    "slug": "12-debugging-and-incident-postmortem",
+    "title": "15. Debugging e informe postmortem",
+    "summary": "Las dos habilidades responden a preguntas diferentes."
+  },
+  {
     "slug": "17-infrastructure-and-cloud",
-    "title": "14. Gestionar la infraestructura en la nube",
+    "title": "16. Gestionar la infraestructura en la nube",
     "summary": "Las cuatro Skills cubren un mismo ciclo de vida continuo — diseñar, escribir, revisar y mejorar infraestructura en la nube — pero cada una responde una pregunta distinta."
   },
   {
     "slug": "18-authentication-implementation",
-    "title": "15. Implementar autenticación",
+    "title": "17. Implementar autenticación",
     "summary": "Usa ywc-auth-implement cuando un proyecto necesita una nueva funcionalidad de autenticación — inicio de sesión/registro, OAuth, MFA, manejo de sesiones, restablecimiento de contraseña, eliminación de cuenta o un flujo de consentimiento — y quieres que las decisiones de política queden explícitas antes de escribir ningún código."
   },
   {
     "slug": "13-executor-and-codegen-patterns",
-    "title": "16. Executor / Patrones de indicación de generación de código",
+    "title": "18. Executor / Patrones de indicación de generación de código",
     "summary": "ywc-sequential-executor , ywc-parallel-executor y ywc-code-gen son las tres Habilidades cuyas muchas opciones te hacen consultar repetidamente la sintaxis exacta."
   },
   {
     "slug": "14-skill-reference",
-    "title": "17. Referencia completa Skill",
+    "title": "19. Referencia completa Skill",
     "summary": "Esta página agrupa las Habilidades restantes que no se cubrieron en las guías de flujo de trabajo anteriores según lo que deseas hacer ."
-  },
-  {
-    "slug": "15-prerequisites-installation",
-    "title": "18. Requisitos previos e instalación",
-    "summary": "Para usar las Skills ywc-* de forma fiable, necesitas tener listas algunas herramientas de antemano."
-  },
-  {
-    "slug": "19-skill-combination-recipes",
-    "title": "19. Recetas para combinar Skills",
-    "summary": "Las demás páginas explican un flujo o una Skill a la vez."
   }
 ]

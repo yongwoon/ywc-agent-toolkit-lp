@@ -28,7 +28,7 @@ Agents run inside Skills; you never call them yourself. The two tools ship diffe
 | `ywc-backend-coder` / `ywc-frontend-coder` / `ywc-qa-engineer` | Write server code / UI code / test code | `ywc-code-gen`, both executors | ✓ | |
 | `ywc-refactor-cleaner` | Runs the safe dead-code deletion loop | `ywc-refactor-clean` | ✓ | |
 | `ywc-doc-writer` | Writes documentation | `ywc-auth-implement`, `ywc-project-docs` | ✓ | |
-| `ywc-complexity-cleaner` / `ywc-test-hardener` | Quality-gate workers: reduce production-code complexity / harden tests against surviving mutants | executor quality gate ([16](./13-executor-and-codegen-patterns.md)) | | ✓ |
+| `ywc-complexity-cleaner` / `ywc-test-hardener` | Quality-gate workers: reduce production-code complexity / harden tests against surviving mutants | executor quality gate ([18](./13-executor-and-codegen-patterns.md)) | | ✓ |
 
 ## Scale determines the flow
 
@@ -36,8 +36,8 @@ Every work item starts with `ywc-plan`. `ywc-plan` judges the scale of the reque
 
 | Scale | Decision criteria | Output | Next step |
 |---|---|---|---|
-| **Small** | A change that can finish in a single PR, with no DB migration or new Library adoption | `plan.md` | [04. general cycle (small)](./04-general-cycle-small.md) |
-| **Medium/Large** | Must be split into multiple Tasks, or includes a DB migration or new Library adoption | `docs/ywc-plans/<slug>.md` | [05. general cycle (medium/large)](./05-general-cycle-medium-large.md) |
+| **Small** | A change that can finish in a single PR, with no DB migration or new Library adoption | `plan.md` | [05. general cycle (small)](./04-general-cycle-small.md) |
+| **Medium/Large** | Must be split into multiple Tasks, or includes a DB migration or new Library adoption | `docs/ywc-plans/<slug>.md` | [06. general cycle (medium/large)](./05-general-cycle-medium-large.md) |
 
 DB migrations and new Library adoption are **always handled separately**, regardless of scale. This is a Safety Invariant for both `ywc-plan` and `ywc-task-generator`.
 
@@ -68,11 +68,11 @@ Almost every Skill finishes with one of the four states below. Once you know thi
   <FlowStep>Testing &amp; integration testing (ywc-gen-testcase, ywc-e2e-test-strategy when needed)</FlowStep>
 </FlowDiagram>
 
-Each branch of this flow is covered in detail with concrete command examples on pages [04](./04-general-cycle-small.md) and [05](./05-general-cycle-medium-large.md), and the final testing step is covered on pages [09](./09-testing-guide.md) and [10](./10-e2e-test-strategy.md).
+Each branch of this flow is covered in detail with concrete command examples on pages [05](./04-general-cycle-small.md) and [06](./05-general-cycle-medium-large.md), and the final testing step is covered on pages [11](./09-testing-guide.md) and [12](./10-e2e-test-strategy.md).
 
 ## Shared PR Delivery mode concepts
 
-`ywc-finish-branch`, `ywc-sequential-executor`, and `ywc-parallel-executor` share the mode concepts below for task-based delivery. The Small flow based on `plan.md` has no task artifact, so it opens a PR with `ywc-create-pr` and handles review/merge separately. Exact flag combinations are covered in [16. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md).
+`ywc-finish-branch`, `ywc-sequential-executor`, and `ywc-parallel-executor` share the mode concepts below for task-based delivery. The Small flow based on `plan.md` has no task artifact, so it opens a PR with `ywc-create-pr` and handles review/merge separately. Exact flag combinations are covered in [18. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md).
 
 | Mode | Meaning |
 |---|---|
@@ -83,4 +83,4 @@ Each branch of this flow is covered in detail with concrete command examples on 
 
 ---
 
-[Previous: 01. Introduction](./01-introduction.md) - [Next: 03. Ship your first feature in 5 minutes](./03-quickstart.md)
+[Previous: 01. Introduction](./01-introduction.md) · [Next: 03. Prerequisites and installation](./15-prerequisites-installation.md)

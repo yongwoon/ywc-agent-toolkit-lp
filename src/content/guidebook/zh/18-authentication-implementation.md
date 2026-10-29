@@ -1,6 +1,6 @@
 [« 返回目录](./README.md)
 
-# 15. 实现身份验证
+# 17. 实现身份验证
 
 ## 何时使用这个 Skill
 
@@ -8,7 +8,7 @@
 
 - 如果认证代码已经存在，你只是想对它做一次安全审查，请改用 [`ywc-security-audit`](./14-skill-reference.md)——这个 Skill 负责驱动构建，而不是事后审查。
 - 对于与认证无关的一般功能规划，请使用 [`ywc-plan`](./14-skill-reference.md)——这个 Skill 的策略访谈是认证专属的，不能替代一般规划工作。
-- 要为认证流程之外的场景编写 E2E 覆盖，请使用 [11. E2E 测试自动化策略](./10-e2e-test-strategy.md)——这个 Skill 只驱动下文描述的、限定在认证流程内的 E2E 关卡，不涉及项目更广泛的测试套件。
+- 要为认证流程之外的场景编写 E2E 覆盖，请使用 [12. E2E 测试自动化策略](./10-e2e-test-strategy.md)——这个 Skill 只驱动下文描述的、限定在认证流程内的 E2E 关卡，不涉及项目更广泛的测试套件。
 
 ## 流程如何运作
 
@@ -82,4 +82,4 @@ dispatch 出去的工作落地后，会对该 diff 运行 `ywc-security-audit`�
 
 ---
 
-[Previous: 14. 管理云基础设施](./17-infrastructure-and-cloud.md) - [Next: 16. Executor / 代码生成提示模式](./13-executor-and-codegen-patterns.md)
+[← 上一页: 16. 管理云基础设施](./17-infrastructure-and-cloud.md) · [下一页: 18. Executor / 代码生成提示模式 →](./13-executor-and-codegen-patterns.md)

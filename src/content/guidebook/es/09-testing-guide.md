@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 09. Escribir y ejecutar pruebas
+# 11. Escribir y ejecutar pruebas
 
 ## Cuándo usar este flujo
 
@@ -16,7 +16,7 @@ Usa esto después de que la implementación de la función esté completa y nece
 |---|---|
 | 1. escribir casos de prueba | Usa `ywc-gen-testcase` para crear PR / Task / hojas de prueba de verificación manual basadas en diferencias para desarrolladores y QA |
 | 2a. prueba de código | Ejecute pruebas unitarias / de integración utilizando el ejecutor de pruebas existente del proyecto |
-| 2b. prueba e2e | Ejecute los flujos generados por `ywc-e2e-test-strategy` - vea [10. E2E Test automation strategy](./10-e2e-test-strategy.md) |
+| 2b. prueba e2e | Ejecute los flujos generados por `ywc-e2e-test-strategy` - vea [12. E2E Test automation strategy](./10-e2e-test-strategy.md) |
 | 3. volver a ejecutar | Corrige los resultados que no coincidan con las expectativas, luego vuelve a ejecutar solo la prueba relevante |
 
 ## Ejemplos de `ywc-gen-testcase`
@@ -57,11 +57,11 @@ Usa esto después de que la implementación de la función esté completa y nece
 |---|---|
 | Precisión visual/píxel, juicio exploratorio de UX | `ywc-gen-testcase` (manual) - áreas que requieren juicio humano |
 | Migración única, flujo OAuth de terceros, verificación por correo electrónico/SMS | `ywc-gen-testcase` (manual) - usualmente demasiado costoso de automatizar por el valor |
-| Inicio de sesión/cierre de sesión, ruta feliz de la función principal, flujos con regresiones repetidas | `ywc-e2e-test-strategy` (automatizado) - ver [10](./10-e2e-test-strategy.md) |
+| Inicio de sesión/cierre de sesión, ruta feliz de la función principal, flujos con regresiones repetidas | `ywc-e2e-test-strategy` (automatizado) - ver [12](./10-e2e-test-strategy.md) |
 | Lógica a nivel de función/módulo | El ejecutor de pruebas unitarias/integración existente del proyecto |
 
 Los dos métodos no son sustitutos; se **complementan** entre sí. Para el juicio de UX que la automatización no puede captar, complementa cada lanzamiento con una lista de verificación de QA manual de `ywc-gen-testcase`.
 
 ---
 
-[Previous: 08. Entering an existing Repo for the first time](./08-onboarding-existing-repo.md) - [Next: 10. E2E Test automation strategy](./10-e2e-test-strategy.md)
+[← Anterior: 10. Entrando en un repositorio existente por primera vez](./08-onboarding-existing-repo.md) · [Siguiente: 12. Estrategia de automatización de pruebas E2E →](./10-e2e-test-strategy.md)

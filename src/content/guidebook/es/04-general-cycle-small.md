@@ -1,10 +1,10 @@
 [Back to table of contents](./README.md)
 
-# 04. Manejo de un cambio pequeño (ciclo general - pequeño)
+# 05. Manejo de un cambio pequeño (ciclo general - pequeño)
 
 ## Cuándo usar este flujo
 
-Cuando `ywc-plan` juzga una solicitud como **Pequeña**, automáticamente entra en este camino. El criterio de decisión es "¿puede esto terminar como un único PR sin descomposición Task?" Si se aplica algún elemento de los siguientes, se eleva a Mediana/Grande en lugar de Pequeña (ver [05](./05-general-cycle-medium-large.md)).
+Cuando `ywc-plan` juzga una solicitud como **Pequeña**, automáticamente entra en este camino. El criterio de decisión es "¿puede esto terminar como un único PR sin descomposición Task?" Si se aplica algún elemento de los siguientes, se eleva a Mediana/Grande en lugar de Pequeña (ver [06](./05-general-cycle-medium-large.md)).
 
 - Incluye una migración de base de datos
 - Introduce una nueva biblioteca/marco
@@ -23,9 +23,9 @@ ywc-plan -> ywc-code-gen -> ywc-impl-review -> ywc-create-pr
 | tres | `ywc-impl-review` | Revisión final del código antes de abrir un PR |
 | cuatro | `ywc-create-pr` | Creación de PR -> CI -> Comprobación de revisión del bot |
 
-> **Nota**: El flujo Small hace que `ywc-plan` produzca `plan.md` (no un documento spec) directamente, por lo que `ywc-spec-ready` - que opera sobre un documento spec - no forma parte de este camino. `ywc-spec-ready` es el paso de convergencia de spec del flujo Medio/Grande (ver [05](./05-general-cycle-medium-large.md)).
+> **Nota**: El flujo Small hace que `ywc-plan` produzca `plan.md` (no un documento spec) directamente, por lo que `ywc-spec-ready` - que opera sobre un documento spec - no forma parte de este camino. `ywc-spec-ready` es el paso de convergencia de spec del flujo Medio/Grande (ver [06](./05-general-cycle-medium-large.md)).
 >
-> **Nota**: `ywc-code-gen` no tiene un indicador de revisión automática como `--review`. Si omite el paso 3 (`ywc-impl-review`), el PR se abre sin revisión de código, por lo que este flujo debe ejecutarlo explícitamente. Los ejecutores en el flujo Medio/Grande pueden automatizar este paso con el indicador `--review` - vea [05](./05-general-cycle-medium-large.md).
+> **Nota**: `ywc-code-gen` no tiene un indicador de revisión automática como `--review`. Si omite el paso 3 (`ywc-impl-review`), el PR se abre sin revisión de código, por lo que este flujo debe ejecutarlo explícitamente. Los ejecutores en el flujo Medio/Grande pueden automatizar este paso con el indicador `--review` - vea [06](./05-general-cycle-medium-large.md).
 
 ## Ejemplo de ejecución
 
@@ -71,11 +71,11 @@ Si los comentarios de revisión del Bot, el fallo CI, o los problemas de prepara
 
 | Situación | Acción |
 |---|---|
-| `ywc-plan` juzga el trabajo como Medio en lugar de Pequeño | Esto es normal - muévete a [05. general cycle (medium/large)](./05-general-cycle-medium-large.md) |
+| `ywc-plan` juzga el trabajo como Medio en lugar de Pequeño | Esto es normal - muévete a [06. general cycle (medium/large)](./05-general-cycle-medium-large.md) |
 | `ywc-code-gen` devuelve `BLOCKED` | La especificación puede ser poco clara o no se pudo leer el contexto del proyecto: verifica el bloqueo reportado |
 | `ywc-impl-review` devuelve `DONE_WITH_CONCERNS` | Si es un problema de corrección, corríjalo y vuelva a ejecutar; si es una observación, regístrela en la descripción PR y continúe |
 | El PR falla CI | `ywc-create-pr` o `ywc-handle-pr-reviews` revisa el registro de fallos e intenta reparaciones hasta dos veces; si aún falla, el problema se presenta como `DONE_WITH_CONCERNS` o `BLOCKED` |
 
 ---
 
-[Previous: 03. Ship your first feature in 5 minutes](./03-quickstart.md) - [Next: 05. Handling work split into multiple Tasks](./05-general-cycle-medium-large.md)
+[← Anterior: 04. Envía tu primera función en 5 minutos](./03-quickstart.md) · [Siguiente: 06. Manejo del trabajo dividido en múltiples Tasks (ciclo general - mediano/grande) →](./05-general-cycle-medium-large.md)

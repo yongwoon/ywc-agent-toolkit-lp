@@ -1,6 +1,6 @@
 [« 目次に戻る](./README.md)
 
-# 09. Test を作成して実行する
+# 11. Test を作成して実行する
 
 ## いつこのフローを使うか
 
@@ -16,7 +16,7 @@
 |---|---|
 | 1. test case 作成 | `ywc-gen-testcase` で PR / Task / diff ベースの手動検証用 testsheet を生成 (開発者 + QA 兼用) |
 | 2a. code test | unit / integration test を実行 (project 既存の test runner を使用) |
-| 2b. e2e test | `ywc-e2e-test-strategy` で生成した flow を実行 — 詳細は [10. E2E Test 自動化戦略](./10-e2e-test-strategy.md) |
+| 2b. e2e test | `ywc-e2e-test-strategy` で生成した flow を実行 — 詳細は [12. E2E Test 自動化戦略](./10-e2e-test-strategy.md) |
 | 3. 再実行 | 期待と一致しない結果は修正後、その test だけ再実行 |
 
 ## `ywc-gen-testcase` 実行例
@@ -57,11 +57,11 @@
 |---|---|
 | Visual/pixel 精度、探索的 UX 判断 | `ywc-gen-testcase` (手動) — 人の判断が必須の領域 |
 | 1 回限りの migration、3rd-party OAuth flow、email/SMS 認証 | `ywc-gen-testcase` (手動) — 毎回自動化するには費用対効果が低い |
-| ログイン/ログアウト、核心機能 happy path、繰り返し回帰が発生する flow | `ywc-e2e-test-strategy` (自動化) — [10](./10-e2e-test-strategy.md) 参照 |
+| ログイン/ログアウト、核心機能 happy path、繰り返し回帰が発生する flow | `ywc-e2e-test-strategy` (自動化) — [12](./10-e2e-test-strategy.md) 参照 |
 | 関数/モジュール単位のロジック | project 既存の unit/integration test runner |
 
 2 つの方式は代替関係ではなく**相互補完**関係です。自動化では拾えない UX 判断は、リリースごとに `ywc-gen-testcase` で手動 QA チェックリストを補完してください。
 
 ---
 
-[← 前: 08. 既存 Repo に初めて入る](./08-onboarding-existing-repo.md) · [次: 10. E2E Test 自動化戦略 →](./10-e2e-test-strategy.md)
+[← 前へ: 10. 既存 Repo に初めて入る](./08-onboarding-existing-repo.md) · [次へ: 12. E2E Test 自動化戦略 →](./10-e2e-test-strategy.md)

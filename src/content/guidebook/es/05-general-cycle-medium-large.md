@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 05. Manejo del trabajo dividido en múltiples Tasks (ciclo general - mediano/grande)
+# 06. Manejo del trabajo dividido en múltiples Tasks (ciclo general - mediano/grande)
 
 ## Cuándo usar este flujo
 
@@ -72,7 +72,7 @@ Antes de generar, si `tasks/dependency-graph.md` supera las 300 líneas, la skil
   </ToolTabsPanel>
 </ToolTabs>
 
-Los comandos de ejecución después de esto tienen muchas opciones, por lo que se cubren en una página separada: [16. Executor / Patrones de indicación de generación de código](./13-executor-and-codegen-patterns.md). El punto de partida más simple es:
+Los comandos de ejecución después de esto tienen muchas opciones, por lo que se cubren en una página separada: [18. Executor / Patrones de indicación de generación de código](./13-executor-and-codegen-patterns.md). El punto de partida más simple es:
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
@@ -87,7 +87,7 @@ Si omites la tarea, encuentra automáticamente el siguiente Task ejecutable desd
 
 ## Siempre incluye `--review`
 
-Ambos ejecutores usan la bandera `--review` para ejecutar automáticamente `/ywc-impl-review` antes de la creación/fusión de PR para cada Task. Ejecutar sin esta bandera es equivalente a omitir completamente el paso de revisión en el ciclo pequeño de [04](./04-general-cycle-small.md). No hay una buena razón para omitirla. (Si un Task tiene `Criticality: critical`, la revisión se fuerza independientemente de la bandera.)
+Ambos ejecutores usan la bandera `--review` para ejecutar automáticamente `/ywc-impl-review` antes de la creación/fusión de PR para cada Task. Ejecutar sin esta bandera es equivalente a omitir completamente el paso de revisión en el ciclo pequeño de [05](./04-general-cycle-small.md). No hay una buena razón para omitirla. (Si un Task tiene `Criticality: critical`, la revisión se fuerza independientemente de la bandera.)
 
 ## Cuando te bloqueas en cada paso
 
@@ -99,4 +99,4 @@ Ambos ejecutores usan la bandera `--review` para ejecutar automáticamente `/ywc
 
 ---
 
-[Previous: 04. Handling a small change](./04-general-cycle-small.md) - [Next: 06. Finish automatically from one goal](./06-agentic-autonomous-loop.md)
+[← Anterior: 05. Manejo de un cambio pequeño (ciclo general - pequeño)](./04-general-cycle-small.md) · [Siguiente: 07. Terminar automáticamente desde un objetivo (ywc-agentic) →](./06-agentic-autonomous-loop.md)

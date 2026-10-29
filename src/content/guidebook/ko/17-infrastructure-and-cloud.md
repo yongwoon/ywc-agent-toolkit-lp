@@ -1,6 +1,6 @@
 [« 목차로 돌아가기](./README.md)
 
-# 14. 클라우드 인프라 관리
+# 16. 클라우드 인프라 관리
 
 ## 언제 이 Skill 을 쓰는가
 
@@ -95,4 +95,4 @@ Terraform 을 작성하기 전에 provider 와 network/compute/storage/IAM 의 �
 
 ---
 
-[← 이전: 13. 코드 구조와 유지보수성 관리](./16-code-structure-and-maintainability.md) · [다음: 15. 인증 기능 구현 →](./18-authentication-implementation.md)
+[← 이전: 15. 버그 디버깅과 장애 사후분석](./12-debugging-and-incident-postmortem.md) · [다음: 17. 인증 기능 구현 →](./18-authentication-implementation.md)

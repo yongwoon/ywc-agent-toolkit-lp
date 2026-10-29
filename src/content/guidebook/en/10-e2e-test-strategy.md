@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 10. E2E Test automation strategy
+# 12. E2E Test automation strategy
 
 ## When to use this flow
 
@@ -66,7 +66,7 @@ If `playwright.config.*` exists and no other flag is provided, this mode starts 
 4. Navigation / routing
 5. API error handling
 
-Start with 5-8 flows and expand while measuring flakiness. "Let's test everything" only increases maintenance burden. It is better to leave the rest to `ywc-gen-testcase` in [09. Writing and running Tests](./09-testing-guide.md).
+Start with 5-8 flows and expand while measuring flakiness. "Let's test everything" only increases maintenance burden. It is better to leave the rest to `ywc-gen-testcase` in [11. Writing and running Tests](./09-testing-guide.md).
 
 ## What to leave as manual verification (`ywc-gen-testcase`) instead of automation
 
@@ -100,4 +100,4 @@ For UX judgments automation cannot catch, such as awkward design or copy errors,
 
 ---
 
-[Previous: 09. Writing and running Tests](./09-testing-guide.md) - [Next: 11. Reviewing and improving design](./11-design-review.md)
+[Previous: 11. Writing and running Tests](./09-testing-guide.md) · [Next: 13. Reviewing and improving design](./11-design-review.md)

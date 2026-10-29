@@ -1,10 +1,10 @@
 [Back to table of contents](./README.md)
 
-# 03. Envía tu primera función en 5 minutos
+# 04. Envía tu primera función en 5 minutos
 
 Esta página es tu primer ejercicio práctico: sigue la corrección de un pequeño error desde la etapa de idea hasta la fusión. Escenario de ejemplo: manejar la solicitud **"El mensaje de error de fallo de inicio de sesión es demasiado genérico, por lo que es difícil entender la causa."**
 
-Los conceptos detrás de este flujo se explican con más detalle en [04. general cycle (small)](./04-general-cycle-small.md). Esta página se centra en la práctica.
+Los conceptos detrás de este flujo se explican con más detalle en [05. general cycle (small)](./04-general-cycle-small.md). Esta página se centra en la práctica.
 
 ## Paso 1 - Crear un plan
 
@@ -86,10 +86,10 @@ El flujo Small se basa en `plan.md`, por lo que no tiene el artefacto `tasks/<ta
 
 Has completado un cambio de principio a fin. Buenas siguientes páginas:
 
-- Si el cambio es mayor que esto y necesita ser dividido en múltiples Tasks -> [05. general cycle (medium/large)](./05-general-cycle-medium-large.md)
-- Si la idea aún no es concreta, a diferencia de este ejercicio donde el problema ya está claro -> comienza con `ywc-brainstorm` (ver [17. Full Skill Reference](./14-skill-reference.md))
-- Si quieres entregar un objetivo y hacer que el sistema continúe automáticamente hasta el final en lugar de gestionar cada paso tú mismo -> [06. Finish automatically from one goal](./06-agentic-autonomous-loop.md)
+- Si el cambio es mayor que esto y necesita ser dividido en múltiples Tasks -> [06. general cycle (medium/large)](./05-general-cycle-medium-large.md)
+- Si la idea aún no es concreta, a diferencia de este ejercicio donde el problema ya está claro -> comienza con `ywc-brainstorm` (ver [19. Full Skill Reference](./14-skill-reference.md))
+- Si quieres entregar un objetivo y hacer que el sistema continúe automáticamente hasta el final en lugar de gestionar cada paso tú mismo -> [07. Finish automatically from one goal](./06-agentic-autonomous-loop.md)
 
 ---
 
-[Previous: 02. Core concepts](./02-core-concepts.md) - [Next: 04. Handling a small change](./04-general-cycle-small.md)
+[← Anterior: 03. Requisitos previos e instalación](./15-prerequisites-installation.md) · [Siguiente: 05. Manejo de un cambio pequeño (ciclo general - pequeño) →](./04-general-cycle-small.md)

@@ -1,13 +1,13 @@
 [« 목차로 돌아가기](./README.md)
 
-# 06. 목표 하나로 자동 완료하기 (ywc-agentic)
+# 07. 목표 하나로 자동 완료하기 (ywc-agentic)
 
 ## 언제 이 흐름을 쓰는가
 
-[04](./04-general-cycle-small.md), [05](./05-general-cycle-medium-large.md)는 각 단계(`ywc-plan` → ... → executor)를 사용자가 직접 하나씩 호출하는 **수동 제어** 흐름입니다. `ywc-agentic` 은 자연어 목표 하나만 주면 이 전체 파이프라인을 **Plan → Execute → Evaluate → Repeat** 루프로 자동 반복하며, 검증을 통과할 때까지(또는 반복 상한에 도달할 때까지) 사람 개입 없이 끝까지 진행합니다.
+[05](./04-general-cycle-small.md), [06](./05-general-cycle-medium-large.md)는 각 단계(`ywc-plan` → ... → executor)를 사용자가 직접 하나씩 호출하는 **수동 제어** 흐름입니다. `ywc-agentic` 은 자연어 목표 하나만 주면 이 전체 파이프라인을 **Plan → Execute → Evaluate → Repeat** 루프로 자동 반복하며, 검증을 통과할 때까지(또는 반복 상한에 도달할 때까지) 사람 개입 없이 끝까지 진행합니다.
 
 - 매번 다음 skill 을 직접 챙기지 않고 목표 하나만 던지고 싶을 때 → 이 페이지
-- Task 단위로 직접 통제하고 싶을 때 (어떤 task 를 언제 실행할지 내가 정함) → [05](./05-general-cycle-medium-large.md)의 executor 를 직접 사용
+- Task 단위로 직접 통제하고 싶을 때 (어떤 task 를 언제 실행할지 내가 정함) → [06](./05-general-cycle-medium-large.md)의 executor 를 직접 사용
 - Task 분해 없이 기존 tasks/ backlog 를 그대로 실행할 때 → `ywc-sequential-executor` / `ywc-parallel-executor` 를 직접 호출 (agentic 이 아니라)
 
 ## 무엇을 자동으로 해주는가
@@ -110,4 +110,4 @@ Goal → [Plan → Execute → Evaluate → Repeat] → Result
 
 ---
 
-[← 이전: 05. 여러 Task 로 나누어 처리하기](./05-general-cycle-medium-large.md) · [다음: 07. 새 Project 시작하기 →](./07-starting-a-new-project.md)
+[← 이전: 06. 여러 Task 로 나누어 처리하기 (general cycle · medium/large)](./05-general-cycle-medium-large.md) · [다음: 08. Skill 조합 레시피 →](./19-skill-combination-recipes.md)

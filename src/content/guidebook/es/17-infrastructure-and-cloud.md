@@ -1,6 +1,6 @@
 [« Volver al índice](./README.md)
 
-# 14. Gestionar la infraestructura en la nube
+# 16. Gestionar la infraestructura en la nube
 
 ## Cuándo usar estas Skills
 
@@ -95,4 +95,4 @@ Una vez que la infraestructura está en producción, esta Skill es el paso de ma
 
 ---
 
-[Previous: 13. Gestionar la estructura del código y la mantenibilidad](./16-code-structure-and-maintainability.md) - [Next: 15. Implementar autenticación](./18-authentication-implementation.md)
+[← Anterior: 15. Debugging e informe postmortem](./12-debugging-and-incident-postmortem.md) · [Siguiente: 17. Implementar autenticación →](./18-authentication-implementation.md)

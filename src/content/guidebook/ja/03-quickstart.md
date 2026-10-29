@@ -1,10 +1,10 @@
 [« 目次に戻る](./README.md)
 
-# 03. 5 分で最初の機能をデプロイする
+# 04. 5 分で最初の機能をデプロイする
 
 このページは、小さなバグ修正 1 つをアイデア段階から merge まで実際にたどってみる最初の演習です。例のシナリオ: **「ログイン失敗時のエラーメッセージが一般的すぎて原因を把握しにくい」** というリクエストを処理します。
 
-このフローの概念説明は [04. general cycle (small)](./04-general-cycle-small.md)でより詳しく扱います。このページでは演習に集中します。
+このフローの概念説明は [05. general cycle (small)](./04-general-cycle-small.md)でより詳しく扱います。このページでは演習に集中します。
 
 ## Step 1 — 計画を立てる
 
@@ -86,10 +86,10 @@ Small フローは `plan.md` ベースなので、`tasks/<task-name>/` artifact 
 
 これで、1 つの変更を最初から最後まで完走しました。次に見るとよいページ:
 
-- 変更規模がこれより大きく、Task を複数に分ける必要がある場合 → [05. general cycle (medium/large)](./05-general-cycle-medium-large.md)
-- まだアイデアが具体的でない場合 (この演習のように問題がすでに明確な場合ではないなら) → `ywc-brainstorm` から開始 ([17. 全 Skill リファレンス](./14-skill-reference.md) 参照)
-- 毎回自分で進行を管理せず、目標だけ渡して最後まで自動で進めたい場合 → [06. 目標 1 つで自動完了する](./06-agentic-autonomous-loop.md)
+- 変更規模がこれより大きく、Task を複数に分ける必要がある場合 → [06. general cycle (medium/large)](./05-general-cycle-medium-large.md)
+- まだアイデアが具体的でない場合 (この演習のように問題がすでに明確な場合ではないなら) → `ywc-brainstorm` から開始 ([19. 全 Skill リファレンス](./14-skill-reference.md) 参照)
+- 毎回自分で進行を管理せず、目標だけ渡して最後まで自動で進めたい場合 → [07. 目標 1 つで自動完了する](./06-agentic-autonomous-loop.md)
 
 ---
 
-[← 前: 02. 核心概念](./02-core-concepts.md) · [次: 04. 小さな変更を処理する →](./04-general-cycle-small.md)
+[← 前へ: 03. 事前準備とインストール](./15-prerequisites-installation.md) · [次へ: 05. 小さな変更を処理する (general cycle · small) →](./04-general-cycle-small.md)

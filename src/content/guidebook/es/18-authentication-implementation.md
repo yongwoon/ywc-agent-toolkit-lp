@@ -1,6 +1,6 @@
 [« Volver al índice](./README.md)
 
-# 15. Implementar autenticación
+# 17. Implementar autenticación
 
 ## Cuándo usar esta Skill
 
@@ -8,7 +8,7 @@ Usa `ywc-auth-implement` cuando un proyecto necesita una nueva funcionalidad de 
 
 - Si el código de autenticación ya existe y solo quieres una revisión de seguridad sobre él, usa [`ywc-security-audit`](./14-skill-reference.md) en su lugar — esta Skill dirige la construcción, no es una revisión posterior.
 - Para planificación general de funcionalidades sin relación con autenticación, usa [`ywc-plan`](./14-skill-reference.md) — la entrevista de políticas de esta Skill es específica de auth y no sustituye una pasada de planificación general.
-- Para escribir cobertura E2E fuera de los flujos de autenticación, usa [11. Estrategia de automatización de pruebas E2E](./10-e2e-test-strategy.md) — esta Skill solo dirige el gate de E2E de flujos de auth descrito más abajo, no la suite de pruebas más amplia del proyecto.
+- Para escribir cobertura E2E fuera de los flujos de autenticación, usa [12. Estrategia de automatización de pruebas E2E](./10-e2e-test-strategy.md) — esta Skill solo dirige el gate de E2E de flujos de auth descrito más abajo, no la suite de pruebas más amplia del proyecto.
 
 ## Cómo funciona el flujo
 
@@ -82,4 +82,4 @@ La entrevista, la regla de recomendación sin stack fijo, el hard stop `new`/`ex
 
 ---
 
-[Previous: 14. Gestionar la infraestructura en la nube](./17-infrastructure-and-cloud.md) - [Next: 16. Patrones de indicación de generación de código](./13-executor-and-codegen-patterns.md)
+[← Anterior: 16. Gestionar la infraestructura en la nube](./17-infrastructure-and-cloud.md) · [Siguiente: 18. Executor / Patrones de indicación de generación de código →](./13-executor-and-codegen-patterns.md)

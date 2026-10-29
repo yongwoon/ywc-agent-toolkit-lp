@@ -1,10 +1,10 @@
 [« 목차로 돌아가기](./README.md)
 
-# 03. 5분 안에 첫 기능 배포하기
+# 04. 5분 안에 첫 기능 배포하기
 
 이 페이지는 작은 버그 수정 하나를 아이디어 단계부터 merge 까지 실제로 따라가 보는 첫 실습입니다. 예시 시나리오: **"로그인 실패 시 에러 메시지가 너무 일반적이라 원인 파악이 어렵다"** 는 요청을 처리합니다.
 
-이 흐름의 개념 설명은 [04. general cycle (small)](./04-general-cycle-small.md)에서 더 자세히 다룹니다 — 이 페이지는 실습에 집중합니다.
+이 흐름의 개념 설명은 [05. general cycle (small)](./04-general-cycle-small.md)에서 더 자세히 다룹니다 — 이 페이지는 실습에 집중합니다.
 
 ## Step 1 — 계획 세우기
 
@@ -86,10 +86,10 @@ Small 흐름은 `plan.md` 기반이라 `tasks/<task-name>/` artifact 가 없습�
 
 축하합니다 — 하나의 변경을 처음부터 끝까지 완주했습니다. 다음에 볼만한 페이지:
 
-- 변경 규모가 이보다 커서 Task 여러 개로 쪼개야 한다면 → [05. general cycle (medium/large)](./05-general-cycle-medium-large.md)
-- 아직 아이디어가 구체적이지 않다면 (이 실습처럼 이미 문제가 명확한 경우가 아니라면) → `ywc-brainstorm` 부터 시작 ([17. 전체 Skill 레퍼런스](./14-skill-reference.md) 참고)
-- 매번 직접 챙기지 않고 목표 하나만 던져서 자동으로 끝까지 진행시키고 싶다면 → [06. 목표 하나로 자동 완료하기](./06-agentic-autonomous-loop.md)
+- 변경 규모가 이보다 커서 Task 여러 개로 쪼개야 한다면 → [06. general cycle (medium/large)](./05-general-cycle-medium-large.md)
+- 아직 아이디어가 구체적이지 않다면 (이 실습처럼 이미 문제가 명확한 경우가 아니라면) → `ywc-brainstorm` 부터 시작 ([19. 전체 Skill 레퍼런스](./14-skill-reference.md) 참고)
+- 매번 직접 챙기지 않고 목표 하나만 던져서 자동으로 끝까지 진행시키고 싶다면 → [07. 목표 하나로 자동 완료하기](./06-agentic-autonomous-loop.md)
 
 ---
 
-[← 이전: 02. 핵심 개념](./02-core-concepts.md) · [다음: 04. 작은 변경 처리하기 →](./04-general-cycle-small.md)
+[← 이전: 03. 사전 준비와 설치](./15-prerequisites-installation.md) · [다음: 05. 작은 변경 처리하기 (general cycle · small) →](./04-general-cycle-small.md)

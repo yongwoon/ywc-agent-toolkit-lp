@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 16. Executor / Code-gen Prompt patterns
+# 18. Executor / Code-gen Prompt patterns
 
 `ywc-sequential-executor`, `ywc-parallel-executor`, and `ywc-code-gen` are the three Skills whose many options make you repeatedly look up exact syntax. This page organizes examples by **"what you are trying to do now"**, not by Skill name. Find your task and copy the command as-is.
 
@@ -244,4 +244,4 @@ Keywords such as `payment` are automatically classified as `critical`, which for
 
 ---
 
-[Previous: 14. Managing Cloud Infrastructure](./17-infrastructure-and-cloud.md) - [Next: 17. Full Skill Reference](./14-skill-reference.md)
+[Previous: 17. Implementing Authentication](./18-authentication-implementation.md) · [Next: 19. Full Skill Reference](./14-skill-reference.md)

@@ -1,6 +1,6 @@
 [« 目次に戻る](./README.md)
 
-# 19. Skill 組み合わせレシピ
+# 08. Skill 組み合わせレシピ
 
 他のページはフロー 1 つ、または Skill 1 つずつを説明しています。このページでは、Skill 同士がどうつながるか — ある Skill が何を残し、それをどの Skill が引き継ぐか — を示します。以下のつながりはすべて Skill 自身が行う動作(共有ファイルの読み込み、次の Skill への hand-off の提案)であり、ユーザーが覚えておくべき慣習ではありません。
 
@@ -37,7 +37,7 @@
 
 ## バグ修正から再発防止まで
 
-1. `ywc-debug-rootcause` が根本原因を見つけて regression test を追加し、`ywc-verify-done` で修正を gate します([12](./12-debugging-and-incident-postmortem.md))。
+1. `ywc-debug-rootcause` が根本原因を見つけて regression test を追加し、`ywc-verify-done` で修正を gate します([15](./12-debugging-and-incident-postmortem.md))。
 2. 同じ種類の欠陥が他の場所でも起こりうる場合は、それを review 学習として記録するか提案します(`ywc-review-learnings --mode update --source debug`)。
 3. Production 障害の後には、`ywc-incident-postmortem` が報告書を作成し、再発防止の action item を同じ方法で提案します(`--source incident`)。
 4. 以降は `ywc-impl-review` がその学習内容を読み込むため、同じ種類の欠陥が Production ではなく review の段階で検出されます。
@@ -49,7 +49,7 @@
 | タイミング | Skill | 確認する内容 |
 |---|---|---|
 | 実装前 | `ywc-confidence-gate` | 準備状況を 5 つの次元で採点します: PROCEED(90 以上)、REVIEW(70-89)、STOP(70 未満)。90 未満の場合、最も弱い次元が引き上げられるか、ユーザーがリスクを受け入れるまで実装は待機します |
-| 実装後 | `ywc-impl-review` | Spec に対する 5 観点の review([13](./16-code-structure-and-maintainability.md)) |
+| 実装後 | `ywc-impl-review` | Spec に対する 5 観点の review([14](./16-code-structure-and-maintainability.md)) |
 | 変更がセキュリティに関わるとき | `ywc-security-audit` | 静的セキュリティ review(OWASP Top 10、secret、threat model) |
 | 「完了」と言う前 | `ywc-verify-done` | すべての完了主張に対する新しい証拠(test または build の出力) |
 | PR を開くとき | `ywc-create-pr` | Commit、push、そして task や plan をもとにした PR 本文 |
@@ -76,7 +76,7 @@ Codex には `ywc-adr` も `ywc-project-mission` もないため、決定の理�
 
 1. `ywc-wayfinder` は `docs/ywc-plans/<slug>-wayfinder.md` に local map を置き、複数の session にわたって引き継ぎます。Map は多くの ticket を保持できますが、active なものは常に 1 つだけで、この Skill 自身が何かを実装することはありません。
 2. Ticket の進め方が明確になると、`ywc-plan` へ hand-off します(ticket が技術比較で止まっている場合は `ywc-tech-research` へ)。
-3. そこからは通常のフローが続きます: `ywc-spec-ready` → `ywc-task-generator` → executor([05](./05-general-cycle-medium-large.md))。承認済みの spec や ticket を 1 つ実装するだけでよい場合は、`ywc-implement` が範囲を絞った、review gate 付きの変更 1 つとして処理します。
+3. そこからは通常のフローが続きます: `ywc-spec-ready` → `ywc-task-generator` → executor([06](./05-general-cycle-medium-large.md))。承認済みの spec や ticket を 1 つ実装するだけでよい場合は、`ywc-implement` が範囲を絞った、review gate 付きの変更 1 つとして処理します。
 
 <CodeBlock label="codex" code="ywc-wayfinder 課金機能を monolith から独立した service に分離したい。まだ範囲が不明確" />
 
@@ -86,7 +86,7 @@ Codex には `ywc-adr` も `ywc-project-mission` もないため、決定の理�
 
 `ywc-parallel-executor` は task ごとの worktree を `ywc-worktrees` で作成します。Docker project では、`ywc-docker-isolate` によって worktree ごとに専用の host port ブロックを割り当て、stack 同士が衝突しないようにします("port is already allocated")。Merge の後は、`ywc-finish-branch` が `ywc-worktrees --mode prune` で worktree を削除します。
 
-通常、これらを自分で呼び出す必要はありません。両方のツールで executor がこれらを駆動します。Executor の実行とは別に worktree を作成または整理するには、[17](./14-skill-reference.md) の command を使ってください。
+通常、これらを自分で呼び出す必要はありません。両方のツールで executor がこれらを駆動します。Executor の実行とは別に worktree を作成または整理するには、[19](./14-skill-reference.md) の command を使ってください。
 
 ## Release 準備
 
@@ -105,4 +105,4 @@ Codex には `ywc-adr` も `ywc-project-mission` もないため、決定の理�
 
 ---
 
-[← 前へ: 18. 事前準備とインストール](./15-prerequisites-installation.md) · [目次に戻る »](./README.md)
+[← 前へ: 07. 目標 1 つで自動完了する (ywc-agentic)](./06-agentic-autonomous-loop.md) · [次へ: 09. 新しい Project を始める →](./07-starting-a-new-project.md)

@@ -1,6 +1,6 @@
 [« 목차로 돌아가기](./README.md)
 
-# 15. 인증 기능 구현
+# 17. 인증 기능 구현
 
 ## 언제 이 Skill 을 쓰는가
 
@@ -8,7 +8,7 @@
 
 - 인증 코드가 이미 존재하고 그에 대한 보안 리뷰만 하고 싶다면 [`ywc-security-audit`](./14-skill-reference.md) 을 대신 사용하세요 — 이 Skill 은 빌드를 주도하는 것이지 사후 리뷰가 아닙니다.
 - 인증과 무관한 일반적인 기능 계획에는 [`ywc-plan`](./14-skill-reference.md) 을 사용하세요 — 이 Skill 의 정책 인터뷰는 인증에 특화되어 있어 일반 계획 작업을 대체하지 않습니다.
-- 인증 플로우 외의 E2E 커버리지를 작성하려면 [11. E2E 테스트 자동화 전략](./10-e2e-test-strategy.md) 을 사용하세요 — 이 Skill 이 주도하는 것은 아래 설명하는 인증 플로우 한정 E2E 게이트뿐이며, 프로젝트 전체 테스트 스위트는 대상이 아닙니다.
+- 인증 플로우 외의 E2E 커버리지를 작성하려면 [12. E2E 테스트 자동화 전략](./10-e2e-test-strategy.md) 을 사용하세요 — 이 Skill 이 주도하는 것은 아래 설명하는 인증 플로우 한정 E2E 게이트뿐이며, 프로젝트 전체 테스트 스위트는 대상이 아닙니다.
 
 ## 플로우가 작동하는 방식
 
@@ -82,4 +82,4 @@ flag 없이 실행합니다 — 인터뷰와 이후의 모든 판단이 prefligh
 
 ---
 
-[« 이전: 14. 클라우드 인프라 관리](./17-infrastructure-and-cloud.md) · [다음: 16. Executor / Code-gen Prompt 패턴 →](./13-executor-and-codegen-patterns.md)
+[← 이전: 16. 클라우드 인프라 관리](./17-infrastructure-and-cloud.md) · [다음: 18. Executor / Code-gen Prompt 패턴 →](./13-executor-and-codegen-patterns.md)

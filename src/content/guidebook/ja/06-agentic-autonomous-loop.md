@@ -1,13 +1,13 @@
 [« 目次に戻る](./README.md)
 
-# 06. 目標 1 つで自動完了する (ywc-agentic)
+# 07. 目標 1 つで自動完了する (ywc-agentic)
 
 ## いつこのフローを使うか
 
-[04](./04-general-cycle-small.md), [05](./05-general-cycle-medium-large.md) は、各段階(`ywc-plan` → ... → executor)をユーザーが 1 つずつ直接呼び出す**手動制御**フローです。`ywc-agentic` は自然言語の目標を 1 つ渡すだけで、このパイプライン全体を **Plan → Execute → Evaluate → Repeat** ループで自動反復し、検証に通るまで(または反復上限に達するまで)人の介入なしで最後まで進めます。
+[05](./04-general-cycle-small.md), [06](./05-general-cycle-medium-large.md) は、各段階(`ywc-plan` → ... → executor)をユーザーが 1 つずつ直接呼び出す**手動制御**フローです。`ywc-agentic` は自然言語の目標を 1 つ渡すだけで、このパイプライン全体を **Plan → Execute → Evaluate → Repeat** ループで自動反復し、検証に通るまで(または反復上限に達するまで)人の介入なしで最後まで進めます。
 
 - 毎回次の skill を自分で管理せず、目標だけ渡したいとき → このページ
-- Task 単位で直接制御したいとき (どの task をいつ実行するか自分で決める) → [05](./05-general-cycle-medium-large.md) の executor を直接使用
+- Task 単位で直接制御したいとき (どの task をいつ実行するか自分で決める) → [06](./05-general-cycle-medium-large.md) の executor を直接使用
 - Task 分解なしで既存の tasks/ backlog をそのまま実行するとき → `ywc-sequential-executor` / `ywc-parallel-executor` を直接呼び出す (agentic ではない)
 
 ## 何を自動化するのか
@@ -110,4 +110,4 @@ Goal → [Plan → Execute → Evaluate → Repeat] → Result
 
 ---
 
-[← 前: 05. 複数の Task に分けて処理する](./05-general-cycle-medium-large.md) · [次: 07. 新しい Project を始める →](./07-starting-a-new-project.md)
+[← 前へ: 06. 複数の Task に分けて処理する (general cycle · medium/large)](./05-general-cycle-medium-large.md) · [次へ: 08. Skill 組み合わせレシピ →](./19-skill-combination-recipes.md)

@@ -1,6 +1,6 @@
 [« 返回目录](./README.md)
 
-# 13. 管理代码结构与可维护性
+# 14. 管理代码结构与可维护性
 
 ## 何时使用这 2 个 Skill
 
@@ -28,7 +28,7 @@
 
 ## `ywc-impl-review` — 实现质量评审（独立运行）
 
-运行 Architecture / Design / Devex / Security / QA 五个维度的并行评审。在 [04](./04-general-cycle-small.md)、[05](./05-general-cycle-medium-large.md) 中已作为 PR 前验证步骤内置，但也可以在这些流程之外针对已有代码单独运行。
+运行 Architecture / Design / Devex / Security / QA 五个维度的并行评审。在 [05](./04-general-cycle-small.md)、[06](./05-general-cycle-medium-large.md) 中已作为 PR 前验证步骤内置，但也可以在这些流程之外针对已有代码单独运行。
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
@@ -67,4 +67,4 @@
 
 ---
 
-[Previous: 12. 根本原因调查和事后分析](./12-debugging-and-incident-postmortem.md) - [Next: 14. 管理云基础设施](./17-infrastructure-and-cloud.md)
+[← 上一页: 13. 审查和改进设计](./11-design-review.md) · [下一页: 15. 根本原因调查和事后分析 →](./12-debugging-and-incident-postmortem.md)

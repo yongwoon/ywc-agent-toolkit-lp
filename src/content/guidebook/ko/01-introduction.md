@@ -20,7 +20,7 @@
 
 Plugin marketplace 또는 Codex plugin 으로 설치하는 경우에는 별도 사전 요구사항이 없습니다. 설치 도구가 필요한 파일 복사와 등록을 자동으로 처리합니다.
 
-다만 Skill 을 실제로 실행할 때는 `git`, `gh`, `python3` 등 몇 가지 Tool 이 System 에 준비되어 있어야 하고, 디자인 관련 Skill 을 쓰려면 별도 설정이 도움이 됩니다. 필수 Tool 과 선택 Tool 목록, 설치 방법은 [18. 사전 준비와 설치](./15-prerequisites-installation.md)에 정리했습니다 — 시작하기 전에 한 번 훑어보는 것을 권장합니다.
+다만 Skill 을 실제로 실행할 때는 `git`, `gh`, `python3` 등 몇 가지 Tool 이 System 에 준비되어 있어야 하고, 디자인 관련 Skill 을 쓰려면 별도 설정이 도움이 됩니다. 필수 Tool 과 선택 Tool 목록, 설치 방법은 [03. 사전 준비와 설치](./15-prerequisites-installation.md)에 정리했습니다 — 시작하기 전에 한 번 훑어보는 것을 권장합니다.
 
 ## 시작하기 전에 확인할 것
 
@@ -28,8 +28,8 @@ Plugin marketplace 또는 Codex plugin 으로 설치하는 경우에는 별도 �
 |---|---|
 | Claude Code 가 이 repository 를 인식하고 있는가 | 대화창에서 `/` 를 입력했을 때 `ywc-*` Skill 목록이 자동완성으로 뜨는지 확인 |
 | `gh` CLI 인증이 되어 있는가 | `gh auth status` — PR 생성/merge 를 다루는 대부분의 Skill 이 필요로 함 |
-| project 에 `CLAUDE.md` 가 있는가 | 없다면 [08. 기존 Repo 에 처음 진입하기](./08-onboarding-existing-repo.md) 참고 — Skill 들이 언어·commit 컨벤션을 여기서 추론함 |
-| 작업 대상이 신규 project 인가, 기존 코드 변경인가 | 신규라면 [07. 새 Project 시작하기](./07-starting-a-new-project.md), 기존 변경이라면 [02. 핵심 개념](./02-core-concepts.md) 부터 |
+| project 에 `CLAUDE.md` 가 있는가 | 없다면 [10. 기존 Repo 에 처음 진입하기](./08-onboarding-existing-repo.md) 참고 — Skill 들이 언어·commit 컨벤션을 여기서 추론함 |
+| 작업 대상이 신규 project 인가, 기존 코드 변경인가 | 신규라면 [09. 새 Project 시작하기](./07-starting-a-new-project.md), 기존 변경이라면 [02. 핵심 개념](./02-core-concepts.md) 부터 |
 
 ## Skill 호출 문법
 
@@ -44,7 +44,7 @@ Plugin marketplace 또는 Codex plugin 으로 설치하는 경우에는 별도 �
   </ToolTabsPanel>
 </ToolTabs>
 
-`/` 를 앞에 붙인 `/ywc-plan` 형태도 동일하게 동작합니다 — 이 문서에서는 가독성을 위해 `/` 를 생략합니다. `--flag value` 형태의 옵션은 Skill 마다 다르며, 각 Skill 페이지 또는 [16. Executor / Code-gen Prompt 패턴](./13-executor-and-codegen-patterns.md)에 실제 예시로 정리되어 있습니다.
+`/` 를 앞에 붙인 `/ywc-plan` 형태도 동일하게 동작합니다 — 이 문서에서는 가독성을 위해 `/` 를 생략합니다. `--flag value` 형태의 옵션은 Skill 마다 다르며, 각 Skill 페이지 또는 [18. Executor / Code-gen Prompt 패턴](./13-executor-and-codegen-patterns.md)에 실제 예시로 정리되어 있습니다.
 
 ---
 

@@ -1,6 +1,6 @@
 [« Volver al índice](./README.md)
 
-# 13. Gestionar la estructura del código y la mantenibilidad
+# 14. Gestionar la estructura del código y la mantenibilidad
 
 ## Cuándo usar estas 2 Skills
 
@@ -28,7 +28,7 @@ Encuentra código muerto antiguo (funciones/exportaciones/dependencias no utiliz
 
 ## `ywc-impl-review` — Revisión de calidad de implementación (independiente)
 
-Ejecuta una revisión paralela de 5 ejes: Architecture / Design / Devex / Security / QA. Ya está integrado como el paso de verificación previo al PR en [04](./04-general-cycle-small.md) y [05](./05-general-cycle-medium-large.md), pero también puedes ejecutarlo de forma independiente contra código existente fuera de esos flujos.
+Ejecuta una revisión paralela de 5 ejes: Architecture / Design / Devex / Security / QA. Ya está integrado como el paso de verificación previo al PR en [05](./04-general-cycle-small.md) y [06](./05-general-cycle-medium-large.md), pero también puedes ejecutarlo de forma independiente contra código existente fuera de esos flujos.
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
@@ -67,4 +67,4 @@ Antes de abrir el PR, ejecuta una revisión de 5 ejes para detectar lo que haya 
 
 ---
 
-[Previous: 12. Debugging e informe postmortem](./12-debugging-and-incident-postmortem.md) - [Next: 14. Gestionar la infraestructura en la nube](./17-infrastructure-and-cloud.md)
+[← Anterior: 13. Revisando y mejorando el diseño](./11-design-review.md) · [Siguiente: 15. Debugging e informe postmortem →](./12-debugging-and-incident-postmortem.md)

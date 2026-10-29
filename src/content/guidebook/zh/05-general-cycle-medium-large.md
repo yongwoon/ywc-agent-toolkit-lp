@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 05. 处理分成多个 Tasks 的工作（通用周期 - 中/大型）
+# 06. 处理分成多个 Tasks 的工作（通用周期 - 中/大型）
 
 ## 何时使用此流程
 
@@ -70,7 +70,7 @@ ywc-plan -> ywc-spec-ready -> ywc-task-generator -> ywc-sequential-executor --re
   </ToolTabsPanel>
 </ToolTabs>
 
-之后的执行命令有许多选项，因此它们在单独的页面上介绍：[16. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md)。最简单的起点是：
+之后的执行命令有许多选项，因此它们在单独的页面上介绍：[18. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md)。最简单的起点是：
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
@@ -85,7 +85,7 @@ ywc-plan -> ywc-spec-ready -> ywc-task-generator -> ywc-sequential-executor --re
 
 ## 始终包括 `--review`
 
-两个执行器都使用 `--review` 标志在每个 Task 的 PR 创建/合并之前自动运行 `/ywc-impl-review`。不使用此标志相当于完全跳过从 [04](./04-general-cycle-small.md) 的小周期中的审核步骤。没有充分的理由省略它。（如果 Task 有 `Criticality: critical`，无论标志如何，审核都是强制执行的。）
+两个执行器都使用 `--review` 标志在每个 Task 的 PR 创建/合并之前自动运行 `/ywc-impl-review`。不使用此标志相当于完全跳过从 [05](./04-general-cycle-small.md) 的小周期中的审核步骤。没有充分的理由省略它。（如果 Task 有 `Criticality: critical`，无论标志如何，审核都是强制执行的。）
 
 ## 当你在每一步都被阻挡时
 
@@ -97,4 +97,4 @@ ywc-plan -> ywc-spec-ready -> ywc-task-generator -> ywc-sequential-executor --re
 
 ---
 
-[Previous: 04. Handling a small change](./04-general-cycle-small.md) - [Next: 06. Finish automatically from one goal](./06-agentic-autonomous-loop.md)
+[← 上一页: 05. 处理小变动（一般周期 - 小）](./04-general-cycle-small.md) · [下一页: 07. 从一个目标自动完成 (ywc-agentic) →](./06-agentic-autonomous-loop.md)

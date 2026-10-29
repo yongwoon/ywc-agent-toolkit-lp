@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 11. Revisando y mejorando el diseño
+# 13. Revisando y mejorando el diseño
 
 ## Cuándo usar este flujo
 
@@ -59,4 +59,4 @@ Si pasas `--url`, también se proporcionan capturas de pantalla antes/después. 
 
 ---
 
-[Previous: 10. E2E Test automation strategy](./10-e2e-test-strategy.md) - [Next: 12. Debugging and incident postmortem](./12-debugging-and-incident-postmortem.md)
+[← Anterior: 12. Estrategia de automatización de pruebas E2E](./10-e2e-test-strategy.md) · [Siguiente: 14. Gestionar la estructura del código y la mantenibilidad →](./16-code-structure-and-maintainability.md)

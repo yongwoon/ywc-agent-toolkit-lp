@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 19. Skill 组合用法
+# 08. Skill 组合用法
 
 其他页面每次只讲解一个流程或一个 Skill。本页展示 Skill 之间如何相互衔接：一个 Skill 留下了什么，又由哪个 Skill 接手。下面的每一个衔接都是 Skill 自己完成的动作（读取共享文件、提议 hand-off），而不是需要你记住的约定。
 
@@ -37,7 +37,7 @@
 
 ## 从修复 Bug 到预防复发
 
-1. `ywc-debug-rootcause` 找出根本原因，添加 regression test，并用 `ywc-verify-done` 对修复进行把关（[12](./12-debugging-and-incident-postmortem.md)）。
+1. `ywc-debug-rootcause` 找出根本原因，添加 regression test，并用 `ywc-verify-done` 对修复进行把关（[15](./12-debugging-and-incident-postmortem.md)）。
 2. 如果同一类缺陷可能出现在其他地方，它会提议将其记录为 review 经验（`ywc-review-learnings --mode update --source debug`）。
 3. 发生生产事故后，`ywc-incident-postmortem` 会撰写报告，并以同样的方式提议记录其中用于防止复发的 action item（`--source incident`）。
 4. 从此以后，`ywc-impl-review` 会读取这些经验，因此同一类缺陷会在 review 阶段而不是在生产环境中被发现。
@@ -49,7 +49,7 @@
 | 时机 | Skill | 检查内容 |
 |---|---|---|
 | 实现之前 | `ywc-confidence-gate` | 从五个维度为准备情况打分：PROCEED（90 及以上）、REVIEW（70-89）、STOP（低于 70）。低于 90 时，实现会等待，直到最弱的维度得到提升或你接受风险 |
-| 实现之后 | `ywc-impl-review` | 对照 spec 的五个方面的 review（[13](./16-code-structure-and-maintainability.md)） |
+| 实现之后 | `ywc-impl-review` | 对照 spec 的五个方面的 review（[14](./16-code-structure-and-maintainability.md)） |
 | 变更涉及安全时 | `ywc-security-audit` | 静态安全 review（OWASP Top 10、secret、threat model） |
 | 说"完成"之前 | `ywc-verify-done` | 为每一个完成声明提供新的证据（test 或 build 输出） |
 | 打开 PR 时 | `ywc-create-pr` | Commit、push，以及基于 task 或 plan 生成的 PR 正文 |
@@ -76,7 +76,7 @@ Codex 既没有 `ywc-adr` 也没有 `ywc-project-mission`；请改为把决策�
 
 1. `ywc-wayfinder` 在 `docs/ywc-plans/<slug>-wayfinder.md` 中保存一份本地 map，并跨 session 延续。Map 可以包含多个 ticket，但同一时间只有一个处于 active 状态，而且该 Skill 自己从不实现任何东西。
 2. 一旦某个 ticket 的路线明确，它就会 hand-off 给 `ywc-plan`（如果该 ticket 卡在技术比较上，则交给 `ywc-tech-research`）。
-3. 之后按照通常的流程继续：`ywc-spec-ready` → `ywc-task-generator` → executor（[05](./05-general-cycle-medium-large.md)）。当只需要实现一个已批准的 spec 或 ticket 时，`ywc-implement` 会将其作为一个聚焦的、经过 review gate 的变更来完成。
+3. 之后按照通常的流程继续：`ywc-spec-ready` → `ywc-task-generator` → executor（[06](./05-general-cycle-medium-large.md)）。当只需要实现一个已批准的 spec 或 ticket 时，`ywc-implement` 会将其作为一个聚焦的、经过 review gate 的变更来完成。
 
 <CodeBlock label="codex" code="ywc-wayfinder 想把计费功能从 monolith 中拆分为独立的 service。范围还不明确" />
 
@@ -86,7 +86,7 @@ Codex 既没有 `ywc-adr` 也没有 `ywc-project-mission`；请改为把决策�
 
 `ywc-parallel-executor` 通过 `ywc-worktrees` 为每个 task 创建 worktree。在 Docker 项目中，它还会通过 `ywc-docker-isolate` 为每个 worktree 分配独立的 host 端口区块，使各个 stack 互不冲突（"port is already allocated"）。Merge 之后，`ywc-finish-branch` 会用 `ywc-worktrees --mode prune` 删除 worktree。
 
-通常你不需要自己调用其中任何一个；在两个工具中都由 executor 驱动它们。若要在 executor 运行之外创建或清理 worktree，请使用 [17](./14-skill-reference.md) 中的命令。
+通常你不需要自己调用其中任何一个；在两个工具中都由 executor 驱动它们。若要在 executor 运行之外创建或清理 worktree，请使用 [19](./14-skill-reference.md) 中的命令。
 
 ## Release 准备
 
@@ -105,4 +105,4 @@ Codex 既没有 `ywc-adr` 也没有 `ywc-project-mission`；请改为把决策�
 
 ---
 
-[Previous: 18. 前置条件与安装](./15-prerequisites-installation.md) - [返回目录](./README.md)
+[← 上一页: 07. 从一个目标自动完成 (ywc-agentic)](./06-agentic-autonomous-loop.md) · [下一页: 09. 开始一个新项目 →](./07-starting-a-new-project.md)

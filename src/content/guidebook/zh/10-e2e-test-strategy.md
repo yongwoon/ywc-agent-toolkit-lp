@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 10. E2E 测试自动化策略
+# 12. E2E 测试自动化策略
 
 ## 何时使用此流程
 
@@ -66,7 +66,7 @@
 4. 导航 / 路由
 5. API 错误处理
 
-从 5-8 个流程开始，并在测量不稳定性时逐步扩展。“测试所有内容”只会增加维护负担。最好将其余部分留给 `ywc-gen-testcase` 在 [09. Writing and running Tests](./09-testing-guide.md) 中处理。
+从 5-8 个流程开始，并在测量不稳定性时逐步扩展。“测试所有内容”只会增加维护负担。最好将其余部分留给 `ywc-gen-testcase` 在 [11. Writing and running Tests](./09-testing-guide.md) 中处理。
 
 ## 什么需要保留为手动验证（`ywc-gen-testcase`）而不是自动化
 
@@ -100,4 +100,4 @@
 
 ---
 
-[Previous: 09. Writing and running Tests](./09-testing-guide.md) - [Next: 11. Reviewing and improving design](./11-design-review.md)
+[← 上一页: 11. 编写和运行测试](./09-testing-guide.md) · [下一页: 13. 审查和改进设计 →](./11-design-review.md)

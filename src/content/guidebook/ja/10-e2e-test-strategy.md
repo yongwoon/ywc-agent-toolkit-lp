@@ -1,6 +1,6 @@
 [« 目次に戻る](./README.md)
 
-# 10. E2E Test 自動化戦略
+# 12. E2E Test 自動化戦略
 
 ## いつこのフローを使うか
 
@@ -66,7 +66,7 @@ entry URL、順番通りの action、期待する最終状態を明確に指定�
 4. Navigation / routing
 5. API error handling
 
-5〜8 個から始め、flakiness を測定しながら拡張してください。「全部テストしよう」は保守負担だけを増やします。カバーしない残りは、[09. Test を作成して実行する](./09-testing-guide.md)の `ywc-gen-testcase` に残しておく方がよいです。
+5〜8 個から始め、flakiness を測定しながら拡張してください。「全部テストしよう」は保守負担だけを増やします。カバーしない残りは、[11. Test を作成して実行する](./09-testing-guide.md)の `ywc-gen-testcase` に残しておく方がよいです。
 
 ## 自動化せず手動検証(`ywc-gen-testcase`)に残すもの
 
@@ -100,4 +100,4 @@ Visual/pixel 精度、探索的 UX、1 回限りの migration、3rd-party OAuth 
 
 ---
 
-[← 前: 09. Test を作成して実行する](./09-testing-guide.md) · [次: 11. デザインをレビューして改善する →](./11-design-review.md)
+[← 前へ: 11. Test を作成して実行する](./09-testing-guide.md) · [次へ: 13. デザインをレビューして改善する →](./11-design-review.md)

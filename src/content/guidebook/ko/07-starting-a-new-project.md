@@ -1,10 +1,10 @@
 [« 목차로 돌아가기](./README.md)
 
-# 07. 새 Project 시작하기
+# 09. 새 Project 시작하기
 
 ## 언제 이 흐름을 쓰는가
 
-Git repository 자체가 없거나, 있어도 코드가 거의 없는 백지 상태에서 project 를 설계할 때 사용합니다. 이미 코드가 있는 낯선 repo 를 파악하려는 것이라면 이 페이지가 아니라 [08. 기존 Repo 에 처음 진입하기](./08-onboarding-existing-repo.md)로 이동하세요 — 두 흐름은 반대 방향이며 같은 세션에서 함께 쓰지 않습니다.
+Git repository 자체가 없거나, 있어도 코드가 거의 없는 백지 상태에서 project 를 설계할 때 사용합니다. 이미 코드가 있는 낯선 repo 를 파악하려는 것이라면 이 페이지가 아니라 [10. 기존 Repo 에 처음 진입하기](./08-onboarding-existing-repo.md)로 이동하세요 — 두 흐름은 반대 방향이며 같은 세션에서 함께 쓰지 않습니다.
 
 > 시작하기 전에: 매번 `--lang` 을 붙이기 싫다면 `ywc-setup-language` 로 출력 언어를 한 번 고정해 두세요. 이후 아래 skill 들이 그 설정을 따릅니다.
 
@@ -24,7 +24,7 @@ Git repository 자체가 없거나, 있어도 코드가 거의 없는 백지 상
 | 8 | `ywc-project-docs` | Architecture / Product / Operations 등 부가 문서 (필요한 경우) |
 | 9 | `ywc-task-generator` | `DONE` 된 spec 을 dependency-safe Task 로 분해 |
 | 10 | `ywc-confidence-gate` | 구현 착수 전 준비도를 5개 축으로 점수화 (PROCEED ≥90 / REVIEW 70–89 / STOP &lt;70) |
-| 11 | [05. general cycle (medium/large)](./05-general-cycle-medium-large.md) 로 진입 | 실제 구현 시작 |
+| 11 | [06. general cycle (medium/large)](./05-general-cycle-medium-large.md) 로 진입 | 실제 구현 시작 |
 
 ## 실행 예시
 
@@ -127,7 +127,7 @@ Language 는 필수이고 나머지는 비어 있으면 되물으므로, 가능�
     <CodeBlock label="codex" code="ywc-confidence-gate 이 spec 과 task 로 구현에 착수해도 되는지 점검" />
   </ToolTabsPanel>
 </ToolTabs>
-scope clarity / architecture compliance / evidence quality / reuse verified / root cause 5개 축을 점수화합니다. `PROCEED`(≥90)면 [05. general cycle](./05-general-cycle-medium-large.md)로 넘어가고, `STOP`(&lt;70)이면 지적된 축을 먼저 보완하세요.
+scope clarity / architecture compliance / evidence quality / reuse verified / root cause 5개 축을 점수화합니다. `PROCEED`(≥90)면 [06. general cycle](./05-general-cycle-medium-large.md)로 넘어가고, `STOP`(&lt;70)이면 지적된 축을 먼저 보완하세요.
 
 ## 참고
 
@@ -140,4 +140,4 @@ scope clarity / architecture compliance / evidence quality / reuse verified / ro
 
 ---
 
-[← 이전: 06. 목표 하나로 자동 완료하기](./06-agentic-autonomous-loop.md) · [다음: 08. 기존 Repo 에 처음 진입하기 →](./08-onboarding-existing-repo.md)
+[← 이전: 08. Skill 조합 레시피](./19-skill-combination-recipes.md) · [다음: 10. 기존 Repo 에 처음 진입하기 →](./08-onboarding-existing-repo.md)

@@ -1,6 +1,6 @@
 [« 목차로 돌아가기](./README.md)
 
-# 10. E2E Test 자동화 전략
+# 12. E2E Test 자동화 전략
 
 ## 언제 이 흐름을 쓰는가
 
@@ -66,7 +66,7 @@ entry URL, 순서대로의 action, 기대하는 최종 상태를 명확히 지�
 4. Navigation / routing
 5. API error handling
 
-5~8개로 시작해 flakiness 를 측정하며 확장하세요. "다 테스트하자"는 유지보수 부담만 키웁니다 — 커버되지 않는 나머지는 [09. Test 작성 및 실행하기](./09-testing-guide.md)의 `ywc-gen-testcase` 로 남겨두는 편이 낫습니다.
+5~8개로 시작해 flakiness 를 측정하며 확장하세요. "다 테스트하자"는 유지보수 부담만 키웁니다 — 커버되지 않는 나머지는 [11. Test 작성 및 실행하기](./09-testing-guide.md)의 `ywc-gen-testcase` 로 남겨두는 편이 낫습니다.
 
 ## 자동화 대신 수기 검증(`ywc-gen-testcase`)으로 남길 것
 
@@ -100,4 +100,4 @@ Visual/pixel 정확도, 탐색적 UX, 1회성 migration, 3rd-party OAuth flow, e
 
 ---
 
-[← 이전: 09. Test 작성 및 실행하기](./09-testing-guide.md) · [다음: 11. 디자인 검토 및 개선하기 →](./11-design-review.md)
+[← 이전: 11. Test 작성 및 실행하기](./09-testing-guide.md) · [다음: 13. 디자인 검토 및 개선하기 →](./11-design-review.md)

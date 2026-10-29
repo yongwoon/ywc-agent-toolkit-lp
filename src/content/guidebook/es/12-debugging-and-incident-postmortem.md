@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 12. Debugging e informe postmortem
+# 15. Debugging e informe postmortem
 
 ## Cuándo usar este flujo
 
@@ -43,4 +43,4 @@ Esto evita los parches que solo abordan los síntomas y obliga a una investigaci
 
 ---
 
-[Previous: 11. Revisando y mejorando el diseño](./11-design-review.md) - [Next: 13. Gestionar la estructura del código y la mantenibilidad](./16-code-structure-and-maintainability.md)
+[← Anterior: 14. Gestionar la estructura del código y la mantenibilidad](./16-code-structure-and-maintainability.md) · [Siguiente: 16. Gestionar la infraestructura en la nube →](./17-infrastructure-and-cloud.md)

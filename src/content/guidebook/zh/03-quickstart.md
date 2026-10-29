@@ -1,10 +1,10 @@
 [Back to table of contents](./README.md)
 
-# 03. 在5分钟内发布你的第一个功能
+# 04. 在5分钟内发布你的第一个功能
 
 此页面是您的第一个动手练习：跟踪一个小错误修复从构思阶段到合并的整个过程。示例场景：处理请求 **“登录失败的错误信息过于笼统，因此很难理解原因。”**
 
-这个流程背后的概念在 [04. general cycle (small)](./04-general-cycle-small.md) 中有更详细的解释。本页重点是实践。
+这个流程背后的概念在 [05. general cycle (small)](./04-general-cycle-small.md) 中有更详细的解释。本页重点是实践。
 
 ## 第1步 - 制定计划
 
@@ -86,10 +86,10 @@
 
 你已经从头到尾完成了一次更改。接下来的好页面：
 
-- 如果更改大于此，并且需要拆分为多个 Tasks -> [05. general cycle (medium/large)](./05-general-cycle-medium-large.md)
-- 如果想法还不具体，不像这个练习中问题已经很清楚 -> 从 `ywc-brainstorm` 开始（参见 [17. Full Skill Reference](./14-skill-reference.md)）
-- 如果您想交出一个目标，并让系统自动进行到结束，而不是自己管理每一步 -> [06. Finish automatically from one goal](./06-agentic-autonomous-loop.md)
+- 如果更改大于此，并且需要拆分为多个 Tasks -> [06. general cycle (medium/large)](./05-general-cycle-medium-large.md)
+- 如果想法还不具体，不像这个练习中问题已经很清楚 -> 从 `ywc-brainstorm` 开始（参见 [19. Full Skill Reference](./14-skill-reference.md)）
+- 如果您想交出一个目标，并让系统自动进行到结束，而不是自己管理每一步 -> [07. Finish automatically from one goal](./06-agentic-autonomous-loop.md)
 
 ---
 
-[Previous: 02. Core concepts](./02-core-concepts.md) - [Next: 04. Handling a small change](./04-general-cycle-small.md)
+[← 上一页: 03. 前置条件与安装](./15-prerequisites-installation.md) · [下一页: 05. 处理小变动（一般周期 - 小） →](./04-general-cycle-small.md)

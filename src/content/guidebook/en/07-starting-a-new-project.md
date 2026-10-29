@@ -1,10 +1,10 @@
 [Back to table of contents](./README.md)
 
-# 07. Starting a new Project
+# 09. Starting a new Project
 
 ## When to use this flow
 
-Use this when there is no Git repository yet, or when the repository exists but is essentially a blank slate with little code. If you are trying to understand an unfamiliar repo that already has code, go to [08. Entering an existing Repo for the first time](./08-onboarding-existing-repo.md) instead. These flows move in opposite directions and should not be used together in the same session.
+Use this when there is no Git repository yet, or when the repository exists but is essentially a blank slate with little code. If you are trying to understand an unfamiliar repo that already has code, go to [10. Entering an existing Repo for the first time](./08-onboarding-existing-repo.md) instead. These flows move in opposite directions and should not be used together in the same session.
 
 > Before you start: if you would rather not pass `--lang` on every call, pin the output language once with `ywc-setup-language`. The skills below then follow that setting.
 
@@ -24,7 +24,7 @@ This flow is a funnel: **diverge → decide → converge → readiness gate**. S
 | 8 | `ywc-project-docs` | Additional docs such as Architecture / Product / Operations, when needed |
 | 9 | `ywc-task-generator` | Decompose the `DONE` spec into dependency-safe Tasks |
 | 10 | `ywc-confidence-gate` | Score readiness across five dimensions before implementation (PROCEED ≥90 / REVIEW 70–89 / STOP &lt;70) |
-| 11 | Enter [05. general cycle (medium/large)](./05-general-cycle-medium-large.md) | Start actual implementation |
+| 11 | Enter [06. general cycle (medium/large)](./05-general-cycle-medium-large.md) | Start actual implementation |
 
 ## Example run
 
@@ -129,7 +129,7 @@ If it returns `DONE_WITH_CONCERNS`, go back to step 6 `ywc-spec-writer`, refine 
     <CodeBlock label="codex" code="ywc-confidence-gate check whether it's safe to start implementing with this spec and tasks" />
   </ToolTabsPanel>
 </ToolTabs>
-It scores five dimensions: scope clarity / architecture compliance / evidence quality / reuse verified / root cause. On `PROCEED` (≥90) move into [05. general cycle](./05-general-cycle-medium-large.md); on `STOP` (&lt;70), shore up the flagged dimension first.
+It scores five dimensions: scope clarity / architecture compliance / evidence quality / reuse verified / root cause. On `PROCEED` (≥90) move into [06. general cycle](./05-general-cycle-medium-large.md); on `STOP` (&lt;70), shore up the flagged dimension first.
 
 ## Notes
 
@@ -143,4 +143,4 @@ It scores five dimensions: scope clarity / architecture compliance / evidence qu
 
 ---
 
-[Previous: 06. Finish automatically from one goal](./06-agentic-autonomous-loop.md) - [Next: 08. Entering an existing Repo for the first time](./08-onboarding-existing-repo.md)
+[Previous: 08. Skill combination recipes](./19-skill-combination-recipes.md) · [Next: 10. Entering an existing Repo for the first time](./08-onboarding-existing-repo.md)

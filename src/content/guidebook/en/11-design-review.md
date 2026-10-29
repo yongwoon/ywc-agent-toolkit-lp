@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 11. Reviewing and improving design
+# 13. Reviewing and improving design
 
 ## When to use this flow
 
@@ -59,4 +59,4 @@ If you pass `--url`, Before/After screenshots are also provided. If omitted, it 
 
 ---
 
-[Previous: 10. E2E Test automation strategy](./10-e2e-test-strategy.md) - [Next: 12. Debugging and incident postmortems](./12-debugging-and-incident-postmortem.md)
+[Previous: 12. E2E Test automation strategy](./10-e2e-test-strategy.md) · [Next: 14. Managing Code Structure and Maintainability](./16-code-structure-and-maintainability.md)

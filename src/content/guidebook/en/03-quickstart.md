@@ -1,10 +1,10 @@
 [Back to table of contents](./README.md)
 
-# 03. Ship your first feature in 5 minutes
+# 04. Ship your first feature in 5 minutes
 
 This page is your first hands-on exercise: follow one small bug fix from the idea stage to merge. Example scenario: handling the request **"The login failure error message is too generic, so it is hard to understand the cause."**
 
-The concepts behind this flow are explained in more detail in [04. general cycle (small)](./04-general-cycle-small.md). This page focuses on practice.
+The concepts behind this flow are explained in more detail in [05. general cycle (small)](./04-general-cycle-small.md). This page focuses on practice.
 
 ## Step 1 - Create a plan
 
@@ -86,10 +86,10 @@ The Small flow is based on `plan.md`, so it has no `tasks/<task-name>/` artifact
 
 You have completed one change from start to finish. Good next pages:
 
-- If the change is larger than this and needs to be split into multiple Tasks -> [05. general cycle (medium/large)](./05-general-cycle-medium-large.md)
-- If the idea is not concrete yet, unlike this exercise where the problem is already clear -> start with `ywc-brainstorm` (see [17. Full Skill Reference](./14-skill-reference.md))
-- If you want to hand over one goal and have the system proceed automatically to the end instead of managing each step yourself -> [06. Finish automatically from one goal](./06-agentic-autonomous-loop.md)
+- If the change is larger than this and needs to be split into multiple Tasks -> [06. general cycle (medium/large)](./05-general-cycle-medium-large.md)
+- If the idea is not concrete yet, unlike this exercise where the problem is already clear -> start with `ywc-brainstorm` (see [19. Full Skill Reference](./14-skill-reference.md))
+- If you want to hand over one goal and have the system proceed automatically to the end instead of managing each step yourself -> [07. Finish automatically from one goal](./06-agentic-autonomous-loop.md)
 
 ---
 
-[Previous: 02. Core concepts](./02-core-concepts.md) - [Next: 04. Handling a small change](./04-general-cycle-small.md)
+[Previous: 03. Prerequisites and installation](./15-prerequisites-installation.md) · [Next: 05. Handling a small change (general cycle - small)](./04-general-cycle-small.md)

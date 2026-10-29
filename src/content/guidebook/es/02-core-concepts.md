@@ -28,7 +28,7 @@ Los agents se ejecutan dentro de las Skills; nunca los invocas tú directamente.
 | `ywc-backend-coder` / `ywc-frontend-coder` / `ywc-qa-engineer` | Escriben código de servidor / código de UI / código de tests | `ywc-code-gen`, ambos executors | ✓ | |
 | `ywc-refactor-cleaner` | Ejecuta el bucle seguro de eliminación de código muerto | `ywc-refactor-clean` | ✓ | |
 | `ywc-doc-writer` | Escribe documentación | `ywc-auth-implement`, `ywc-project-docs` | ✓ | |
-| `ywc-complexity-cleaner` / `ywc-test-hardener` | Workers de la puerta de calidad: reducen la complejidad del código de producción / refuerzan los tests frente a los mutantes supervivientes | Puerta de calidad de los executors ([16](./13-executor-and-codegen-patterns.md)) | | ✓ |
+| `ywc-complexity-cleaner` / `ywc-test-hardener` | Workers de la puerta de calidad: reducen la complejidad del código de producción / refuerzan los tests frente a los mutantes supervivientes | Puerta de calidad de los executors ([18](./13-executor-and-codegen-patterns.md)) | | ✓ |
 
 ## La escala determina el flujo
 
@@ -36,8 +36,8 @@ Cada elemento de trabajo comienza con `ywc-plan`. `ywc-plan` juzga la escala de 
 
 | Escala | Criterios de decisión | Salida | Siguiente paso |
 |---|---|---|---|
-| **Pequeño** | Un cambio que puede completarse en un solo PR, sin migración de base de datos ni adopción de nueva biblioteca | `plan.md` | [04. general cycle (small)](./04-general-cycle-small.md) |
-| **Mediano/Grande** | Debe dividirse en múltiples Tasks, o incluir una migración de base de datos o la adopción de una nueva biblioteca | `docs/ywc-plans/<slug>.md` | [05. general cycle (medium/large)](./05-general-cycle-medium-large.md) |
+| **Pequeño** | Un cambio que puede completarse en un solo PR, sin migración de base de datos ni adopción de nueva biblioteca | `plan.md` | [05. general cycle (small)](./04-general-cycle-small.md) |
+| **Mediano/Grande** | Debe dividirse en múltiples Tasks, o incluir una migración de base de datos o la adopción de una nueva biblioteca | `docs/ywc-plans/<slug>.md` | [06. general cycle (medium/large)](./05-general-cycle-medium-large.md) |
 
 Las migraciones de bases de datos y la adopción de nuevas bibliotecas **siempre se manejan por separado**, independientemente de la escala. Esta es una Invariante de Seguridad para tanto `ywc-plan` como `ywc-task-generator`.
 
@@ -68,11 +68,11 @@ Casi todos los Skill terminan con uno de los cuatro estados que se indican a con
   <FlowStep>Pruebas e integración (ywc-gen-testcase, ywc-e2e-test-strategy si es necesario)</FlowStep>
 </FlowDiagram>
 
-Cada rama de este flujo se cubre en detalle con ejemplos concretos de comandos en las páginas [04](./04-general-cycle-small.md) y [05](./05-general-cycle-medium-large.md), y el paso final de pruebas se cubre en las páginas [09](./09-testing-guide.md) y [10](./10-e2e-test-strategy.md).
+Cada rama de este flujo se cubre en detalle con ejemplos concretos de comandos en las páginas [05](./04-general-cycle-small.md) y [06](./05-general-cycle-medium-large.md), y el paso final de pruebas se cubre en las páginas [11](./09-testing-guide.md) y [12](./10-e2e-test-strategy.md).
 
 ## Conceptos del modo de entrega compartido PR
 
-`ywc-finish-branch`, `ywc-sequential-executor` y `ywc-parallel-executor` comparten los conceptos de modo que se indican a continuación para la entrega basada en tareas. El flujo pequeño basado en `plan.md` no tiene artefacto de tarea, por lo que abre un PR con `ywc-create-pr` y maneja la revisión/fusión por separado. Las combinaciones exactas de banderas se cubren en [16. Executor / Patrones de indicación de generación de código](./13-executor-and-codegen-patterns.md).
+`ywc-finish-branch`, `ywc-sequential-executor` y `ywc-parallel-executor` comparten los conceptos de modo que se indican a continuación para la entrega basada en tareas. El flujo pequeño basado en `plan.md` no tiene artefacto de tarea, por lo que abre un PR con `ywc-create-pr` y maneja la revisión/fusión por separado. Las combinaciones exactas de banderas se cubren en [18. Executor / Patrones de indicación de generación de código](./13-executor-and-codegen-patterns.md).
 
 | Modo | Significado |
 |---|---|
@@ -83,4 +83,4 @@ Cada rama de este flujo se cubre en detalle con ejemplos concretos de comandos e
 
 ---
 
-[Previous: 01. Introduction](./01-introduction.md) - [Next: 03. Ship your first feature in 5 minutes](./03-quickstart.md)
+[← Anterior: 01. Introducción](./01-introduction.md) · [Siguiente: 03. Requisitos previos e instalación →](./15-prerequisites-installation.md)

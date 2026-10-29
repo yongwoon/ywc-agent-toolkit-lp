@@ -1,6 +1,6 @@
 [« 目次に戻る](./README.md)
 
-# 15. 認証機能の実装
+# 17. 認証機能の実装
 
 ## いつこの Skill を使うか
 
@@ -8,7 +8,7 @@
 
 - 認証コードがすでに存在していて、それに対するセキュリティレビューをしたいだけなら [`ywc-security-audit`](./14-skill-reference.md) を使ってください — この Skill は実装を駆動するものであり、事後レビューではありません。
 - 認証と無関係な一般的な機能計画には [`ywc-plan`](./14-skill-reference.md) を使ってください — このポリシーインタビューは認証に特化しており、一般的な計画作業の代わりにはなりません。
-- 認証フロー以外の E2E テストを書くには [11. E2E テスト自動化戦略](./10-e2e-test-strategy.md) を使ってください — この Skill が駆動するのは後述の認証フロー限定の E2E ゲートのみで、プロジェクト全体のテストスイートは対象外です。
+- 認証フロー以外の E2E テストを書くには [12. E2E テスト自動化戦略](./10-e2e-test-strategy.md) を使ってください — この Skill が駆動するのは後述の認証フロー限定の E2E ゲートのみで、プロジェクト全体のテストスイートは対象外です。
 
 ## フローの流れ
 
@@ -82,4 +82,4 @@ flag なしで実行します — インタビューとそれ以降のあらゆ�
 
 ---
 
-[« 前: 14. クラウドインフラの管理](./17-infrastructure-and-cloud.md) · [次: 16. Executor / Code-gen Prompt パターン →](./13-executor-and-codegen-patterns.md)
+[← 前へ: 16. クラウドインフラの管理](./17-infrastructure-and-cloud.md) · [次へ: 18. Executor / Code-gen Prompt パターン →](./13-executor-and-codegen-patterns.md)

@@ -28,7 +28,7 @@ Agent 在 Skill 内部运行，用户不会直接调用它们。两个工具提�
 | `ywc-backend-coder` / `ywc-frontend-coder` / `ywc-qa-engineer` | 编写服务端代码 / UI 代码 / 测试代码 | `ywc-code-gen`、两个 executor | ✓ | |
 | `ywc-refactor-cleaner` | 执行安全的死代码删除循环 | `ywc-refactor-clean` | ✓ | |
 | `ywc-doc-writer` | 编写文档 | `ywc-auth-implement`, `ywc-project-docs` | ✓ | |
-| `ywc-complexity-cleaner` / `ywc-test-hardener` | Quality gate 的 worker：降低生产代码的复杂度 / 针对存活的 mutant 加强测试 | Executor 的 quality gate（[16](./13-executor-and-codegen-patterns.md)） | | ✓ |
+| `ywc-complexity-cleaner` / `ywc-test-hardener` | Quality gate 的 worker：降低生产代码的复杂度 / 针对存活的 mutant 加强测试 | Executor 的 quality gate（[18](./13-executor-and-codegen-patterns.md)） | | ✓ |
 
 ## 规模决定流动
 
@@ -36,8 +36,8 @@ Agent 在 Skill 内部运行，用户不会直接调用它们。两个工具提�
 
 | 刻度 | 决策标准 | 输出 | 下一步 |
 |---|---|---|---|
-| **小** | 一个可以在单次 PR 中完成的更改，无需数据库迁移或采用新库 | `plan.md` | [04. general cycle (small)](./04-general-cycle-small.md) |
-| **中/大** | 必须拆分为多个 Tasks，或包含数据库迁移或新库采用 | `docs/ywc-plans/<slug>.md` | [05. general cycle (medium/large)](./05-general-cycle-medium-large.md) |
+| **小** | 一个可以在单次 PR 中完成的更改，无需数据库迁移或采用新库 | `plan.md` | [05. general cycle (small)](./04-general-cycle-small.md) |
+| **中/大** | 必须拆分为多个 Tasks，或包含数据库迁移或新库采用 | `docs/ywc-plans/<slug>.md` | [06. general cycle (medium/large)](./05-general-cycle-medium-large.md) |
 
 数据库迁移和新库的采用**总是单独处理**，无论规模如何。这是 `ywc-plan` 和 `ywc-task-generator` 的安全不变量。
 
@@ -68,11 +68,11 @@ Agent 在 Skill 内部运行，用户不会直接调用它们。两个工具提�
   <FlowStep>测试 &amp; 集成测试 (ywc-gen-testcase，必要时 ywc-e2e-test-strategy)</FlowStep>
 </FlowDiagram>
 
-本流程的每个分支在第 [04](./04-general-cycle-small.md) 页和 [05](./05-general-cycle-medium-large.md) 页上都有详细说明，并附有具体命令示例；最后的测试阶段在第 [09](./09-testing-guide.md) 页和第 [10](./10-e2e-test-strategy.md) 页说明。
+本流程的每个分支在第 [05](./04-general-cycle-small.md) 页和 [06](./05-general-cycle-medium-large.md) 页上都有详细说明，并附有具体命令示例；最后的测试阶段在第 [11](./09-testing-guide.md) 页和第 [12](./10-e2e-test-strategy.md) 页说明。
 
 ## 共享 PR 交付模式概念
 
-`ywc-finish-branch`、`ywc-sequential-executor` 和 `ywc-parallel-executor` 共享以下用于基于任务交付的模式概念。基于 `plan.md` 的小流程没有任务工件，因此它使用 `ywc-create-pr` 打开 PR，并单独处理审查/合并。精确的标志组合在 [16. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md) 中有说明。
+`ywc-finish-branch`、`ywc-sequential-executor` 和 `ywc-parallel-executor` 共享以下用于基于任务交付的模式概念。基于 `plan.md` 的小流程没有任务工件，因此它使用 `ywc-create-pr` 打开 PR，并单独处理审查/合并。精确的标志组合在 [18. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md) 中有说明。
 
 | 模式 | 意义 |
 |---|---|
@@ -83,4 +83,4 @@ Agent 在 Skill 内部运行，用户不会直接调用它们。两个工具提�
 
 ---
 
-[Previous: 01. Introduction](./01-introduction.md) - [Next: 03. Ship your first feature in 5 minutes](./03-quickstart.md)
+[← 上一页: 01. 介绍](./01-introduction.md) · [下一页: 03. 前置条件与安装 →](./15-prerequisites-installation.md)

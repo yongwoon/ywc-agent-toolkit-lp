@@ -1,6 +1,6 @@
 [« 返回目录](./README.md)
 
-# 14. 管理云基础设施
+# 16. 管理云基础设施
 
 ## 何时使用这些 Skill
 
@@ -95,4 +95,4 @@
 
 ---
 
-[Previous: 13. 管理代码结构与可维护性](./16-code-structure-and-maintainability.md) - [Next: 15. 实现身份验证](./18-authentication-implementation.md)
+[← 上一页: 15. 根本原因调查和事后分析](./12-debugging-and-incident-postmortem.md) · [下一页: 17. 实现身份验证 →](./18-authentication-implementation.md)

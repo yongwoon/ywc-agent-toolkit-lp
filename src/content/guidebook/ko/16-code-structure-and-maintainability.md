@@ -1,6 +1,6 @@
 [« 목차로 돌아가기](./README.md)
 
-# 13. 코드 구조와 유지보수성 관리
+# 14. 코드 구조와 유지보수성 관리
 
 ## 언제 이 2개 Skill 을 쓰는가
 
@@ -28,7 +28,7 @@
 
 ## `ywc-impl-review` — 구현 품질 리뷰 (단독 실행)
 
-Architecture / Design / Devex / Security / QA 5축 병렬 리뷰를 실행합니다. [04](./04-general-cycle-small.md), [05](./05-general-cycle-medium-large.md)의 PR 전 검증 단계로 이미 내장되어 있지만, 그 흐름 밖에서 이미 존재하는 코드를 대상으로 단독 실행할 수도 있습니다.
+Architecture / Design / Devex / Security / QA 5축 병렬 리뷰를 실행합니다. [05](./04-general-cycle-small.md), [06](./05-general-cycle-medium-large.md)의 PR 전 검증 단계로 이미 내장되어 있지만, 그 흐름 밖에서 이미 존재하는 코드를 대상으로 단독 실행할 수도 있습니다.
 
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
@@ -71,4 +71,4 @@ dead code 가 남아 있다면, 가장 되돌리기 쉬운 이 단계부터 처�
 
 ---
 
-[← 이전: 12. 버그 디버깅과 장애 사후분석](./12-debugging-and-incident-postmortem.md) · [다음: 14. 클라우드 인프라 관리 →](./17-infrastructure-and-cloud.md)
+[← 이전: 13. 디자인 검토 및 개선하기](./11-design-review.md) · [다음: 15. 버그 디버깅과 장애 사후분석 →](./12-debugging-and-incident-postmortem.md)

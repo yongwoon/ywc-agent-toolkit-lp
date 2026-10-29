@@ -1,6 +1,6 @@
 [Back to table of contents](./README.md)
 
-# 12. Debugging and incident postmortems
+# 15. Debugging and incident postmortems
 
 ## When to use this flow
 
@@ -43,4 +43,4 @@ This prevents patches that only address symptoms and forces a four-step root-cau
 
 ---
 
-[Previous: 11. Reviewing and improving design](./11-design-review.md) - [Next: 13. Managing Code Structure and Maintainability](./16-code-structure-and-maintainability.md)
+[Previous: 14. Managing Code Structure and Maintainability](./16-code-structure-and-maintainability.md) · [Next: 16. Managing Cloud Infrastructure](./17-infrastructure-and-cloud.md)

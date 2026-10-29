@@ -1,10 +1,10 @@
 [Back to table of contents](./README.md)
 
-# 07. 开始一个新项目
+# 09. 开始一个新项目
 
 ## 何时使用此流程
 
-当还没有 Git 仓库，或者仓库存在但本质上是一个几乎没有代码的空白状态时，请使用此方法。如果你试图理解一个已经有代码的不熟悉的仓库，请改用 [08. Entering an existing Repo for the first time](./08-onboarding-existing-repo.md)。这些流程方向相反，不应在同一会话中同时使用。
+当还没有 Git 仓库，或者仓库存在但本质上是一个几乎没有代码的空白状态时，请使用此方法。如果你试图理解一个已经有代码的不熟悉的仓库，请改用 [10. Entering an existing Repo for the first time](./08-onboarding-existing-repo.md)。这些流程方向相反，不应在同一会话中同时使用。
 
 > 开始之前：如果你不想每次都传 `--lang`，可以先用 `ywc-setup-language` 把输出语言固定一次。之后下面的 skill 都会遵循该设置。
 
@@ -24,7 +24,7 @@
 | 八 | `ywc-project-docs` | 如有需要，附加的文档，如架构/产品/运营 |
 | 九 | `ywc-task-generator` | 将 `DONE` 规范分解为依赖安全的 Tasks |
 | 十 | `ywc-confidence-gate` | 在实现之前，用五个维度对准备度打分（PROCEED ≥90 / REVIEW 70–89 / STOP &lt;70） |
-| 十一 | 进入 [05. general cycle (medium/large)](./05-general-cycle-medium-large.md) | 开始实际实施 |
+| 十一 | 进入 [06. general cycle (medium/large)](./05-general-cycle-medium-large.md) | 开始实际实施 |
 
 ## 示例运行
 
@@ -129,7 +129,7 @@
     <CodeBlock label="codex" code="ywc-confidence-gate 检查用这份 spec 和 task 是否可以开始实现" />
   </ToolTabsPanel>
 </ToolTabs>
-它对五个维度打分：scope clarity / architecture compliance / evidence quality / reuse verified / root cause。若为 `PROCEED`（≥90）则进入 [05. general cycle](./05-general-cycle-medium-large.md)；若为 `STOP`（&lt;70），先补齐被指出的维度。
+它对五个维度打分：scope clarity / architecture compliance / evidence quality / reuse verified / root cause。若为 `PROCEED`（≥90）则进入 [06. general cycle](./05-general-cycle-medium-large.md)；若为 `STOP`（&lt;70），先补齐被指出的维度。
 
 ## 笔记
 
@@ -143,4 +143,4 @@
 
 ---
 
-[Previous: 06. Finish automatically from one goal](./06-agentic-autonomous-loop.md) - [Next: 08. Entering an existing Repo for the first time](./08-onboarding-existing-repo.md)
+[← 上一页: 08. Skill 组合用法](./19-skill-combination-recipes.md) · [下一页: 10. 第一次进入现有的仓库 →](./08-onboarding-existing-repo.md)
