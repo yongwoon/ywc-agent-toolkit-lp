@@ -153,13 +153,13 @@
       {
         "label": "Claude Code agents",
         "value": "13 agents",
-        "description": "Architecture, security, performance, language-specific review를 위한 specialist read-only agents입니다.",
+        "description": "Architecture, security, performance, language-specific review를 위한 specialist agents입니다.",
         "lane": "claude"
       },
       {
         "label": "Codex agents",
         "value": "10 agents",
-        "description": "동일한 specialist coverage를 read-only Codex agents로 패키징했습니다.",
+        "description": "동일한 specialist coverage를 Codex agents로 패키징했습니다.",
         "lane": "codex"
       }
     ],
