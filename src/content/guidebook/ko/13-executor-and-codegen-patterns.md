@@ -240,7 +240,18 @@ main checkout 은 건드리지 않으면서, 여러 Task 를 하나의 PR 로 �
 
 > **주의**: `--local-merge` / `--draft` / `--skip-ci-wait` / `--aggregate-pr` 는 서로 배타적입니다 — 두 개 이상 같이 쓰면 실행 전에 멈추고 되묻습니다. `--review` 와 `--worktree` 는 위 어느 모드와도 조합할 수 있습니다.
 
+**스크립트와 CI 용 flag**
+
+| flag | 적용 대상 | 동작 |
+|---|---|---|
+| `--terse` | `ywc-sequential-executor`, `ywc-parallel-executor` (두 도구 모두) | task 표(이름, 상태, PR URL 또는 merge SHA)와 마지막 `Completion Status` 줄만 출력합니다. CI 에서 파싱하는 용도입니다. |
+| `--non-interactive` | Claude Code: `ywc-sequential-executor` 만 / Codex: `ywc-parallel-executor` 만 | 모든 질문을 생략합니다. 답이 필요한 결정은 고정된 status 로 끝납니다. 정보가 부족하면 `NEEDS_CONTEXT`, 충돌·dirty tree·`gh` 미인증이면 `BLOCKED`, CI timeout 이면 `DONE_WITH_CONCERNS` 입니다. |
+
+`--worktree` 는 위에서 설명했으므로 여기서는 다시 다루지 않습니다.
+
 ## ywc-parallel-executor — 독립적인 Task 를 동시에 실행하고 싶을 때
+
+스크립트와 CI 용 flag 는 위 `ywc-sequential-executor` 절 끝의 표를 참고하세요.
 
 **독립적인 Task 들을 병렬로, 각각 PR 을 만들어 merge 까지 끝내고 싶다**
 <ToolTabs>
@@ -286,6 +297,19 @@ wave 단위로 동시 실행되며, Task 마다 PR 생성 → CI → bot review 
 모든 wave 완료 후 draft PR 1개가 생성되고, merge 는 사람이 수동으로 합니다.
 
 > **주의**: `--local-merge` / `--draft` / `--per-task-pr` / `--aggregate-pr` 중 아무것도 지정하지 않으면 4가지 모드 중 무엇을 원하는지 되묻습니다 — 기본값으로 조용히 넘어가지 않습니다. `--review` 는 어느 모드와도 조합할 수 있습니다. (참고: `ywc-parallel-executor` 는 `--worktree` 라는 별도 flag 가 없습니다 — Task 마다 worktree 로 격리하는 것이 이 Skill 의 기본 동작이기 때문입니다.)
+
+### Quality gate 와 wave hardener (opt-in)
+
+task 가 `## Quality Gate Contract` 섹션을 선언하면 (CRAP score 6–8 이하와 mutation score 90% 이상, 또는 sentinel `N/A — no quality gate contract`), executor 는 두 단계를 추가로 실행합니다.
+
+- **cleaner**: production 코드를 리팩터링합니다.
+- **hardener**: 테스트만 보강합니다. production 코드는 수정할 수 없습니다. hardener 는 wave 의 task 가 모두 merge 된 뒤 wave 당 한 번 실행됩니다.
+
+`--local-merge`, `--draft`, `--aggregate-pr` 에서는 wave 가 먼저 `wave-int/<N>` branch 로 합쳐지고, hardener verdict 가 PASS 이거나 gate 가 적용되지 않을 때만 base branch 로 승격됩니다. verdict 가 `BLOCKED` 또는 `NEEDS_CONTEXT` 이면 base branch 는 건드리지 않고, branch 와 worktree 를 남겨 둡니다. 문제를 고친 뒤 이어서 실행할 수 있습니다.
+
+resume 할 때 executor 는 `wave-int/<N>` branch 의 tip SHA 가 기록된 값과 일치하는지 확인합니다. 일치를 확인할 수 없으면 그 branch 를 재사용하지 않고 wave 를 막습니다.
+
+`--per-task-pr` 에서 hardener 는 결과를 보고만 하며 wave 를 막지 않습니다. contract 가 없는 task 는 이 흐름의 영향을 받지 않습니다.
 
 ## ywc-code-gen — Task 분해 없이 코드를 바로 생성하고 싶을 때
 

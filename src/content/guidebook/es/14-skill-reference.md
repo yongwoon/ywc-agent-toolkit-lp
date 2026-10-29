@@ -20,6 +20,7 @@ Busca tu situación en la siguiente tabla y haz clic en el nombre de la Skill pa
 | [`ywc-refactor-clean`](#limpiar-el-código-antiguo-muerto-funcionesexportacionesdependencias-no-utilizadas) | Limpiar el código antiguo muerto (funciones/exportaciones/dependencias no utilizadas) |
 | [`ywc-impl-review`](#quieres-revisar-de-forma-independiente-la-calidad-de-implementación-y-el-mantenimiento-fuera-del-ciclo-general) | Quieres revisar de forma independiente la calidad de implementación y el mantenimiento fuera del ciclo general |
 | [`ywc-tdd-ritual`](#quieres-seguir-estrictamente-el-procedimiento-documentado-red--green--refactor-mientras-implementas) | Quieres seguir estrictamente el procedimiento documentado RED → GREEN → REFACTOR mientras implementas |
+| [`ywc-verify-done`](#quieres-demostrar-la-finalización-con-puertas-explícitas-y-re-ejecutables) | Quieres demostrar la finalización con puertas explícitas y re-ejecutables |
 | [`ywc-debug-rootcause` y `ywc-incident-postmortem`](#) | Investigación de causa raíz y análisis posterior al incidente - ver [12. Debugging and incident postmortem](./12-debugging-and-incident-postmortem.md) |
 | [`ywc-e2e-test-strategy`](#quieres-automatizar-un-critical-user-flow-con-playwright-o-revisar-los-huecos-en-la-cobertura-e2e-existente) | Quieres automatizar un critical user flow con Playwright, o revisar los huecos en la cobertura E2E existente |
 | [`ywc-product-review`](#quieres-una-revisión-del-proyecto-desde-una-perspectiva-de-negocioservicio-no-de-código) | Quieres una revisión del proyecto desde una perspectiva de negocio/servicio, no de código |
@@ -47,7 +48,7 @@ Busca tu situación en la siguiente tabla y haz clic en el nombre de la Skill pa
     <CodeBlock label="codex" code="ywc-handle-pr-reviews 250" />
   </ToolTabsPanel>
 </ToolTabs>
-Si omite el número PR, encuentra automáticamente el PR para la sucursal actual.
+Si omite el número PR, encuentra automáticamente el PR para la sucursal actual. *(Solo Claude Code)* Los "Nitpick comments" de CodeRabbit (que no tienen hilo de revisión) también se detectan y se clasifican como los demás comentarios; los puntos atendidos se registran en un único comentario a nivel de PR con marcadores ocultos, para que no vuelvan a aparecer.
 
 ### Confirmar cambios y abrir un borrador PR
 
@@ -60,6 +61,8 @@ Si omite el número PR, encuentra automáticamente el PR para la sucursal actual
   </ToolTabsPanel>
 </ToolTabs>
 Esto ya está incluido en los flujos de [04](./04-general-cycle-small.md) y [05](./05-general-cycle-medium-large.md), así que úsalo cuando quieras abrir solo un PR independiente fuera de esos flujos.
+
+Si se encuentra un README de la Task o un plan bajo `docs/ywc-plans/`, el cuerpo del PR incluye una sección `Design Background` (objetivo y, si el plan los tiene, Alternatives Considered / Trade-offs). `--plan-doc <path.md>` elige el plan explícitamente (ruta relativa al repo, dentro del repo); `--no-plan-ref` desactiva la búsqueda; si se pasan ambos, `--plan-doc` tiene prioridad. Si varios planes coinciden, la skill los lista y te pide volver a ejecutar con `--plan-doc`.
 
 ### Limpiar de una vez los PRs acumulados de Dependabot
 
@@ -109,7 +112,7 @@ Esto bloquea el comportamiento por defecto de aceptar primero e implementar desp
     <CodeBlock label="codex" code="ywc-brainstorm Quiero crear una función de notificaciones, pero todavía no tengo claro cómo" />
   </ToolTabsPanel>
 </ToolTabs>
-A través del diálogo socrático, se derivan el objetivo / las limitaciones / los criterios de éxito y 2-3 alternativas, luego se entrega a `ywc-plan`.
+A través del diálogo socrático, se derivan el objetivo / las limitaciones / los criterios de éxito y 2-3 alternativas, luego se entrega a `ywc-plan`. Antes de ese traspaso, el diseño enumera las premisas que sostienen el diseño con su evidencia (`file:line` y un fragmento citado) y un estado VERIFIED/UNVERIFIED; las premisas no verificadas se registran como modos de fallo o se mueven a fuera de alcance, en lugar de asumirse en silencio.
 
 ### Quieres comparar librerías o enfoques de implementación para decidir qué usar
 
@@ -159,6 +162,35 @@ Esto se ha trasladado a la página dedicada `ywc-impl-review`. Consulte [13. Ges
   </ToolTabsPanel>
 </ToolTabs>
 El procedimiento opcional `--tdd` mencionado en `ywc-code-gen`, `ywc-sequential-executor`, etc. es exactamente esta skill — obliga a un paso de verificación en cada transición RED/GREEN/REFACTOR.
+
+### Quieres demostrar la finalización con puertas explícitas y re-ejecutables
+
+Escribes un ledger en markdown donde cada puerta tiene:
+
+- `CHECK:` — un comando de shell
+- `EXPECT:` — una subcadena o un `/regex/` que debe aparecer en la salida
+- `EVIDENCE:` — la evidencia que respalda la puerta
+
+Después ejecutas el script de verificación sobre el ledger:
+
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="python3 claude-code/skills/ywc-verify-done/scripts/gate-check.py --status gate-ledger.md" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="python3 &quot;${CODEX_HOME:-$HOME/.codex}/skills/ywc-verify-done/scripts/gate-check.py&quot; --status gate-ledger.md" />
+  </ToolTabsPanel>
+</ToolTabs>
+
+Si omites `--status`, el script ejecuta las puertas; `--reverify` vuelve a ejecutar todas las puertas.
+
+- Exit 0 significa que todas las puertas ejecutables se cumplen.
+- Las puertas sin `CHECK` ni `EXPECT` son manuales y nunca bloquean.
+- Un PASS en caché solo se considera válido mientras el texto de la puerta no cambie.
+- Cada puerta tiene un timeout de 120 s.
+- Las líneas `CHECK` ejecutan comandos arbitrarios con tus permisos, así que lee antes un ledger que no hayas escrito tú.
+
+El ledger es opcional: la verificación por defecto con un solo comando no cambia. Disponible en ambas herramientas.
 
 ### Quieres automatizar un critical user flow con Playwright, o revisar los huecos en la cobertura E2E existente
 
@@ -286,6 +318,9 @@ Valida y alinea las reglas de frontmatter/body/references de una skill `ywc-*`. 
 
 Las banderas puntuales siguen teniendo prioridad. El orden de resolución es: `--lang` explícito en la skill consumidora > valor persistente de proyecto/usuario > preguntar.
 
+- Codex `ywc-setup` también guarda las iniciales del colaborador (`--initials yk`). Con `--scope project|user` eliges si se guardan en `.codex/ywc.json` (proyecto) o en `~/.codex/ywc.json` (usuario).
+- Claude Code `ywc-setup-language` solo gestiona el idioma: escribe una sección `## Language Policy` en `CLAUDE.md`. Las iniciales en Claude Code provienen de `--initials` o de la sección `## Task Initials` de `CLAUDE.md` (ver [05](./05-general-cycle-medium-large.md)).
+
 ### Quieres crear una ruta de worktree aislada, o auditarla/limpiarla
 
 <ToolTabs>
@@ -382,7 +417,7 @@ Todas las skills `ywc-*` de este toolkit, ordenadas alfabéticamente. Consulta l
 | `ywc-tech-research` | Quieres comparar librerías o enfoques de implementación para decidir qué usar | [aquí](#quieres-comparar-librerías-o-enfoques-de-implementación-para-decidir-qué-usar) |
 | `ywc-ubiquitous-language` | Crear o actualizar un glosario de dominio compartido por desarrolladores, expertos en el dominio y LLMs | [aquí](#crear-o-actualizar-un-glosario-de-dominio-compartido-por-desarrolladores-expertos-en-el-dominio-y-llms) |
 | `ywc-ui-ux-review` | Revisa la usabilidad y accesibilidad de la pantalla | [11](./11-design-review.md) |
-| `ywc-verify-done` | Verifica mecánicamente la finalización ejecutando lint/typecheck/test/build | [06](./06-agentic-autonomous-loop.md) |
+| `ywc-verify-done` | Verifica mecánicamente la finalización ejecutando lint/typecheck/test/build | [aquí](#quieres-demostrar-la-finalización-con-puertas-explícitas-y-re-ejecutables) |
 | `ywc-wayfinder` *(solo Codex)* | Descubrimiento multi-sesión para cambios grandes o inciertos: un mapa local con exactamente un ticket activo, antes de planificar o implementar | [aquí](#skills-que-solo-existen-en-una-herramienta) |
 | `ywc-worktrees` | Quieres crear una ruta de worktree aislada, o auditarla/limpiarla | [aquí](#quieres-crear-una-ruta-de-worktree-aislada-o-auditarlalimpiarla) |
 

@@ -30,6 +30,26 @@ ywc-plan → ywc-spec-ready → ywc-task-generator → ywc-sequential-executor -
 | Task 間の順序が重要、または互いの成果物に依存する | `ywc-sequential-executor` |
 | Task 同士が独立しており、`dependency-graph.md` 上で並列実行可能な wave にまとまる | `ywc-parallel-executor` (Git Worktree で隔離) |
 
+## Task ID と協力者イニシャル
+
+`ywc-task-generator` は、複数の人が Task を生成しても番号が衝突しないように、Task ID の先頭に協力者のイニシャルを付けるようになりました。
+
+- 旧形式: `000001-010-db-create-user-table`
+- 新形式: `yk-000001-010-db-create-user-table`
+
+Task ディレクトリも同じ名前になります。イニシャルのない旧形式の ID は引き続き有効で、番号が振り直されることもありません。新旧の ID は同じ project 内で共存できます。
+
+イニシャルは小文字の英字・数字 2〜4 文字です。`--initials yk` で明示するか、skill に解決させることができます。
+
+- **Claude Code**: `--initials` → project の `CLAUDE.md` 内 `## Task Initials` セクション → `git config user.email` / `user.name` からの導出(初回に確認し、結果を `CLAUDE.md` にキャッシュ)の順に解決します。いずれも解決できない場合は、イニシャルなしの旧形式の番号付けに戻ります。
+- **Codex**: `--initials` → project の `.codex/ywc.json` → user の `~/.codex/ywc.json` → 導出(初回に確認し、`ywc-setup` で保存)の順に解決します。非対話実行で何も保存されていない場合は、`--initials` を求めて `NEEDS_CONTEXT` で停止します。
+
+番号はイニシャルごとに数えます。各自のカウンターは、自分自身の最大 phase 番号の続きから進みます。
+
+`--mode human|llm`(エイリアス `--granularity`)で Task の粒度を指定します。`human` は人が約 1 時間でレビューできる大きさ、`llm` は agent 向けのより大きな Task です。フラグを省略すると skill は必ず質問し、黙って選ぶことはありません。
+
+`tasks/dependency-graph.md` が 300 行を超えている場合、生成前に skill が自動で圧縮します(完了した phase は「done」の 1 行見出しにまとめられます)。executor も各 Task の後に同じ処理を行うため、利用者が設定することは何もありません。
+
 ## 実行例
 
 <ToolTabs>

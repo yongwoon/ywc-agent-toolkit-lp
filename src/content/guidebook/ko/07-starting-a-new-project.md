@@ -135,6 +135,8 @@ scope clarity / architecture compliance / evidence quality / reuse verified / ro
 - `ywc-confidence-gate` 가 `STOP`(&lt;70)을 주면 구현으로 넘어가지 말고, 부족하다고 지적된 축을 먼저 채운 뒤 다시 통과시키세요.
 - 규모가 작아 spec 분해 없이 바로 구현 가능하면 `ywc-plan` 이 Small path 로 routing 해 이 흐름 전체를 건너뛸 수 있습니다.
 - `ywc-onboard-repo` 는 이 흐름의 반대 방향(기존 repo 조사)이므로 새 project 생성 시에는 사용하지 않습니다.
+- 대규모 TypeScript product 라면 `ywc-project-scaffold` 가 pnpm workspaces monorepo 를 제안할 수 있습니다 (`apps/web`, `apps/server`, `packages/{contracts,core,db,…}`, 루트 `tests/{architecture,contract,integration,e2e}`). 이때 `contracts` 는 내부 dependency 가 없고, `core` 는 framework 나 인프라를 import 하지 않으며, 금지된 dependency 는 `tests/architecture` 가 검사합니다.
+- 새 UI 는 기본적으로 mobile-first 로 계획됩니다 (가장 좁은 viewport 부터 시작해 `min-width` breakpoint 로 넓혀 갑니다). 화면이 PC/tablet 전용이라면 (예: 관리자 도구) 그 사실을 한 줄로 명시하세요.
 
 ---
 

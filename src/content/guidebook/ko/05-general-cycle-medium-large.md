@@ -30,6 +30,22 @@ ywc-plan → ywc-spec-ready → ywc-task-generator → ywc-sequential-executor -
 | Task 간 순서가 중요하거나, 서로의 결과물에 의존한다 | `ywc-sequential-executor` |
 | Task 들이 서로 독립적이고, `dependency-graph.md` 상 병렬 실행 가능한 wave 로 묶인다 | `ywc-parallel-executor` (Git Worktree 로 격리) |
 
+## Task ID 와 협업자 initials
+
+`ywc-task-generator` 는 Task ID 앞에 협업자의 initials 를 붙입니다. 여러 사람이 동시에 Task 를 만들어도 번호가 겹치지 않게 하기 위해서입니다.
+
+- 예: 기존 `000001-010-db-create-user-table` → 새 `yk-000001-010-db-create-user-table`. Task 디렉터리 이름도 같습니다.
+- initials 가 없는 기존 ID 는 그대로 유효하며 번호를 바꾸지 않습니다. 두 방식의 ID 가 함께 있어도 괜찮습니다.
+- initials 는 소문자 영문과 숫자 2–4자입니다. `--initials yk` 로 직접 지정하거나, skill 이 아래 순서로 확인하게 할 수 있습니다.
+  - Claude Code: `--initials` → 프로젝트 `CLAUDE.md` 의 `## Task Initials` 섹션 → `git config user.email` / `user.name` 에서 유도한 뒤 한 번 확인 (확인된 값은 `CLAUDE.md` 에 저장됩니다). 어디에서도 값을 얻지 못하면 initials 없는 기존 번호 방식으로 되돌아갑니다.
+  - Codex: `--initials` → 프로젝트 `.codex/ywc.json` → 사용자 `~/.codex/ywc.json` → 유도한 뒤 한 번 확인 (`ywc-setup` 으로 저장됩니다). 비대화형 실행에서 저장된 값도 없으면 `NEEDS_CONTEXT` 로 멈추고 `--initials` 를 요청합니다.
+- 번호는 initials 마다 따로 셉니다. 각자의 번호는 자기 initials 로 만든 Task 중 가장 높은 phase 에서 이어집니다.
+
+Task 생성 옵션 두 가지도 알아 두면 좋습니다.
+
+- `--mode human|llm` (별칭 `--granularity`): Task 의 크기를 정합니다. `human` 은 사람이 약 1시간 안에 검토할 수 있는 크기, `llm` 은 agent 가 처리하도록 더 크게 묶은 크기입니다. flag 를 생략하면 skill 이 매번 묻고, 임의로 고르지 않습니다.
+- `tasks/dependency-graph.md` 가 300줄을 넘으면 Task 생성 전에 skill 이 자동으로 압축합니다. 완료된 phase 는 "done" 한 줄짜리 heading 으로 접힙니다. executor 도 Task 를 끝낼 때마다 같은 압축을 합니다. 사용자가 따로 할 일은 없습니다.
+
 ## 실행 예시
 
 <ToolTabs>

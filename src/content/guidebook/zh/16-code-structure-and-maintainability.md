@@ -41,6 +41,18 @@
 
 这是不修改代码的只读分析——发现的问题的实际修复会另行分派给 Backend/Frontend 负责的 agent。
 
+**值得了解的选项**
+
+- 必须且只能选择一个评审目标：`--code <path>`、`--git-range <sha>..<sha>` 或 `--working-tree`（包含已暂存、未暂存和未跟踪的改动，无需提交）。在 Claude Code 中，`--spec` 为可选。
+- `--profile chill|assertive`（默认 `chill`）：`chill` 隐藏 Low/Info 级别的风格建议；`assertive` 会显示这些建议。Critical/High/Medium 永远不会被隐藏。
+- `--no-advisor` 跳过 Phase 2 的 advisor 调用；`--advisor-budget <n>` 限制其次数（默认 5）。
+- `--format html` 会在 `claudedocs/` 中写入自包含报告（默认 `markdown`）。
+- `--non-interactive`（仅 Claude Code）：跳过 learnings 晋升提示，并改为在报告中列出 learning 候选项。
+
+**独立验证（Independent verification）**：每个已确认的 Critical 或 High 发现都会由一名全新的评审者重新核对一次，该评审者只看到 `file:line` 和声称的严重程度。无法复现的发现会交给 Phase 2 advisor 处理（Security 发现除外），否则标记为 unverified。每次运行最多验证 20 个发现。
+
+**范围护栏（Scope guardrail）**：当评审范围内超过 200 个文件或超过 5,000 行改动时，评审会拒绝启动（`NEEDS_CONTEXT`）。它会报告文件数与行数，列出最大的 5 个文件，并要求你缩小评审目标。不会对任何内容抽样或截断。
+
 ## 2 个 Skill 如何协同工作
 
 清理陌生或年久失修、让人不敢轻易下手的 codebase 时，常见的顺序如下。

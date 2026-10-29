@@ -144,6 +144,13 @@ Esta es la combinación más completa cuando quieres dejar el proceso de pago pr
 
 > **Nota**: `--local-merge` / `--draft` / `--skip-ci-wait` / `--aggregate-pr` son mutuamente exclusivos. Si usas dos o más juntos, la ejecución se detiene y solicita aclaración. `--review` y `--worktree` se pueden combinar con cualquiera de esos modos.
 
+**Flags para scripts y CI**
+
+| Flag | Qué hace | Disponibilidad |
+|---|---|---|
+| `--terse` | Imprime solo la tabla de Tasks (nombre, estado, URL del PR o SHA de fusión) y la línea final `Completion Status`. Pensado para parseo en CI | Ambos ejecutores, ambas herramientas |
+| `--non-interactive` | Suprime todos los prompts. Cualquier decisión que necesitaría respuesta termina en un estado fijo: `NEEDS_CONTEXT` si falta información, `BLOCKED` ante un conflicto, árbol sucio o `gh` sin autenticar, y `DONE_WITH_CONCERNS` ante un timeout de CI | Claude Code: solo `ywc-sequential-executor`. Codex: solo `ywc-parallel-executor` |
+
 ## ywc-parallel-executor - cuando quieres ejecutar Tasks de manera independiente al mismo tiempo
 
 **Ejecuta Tasks de manera independiente en paralelo, creando y fusionando un PR por cada Task**
@@ -190,6 +197,15 @@ Tasks se apilan por ola en una rama `aggregate/payments` y se entregan como **un
 Después de que se completen todas las olas, se crea un borrador PR y la fusión es manual.
 
 > **Nota**: Si no se especifica ninguno de `--local-merge` / `--draft` / `--per-task-pr` / `--aggregate-pr`, se pregunta cuál de los cuatro modos deseas en lugar de elegir silenciosamente un valor predeterminado. `--review` se puede combinar con cualquier modo. (Para referencia, `ywc-parallel-executor` no tiene una bandera `--worktree` separada porque el aislamiento de worktree por Task es el comportamiento predeterminado de este Skill.)
+
+### Puerta de calidad y hardener de ola (opt-in)
+
+Si una Task declara un `## Quality Gate Contract` (puntuación CRAP ≤ 6–8 y puntuación de mutación ≥ 90 %, o el centinela `N/A — no quality gate contract`), los ejecutores lanzan un cleaner (refactor del código de producción) y un hardener (solo tests; no puede editar código de producción). El hardener se ejecuta una vez por ola, después de que se fusionan las Tasks de esa ola.
+
+- Con `--local-merge`, `--draft` o `--aggregate-pr`, la ola primero se fusiona en una rama `wave-int/<N>`. Esa rama solo se promueve a la rama base si el veredicto del hardener es PASS (o si ninguna puerta aplica). Con un veredicto `BLOCKED` / `NEEDS_CONTEXT`, la rama base no se toca y se conservan la rama y los worktrees para que puedas corregir y reanudar.
+- Al reanudar, el ejecutor verifica que la rama `wave-int/<N>` siga coincidiendo con el SHA de tip que registró. Si no puede verificarla, bloquea la ola en lugar de reutilizarla.
+- Con `--per-task-pr`, el hardener solo informa y nunca bloquea.
+- Las Tasks sin contrato no se ven afectadas.
 
 ## ywc-code-gen - cuando quieres generar código directamente sin la descomposición Task
 

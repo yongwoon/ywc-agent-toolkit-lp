@@ -20,6 +20,7 @@
 | [`ywc-refactor-clean`](#오래된-dead-code-미사용-함수export의존성를-정리하고-싶다) | 오래된 dead code (미사용 함수/export/의존성)를 정리하고 싶다 |
 | [`ywc-impl-review`](#일반-cycle-밖에서-독립적으로-구현-품질과-maintenance-관점을-점검하고-싶다) | 일반 cycle 밖에서 독립적으로 구현 품질과 maintenance 관점을 점검하고 싶다 |
 | [`ywc-tdd-ritual`](#red--green--refactor-를-문서화된-절차대로-엄격하게-지키면서-구현하고-싶다) | RED → GREEN → REFACTOR 를 문서화된 절차대로 엄격하게 지키면서 구현하고 싶다 |
+| [`ywc-verify-done`](#명시적이고-다시-실행할-수-있는-gate-로-완료를-증명하고-싶다) | 명시적이고 다시 실행할 수 있는 gate 로 완료를 증명하고 싶다 |
 | [`ywc-e2e-test-strategy`](#critical-user-flow-를-playwright-로-자동화하거나-기존-e2e-커버리지의-빈틈을-점검하고-싶다) | critical user flow 를 Playwright 로 자동화하거나, 기존 E2E 커버리지의 빈틈을 점검하고 싶다 |
 | [`ywc-product-review`](#코드가-아니라-비즈니스서비스-관점에서-프로젝트를-리뷰받고-싶다) | 코드가 아니라 비즈니스/서비스 관점에서 프로젝트를 리뷰받고 싶다 |
 | [`ywc-review-learnings`](#code-review-에서-반복-지적되는-내용을-학습시켜서-다음부터-다시-지적하지-않게-하고-싶다) | Code review 에서 반복 지적되는 내용을 학습시켜서 다음부터 다시 지적하지 않게 하고 싶다 |
@@ -46,7 +47,7 @@
     <CodeBlock label="codex" code="ywc-handle-pr-reviews 250" />
   </ToolTabsPanel>
 </ToolTabs>
-PR 번호를 생략하면 현재 branch 의 PR 을 자동으로 찾습니다.
+PR 번호를 생략하면 현재 branch 의 PR 을 자동으로 찾습니다. *(Claude Code 전용)* CodeRabbit 의 "Nitpick comments" 는 review thread 가 없어도 감지되어 다른 comment 와 같은 방식으로 분류되며, 처리한 항목은 hidden marker 가 들어간 PR 코멘트 하나에 기록되어 다시 올라오지 않습니다.
 
 ### 변경사항을 commit 하고 draft PR 을 열고 싶다
 
@@ -59,6 +60,8 @@ PR 번호를 생략하면 현재 branch 의 PR 을 자동으로 찾습니다.
   </ToolTabsPanel>
 </ToolTabs>
 [04](./04-general-cycle-small.md), [05](./05-general-cycle-medium-large.md)의 흐름에 이미 포함되어 있으므로, 그 흐름 밖에서 단독으로 PR 만 열고 싶을 때 씁니다.
+
+task README 또는 `docs/ywc-plans/` 아래 plan 이 발견되면 PR 본문에 `Design Background` 섹션이 추가됩니다 (목표, 그리고 plan 에 있다면 Alternatives Considered / Trade-offs). `--plan-doc <path.md>` 로 plan 을 직접 고를 수 있고 (repo 안의 repo-relative 경로), `--no-plan-ref` 로 이 탐색을 끌 수 있습니다. 두 flag 를 함께 주면 `--plan-doc` 이 우선합니다. 조건에 맞는 plan 이 여러 개면 목록을 보여 주고, `--plan-doc` 을 붙여 다시 실행하라고 요청합니다.
 
 ### 쌓여있는 Dependabot PR 을 한번에 정리하고 싶다
 
@@ -108,7 +111,7 @@ PR 생성이나 코드 변경 자체에는 사용하지 않습니다 — commit 
     <CodeBlock label="codex" code="ywc-brainstorm 알림 기능을 만들고 싶은데 아직 어떻게 할지 구체적이지 않음" />
   </ToolTabsPanel>
 </ToolTabs>
-Socratic 대화로 목적/제약/성공 기준과 대안 2~3개를 도출한 뒤 `ywc-plan` 으로 handoff 합니다.
+Socratic 대화로 목적/제약/성공 기준과 대안 2~3개를 도출한 뒤 `ywc-plan` 으로 handoff 합니다. `ywc-plan` 으로 넘기기 전에 설계는 핵심 전제(load-bearing premises)를 근거(`file:line` 과 인용한 snippet)와 함께 나열하고, 각 전제에 VERIFIED 또는 UNVERIFIED 상태를 붙입니다. UNVERIFIED 전제는 failure mode 로 기록하거나 out-of-scope 로 옮기며, 조용히 가정하지 않습니다.
 
 ### 라이브러리나 구현 방식을 비교해서 뭘 쓸지 결정하고 싶다
 
@@ -166,6 +169,35 @@ Socratic 대화로 목적/제약/성공 기준과 대안 2~3개를 도출한 뒤
   </ToolTabsPanel>
 </ToolTabs>
 `ywc-code-gen`, `ywc-sequential-executor` 등에서 언급되는 opt-in `--tdd` 절차가 바로 이 skill 입니다 — 매 RED/GREEN/REFACTOR 전환마다 검증 단계를 강제합니다.
+
+### 명시적이고 다시 실행할 수 있는 gate 로 완료를 증명하고 싶다
+
+`ywc-verify-done` 은 완료 조건을 markdown ledger 로 적어 두고, 각 gate 의 명령을 다시 실행해 확인하는 skill 입니다. ledger 의 각 gate 에는 다음 세 줄을 씁니다.
+
+- `CHECK:` 실행할 shell 명령
+- `EXPECT:` 결과에 포함되어야 하는 substring 또는 `/regex/`
+- `EVIDENCE:` 근거를 적는 줄
+
+ledger 를 검사하는 명령은 다음과 같습니다.
+
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="python3 claude-code/skills/ywc-verify-done/scripts/gate-check.py --status gate-ledger.md" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="python3 &quot;${CODEX_HOME:-$HOME/.codex}/skills/ywc-verify-done/scripts/gate-check.py&quot; --status gate-ledger.md" />
+  </ToolTabsPanel>
+</ToolTabs>
+
+`--status` 를 빼면 gate 를 실행하고, `--reverify` 를 주면 모든 gate 를 처음부터 다시 실행합니다.
+
+- 종료 코드 0 은 실행 가능한 gate 가 모두 충족되었다는 뜻입니다.
+- `CHECK` 와 `EXPECT` 가 모두 없는 gate 는 manual 로 취급하며, 결과와 무관하게 막지 않습니다.
+- 이전에 PASS 한 gate 는 gate 문구가 바뀌지 않았을 때만 그 결과를 신뢰합니다.
+- 각 gate 는 120초 timeout 이 있습니다.
+- `CHECK` 줄은 사용자의 권한으로 임의의 명령을 실행합니다. 직접 쓰지 않은 ledger 라면 먼저 내용을 읽어 보세요.
+
+ledger 는 선택 사항입니다. 기본 방식인 단일 명령 검증은 그대로이며, Claude Code 와 Codex 에서 모두 쓸 수 있습니다.
 
 ### critical user flow 를 Playwright 로 자동화하거나, 기존 E2E 커버리지의 빈틈을 점검하고 싶다
 
@@ -295,6 +327,9 @@ User value, UX, growth, risk 등 비즈니스 관점에서 프로젝트를 되�
 </ToolTabs>
 생성 문서, PR 문구, commit message 의 출력 언어를 매번 skill 호출마다 `--lang` 로 넘기지 않고 고정하고 싶을 때 씁니다. project 또는 user 의 영속 기본값을 설정하는 용도이며, 현재 chat 언어를 바꾸지는 않습니다.
 
+- Codex `ywc-setup` 은 협업자 initials 도 함께 저장합니다 (`--initials yk`). `--scope project|user` 로 저장 위치를 고릅니다. `project` 는 `.codex/ywc.json`, `user` 는 `~/.codex/ywc.json` 입니다.
+- Claude Code `ywc-setup-language` 는 언어만 설정하며, 결과를 `CLAUDE.md` 의 `## Language Policy` 섹션에 씁니다. Claude Code 의 initials 는 `--initials` 또는 `CLAUDE.md` 의 `## Task Initials` 섹션에서 정해집니다 ([05](./05-general-cycle-medium-large.md) 참고).
+
 일회성 지정은 계속 우선합니다. 해석 순서는 대상 skill 에 명시한 `--lang` > project/user 영속 기본값 > 질문입니다.
 
 ### 격리된 worktree 경로를 만들거나, 점검/정리하고 싶다
@@ -393,7 +428,7 @@ User value, UX, growth, risk 등 비즈니스 관점에서 프로젝트를 되�
 | `ywc-tech-research` | 라이브러리나 구현 방식을 비교해서 뭘 쓸지 결정하고 싶다 | [여기](#라이브러리나-구현-방식을-비교해서-뭘-쓸지-결정하고-싶다) |
 | `ywc-ubiquitous-language` | 개발자·도메인 전문가·LLM 이 공유할 도메인 용어집을 만들거나 갱신하고 싶다 | [여기](#개발자도메인-전문가llm-이-공유할-도메인-용어집을-만들거나-갱신하고-싶다) |
 | `ywc-ui-ux-review` | 화면 usability 와 접근성을 점검하는 skill | [11](./11-design-review.md) |
-| `ywc-verify-done` | lint/typecheck/test/build 를 실행해 완료 여부를 기계적으로 검증하는 skill | [06](./06-agentic-autonomous-loop.md) |
+| `ywc-verify-done` | lint/typecheck/test/build 를 실행해 완료 여부를 기계적으로 검증하는 skill | [여기](#명시적이고-다시-실행할-수-있는-gate-로-완료를-증명하고-싶다) |
 | `ywc-wayfinder` | 크거나 불확실한 변경을 계획 전에 여러 session 에 걸쳐 탐색하고 싶다 *(Codex 전용)* | [여기](#특정-도구에서만-제공되는-skill) |
 | `ywc-worktrees` | 격리된 worktree 경로를 만들거나, 점검/정리하고 싶다 | [여기](#격리된-worktree-경로를-만들거나-점검정리하고-싶다) |
 
