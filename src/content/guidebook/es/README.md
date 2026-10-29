@@ -14,7 +14,7 @@ Esto está organizado en torno a **lo que estás intentando hacer ahora**, no a 
 
 ### Planificar e implementar
 
-| Lo que quieres hacer | Iniciando Skill | Guía |
+| Lo que quieres hacer | Skill inicial | Guía |
 |---|---|---|
 | Arreglar un error o agregar una pequeña función | `ywc-plan` | [04](./03-quickstart.md), [05](./04-general-cycle-small.md) |
 | Construya una función más grande que necesite dividirse en múltiples Tasks | `ywc-plan` -> `ywc-task-generator` | [06](./05-general-cycle-medium-large.md) |
@@ -30,7 +30,7 @@ Esto está organizado en torno a **lo que estás intentando hacer ahora**, no a 
 
 ### Calidad y verificación
 
-| Lo que quieres hacer | Iniciando Skill | Guía |
+| Lo que quieres hacer | Skill inicial | Guía |
 |---|---|---|
 | Cree un documento de prueba manual para la verificación PR | `ywc-gen-testcase` | [11](./09-testing-guide.md) |
 | Configurar o expandir la automatización de pruebas E2E | `ywc-e2e-test-strategy` | [12](./10-e2e-test-strategy.md) |
@@ -42,9 +42,9 @@ Esto está organizado en torno a **lo que estás intentando hacer ahora**, no a 
 | Demostrar la finalización con puertas explícitas y re-ejecutables | `ywc-verify-done` | [19](./14-skill-reference.md) |
 | Revisar un proyecto desde la perspectiva del negocio y del usuario | `ywc-product-review` | [19](./14-skill-reference.md) |
 
-### PR, revisiones y versiones
+### PR, revisiones y lanzamientos
 
-| Lo que quieres hacer | Iniciando Skill | Guía |
+| Lo que quieres hacer | Skill inicial | Guía |
 |---|---|---|
 | Responder a los comentarios de revisión en un PR abierto | `ywc-handle-pr-reviews` | [19](./14-skill-reference.md) |
 | Comprobar si el comentario de un revisor es realmente correcto antes de actuar | `ywc-receive-review` | [19](./14-skill-reference.md) |
@@ -55,14 +55,14 @@ Esto está organizado en torno a **lo que estás intentando hacer ahora**, no a 
 
 ### Depuración e incidentes
 
-| Lo que quieres hacer | Iniciando Skill | Guía |
+| Lo que quieres hacer | Skill inicial | Guía |
 |---|---|---|
 | Estás atascado porque no puedes encontrar la causa raíz de un error | `ywc-debug-rootcause` | [15](./12-debugging-and-incident-postmortem.md) |
 | Ocurrió un incidente de producción y necesitas escribir un informe posterior al incidente | `ywc-incident-postmortem` | [15](./12-debugging-and-incident-postmortem.md) |
 
 ### Conocimiento y decisiones del proyecto
 
-| Lo que quieres hacer | Iniciando Skill | Guía |
+| Lo que quieres hacer | Skill inicial | Guía |
 |---|---|---|
 | Gestionar el conocimiento (glosario/aprendizajes de revisión/mission) que permanece en el proyecto después de que termina la conversación | `ywc-ubiquitous-language` | [19](./14-skill-reference.md) |
 | Registrar una decisión de arquitectura difícil de revertir (solo en Claude Code) | `ywc-adr` | [19](./14-skill-reference.md) |
