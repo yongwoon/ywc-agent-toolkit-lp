@@ -30,12 +30,12 @@
 
 > **提示**：`ywc-sequential-executor` 本身没有单独的 `--tdd` flag。每个 Task 的实现步骤内部遵循与 `ywc-code-gen` 相同的默认 TDD gate(实现前先确认一个失败的测试)。如果需要完整的 RED → GREEN → REFACTOR 仪式和分阶段 checkpoint commit，请参考下方 `ywc-code-gen` 部分的 `--tdd` flag，并在该 Task 的实现请求中明确加入。
 
-**用于脚本与 CI 的 flag（Flags for scripting and CI）**
+**用于脚本与 CI 的标志**
 
 | Flag | 作用 | 可用范围 |
 |---|---|---|
 | `--terse` | 只输出任务表（名称、状态、PR URL 或合并 SHA）以及最终的 `Completion Status` 行，便于 CI 解析 | 两个 executor，两种工具 |
-| `--non-interactive` | 抑制所有提示；任何需要回答的决定都会改为固定状态结束：缺少信息时为 `NEEDS_CONTEXT`，冲突、工作树存在未提交改动或 `gh` 未认证时为 `BLOCKED`，CI 超时为 `DONE_WITH_CONCERNS` | Claude Code：仅 `ywc-sequential-executor`；Codex：仅 `ywc-parallel-executor` |
+| `--non-interactive` | 抑制所有提示；原本需要用户回答的决策，都改为以固定状态结束：缺少信息时为 `NEEDS_CONTEXT`，冲突、工作树存在未提交改动或 `gh` 未认证时为 `BLOCKED`，CI 超时为 `DONE_WITH_CONCERNS` | Claude Code：仅 `ywc-sequential-executor`；Codex：仅 `ywc-parallel-executor` |
 
 `--worktree` 已在下文说明，此处不再重复。
 
@@ -185,7 +185,7 @@ Tasks 顺序堆叠在一个 `work/project-health` 分支上，并作为 **一个
     <CodeBlock label="codex" code="ywc-parallel-executor --all --aggregate-pr --group-name payments --review" />
   </ToolTabsPanel>
 </ToolTabs>
-Tasks 按波浪在一个 `aggregate/payments` 分支上堆叠，并作为 **一个** PR 交付。有关完整的 `--aggregate-pr` 和 `--group-name` 模型，请参见本页顶部的“共享概念”部分。它与 `ywc-sequential-executor` 的概念完全相同，只是共享分支前缀从 `work/` 变为 `aggregate/`。
+Tasks 按 wave 在一个 `aggregate/payments` 分支上堆叠，并作为 **一个** PR 交付。有关完整的 `--aggregate-pr` 和 `--group-name` 模型，请参见本页顶部的“共享概念”部分。它与 `ywc-sequential-executor` 的概念完全相同，只是共享分支前缀从 `work/` 变为 `aggregate/`。
 
 **在所有工作完成后，让人工一次性审查并合并所有内容**
 <ToolTabs>
@@ -207,7 +207,7 @@ Tasks 按波浪在一个 `aggregate/payments` 分支上堆叠，并作为 **一�
 - 使用 `--local-merge`、`--draft` 或 `--aggregate-pr` 时，wave 会先合并到 `wave-int/<N>` 分支，只有 hardener 结论为 PASS（或没有适用的 gate）时，才会提升到基础分支。结论为 `BLOCKED` / `NEEDS_CONTEXT` 时，基础分支保持不变，并保留该分支与工作树，以便修复后恢复。
 - 恢复时，执行器会核对 `wave-int/<N>` 分支是否仍与其记录的 tip SHA 一致；若无法核对，则阻止该 wave，而不会复用这个分支。
 - 使用 `--per-task-pr` 时，hardener 只报告，不会阻止。
-- 没有合约的 Task 不受影响。
+- 未声明契约的 Task 不受影响。
 
 ## ywc-code-gen - 当你想在不进行 Task 分解的情况下直接生成代码
 

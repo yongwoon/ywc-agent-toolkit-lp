@@ -30,9 +30,9 @@ ywc-plan → ywc-spec-ready → ywc-task-generator → ywc-sequential-executor -
 | Task 間の順序が重要、または互いの成果物に依存する | `ywc-sequential-executor` |
 | Task 同士が独立しており、`dependency-graph.md` 上で並列実行可能な wave にまとまる | `ywc-parallel-executor` (Git Worktree で隔離) |
 
-## Task ID と協力者イニシャル
+## Task ID と作業者イニシャル
 
-`ywc-task-generator` は、複数の人が Task を生成しても番号が衝突しないように、Task ID の先頭に協力者のイニシャルを付けるようになりました。
+`ywc-task-generator` は、複数の人が Task を生成しても番号が衝突しないように、Task ID の先頭に作業者のイニシャルを付けるようになりました。
 
 - 旧形式: `000001-010-db-create-user-table`
 - 新形式: `yk-000001-010-db-create-user-table`

@@ -39,9 +39,9 @@ ywc-plan -> ywc-spec-ready -> ywc-task-generator -> ywc-sequential-executor --re
 - Claude Code: `--initials` → sección `## Task Initials` del `CLAUDE.md` del proyecto → derivadas de `git config user.email` / `user.name` y confirmadas una vez (luego se guardan en `CLAUDE.md`). Si nada se resuelve, se usa la numeración antigua sin prefijo.
 - Codex: `--initials` → `.codex/ywc.json` del proyecto → `~/.codex/ywc.json` del usuario → derivadas y confirmadas una vez (se guardan con `ywc-setup`). En ejecuciones no interactivas sin nada guardado, la skill se detiene con `NEEDS_CONTEXT` y pide `--initials`.
 
-**Tamaño de las Tasks.** `--mode human|llm` (alias `--granularity`) controla el tamaño. `human` genera Tasks dimensionadas para una revisión de una hora aproximadamente por persona; `llm` genera Tasks más grandes, dimensionadas para un agente. Si omites el flag, la skill siempre pregunta; nunca elige en silencio.
+**Tamaño de las Tasks.** `--mode human|llm` (alias `--granularity`) controla el tamaño. `human` genera Tasks que una persona puede revisar en aproximadamente una hora; `llm` genera Tasks más grandes, dimensionadas para un agente. Si omites el flag, la skill siempre pregunta; nunca elige en silencio.
 
-Antes de generar, si `tasks/dependency-graph.md` supera las 300 líneas, la skill lo compacta automáticamente (las fases completadas se colapsan en un encabezado "done" de una línea). Los ejecutores también lo hacen tras cada Task. No tienes que escribir nada.
+Antes de generar, si `tasks/dependency-graph.md` supera las 300 líneas, la skill lo compacta automáticamente (las fases completadas se colapsan en un encabezado "done" de una línea). Los ejecutores también lo hacen tras cada Task. No tienes que hacer nada.
 
 ## Ejemplo de ejecución
 

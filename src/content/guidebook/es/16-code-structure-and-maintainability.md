@@ -47,7 +47,7 @@ Es un análisis de solo lectura que no modifica el código — la corrección re
 - `--profile chill|assertive` (por defecto `chill`): `chill` oculta los nits de estilo Low/Info; `assertive` los muestra. Critical/High/Medium nunca se ocultan.
 - `--no-advisor` omite las llamadas al advisor de la Fase 2; `--advisor-budget <n>` limita cuántas se hacen (por defecto 5).
 - `--format html` escribe un informe autocontenido en `claudedocs/` (por defecto `markdown`).
-- `--non-interactive` (solo Claude Code): omite la pregunta de promoción de learnings y, en su lugar, lista los candidatos a learning en el informe.
+- `--non-interactive` (solo en Claude Code): omite la pregunta de promoción de learnings y, en su lugar, lista los candidatos a learning en el informe.
 
 **Verificación independiente.** Cada hallazgo Critical o High confirmado es revisado de nuevo, una vez, por un revisor nuevo que solo ve `file:line` y la severidad declarada. Los hallazgos que no se pueden reproducir se envían al advisor de la Fase 2 (salvo los de Security) o se marcan como no verificados. Como máximo se verifican 20 hallazgos por ejecución.
 
@@ -59,7 +59,7 @@ Un orden habitual para limpiar un codebase desconocido o antiguo que da miedo to
 
 **Paso 1: Empieza por lo más seguro — `ywc-refactor-clean`**
 
-Si hay dead code, atiende primero este paso, el más reversible. Solo elimina lo que la herramienta de detección, grep y los tests aceptan los tres a la vez, así que el riesgo es bajo.
+Si hay dead code, atiende primero este paso, el más reversible. Solo elimina lo que la herramienta de detección, grep y los tests coinciden en marcar como no usado, así que el riesgo es bajo.
 
 **Paso 2: Verificación final — `ywc-impl-review`**
 
