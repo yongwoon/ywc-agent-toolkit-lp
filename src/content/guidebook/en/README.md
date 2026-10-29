@@ -37,6 +37,13 @@ This is organized around **what you are trying to do now**, not "which Skills ex
 | I want an independent check of implementation quality and maintainability | `ywc-impl-review` | [13](./16-code-structure-and-maintainability.md) |
 | Compare libraries or implementation approaches to decide what to use | `ywc-tech-research` | [17](./14-skill-reference.md) |
 | Manage knowledge (glossary/review learnings/mission) that persists in the project after the conversation ends | `ywc-ubiquitous-language` | [17](./14-skill-reference.md) |
+| Stop the same review comments from coming back | `ywc-review-learnings` | [19](./19-skill-combination-recipes.md) |
+| Check whether a reviewer's comment is actually right before acting on it | `ywc-receive-review` | [17](./14-skill-reference.md) |
+| Prove completion with explicit, re-runnable gates | `ywc-verify-done` | [17](./14-skill-reference.md) |
+| Review a project from the business and user perspective | `ywc-product-review` | [17](./14-skill-reference.md) |
+| Record a hard-to-reverse architecture decision (Claude Code only) | `ywc-adr` | [17](./14-skill-reference.md) |
+| Explore a large, uncertain change across several sessions (Codex only) | `ywc-wayfinder` | [19](./19-skill-combination-recipes.md) |
+| See how Skills hand off to each other | - | [19](./19-skill-combination-recipes.md) |
 
 For situations not covered in this table, see [17. Full Skill Reference](./14-skill-reference.md).
 
