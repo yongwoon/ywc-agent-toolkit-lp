@@ -79,6 +79,7 @@
 | [16. Executor / Code-gen Prompt 패턴](./13-executor-and-codegen-patterns.md) | 옵션이 많은 `ywc-sequential-executor` / `ywc-parallel-executor` / `ywc-code-gen` 실전 명령어 모음 |
 | [17. 전체 Skill 레퍼런스](./14-skill-reference.md) | 위 가이드에서 다루지 않은 나머지 Skill 을 상황별로 정리한 색인 |
 | [18. 사전 준비와 설치](./15-prerequisites-installation.md) | ywc-* Skill 을 안정적으로 실행하기 위해 미리 준비해야 할 필수/선택 Tool 목록 |
+| [19. Skill 조합 레시피](./19-skill-combination-recipes.md) | Skill 끼리 이어지는 방식: review 학습 루프, 버그 재발 방지, PR gate, 결정 기록, 탐색, 병렬 실행, release |
 
 ## 원본 자료
 

@@ -162,4 +162,4 @@ gh pr checks --watch
 
 ---
 
-[Previous: 17. 完整 Skill 参考](./14-skill-reference.md) - [返回目录](./README.md)
+[Previous: 17. 完整 Skill 参考](./14-skill-reference.md) - [Next: 19. Skill 组合用法](./19-skill-combination-recipes.md)

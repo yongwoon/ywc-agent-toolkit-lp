@@ -88,5 +88,10 @@
     "slug": "15-prerequisites-installation",
     "title": "18. 事前準備とインストール",
     "summary": "ywc-* Skill を安定して使うには、いくつかの Tool を事前に準備しておく必要があります。Plugin marketplace や Codex plugin からインストールすればファイルコピーと登録は自動で処理されますが、Skill を 実際に実行 するときは以下の Tool が System に入っている必要があります。手順は次のとおりです — ① 必須 Tool のインストール → ② ywc-agent-toolkit 自体のインストール(Claude Code / Codex) → その下は状況に応じて準備する選択 Tool です。"
+  },
+  {
+    "slug": "19-skill-combination-recipes",
+    "title": "19. Skill 組み合わせレシピ",
+    "summary": "他のページはフロー 1 つ、または Skill 1 つずつを説明しています。このページでは、Skill 同士がどうつながるか — ある Skill が何を残し、それをどの Skill が引き継ぐか — を示します。以下のつながりはすべて Skill 自身が行う動作(共有ファイルの読み込み、次の Skill への hand-off の提案)であり、ユーザーが覚えておくべき慣習ではありません。"
   }
 ]

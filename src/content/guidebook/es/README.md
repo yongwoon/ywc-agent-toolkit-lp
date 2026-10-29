@@ -79,6 +79,7 @@ Para situaciones no cubiertas en esta tabla, consulte [17. Full Skill Reference]
 | [16. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md) | Ejemplos prácticos de comandos para `ywc-sequential-executor` / `ywc-parallel-executor` / `ywc-code-gen` con muchas opciones |
 | [17. Full Skill Reference](./14-skill-reference.md) | Un índice de las Habilidades restantes no cubiertas en las guías anteriores, organizado por situación |
 | [18. Requisitos previos e instalación](./15-prerequisites-installation.md) | La lista de herramientas obligatorias y opcionales que debes tener listas para que las Skills ywc-* funcionen de forma fiable |
+| [19. Recetas para combinar Skills](./19-skill-combination-recipes.md) | Cómo se pasan el trabajo las Skills entre sí: bucle de aprendizaje de revisiones, del bug a la prevención, gates de PR, registro de decisiones, exploración, ejecución en paralelo y release |
 
 ## Material fuente
 

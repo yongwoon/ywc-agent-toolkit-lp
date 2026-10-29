@@ -79,6 +79,7 @@ For situations not covered in this table, see [17. Full Skill Reference](./14-sk
 | [16. Executor / Code-gen Prompt patterns](./13-executor-and-codegen-patterns.md) | Practical command examples for option-heavy `ywc-sequential-executor` / `ywc-parallel-executor` / `ywc-code-gen` |
 | [17. Full Skill Reference](./14-skill-reference.md) | An index of the remaining Skills not covered in the guides above, organized by situation |
 | [18. Prerequisites and installation](./15-prerequisites-installation.md) | The required and optional tools you need in place before ywc-* Skills run reliably |
+| [19. Skill combination recipes](./19-skill-combination-recipes.md) | How Skills hand off to each other: review learning loop, bug-to-prevention, PR gates, decision records, discovery, parallel execution, and release |
 
 ## Source material
 

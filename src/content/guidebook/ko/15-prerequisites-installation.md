@@ -162,4 +162,4 @@ gh pr checks --watch
 
 ---
 
-[← 이전: 17. 전체 Skill 레퍼런스](./14-skill-reference.md) · [목차로 돌아가기 »](./README.md)
+[← 이전: 17. 전체 Skill 레퍼런스](./14-skill-reference.md) · [다음: 19. Skill 조합 레시피 →](./19-skill-combination-recipes.md)

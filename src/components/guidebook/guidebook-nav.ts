@@ -256,6 +256,14 @@ export const guidebookNavGroups: readonly GuidebookNavGroup[] = [
         description: "Required vs. optional tools and how to install ywc-agent-toolkit before relying on it",
         groupId: "reference",
         status: "pending"
+      },
+      {
+        slug: "19-skill-combination-recipes",
+        title: "Skill combination recipes",
+        description:
+          "How Skills hand off to each other: the review learning loop, bug-to-prevention, PR gates, decision records, discovery, parallel execution, and release",
+        groupId: "reference",
+        status: "pending"
       }
     ]
   }
