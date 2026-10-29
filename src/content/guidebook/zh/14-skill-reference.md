@@ -20,6 +20,7 @@
 | [`ywc-refactor-clean`](#清理旧的无用代码未使用的函数导出依赖) | 清理旧的无用代码（未使用的函数/导出/依赖） |
 | [`ywc-impl-review`](#想在常规-cycle-之外独立检查实现质量和-maintenance-角度) | 想在常规 cycle 之外，独立检查实现质量和 maintenance 角度 |
 | [`ywc-tdd-ritual`](#想严格按照文档化的流程执行-red--green--refactor) | 想严格按照文档化的流程执行 RED → GREEN → REFACTOR |
+| [`ywc-verify-done`](#想用明确可重复运行的-gate-证明完成情况) | 想用明确、可重复运行的 gate 证明完成情况 |
 | [`ywc-e2e-test-strategy`](#想用-playwright-自动化-critical-user-flow或检查现有-e2e-覆盖率的缺口) | 想用 Playwright 自动化 critical user flow，或检查现有 E2E 覆盖率的缺口 |
 | [`ywc-product-review`](#想从业务服务角度而不是代码角度获得项目评审) | 想从业务/服务角度而不是代码角度获得项目评审 |
 | [`ywc-review-learnings`](#教系统关于重复代码审查反馈的内容这样它就不会再次提出相同的误报) | 教系统关于重复代码审查反馈的内容，这样它就不会再次提出相同的误报 |
@@ -48,6 +49,8 @@
 </ToolTabs>
 如果你省略 PR 号码，它会自动为当前分支找到 PR。
 
+*(仅 Claude Code)* CodeRabbit 的 "Nitpick comments"（没有 review thread）同样会被检测并分类；已处理的条目会记录在一条 PR 级别的评论中，并带有隐藏标记，因此不会再次出现。
+
 ### 提交更改并打开草稿 PR
 
 <ToolTabs>
@@ -59,6 +62,8 @@
   </ToolTabsPanel>
 </ToolTabs>
 这已经包含在来自 [04](./04-general-cycle-small.md) 和 [05](./05-general-cycle-medium-large.md) 的流程中，因此当你想在这些流程之外仅打开独立的 PR 时使用它。
+
+当任务 README 或 `docs/ywc-plans/` 下的计划被找到时，PR 正文会加入 `Design Background` 部分（目标；若计划中有，则包括 Alternatives Considered / Trade-offs）。`--plan-doc <path.md>` 可显式指定计划（仓库内的相对路径，且位于仓库内部）；`--no-plan-ref` 禁用此查找；同时指定两者时，`--plan-doc` 优先。若多个计划匹配，Skill 会列出它们，并要求你使用 `--plan-doc` 重新运行。
 
 ### 一次性清理累积的 Dependabot PR
 
@@ -109,6 +114,8 @@
   </ToolTabsPanel>
 </ToolTabs>
 通过苏格拉底式对话，它推导出目标/约束条件/成功标准以及2-3个备选方案，然后交给`ywc-plan`。
+
+在交给 `ywc-plan` 之前，设计文档会列出其关键前提（load-bearing premises）及证据（`file:line` 与引用的代码片段），并标注状态 VERIFIED 或 UNVERIFIED。未经验证的前提会被记录为失败模式，或移入范围之外，而不会被默默假设。
 
 ### 想比较库或实现方式，决定要用什么
 
@@ -166,6 +173,33 @@
   </ToolTabsPanel>
 </ToolTabs>
 `ywc-code-gen`、`ywc-sequential-executor` 等提到的可选 `--tdd` 流程，指的正是这个 skill —— 它会在每次 RED/GREEN/REFACTOR 转换时强制执行验证步骤。
+
+### 想用明确、可重复运行的 gate 证明完成情况
+
+你可以编写一份 markdown 账本（ledger），其中每个 gate 都包含以下字段：
+
+- `CHECK:`：一条 shell 命令
+- `EXPECT:`：子串或 `/regex/`
+- `EVIDENCE:`：证据
+
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="python3 claude-code/skills/ywc-verify-done/scripts/gate-check.py --status gate-ledger.md" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="python3 &quot;${CODEX_HOME:-$HOME/.codex}/skills/ywc-verify-done/scripts/gate-check.py&quot; --status gate-ledger.md" />
+  </ToolTabsPanel>
+</ToolTabs>
+
+去掉 `--status` 会运行这些 gate；`--reverify` 会重新运行全部 gate。
+
+- 退出码 0 表示所有可运行的 gate 均已满足。
+- 既没有 CHECK 也没有 EXPECT 的 gate 为人工检查项，永远不会阻塞。
+- 缓存的 PASS 仅在 gate 文本未变化时才被信任。
+- 每个 gate 的超时时间为 120 秒。
+- CHECK 行会以你的权限运行任意命令，因此请先阅读你未亲自编写的账本。
+
+账本是可选的，默认的单命令验证方式保持不变。两种工具均可使用。
 
 ### 想用 Playwright 自动化 critical user flow，或检查现有 E2E 覆盖率的缺口
 
@@ -299,6 +333,9 @@
 
 一次性标志仍然优先。解析顺序是：消费方 skill 上显式传入的 `--lang` > project/user 持久默认值 > 询问用户。
 
+- Codex 的 `ywc-setup` 还会保存协作者缩写（`--initials yk`）。`--scope project|user` 用于选择保存位置：`.codex/ywc.json`（项目）或 `~/.codex/ywc.json`（用户）。
+- Claude Code 的 `ywc-setup-language` 仅设置语言，并将 `## Language Policy` 部分写入 `CLAUDE.md`。Claude Code 中的协作者缩写来自 `--initials` 或 `CLAUDE.md` 中的 `## Task Initials` 部分（参见 [05](./05-general-cycle-medium-large.md)）。
+
 ### 想创建隔离的 worktree 路径，或检查/清理它
 
 <ToolTabs>
@@ -395,7 +432,7 @@
 | `ywc-tech-research` | 想比较库或实现方式，决定要用什么 | [此处](#想比较库或实现方式决定要用什么) |
 | `ywc-ubiquitous-language` | 创建或更新由开发人员、领域专家和大型语言模型共享的领域词汇表 | [此处](#创建或更新由开发人员领域专家和大型语言模型共享的领域词汇表) |
 | `ywc-ui-ux-review` | 检查界面可用性和可访问性的 skill | [11](./11-design-review.md) |
-| `ywc-verify-done` | 通过运行 lint/typecheck/test/build 机械化验证完成情况的 skill | [06](./06-agentic-autonomous-loop.md) |
+| `ywc-verify-done` | 通过运行 lint/typecheck/test/build 机械化验证完成情况的 skill | [此处](#想用明确可重复运行的-gate-证明完成情况) |
 | `ywc-wayfinder` | 用于大型或不确定变更的多会话探索，在规划或实现前建立本地地图 *（仅 Codex）* | [此处](#仅特定工具提供的-skill) |
 | `ywc-worktrees` | 想创建隔离的 worktree 路径，或检查/清理它 | [此处](#想创建隔离的-worktree-路径或检查清理它) |
 

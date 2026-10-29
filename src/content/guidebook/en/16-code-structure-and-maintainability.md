@@ -41,6 +41,18 @@ Runs a parallel 5-axis review: Architecture / Design / Devex / Security / QA. Th
 
 It is a read-only analysis that does not change code — any fix for a found item is dispatched separately to the Backend/Frontend agent.
 
+**Options worth knowing**
+
+- Choose exactly one review target: `--code <path>`, `--git-range <sha>..<sha>`, or `--working-tree` (staged, unstaged, and untracked changes; no commit needed). `--spec` is optional in Claude Code.
+- `--profile chill|assertive` (default `chill`): `chill` hides Low/Info style nits; `assertive` shows them. Critical, High, and Medium findings are never hidden.
+- `--no-advisor` skips the Phase 2 advisor calls. `--advisor-budget <n>` caps them (default 5).
+- `--format html` writes a self-contained report to `claudedocs/` (default `markdown`).
+- `--non-interactive` (Claude Code only) skips the learnings-promotion prompt and lists learning candidates in the report instead.
+
+**Independent verification.** Every confirmed Critical or High finding is re-checked once by a fresh reviewer that sees only the `file:line` and the claimed severity. A finding that cannot be reproduced is sent to the Phase 2 advisor (not for Security findings) or marked unverified. At most 20 findings are verified per run.
+
+**Scope guardrail.** The review refuses to start (`NEEDS_CONTEXT`) when more than 200 files or more than 5,000 changed lines are in scope. It reports the counts and the 5 largest files, and asks you to narrow the target. Nothing is sampled or truncated.
+
 ## How the 2 Skills work together
 
 A common order for cleaning up an unfamiliar or aging codebase that feels too risky to touch:

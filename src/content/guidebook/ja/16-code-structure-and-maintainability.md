@@ -41,6 +41,18 @@ Architecture / Design / Devex / Security / QA の 5 軸並列レビューを実�
 
 コードを変更しない読み取り専用の分析です — 見つかった項目の実際の修正は Backend/Frontend 担当 agent に別途 dispatch します。
 
+**知っておくと便利なオプション**
+
+- レビュー対象は次の 3 つのうち 1 つだけを選びます: `--code <path>`、`--git-range <sha>..<sha>`、`--working-tree`(staged・unstaged・untracked の変更すべて。commit は不要です)。`--spec` は Claude Code では省略できます。
+- `--profile chill|assertive`(既定は `chill`): `chill` は Low/Info のスタイル上の細かな指摘を隠し、`assertive` はそれらも表示します。Critical/High/Medium は隠されません。
+- `--no-advisor` は Phase 2 の advisor 呼び出しを省略します。`--advisor-budget <n>` で呼び出し回数の上限を指定できます(既定は 5)。
+- `--format html` は、自己完結型のレポートを `claudedocs/` に書き出します(既定は `markdown`)。
+- `--non-interactive`(Claude Code のみ): learnings 昇格の確認を省略し、learning の候補をレポートに列挙します。
+
+**独立した検証**: 確認済みの Critical / High の指摘は、それぞれ `file:line` と主張された severity だけを見る新しい reviewer によって 1 回ずつ再確認されます。再現できなかった指摘は Phase 2 の advisor に送られます(Security の指摘は除きます)。または unverified とマークされます。1 回の実行で検証されるのは最大 20 件です。
+
+**スコープのガードレール**: 対象に 200 ファイルを超える変更、または変更行数が 5,000 行を超える変更が含まれる場合、レビューは開始を拒否して `NEEDS_CONTEXT` を返します。件数と変更量の多い上位 5 ファイルを報告し、対象を絞り込むよう求めます。サンプリングや切り詰めは行いません。
+
 ## 2 つの Skill が一緒に働く流れ
 
 見知らぬ、あるいは古くて手を付けるのが不安な codebase を整理するときの一般的な順序は次のとおりです。

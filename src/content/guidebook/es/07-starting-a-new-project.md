@@ -137,6 +137,8 @@ Puntúa cinco dimensiones: scope clarity / architecture compliance / evidence qu
 - Si el alcance es lo suficientemente pequeño como para implementarse directamente sin descomposición de especificaciones, `ywc-plan` puede dirigir al camino Pequeño y saltarse todo este flujo.
 - `ywc-onboard-repo` se mueve en dirección opuesta a este flujo (investigando un repositorio existente), así que no lo uses al crear un proyecto nuevo.
 - Para registrar decisiones difíciles de revertir junto con las alternativas descartadas, usa `ywc-adr` (solo Claude Code).
+- Para un producto TypeScript grande, `ywc-project-scaffold` puede proponer un monorepo con pnpm workspaces: `apps/web`, `apps/server`, `packages/{contracts,core,db,…}` y, en la raíz, `tests/{architecture,contract,integration,e2e}`. `contracts` no tiene dependencias internas, `core` no importa frameworks ni infraestructura, y `tests/architecture` hace cumplir las dependencias prohibidas.
+- La UI nueva se planifica por defecto mobile-first (primero el viewport más estrecho y después se amplía con breakpoints `min-width`). Si una superficie es solo para PC o tablet (por ejemplo, una herramienta de administración), indícalo explícitamente en una línea.
 
 ---
 

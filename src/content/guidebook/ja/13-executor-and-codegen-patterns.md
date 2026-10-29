@@ -30,6 +30,13 @@
 
 > **注記**: `ywc-sequential-executor` 自体には独立した `--tdd` flag はありません。各 Task の実装ステップは、内部的に `ywc-code-gen` と同じデフォルトの TDD gate(実装前に失敗するテストを先に確認)に従います。RED → GREEN → REFACTOR の完全な儀式と段階ごとの checkpoint commit が必要な場合は、下記の `ywc-code-gen` セクションの `--tdd` flag を参照し、該当 Task の実装依頼に明示的に含めてください。
 
+**スクリプトや CI から実行するときのフラグ**
+
+| フラグ | 動作 | 利用できる場所 |
+|---|---|---|
+| `--terse` | task の一覧(名前、status、PR URL または merge SHA)と最後の `Completion Status` 行だけを出力します。CI での解析を想定しています。 | 両 executor、両ツール |
+| `--non-interactive` | すべての確認を抑止します。回答が必要な判断は質問せず、固定の status で終了します。情報不足は `NEEDS_CONTEXT`、conflict・作業ツリーの未コミット変更・`gh` の未認証は `BLOCKED`、CI の timeout は `DONE_WITH_CONCERNS` です。 | Claude Code は `ywc-sequential-executor` のみ、Codex は `ywc-parallel-executor` のみ |
+
 **Task 1 つだけをデフォルトで実行したい**
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
@@ -190,6 +197,17 @@ wave 単位で同時実行され、Task ごとに PR 作成 → CI → bot revie
 すべての wave 完了後に draft PR 1 個が生成され、merge は人が手動で行います。
 
 > **注意**: `--local-merge` / `--draft` / `--per-task-pr` / `--aggregate-pr` のどれも指定しない場合、4 つのモードのうち何を望むか聞き返します。デフォルトで静かに進むことはありません。`--review` はどのモードとも組み合わせられます。(参考: `ywc-parallel-executor` には `--worktree` という別 flag はありません。Task ごとに worktree で隔離することが、この Skill のデフォルト動作だからです。)
+
+### 品質ゲートと wave hardener (opt-in)
+
+task に `## Quality Gate Contract` が宣言されている場合(CRAP スコアが 6〜8 以下かつ mutation スコアが 90% 以上、または sentinel の `N/A — no quality gate contract`)、executor は次の 2 つを実行します。
+
+- **cleaner**: 本番コードのリファクタリングを行います。
+- **hardener**: テストのみを対象とし、本番コードは編集できません。wave 内の Task がすべて merge された後に、wave ごとに 1 回だけ実行されます。
+
+`--local-merge`、`--draft`、`--aggregate-pr` を使う場合、wave はまず `wave-int/<N>` ブランチへ merge されます。hardener の判定が PASS(または gate が適用されない)の場合にのみ、そのブランチが base ブランチへ昇格します。判定が `BLOCKED` / `NEEDS_CONTEXT` の場合は base ブランチを変更せず、ブランチと worktree を残すため、修正して再開できます。再開時、executor は `wave-int/<N>` ブランチの tip SHA が記録と一致するかを確認します。検証できないブランチは再利用せず、その wave をブロックします。
+
+`--per-task-pr` の場合、hardener は結果を報告するだけで、wave を止めることはありません。contract のない Task は影響を受けません。
 
 ## ywc-code-gen — Task 分解なしでコードを直接生成したいとき
 

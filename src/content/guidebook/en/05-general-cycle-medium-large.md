@@ -30,6 +30,17 @@ ywc-plan -> ywc-spec-ready -> ywc-task-generator -> ywc-sequential-executor --re
 | Task order matters, or Tasks depend on one another's outputs | `ywc-sequential-executor` |
 | Tasks are independent and grouped into parallelizable waves in `dependency-graph.md` | `ywc-parallel-executor` (isolated with Git Worktrees) |
 
+## Task IDs and collaborator initials
+
+`ywc-task-generator` prefixes task IDs with the collaborator's initials, so several people can generate tasks without number collisions. The old ID `000001-010-db-create-user-table` becomes `yk-000001-010-db-create-user-table`, and the task directory has the same name. Older unprefixed IDs stay valid, are never renumbered, and can coexist with prefixed ones.
+
+- Initials are 2–4 lowercase letters or digits. Numbering is per initials: each person's counter continues from their own highest phase.
+- Pass `--initials yk` explicitly, or let the skill resolve them:
+  - Claude Code: `--initials` → a `## Task Initials` section in the project `CLAUDE.md` → derived from `git config user.email` / `user.name` and confirmed once (then cached in `CLAUDE.md`). If nothing resolves, the skill falls back to old unprefixed numbering.
+  - Codex: `--initials` → project `.codex/ywc.json` → user `~/.codex/ywc.json` → derived and confirmed once (saved via `ywc-setup`). In non-interactive runs with nothing saved, it stops with `NEEDS_CONTEXT` and asks for `--initials`.
+- `--mode human|llm` (alias `--granularity`) sets task size. `human` sizes tasks for a person's review of roughly one hour; `llm` sizes them larger, for an agent. If you omit the flag, the skill always asks; it never picks silently.
+- Before generating, if `tasks/dependency-graph.md` is longer than 300 lines, the skill compacts it automatically: fully completed phases collapse to a one-line "done" heading. The executors do the same after each task. Nothing for you to write.
+
 ## Example run
 
 <ToolTabs>

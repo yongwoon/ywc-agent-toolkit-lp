@@ -144,6 +144,13 @@ This is the most complete combination when you want to leave the main checkout u
 
 > **Note**: `--local-merge` / `--draft` / `--skip-ci-wait` / `--aggregate-pr` are mutually exclusive. If you use two or more together, execution stops and asks for clarification. `--review` and `--worktree` can be combined with any of those modes.
 
+**Flags for scripting and CI**
+
+| Flag | What it does | Availability |
+|---|---|---|
+| `--terse` | Prints only the task table (name, status, PR URL or merge SHA) plus the final `Completion Status` line. Intended for CI parsing | Both executors, both tools |
+| `--non-interactive` | Suppresses every prompt. A decision that would need an answer ends as a fixed status instead: `NEEDS_CONTEXT` for missing information, `BLOCKED` for a conflict, a dirty tree, or unauthenticated `gh`, and `DONE_WITH_CONCERNS` for a CI timeout | Claude Code: `ywc-sequential-executor` only. Codex: `ywc-parallel-executor` only |
+
 ## ywc-parallel-executor - when you want to run independent Tasks concurrently
 
 **Run independent Tasks in parallel, creating and merging one PR per Task**
@@ -190,6 +197,15 @@ Tasks are stacked by wave on one `aggregate/payments` branch and delivered as **
 After all waves complete, one draft PR is created and merge is manual.
 
 > **Note**: If none of `--local-merge` / `--draft` / `--per-task-pr` / `--aggregate-pr` is specified, it asks which of the four modes you want instead of silently choosing a default. `--review` can be combined with any mode. (For reference, `ywc-parallel-executor` has no separate `--worktree` flag because per-Task worktree isolation is this Skill's default behavior.)
+
+### Quality gate and wave hardener (opt-in)
+
+If a Task declares a `## Quality Gate Contract` (a CRAP score ≤ 6–8 and a mutation score ≥ 90%), or the sentinel `N/A — no quality gate contract`, the executors run a cleaner (a production-code refactor) and a hardener (tests only; it cannot edit production code). The hardener runs once per wave, after the wave's Tasks merge.
+
+- Under `--local-merge`, `--draft`, or `--aggregate-pr`, the wave first merges into a `wave-int/<N>` branch. That branch is promoted into the base branch only if the hardener verdict is PASS, or if no gate applies. A `BLOCKED` or `NEEDS_CONTEXT` verdict leaves the base branch untouched and keeps the branch and worktrees so you can fix the problem and resume.
+- On resume, the executor verifies that the `wave-int/<N>` branch still matches the tip SHA it recorded. If it cannot verify the branch, it blocks the wave rather than reusing it.
+- Under `--per-task-pr`, the hardener only reports and never blocks.
+- Tasks without a contract are unaffected.
 
 ## ywc-code-gen - when you want to generate code directly without Task decomposition
 

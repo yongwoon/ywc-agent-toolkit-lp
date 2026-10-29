@@ -41,6 +41,22 @@ Architecture / Design / Devex / Security / QA 5축 병렬 리뷰를 실행합니
 
 코드를 고치지 않는 읽기 전용 분석입니다 — 발견된 항목의 실제 수정은 Backend/Frontend 담당 agent 로 별도 dispatch 합니다.
 
+**알아두면 좋은 옵션**
+
+- 리뷰 대상은 `--code <path>`, `--git-range <sha>..<sha>`, `--working-tree` 중 하나만 고릅니다. `--working-tree` 는 staged, unstaged, untracked 변경을 모두 대상으로 하며 commit 이 필요 없습니다. `--spec` 은 Claude Code 에서 선택 사항입니다.
+- `--profile chill|assertive` (기본값 `chill`): `chill` 은 Low/Info 수준의 style 지적을 숨기고, `assertive` 는 이를 보여줍니다. Critical/High/Medium 은 어떤 profile 에서도 숨기지 않습니다.
+- `--no-advisor` 는 Phase 2 advisor 호출을 건너뜁니다. `--advisor-budget <n>` 으로 호출 상한을 정합니다 (기본값 5).
+- `--format html` 은 `claudedocs/` 에 self-contained 리포트를 씁니다 (기본값 `markdown`).
+- `--non-interactive` (Claude Code 전용): learnings 승격 질문을 건너뛰고, 학습 후보를 리포트에 나열합니다.
+
+**독립 검증**
+
+확정된 Critical 또는 High 지적은 모두 새 reviewer 가 한 번씩 다시 확인합니다. 이 reviewer 는 `file:line` 과 주장된 severity 만 보고 판단합니다. 재현되지 않은 지적은 Phase 2 advisor 에게 넘기고 (Security 지적은 제외), 그 외에는 unverified 로 표시합니다. 한 번의 run 에서 검증하는 지적은 최대 20개입니다.
+
+**범위 가드레일**
+
+리뷰 대상이 200개 파일 또는 5,000 changed line 을 넘으면 리뷰는 시작하지 않고 `NEEDS_CONTEXT` 로 멈춥니다. 이때 파일 수, 줄 수, 가장 큰 파일 5개를 보고하고, 대상을 좁혀 달라고 요청합니다. 샘플링이나 잘라내기는 하지 않습니다.
+
 ## 2개 Skill 이 함께 작동하는 방식
 
 낯설거나 오래되어 손대기 부담스러운 codebase 를 정리할 때의 일반적인 순서는 다음과 같습니다.

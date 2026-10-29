@@ -20,6 +20,7 @@
 | [`ywc-refactor-clean`](#古い-dead-code-未使用関数export依存関係を整理したい) | 古い dead code (未使用関数/export/依存関係)を整理したい |
 | [`ywc-impl-review`](#一般-cycle-の外で独立して実装品質と-maintenance-観点を点検したい) | 一般 cycle の外で、独立して実装品質と maintenance 観点を点検したい |
 | [`ywc-tdd-ritual`](#red--green--refactor-を文書化された手順どおり厳格に守りながら実装したい) | RED → GREEN → REFACTOR を文書化された手順どおり厳格に守りながら実装したい |
+| [`ywc-verify-done`](#明示的で再実行可能な-gate-で完了を証明したい) | 明示的で再実行可能な gate で完了を証明したい |
 | [`ywc-e2e-test-strategy`](#critical-user-flow-を-playwright-で自動化したいまたは既存の-e2e-カバレッジの穴を点検したい) | critical user flow を Playwright で自動化したい、または既存の E2E カバレッジの穴を点検したい |
 | [`ywc-product-review`](#コードではなくビジネスサービスの観点でプロジェクトをレビューしてほしい) | コードではなくビジネス/サービスの観点でプロジェクトをレビューしてほしい |
 | [`ywc-review-learnings`](#code-review-で繰り返し指摘される内容を学習させ次から再指摘しないようにしたい) | Code review で繰り返し指摘される内容を学習させ、次から再指摘しないようにしたい |
@@ -48,6 +49,8 @@
 </ToolTabs>
 PR 番号を省略すると、現在の branch の PR を自動で探します。
 
+*(Claude Code のみ)* CodeRabbit の「Nitpick comments」(review thread を持たないもの)も検出され、他の comment と同じように分類されます。対応済みの項目は、非表示マーカー付きの PR 全体コメント 1 件に記録され、再び表示されないようにされます。
+
 ### 変更を commit して draft PR を開きたい
 
 <ToolTabs>
@@ -59,6 +62,8 @@ PR 番号を省略すると、現在の branch の PR を自動で探します�
   </ToolTabsPanel>
 </ToolTabs>
 [04](./04-general-cycle-small.md), [05](./05-general-cycle-medium-large.md) のフローにはすでに含まれているため、そのフローの外で単独で PR だけ開きたいときに使います。
+
+task README または `docs/ywc-plans/` 配下の plan が見つかると、PR 本文に `Design Background` セクションが追加されます(goal と、plan に記載がある場合は Alternatives Considered / Trade-offs を含みます)。`--plan-doc <path.md>` で plan を明示的に指定できます(リポジトリ内の相対パス)。`--no-plan-ref` で plan の検索を無効化できます。両方指定された場合は `--plan-doc` が優先されます。複数の plan が該当する場合は一覧を表示し、`--plan-doc` を付けて再実行するよう求めます。
 
 ### 溜まっている Dependabot PR を一度に整理したい
 
@@ -108,7 +113,7 @@ PR 作成やコード変更そのものには使いません。commit 専用で�
     <CodeBlock label="codex" code="ywc-brainstorm 通知機能を作りたいが、まだどうするか具体的でない" />
   </ToolTabsPanel>
 </ToolTabs>
-Socratic 対話で目的/制約/成功基準と代替案 2〜3 個を導き、その後 `ywc-plan` へ handoff します。
+Socratic 対話で目的/制約/成功基準と代替案 2〜3 個を導き、その後 `ywc-plan` へ handoff します。handoff の前に、設計は採用している前提(premise)を根拠(`file:line` と引用した snippet)とともに列挙し、各前提に VERIFIED / UNVERIFIED のステータスを付けます。未検証の前提は、黙って仮定するのではなく failure mode として記録するか、out-of-scope に移します。
 
 ### ライブラリや実装方式を比較して何を使うか決めたい
 
@@ -166,6 +171,35 @@ Socratic 対話で目的/制約/成功基準と代替案 2〜3 個を導き、�
   </ToolTabsPanel>
 </ToolTabs>
 `ywc-code-gen`、`ywc-sequential-executor` などで言及される opt-in の `--tdd` 手順とは、まさにこの skill のことです — RED/GREEN/REFACTOR の各遷移ごとに検証ステップを強制します。
+
+### 明示的で再実行可能な gate で完了を証明したい
+
+gate の条件を markdown の ledger として書いておくと、完了の判定を同じ手順で何度でも再実行できます。各 gate には次の 3 つを記述します。
+
+- `CHECK:`: 実行する shell コマンド
+- `EXPECT:`: 出力に含まれるべき substring、または `/regex/`
+- `EVIDENCE:`: 証拠として残す内容
+
+ledger を読み込んで判定するには、次のコマンドを実行します。
+
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="python3 claude-code/skills/ywc-verify-done/scripts/gate-check.py --status gate-ledger.md" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="python3 &quot;${CODEX_HOME:-$HOME/.codex}/skills/ywc-verify-done/scripts/gate-check.py&quot; --status gate-ledger.md" />
+  </ToolTabsPanel>
+</ToolTabs>
+
+`--status` を省略すると gate を実行します。`--reverify` を付けると、キャッシュを使わずにすべての gate を再実行します。
+
+- 終了コードが 0 なら、実行可能なすべての gate が満たされています。
+- `CHECK` も `EXPECT` もない gate は manual 扱いで、判定をブロックしません。
+- 過去の PASS は、gate の本文が変わっていない場合にのみ信頼されます。
+- 各 gate は 120 秒でタイムアウトします。
+- `CHECK` の行は、あなたの権限で任意のコマンドを実行します。自分で書いたものでない ledger は、先に内容を読んでから実行してください。
+
+ledger は任意です。従来の単一コマンドによる検証(lint / typecheck / test / build)は、そのまま使えます。
 
 ### critical user flow を Playwright で自動化したい、または既存の E2E カバレッジの穴を点検したい
 
@@ -297,6 +331,9 @@ User value、UX、growth、risk などビジネス観点でプロジェクトを
 
 一回だけの指定は引き続き優先されます。解決順は、対象 skill に明示した `--lang` > project/user の永続デフォルト > 質問、です。
 
+- Codex の `ywc-setup` は、collaborator のイニシャル(`--initials yk`)も保存します。`--scope project|user` で保存先を選べます(project は `.codex/ywc.json`、user は `~/.codex/ywc.json`)。
+- Claude Code の `ywc-setup-language` は言語のみを扱い、`CLAUDE.md` に `## Language Policy` セクションを書き込みます。Claude Code のイニシャルは `--initials` または `CLAUDE.md` の `## Task Initials` セクションから取得されます([05](./05-general-cycle-medium-large.md) を参照)。
+
 ### 隔離された worktree のパスを作りたい、または点検/整理したい
 
 <ToolTabs>
@@ -393,7 +430,7 @@ User value、UX、growth、risk などビジネス観点でプロジェクトを
 | `ywc-tech-research` | ライブラリや実装方式を比較して何を使うか決めたい | [こちら](#ライブラリや実装方式を比較して何を使うか決めたい) |
 | `ywc-ubiquitous-language` | 開発者・ドメイン専門家・LLM が共有するドメイン用語集を作成または更新したい | [こちら](#開発者ドメイン専門家llm-が共有するドメイン用語集を作成または更新したい) |
 | `ywc-ui-ux-review` | 画面の usability とアクセシビリティを点検する skill | [11](./11-design-review.md) |
-| `ywc-verify-done` | lint/typecheck/test/build を実行して完了を機械的に検証する skill | [06](./06-agentic-autonomous-loop.md) |
+| `ywc-verify-done` | lint/typecheck/test/build を実行して完了を機械的に検証する skill | [こちら](#明示的で再実行可能な-gate-で完了を証明したい) |
 | `ywc-wayfinder` | 大きい、または不確かな変更のための複数セッションの discovery *(Codex のみ)* | [こちら](#特定のツールでのみ提供される-skill) |
 | `ywc-worktrees` | 隔離された worktree のパスを作りたい、または点検/整理したい | [こちら](#隔離された-worktree-のパスを作りたいまたは点検整理したい) |
 

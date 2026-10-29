@@ -30,6 +30,15 @@
 
 > **提示**：`ywc-sequential-executor` 本身没有单独的 `--tdd` flag。每个 Task 的实现步骤内部遵循与 `ywc-code-gen` 相同的默认 TDD gate(实现前先确认一个失败的测试)。如果需要完整的 RED → GREEN → REFACTOR 仪式和分阶段 checkpoint commit，请参考下方 `ywc-code-gen` 部分的 `--tdd` flag，并在该 Task 的实现请求中明确加入。
 
+**用于脚本与 CI 的 flag（Flags for scripting and CI）**
+
+| Flag | 作用 | 可用范围 |
+|---|---|---|
+| `--terse` | 只输出任务表（名称、状态、PR URL 或合并 SHA）以及最终的 `Completion Status` 行，便于 CI 解析 | 两个 executor，两种工具 |
+| `--non-interactive` | 抑制所有提示；任何需要回答的决定都会改为固定状态结束：缺少信息时为 `NEEDS_CONTEXT`，冲突、工作树存在未提交改动或 `gh` 未认证时为 `BLOCKED`，CI 超时为 `DONE_WITH_CONCERNS` | Claude Code：仅 `ywc-sequential-executor`；Codex：仅 `ywc-parallel-executor` |
+
+`--worktree` 已在下文说明，此处不再重复。
+
 **使用默认设置运行一个 Task**
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
@@ -190,6 +199,15 @@ Tasks 按波浪在一个 `aggregate/payments` 分支上堆叠，并作为 **一�
 在所有波次完成后，会创建一个草稿 PR，并且合并是手动的。
 
 > **注意**：如果没有指定 `--local-merge` / `--draft` / `--per-task-pr` / `--aggregate-pr` 中的任何一个，它会询问你想要哪种模式，而不是默默选择一个默认值。`--review` 可以与任何模式结合使用。（供参考，`ywc-parallel-executor` 没有单独的 `--worktree` 标志，因为每个 Task 工作区隔离是这个 Skill 的默认行为。）
+
+### Quality gate 与 wave hardener（可选启用）
+
+如果某个 Task 声明了 `## Quality Gate Contract`（CRAP 分数 ≤ 6–8 且 mutation score ≥ 90%，或哨兵值 `N/A — no quality gate contract`），执行器会运行 cleaner（重构生产代码）和 hardener（只编写测试，不能修改生产代码）。hardener 在每个 wave 的 Tasks 合并后运行一次。
+
+- 使用 `--local-merge`、`--draft` 或 `--aggregate-pr` 时，wave 会先合并到 `wave-int/<N>` 分支，只有 hardener 结论为 PASS（或没有适用的 gate）时，才会提升到基础分支。结论为 `BLOCKED` / `NEEDS_CONTEXT` 时，基础分支保持不变，并保留该分支与工作树，以便修复后恢复。
+- 恢复时，执行器会核对 `wave-int/<N>` 分支是否仍与其记录的 tip SHA 一致；若无法核对，则阻止该 wave，而不会复用这个分支。
+- 使用 `--per-task-pr` 时，hardener 只报告，不会阻止。
+- 没有合约的 Task 不受影响。
 
 ## ywc-code-gen - 当你想在不进行 Task 分解的情况下直接生成代码
 

@@ -41,6 +41,18 @@ Ejecuta una revisión paralela de 5 ejes: Architecture / Design / Devex / Securi
 
 Es un análisis de solo lectura que no modifica el código — la corrección real de cualquier hallazgo se despacha por separado al agent de Backend/Frontend.
 
+**Opciones que conviene conocer**
+
+- Elige exactamente un objetivo de revisión: `--code <path>`, `--git-range <sha>..<sha>` o `--working-tree` (cambios staged, unstaged y untracked, sin necesidad de commit). `--spec` es opcional en Claude Code.
+- `--profile chill|assertive` (por defecto `chill`): `chill` oculta los nits de estilo Low/Info; `assertive` los muestra. Critical/High/Medium nunca se ocultan.
+- `--no-advisor` omite las llamadas al advisor de la Fase 2; `--advisor-budget <n>` limita cuántas se hacen (por defecto 5).
+- `--format html` escribe un informe autocontenido en `claudedocs/` (por defecto `markdown`).
+- `--non-interactive` (solo Claude Code): omite la pregunta de promoción de learnings y, en su lugar, lista los candidatos a learning en el informe.
+
+**Verificación independiente.** Cada hallazgo Critical o High confirmado es revisado de nuevo, una vez, por un revisor nuevo que solo ve `file:line` y la severidad declarada. Los hallazgos que no se pueden reproducir se envían al advisor de la Fase 2 (salvo los de Security) o se marcan como no verificados. Como máximo se verifican 20 hallazgos por ejecución.
+
+**Guardarraíl de alcance.** La revisión se niega a empezar (`NEEDS_CONTEXT`) cuando hay más de 200 archivos o más de 5.000 líneas cambiadas en el alcance. Informa de los recuentos y de los 5 archivos más grandes, y te pide acotar el objetivo. No se muestrea ni se trunca nada.
+
 ## Cómo funcionan juntas las 2 Skills
 
 Un orden habitual para limpiar un codebase desconocido o antiguo que da miedo tocar:

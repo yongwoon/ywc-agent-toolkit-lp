@@ -138,6 +138,8 @@ It scores five dimensions: scope clarity / architecture compliance / evidence qu
 - If the scope is small enough to implement directly without spec decomposition, `ywc-plan` can route to the Small path and skip this whole flow.
 - `ywc-onboard-repo` moves in the opposite direction from this flow (investigating an existing repo), so do not use it when creating a new project.
 - `ywc-project-mission` does not keep a rejected-approach log. To record a hard-to-reverse decision together with the alternatives you rejected, use `ywc-adr` (Claude Code only).
+- For a large TypeScript product, `ywc-project-scaffold` can propose a pnpm-workspaces monorepo: `apps/web`, `apps/server`, `packages/{contracts,core,db,…}`, and a root `tests/{architecture,contract,integration,e2e}`. `contracts` has no internal dependencies, `core` imports no framework or infrastructure code, and `tests/architecture` enforces the forbidden dependencies.
+- New UI is planned mobile-first by default (narrowest viewport first, expanding with `min-width` breakpoints). If a surface is PC/tablet-only, for example an admin tool, say so explicitly in one line in your request.
 
 ---
 

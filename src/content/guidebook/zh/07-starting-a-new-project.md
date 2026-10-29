@@ -138,6 +138,8 @@
 - 如果范围足够小，可以直接实现而无需规格分解，`ywc-plan` 可以路由到小路径并跳过整个流程。
 - `ywc-onboard-repo` 的移动方向与此流程（调查现有仓库）相反，因此在创建新项目时不要使用它。
 - `ywc-project-mission` 不记录被拒绝的方法。如需同时记录难以逆转的决策及被你拒绝的备选方案，请使用 `ywc-adr`（仅 Claude Code）。
+- 对于大型 TypeScript 产品，`ywc-project-scaffold` 可以提议 pnpm workspaces monorepo（`apps/web`、`apps/server`、`packages/{contracts,core,db,…}`，根目录 `tests/{architecture,contract,integration,e2e}`）。其中 `contracts` 没有内部依赖，`core` 不导入框架或基础设施，禁止的依赖由 `tests/architecture` 强制检查。
+- 新 UI 默认采用移动优先规划（从最窄的视口开始，再用 `min-width` 断点向上扩展）。如果某个界面仅面向 PC 或平板（例如管理后台工具），请用一行文字明确说明。
 
 ---
 

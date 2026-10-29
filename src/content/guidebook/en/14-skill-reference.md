@@ -20,6 +20,7 @@ Find your situation in the table below and click a Skill name to jump straight t
 | [`ywc-refactor-clean`](#clean-up-old-dead-code-unused-functionsexportsdependencies) | Clean up old dead code (unused functions/exports/dependencies) |
 | [`ywc-impl-review`](#check-implementation-quality-and-maintainability-outside-the-general-cycle-standalone) | Check implementation quality and maintainability outside the general cycle, standalone |
 | [`ywc-tdd-ritual`](#you-want-to-strictly-follow-the-documented-red--green--refactor-procedure-while-implementing) | You want to strictly follow the documented RED → GREEN → REFACTOR procedure while implementing |
+| [`ywc-verify-done`](#i-want-to-prove-completion-with-explicit-re-runnable-gates) | I want to prove completion with explicit, re-runnable gates |
 | [`ywc-e2e-test-strategy`](#you-want-to-automate-a-critical-user-flow-with-playwright-or-check-gaps-in-existing-e2e-coverage) | You want to automate a critical user flow with Playwright, or check gaps in existing E2E coverage |
 | [`ywc-product-review`](#you-want-a-review-of-the-project-from-a-businessservice-perspective-not-a-code-perspective) | You want a review of the project from a business/service perspective, not a code perspective |
 | [`ywc-review-learnings`](#teach-the-system-about-repeated-code-review-feedback-so-it-does-not-raise-the-same-false-positive-again) | Teach the system about repeated code review feedback so it does not raise the same false positive again |
@@ -46,7 +47,7 @@ Find your situation in the table below and click a Skill name to jump straight t
     <CodeBlock label="codex" code="ywc-handle-pr-reviews 250" />
   </ToolTabsPanel>
 </ToolTabs>
-If you omit the PR number, it automatically finds the PR for the current branch.
+If you omit the PR number, it automatically finds the PR for the current branch. *(Claude Code only)* CodeRabbit "Nitpick comments" (which have no review thread) are also detected and classified like other comments. Addressed items are recorded in a single PR-level comment with hidden markers, so they do not resurface.
 
 ### Commit changes and open a draft PR
 
@@ -59,6 +60,8 @@ If you omit the PR number, it automatically finds the PR for the current branch.
   </ToolTabsPanel>
 </ToolTabs>
 This is already included in the flows from [04](./04-general-cycle-small.md) and [05](./05-general-cycle-medium-large.md), so use it when you want to open only a standalone PR outside those flows.
+
+When a task README or a plan under `docs/ywc-plans/` is found, the PR body gets a `Design Background` section (the goal, plus Alternatives Considered and Trade-offs if the plan has them). `--plan-doc <path.md>` picks the plan explicitly (a repo-relative path inside the repo). `--no-plan-ref` disables the lookup. If both are given, `--plan-doc` wins. If several plans match, the skill lists them and asks you to re-run with `--plan-doc`.
 
 ### Clean up accumulated Dependabot PRs at once
 
@@ -108,7 +111,7 @@ This blocks the default behavior of agreeing first and implementing second, and 
     <CodeBlock label="codex" code="ywc-brainstorm I want to build a notification feature but I'm not sure how yet" />
   </ToolTabsPanel>
 </ToolTabs>
-Through Socratic dialogue, it derives the goal / constraints / success criteria and 2-3 alternatives, then hands off to `ywc-plan`.
+Through Socratic dialogue, it derives the goal / constraints / success criteria and 2-3 alternatives, then hands off to `ywc-plan`. Before the hand-off, the design lists its load-bearing premises with evidence (`file:line` and a quoted snippet) and a status of VERIFIED or UNVERIFIED. Unverified premises are recorded as failure modes or moved to out-of-scope, instead of being silently assumed.
 
 ### You want to compare libraries or implementation approaches to decide what to use
 
@@ -166,6 +169,29 @@ This has moved to the dedicated page. See [12. Debugging and incident postmortem
   </ToolTabsPanel>
 </ToolTabs>
 This is the actual skill behind the opt-in `--tdd` procedure mentioned in `ywc-code-gen`, `ywc-sequential-executor`, etc. — it forces a verification step at every RED/GREEN/REFACTOR transition.
+
+### I want to prove completion with explicit, re-runnable gates
+
+`ywc-verify-done` can check completion against a markdown ledger you write. Each gate has a `CHECK:` line (a shell command), an `EXPECT:` line (a substring or a `/regex/` that the output must match), and an `EVIDENCE:` field. Run the ledger with the gate checker:
+
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="python3 claude-code/skills/ywc-verify-done/scripts/gate-check.py --status gate-ledger.md" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="python3 &quot;${CODEX_HOME:-$HOME/.codex}/skills/ywc-verify-done/scripts/gate-check.py&quot; --status gate-ledger.md" />
+  </ToolTabsPanel>
+</ToolTabs>
+
+Dropping `--status` runs the gates, and `--reverify` re-runs everything.
+
+- Exit code 0 means every runnable gate is met.
+- A gate with neither `CHECK:` nor `EXPECT:` is manual, and it never blocks.
+- A cached PASS is trusted only while the gate text is unchanged.
+- Each gate has a 120-second timeout.
+- `CHECK:` lines run arbitrary commands with your permissions, so read a ledger you did not write before you run it.
+
+The ledger is optional. The default single-command verification is unchanged. This is available in both tools.
 
 ### You want to automate a critical user flow with Playwright, or check gaps in existing E2E coverage
 
@@ -295,6 +321,9 @@ Use this when you want generated documents, PR text, and commit messages to keep
 
 One-off flags still win. The resolution order is: explicit `--lang` on the consuming skill > persistent project/user default > ask.
 
+- Codex `ywc-setup` also stores collaborator initials (`--initials yk`). `--scope project|user` chooses `.codex/ywc.json` (project) or `~/.codex/ywc.json` (user).
+- Claude Code `ywc-setup-language` is language-only. It writes a `## Language Policy` section into `CLAUDE.md`. Initials in Claude Code come from `--initials` or the `## Task Initials` section of `CLAUDE.md` (see [05](./05-general-cycle-medium-large.md#task-ids-and-collaborator-initials)).
+
 ### You want to create an isolated worktree path, or audit/clean it up
 
 <ToolTabs>
@@ -391,7 +420,7 @@ All `ywc-*` skills in this toolkit, listed alphabetically. See each skill's loca
 | `ywc-tech-research` | You want to compare libraries or implementation approaches to decide what to use | [here](#you-want-to-compare-libraries-or-implementation-approaches-to-decide-what-to-use) |
 | `ywc-ubiquitous-language` | Create or update a domain glossary shared by developers, domain experts, and LLMs | [here](#create-or-update-a-domain-glossary-shared-by-developers-domain-experts-and-llms) |
 | `ywc-ui-ux-review` | Checks screen usability and accessibility | [11](./11-design-review.md) |
-| `ywc-verify-done` | Mechanically verifies completion by running lint/typecheck/test/build | [06](./06-agentic-autonomous-loop.md) |
+| `ywc-verify-done` | Mechanically verifies completion by running lint/typecheck/test/build | [here](#i-want-to-prove-completion-with-explicit-re-runnable-gates) |
 | `ywc-wayfinder` | Multi-session discovery for large or uncertain changes: a local map with exactly one active ticket, before planning or implementation *(Codex only)* | [here](#skills-available-in-only-one-tool) |
 | `ywc-worktrees` | You want to create an isolated worktree path, or audit/clean it up | [here](#you-want-to-create-an-isolated-worktree-path-or-auditclean-it-up) |
 
