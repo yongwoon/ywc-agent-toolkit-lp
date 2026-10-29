@@ -153,13 +153,13 @@
       {
         "label": "Claude Code agents",
         "value": "13 agents",
-        "description": "面向 architecture、security、performance 和 language-specific review 的 specialist read-only agents。",
+        "description": "面向 architecture、security、performance 和 language-specific review 的 specialist agents。",
         "lane": "claude"
       },
       {
         "label": "Codex agents",
         "value": "10 agents",
-        "description": "相同的 specialist coverage，打包为 read-only 的 Codex agents。",
+        "description": "相同的 specialist coverage，打包为 Codex agents。",
         "lane": "codex"
       }
     ],
