@@ -34,7 +34,7 @@
 
 | フラグ | 動作 | 利用できる場所 |
 |---|---|---|
-| `--terse` | task の一覧(名前、status、PR URL または merge SHA)と最後の `Completion Status` 行だけを出力します。CI での解析を想定しています。 | 両 executor、両ツール |
+| `--terse` | Task の一覧(名前、status、PR URL または merge SHA)と最後の `Completion Status` 行だけを出力します。CI での解析を想定しています。 | 両 executor、両ツール |
 | `--non-interactive` | すべての確認を抑止します。回答が必要な判断は質問せず、固定の status で終了します。情報不足は `NEEDS_CONTEXT`、conflict・作業ツリーの未コミット変更・`gh` の未認証は `BLOCKED`、CI の timeout は `DONE_WITH_CONCERNS` です。 | Claude Code は `ywc-sequential-executor` のみ、Codex は `ywc-parallel-executor` のみ |
 
 **Task 1 つだけをデフォルトで実行したい**
@@ -205,7 +205,7 @@ task に `## Quality Gate Contract` が宣言されている場合(CRAP スコ�
 - **cleaner**: 本番コードのリファクタリングを行います。
 - **hardener**: テストのみを対象とし、本番コードは編集できません。wave 内の Task がすべて merge された後に、wave ごとに 1 回だけ実行されます。
 
-`--local-merge`、`--draft`、`--aggregate-pr` を使う場合、wave はまず `wave-int/<N>` ブランチへ merge されます。hardener の判定が PASS(または gate が適用されない)の場合にのみ、そのブランチが base ブランチへ昇格します。判定が `BLOCKED` / `NEEDS_CONTEXT` の場合は base ブランチを変更せず、ブランチと worktree を残すため、修正して再開できます。再開時、executor は `wave-int/<N>` ブランチの tip SHA が記録と一致するかを確認します。検証できないブランチは再利用せず、その wave をブロックします。
+`--local-merge`、`--draft`、`--aggregate-pr` を使う場合、wave はまず `wave-int/<N>` ブランチへ merge されます。hardener の判定が PASS(または gate が適用されない)の場合にのみ、そのブランチが base ブランチへ反映(promote)されます。判定が `BLOCKED` / `NEEDS_CONTEXT` の場合は base ブランチを変更せず、ブランチと worktree を残すため、修正して再開できます。再開時、executor は `wave-int/<N>` ブランチの tip SHA が記録と一致するかを確認します。検証できないブランチは再利用せず、その wave をブロックします。
 
 `--per-task-pr` の場合、hardener は結果を報告するだけで、wave を止めることはありません。contract のない Task は影響を受けません。
 

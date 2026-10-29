@@ -148,7 +148,7 @@ Esta es la combinación más completa cuando quieres dejar el proceso de pago pr
 
 | Flag | Qué hace | Disponibilidad |
 |---|---|---|
-| `--terse` | Imprime solo la tabla de Tasks (nombre, estado, URL del PR o SHA de fusión) y la línea final `Completion Status`. Pensado para parseo en CI | Ambos ejecutores, ambas herramientas |
+| `--terse` | Imprime solo la tabla de Tasks (nombre, estado, URL del PR o SHA de fusión) y la línea final `Completion Status`. Pensado para que CI lo procese | Ambos ejecutores, ambas herramientas |
 | `--non-interactive` | Suprime todos los prompts. Cualquier decisión que necesitaría respuesta termina en un estado fijo: `NEEDS_CONTEXT` si falta información, `BLOCKED` ante un conflicto, árbol sucio o `gh` sin autenticar, y `DONE_WITH_CONCERNS` ante un timeout de CI | Claude Code: solo `ywc-sequential-executor`. Codex: solo `ywc-parallel-executor` |
 
 ## ywc-parallel-executor - cuando quieres ejecutar Tasks de manera independiente al mismo tiempo
@@ -203,7 +203,7 @@ Después de que se completen todas las olas, se crea un borrador PR y la fusión
 Si una Task declara un `## Quality Gate Contract` (puntuación CRAP ≤ 6–8 y puntuación de mutación ≥ 90 %, o el centinela `N/A — no quality gate contract`), los ejecutores lanzan un cleaner (refactor del código de producción) y un hardener (solo tests; no puede editar código de producción). El hardener se ejecuta una vez por ola, después de que se fusionan las Tasks de esa ola.
 
 - Con `--local-merge`, `--draft` o `--aggregate-pr`, la ola primero se fusiona en una rama `wave-int/<N>`. Esa rama solo se promueve a la rama base si el veredicto del hardener es PASS (o si ninguna puerta aplica). Con un veredicto `BLOCKED` / `NEEDS_CONTEXT`, la rama base no se toca y se conservan la rama y los worktrees para que puedas corregir y reanudar.
-- Al reanudar, el ejecutor verifica que la rama `wave-int/<N>` siga coincidiendo con el SHA de tip que registró. Si no puede verificarla, bloquea la ola en lugar de reutilizarla.
+- Al reanudar, el ejecutor verifica que la rama `wave-int/<N>` siga coincidiendo con el SHA de la punta (tip) que registró. Si no puede verificarla, bloquea la ola en lugar de reutilizarla.
 - Con `--per-task-pr`, el hardener solo informa y nunca bloquea.
 - Las Tasks sin contrato no se ven afectadas.
 

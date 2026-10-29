@@ -15,7 +15,7 @@
 | 步骤 | Skill | 角色 |
 |---|---|---|
 | 一 | `ywc-brainstorm` *(可选)* | 当想法还模糊时，通过每次一个问题的苏格拉底式对话敲定目的、约束、成功标准以及 2~3 个备选方案。若意图已明确则跳过 |
-| 二 | `ywc-project-mission` *(仅 Claude Code)* | 在 `docs/project-mission.md` 中记录项目的 mission、可衡量的成功标准以及非目标。**在设计结构之前先敲定为什么** |
+| 二 | `ywc-project-mission` *(仅限 Claude Code)* | 在 `docs/project-mission.md` 中记录项目的 mission、可衡量的成功标准以及非目标。**先明确“为什么”，再设计结构** |
 | 三 | `ywc-tech-research` *(可选)* | 并行比较技术栈/库的候选并记录选择理由。若技术栈已决定则跳过 |
 | 四 | `ywc-project-scaffold` | 基于已确定的技术栈，设计目录结构（输出一个 Markdown 计划） |
 | 五 | `ywc-ubiquitous-language` *(以领域为核心的项目推荐)* | 在 `docs/ubiquitous-language.md` 中定义开发者、领域专家与 LLM 共享的标准术语表 → 之后的规格与 `ywc-code-gen` 便使用规范术语 |

@@ -32,13 +32,13 @@ ywc-plan -> ywc-spec-ready -> ywc-task-generator -> ywc-sequential-executor --re
 
 ## Task ID 与协作者缩写（initials）
 
-`ywc-task-generator` 现在会在 Task ID 前加上协作者的缩写，使多人同时生成 Tasks 时不会出现编号冲突。例如旧格式 `000001-010-db-create-user-table` 会变为 `yk-000001-010-db-create-user-table`，Task 目录名也相同。旧的无前缀 ID 继续有效，不会重新编号，并可与新 ID 共存。
+`ywc-task-generator` 现在会在 Task ID 前加上协作者的缩写，使多人同时生成 Tasks 时不会出现编号冲突。例如旧格式 `000001-010-db-create-user-table` 会变为 `yk-000001-010-db-create-user-table`，Task 目录名也会加上同样的前缀。旧的无前缀 ID 继续有效，不会重新编号，并可与新 ID 共存。
 
 - 缩写为 2–4 个小写字母或数字。可以显式传入 `--initials yk`，也可以让 Skill 自动解析。
 - **Claude Code**：`--initials` → 项目 `CLAUDE.md` 中的 `## Task Initials` 部分 → 从 `git config user.email` / `user.name` 推导并确认一次（之后缓存到 `CLAUDE.md`）。若都无法解析，则回退为旧的无前缀编号。
 - **Codex**：`--initials` → 项目 `.codex/ywc.json` → 用户 `~/.codex/ywc.json` → 推导并确认一次（通过 `ywc-setup` 保存）。在非交互运行且没有已保存的缩写时，会以 `NEEDS_CONTEXT` 停止，并要求传入 `--initials`。
 - 编号按缩写分别计算：每个人的计数器从自己最高的 phase 继续。
-- `--mode human|llm`（别名 `--granularity`）决定 Task 的大小。`human` 表示按人工约一小时审查量划分的 Task；`llm` 表示面向 agent 的较大 Task。若省略此标志，Skill 总会询问，不会静默选择。
+- `--mode human|llm`（别名 `--granularity`）决定 Task 的大小。`human` 使每个 Task 的规模约为人工审查一小时的量；`llm` 表示面向 agent 的较大 Task。若省略此标志，Skill 一定会询问，不会擅自选择。
 - 生成前，若 `tasks/dependency-graph.md` 超过 300 行，Skill 会自动压缩（已完成的 phase 折叠为一行 "done" 标题）；执行器在每个 Task 完成后也会这样处理。无需用户手动操作。
 
 ## 示例运行
