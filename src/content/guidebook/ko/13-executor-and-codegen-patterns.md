@@ -292,20 +292,20 @@ wave 단위로 동시 실행되며, Task 마다 PR 생성 → CI → bot review 
 **Backend + Frontend + QA 를 한번에 생성하고 싶다**
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-code-gen --spec docs/ywc-plans/ywc-improve-architecture-skill.md --feature &quot;improve architecture skill docs&quot;" />
+    <CodeBlock label="claude code" code="ywc-code-gen --spec docs/ywc-plans/billing-refactor.md --feature &quot;billing refactor&quot;" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-code-gen --spec docs/ywc-plans/ywc-improve-architecture-skill.md --feature &quot;improve architecture skill docs&quot;" />
+    <CodeBlock label="codex" code="ywc-code-gen --spec docs/ywc-plans/billing-refactor.md --feature &quot;billing refactor&quot;" />
   </ToolTabsPanel>
 </ToolTabs>
 
 **결제/인증처럼 민감한 기능이라 꼼꼼하게, TDD 로 만들고 싶다**
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-code-gen --spec docs/ywc-plans/ywc-toolkit-eval-hardening.md --feature &quot;payment webhook hardening&quot; --tdd" />
+    <CodeBlock label="claude code" code="ywc-code-gen --spec docs/ywc-plans/payment-webhook-hardening.md --feature &quot;payment webhook hardening&quot; --tdd" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-code-gen --spec docs/ywc-plans/ywc-toolkit-eval-hardening.md --feature &quot;payment webhook hardening&quot; --tdd" />
+    <CodeBlock label="codex" code="ywc-code-gen --spec docs/ywc-plans/payment-webhook-hardening.md --feature &quot;payment webhook hardening&quot; --tdd" />
   </ToolTabsPanel>
 </ToolTabs>
 `payment` 같은 keyword 는 자동으로 `critical` 판정을 받아 gray-box 위임(내부 코드를 안 읽고 인터페이스만 확인)이 금지됩니다. `--tdd` 는 RED → GREEN → REFACTOR 커밋 경계를 강제합니다.

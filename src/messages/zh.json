@@ -158,7 +158,7 @@
       },
       {
         "label": "Codex agents",
-        "value": "8 agents",
+        "value": "10 agents",
         "description": "相同的 specialist coverage，打包为 read-only 的 Codex agents。",
         "lane": "codex"
       }
@@ -258,7 +258,7 @@
       },
       {
         "question": "它同时支持 Claude Code 和 Codex 吗？",
-        "answer": "是的。两种 tool 都获得 46 skills。Claude Code 包含 13 custom agents，Codex 包含 8 custom agents。"
+        "answer": "是的。两种 tool 共享 46 skills；Claude Code 另有 3 个 tool 专属 skills，Codex 另有 5 个。Claude Code 包含 13 custom agents，Codex 包含 10 custom agents。"
       },
       {
         "question": "我需要 clone repository 吗？",

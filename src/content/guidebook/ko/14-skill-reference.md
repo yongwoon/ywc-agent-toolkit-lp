@@ -18,15 +18,15 @@
 | [`ywc-agentic`](#목표-하나만-던지고-계획부터-구현까지-사람-개입-없이-맡기고-싶다) | 목표 하나만 던지고 계획부터 구현까지 사람 개입 없이 맡기고 싶다 |
 | [`ywc-security-audit`](#인증결제처럼-민감한-코드의-보안-취약점을-점검하고-싶다) | 인증/결제처럼 민감한 코드의 보안 취약점을 점검하고 싶다 |
 | [`ywc-refactor-clean`](#오래된-dead-code-미사용-함수export의존성를-정리하고-싶다) | 오래된 dead code (미사용 함수/export/의존성)를 정리하고 싶다 |
-| [`ywc-improve-architecture`](#뒤엉킨-shallow-module-구조를-deep-module-로-재구조화하고-싶다) | 뒤엉킨 shallow module 구조를 deep module 로 재구조화하고 싶다 |
 | [`ywc-impl-review`](#일반-cycle-밖에서-독립적으로-구현-품질과-maintenance-관점을-점검하고-싶다) | 일반 cycle 밖에서 독립적으로 구현 품질과 maintenance 관점을 점검하고 싶다 |
-| [`ywc-agent-legibility-audit`](#agent-가-코드를-고칠-때-드는-token-비용과-가독성을-측정하고-싶다) | Agent 가 코드를 고칠 때 드는 token 비용과 가독성을 측정하고 싶다 |
 | [`ywc-tdd-ritual`](#red--green--refactor-를-문서화된-절차대로-엄격하게-지키면서-구현하고-싶다) | RED → GREEN → REFACTOR 를 문서화된 절차대로 엄격하게 지키면서 구현하고 싶다 |
 | [`ywc-e2e-test-strategy`](#critical-user-flow-를-playwright-로-자동화하거나-기존-e2e-커버리지의-빈틈을-점검하고-싶다) | critical user flow 를 Playwright 로 자동화하거나, 기존 E2E 커버리지의 빈틈을 점검하고 싶다 |
 | [`ywc-product-review`](#코드가-아니라-비즈니스서비스-관점에서-프로젝트를-리뷰받고-싶다) | 코드가 아니라 비즈니스/서비스 관점에서 프로젝트를 리뷰받고 싶다 |
 | [`ywc-review-learnings`](#code-review-에서-반복-지적되는-내용을-학습시켜서-다음부터-다시-지적하지-않게-하고-싶다) | Code review 에서 반복 지적되는 내용을 학습시켜서 다음부터 다시 지적하지 않게 하고 싶다 |
+| [`ywc-mine-review-history`](#이미-merge-된-여러-pr-을-한꺼번에-훑어서-반복되는-review-결함을-찾고-싶다) | 이미 merge 된 여러 PR 을 한꺼번에 훑어서 반복되는 review 결함을 찾고 싶다 |
 | [`ywc-ubiquitous-language`](#개발자도메인-전문가llm-이-공유할-도메인-용어집을-만들거나-갱신하고-싶다) | 개발자·도메인 전문가·LLM 이 공유할 도메인 용어집을 만들거나 갱신하고 싶다 |
-| [`ywc-mission`](#project-의-why-와-rejected-approach-를-기록하고-싶다) | Project 의 why 와 rejected-approach 를 기록하고 싶다 |
+| [`ywc-project-mission`](#project-의-mission-success-criteria-non-goal-을-기록하고-싶다) *(Claude Code 전용)* | Project 의 mission, success criteria, non-goal 을 기록하고 싶다 |
+| [`ywc-adr`](#되돌리기-어려운-architecture-결정을-기각한-대안과-함께-기록하고-싶다) *(Claude Code 전용)* | 되돌리기 어려운 architecture 결정을 기각한 대안과 함께 기록하고 싶다 |
 | [`ywc-release-pr-list`](#release-pr-developmain-등에-포함된-merged-pr-목록을-정리하고-싶다) | Release PR (develop→main 등)에 포함된 merged PR 목록을 정리하고 싶다 |
 | [`ywc-changelog-release-notes`](#changelogmd-나-사용자용-release-note-를-작성하고-싶다) | CHANGELOG.md 나 사용자용 release note 를 작성하고 싶다 |
 | [`ywc-skill-author`](#새-ywc--skill-을-만들거나-기존-skill-을-규칙에-맞게-정리점검하고-싶다) | 새 ywc-* skill 을 만들거나, 기존 skill 을 규칙에 맞게 정리/점검하고 싶다 |
@@ -147,17 +147,9 @@ Socratic 대화로 목적/제약/성공 기준과 대안 2~3개를 도출한 뒤
 
 `ywc-refactor-clean` 전용 페이지로 옮겼습니다 — 자세한 사용법과 예시는 [13. 코드 구조와 유지보수성 관리](./16-code-structure-and-maintainability.md)를 참고하세요.
 
-### 뒤엉킨 shallow module 구조를 deep module 로 재구조화하고 싶다
-
-`ywc-improve-architecture` 전용 페이지로 옮겼습니다 — 자세한 사용법과 예시는 [13. 코드 구조와 유지보수성 관리](./16-code-structure-and-maintainability.md)를 참고하세요.
-
 ### 일반 cycle 밖에서 독립적으로 구현 품질과 maintenance 관점을 점검하고 싶다
 
 `ywc-impl-review` 전용 페이지로 옮겼습니다 — 자세한 사용법과 예시는 [13. 코드 구조와 유지보수성 관리](./16-code-structure-and-maintainability.md)를 참고하세요.
-
-### Agent 가 코드를 고칠 때 드는 token 비용과 가독성을 측정하고 싶다
-
-`ywc-agent-legibility-audit` 전용 페이지로 옮겼습니다 — 자세한 사용법과 예시는 [13. 코드 구조와 유지보수성 관리](./16-code-structure-and-maintainability.md)를 참고하세요.
 
 ### Production 장애가 나서 회고 문서를 써야 한다
 
@@ -214,6 +206,18 @@ User value, UX, growth, risk 등 비즈니스 관점에서 프로젝트를 되�
   </ToolTabsPanel>
 </ToolTabs>
 
+### 이미 merge 된 여러 PR 을 한꺼번에 훑어서 반복되는 review 결함을 찾고 싶다
+
+<ToolTabs>
+  <ToolTabsPanel tool="claude-code" label="Claude Code">
+    <CodeBlock label="claude code" code="ywc-mine-review-history --limit 50 --min-recurrence 3" />
+  </ToolTabsPanel>
+  <ToolTabsPanel tool="codex" label="Codex">
+    <CodeBlock label="codex" code="ywc-mine-review-history --limit 50 --min-recurrence 3" />
+  </ToolTabsPanel>
+</ToolTabs>
+최근 merge 된 PR 들의 bot review comment (CodeRabbit / Codex Review / Claude Review) 를 모아, 각 지적이 accepted 인지 dismissed 인지 분류한 뒤 결함 class 로 묶습니다. 서로 다른 PR 에서 `--min-recurrence` 번 이상(기본값 3) 반복된 class 만 `ywc-review-learnings` 에 학습 후보로 넘어갑니다. `--limit` 또는 `--since` 중 하나는 반드시 지정해야 하며, 전체 history 를 무조건 훑지 않습니다. 이 skill 은 `docs/review-learnings.md` 를 직접 쓰지 않고, 실제 반영은 `ywc-review-learnings` 의 확인 단계를 거칩니다. 열려있는 PR 한 개를 처리하려면 [`ywc-handle-pr-reviews`](#열려있는-pr-의-review-comment-에-대응하고-ciconflict-도-함께-정리하고-싶다)를 씁니다.
+
 ### 개발자·도메인 전문가·LLM 이 공유할 도메인 용어집을 만들거나 갱신하고 싶다
 
 <ToolTabs>
@@ -226,17 +230,19 @@ User value, UX, growth, risk 등 비즈니스 관점에서 프로젝트를 되�
 </ToolTabs>
 `--ddd` 는 Entity / Value Object / Aggregate 같은 DDD Type 컬럼을 추가합니다.
 
-### Project 의 why 와 rejected-approach 를 기록하고 싶다
+### Project 의 mission, success criteria, non-goal 을 기록하고 싶다
 
-<ToolTabs>
-  <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-mission 이 project 의 목표는 ..." />
-  </ToolTabsPanel>
-  <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-mission 이 project 의 목표는 ..." />
-  </ToolTabsPanel>
-</ToolTabs>
-[07. 새 Project 시작하기](./07-starting-a-new-project.md)에서 이미 다뤘습니다 — project 진행 중 방향이 바뀔 때도 다시 사용할 수 있습니다.
+<CodeBlock label="claude code" code="ywc-project-mission 이 project 의 목표는 ..." />
+
+이 skill 은 Claude Code 전용입니다 — Codex 에는 mission skill 이 없습니다. `docs/project-mission.md` 에 mission, 측정 가능한 success criteria, out-of-scope 항목을 기록하며, 모든 변경은 사용자 확인을 거친 ADD/MODIFY/DEPRECATE 목록으로만 반영됩니다. 기각된 대안과 그 이유는 여기서 다루지 않고, [`ywc-adr`](#되돌리기-어려운-architecture-결정을-기각한-대안과-함께-기록하고-싶다)로 따로 기록합니다.
+
+[07. 새 Project 시작하기](./07-starting-a-new-project.md)에서 이미 다뤘습니다 — project 진행 중 mission 이 바뀔 때도 같은 skill 로 갱신할 수 있습니다.
+
+### 되돌리기 어려운 architecture 결정을 기각한 대안과 함께 기록하고 싶다
+
+<CodeBlock label="claude code" code="ywc-adr --mode new 메시지 큐는 Kafka 대신 PostgreSQL 을 쓰기로 함. 운영 부담이 낮고 지금 처리량에는 충분하기 때문" />
+
+이 skill 은 Claude Code 전용입니다. `docs/adr/NNNN-<slug>.md` 에 Context / Decision / Alternatives Considered / Consequences 를 작성하며, 모드는 `new` / `read` / `list` / `curate` 가 있습니다. 되돌리기 어렵고, 맥락 없이는 놀라우며, 실제 trade-off 가 있는 결정만 기록하세요. 이미 작성된 ADR 은 직접 고치지 않고, `--supersedes ADR-NNNN` 으로 새 ADR 이 대체하도록 합니다.
 
 ## Release 를 준비하고 싶을 때
 
@@ -315,14 +321,30 @@ User value, UX, growth, risk 등 비즈니스 관점에서 프로젝트를 되�
 </ToolTabs>
 `ywc-parallel-executor` 가 각 task worktree 마다 자동으로 호출하는 결정론적 port 할당 skill 입니다 — worktree 마다 고유한 `COMPOSE_PROJECT_NAME` 과 port 블록을 배정해 "port is already allocated" 충돌을 막습니다.
 
+## 특정 도구에서만 제공되는 Skill
+
+대부분의 Skill 은 Claude Code 와 Codex 에서 모두 쓸 수 있지만, 아래 Skill 은 한쪽 도구에서만 제공됩니다.
+
+| 도구 | Skill | 하는 일 |
+|---|---|---|
+| Codex 전용 | `ywc-wayfinder` | 크거나 불확실한 변경을 위한 multi-session discovery 입니다. 계획이나 구현 전에 active ticket 이 정확히 하나인 로컬 map 을 만듭니다 |
+| Codex 전용 | `ywc-architecture-invariants` | repo root 의 선택 파일 `architecture-invariants.json` 계약을, 경계가 정해진 정규화된 dependency-edge 근거와 대조해 검증합니다 |
+| Codex 전용 | `ywc-implement` | 승인된 spec 또는 ticket 하나만, review gate 를 거치는 집중된 변경으로 구현합니다 |
+| Codex 전용 | `ywc-team-assemble` | 명시적으로 요청했을 때 전문가 team 을 구성하거나 subagent 에 작업을 위임합니다 |
+| Codex 전용 | `ywc-setup` | 기본 출력 언어나 협업자 initials 를 설정합니다 (`ywc-setup-language` 의 Codex 대응 skill) |
+| Claude Code 전용 | `ywc-adr` | 되돌리기 어려운 architecture 결정을 기각된 대안과 함께 기록합니다. [위 섹션](#되돌리기-어려운-architecture-결정을-기각한-대안과-함께-기록하고-싶다)을 참고하세요 |
+| Claude Code 전용 | `ywc-project-mission` | project 의 mission, 측정 가능한 success criteria, non-goal 을 기록합니다. [위 섹션](#project-의-mission-success-criteria-non-goal-을-기록하고-싶다)을 참고하세요 |
+| Claude Code 전용 | `ywc-setup-language` | 출력 언어를 영속 설정해서 매번 `--lang` 을 넘기지 않게 합니다 |
+
 ## 전체 Skill 색인 (A-Z)
 
 이 toolkit 의 모든 `ywc-*` skill 을 이름순으로 정리했습니다. 상세 사용법은 각 skill 의 위치(전용 page 또는 위 상황별 항목)에서 확인하세요.
 
 | Skill | 설명 | 위치 |
 |---|---|---|
-| `ywc-agent-legibility-audit` | Agent 가 코드를 고칠 때 드는 token 비용과 가독성을 측정하고 싶다 | [13](./16-code-structure-and-maintainability.md) |
+| `ywc-adr` | 되돌리기 어려운 architecture 결정을 기각한 대안과 함께 기록하고 싶다 *(Claude Code 전용)* | [여기](#되돌리기-어려운-architecture-결정을-기각한-대안과-함께-기록하고-싶다) |
 | `ywc-agentic` | 목표 하나만 던지고 계획부터 구현까지 사람 개입 없이 맡기고 싶다 | [여기](#목표-하나만-던지고-계획부터-구현까지-사람-개입-없이-맡기고-싶다) |
+| `ywc-architecture-invariants` | architecture-invariants.json 계약을 dependency 근거와 대조해 검증하고 싶다 *(Codex 전용)* | [여기](#특정-도구에서만-제공되는-skill) |
 | `ywc-auth-implement` | 코드를 쓰기 전에 인증 정책을 먼저 확정하고 인증 기능을 구현하고 싶다 | [15](./18-authentication-implementation.md) |
 | `ywc-brainstorm` | 아이디어가 아직 구체적이지 않아서 정리부터 하고 싶다 | [여기](#아이디어가-아직-구체적이지-않아서-정리부터-하고-싶다) |
 | `ywc-changelog-release-notes` | CHANGELOG.md 나 사용자용 release note 를 작성하고 싶다 | [여기](#changelogmd-나-사용자용-release-note-를-작성하고-싶다) |
@@ -339,18 +361,19 @@ User value, UX, growth, risk 등 비즈니스 관점에서 프로젝트를 되�
 | `ywc-handle-pr-reviews` | 열려있는 PR 의 review comment 에 대응하고, CI/conflict 도 함께 정리하고 싶다 | [여기](#열려있는-pr-의-review-comment-에-대응하고-ciconflict-도-함께-정리하고-싶다) |
 | `ywc-iac-author` | 완성된 설계를 실제 Infrastructure-as-Code 로 옮기고 싶다 | [14](./17-infrastructure-and-cloud.md) |
 | `ywc-impl-review` | 일반 cycle 밖에서 독립적으로 구현 품질과 maintenance 관점을 점검하고 싶다 | [13](./16-code-structure-and-maintainability.md) |
-| `ywc-improve-architecture` | 뒤엉킨 shallow module 구조를 deep module 로 재구조화하고 싶다 | [13](./16-code-structure-and-maintainability.md) |
+| `ywc-implement` | 승인된 spec 이나 ticket 하나를 review gate 를 거치며 구현하고 싶다 *(Codex 전용)* | [여기](#특정-도구에서만-제공되는-skill) |
 | `ywc-incident-postmortem` | Production 장애가 나서 회고 문서를 써야 한다 | [12](./12-debugging-and-incident-postmortem.md) |
 | `ywc-infra-design` | IaC 를 작성하기 전에 클라우드 아키텍처를 설계하고 싶다 | [14](./17-infrastructure-and-cloud.md) |
 | `ywc-infra-optimize` | 이미 돌아가고 있는 인프라를 개선하고 싶다 | [14](./17-infrastructure-and-cloud.md) |
 | `ywc-infra-review` | apply 하기 전에 misconfiguration/비용/신뢰성 문제를 잡고 싶다 | [14](./17-infrastructure-and-cloud.md) |
 | `ywc-merge-dependabot` | 쌓여있는 Dependabot PR 을 한번에 정리하고 싶다 | [여기](#쌓여있는-dependabot-pr-을-한번에-정리하고-싶다) |
-| `ywc-mission` | Project 의 why 와 rejected-approach 를 기록하고 싶다 | [여기](#project-의-why-와-rejected-approach-를-기록하고-싶다) |
+| `ywc-mine-review-history` | 이미 merge 된 여러 PR 을 한꺼번에 훑어서 반복되는 review 결함을 찾고 싶다 | [여기](#이미-merge-된-여러-pr-을-한꺼번에-훑어서-반복되는-review-결함을-찾고-싶다) |
 | `ywc-onboard-repo` | 낯선 repo 의 관행을 역추출해 CLAUDE.md 를 생성하는 onboarding skill | [08](./08-onboarding-existing-repo.md) |
 | `ywc-parallel-executor` | 여러 Task 를 격리된 worktree 에서 병렬로 실행하는 executor | [16](./13-executor-and-codegen-patterns.md) |
 | `ywc-plan` | 기능/변경사항의 구현 계획을 수립하는 진입점 skill | [04](./04-general-cycle-small.md) |
 | `ywc-product-review` | 코드가 아니라 비즈니스/서비스 관점에서 프로젝트를 리뷰받고 싶다 | [여기](#코드가-아니라-비즈니스서비스-관점에서-프로젝트를-리뷰받고-싶다) |
 | `ywc-project-docs` | docs/ 디렉토리 구조에 맞춰 project 문서를 생성하는 skill | [07](./07-starting-a-new-project.md) |
+| `ywc-project-mission` | Project 의 mission, success criteria, non-goal 을 기록하고 싶다 *(Claude Code 전용)* | [여기](#project-의-mission-success-criteria-non-goal-을-기록하고-싶다) |
 | `ywc-project-scaffold` | 완전히 새로운 project 의 디렉토리 구조를 설계하는 skill | [07](./07-starting-a-new-project.md) |
 | `ywc-receive-review` | 리뷰어(사람 또는 CodeRabbit/Codex/Claude)의 지적을 무조건 수용하지 않고, 기술적으로 검증한 뒤 대응하고 싶다 | [여기](#리뷰어사람-또는-coderabbitcodexclaude의-지적을-무조건-수용하지-않고-기술적으로-검증한-뒤-대응하고-싶다) |
 | `ywc-refactor-clean` | 오래된 dead code (미사용 함수/export/의존성)를 정리하고 싶다 | [13](./16-code-structure-and-maintainability.md) |
@@ -358,17 +381,20 @@ User value, UX, growth, risk 등 비즈니스 관점에서 프로젝트를 되�
 | `ywc-review-learnings` | Code review 에서 반복 지적되는 내용을 학습시켜서 다음부터 다시 지적하지 않게 하고 싶다 | [여기](#code-review-에서-반복-지적되는-내용을-학습시켜서-다음부터-다시-지적하지-않게-하고-싶다) |
 | `ywc-security-audit` | 인증/결제처럼 민감한 코드의 보안 취약점을 점검하고 싶다 | [여기](#인증결제처럼-민감한-코드의-보안-취약점을-점검하고-싶다) |
 | `ywc-sequential-executor` | 여러 Task 를 순서대로 하나씩 실행하는 executor | [16](./13-executor-and-codegen-patterns.md) |
-| `ywc-setup` | 출력 언어의 영속 기본값을 설정해서 매번 language 를 묻지 않게 하고 싶다 | [여기](#출력-언어의-영속-기본값을-설정해서-매번-language-를-묻지-않게-하고-싶다) |
+| `ywc-setup` | 출력 언어의 영속 기본값을 설정해서 매번 language 를 묻지 않게 하고 싶다 *(Codex 전용)* | [여기](#출력-언어의-영속-기본값을-설정해서-매번-language-를-묻지-않게-하고-싶다) |
+| `ywc-setup-language` | 출력 언어의 영속 기본값을 설정해서 매번 language 를 묻지 않게 하고 싶다 *(Claude Code 전용)* | [여기](#출력-언어의-영속-기본값을-설정해서-매번-language-를-묻지-않게-하고-싶다) |
 | `ywc-skill-author` | 새 ywc-* skill 을 만들거나, 기존 skill 을 규칙에 맞게 정리/점검하고 싶다 | [여기](#새-ywc--skill-을-만들거나-기존-skill-을-규칙에-맞게-정리점검하고-싶다) |
 | `ywc-spec-ready` | spec 문서가 구현 가능한 수준으로 준비됐는지 검증하는 gate | [05](./05-general-cycle-medium-large.md) |
 | `ywc-spec-validate` | spec 문서 내 모순·누락을 점검하는 검증 skill | [05](./05-general-cycle-medium-large.md) |
 | `ywc-spec-writer` | PRD/spec 문서를 작성하는 skill | [07](./07-starting-a-new-project.md) |
 | `ywc-task-generator` | spec 을 실행 가능한 Task 단위로 분해하는 skill | [05](./05-general-cycle-medium-large.md) |
 | `ywc-tdd-ritual` | RED → GREEN → REFACTOR 를 문서화된 절차대로 엄격하게 지키면서 구현하고 싶다 | [여기](#red--green--refactor-를-문서화된-절차대로-엄격하게-지키면서-구현하고-싶다) |
+| `ywc-team-assemble` | 전문가 team 을 구성하거나 subagent 에 위임하고 싶다 *(Codex 전용)* | [여기](#특정-도구에서만-제공되는-skill) |
 | `ywc-tech-research` | 라이브러리나 구현 방식을 비교해서 뭘 쓸지 결정하고 싶다 | [여기](#라이브러리나-구현-방식을-비교해서-뭘-쓸지-결정하고-싶다) |
 | `ywc-ubiquitous-language` | 개발자·도메인 전문가·LLM 이 공유할 도메인 용어집을 만들거나 갱신하고 싶다 | [여기](#개발자도메인-전문가llm-이-공유할-도메인-용어집을-만들거나-갱신하고-싶다) |
 | `ywc-ui-ux-review` | 화면 usability 와 접근성을 점검하는 skill | [11](./11-design-review.md) |
 | `ywc-verify-done` | lint/typecheck/test/build 를 실행해 완료 여부를 기계적으로 검증하는 skill | [06](./06-agentic-autonomous-loop.md) |
+| `ywc-wayfinder` | 크거나 불확실한 변경을 계획 전에 여러 session 에 걸쳐 탐색하고 싶다 *(Codex 전용)* | [여기](#특정-도구에서만-제공되는-skill) |
 | `ywc-worktrees` | 격리된 worktree 경로를 만들거나, 점검/정리하고 싶다 | [여기](#격리된-worktree-경로를-만들거나-점검정리하고-싶다) |
 
 ---

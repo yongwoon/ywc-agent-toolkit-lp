@@ -15,7 +15,7 @@
 | 步骤 | Skill | 角色 |
 |---|---|---|
 | 一 | `ywc-brainstorm` *(可选)* | 当想法还模糊时，通过每次一个问题的苏格拉底式对话敲定目的、约束、成功标准以及 2~3 个备选方案。若意图已明确则跳过 |
-| 二 | `ywc-mission` | 在 `docs/mission.md` 中记录项目的原因、成功标准以及被拒绝的方法记录。**在设计任何结构之前先敲定为什么** |
+| 二 | `ywc-project-mission` *(仅 Claude Code)* | 在 `docs/project-mission.md` 中记录项目的 mission、可衡量的成功标准以及非目标。**在设计结构之前先敲定为什么** |
 | 三 | `ywc-tech-research` *(可选)* | 并行比较技术栈/库的候选并记录选择理由。若技术栈已决定则跳过 |
 | 四 | `ywc-project-scaffold` | 基于已确定的技术栈，设计目录结构（输出一个 Markdown 计划） |
 | 五 | `ywc-ubiquitous-language` *(以领域为核心的项目推荐)* | 在 `docs/ubiquitous-language.md` 中定义开发者、领域专家与 LLM 共享的标准术语表 → 之后的规格与 `ywc-code-gen` 便使用规范术语 |
@@ -40,15 +40,11 @@
 它通过每次一个问题的苏格拉底式对话收窄目的、约束与备选方案。如果你已经清楚要构建什么，跳过此步，从第 2 步开始。
 
 **2. 记录项目的原因**
-<ToolTabs>
-  <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-mission 这个 project 的目标是让小型建筑公司无需单独的应用即可记录员工的上下班打卡。成功标准是一名管理员能否在 5 分钟内完成 10 名以下员工的考勤结算" />
-  </ToolTabsPanel>
-  <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-mission 这个 project 的目标是让小型建筑公司无需单独的应用即可记录员工的上下班打卡。成功标准是一名管理员能否在 5 分钟内完成 10 名以下员工的考勤结算" />
-  </ToolTabsPanel>
-</ToolTabs>
-在目录结构或规格之前先敲定 **为什么与成功标准** —— 之后的每一步都以此 mission 为判断基准。
+<CodeBlock label="claude code" code="ywc-project-mission 这个 project 的目标是让小型建筑公司无需单独的应用即可记录员工的上下班打卡。成功标准是一名管理员能否在 5 分钟内完成 10 名以下员工的考勤结算" />
+
+此步骤仅限 Claude Code —— Codex 没有 mission skill；在 Codex 上，请改为在第 6 步的规格中写明成功标准。
+
+在目录结构或规格之前先敲定 **mission 与成功标准** —— 之后的每一步都以此 mission 为判断基准。
 
 **3. 决定技术栈（可选）**
 <ToolTabs>
@@ -141,6 +137,7 @@
 - 如果 `ywc-confidence-gate` 返回 `STOP`（&lt;70），不要进入实现——先补齐被指出的维度，然后再次通过闸门。
 - 如果范围足够小，可以直接实现而无需规格分解，`ywc-plan` 可以路由到小路径并跳过整个流程。
 - `ywc-onboard-repo` 的移动方向与此流程（调查现有仓库）相反，因此在创建新项目时不要使用它。
+- `ywc-project-mission` 不记录被拒绝的方法。如需同时记录难以逆转的决策及被你拒绝的备选方案，请使用 `ywc-adr`（仅 Claude Code）。
 
 ---
 

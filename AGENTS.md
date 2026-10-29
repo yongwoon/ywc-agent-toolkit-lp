@@ -45,3 +45,12 @@ Git history currently contains only `first commit`, so no detailed convention is
 ## Security & Configuration Tips
 
 Keep the project backend-free: no API routes, database, auth, forms, `prisma/`, or global client stores. Translation catalogs must keep `en.json` as the source of truth, with matching keys across `ja`, `ko`, `zh`, and `es`. CSP must be static/hash-based, not nonce-based.
+
+## Source of Truth for Toolkit Content
+
+The guidebook (`src/content/guidebook/`), skill/agent counts in `src/messages/*.json`, and `docs/specification/` describe the toolkit checked out at `/Users/yongwoon.kim/Desktop/yongwoon/source/private/ywc-agent-toolkit` (no longer changing). Treat its directories as authoritative: `claude-code/skills/`, `codex/skills/`, `claude-code/agents/`, `codex/agents/`, and `CHANGELOG.md`. Its `README` tables can lag behind, so count directories instead.
+
+- Do not document a skill or agent that is absent from those directories. `develop-with-llm` is a superset and is not the reference (e.g. `ywc-improve-architecture`, `ywc-agent-legibility-audit`, `ywc-mission` exist only there).
+- Shared across both tools: 46 skills. Tool-specific: Claude Code `ywc-adr`, `ywc-project-mission`, `ywc-setup-language`; Codex `ywc-wayfinder`, `ywc-architecture-invariants`, `ywc-implement`, `ywc-team-assemble`, `ywc-setup`. Mark tool-specific skills as such in the guidebook.
+- Agents: Claude Code 13, Codex 10.
+- Heading numbers inside guidebook pages (e.g. `# 17.` in `14-skill-reference.md`) are display numbers, not file prefixes; do not "fix" them.

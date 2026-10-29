@@ -196,20 +196,20 @@ After all waves complete, one draft PR is created and merge is manual.
 **Generate Backend + Frontend + QA at once**
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-code-gen --spec docs/ywc-plans/ywc-improve-architecture-skill.md --feature &quot;improve architecture skill docs&quot;" />
+    <CodeBlock label="claude code" code="ywc-code-gen --spec docs/ywc-plans/billing-refactor.md --feature &quot;billing refactor&quot;" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-code-gen --spec docs/ywc-plans/ywc-improve-architecture-skill.md --feature &quot;improve architecture skill docs&quot;" />
+    <CodeBlock label="codex" code="ywc-code-gen --spec docs/ywc-plans/billing-refactor.md --feature &quot;billing refactor&quot;" />
   </ToolTabsPanel>
 </ToolTabs>
 
 **Build carefully with TDD for sensitive functionality such as payment/auth**
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-code-gen --spec docs/ywc-plans/ywc-toolkit-eval-hardening.md --feature &quot;payment webhook hardening&quot; --tdd" />
+    <CodeBlock label="claude code" code="ywc-code-gen --spec docs/ywc-plans/payment-webhook-hardening.md --feature &quot;payment webhook hardening&quot; --tdd" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-code-gen --spec docs/ywc-plans/ywc-toolkit-eval-hardening.md --feature &quot;payment webhook hardening&quot; --tdd" />
+    <CodeBlock label="codex" code="ywc-code-gen --spec docs/ywc-plans/payment-webhook-hardening.md --feature &quot;payment webhook hardening&quot; --tdd" />
   </ToolTabsPanel>
 </ToolTabs>
 Keywords such as `payment` are automatically classified as `critical`, which forbids gray-box delegation (checking only interfaces without reading internal code). `--tdd` enforces RED -> GREEN -> REFACTOR commit boundaries.

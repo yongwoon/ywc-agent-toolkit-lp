@@ -210,7 +210,7 @@ export const guidebookNavGroups: readonly GuidebookNavGroup[] = [
         slug: "16-code-structure-and-maintainability",
         title: "Managing Code Structure and Maintainability",
         description:
-          "A decision table and 4-step pipeline for ywc-refactor-clean, ywc-improve-architecture, ywc-impl-review, and ywc-agent-legibility-audit",
+          "A decision table and 2-step pipeline for ywc-refactor-clean and ywc-impl-review",
         groupId: "workflow-guides",
         status: "pending"
       },

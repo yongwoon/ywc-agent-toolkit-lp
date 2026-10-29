@@ -62,7 +62,7 @@
   {
     "slug": "16-code-structure-and-maintainability",
     "title": "13. コード構造と保守性の管理",
-    "summary": "4 つの Skill はすべて「コードが良くない」という同じ症状から出発しますが、答える質問が異なります。今何を聞きたいかで選んでください。"
+    "summary": "2 つの Skill はどちらも「コードが良くない」という同じ症状から出発しますが、答える質問が異なります。今何を聞きたいかで選んでください。"
   },
   {
     "slug": "17-infrastructure-and-cloud",

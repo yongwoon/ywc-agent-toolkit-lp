@@ -158,7 +158,7 @@
       },
       {
         "label": "Codex agents",
-        "value": "8 agents",
+        "value": "10 agents",
         "description": "La misma specialist coverage, empaquetada como Codex agents de solo lectura.",
         "lane": "codex"
       }
@@ -258,7 +258,7 @@
       },
       {
         "question": "¿Funciona con Claude Code y Codex?",
-        "answer": "Sí. Ambas herramientas reciben 46 skills. Claude Code incluye 13 custom agents, mientras que Codex incluye 8 custom agents."
+        "answer": "Sí. Ambas herramientas comparten 46 skills; Claude Code añade 3 skills propios de la herramienta y Codex añade 5. Claude Code incluye 13 custom agents, mientras que Codex incluye 10 custom agents."
       },
       {
         "question": "¿Necesito clonar el repository?",

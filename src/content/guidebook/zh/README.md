@@ -34,7 +34,7 @@
 | 一次性清理积压的 Dependabot PR | `ywc-merge-dependabot` | [17](./14-skill-reference.md) |
 | 编写 CHANGELOG 或发布说明 | `ywc-changelog-release-notes` | [17](./14-skill-reference.md) |
 | 只提交到目前为止完成的工作 | `ywc-commit` | [17](./14-skill-reference.md) |
-| 结构混乱，或从 maintenance 角度看实现质量不佳 | `ywc-improve-architecture` | [13](./16-code-structure-and-maintainability.md) |
+| 想从独立的角度检查实现质量和可维护性 | `ywc-impl-review` | [13](./16-code-structure-and-maintainability.md) |
 | 想比较库或实现方式，决定要用什么 | `ywc-tech-research` | [17](./14-skill-reference.md) |
 | 想管理对话结束后仍留在 project 中的知识（术语表/评审学习/mission） | `ywc-ubiquitous-language` | [17](./14-skill-reference.md) |
 
@@ -68,7 +68,7 @@
 | [10. E2E Test automation strategy](./10-e2e-test-strategy.md) | 基于 Playwright 的 E2E 套件的高级设置、扩展和维护指南 |
 | [11. Reviewing and improving design](./11-design-review.md) | 如何区分和应用可用性审核与视觉去倾斜更新 |
 | [12. 根本原因调查和事后分析](./12-debugging-and-incident-postmortem.md) | 如何使用 `ywc-debug-rootcause` 进行根本原因调查，以及使用 `ywc-incident-postmortem` 编写事后分析报告 |
-| [13. 管理代码结构与可维护性](./16-code-structure-and-maintainability.md) | 整理、重构和验证结构不佳或难以维护的代码的 4 个 Skill 的用法，以及它们协同工作的顺序 |
+| [13. 管理代码结构与可维护性](./16-code-structure-and-maintainability.md) | 整理和验证结构不佳或难以维护的代码的 2 个 Skill 的用法，以及它们协同工作的顺序 |
 | [14. 管理云基础设施](./17-infrastructure-and-cloud.md) | 用一张决策表和 4 步流水线整理 `ywc-infra-design`、`ywc-iac-author`、`ywc-infra-review`、`ywc-infra-optimize`，并对接到 `ywc-cloud-engineer` agent |
 | [15. 实现身份验证](./18-authentication-implementation.md) | `ywc-auth-implement` 如何推进 preflight -> 策略访谈 -> 推荐 -> dispatch 流程，以及它强制执行的 security / E2E / PR gate |
 

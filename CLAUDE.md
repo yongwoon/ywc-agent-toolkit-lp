@@ -63,6 +63,15 @@ There is no test runner configured — task verification is build success (`npm 
 
 The spec has open questions not yet resolved (`06-requirements.md#Open Questions`): whether Social Proof ships without quotes at launch, and custom-domain vs. `<owner>.github.io/...` path — both affect implementation decisions in later tasks (social-proof section conditional rendering, CNAME/canonical URL setup).
 
+## Source of Truth for Toolkit Content
+
+The guidebook (`src/content/guidebook/`), skill/agent counts in `src/messages/*.json`, and `docs/specification/` describe the toolkit checked out at `/Users/yongwoon.kim/Desktop/yongwoon/source/private/ywc-agent-toolkit` (no longer changing). Treat its directories as authoritative: `claude-code/skills/`, `codex/skills/`, `claude-code/agents/`, `codex/agents/`, and `CHANGELOG.md`. Its `README` tables can lag behind, so count directories instead.
+
+- Do not document a skill or agent that is absent from those directories. `develop-with-llm` is a superset and is not the reference (e.g. `ywc-improve-architecture`, `ywc-agent-legibility-audit`, `ywc-mission` exist only there).
+- Shared across both tools: 46 skills. Tool-specific: Claude Code `ywc-adr`, `ywc-project-mission`, `ywc-setup-language`; Codex `ywc-wayfinder`, `ywc-architecture-invariants`, `ywc-implement`, `ywc-team-assemble`, `ywc-setup`. Mark tool-specific skills as such in the guidebook.
+- Agents: Claude Code 13, Codex 10.
+- Heading numbers inside guidebook pages (e.g. `# 17.` in `14-skill-reference.md`) are display numbers, not file prefixes; do not "fix" them.
+
 ## Language Conventions
 
 - **Assistant responses: Korean.** Always reply to the user in Korean for every session, regardless of the language of the prompt, code, or documentation. Code identifiers and comments stay English (below); only the conversational replies are Korean.

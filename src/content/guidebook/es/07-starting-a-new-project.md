@@ -15,7 +15,7 @@ Este flujo es un embudo: **divergir → decidir → converger → puerta de arra
 | Paso | Skill | Rol |
 |---|---|---|
 | uno | `ywc-brainstorm` *(opcional)* | Cuando la idea aún es difusa, fija propósito, restricciones, criterios de éxito y 2–3 enfoques alternativos mediante un diálogo socrático de una pregunta a la vez. Omítelo si la intención ya es firme |
-| Dos | `ywc-mission` | Registra el motivo del proyecto, los criterios de éxito y el registro de enfoques rechazados en `docs/mission.md`. **Fija el porqué antes de diseñar cualquier estructura** |
+| Dos | `ywc-project-mission` *(solo Claude Code)* | Registra la mission del proyecto, sus criterios de éxito medibles y sus non-goals en `docs/project-mission.md`. **Fija el porqué antes de diseñar cualquier estructura** |
 | tres | `ywc-tech-research` *(opcional)* | Compara en paralelo los candidatos de pila tecnológica / biblioteca y registra la justificación de la elección. Omítelo si la pila ya está decidida |
 | cuatro | `ywc-project-scaffold` | Con la pila decidida, diseña la estructura del directorio (genera un plan Markdown) |
 | cinco | `ywc-ubiquitous-language` *(recomendado para proyectos ricos en dominio)* | Define el vocabulario compartido para desarrolladores, expertos de dominio y el LLM en `docs/ubiquitous-language.md` → la especificación y `ywc-code-gen` usan luego los términos canónicos |
@@ -40,15 +40,10 @@ Este flujo es un embudo: **divergir → decidir → converger → puerta de arra
 Estrecha el propósito, las restricciones y las alternativas mediante un diálogo socrático de una pregunta a la vez. Si ya sabes claramente qué construir, omítelo y empieza desde el paso 2.
 
 **2. Registra el porqué del proyecto**
-<ToolTabs>
-  <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-mission El objetivo de este project es permitir que una pequeña empresa de construcción registre la entrada/salida de los trabajadores sin una aplicación aparte. Criterio de éxito: si un solo administrador puede cerrar la asistencia de 10 trabajadores o menos en 5 minutos" />
-  </ToolTabsPanel>
-  <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-mission El objetivo de este project es permitir que una pequeña empresa de construcción registre la entrada/salida de los trabajadores sin una aplicación aparte. Criterio de éxito: si un solo administrador puede cerrar la asistencia de 10 trabajadores o menos en 5 minutos" />
-  </ToolTabsPanel>
-</ToolTabs>
-Fija el **porqué y los criterios de éxito** antes que la estructura del directorio o la especificación: cada paso posterior se juzga contra esta mission.
+<CodeBlock label="claude code" code="ywc-project-mission El objetivo de este project es permitir que una pequeña empresa de construcción registre la entrada/salida de los trabajadores sin una aplicación aparte. Criterio de éxito: si un solo administrador puede cerrar la asistencia de 10 trabajadores o menos en 5 minutos" />
+Este paso es solo para Claude Code: Codex no tiene skill de mission. En Codex, indica los criterios de éxito en la especificación del paso 6.
+
+Fija la **mission y los criterios de éxito** antes que la estructura del directorio o la especificación: cada paso posterior se juzga contra esta mission.
 
 **3. Decide la pila tecnológica (opcional)**
 <ToolTabs>
@@ -141,6 +136,7 @@ Puntúa cinco dimensiones: scope clarity / architecture compliance / evidence qu
 - Si `ywc-confidence-gate` devuelve `STOP` (&lt;70), no entres en la implementación: completa primero la dimensión señalada y luego vuelve a pasar la puerta.
 - Si el alcance es lo suficientemente pequeño como para implementarse directamente sin descomposición de especificaciones, `ywc-plan` puede dirigir al camino Pequeño y saltarse todo este flujo.
 - `ywc-onboard-repo` se mueve en dirección opuesta a este flujo (investigando un repositorio existente), así que no lo uses al crear un proyecto nuevo.
+- Para registrar decisiones difíciles de revertir junto con las alternativas descartadas, usa `ywc-adr` (solo Claude Code).
 
 ---
 

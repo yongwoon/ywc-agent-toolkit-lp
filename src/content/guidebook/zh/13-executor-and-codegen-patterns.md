@@ -196,20 +196,20 @@ Tasks 按波浪在一个 `aggregate/payments` 分支上堆叠，并作为 **一�
 **同时生成后端 + 前端 + 测试**
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-code-gen --spec docs/ywc-plans/ywc-improve-architecture-skill.md --feature &quot;improve architecture skill docs&quot;" />
+    <CodeBlock label="claude code" code="ywc-code-gen --spec docs/ywc-plans/billing-refactor.md --feature &quot;billing refactor&quot;" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-code-gen --spec docs/ywc-plans/ywc-improve-architecture-skill.md --feature &quot;improve architecture skill docs&quot;" />
+    <CodeBlock label="codex" code="ywc-code-gen --spec docs/ywc-plans/billing-refactor.md --feature &quot;billing refactor&quot;" />
   </ToolTabsPanel>
 </ToolTabs>
 
 **对于支付/认证等敏感功能，请使用 TDD 小心构建**
 <ToolTabs>
   <ToolTabsPanel tool="claude-code" label="Claude Code">
-    <CodeBlock label="claude code" code="ywc-code-gen --spec docs/ywc-plans/ywc-toolkit-eval-hardening.md --feature &quot;payment webhook hardening&quot; --tdd" />
+    <CodeBlock label="claude code" code="ywc-code-gen --spec docs/ywc-plans/payment-webhook-hardening.md --feature &quot;payment webhook hardening&quot; --tdd" />
   </ToolTabsPanel>
   <ToolTabsPanel tool="codex" label="Codex">
-    <CodeBlock label="codex" code="ywc-code-gen --spec docs/ywc-plans/ywc-toolkit-eval-hardening.md --feature &quot;payment webhook hardening&quot; --tdd" />
+    <CodeBlock label="codex" code="ywc-code-gen --spec docs/ywc-plans/payment-webhook-hardening.md --feature &quot;payment webhook hardening&quot; --tdd" />
   </ToolTabsPanel>
 </ToolTabs>
 像 `payment` 这样的关键词会被自动分类为 `critical`，这禁止灰箱委派（只检查接口而不阅读内部代码）。`--tdd` 强制执行 RED -> GREEN -> REFACTOR 提交边界。
