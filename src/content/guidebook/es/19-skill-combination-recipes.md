@@ -33,14 +33,14 @@ Las demás páginas explican un flujo o una Skill a la vez. Esta página muestra
   </ToolTabsPanel>
 </ToolTabs>
 
-El bucle funciona en ambas herramientas. Cada vuelta hace que la siguiente revisión sea más tranquila: los comentarios que el equipo ya rechazó dejan de volver, y los comentarios con los que el equipo estuvo de acuerdo se detectan antes de abrir el PR.
+El bucle funciona en ambas herramientas. Cada vuelta hace que la siguiente revisión tenga menos ruido: los comentarios que el equipo ya rechazó dejan de volver, y los comentarios con los que el equipo estuvo de acuerdo se detectan antes de abrir el PR.
 
 ## De la corrección de un bug a la prevención
 
 1. `ywc-debug-rootcause` encuentra la causa raíz, añade un regression test y valida la corrección con `ywc-verify-done` ([12](./12-debugging-and-incident-postmortem.md)).
 2. Si la misma clase de defecto podría aparecer en otro lugar, ofrece registrarla como aprendizaje de revisión (`ywc-review-learnings --mode update --source debug`).
-3. Tras un incidente en Production, `ywc-incident-postmortem` redacta el informe y ofrece de la misma forma sus action items para prevenir la recurrencia (`--source incident`).
-4. A partir de entonces, `ywc-impl-review` lee esos aprendizajes, así que la misma clase de defecto se detecta en la revisión en lugar de en Production.
+3. Tras un incidente en producción, `ywc-incident-postmortem` redacta el informe y ofrece de la misma forma sus action items para prevenir la recurrencia (`--source incident`).
+4. A partir de entonces, `ywc-impl-review` lee esos aprendizajes, así que la misma clase de defecto se detecta en la revisión en lugar de en producción.
 
 Los pasos 2 y 3 son solo para Claude Code. En Codex, las dos Skills no hacen hand-off a `ywc-review-learnings`; si una lección vale la pena, regístrala tú mismo con `ywc-review-learnings` (el source por defecto, `feedback`).
 
@@ -80,7 +80,7 @@ Esta receta es solo para Codex.
 
 <CodeBlock label="codex" code="ywc-wayfinder Separar la facturación del monolito en su propio servicio. El alcance aún no está claro" />
 
-Úsala solo para trabajo grande, incierto o que abarque varias sesiones. La planificación normal corresponde a `ywc-plan`, y la aclaración de ideas a `ywc-brainstorm`.
+Úsala solo para trabajos grandes, inciertos o que abarquen varias sesiones. La planificación normal corresponde a `ywc-plan`, y la aclaración de ideas a `ywc-brainstorm`.
 
 ## Entorno de ejecución en paralelo
 

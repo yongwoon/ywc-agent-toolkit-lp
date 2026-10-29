@@ -21,7 +21,7 @@
 1. **接收** — 在处理一条 comment 之前，`ywc-receive-review` 会先检查它在技术上是否正确，这样你就不会仅仅因为审查者要求就实现一个错误的修复。
 2. **处理** — `ywc-handle-pr-reviews` 逐个修复或回复每个 thread，并让 PR 保持可 merge 的状态（CI 通过，与 base 无 conflict）。
 3. **记录** — 值得保留的经验通过 `ywc-review-learnings` 写入 `docs/review-learnings.md`。使用 `--source pr --pr <编号>` 时，它会提炼一个 PR 的 bot review comment。每个新条目都会以 changeset 的形式展示给你，只有在你确认后才会写入。
-4. **回溯收集** — 对于过去的 PR，`ywc-mine-review-history` 会一次扫描多个已 merge 的 PR，并把反复出现的缺陷类别提交给 `ywc-review-learnings`。
+4. **回溯收集** — 对于过去的 PR，`ywc-mine-review-history` 会一次扫描多个已 merge 的 PR，并把反复出现的缺陷类别提供给 `ywc-review-learnings`。
 5. **复用** — `ywc-impl-review` 在每次 review 开始时都会加载这些经验（可用 `--skip-learnings` 跳过），因此已知的 false positive 不会再次被提出，已知的 `DO-NOT` 也会更早被发现。Review 结束后，它会提议记录反复出现的 finding。
 
 <ToolTabs>
@@ -39,8 +39,8 @@
 
 1. `ywc-debug-rootcause` 找出根本原因，添加 regression test，并用 `ywc-verify-done` 对修复进行把关（[12](./12-debugging-and-incident-postmortem.md)）。
 2. 如果同一类缺陷可能出现在其他地方，它会提议将其记录为 review 经验（`ywc-review-learnings --mode update --source debug`）。
-3. 发生 Production 事故后，`ywc-incident-postmortem` 会撰写报告，并以同样的方式提交其防止复发的 action item（`--source incident`）。
-4. 从此以后，`ywc-impl-review` 会读取这些经验，因此同一类缺陷会在 review 阶段而不是在 Production 中被发现。
+3. 发生生产事故后，`ywc-incident-postmortem` 会撰写报告，并以同样的方式提议记录其中用于防止复发的 action item（`--source incident`）。
+4. 从此以后，`ywc-impl-review` 会读取这些经验，因此同一类缺陷会在 review 阶段而不是在生产环境中被发现。
 
 第 2 步和第 3 步仅限 Claude Code。在 Codex 中，这两个 Skill 不会 hand-off 给 `ywc-review-learnings`；如果有值得保留的经验，请自己用 `ywc-review-learnings` 记录（默认的 `feedback` source）。
 
@@ -52,9 +52,9 @@
 | 实现之后 | `ywc-impl-review` | 对照 spec 的五个方面的 review（[13](./16-code-structure-and-maintainability.md)） |
 | 变更涉及安全时 | `ywc-security-audit` | 静态安全 review（OWASP Top 10、secret、threat model） |
 | 说"完成"之前 | `ywc-verify-done` | 为每一个完成声明提供新的证据（test 或 build 输出） |
-| 打开 PR | `ywc-create-pr` | Commit、push，以及基于 task 或 plan 生成的 PR 正文 |
+| 打开 PR 时 | `ywc-create-pr` | Commit、push，以及基于 task 或 plan 生成的 PR 正文 |
 | 审查者回复之后 | `ywc-handle-pr-reviews` | Comment、CI 和 conflict，与上面的循环相同 |
-| Merge | `ywc-finish-branch` | 等待 CI 和 bot review、merge、merge 后检查、清理 branch |
+| Merge 时 | `ywc-finish-branch` | 等待 CI 和 bot review、merge、merge 后检查、清理 branch |
 
 你很少需要直接调用 `ywc-verify-done`：`ywc-code-gen` 和两个 executor 会在各自的完成步骤中调用它。当你手动完成工作时，请自己调用它。
 
@@ -84,7 +84,7 @@ Codex 既没有 `ywc-adr` 也没有 `ywc-project-mission`；请改为把决策�
 
 ## 并行执行环境
 
-`ywc-parallel-executor` 通过 `ywc-worktrees` 为每个 task 创建 worktree。在 Docker 项目中，它还会通过 `ywc-docker-isolate` 为每个 worktree 分配独立的 host port 段，使各个 stack 互不冲突（"port is already allocated"）。Merge 之后，`ywc-finish-branch` 会用 `ywc-worktrees --mode prune` 删除 worktree。
+`ywc-parallel-executor` 通过 `ywc-worktrees` 为每个 task 创建 worktree。在 Docker 项目中，它还会通过 `ywc-docker-isolate` 为每个 worktree 分配独立的 host 端口区块，使各个 stack 互不冲突（"port is already allocated"）。Merge 之后，`ywc-finish-branch` 会用 `ywc-worktrees --mode prune` 删除 worktree。
 
 通常你不需要自己调用其中任何一个；在两个工具中都由 executor 驱动它们。若要在 executor 运行之外创建或清理 worktree，请使用 [17](./14-skill-reference.md) 中的命令。
 

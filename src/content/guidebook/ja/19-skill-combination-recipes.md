@@ -33,7 +33,7 @@
   </ToolTabsPanel>
 </ToolTabs>
 
-このループは両方の Tool で動作します。1 周するたびに次の review は静かになります。チームがすでに却下した指摘は再び出てこなくなり、チームが同意した指摘は PR を開く前に検出されます。
+このループは両方のツールで動作します。1 周するたびに次の review は静かになります。チームがすでに却下した指摘は再び出てこなくなり、チームが同意した指摘は PR を開く前に検出されます。
 
 ## バグ修正から再発防止まで
 
@@ -54,9 +54,9 @@
 | 「完了」と言う前 | `ywc-verify-done` | すべての完了主張に対する新しい証拠(test または build の出力) |
 | PR を開くとき | `ywc-create-pr` | Commit、push、そして task や plan をもとにした PR 本文 |
 | レビュアーの返答後 | `ywc-handle-pr-reviews` | 上のループと同様に comment、CI、conflict |
-| Merge | `ywc-finish-branch` | CI と bot review の待機、merge、merge 後の確認、branch の整理 |
+| Merge するとき | `ywc-finish-branch` | CI と bot review の待機、merge、merge 後の確認、branch の整理 |
 
-`ywc-verify-done` を直接呼び出すことはあまりありません。`ywc-code-gen` と 2 つの executor がそれぞれの完了ステップで呼び出すためです。作業を手作業で終えたときは、自分で呼び出してください。
+`ywc-verify-done` を直接呼び出すことはあまりありません。`ywc-code-gen` と 2 つの executor がそれぞれの完了ステップで呼び出すためです。手動で作業を完了したときは、自分で呼び出してください。
 
 ## 計画しながら決定を記録する
 
@@ -74,19 +74,19 @@ Codex には `ywc-adr` も `ywc-project-mission` もないため、決定の理�
 
 このレシピは Codex のみです。
 
-1. `ywc-wayfinder` は `docs/ywc-plans/<slug>-wayfinder.md` に local map を置き、複数の session にわたって引き継ぎます。Map には多くの ticket を持てますが、active なものは常に 1 つだけで、この Skill 自身が何かを実装することはありません。
+1. `ywc-wayfinder` は `docs/ywc-plans/<slug>-wayfinder.md` に local map を置き、複数の session にわたって引き継ぎます。Map は多くの ticket を保持できますが、active なものは常に 1 つだけで、この Skill 自身が何かを実装することはありません。
 2. Ticket の進め方が明確になると、`ywc-plan` へ hand-off します(ticket が技術比較で止まっている場合は `ywc-tech-research` へ)。
 3. そこからは通常のフローが続きます: `ywc-spec-ready` → `ywc-task-generator` → executor([05](./05-general-cycle-medium-large.md))。承認済みの spec や ticket を 1 つ実装するだけでよい場合は、`ywc-implement` が範囲を絞った、review gate 付きの変更 1 つとして処理します。
 
 <CodeBlock label="codex" code="ywc-wayfinder 課金機能を monolith から独立した service に分離したい。まだ範囲が不明確" />
 
-大きい、不確実、または複数の session にまたがる作業にのみ使ってください。通常の計画は `ywc-plan`、アイデアの整理は `ywc-brainstorm` の役割です。
+規模が大きい作業、不確実な作業、または複数の session にまたがる作業にのみ使ってください。通常の計画は `ywc-plan`、アイデアの整理は `ywc-brainstorm` の役割です。
 
 ## 並列実行環境
 
-`ywc-parallel-executor` は task ごとの worktree を `ywc-worktrees` で作成します。Docker project では、`ywc-docker-isolate` によって worktree ごとに専用の host port 帯域を割り当て、stack 同士が衝突しないようにします("port is already allocated")。Merge の後は、`ywc-finish-branch` が `ywc-worktrees --mode prune` で worktree を削除します。
+`ywc-parallel-executor` は task ごとの worktree を `ywc-worktrees` で作成します。Docker project では、`ywc-docker-isolate` によって worktree ごとに専用の host port ブロックを割り当て、stack 同士が衝突しないようにします("port is already allocated")。Merge の後は、`ywc-finish-branch` が `ywc-worktrees --mode prune` で worktree を削除します。
 
-通常、これらを自分で呼び出す必要はありません。両方の Tool で executor がこれらを駆動します。Executor の実行とは別に worktree を作成または整理するには、[17](./14-skill-reference.md) の command を使ってください。
+通常、これらを自分で呼び出す必要はありません。両方のツールで executor がこれらを駆動します。Executor の実行とは別に worktree を作成または整理するには、[17](./14-skill-reference.md) の command を使ってください。
 
 ## Release 準備
 
