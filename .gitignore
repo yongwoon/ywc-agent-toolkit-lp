@@ -13,3 +13,6 @@ tsconfig.tsbuildinfo
 /blob-report/
 /playwright/.cache/
 .playwright-mcp/
+
+# graft's local graph cache — regenerable, not committed (run `graft build`).
+/graft/
