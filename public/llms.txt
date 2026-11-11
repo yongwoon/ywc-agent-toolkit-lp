@@ -2,6 +2,30 @@
 
 > A distribution toolkit published on GitHub. Claude Code: 51 skills and 14 agents. Codex: 54 skills and 10 agents.
 
+The guidebook pages below are plain Markdown, listed in reading order. To set the toolkit up and run it, read [03. Prerequisites and installation](https://yongwoon.github.io/ywc-agent-toolkit-lp/en/guidebook/15-prerequisites-installation.md) first, then [04. Ship your first feature in 5 minutes](https://yongwoon.github.io/ywc-agent-toolkit-lp/en/guidebook/03-quickstart.md), then the page that matches the task. Each page also exists in ko, ja, zh and es: replace `/en/` in the URL. The HTML version of a page is the same URL with `.md` replaced by `/`.
+
+## Guidebook
+
+- [01. Introduction](https://yongwoon.github.io/ywc-agent-toolkit-lp/en/guidebook/01-introduction.md): This repository defines around 30 Skills with the ywc-* prefix under claude-code/skills/, plus several dedicated Agents under claude-code/agents/.
+- [02. Core concepts](https://yongwoon.github.io/ywc-agent-toolkit-lp/en/guidebook/02-core-concepts.md): Once you understand the terms and concepts on this page, you can apply the examples from every other guide page directly.
+- [03. Prerequisites and installation](https://yongwoon.github.io/ywc-agent-toolkit-lp/en/guidebook/15-prerequisites-installation.md): To use ywc-* Skills reliably, a few tools need to be in place beforehand.
+- [04. Ship your first feature in 5 minutes](https://yongwoon.github.io/ywc-agent-toolkit-lp/en/guidebook/03-quickstart.md): This page is your first hands-on exercise: follow one small bug fix from the idea stage to merge.
+- [05. Handling a small change (general cycle - small)](https://yongwoon.github.io/ywc-agent-toolkit-lp/en/guidebook/04-general-cycle-small.md): When ywc-plan judges a request as Small, it automatically enters this path.
+- [06. Handling work split into multiple Tasks (general cycle - medium/large)](https://yongwoon.github.io/ywc-agent-toolkit-lp/en/guidebook/05-general-cycle-medium-large.md): If any of the following applies, ywc-plan routes to this path.
+- [07. Finish automatically from one goal (ywc-agentic)](https://yongwoon.github.io/ywc-agent-toolkit-lp/en/guidebook/06-agentic-autonomous-loop.md): Goal -> [Plan -> Execute -> Evaluate -> Repeat] -> Result
+- [08. Skill combination recipes](https://yongwoon.github.io/ywc-agent-toolkit-lp/en/guidebook/19-skill-combination-recipes.md): The other pages explain one flow or one Skill at a time.
+- [09. Starting a new Project](https://yongwoon.github.io/ywc-agent-toolkit-lp/en/guidebook/07-starting-a-new-project.md): Use this when there is no Git repository yet, or when the repository exists but is essentially a blank slate with little code.
+- [10. Entering an existing Repo for the first time](https://yongwoon.github.io/ywc-agent-toolkit-lp/en/guidebook/08-onboarding-existing-repo.md): Use this when you first enter an unfamiliar repository that already has code and need to understand "what this codebase looks like." Conversely, if you are desi…
+- [11. Writing and running Tests](https://yongwoon.github.io/ywc-agent-toolkit-lp/en/guidebook/09-testing-guide.md): Use this after feature implementation is done and you need to verify that it really works as intended.
+- [12. E2E Test automation strategy](https://yongwoon.github.io/ywc-agent-toolkit-lp/en/guidebook/10-e2e-test-strategy.md): Use ywc-e2e-test-strategy when the project does not yet have Playwright-based E2E tests, or when existing coverage is scattered and it is unclear "which flow sh…
+- [13. Reviewing and improving design](https://yongwoon.github.io/ywc-agent-toolkit-lp/en/guidebook/11-design-review.md): The two Skills answer different questions.
+- [14. Managing Code Structure and Maintainability](https://yongwoon.github.io/ywc-agent-toolkit-lp/en/guidebook/16-code-structure-and-maintainability.md): Both Skills start from the same symptom — "the code is bad" — but answer different questions.
+- [15. Debugging and incident postmortems](https://yongwoon.github.io/ywc-agent-toolkit-lp/en/guidebook/12-debugging-and-incident-postmortem.md): The two Skills answer different questions.
+- [16. Managing Cloud Infrastructure](https://yongwoon.github.io/ywc-agent-toolkit-lp/en/guidebook/17-infrastructure-and-cloud.md): All four Skills cover one continuous lifecycle — designing, authoring, reviewing, and improving cloud infrastructure — but each answers a different question.
+- [17. Implementing Authentication](https://yongwoon.github.io/ywc-agent-toolkit-lp/en/guidebook/18-authentication-implementation.md): Use ywc-auth-implement when a project needs a new authentication feature — sign-in/sign-up, OAuth, MFA, session handling, password reset, account deletion, or a…
+- [18. Executor / Code-gen Prompt patterns](https://yongwoon.github.io/ywc-agent-toolkit-lp/en/guidebook/13-executor-and-codegen-patterns.md): Without --aggregate-pr (default behavior): each Task gets its own feature branch and PR.
+- [19. Full Skill Reference](https://yongwoon.github.io/ywc-agent-toolkit-lp/en/guidebook/14-skill-reference.md): This page groups the remaining Skills not covered in the previous workflow guides by what you want to do.
+
 ## Skills (Claude Code)
 
 - [ywc-adr](https://github.com/yongwoon/ywc-agent-toolkit/blob/main/claude-code/skills/ywc-adr/SKILL.md): (ywc) Use when capturing, reading, listing, or curating (deprecating) a project's Architecture Decision Records — durable records of a hard-to-reverse architect…

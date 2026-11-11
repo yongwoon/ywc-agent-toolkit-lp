@@ -3,10 +3,20 @@ import path from "node:path";
 
 import matter from "gray-matter";
 
+import { guidebookSlugs } from "./guidebook-slugs.mjs";
+
 const cwd = process.cwd();
 const repo = "yongwoon/ywc-agent-toolkit";
 const catalogPath = path.join(cwd, "src/data/agent-catalog.json");
 const llmsTxtPath = path.join(cwd, "public/llms.txt");
+// English is the indexed guidebook locale; scripts/generate-guidebook-markdown.mjs
+// writes the same .md pages for every locale next to the HTML routes.
+const guidebookLocale = "en";
+const guidebookDir = path.join(cwd, "src/content/guidebook", guidebookLocale);
+// Same default as scripts/generate-sitemap.mjs and src/lib/seo.ts.
+const siteUrl = (process.env.SITE_URL ?? "https://yongwoon.github.io/ywc-agent-toolkit-lp").replace(/\/+$/, "");
+const INSTALL_SLUG = "15-prerequisites-installation";
+const QUICKSTART_SLUG = "03-quickstart";
 
 const CONCURRENCY = 8;
 const FETCH_TIMEOUT_MS = 10_000;
@@ -262,7 +272,57 @@ async function buildCatalogFromLive() {
   };
 }
 
-function renderLlmsTxt(catalog) {
+// Title is the page H1; the description is the first prose paragraph after it
+// (skipping the back link, quotes, tables, lists and JSX blocks).
+async function readGuidebookPages() {
+  return Promise.all(
+    guidebookSlugs.map(async (slug) => {
+      const lines = (await readFile(path.join(guidebookDir, `${slug}.md`), "utf8")).split("\n");
+      const titleIndex = lines.findIndex((line) => line.startsWith("# "));
+
+      if (titleIndex === -1) {
+        throw new Error(`[generate-llms-txt] guidebook page "${slug}" has no H1 title`);
+      }
+
+      const paragraph = lines.slice(titleIndex + 1).find((line) => /^[^\s#>\[<|`-]/.test(line)) ?? "";
+      const title = lines[titleIndex].slice(2).trim();
+
+      return {
+        slug,
+        title,
+        url: `${siteUrl}/${guidebookLocale}/guidebook/${slug}.md`,
+        description: truncateDescription(paragraph.replace(/\*\*|`/g, "")) ?? title
+      };
+    })
+  );
+}
+
+function renderGuidebookSection(pages) {
+  const link = (slug) => {
+    const page = pages.find((candidate) => candidate.slug === slug);
+
+    if (!page) {
+      throw new Error(`[generate-llms-txt] guidebook slug "${slug}" is missing from guidebook-slugs.mjs`);
+    }
+
+    return `[${page.title}](${page.url})`;
+  };
+
+  return [
+    "The guidebook pages below are plain Markdown, listed in reading order. " +
+      `To set the toolkit up and run it, read ${link(INSTALL_SLUG)} first, then ${link(QUICKSTART_SLUG)}, ` +
+      "then the page that matches the task. " +
+      "Each page also exists in ko, ja, zh and es: replace `/en/` in the URL. " +
+      "The HTML version of a page is the same URL with `.md` replaced by `/`.",
+    "",
+    "## Guidebook",
+    "",
+    ...pages.map((page) => `- [${page.title}](${page.url}): ${page.description}`),
+    ""
+  ];
+}
+
+function renderLlmsTxt(catalog, guidebookPages) {
   const byKindAndTool = (kind, tool) =>
     catalog.entries
       .filter((entry) => entry.kind === kind && entry.tool === tool)
@@ -275,7 +335,8 @@ function renderLlmsTxt(catalog) {
     "# ywc-agent-toolkit",
     "",
     `> A distribution toolkit published on GitHub. Claude Code: ${count("skill", "claude-code")} skills and ${count("agent", "claude-code")} agents. Codex: ${count("skill", "codex")} skills and ${count("agent", "codex")} agents.`,
-    ""
+    "",
+    ...renderGuidebookSection(guidebookPages)
   ];
 
   for (const section of SECTION_ORDER) {
@@ -318,7 +379,7 @@ if (source === "github-api") {
 }
 
 await mkdir(path.dirname(llmsTxtPath), { recursive: true });
-await writeFile(llmsTxtPath, renderLlmsTxt(catalog));
+await writeFile(llmsTxtPath, renderLlmsTxt(catalog, await readGuidebookPages()));
 
 console.log(
   `[generate-llms-txt] wrote ${catalog.entries.length} entries to llms.txt (source: ${source}).`
