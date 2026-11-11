@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-13T08:50:02.489Z",
+  "generatedAt": "2026-11-11T11:18:23.220Z",
   "entries": [
     {
-      "version": "1.32.0",
-      "date": "2026-08-12",
-      "url": "https://github.com/yongwoon/ywc-agent-toolkit/blob/main/CHANGELOG.md#1320-2026-08-12",
+      "version": "1.40.0",
+      "date": "2026-11-08",
+      "url": "https://github.com/yongwoon/ywc-agent-toolkit/blob/main/CHANGELOG.md#1400-2026-11-08",
       "highlights": [
-        "**context safety:** add executable evaluation coverage for verified artifact authority, non-interactive closure, context handoff, claim isol…",
-        "**Codex distribution:** synchronize the eight affected skills, release metadata, and generated plugin bundle for the context-safety contract…"
+        "add 16 mined recurring-defect entries (A-008..A-023)",
+        "add mined recurring-defect entries A-024..A-027 and review learnings L007..L014",
+        "**claude-code:** port upstream Issue 69 improvements and harden scan-secrets and finish-branch guards"
       ]
     },
     {
-      "version": "1.31.0",
-      "date": "2026-07-30",
-      "url": "https://github.com/yongwoon/ywc-agent-toolkit/blob/main/CHANGELOG.md#1310-2026-07-30",
+      "version": "1.39.1",
+      "date": "2026-10-29",
+      "url": "https://github.com/yongwoon/ywc-agent-toolkit/blob/main/CHANGELOG.md#1391-2026-10-29",
+      "highlights": []
+    },
+    {
+      "version": "1.39.0",
+      "date": "2026-10-16",
+      "url": "https://github.com/yongwoon/ywc-agent-toolkit/blob/main/CHANGELOG.md#1390-2026-10-16",
       "highlights": [
-        "add ywc-adr, ywc-implement skills and Codex SDLC v1.1 gap closure",
-        "**ywc-brainstorm:** add self-review pass and existing-code guidance",
-        "**ywc-plan:** add Codebase-Fact Pre-check and Global Constraints/Interfaces sections"
+        "port develop-with-llm issue [#69](https://github.com/yongwoon/ywc-agent-toolkit/issues/69) skill improvements to Claude Code and Codex skill…",
+        "remove machine-specific graft path from helpers"
       ]
     },
     {
-      "version": "1.30.1",
-      "date": "2026-07-24",
-      "url": "https://github.com/yongwoon/ywc-agent-toolkit/blob/main/CHANGELOG.md#1301-2026-07-24",
+      "version": "1.38.0",
+      "date": "2026-09-28",
+      "url": "https://github.com/yongwoon/ywc-agent-toolkit/blob/main/CHANGELOG.md#1380-2026-09-28",
       "highlights": [
-        "**toolkit-eval:** reject description-derived trigger fixtures from the coverage floor"
+        "**ywc-verify-done:** add Executable Gate Ledger checker",
+        "correct read-only agent Return Contract to return inline, not to a file",
+        "harden Codex skill executable resolution against target-repo fallback"
       ]
     },
     {
-      "version": "1.30.0",
-      "date": "2026-07-22",
-      "url": "https://github.com/yongwoon/ywc-agent-toolkit/blob/main/CHANGELOG.md#1300-2026-07-22",
+      "version": "1.37.0",
+      "date": "2026-09-11",
+      "url": "https://github.com/yongwoon/ywc-agent-toolkit/blob/main/CHANGELOG.md#1370-2026-09-11",
       "highlights": [
-        "add isolated evaluation runners for Claude Code and Codex skills",
-        "treat an unfinished bot-review poll as blocking instead of zero bots"
-      ]
-    },
-    {
-      "version": "1.29.0",
-      "date": "2026-07-16",
-      "url": "https://github.com/yongwoon/ywc-agent-toolkit/blob/main/CHANGELOG.md#1290-2026-07-16",
-      "highlights": [
-        "add ywc-auth-implement skill for Claude Code and Codex",
-        "adopt GPT-5.6 Terra for Codex agents and clean up stale model references"
+        "port Quality Gate Contract across Codex and Claude Code skills",
+        "**ywc-parallel-executor:** wave hardener delivery isolation",
+        "**ywc-parallel-executor:** wave-int checkpoint ownership + tip-SHA verification"
       ]
     }
   ]
