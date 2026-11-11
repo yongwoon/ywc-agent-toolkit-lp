@@ -29,8 +29,8 @@
     }
   },
   "hero": {
-    "eyebrow": "46 skills",
-    "headline": "Claude Code と Codex のための 46 skills と expert agents。",
+    "eyebrow": "48 skills",
+    "headline": "Claude Code と Codex のための 48 skills と expert agents。",
     "subheading": "計画と仕様作成からコード生成、レビュー、リリースまで、開発 workflow 全体を terminal から離れずに自動化します。",
     "ctaLabels": {
       "install": "インストール",
@@ -43,7 +43,7 @@
     "demoInstallCommandCodex": "codex plugin add ywc-agent-toolkit@ywc-agent-toolkit",
     "demoResolving": "marketplace source yongwoon/ywc-agent-toolkit を解決中",
     "demoResolvingCodex": "plugin marketplace source yongwoon/ywc-agent-toolkit を解決中",
-    "demoInstalled": "Claude Code と Codex 用に 46 skills をインストールしました",
+    "demoInstalled": "Claude Code と Codex 用に 48 skills をインストールしました",
     "demoRestart": "toolkit を読み込むには tool を再起動してください",
     "demoRestartCodex": "toolkit を読み込むには Codex を再起動してください"
   },
@@ -69,7 +69,7 @@
   "pipeline": {
     "eyebrow": "使い方",
     "title": "寄せ集めの skill ではなく、意見を持った pipeline。",
-    "description": "46 skills の大部分は、自分で順序を組み立てる独立した prompt としてではなく、一つの sequence として連鎖します。",
+    "description": "48 skills の大部分は、自分で順序を組み立てる独立した prompt としてではなく、一つの sequence として連鎖します。",
     "steps": [
       {
         "skill": "ywc-plan",
@@ -112,7 +112,7 @@
   },
   "featureGrid": {
     "title": "8 つの category、1 つの pipeline、2 つの tool。",
-    "description": "46 skills を、数だけでなく、何をするかで整理しました。",
+    "description": "48 skills を、数だけでなく、何をするかで整理しました。",
     "items": [
       {
         "label": "Planning & Spec",
@@ -140,7 +140,7 @@
       },
       {
         "label": "Toolkit & Setup",
-        "value": "5 skills",
+        "value": "7 skills",
         "description": "toolkit 自体の拡張、既定値の設定、project setup の一貫性維持を支えます。",
         "lane": "claude"
       },
@@ -152,7 +152,7 @@
       },
       {
         "label": "Claude Code agents",
-        "value": "13 agents",
+        "value": "14 agents",
         "description": "Architecture、security、performance、language-specific review のための specialist な agents です。",
         "lane": "claude"
       },
@@ -258,7 +258,7 @@
       },
       {
         "question": "Claude Code と Codex の両方で使えますか？",
-        "answer": "はい。両方の tool で 46 skills を共通して利用でき、Claude Code には tool 固有の skill が 3 つ、Codex には 5 つ追加されます。Claude Code には 13 custom agents、Codex には 10 custom agents が含まれます。"
+        "answer": "はい。両方の tool で 48 skills を共通して利用でき、Claude Code には tool 固有の skill が 3 つ、Codex には 6 つ追加されます。Claude Code には 14 custom agents、Codex には 10 custom agents が含まれます。"
       },
       {
         "question": "repository を clone する必要がありますか？",
@@ -282,7 +282,7 @@
       },
       {
         "question": "generic な skill collection と何が違いますか？",
-        "answer": "46 skills の大部分は、自分で順序を組み立てる独立した prompt としてではなく、一つの opinionated な pipeline（plan → spec → tasks → execute → test）に組み込まれています。また、確認された defect は review-learnings loop に反映され、以降の review が自動的に強化されます。"
+        "answer": "48 skills の大部分は、自分で順序を組み立てる独立した prompt としてではなく、一つの opinionated な pipeline（plan → spec → tasks → execute → test）に組み込まれています。また、確認された defect は review-learnings loop に反映され、以降の review が自動的に強化されます。"
       },
       {
         "question": "skill を contribute できますか？",
@@ -343,8 +343,8 @@
     "copyright": "© 2026 yongwoon. ywc-agent-toolkit は open source project です。"
   },
   "seo": {
-    "title": "ywc-agent-toolkit — Claude Code と Codex のための 46 skills と expert agents",
-    "description": "Claude Code と Codex 向けに 46 skills と tool-specific custom agents を提供する ywc-agent-toolkit の static landing page。",
+    "title": "ywc-agent-toolkit — Claude Code と Codex のための 48 skills と expert agents",
+    "description": "Claude Code と Codex 向けに 48 skills と tool-specific custom agents を提供する ywc-agent-toolkit の static landing page。",
     "canonicalPath": "/ja/",
     "ogImage": "/og-image.png",
     "alternates": [

@@ -29,8 +29,8 @@
     }
   },
   "hero": {
-    "eyebrow": "46 skills",
-    "headline": "Claude Code와 Codex를 위한 46 skills와 expert agents.",
+    "eyebrow": "48 skills",
+    "headline": "Claude Code와 Codex를 위한 48 skills와 expert agents.",
     "subheading": "계획과 사양 작성부터 코드 생성, 리뷰, 릴리스까지 전체 개발 workflow를 terminal을 떠나지 않고 자동화합니다.",
     "ctaLabels": {
       "install": "설치",
@@ -43,7 +43,7 @@
     "demoInstallCommandCodex": "codex plugin add ywc-agent-toolkit@ywc-agent-toolkit",
     "demoResolving": "marketplace source yongwoon/ywc-agent-toolkit 확인 중",
     "demoResolvingCodex": "plugin marketplace source yongwoon/ywc-agent-toolkit 확인 중",
-    "demoInstalled": "Claude Code와 Codex용 46 skills 설치 완료",
+    "demoInstalled": "Claude Code와 Codex용 48 skills 설치 완료",
     "demoRestart": "toolkit을 불러오려면 tool을 재시작하세요",
     "demoRestartCodex": "toolkit을 불러오려면 Codex를 재시작하세요"
   },
@@ -69,7 +69,7 @@
   "pipeline": {
     "eyebrow": "작동 방식",
     "title": "임의로 나열된 skill 모음이 아닌, 하나의 뚜렷한 pipeline.",
-    "description": "46개 skills 대부분은 직접 순서를 정해야 하는 독립적인 prompt로 존재하는 대신, 하나의 sequence로 연결됩니다.",
+    "description": "48개 skills 대부분은 직접 순서를 정해야 하는 독립적인 prompt로 존재하는 대신, 하나의 sequence로 연결됩니다.",
     "steps": [
       {
         "skill": "ywc-plan",
@@ -112,7 +112,7 @@
   },
   "featureGrid": {
     "title": "여덟 개 카테고리, 하나의 pipeline, 두 개의 tool.",
-    "description": "46 skills를 단순한 개수가 아니라 하는 일에 따라 분류했습니다.",
+    "description": "48 skills를 단순한 개수가 아니라 하는 일에 따라 분류했습니다.",
     "items": [
       {
         "label": "Planning & Spec",
@@ -140,7 +140,7 @@
       },
       {
         "label": "Toolkit & Setup",
-        "value": "5 skills",
+        "value": "7 skills",
         "description": "toolkit 자체를 확장하고, 기본값을 설정하며, project setup을 두 tool에서 일관되게 유지합니다.",
         "lane": "claude"
       },
@@ -152,7 +152,7 @@
       },
       {
         "label": "Claude Code agents",
-        "value": "13 agents",
+        "value": "14 agents",
         "description": "Architecture, security, performance, language-specific review를 위한 specialist agents입니다.",
         "lane": "claude"
       },
@@ -258,7 +258,7 @@
       },
       {
         "question": "Claude Code와 Codex 모두에서 동작하나요?",
-        "answer": "예. 두 tool이 46 skills를 공통으로 제공하며, Claude Code에는 tool 전용 skill 3개가, Codex에는 5개가 추가됩니다. Claude Code에는 13 custom agents가, Codex에는 10 custom agents가 포함됩니다."
+        "answer": "예. 두 tool이 48 skills를 공통으로 제공하며, Claude Code에는 tool 전용 skill 3개가, Codex에는 6개가 추가됩니다. Claude Code에는 14 custom agents가, Codex에는 10 custom agents가 포함됩니다."
       },
       {
         "question": "repository를 clone해야 하나요?",
@@ -282,7 +282,7 @@
       },
       {
         "question": "일반적인 skill collection과 어떻게 다른가요?",
-        "answer": "46 skills 대부분은 직접 순서를 정해야 하는 독립적인 prompt로 존재하는 대신 하나의 opinionated pipeline(plan → spec → tasks → execute → test)으로 연결되어 있으며, 확인된 defect는 review-learnings loop에 반영되어 이후 review를 자동으로 더 정교하게 만듭니다."
+        "answer": "48 skills 대부분은 직접 순서를 정해야 하는 독립적인 prompt로 존재하는 대신 하나의 opinionated pipeline(plan → spec → tasks → execute → test)으로 연결되어 있으며, 확인된 defect는 review-learnings loop에 반영되어 이후 review를 자동으로 더 정교하게 만듭니다."
       },
       {
         "question": "skill을 기여할 수 있나요?",
@@ -343,8 +343,8 @@
     "copyright": "© 2026 yongwoon. ywc-agent-toolkit은 open source project입니다."
   },
   "seo": {
-    "title": "ywc-agent-toolkit — Claude Code와 Codex를 위한 46 skills와 expert agents",
-    "description": "Claude Code와 Codex에 46 skills와 tool-specific custom agents를 제공하는 ywc-agent-toolkit 설치용 static landing page.",
+    "title": "ywc-agent-toolkit — Claude Code와 Codex를 위한 48 skills와 expert agents",
+    "description": "Claude Code와 Codex에 48 skills와 tool-specific custom agents를 제공하는 ywc-agent-toolkit 설치용 static landing page.",
     "canonicalPath": "/ko/",
     "ogImage": "/og-image.png",
     "alternates": [
