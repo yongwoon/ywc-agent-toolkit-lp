@@ -81,7 +81,10 @@ export async function generateMetadata({
     title: navPage.title,
     description: navPage.description,
     path: getPath(locale),
-    getAlternatePath: getPath
+    getAlternatePath: getPath,
+    // Written by scripts/generate-guidebook-markdown.mjs at postbuild. The
+    // guidebook root renders the default page, so it shares that page's file.
+    markdownPath: `/${locale}/guidebook/${slug}.md`
   });
 }
 

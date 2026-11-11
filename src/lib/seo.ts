@@ -141,6 +141,7 @@ export function buildPageMetadata({
   description,
   path,
   getAlternatePath,
+  markdownPath,
   ogImage = getSeoMessages(locale).ogImage
 }: {
   locale: Locale;
@@ -148,6 +149,9 @@ export function buildPageMetadata({
   description: string;
   path: string;
   getAlternatePath?: AlternatePathBuilder;
+  // Plain-Markdown version of the page for LLMs and bots, emitted as
+  // <link rel="alternate" type="text/markdown">.
+  markdownPath?: string;
   ogImage?: string;
 }): Metadata {
   const canonicalUrl = absoluteUrl(path);
@@ -161,7 +165,8 @@ export function buildPageMetadata({
     description,
     alternates: {
       canonical: canonicalUrl,
-      languages
+      languages,
+      ...(markdownPath ? { types: { "text/markdown": absoluteUrl(markdownPath) } } : {})
     },
     openGraph: {
       title: pageTitle,
