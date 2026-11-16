@@ -4,13 +4,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Status
 
-This repository is currently in the **spec-and-task-planning phase** — there is no `package.json`, `src/`, or any application code yet. What exists is:
+The landing page and the guidebook are implemented (`src/app`, `src/components`, `src/content/guidebook`, `src/messages`). All planned tasks live in `tasks/completed/`; new work starts from a new task or an issue. What exists besides the code:
 
 - `docs/mission.md` — why this project exists, success criteria, rejected approaches
 - `docs/specification/` — the full specification (Korean), split into 7 sections
-- `tasks/NNNNNN-NNN-<category>-<name>/` — implementation-ready task checklists decomposed from the spec, not yet executed
+- `docs/tech-stack.md` — the authoritative directory layout and static-export/i18n constraints
+- `tasks/` — task checklists decomposed from the spec (`tasks/completed/` holds the finished ones)
 
-Do not assume any source files exist beyond what `ls`/`find` confirms. Treat `docs/tech-stack.md` as the target directory layout to build toward, not a description of current state.
+Do not assume a file exists because the spec mentions it; confirm with `ls`/`find`. Where code and `docs/tech-stack.md` disagree, the code is the current state and the document is the intent.
 
 ## What This Project Is
 
@@ -43,19 +44,19 @@ Load-bearing constraints (all from `docs/tech-stack.md` and `docs/specification/
 
 Before implementing any task, read its `README.md` Spec Reference section and the linked spec files — task checklists intentionally omit rationale that lives in the spec. Respect each task's "Allowed Edit Scope" and "Out of Scope" — tasks are designed to be parallelizable by non-overlapping file ownership; editing outside scope breaks that.
 
-Task 000001 (`000001-010-lib-nextjs-i18n-setup`) is the project's first task — it creates `package.json`, `next.config.ts`, `tailwind.config.ts`, `tsconfig.json`, and `src/i18n/**`. No build/lint/test commands are runnable until it is complete.
-
-## Commands (available once `000001-010` is complete)
+## Commands
 
 ```bash
 npm install
-npm run dev          # dev server
-npm run build         # static export build (output: 'export') — must succeed with zero server dependency
+npm run dev            # dev server
+npm run build          # static export build (output: 'export'); prebuild runs the key-parity, count and llms-catalog checks
 npm run lint
-npx tsc --noEmit      # typecheck
+npm run typecheck      # tsc --noEmit
+npm run test:content   # guidebook path check
+npm run test:e2e       # Playwright (e2e/)
 ```
 
-There is no test runner configured — task verification is build success (`npm run build`), typecheck, lint, and (per-task) a manual test plan in `test.md` against documented breakpoints (320/768/1024/1440) and accessibility (WCAG 2.2 AA, keyboard nav, reduced-motion).
+Task verification is build success, typecheck, lint, the e2e suite, and (per task) a manual test plan in `test.md` against documented breakpoints (320/768/1024/1440) and accessibility (WCAG 2.2 AA, keyboard nav, reduced-motion).
 
 ## Specification Documents
 
